@@ -30,7 +30,7 @@
       </condition>
       <volume>
         <property>/engines/engine[0]/n2</property>
-        <factor>0.0005</factor>
+        <factor>0.0010</factor>
       </volume>
       <pitch>
         <property>/engines/engine[0]/n2</property>
@@ -65,7 +65,7 @@
       </condition>
       <volume>
         <property>/engines/engine[1]/n2</property>
-        <factor>0.0005</factor>
+        <factor>0.0010</factor>
       </volume>
       <pitch>
         <property>/engines/engine[1]/n2</property>
@@ -126,6 +126,9 @@
         <offset>1.0</offset>
         <factor>-0.001</factor>
       </pitch>
+      <volume>
+        <factor>0.5</factor>
+      </volume>
     </gear>
 
     <gear>
@@ -160,6 +163,9 @@
         <offset>1.0</offset>
         <factor>-0.001</factor>
       </pitch>
+      <volume>
+        <factor>0.5</factor>
+      </volume>
     </gear>
 
     <gear>
@@ -194,6 +200,9 @@
         <offset>1.0</offset>
         <factor>-0.001</factor>
       </pitch>
+      <volume>
+        <factor>0.5</factor>
+      </volume>
     </gear>
 
     <gear>
