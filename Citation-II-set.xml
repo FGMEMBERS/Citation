@@ -30,10 +30,6 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 
   <model>
    <path>Aircraft/Citation/Models/Citation-II.xml</path>
-   <x-offset>-6.5</x-offset>	
-   <y-offset>0.0</y-offset>	
-   <z-offset>-0.6</z-offset>	
- 
   </model> 
 
   <view n="0">
@@ -42,13 +38,34 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     <internal type="bool">true</internal>
     <config>
      <x-offset-m type="double">-0.35</x-offset-m>
-     <y-offset-m type="double">1.120</y-offset-m>
-     <z-offset-m type="double">-3.2</z-offset-m>
-     <pitch-offset-deg>-13</pitch-offset-deg>
+     <y-offset-m type="double">1.25</y-offset-m>
+     <z-offset-m type="double">3.4</z-offset-m>
+     <pitch-offset-deg>-12</pitch-offset-deg>
      <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
     </config>
   </view>
   
+  <view n="1">
+  <config>
+<target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+  </config>
+  </view>
+  
+<view n="2">
+  <config>
+<target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+  </config>
+  </view>
+
+<view n="5">
+  <config>
+<target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+  </config>
+  </view>
+    
+       
+
+    
    <systems>
     <electrical>
       <path>Aircraft/beech99/beech99-electrical.xml</path>
@@ -70,6 +87,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 
   
  </sim>
+
 
  <!-- aircraft specific loading -->
  <yasim>
@@ -110,5 +128,11 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
   </engine>
  </engines>
 
-</PropertyList>
+ 
+ <offsets>
+<x-m> 6.73</x-m>
+<z-m> 5.138</z-m>
+</offsets>
 
+ 
+</PropertyList>
