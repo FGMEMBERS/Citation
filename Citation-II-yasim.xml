@@ -118,12 +118,12 @@
   <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
  </gear>
 
- <jet x="-9.19" y="1.37"  z="0.76" mass="1000" thrust="2500" tsfc="0.576">
+ <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.576">
   <control-input axis="/controls/engines/engine[1]/throttle" control="THROTTLE"/>
   <control-input axis="/controls/engines/engine[1]/reverser" control="REVERSE_THRUST"/>
  </jet>
 
- <jet x="-9.19" y="-1.37"  z="0.76" mass="1000" thrust="2500" tsfc="0.576">
+ <jet x="-9.19" y="-1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.576">
   <control-input axis="/controls/engines/engine[1]/throttle" control="THROTTLE"/>
   <control-input axis="/controls/engines/engine[1]/reverser" control="REVERSE_THRUST"/>
  </jet>

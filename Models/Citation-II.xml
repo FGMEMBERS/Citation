@@ -1,0 +1,272 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+  
+  <path>Citation-II.ac</path>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Rudder</object-name>
+  <property>/controls/flight/rudder</property>
+  <factor>30</factor>
+  <center>
+   <x-m>6.977</x-m>
+   <y-m>0</y-m>
+   <z-m>2.323</z-m>
+  </center>
+  <axis>
+   <x>0.350</x>
+   <y>0</y>
+   <z>0.937</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LHelevator</object-name>
+  <property>/surface-positions/elevator-pos-norm</property>
+  <factor>20</factor>
+  <center>
+   <x-m>6.572</x-m>
+   <y-m>-1.376</y-m>
+   <z-m>1.751</z-m>
+  </center>
+  <axis>
+   <x>-0.039</x>
+   <y>0.985</y>
+   <z>-0.170</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RHelevator</object-name>
+  <property>/surface-positions/elevator-pos-norm</property>
+  <factor>20</factor>
+  <center>
+   <x-m>6.572</x-m>
+   <y-m>1.376</y-m>
+   <z-m>1.751</z-m>
+  </center>
+  <axis>
+   <x>0.039</x>
+   <y>0.985</y>
+   <z>0.170</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LHflap</object-name>
+  <property>/surface-positions/flap-pos-norm</property>
+  <factor>35</factor>
+  <center>
+   <x-m>1.102</x-m>
+   <y-m>-3.083</y-m>
+   <z-m>0.052</z-m>
+  </center>
+  <axis>
+   <x>0.099</x>
+   <y>0.993</y>
+   <z>-0.071</z>
+  </axis>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>RHflap</object-name>
+  <property>/surface-positions/flap-pos-norm</property>
+  <factor>35</factor>
+  <center>
+   <x-m>1.102</x-m>
+   <y-m>3.083</y-m>
+   <z-m>0.052</z-m>
+  </center>
+  <axis>
+   <x>-0.099</x>
+   <y>0.993</y>
+   <z>0.071</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LHaileron</object-name>
+  <property>/surface-positions/left-aileron-pos-norm</property>
+  <factor>15</factor>
+  <center>
+   <x-m>0.850</x-m>
+   <y-m>-5.60</y-m>
+   <z-m>0.247</z-m>
+  </center>
+  <axis>
+   <x>0.099</x>
+   <y>0.993</y>
+   <z>-0.071</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>rotate</type>
+  <object-name>RHaileron</object-name>
+  <property>/surface-positions/right-aileron-pos-norm</property>
+  <factor>15</factor>
+  <center>
+   <x-m>0.850</x-m>
+   <y-m>5.60</y-m>
+   <z-m>0.247</z-m>
+  </center>
+  <axis>
+   <x>-0.099</x>
+   <y>0.993</y>
+   <z>0.071</z>
+  </axis>
+ </animation>
+
+<!--               Gear         -->
+
+<animation>
+<type>rotate</type>
+<object-name>FrtStrut</object-name>
+<property>/gear/gear[0]/position-norm</property>
+    <offset-deg>105</offset-deg>
+    <factor>-105</factor>
+    <center>
+      <x-m>-4.803</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.142</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<animation>
+<type>rotate</type>
+<object-name>LHgear</object-name>
+<property>/gear/gear[1]/position-norm</property>
+    <offset-deg>97</offset-deg>
+    <factor>-97</factor>
+    <center>
+      <x-m>0.522</x-m>
+      <y-m>-2.686</y-m>
+      <z-m>0.056</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<animation>
+<type>rotate</type>
+<object-name>RHgear</object-name>
+<property>/gear/gear[2]/position-norm</property>
+    <offset-deg>97</offset-deg>
+    <factor>-97</factor>
+    <center>
+      <x-m>0.522</x-m>
+      <y-m>2.686</y-m>
+      <z-m>0.056</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<animation>
+<type>rotate</type>
+<object-name>LHdoor</object-name>
+<property>/gear/gear[1]/position-norm</property>
+    <offset-deg>99</offset-deg>
+    <factor>-99</factor>
+    <center>
+      <x-m>0.514</x-m>
+      <y-m>-2.814</y-m>
+      <z-m>-0.012</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<animation>
+<type>rotate</type>
+<object-name>RHdoor</object-name>
+<property>/gear/gear[2]/position-norm</property>
+    <offset-deg>99</offset-deg>
+    <factor>-99</factor>
+    <center>
+      <x-m>0.514</x-m>
+      <y-m>2.814</y-m>
+      <z-m>-0.012</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+ <!--                        Shadow Map                    -->
+<!-- pitch -->
+ <animation>
+  <type>rotate</type>
+  <object-name>Shadow</object-name>
+  <property>/orientation/pitch-deg</property>
+  <factor>-1.0</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- roll -->
+ <animation>
+  <type>rotate</type>
+  <object-name>Shadow</object-name>
+  <property>/orientation/roll-deg</property>
+  <factor>1.0</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!-- Translate to ground level -->
+ <animation>
+  <type>translate</type>
+  <object-name>Shadow</object-name>
+  <property>/position/altitude-agl-ft</property>
+  <factor>-0.3</factor>
+  <center>
+   <x-m>0</x-m>
+   <y-m>0</y-m>
+   <z-m>0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>
+ 
+</PropertyList>

@@ -15,19 +15,40 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
   <description>Cessna Citation II 550 (YASim)</description>
 
   <flight-model>yasim</flight-model>
-  <aero>Citation-550-yasim</aero>
+  <aero>Citation-II-yasim</aero>
   <!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
   <fuel-fraction>0.8</fuel-fraction>
 
+    <startup>
+   <splash-texture>Aircraft/Citation/Citation-II-splash.rgb</splash-texture>
+  </startup>
+  
   <panel>
    <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
    <visibility>true</visibility>
   </panel>
 
   <model>
-   <path>Aircraft/737/Models/boeing733.xml</path>
+   <path>Aircraft/Citation/Models/Citation-II.xml</path>
+   <x-offset>-6.5</x-offset>	
+   <y-offset>0.0</y-offset>	
+   <z-offset>-0.6</z-offset>	
+ 
   </model> 
 
+     <view n="0">
+    <name>Cockpit</name>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+     <x-offset-m type="double">-0.30</x-offset-m>
+     <y-offset-m type="double">1.100</y-offset-m>
+     <z-offset-m type="double">-3.15</z-offset-m>
+     <pitch-offset-deg>-12</pitch-offset-deg>
+     <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+    </config>
+  </view>
+  
    <systems>
     <electrical>
       <path>Aircraft/beech99/beech99-electrical.xml</path>
@@ -42,6 +63,9 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
    <enable3d>false</enable3d>
   </hud>
 
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+
+  
  </sim>
 
  <!-- aircraft specific loading -->
@@ -84,5 +108,4 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
  </engines>
 
 </PropertyList>
-
 
