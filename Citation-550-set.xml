@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Cessna Citation II (550) simulation config. This files ties together
+all the components used by FGFS to represent the 550. Components
+include the flight data model, instrument panel, and external 3D model.
+
+November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
+************************************************************************
+-->
+
+<PropertyList>
+ <sim>
+
+  <description>Cessna Citation II 550 (YASim)</description>
+
+  <flight-model>yasim</flight-model>
+  <aero>Citation-550-yasim</aero>
+  <!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
+  <fuel-fraction>0.8</fuel-fraction>
+
+  <panel>
+   <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
+   <visibility>true</visibility>
+  </panel>
+
+  <model>
+   <path>Aircraft/737/Models/boeing733.xml</path>
+  </model> 
+
+   <systems>
+    <electrical>
+      <path>Aircraft/beech99/beech99-electrical.xml</path>
+    </electrical>
+  </systems>
+  
+  <sound>
+   <path>Aircraft/737/Sounds/737-sound.xml</path>
+  </sound>
+
+  <hud>
+   <enable3d>false</enable3d>
+  </hud>
+
+ </sim>
+
+ <!-- aircraft specific loading -->
+ <yasim>
+  <beech99>
+   <pilot-lbs>400</pilot-lbs>
+
+   <!-- Only enable one of the following: -->
+
+   <!-- lightly loaded -->
+   <passenger-lbs>100</passenger-lbs>
+
+   <!-- max load with 0.8 fuel fraction -->
+   <!-- <passenger-lbs>2178</passenger-lbs> -->
+
+   <!-- max load with 1.0 fuel fraction -->
+   <!-- <passenger-lbs>1878</passenger-lbs> -->
+
+  </beech99>
+ </yasim>
+
+ <controls>
+  <engines>
+   <engine n="0">
+    <magnetos>3</magnetos>
+   </engine>
+   <engine n="1">
+    <magnetos>3</magnetos>
+   </engine>
+  </engines>
+ </controls>
+
+ <engines>
+  <engine n="0">
+   <rpm>1000</rpm>
+  </engine>
+  <engine n="1">
+   <rpm>1000</rpm>
+  </engine>
+ </engines>
+
+</PropertyList>
+
+
