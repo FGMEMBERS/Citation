@@ -25,7 +25,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
   
   <panel>
    <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
-   <visibility>true</visibility>
+   <visibility>false</visibility>
   </panel>
 
   <model>
