@@ -12,7 +12,7 @@
 
 <airplane mass="8060">
 
- <approach speed="82" aoa="12" fuel="0.8">
+ <approach speed="108" aoa="8" fuel="0.8">
   <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
   <control-setting axis="/controls/engines/engine[1]/throttle" value="0.2"/>
   <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
@@ -25,10 +25,12 @@
   <control-setting axis="/controls/gear/gear-down" value="1"/>
  </approach>
 
- <cruise speed="483" alt="25000" fuel="0.8"> <!-- 247 indicated -->
+ <!-- throttle of 0.923 should map to v1=96%, since full throttle maps
+      to v1=104% -->
+ <cruise speed="331" alt="25000" fuel="0.8"> <!-- 229 indicated -->
   <control-setting axis="/controls/flight/elevator-trim" value="0.24"/>
-  <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
-  <control-setting axis="/controls/engines/engine[1]/throttle" value="1.0"/>
+  <control-setting axis="/controls/engines/engine[0]/throttle" value="0.923"/>
+  <control-setting axis="/controls/engines/engine[1]/throttle" value="0.923"/>
   <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
   <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
   <control-setting axis="/controls/engines/engine[0]/propeller-pitch"
@@ -53,8 +55,9 @@
            width="1.10" taper="0"/>
 
  <wing x="-7.18" y="0.87" z="-0.11" length ="7.10" chord ="2.77"
-      sweep="0" dihedral="4" taper="0.34" camber="0.1">
-  <stall aoa="14" width="4" peak="1.5"/>
+      sweep="0" dihedral="4" taper="0.34" camber="0.1" incidence="2.5"
+      twist="-3.0">
+  <stall aoa="14" width="8" peak="1.5"/>
   <flap0 start="0" end=".52" lift="1.4" drag="1.3"/>
   <flap1 start=".52" end=".88" lift="1.1" drag="1.1"/>
   <control-input axis="/controls/flight/flaps" control="FLAP0"/>
@@ -118,14 +121,19 @@
   <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
  </gear>
 
+ <!-- Pratt and Whitney Canada Inc. JT150-4 Turbofan -->
  <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.576">
-  <control-input axis="/controls/engines/engine[1]/throttle" control="THROTTLE"/>
-  <control-input axis="/controls/engines/engine[1]/reverser" control="REVERSE_THRUST"/>
+  <control-input axis="/controls/engines/engine[1]/throttle"
+                 control="THROTTLE"/>
+  <control-input axis="/controls/engines/engine[1]/reverser"
+                 control="REVERSE_THRUST"/> 
  </jet>
 
  <jet x="-9.19" y="-1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.576">
-  <control-input axis="/controls/engines/engine[1]/throttle" control="THROTTLE"/>
-  <control-input axis="/controls/engines/engine[1]/reverser" control="REVERSE_THRUST"/>
+  <control-input axis="/controls/engines/engine[1]/throttle"
+                 control="THROTTLE"/> 
+  <control-input axis="/controls/engines/engine[1]/reverser"
+                 control="REVERSE_THRUST"/> 
  </jet>
 
  <!-- The <ballast> tag doesn't add weight, but instead specifies the -->

@@ -19,7 +19,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
   <!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
   <fuel-fraction>0.8</fuel-fraction>
 
-    <startup>
+  <startup>
    <splash-texture>Aircraft/Citation/Citation-II-splash.rgb</splash-texture>
   </startup>
   
@@ -36,7 +36,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
  
   </model> 
 
-     <view n="0">
+  <view n="0">
     <name>Cockpit</name>
     <type>lookfrom</type>
     <internal type="bool">true</internal>
@@ -53,6 +53,9 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     <electrical>
       <path>Aircraft/beech99/beech99-electrical.xml</path>
     </electrical>
+    <autopilot>
+     <path>Aircraft/Citation/Citation-II-autopilot.xml</path>
+    </autopilot>
   </systems>
   
   <sound>
