@@ -13,6 +13,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
  <sim>
 
   <description>Cessna Citation II 550 (YASim)</description>
+  <author>Syd Adams, Curtis Olson</author>
 
   <flight-model>yasim</flight-model>
   <aero>Citation-II-yasim</aero>
