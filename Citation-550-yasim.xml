@@ -95,14 +95,14 @@
  <tank x="-7.18" y="3.5" z="0.2" capacity="900"/>
  <tank x="-7.18" y="-3.5" z="0.2" capacity="900"/>
 
- <gear x="-1.79" y="0.00" z="-0.91" compression=".15" retract-time="7">
+ <gear x="-1.79" y="0.00" z="-0.91" compression=".4" retract-time="7">
   <control-input axis="/controls/flight/rudder" control="STEER"/>
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
   <control-speed control="EXTEND" transition-time="7"/>
   <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
  </gear>
 
- <gear x="-7.26" y="2.68" z="-0.91" compression=".2" retract-time="7">
+ <gear x="-7.26" y="2.68" z="-0.91" compression=".3" retract-time="7">
   <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
   <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -110,7 +110,7 @@
   <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
  </gear>
 
- <gear x="-7.26" y="-2.68" z="-0.91" compression=".2" retract-time="7">
+ <gear x="-7.26" y="-2.68" z="-0.91" compression=".3" retract-time="7">
   <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
   <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
   <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
