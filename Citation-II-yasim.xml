@@ -56,7 +56,7 @@
       sweep="0" dihedral="4" taper="0.34" camber="0.1">
   <stall aoa="14" width="4" peak="1.5"/>
   <flap0 start="0" end=".52" lift="1.4" drag="1.3"/>
-  <flap1 start=".52" end=".88" lift="1.3" drag="1.2"/>
+  <flap1 start=".52" end=".88" lift="1.1" drag="1.1"/>
   <control-input axis="/controls/flight/flaps" control="FLAP0"/>
   <control-speed control="FLAP0" transition-time="5"/>
   <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>

@@ -56,7 +56,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
   </systems>
   
   <sound>
-   <path>Aircraft/737/Sounds/737-sound.xml</path>
+   <path>Aircraft/Citation/Citation-II-sound.xml</path>
   </sound>
 
   <hud>
