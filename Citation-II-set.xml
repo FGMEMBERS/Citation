@@ -41,10 +41,10 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     <type>lookfrom</type>
     <internal type="bool">true</internal>
     <config>
-     <x-offset-m type="double">-0.30</x-offset-m>
-     <y-offset-m type="double">1.100</y-offset-m>
-     <z-offset-m type="double">-3.15</z-offset-m>
-     <pitch-offset-deg>-12</pitch-offset-deg>
+     <x-offset-m type="double">-0.35</x-offset-m>
+     <y-offset-m type="double">1.120</y-offset-m>
+     <z-offset-m type="double">-3.2</z-offset-m>
+     <pitch-offset-deg>-13</pitch-offset-deg>
      <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
     </config>
   </view>
