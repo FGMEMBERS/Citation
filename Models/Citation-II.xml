@@ -3,6 +3,8 @@
   
   <path>Citation-II.ac</path>
 
+  
+<!--  
   <panel>
   <path>Aircraft/Citation/Models/Citation-II-hotspots.xml</path>
   <bottom-left>
@@ -21,7 +23,7 @@
    <z-m> 1.459</z-m>
   </top-left>
  </panel>
- 
+ -->
  
  
  
@@ -39,11 +41,11 @@
   <type>rotate</type>
   <object-name>Rudder</object-name>
   <property>/controls/flight/rudder</property>
-  <factor>30</factor>
+  <factor>35</factor>
   <center>
-   <x-m>6.977</x-m>
+   <x-m>13.531</x-m>
    <y-m>0</y-m>
-   <z-m>2.323</z-m>
+   <z-m>2.475</z-m>
   </center>
   <axis>
    <x>0.350</x>
@@ -58,9 +60,9 @@
   <property>/surface-positions/elevator-pos-norm</property>
   <factor>20</factor>
   <center>
-   <x-m>6.572</x-m>
-   <y-m>-1.376</y-m>
-   <z-m>1.751</z-m>
+   <x-m>13.126</x-m>
+   <y-m>-1.374</y-m>
+   <z-m>1.896</z-m>
   </center>
   <axis>
    <x>-0.039</x>
@@ -75,9 +77,9 @@
   <property>/surface-positions/elevator-pos-norm</property>
   <factor>20</factor>
   <center>
-   <x-m>6.572</x-m>
-   <y-m>1.376</y-m>
-   <z-m>1.751</z-m>
+   <x-m>13.126</x-m>
+   <y-m>1.374</y-m>
+   <z-m>1.896</z-m>
   </center>
   <axis>
    <x>0.039</x>
@@ -92,9 +94,9 @@
   <property>/surface-positions/flap-pos-norm</property>
   <factor>35</factor>
   <center>
-   <x-m>1.102</x-m>
+   <x-m>7.842</x-m>
    <y-m>-3.083</y-m>
-   <z-m>0.052</z-m>
+   <z-m>0.193</z-m>
   </center>
   <axis>
    <x>0.099</x>
@@ -109,9 +111,9 @@
   <property>/surface-positions/flap-pos-norm</property>
   <factor>35</factor>
   <center>
-   <x-m>1.102</x-m>
+   <x-m>7.842</x-m>
    <y-m>3.083</y-m>
-   <z-m>0.052</z-m>
+   <z-m>0.193</z-m>
   </center>
   <axis>
    <x>-0.099</x>
@@ -126,9 +128,9 @@
   <property>/surface-positions/left-aileron-pos-norm</property>
   <factor>15</factor>
   <center>
-   <x-m>0.850</x-m>
+   <x-m>7.590</x-m>
    <y-m>-5.60</y-m>
-   <z-m>0.247</z-m>
+   <z-m>0.387</z-m>
   </center>
   <axis>
    <x>0.099</x>
@@ -143,9 +145,9 @@
   <property>/surface-positions/right-aileron-pos-norm</property>
   <factor>15</factor>
   <center>
-   <x-m>0.850</x-m>
+   <x-m>7.590</x-m>
    <y-m>5.60</y-m>
-   <z-m>0.247</z-m>
+   <z-m>0.387</z-m>
   </center>
   <axis>
    <x>-0.099</x>
@@ -162,9 +164,9 @@
   <property>/controls/gear/gear-down</property>
   <factor>15</factor>
   <center>
-   <x-m>-4.179</x-m>
-   <y-m>-0.180</y-m>
-   <z-m>0.422</z-m>
+   <x-m>2.483</x-m>
+   <y-m>-0.158</y-m>
+   <z-m>0.574</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -179,9 +181,9 @@
   <property>/controls/engines/engine[0]/throttle</property>
   <factor>70</factor>
   <center>
-   <x-m>-3.857</x-m>
-   <y-m>-0.041</y-m>
-   <z-m>0.345</z-m>
+    <x-m>2.694</x-m>
+   <y-m>0.018</y-m>
+   <z-m>0.477</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -196,9 +198,9 @@
   <property>/controls/engines/engine[1]/throttle</property>
   <factor>70</factor>
   <center>
-   <x-m>-3.857</x-m>
-   <y-m>-0.041</y-m>
-   <z-m>0.345</z-m>
+    <x-m>2.694</x-m>
+   <y-m>0.018</y-m>
+   <z-m>0.477</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -207,16 +209,15 @@
   </axis>
  </animation>
  
-  <!--
-  <animation>
+ <animation>
   <type>rotate</type>
-  <object-name></object-name>
-  <property></property>
+  <object-name>FlapLever</object-name>
+  <property>/controls/flight/flaps</property>
   <factor>70</factor>
   <center>
-   <x-m>-3.857</x-m>
-   <y-m>-0.041</y-m>
-   <z-m>0.345</z-m>
+   <x-m>2.694</x-m>
+   <y-m>0.018</y-m>
+   <z-m>0.477</z-m>
   </center>
   <axis>
    <x>0.0</x>
@@ -224,11 +225,49 @@
    <z>0.0</z>
   </axis>
  </animation>
- -->
  
+ <animation>
+  <type>rotate</type>
+  <object-name>Ebrake</object-name>
+  <property>/controls/gear/brake-parking</property>
+  <factor>70</factor>
+  <center>
+   <x-m>2.50</x-m>
+   <y-m>-0.155</y-m>
+   <z-m>0.509</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0.0</y>
+   <z>1.0</z>
+  </axis>
+ </animation>
  
  
 <!--  __________________  Gear ___________________ -->
+
+<animation>
+<type>rotate</type>
+<object-name>FrtStrut</object-name>
+  <property>/controls/flight/rudder</property>
+  <factor>35</factor>
+  <condition>
+      <equals>
+    <property>/gear/gear[0]/position-norm</property>
+      <value>1.000</value>
+     </equals>
+  </condition>
+    <center>
+      <x-m>1.751</x-m>
+      <y-m>-0.0</y-m>
+      <z-m>-0.096</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
 
 <animation>
 <type>rotate</type>
@@ -237,9 +276,9 @@
     <offset-deg>105</offset-deg>
     <factor>-105</factor>
     <center>
-      <x-m>-4.803</x-m>
-      <y-m>0.0</y-m>
-      <z-m>-0.142</z-m>
+      <x-m>1.751</x-m>
+      <y-m>-0.0</y-m>
+      <z-m>-0.096</z-m>
     </center>
     <axis>
       <x>0</x>
@@ -251,13 +290,13 @@
 <animation>
 <type>rotate</type>
 <object-name>LHgear</object-name>
-<property>/gear/gear[1]/position-norm</property>
+<property>/gear/gear[2]/position-norm</property>
     <offset-deg>97</offset-deg>
     <factor>-97</factor>
     <center>
-      <x-m>0.522</x-m>
+      <x-m>7.262</x-m>
       <y-m>-2.686</y-m>
-      <z-m>0.056</z-m>
+      <z-m>0.164</z-m>
     </center>
     <axis>
       <x>1</x>
@@ -269,13 +308,13 @@
 <animation>
 <type>rotate</type>
 <object-name>RHgear</object-name>
-<property>/gear/gear[2]/position-norm</property>
+<property>/gear/gear[1]/position-norm</property>
     <offset-deg>97</offset-deg>
     <factor>-97</factor>
     <center>
-      <x-m>0.522</x-m>
+      <x-m>7.262</x-m>
       <y-m>2.686</y-m>
-      <z-m>0.056</z-m>
+      <z-m>0.164</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -287,13 +326,13 @@
 <animation>
 <type>rotate</type>
 <object-name>LHdoor</object-name>
-<property>/gear/gear[1]/position-norm</property>
+<property>/gear/gear[2]/position-norm</property>
     <offset-deg>99</offset-deg>
     <factor>-99</factor>
     <center>
-      <x-m>0.514</x-m>
-      <y-m>-2.814</y-m>
-      <z-m>-0.012</z-m>
+      <x-m>7.334</x-m>
+      <y-m>-2.822</y-m>
+      <z-m>0.113</z-m>
     </center>
     <axis>
       <x>1</x>
@@ -305,13 +344,13 @@
 <animation>
 <type>rotate</type>
 <object-name>RHdoor</object-name>
-<property>/gear/gear[2]/position-norm</property>
+<property>/gear/gear[1]/position-norm</property>
     <offset-deg>99</offset-deg>
     <factor>-99</factor>
     <center>
-      <x-m>0.514</x-m>
-      <y-m>2.814</y-m>
-      <z-m>-0.012</z-m>
+      <x-m>7.334</x-m>
+      <y-m>2.822</y-m>
+      <z-m>0.113</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -320,13 +359,49 @@
     </axis>
   </animation>
 
+<animation>
+  <type>translate</type>
+  <object-name>FrtStrut</object-name>
+  <property>gear/gear[0]/compression-norm</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>  
+
+ <animation>
+  <type>translate</type>
+  <object-name>RHgear</object-name>
+  <property>gear/gear[1]/compression-norm</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>  
+
+ <animation>
+  <type>translate</type>
+  <object-name>LHgear</object-name>
+  <property>gear/gear[2]/compression-norm</property>
+  <factor>0.5</factor>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>1</z>
+  </axis>
+ </animation>  
+  
+  
 <!--  ____________________   Radios       ___________________________-->  
  <!-- Com1   --> 
   <animation>
   <type>textranslate</type>
   <object-name>com101</object-name>
   <property>/instrumentation/comm/frequencies/selected-mhz</property>
-  <format>%8.2f</format>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -339,7 +414,6 @@
   <type>textranslate</type>
   <object-name>com102</object-name>
   <property>/instrumentation/comm/frequencies/selected-mhz</property>
-  <format>%8.2f</format>
   <factor>0.01</factor>
   <step>10</step>
   <axis>
@@ -352,7 +426,6 @@
   <type>textranslate</type>
   <object-name>com103</object-name>
   <property>/instrumentation/comm/frequencies/selected-mhz</property>
-  <format>%8.2f</format>
   <factor>0.1</factor>
   <step>1</step>
   <axis>
@@ -365,8 +438,7 @@
   <type>textranslate</type>
   <object-name>com104</object-name>
   <property>/instrumentation/comm/frequencies/selected-mhz</property>
-  <format>%8.2f</format>
-  <factor>1.000000</factor>
+  <factor>1.0</factor>
   <step>0.10</step>
   <axis>
    <x>0</x>
@@ -378,9 +450,8 @@
   <type>textranslate</type>
   <object-name>com105</object-name>
   <property>/instrumentation/comm/frequencies/selected-mhz</property>
-  <format>%8.2f</format>
-  <factor>10.000000</factor>
-  <step>0.010</step>
+  <factor>10.0</factor>
+  <step>0.01</step>
   <axis>
    <x>0</x>
    <y>1</y>
@@ -429,7 +500,7 @@
   <object-name>com204</object-name>
   <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
   <factor>1.0</factor>
-  <step>0.999992</step>
+  <step>0.1</step>
   <axis>
    <x>0</x>
    <y>1</y>
@@ -441,7 +512,254 @@
   <object-name>com205</object-name>
   <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
   <factor>10.0</factor>
-  <step>0.0999992</step>
+  <step>0.01</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--    Nav 1    -->   
+   <animation>
+  <type>textranslate</type>
+  <object-name>nav101</object-name>
+  <property>/instrumentation/nav/frequencies/selected-mhz</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav102</object-name>
+  <property>/instrumentation/nav/frequencies/selected-mhz</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav103</object-name>
+  <property>/instrumentation/nav/frequencies/selected-mhz</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav104</object-name>
+  <property>/instrumentation/nav/frequencies/selected-mhz</property>
+  <factor>1.0</factor>
+  <step>0.1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav105</object-name>
+  <property>/instrumentation/nav/frequencies/selected-mhz</property>
+  <factor>10.0</factor>
+  <step>0.01</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--    Nav 2    -->   
+   <animation>
+  <type>textranslate</type>
+  <object-name>nav201</object-name>
+  <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav202</object-name>
+  <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav203</object-name>
+  <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav204</object-name>
+  <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
+  <factor>1.0</factor>
+  <step>0.1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>nav205</object-name>
+  <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
+  <factor>10.0</factor>
+  <step>0.01</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ 
+   <animation>
+  <type>textranslate</type>
+  <object-name>stdby101</object-name>
+  <property>/instrumentation/comm/frequencies/standby-mhz</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby102</object-name>
+  <property>/instrumentation/comm/frequencies/standby-mhz</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby103</object-name>
+  <property>/instrumentation/comm/frequencies/standby-mhz</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby104</object-name>
+  <property>/instrumentation/comm/frequencies/standby-mhz</property>
+  <factor>1.0</factor>
+  <step>0.10</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby105</object-name>
+  <property>/instrumentation/comm/frequencies/standby-mhz</property>
+  <factor>10.0</factor>
+  <step>0.010</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+    <animation>
+  <type>textranslate</type>
+  <object-name>stdby201</object-name>
+  <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby202</object-name>
+  <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby203</object-name>
+  <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby204</object-name>
+  <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+  <factor>1.0</factor>
+  <step>0.10</step>
+  <axis>
+   <x>0</x>
+   <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+  <animation>
+  <type>textranslate</type>
+  <object-name>stdby205</object-name>
+  <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+  <factor>10.000000</factor>
+  <step>0.010</step>
   <axis>
    <x>0</x>
    <y>1</y>
@@ -541,6 +859,29 @@
   </condition>
  </animation>
 
+ <animation>
+  <type>select</type>
+  <object-name>Mrkr-O</object-name>
+  <condition>
+    <property>/instrumentation/marker-beacon/outer</property>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Mrkr-M</object-name>
+  <condition>
+    <property>/instrumentation/marker-beacon/middle</property>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Mrkr-I</object-name>
+  <condition>
+    <property>/instrumentation/marker-beacon/inner</property>
+  </condition>
+ </animation>
 
 
 
@@ -583,9 +924,9 @@
       <z>-0.174</z>
     </axis>
     <center>
-      <x-m>-4.104</x-m>
-      <y-m>-0.464</y-m>
-      <z-m>0.766</z-m>
+      <x-m>2.454</x-m>
+      <y-m>-0.466</y-m>
+      <z-m>0.897</z-m>
     </center>
   </animation>
 
@@ -645,9 +986,9 @@
       <z>-0.174</z>
     </axis>
     <center>
-      <x-m>-4.073</x-m>
-      <y-m>-0.231</y-m>
-      <z-m>0.578</z-m>
+      <x-m>2.484</x-m>
+      <y-m>-0.230</y-m>
+      <z-m>0.717</z-m>
     </center>
   </animation>
 
@@ -662,9 +1003,9 @@
       <z>-0.174</z>
     </axis>
     <center>
-      <x-m>-4.105</x-m>
-      <y-m>-0.229</y-m>
-      <z-m>0.765</z-m>
+      <x-m>2.452</x-m>
+      <y-m>-0.232</y-m>
+      <z-m>0.898</z-m>
     </center>
   </animation>
 
@@ -808,9 +1149,9 @@
       <z>-0.174</z>
     </axis>
     <center>
-      <x-m>-4.088</x-m>
-      <y-m>-0.230</y-m>
-      <z-m>0.672</z-m>
+      <x-m>2.464</x-m>
+      <y-m>-0.232</y-m>
+      <z-m>0.810</z-m>
     </center>
   </animation>
    
@@ -819,9 +1160,9 @@
   <object-name>AIball</object-name>
   <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
     <center>
-      <x-m>-4.174</x-m>
+      <x-m>2.386</x-m>
       <y-m>-0.350</y-m>
-      <z-m>0.728</z-m>
+      <z-m>0.862</z-m>
     </center>
     <axis>
       <x>0.985</x>
@@ -836,9 +1177,9 @@
   <object-name>AIring</object-name>
   <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
     <center>
-      <x-m>-4.116</x-m>
-      <y-m>-0.351</y-m>
-      <z-m>0.738</z-m>
+      <x-m>2.437</x-m>
+      <y-m>-0.349</y-m>
+      <z-m>0.870</z-m>
     </center>
     <axis>
       <x>0.985</x>
@@ -853,9 +1194,9 @@
   <object-name>AIball</object-name>
   <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
     <center>
-      <x-m>-4.174</x-m>
+      <x-m>2.386</x-m>
       <y-m>-0.350</y-m>
-      <z-m>0.728</z-m>
+      <z-m>0.862</z-m>
     </center>
   <axis>
    <x>0</x>
@@ -1191,10 +1532,26 @@
   </axis>
  </animation>
 
- 
+<animation>
+  <type>texrotate</type>
+  <object-name>HDGface</object-name>
+  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+  <center>
+   <x>0.625</x>
+   <y>0.625</y>
+  </center>
+ </animation> 
+
+
   <animation>
   <type>rotate</type>
-  <object-name>HDGface</object-name>
+  <object-name>HDGneedle</object-name>
+  <object-name>HDGneedle.001</object-name>
   <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
   <axis>
       <x>0.985</x>
@@ -1202,9 +1559,9 @@
       <z>0.174</z>
   </axis>
   <center>
-   <x-m>-4.077</x-m>
+   <x-m>2.477</x-m>
    <y-m>-0.349</y-m>
-   <z-m>0.601</z-m>
+   <z-m>0.735</z-m>
   </center>
  </animation>
 
@@ -1218,9 +1575,25 @@
       <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-4.075</x-m>
+   <x-m>2.477</x-m>
    <y-m>-0.349</y-m>
-   <z-m>0.601</z-m>
+   <z-m>0.735</z-m>
+  </center>
+ </animation>
+
+  <animation>
+  <type>rotate</type>
+  <object-name>HDGneedle.001</object-name>
+  <property>/instrumentation/nav/radials/selected-deg</property>
+  <axis>
+      <x>-0.985</x>
+      <y>0.0</y>
+      <z>-0.174</z>
+  </axis>
+  <center>
+   <x-m>2.477</x-m>
+   <y-m>-0.349</y-m>
+   <z-m>0.735</z-m>
   </center>
  </animation>
   
@@ -1263,7 +1636,21 @@
   </axis>
  </animation>
 
-  
+<animation>
+  <type>texrotate</type>
+  <object-name>ADF</object-name>
+  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+  <center>
+   <x>0.625</x>
+   <y>0.625</y>
+  </center>
+ </animation>  
+ 
   <animation>
   <type>rotate</type>
   <object-name>ADFneedle1</object-name>
@@ -1274,9 +1661,9 @@
       <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-4.087</x-m>
-   <y-m>-0.463</y-m>
-   <z-m>0.673</z-m>
+   <x-m>2.469</x-m>
+   <y-m>-0.467</y-m>
+   <z-m>0.807</z-m>
   </center>
  </animation>
   
@@ -1290,9 +1677,9 @@
       <z>-0.174</z>
   </axis>
   <center>
-   <x-m>-4.087</x-m>
-   <y-m>-0.463</y-m>
-   <z-m>0.673</z-m>
+   <x-m>2.469</x-m>
+   <y-m>-0.467</y-m>
+   <z-m>0.807</z-m>
   </center>
  </animation>
 
@@ -1306,12 +1693,62 @@
       <z>1.0</z>
   </axis>
   <center>
-   <x-m>-4.020</x-m>
+   <x-m>2.534</x-m>
    <y-m>-0.006</y-m>
-   <z-m>1.019</z-m>
+   <z-m>1.154</z-m>
   </center>
  </animation>
  
+  <animation>
+  <type>rotate</type>
+  <object-name>ScHand</object-name>
+  <property>/sim/time/utc/day-seconds</property>
+  <factor>6</factor>
+  <axis>
+      <x>-0.985</x>
+      <y>0.0</y>
+      <z>-0.174</z>
+  </axis>
+  <center>
+   <x-m>2.450</x-m>
+   <y-m>-0.555</y-m>
+   <z-m>0.914</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>MnHand</object-name>
+  <property>/sim/time/utc/day-seconds</property>
+  <factor>0.1</factor>
+  <axis>
+      <x>-0.985</x>
+      <y>0.0</y>
+      <z>-0.174</z>
+  </axis>
+  <center>
+   <x-m>2.450</x-m>
+   <y-m>-0.555</y-m>
+   <z-m>0.914</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>HrHand</object-name>
+  <property>/sim/time/utc/day-seconds</property>
+  <factor>0.008333</factor>
+  <axis>
+      <x>-0.985</x>
+      <y>0.0</y>
+      <z>-0.174</z>
+  </axis>
+  <center>
+   <x-m>2.450</x-m>
+   <y-m>-0.555</y-m>
+   <z-m>0.914</z-m>
+  </center>
+ </animation>
  <!--  ___________________ Shadow _____________________________ -->
 <!-- pitch -->
  <animation>
@@ -1320,9 +1757,9 @@
   <property>/orientation/pitch-deg</property>
   <factor>-1.0</factor>
   <center>
-   <x-m>0</x-m>
+   <x-m>6.554</x-m>
    <y-m>0</y-m>
-   <z-m>0</z-m>
+   <z-m>0.133</z-m>
   </center>
   <axis>
    <x>0</x>
@@ -1338,9 +1775,9 @@
   <property>/orientation/roll-deg</property>
   <factor>1.0</factor>
   <center>
-   <x-m>0</x-m>
+   <x-m>6.554</x-m>
    <y-m>0</y-m>
-   <z-m>0</z-m>
+   <z-m>0.133</z-m>
   </center>
   <axis>
    <x>1</x>
@@ -1356,9 +1793,9 @@
   <property>/position/altitude-agl-ft</property>
   <factor>-0.3</factor>
   <center>
-   <x-m>0</x-m>
+   <x-m>6.554</x-m>
    <y-m>0</y-m>
-   <z-m>0</z-m>
+   <z-m>0.133</z-m>
   </center>
   <axis>
    <x>0</x>
