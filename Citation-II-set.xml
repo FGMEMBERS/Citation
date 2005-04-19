@@ -86,6 +86,9 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 
   <virtual-cockpit archive="y">true</virtual-cockpit>
 
+  <help>
+   <title>Cessna Citation II 550</title>
+  </help>
   
  </sim>
 
