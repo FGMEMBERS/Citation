@@ -123,9 +123,9 @@
 
  <!-- Pratt and Whitney Canada Inc. JT150-4 Turbofan -->
  <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.576">
-  <control-input axis="/controls/engines/engine[1]/throttle"
+  <control-input axis="/controls/engines/engine[0]/throttle"
                  control="THROTTLE"/>
-  <control-input axis="/controls/engines/engine[1]/reverser"
+  <control-input axis="/controls/engines/engine[0]/reverser"
                  control="REVERSE_THRUST"/> 
  </jet>
 
