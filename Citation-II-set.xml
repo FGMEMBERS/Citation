@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 ************************************************************************
 Cessna Citation II (550) simulation config. This files ties together
@@ -8,135 +8,129 @@ include the flight data model, instrument panel, and external 3D model.
 November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 ************************************************************************
 -->
-
 <PropertyList>
- <sim>
-
-  <description>Cessna Citation II 550 (YASim)</description>
-  <author>Syd Adams, Curtis Olson</author>
-
-  <flight-model>yasim</flight-model>
-  <aero>Citation-II-yasim</aero>
-  <!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
-  <fuel-fraction>0.8</fuel-fraction>
-
-  <startup>
-   <splash-texture>Aircraft/Citation/Citation-II-splash.rgb</splash-texture>
-  </startup>
-  
-  <panel>
-   <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
-   <visibility>false</visibility>
-  </panel>
-
-  <model>
-   <path>Aircraft/Citation/Models/Citation-II.xml</path>
-  </model> 
-
-  <view n="0">
-    <name>Cockpit</name>
-    <type>lookfrom</type>
-    <internal type="bool">true</internal>
-    <config>
-     <x-offset-m type="double">-0.35</x-offset-m>
-     <y-offset-m type="double">1.25</y-offset-m>
-     <z-offset-m type="double">3.4</z-offset-m>
-     <pitch-offset-deg>-12</pitch-offset-deg>
-     <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
-    </config>
-  </view>
-  
-  <view n="1">
-  <config>
-<target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
-  </config>
-  </view>
-  
-<view n="2">
-  <config>
-<target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
-  </config>
-  </view>
-
-<view n="5">
-  <config>
-<target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
-  </config>
-  </view>
-    
-       
-
-    
-   <systems>
-    <electrical>
-      <path>Aircraft/beech99/beech99-electrical.xml</path>
-    </electrical>
-    <autopilot>
-     <path>Aircraft/Citation/Citation-II-autopilot.xml</path>
-    </autopilot>
-  </systems>
-  
-  <sound>
-   <path>Aircraft/Citation/Citation-II-sound.xml</path>
-  </sound>
-
-  <hud>
-   <enable3d>false</enable3d>
-  </hud>
-
-  <virtual-cockpit archive="y">true</virtual-cockpit>
-
-  <help>
-   <title>Cessna Citation II 550</title>
-  </help>
-  
- </sim>
-
-
- <!-- aircraft specific loading -->
- <yasim>
-  <beech99>
-   <pilot-lbs>400</pilot-lbs>
-
-   <!-- Only enable one of the following: -->
-
-   <!-- lightly loaded -->
-   <passenger-lbs>100</passenger-lbs>
-
-   <!-- max load with 0.8 fuel fraction -->
-   <!-- <passenger-lbs>2178</passenger-lbs> -->
-
-   <!-- max load with 1.0 fuel fraction -->
-   <!-- <passenger-lbs>1878</passenger-lbs> -->
-
-  </beech99>
- </yasim>
-
- <controls>
+  <sim>
+    <description>Cessna 550 Citation-II w. 3d cockpit (YASim)</description>
+    <flight-model>yasim</flight-model>
+    <aero>Citation-II-yasim</aero>
+<!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
+    <fuel-fraction>0.8</fuel-fraction>
+    <startup>
+      <splash-texture>Aircraft/Citation/Citation-II-splash.rgb</splash-texture>
+    </startup>
+    <panel>
+      <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
+      <visibility>false</visibility>
+    </panel>
+    <model>
+      <path>Aircraft/Citation/Models/Citation-II.xml</path>
+    </model>
+    <view n="0">
+      <name>Cockpit</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+        <x-offset-m type="double">-0.35</x-offset-m>
+        <y-offset-m type="double">1.25</y-offset-m>
+        <z-offset-m type="double">3.4</z-offset-m>
+        <pitch-offset-deg>-15</pitch-offset-deg>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+      </config>
+    </view>
+    <view n="1">
+      <config>
+        <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+      </config>
+    </view>
+    <view n="2">
+      <config>
+        <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+      </config>
+    </view>
+    <view n="5">
+      <config>
+        <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+      </config>
+    </view>
+    <systems>
+      <electrical>
+        <path>Aircraft/beech99/beech99-electrical.xml</path>
+      </electrical>
+      <autopilot>
+        <path>Aircraft/Citation/Citation-II-autopilot.xml</path>
+      </autopilot>
+    </systems>
+    <sound>
+      <path>Aircraft/Citation/Citation-II-sound.xml</path>
+    </sound>
+    <hud>
+      <enable3d>false</enable3d>
+    </hud>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <allow-toggle-cockpit>true</allow-toggle-cockpit>
+  </sim>
+<!-- aircraft specific loading -->
+  <yasim>
+    <beech99>
+      <pilot-lbs>400</pilot-lbs>
+<!-- Only enable one of the following: -->
+<!-- lightly loaded -->
+      <passenger-lbs>100</passenger-lbs>
+<!-- max load with 0.8 fuel fraction -->
+<!-- <passenger-lbs>2178</passenger-lbs> -->
+<!-- max load with 1.0 fuel fraction -->
+<!-- <passenger-lbs>1878</passenger-lbs> -->
+    </beech99>
+  </yasim>
+  <controls>
+    <gear>
+      <brake-parking>1</brake-parking>
+    </gear>
+    <engines>
+      <engine n="0">
+        <magnetos>3</magnetos>
+      </engine>
+      <engine n="1">
+        <magnetos>3</magnetos>
+      </engine>
+    </engines>
+  </controls>
   <engines>
-   <engine n="0">
-    <magnetos>3</magnetos>
-   </engine>
-   <engine n="1">
-    <magnetos>3</magnetos>
-   </engine>
+    <engine n="0">
+      <rpm>1000</rpm>
+      <reverser-position type="double">0.000000</reverser-position>
+    </engine>
+    <engine n="1">
+      <rpm>1000</rpm>
+      <reverser-position type="double">0.000000</reverser-position>
+    </engine>
   </engines>
- </controls>
+  <input>
+    <keyboard>
+      <key n="127">
+        <name>Delete</name>
+        <desc>Toggle Reversers</desc>
+        <binding>
+          <command>nasal</command>
+          <script>citation.togglereverser()</script>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
 
- <engines>
-  <engine n="0">
-   <rpm>1000</rpm>
-  </engine>
-  <engine n="1">
-   <rpm>1000</rpm>
-  </engine>
- </engines>
-
- 
- <offsets>
-<x-m> 6.73</x-m>
-<z-m> 5.138</z-m>
-</offsets>
-
- 
+<instrumentation>
+<dme>
+  <frequencies>
+    <source>/instrumentation/nav[0]/frequencies/selected-mhz</source>
+  </frequencies>
+  <switch-position n="0">1</switch-position>
+  <switch-position n="1" type="int">1</switch-position>
+</dme>
+</instrumentation>
+  
+<nasal>
+    <citation>
+      <file>Aircraft/Citation/Nasal/citation.nas</file>
+    </citation>
+  </nasal>
 </PropertyList>
