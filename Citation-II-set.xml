@@ -68,6 +68,24 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </hud>
     <virtual-cockpit archive="y">true</virtual-cockpit>
     <allow-toggle-cockpit>true</allow-toggle-cockpit>
+  
+
+    <help>
+      <title>Cessna 550 Citation-II</title>
+      <key>
+        <name>Delete</name>
+        <desc>toggle thrust reversers</desc>
+      </key>
+    </help>
+
+
+
+
+
+
+
+
+
   </sim>
 <!-- aircraft specific loading -->
   <yasim>
