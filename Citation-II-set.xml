@@ -54,7 +54,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </view>
     <systems>
       <electrical>
-        <path>Aircraft/beech99/beech99-electrical.xml</path>
+        <path>Aircraft/Citation/Citation-II-electrical.xml</path>
       </electrical>
       <autopilot>
         <path>Aircraft/Citation/Citation-II-autopilot.xml</path>
