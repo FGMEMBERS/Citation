@@ -142,9 +142,13 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 </dme>
 </instrumentation>
   
-<nasal>
+  <nasal>
     <citation>
       <file>Aircraft/Citation/Nasal/citation.nas</file>
     </citation>
+    <annunciator>
+      <file>Aircraft/Generic/annunciator.nas</file>
+    </annunciator>
   </nasal>
+
 </PropertyList>
