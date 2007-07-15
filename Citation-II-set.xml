@@ -11,6 +11,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 <PropertyList>
   <sim>
     <description>Cessna 550 Citation-II w. 3d cockpit (YASim)</description>
+    <author>Curt Olson - Syd Adams</author>
     <flight-model>yasim</flight-model>
     <aero>Citation-II-yasim</aero>
 <!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
