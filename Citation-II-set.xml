@@ -21,6 +21,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </startup>
     <model>
       <path>Aircraft/Citation/Models/Citation-II.xml</path>
+      <variant type="int">0</variant>
     </model>
     <view n="0">
       <name>Cockpit</name>
