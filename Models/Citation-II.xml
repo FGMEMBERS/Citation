@@ -231,7 +231,7 @@
     <animation>
         <type>rotate</type>
         <object-name>UReverser</object-name>
-        <property>engines/engine/reverser-position</property>
+        <property>surface-positions/reverser-norm</property>
         <factor>60</factor>
         <center>
             <x-m>10.368</x-m>
@@ -248,7 +248,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LReverser</object-name>
-        <property>engines/engine/reverser-position</property>
+        <property>surface-positions/reverser-norm</property>
         <factor>65</factor>
         <center>
             <x-m>10.391</x-m>

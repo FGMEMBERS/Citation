@@ -91,14 +91,6 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
       </key>
     </help>
 
-
-
-
-
-
-
-
-
   </sim>
 <!-- aircraft specific loading -->
   <yasim>
@@ -142,8 +134,12 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         <name>Delete</name>
         <desc>Toggle Reversers</desc>
         <binding>
-          <command>nasal</command>
-          <script>citation.togglereverser()</script>
+          <command>property-toggle</command>
+          <property>controls/engines/engine[0]/reverser</property>
+        </binding>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/engines/engine[1]/reverser</property>
         </binding>
       </key>
     </keyboard>
@@ -160,9 +156,6 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 </instrumentation>
   
   <nasal>
-    <citation>
-      <file>Aircraft/Citation/Nasal/citation.nas</file>
-    </citation>
     <annunciator>
       <file>Aircraft/Generic/annunciator.nas</file>
     </annunciator>
