@@ -1,22 +1,18 @@
-togglereverser = func {
-r1 = "/controls/engines/engine"; 
-r2 = "/controls/engines/engine[1]"; 
-rv1 = "/engines/engine/reverser-position"; 
-rv2 = "/engines/engine[1]/reverser-position"; 
+var view_list =[];
+var view = props.globals.getNode("/sim").getChildren("view");
+    for(var i=0; i<size(view); i+=1){
+        append(view_list,"sim/view["~i~"]/config/default-field-of-view-deg");
+        }
+aircraft.data.add(view_list);
 
-val = getprop(rv1);
-if (val == 0 or val == nil) {
-interpolate(rv1, 1.0, 1.4);  
-interpolate(rv2, 1.0, 1.4);  
-setprop(r1,"reverser","true");
-setprop(r2,"reverser", "true");
-} else {
-if (val == 1.0){
-interpolate(rv1, 0.0, 1.4);  
-interpolate(rv2, 0.0, 1.4);  
-setprop(r1,"reverser",0);
-setprop(r2,"reverser",0);
-  }
- }
-}
-
+setlistener("/sim/current-view/view-number", func(vw){
+    ViewNum = vw.getValue();
+    setprop("sim/current-view/field-of-view",getprop("sim/view["~ViewNum~"]/config/default-field-of-view-deg"));
+    if(ViewNum == 0){
+        Cvolume.setValue(0.5);
+        Ovolume.setValue(0.5);
+        }else{
+        Cvolume.setValue(0.2);
+        Ovolume.setValue(1.0);
+        }
+    },1,0);
