@@ -67,10 +67,10 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </view>
     <systems>
       <electrical>
-        <path>Aircraft/Citation/Citation-II-electrical.xml</path>
+        <path></path>
       </electrical>
       <autopilot>
-        <path>Aircraft/Citation/Citation-II-autopilot.xml</path>
+        <path>Aircraft/Citation/Autopilot.xml</path>
       </autopilot>
     </systems>
     <sound>
@@ -83,6 +83,13 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     <allow-toggle-cockpit>true</allow-toggle-cockpit>
   
 
+    <airport>
+        <runways>
+            <start-offset-m>20</start-offset-m>
+        </runways>
+    </airport>
+
+
     <help>
       <title>Cessna 550 Citation-II</title>
       <key>
@@ -91,20 +98,22 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
       </key>
     </help>
 
+    <weight n="0">
+        <name>Crew</name>
+        <weight-lb>400</weight-lb>
+        <max-lb>500</max-lb>
+        <min-lb>100</min-lb>
+    </weight>
+
+    <weight n="1">
+        <name>Passengers</name>
+        <weight-lb>100</weight-lb>
+        <max-lb>1200</max-lb>
+        <min-lb>0</min-lb>
+    </weight>
+
   </sim>
 <!-- aircraft specific loading -->
-  <yasim>
-    <beech99>
-      <pilot-lbs>400</pilot-lbs>
-<!-- Only enable one of the following: -->
-<!-- lightly loaded -->
-      <passenger-lbs>100</passenger-lbs>
-<!-- max load with 0.8 fuel fraction -->
-<!-- <passenger-lbs>2178</passenger-lbs> -->
-<!-- max load with 1.0 fuel fraction -->
-<!-- <passenger-lbs>1878</passenger-lbs> -->
-    </beech99>
-  </yasim>
   <controls>
     <gear>
       <brake-parking>1</brake-parking>
@@ -154,10 +163,25 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
   <switch-position n="1" type="int">1</switch-position>
 </dme>
 </instrumentation>
-  
+
+<autopilot>
+    <locks>
+        <passive-mode type="bool">true</passive-mode>
+        <roll-active type="bool">true</roll-active>
+        <pitch-active type="bool">true</pitch-active>
+    </locks>
+    <settings>
+        <max-pitch type="double">10</max-pitch>
+        <min-pitch type="double">-10</min-pitch>
+        <max-roll type="double">27</max-roll>
+        <min-roll type="double">-27</min-roll>
+    </settings>
+</autopilot>
+
   <nasal>
     <annunciator>
       <file>Aircraft/Generic/annunciator.nas</file>
+      <file>Aircraft/Citation/Nasal/Electrical.nas</file>
     </annunciator>
   </nasal>
 
