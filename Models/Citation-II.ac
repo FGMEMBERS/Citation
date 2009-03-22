@@ -1,9 +1,9 @@
 AC3Db
-MATERIAL "illum" rgb 1 1 1 amb 0 0 0 emis 0.7 0.6 0.5 spec 0 0 0 shi 72 trans 0
-MATERIAL "grey" rgb 0.75 0.75 0.75 amb 0 0 0 emis 0 0 0 spec 0 0 0 shi 72 trans 0
-MATERIAL "glosswhite" rgb 0.876525 0.876525 0.876525 amb 0 0 0 emis 0 0 0 spec 0.901362 0.901362 0.901362 shi 72 trans 0
+MATERIAL "illum" rgb 1 1 1 amb 0.8 0.8 0.8 emis 0.7 0.6 0.5 spec 0 0 0 shi 72 trans 0
+MATERIAL "grey" rgb 0.75 0.75 0.75 amb 0.7 0.7 0.7 emis 0 0 0 spec 0 0 0 shi 72 trans 0
+MATERIAL "glosswhite" rgb 0.876525 0.876525 0.876525 amb 0.8 0.8 0.8 emis 0 0 0 spec 0.901362 0.901362 0.901362 shi 72 trans 0
 MATERIAL "lights" rgb 1 1 1 amb 0.5 0.5 0.5 emis 1 1 1 spec 0 0 0 shi 72 trans 0
-MATERIAL "flat" rgb 0.14931 0.14931 0.14931 amb 0 0 0 emis 0 0 0 spec 0 0 0 shi 72 trans 0.238857
+MATERIAL "flat" rgb 0.14931 0.14931 0.14931 amb 0.2 0.2 0.2 emis 0 0 0 spec 0 0 0 shi 72 trans 0.238857
 OBJECT world
 kids 151
 OBJECT poly
