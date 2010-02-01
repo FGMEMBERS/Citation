@@ -1,0 +1,354 @@
+<PropertyList>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/electricpanel.xml</path>
+        <offsets>
+            <x-m>0.002</x-m>
+            <y-m>-0.556</y-m>
+            <z-m>0.097</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/ctnpanel.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.081</y-m>
+            <z-m>0.254</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/VHF-22/ctl22-com1.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.046</y-m>
+            <z-m>0.187</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/VHF-22/ctl22-com2.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.107</y-m>
+            <z-m>0.187</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/VIR-32/ctl32-nav1.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.046</y-m>
+            <z-m>0.120</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/VIR-32/ctl32-nav2.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.107</y-m>
+            <z-m>0.120</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/TDR-94/ctl92-transponder.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.214</y-m>
+            <z-m>0.079</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/ADF-462/ctl62-adf.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.122</y-m>
+            <z-m>0.266</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/asi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.422</y-m>
+            <z-m>0.338</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/asi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.204</y-m>
+            <z-m>0.338</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/alt.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.210</y-m>
+            <z-m>0.336</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/alt.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.422</y-m>
+            <z-m>0.336</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.422</y-m>
+            <z-m>0.250</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.204</y-m>
+            <z-m>0.250</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/vsi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.210</y-m>
+            <z-m>0.169</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/vsi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.422</y-m>
+            <z-m>0.169</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/ralt.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.210</y-m>
+            <z-m>0.250</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/ralt.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.422</y-m>
+            <z-m>0.250</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/ai.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.312</y-m>
+            <z-m>0.322</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/ai.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.312</y-m>
+            <z-m>0.322</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.312</y-m>
+            <z-m>0.200</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.321</y-m>
+            <z-m>0.200</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/dme40.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.210</y-m>
+            <z-m>0.086</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/dme40.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.204</y-m>
+            <z-m>0.161</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/aoa.xml</path>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>-0.498</y-m>
+            <z-m>0.345</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/aoa.xml</path>
+        <offsets>
+            <x-m>0.0</x-m>
+            <y-m>0.498</y-m>
+            <z-m>0.345</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.498</y-m>
+            <z-m>0.288</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.498</y-m>
+            <z-m>0.288</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/marker.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.312</y-m>
+            <z-m>0.393</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/marker.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.312</y-m>
+            <z-m>0.393</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.312</y-m>
+            <z-m>0.127</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.312</y-m>
+            <z-m>0.127</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/vor-ind.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.422</y-m>
+            <z-m>0.158</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/altalerter.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.048</y-m>
+            <z-m>0.251</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/wxradar.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.072</y-m>
+            <z-m>0.154</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/audiopnl.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.542</y-m>
+            <z-m>0.224</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/audiopnl.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.542</y-m>
+            <z-m>0.224</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/oat.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>-0.557</y-m>
+            <z-m>0.287</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/oat.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0.557</y-m>
+            <z-m>0.287</z-m>
+        </offsets>
+    </model>
+
+</PropertyList>

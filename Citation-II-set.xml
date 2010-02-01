@@ -15,26 +15,49 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     <flight-model>yasim</flight-model>
     <aero>Citation-II-yasim</aero>
 <!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
-    <fuel-fraction>0.8</fuel-fraction>
+    <fuel-fraction>0.6</fuel-fraction>
     <startup>
-      <splash-texture>Aircraft/Citation/Citation-II-splash.rgb</splash-texture>
+      <splash-texture>Aircraft/Citation/Citation-II-splash.png</splash-texture>
     </startup>
+     
     <model>
       <path>Aircraft/Citation/Models/Citation-II.xml</path>
-      <variant type="int">0</variant>
+                <autostart type="bool">0</autostart>
+            <livery>
+                <file type="string">blue-grey</file>
+            </livery>
+            <registration>
+                <red type="double">0</red>
+                <green type="double">0</green>
+                <blue type="double">0</blue>
+            </registration>
     </model>
+     
     <view n="0">
-      <name>Cockpit</name>
-      <type>lookfrom</type>
-      <internal type="bool">true</internal>
-      <config>
-        <x-offset-m type="double">-0.35</x-offset-m>
-        <y-offset-m type="double">1.25</y-offset-m>
-        <z-offset-m type="double">3.4</z-offset-m>
-        <pitch-offset-deg>-15</pitch-offset-deg>
-        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
-      </config>
+        <name>Cockpit</name>
+        <type>lookfrom</type>
+        <internal type="bool">true</internal>
+        <config>
+            <x-offset-m type="double">-0.34</x-offset-m>
+            <y-offset-m type="double">0.988</y-offset-m>
+            <z-offset-m type="double">3.227</z-offset-m>
+            <pitch-offset-deg>-15</pitch-offset-deg>
+            <limits>
+                <enabled type="bool">true</enabled>
+                <left>
+                    <heading-max-deg type="double">120</heading-max-deg>
+                    <x-offset-max-m type="double">0.22</x-offset-max-m>
+                    <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+                </left>
+                <right>
+                    <heading-max-deg type="double">160</heading-max-deg>
+                    <x-offset-max-m type="double">0.25</x-offset-max-m>
+                    <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                </right>
+            </limits>
+        </config>
     </view>
+
     <view n="1">
       <config>
         <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
@@ -65,14 +88,53 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
       </config>
     </view>
+    <view n="7">
+      <config>
+        <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+      </config>
+    </view>
+    
+      <view n="100">
+    <name>Passenger 1</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+      <heading-offset-deg type="double">180</heading-offset-deg>
+      <x-offset-m archive="y" type="double">-0.412</x-offset-m> <!--Right-->
+      <y-offset-m archive="y" type="double">0.888</y-offset-m> <!--Up-->
+      <z-offset-m archive="y" type="double">5.118</z-offset-m> <!--Back-->
+      <default-heading-offset-deg>180</default-heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+    </config>
+    </view>
+
+  <view n="101">
+    <name>Passenger 2</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+      <heading-offset-deg type="double">0</heading-offset-deg>
+      <x-offset-m archive="y" type="double">0.412</x-offset-m> <!--Right-->
+      <y-offset-m archive="y" type="double">0.888</y-offset-m> <!--Up-->
+      <z-offset-m archive="y" type="double">7.212</z-offset-m> <!--Back-->
+      <default-heading-offset-deg>0</default-heading-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
+    </config>
+    </view>
+    
+    <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
+    
     <systems>
-      <electrical>
-        <path></path>
-      </electrical>
-      <autopilot>
-        <path>Aircraft/Citation/Autopilot.xml</path>
-      </autopilot>
+        <autopilot>
+            <path>Aircraft/Citation/Systems/Citation-autopilot.xml</path>
+        </autopilot>
+        <path>Aircraft/Citation/Systems/systems.xml</path>
     </systems>
+
     <sound>
       <path>Aircraft/Citation/Citation-II-sound.xml</path>
     </sound>
@@ -81,7 +143,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </hud>
     <virtual-cockpit archive="y">true</virtual-cockpit>
     <allow-toggle-cockpit>true</allow-toggle-cockpit>
-  
+     <yokes-visible type="bool">1</yokes-visible>
 
     <airport>
         <runways>
@@ -99,22 +161,87 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </help>
 
     <weight n="0">
+        <name>Frt Baggage</name>
+        <weight-lb>0</weight-lb>
+        <max-lb>350</max-lb>
+        <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="1">
         <name>Crew</name>
         <weight-lb>400</weight-lb>
         <max-lb>500</max-lb>
         <min-lb>100</min-lb>
     </weight>
 
-    <weight n="1">
+    <weight n="2">
         <name>Passengers</name>
-        <weight-lb>100</weight-lb>
+        <weight-lb>636</weight-lb>
         <max-lb>1200</max-lb>
         <min-lb>0</min-lb>
     </weight>
 
-  </sim>
+    <weight n="3">
+        <name>Rear Baggage</name>
+        <weight-lb>0</weight-lb>
+        <max-lb>500</max-lb>
+        <min-lb>0</min-lb>
+    </weight>
+
+    <menubar>
+        <default>
+            <menu n="10">
+                <label>Citation-II</label>
+                <enabled type="bool">true</enabled>
+                     <item>
+                    <label>Autostart</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/autostart</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Yokes On/Off</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/yokes-visible</property>
+                    </binding>
+                </item>
+            <item>
+                <label>Select Livery</label>
+                <binding>
+                    <command>nasal</command>
+                        <script>aircraft.livery.dialog.toggle()</script>
+                    </binding>
+                </item>
+            </menu>
+        </default>
+    </menubar>
+
+        <instrumentation>
+            <path>Aircraft/Citation/Systems/instrumentation.xml</path>
+        </instrumentation>
+
+    <multiplay>
+        <generic>
+            <int n="0" alias="/systems/electrical/outputs/strobe"/>
+            <int n="1" alias="/systems/electrical/outputs/beacon"/>
+            <int n="2" alias="/systems/electrical/outputs/nav-lights"/>
+            <int n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
+            <int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
+            <int n="5" alias="/systems/electrical/outputs/recog-lights"/>
+            <float  alias="/controls/cabin-door/position-norm"/>
+            <float n="1" alias="/sim/model/registration/red"/>
+            <float n="2" alias="/sim/model/registration/green"/>
+            <float n="3" alias="/sim/model/registration/blue"/>
+            <string  alias="/sim/multiplay/callsign"/>
+        </generic>
+    </multiplay>
+
+</sim>
 <!-- aircraft specific loading -->
-  <controls>
+
+<controls>
     <gear>
       <brake-parking>1</brake-parking>
     </gear>
@@ -126,8 +253,13 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         <magnetos>3</magnetos>
       </engine>
     </engines>
+     <electric>
+        <avionics-switch type="bool">1</avionics-switch>
+        <battery-switch type="bool">1</battery-switch>
+     </electric>
   </controls>
-  <engines>
+
+<engines>
     <engine n="0">
       <rpm>1000</rpm>
       <reverser-position type="double">0.000000</reverser-position>
@@ -137,52 +269,82 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
       <reverser-position type="double">0.000000</reverser-position>
     </engine>
   </engines>
-  <input>
-    <keyboard>
-      <key n="127">
-        <name>Delete</name>
-        <desc>Toggle Reversers</desc>
-        <binding>
-          <command>property-toggle</command>
-          <property>controls/engines/engine[0]/reverser</property>
-        </binding>
-        <binding>
-          <command>property-toggle</command>
-          <property>controls/engines/engine[1]/reverser</property>
-        </binding>
-      </key>
-    </keyboard>
-  </input>
 
 <instrumentation>
-<dme>
-  <frequencies>
-    <source>/instrumentation/nav[0]/frequencies/selected-mhz</source>
-  </frequencies>
-  <switch-position n="0">1</switch-position>
-  <switch-position n="1" type="int">1</switch-position>
-</dme>
+    <dme>
+        <frequencies>
+            <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
+        </frequencies>
+        <switch-position n="0" type="int">0</switch-position>
+        <switch-position n="1" type="int">0</switch-position>
+    </dme>
+    <inst-vertical-speed-indicator>
+        <serviceable type="bool">1</serviceable>
+    </inst-vertical-speed-indicator>
+    <altimeter>
+        <decision-height type="double">200</decision-height>
+    </altimeter>
+    <airspeed-indicator>
+        <index-marker type="double">100</index-marker>
+    </airspeed-indicator>
 </instrumentation>
 
-<autopilot>
-    <locks>
-        <passive-mode type="bool">true</passive-mode>
-        <roll-active type="bool">true</roll-active>
-        <pitch-active type="bool">true</pitch-active>
-    </locks>
-    <settings>
-        <max-pitch type="double">10</max-pitch>
-        <min-pitch type="double">-10</min-pitch>
-        <max-roll type="double">27</max-roll>
-        <min-roll type="double">-27</min-roll>
-    </settings>
-</autopilot>
+    <autopilot>
+        <locks>
+            <yaw-damper type="bool">0</yaw-damper>
+            <passive-mode type="bool">1</passive-mode>
+            <heading>wing-leveler</heading>
+            <altitude>pitch-hold</altitude>
+        </locks>
+        <settings>
+            <bank-limit type="double">27</bank-limit>
+            <target-vert-speed-fpm type="double">0</target-vert-speed-fpm>
+            <target-altitude-ft>10000</target-altitude-ft>
+            <gs-arm type="bool">0</gs-arm>
+            <nav-arm type="bool">0</nav-arm>
+            <alt-arm type="bool">0</alt-arm>
+        </settings>
+    </autopilot>
 
   <nasal>
-    <annunciator>
-      <file>Aircraft/Generic/annunciator.nas</file>
-      <file>Aircraft/Citation/Nasal/Electrical.nas</file>
-    </annunciator>
-  </nasal>
+    <citation>
+        <file>Aircraft/Citation/Nasal/Electrical.nas</file>
+    <file>Aircraft/Citation/Nasal/citation2.nas</file>
+    </citation>
+    <m877>
+        <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
+    </m877>
+    </nasal>
+
+    <input>
+        <keyboard>
+            <key n="127">
+                <name>Delete</name>
+                <desc>Toggle Reversers</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/engines/engine[0]/reverser</property>
+                </binding>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/engines/engine[1]/reverser</property>
+                </binding>
+            </key>
+            <key n="4">
+                <name>Ctrl-D</name>
+                <desc>Open/close canopy</desc>
+                <binding>
+                            <condition>
+                                <less-than>
+                                    <property>velocities/airspeed-kt</property>
+                                    <value>40</value>
+                                </less-than>
+                            </condition>
+                    <command>nasal</command>
+                    <script>citation.cabin_door.toggle();</script>
+                </binding>
+            </key>
+        </keyboard>
+    </input>
 
 </PropertyList>

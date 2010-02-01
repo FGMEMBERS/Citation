@@ -1,0 +1,504 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+<path>elpanel.ac</path>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>batt.sw</object-name>
+        <property>controls/electric/battery-switch</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.002</y-m>
+            <z-m>0.037</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lgen.sw</object-name>
+        <property>controls/electric/engine/generator</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>-0.026</y-m>
+            <z-m>0.037</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>rgen.sw</object-name>
+        <property>controls/electric/engine[1]/generator</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.030</y-m>
+            <z-m>0.037</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>avn.sw</object-name>
+        <property>controls/electric/avionics-switch</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.086</y-m>
+            <z-m>0.037</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>inv.sw</object-name>
+        <property>controls/electric/inverter-switch</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.086</y-m>
+            <z-m>0.037</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lign.sw</object-name>
+        <property>controls/engines/engine/ignition</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.058</y-m>
+            <z-m>-0.002</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>rign.sw</object-name>
+        <property>controls/engines/engine[1]/ignition</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.081</y-m>
+            <z-m>-0.002</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>lboost.sw</object-name>
+        <property>controls/fuel/tank/boost-pump</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>-0.076</y-m>
+            <z-m>-0.002</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>rboost.sw</object-name>
+        <property>controls/fuel/tank[1]/boost-pump</property>
+        <factor>15</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>-0.059</y-m>
+            <z-m>-0.002</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+<!-- Light Switches-->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>recog.sw</object-name>
+        <property>controls/lighting/recog-lights</property>
+        <factor>30</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.022</y-m>
+            <z-m>-0.075</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>strobe.sw</object-name>
+        <property>controls/lighting/strobe</property>
+        <factor>30</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.041</y-m>
+            <z-m>-0.075</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>nav.sw</object-name>
+        <property>controls/lighting/nav-lights</property>
+        <factor>30</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.061</y-m>
+            <z-m>-0.075</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>wing.sw</object-name>
+        <property>controls/lighting/wing-lights</property>
+        <factor>30</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.081</y-m>
+            <z-m>-0.075</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+<!-- hotspots -->
+
+<animation>
+    <type>pick</type>
+    <object-name>batt.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/battery-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>lgen.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/engine[0]/generator</property>
+        </binding>
+            <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>rgen.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/engine[1]/generator</property>
+        </binding>
+            <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>inv.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/inverter-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>avn.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/avionics-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>lign.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/engines/engine[0]/ignition</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>rign.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/engines/engine[1]/ignition</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>LH.starter</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+     <binding>
+       <command>property-assign</command>
+       <property>controls/engines/engine[0]/starter</property>
+       <value>1</value>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>property-assign</command>
+         <property>controls/engines/engine[0]/starter</property>
+         <value>0</value>
+       </binding>
+     </mod-up>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>RH.starter</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+     <binding>
+       <command>property-assign</command>
+       <property>controls/engines/engine[1]/starter</property>
+       <value>1</value>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>property-assign</command>
+         <property>controls/engines/engine[1]/starter</property>
+         <value>0</value>
+       </binding>
+     </mod-up>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>lboost.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+     <binding>
+       <command>property-toggle</command>
+       <property>controls/fuel/tank/boost-pump</property>
+		 </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>rboost.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+     <binding>
+       <command>property-toggle</command>
+       <property>controls/fuel/tank[1]/boost-pump</property>
+		 </binding>
+    </action>
+</animation>
+
+<!-- Lighting -->
+
+<animation>
+    <type>pick</type>
+    <object-name>recog.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/recog-lights</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>strobe.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/strobe</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>nav.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/nav-lights</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>wing.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/wing-lights</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+</PropertyList>

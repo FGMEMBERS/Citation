@@ -2,407 +2,355 @@
 
 <PropertyList>
 
-  <fx>
+<fx>
 
     <engine>
-      <name>engine</name>
-      <path>Sounds/jet.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>/engines/engine[0]/running</property>
-      </condition>
-      <volume>
-        <property>/engines/engine[0]/prop-thrust</property>
-        <factor type="double">0.0001</factor>
-      </volume>
-      <pitch>
-        <property>/engines/engine[0]/n1</property>
-        <factor>0.2</factor>
-      </pitch>
+        <name>left n1</name>
+        <path>Sounds/turbojet_fan.wav</path>
+        		<condition>
+					<greater-than>
+					<property>engines/engine[0]/fan</property>
+					<value>1</value>
+					</greater-than>
+				</condition>
+			<mode>looped</mode>
+        <volume>
+            <property>sim/sound/Ovolume</property>
+        </volume>
+        <pitch>
+            <property>engines/engine/fan</property>
+            <offset>0</offset>
+            <factor>0.01</factor>
+        </pitch>
+        <position>
+            <x>10</x>
+            <y>1.3</y>
+            <z>1</z>
+        </position>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>20.0</max-dist>
     </engine>
 
     <engine>
-      <name>whine</name>
-      <path>Sounds/whine.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>/engines/engine[0]/running</property>
-      </condition>
-      <volume>
-        <property>/engines/engine[0]/n2</property>
-        <factor>0.010</factor>
-        <max>1.0</max>
-      </volume>
-      <pitch>
-        <property>/engines/engine[0]/n2</property>
-        <factor>0.01</factor>
-        <offset>0.15</offset>
-      </pitch>
+        <name>right n1</name>
+        <path>Sounds/turbojet_fan.wav</path>
+        <condition>
+		  <greater-than>
+		  <property>engines/engine[1]/fan</property>
+		  <value>1</value>
+		  </greater-than>
+		  </condition>
+		  <mode>looped</mode>
+        <volume>
+            <property>sim/sound/Ovolume</property>
+        </volume>
+        <pitch>
+            <property>engines/engine[1]/fan</property>
+            <offset>0</offset>
+            <factor>0.01</factor>
+        </pitch>
+        <position>
+            <x>10</x>
+            <y>-1.3</y>
+            <z>1</z>
+        </position>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>20.0</max-dist>
     </engine>
 
     <engine>
-      <name>engine</name>
-      <path>Sounds/jet.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>/engines/engine[1]/running</property>
-      </condition>
-      <volume>
-        <property>/engines/engine[1]/prop-thrust</property>
-        <factor type="double">0.0001</factor>
-      </volume>
-      <pitch>
-        <property>/engines/engine[1]/n1</property>
-        <factor>0.2</factor>
-      </pitch>
-    </engine>
-
-    <engine>
-      <name>whine</name>
-      <path>Sounds/whine.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>/engines/engine[1]/running</property>
-      </condition>
-      <volume>
-        <property>/engines/engine[1]/n2</property>
-        <factor>0.010</factor>
-        <max>1.0</max>
-      </volume>
-      <pitch>
-        <property>/engines/engine[1]/n2</property>
-        <factor>0.01</factor>
-        <offset>0.15</offset>
-      </pitch>
+        <name>reverser</name>
+        <path>Sounds/exhaust_loop.wav</path>
+        <condition>
+            <greater-than>
+                <property>surface-positions/reverser-norm</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        <mode>looped</mode>
+        <volume>
+            <property>surface-positions/reverser-norm</property>
+            <factor>0.5</factor>
+        </volume>
+        <volume>
+            <property>engines/engine/turbine</property>
+            <factor>0.01</factor>
+        </volume>
+        <volume>
+            <property>sim/sound/Ovolume</property>
+        </volume>
+        <pitch>
+            <offset>1.6</offset>
+        </pitch>
+        <position>
+            <x>12</x>
+            <y>0</y>
+            <z>1</z>
+        </position>
+        <reference-dist>100.0</reference-dist>
+        <max-dist>500.0</max-dist>
     </engine>
 
     <rumble>
-      <name>rumble</name>
-      <mode>looped</mode>
-      <path>Sounds/rumble.wav</path>
-      <condition>
-        <property>/gear/gear[0]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <type>log</type>
-        <factor>0.12</factor>
-      </volume>
-    </rumble>
-
-    <rumble>
-      <name>rumble</name>
-      <mode>looped</mode>
-      <path>Sounds/rumble.wav</path>
-      <condition>
-        <property>/gear/gear[1]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <type>log</type>
-        <factor>0.12</factor>
-      </volume>
-    </rumble>
-
-    <rumble>
-      <name>rumble</name>
-      <mode>looped</mode>
-      <path>Sounds/rumble.wav</path>
-      <condition>
-        <property>/gear/gear[2]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <type>log</type>
-        <factor>0.12</factor>
-      </volume>
+        <name>rumble</name>
+        <path>Sounds/rumble.wav</path>
+        <condition>
+            <or>
+                <property>/gear/gear[0]/wow</property>
+                <property>/gear/gear[1]/wow</property>
+                <property>/gear/gear[2]/wow</property>
+            </or>
+        </condition>
+        <mode>looped</mode>
+        <volume>
+            <property>velocities/groundspeed-kt</property>
+            <factor>0.02</factor>
+            <min>0</min>
+            <max>0.5</max>
+        </volume>
+        <position>
+            <x>5</x>
+            <y>0</y>
+            <z>-2</z>
+        </position>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>20.0</max-dist>
     </rumble>
 
     <gear>
-      <name>gear</name>
-      <mode>in-transit</mode>
-      <path>Sounds/gear.wav</path>
-      <property>/gear/gear[0]/position-norm</property>
-      <pitch>
-        <internal>dt_play</internal>
-        <offset>1.0</offset>
-        <factor>-0.001</factor>
-      </pitch>
-      <volume>
-        <factor>0.5</factor>
-      </volume>
+        <name>gear</name>
+        <path>Sounds/gear.wav</path>
+        <property>gear/gear[0]/position-norm</property>
+        <mode>in-transit</mode>
+        <pitch>
+            <internal>dt_play</internal>
+            <offset>0.8</offset>
+            <factor>-0.001</factor>
+        </pitch>
+        <position>
+            <x>7</x>
+            <y>0</y>
+            <z>-1</z>
+        </position>
+        <reference-dist>5.0</reference-dist>
+        <max-dist>10.0</max-dist>
     </gear>
 
     <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[0]/position-norm</property>
-          <value>0</value>
-        </equals>
-      </condition>
+        <name>gear-lock</name>
+        <path>Sounds/gear-lck.wav</path>
+        <condition>
+			<or>
+				<equals>
+					<property>gear/gear[0]/position-norm</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>gear/gear[0]/position-norm</property>
+					<value>1</value>
+				</equals>
+			</or>
+        </condition>
+		<mode>once</mode>
+        <position>
+            <x>5</x>
+            <y>0</y>
+            <z>-1</z>
+        </position>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>20.0</max-dist>
     </gear>
 
     <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[0]/position-norm</property>
-          <value>1</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear</name>
-      <mode>in-transit</mode>
-      <path>Sounds/gear.wav</path>
-      <property>/gear/gear[1]/position-norm</property>
-      <pitch>
-        <internal>dt_play</internal>
-        <offset>1.0</offset>
-        <factor>-0.001</factor>
-      </pitch>
-      <volume>
-        <factor>0.5</factor>
-      </volume>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[1]/position-norm</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[1]/position-norm</property>
-          <value>1</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear</name>
-      <mode>in-transit</mode>
-      <path>Sounds/gear.wav</path>
-      <property>/gear/gear[2]/position-norm</property>
-      <pitch>
-        <internal>dt_play</internal>
-        <offset>1.0</offset>
-        <factor>-0.001</factor>
-      </pitch>
-      <volume>
-        <factor>0.5</factor>
-      </volume>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[2]/position-norm</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[2]/position-norm</property>
-          <value>1</value>
-        </equals>
-      </condition>
+        <name>gear-horn</name>
+        <path>Sounds/gear-hrn.wav</path>
+        <condition>
+            <property>instrumentation/alerts/gear-horn</property>
+        </condition>
+        <mode>looped</mode>
+        <volume>
+            <property>instrumentation/alerts/gear-horn</property>
+            <factor>0.7</factor>
+        </volume>
+        <position>
+            <x>2.5</x>
+            <y>0</y>
+            <z>0</z>
+        </position>
+        <reference-dist>3</reference-dist>
+        <max-dist>6.0</max-dist>
     </gear>
 
     <squeal>
-      <name>squeal</name>
-      <path>Sounds/squeal.wav</path>
-      <condition>
-        <property>/gear/gear[0]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/speed-down-fps</property>
-        <factor>0.05</factor>
-      </volume>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.01</factor>
-      </volume>
-      <volume>
-        <internal>dt_stop</internal>
-        <factor>0.05</factor>
-        <max>1.0</max>
-      </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.0025</factor>
-        <offset>1.2</offset>
-      </pitch>
+        <name>squeal</name>
+        <path>Sounds/squeal2.wav</path>
+        <condition>
+                <property>gear/gear[0]/wow</property>
+        </condition>
+        <volume>
+            <property>velocities/airspeed-kt</property>
+            <factor>0.01</factor>
+        </volume>
+        <volume>
+            <property>sim/sound/Ovolume</property>
+        </volume>
+        <position>
+            <x>3</x>
+            <y>0</y>
+            <z>-2</z>
+        </position>
+        <reference-dist>20.0</reference-dist>
+        <max-dist>50.0</max-dist>
     </squeal>
 
     <squeal>
-      <name>squeal</name>
-      <path>Sounds/squeal.wav</path>
-      <condition>
-        <property>/gear/gear[1]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/speed-down-fps</property>
-        <factor>0.05</factor>
-      </volume>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.01</factor>
-      </volume>
-      <volume>
-        <internal>dt_stop</internal>
-        <factor>0.05</factor>
-        <max>1.0</max>
-      </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.0025</factor>
-        <offset>1.2</offset>
-      </pitch>
+        <name>squeal</name>
+        <path>Sounds/squeal2.wav</path>
+        <condition>
+                <property>gear/gear[1]/wow</property>
+        </condition>
+        <volume>
+            <property>velocities/airspeed-kt</property>
+            <factor>0.01</factor>
+        </volume>
+        <volume>
+            <property>sim/sound/Ovolume</property>
+        </volume>
+        <position>
+            <x>7</x>
+            <y>-2</y>
+            <z>-2</z>
+        </position>
+        <reference-dist>20.0</reference-dist>
+        <max-dist>50.0</max-dist>
     </squeal>
 
     <squeal>
-      <name>squeal</name>
-      <path>Sounds/squeal.wav</path>
-      <condition>
-        <property>/gear/gear[2]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/speed-down-fps</property>
-        <factor>0.05</factor>
-      </volume>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.01</factor>
-      </volume>
-      <volume>
-        <internal>dt_stop</internal>
-        <factor>0.05</factor>
-        <max>1.0</max>
-      </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.0025</factor>
-        <offset>1.2</offset>
-      </pitch>
+        <name>squeal</name>
+        <path>Sounds/squeal2.wav</path>
+        <condition>
+                <property>gear/gear[2]/wow</property>
+        </condition>
+        <volume>
+            <property>velocities/airspeed-kt</property>
+            <factor>0.01</factor>
+        </volume>
+        <volume>
+            <property>sim/sound/Ovolume</property>
+        </volume>
+        <position>
+            <x>7</x>
+            <y>2</y>
+            <z>-2</z>
+        </position>
+        <reference-dist>20.0</reference-dist>
+        <max-dist>50.0</max-dist>
     </squeal>
 
     <flap>
-      <name>flaps</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/left-flap-pos-norm</property>
-      <volume>
-        <factor>0.15</factor>
-      </volume>
+        <name>flaps</name>
+        <path>Sounds/flaps.wav</path>
+        <property>/surface-positions/flap-pos-norm</property>
+        <mode>in-transit</mode>
+        <volume>
+            <property>sim/sound/Cvolume</property>
+            <factor>0.5</factor>
+        </volume>
+        <position>
+            <x>7</x>
+            <y>0</y>
+            <z>-1</z>
+        </position>
+        <reference-dist>5.0</reference-dist>
+        <max-dist>10.0</max-dist>
     </flap>
 
-    <flap>
-      <name>flaps</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/right-flap-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </flap>
+    <speedbrake>
+        <name>speedbrake</name>
+        <path>Sounds/flaps.wav</path>
+        <property>surface-positions/speedbrake-pos-norm</property>
+        <mode>in-transit</mode>
+        <volume>
+            <property>sim/sound/Cvolume</property>
+            <factor>0.3</factor>
+        </volume>
+        <pitch>
+            <offset>1.5</offset>
+        </pitch>
+        <position>
+            <x>7</x>
+            <y>0</y>
+            <z>-1</z>
+        </position>
+        <reference-dist>5.0</reference-dist>
+        <max-dist>10.0</max-dist>
+    </speedbrake>
 
-    <spoiler>
-      <name>spoilers</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/left-spoiler-pos-norm</property>
-      <volume>
-        <factor>0.15</factor>
-      </volume>
-    </spoiler>
-
-    <spoiler>
-      <name>spoilers</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/right-spoiler-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </spoiler>
-<!--
-    <slat>
-      <name>slats</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/L-slat-pos-norm</property>
-      <volume>
-        <factor>0.15</factor>
-      </volume>
-    </slat>
-
-    <slat>
-      <name>slats</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/R-slat-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </slat>
--->
-<!--
     <wind>
-      <name>wind</name>
-      <mode>looped</mode>
-      <path>Sounds/wind.wav</path>
-      <property>/velocities/airspeed-kt</property>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.002</factor>
-        <min>0.03</min>
-        <max>0.25</max>
-      </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.01</factor>
-        <offset>1.25</offset>
-      </pitch>
+        <name>wind</name>
+        <path>Sounds/wind.wav</path>
+        <property>velocities/airspeed-kt</property>
+        <mode>looped</mode>
+        <volume>
+            <property>velocities/airspeed-kt</property>
+            <factor>0.002</factor>
+            <min>0.0</min>
+            <max>0.15</max>
+        </volume>
+        <pitch>
+            <property>velocities/airspeed-kt</property>
+            <factor>0.01</factor>
+            <offset>1.25</offset>
+        </pitch>
+        <position>
+            <x>2</x>
+            <y>0</y>
+            <z>0</z>
+        </position>
+        <reference-dist>1</reference-dist>
+        <max-dist>2.0</max-dist>
     </wind>
--->
-    <stall>
-      <name>stall</name>
-      <path>Sounds/stall.wav</path>
-      <property>/sim/alarms/stall-warning</property>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <min>90.0</min>
-      </volume>
-    </stall>
 
-<!-- no binding yet?
     <click>
-      <name>click</name>
-      <path>Sounds/click.wav</path>
+        <name>click1</name>
+        <path>Sounds/click.wav</path>
+        <condition>
+            <property>sim/sound/click</property>
+        </condition>
+        <volume>
+            <property>sim/sound/Cvolume</property>
+            <factor>0.3</factor>
+        </volume>
+        <position>
+            <x>5</x>
+            <y>0</y>
+            <z>0</z>
+        </position>
+        <reference-dist>2.5</reference-dist>
+        <max-dist>5.0</max-dist>
     </click>
--->
 
-  </fx>
+    <click>
+        <name>click2</name>
+        <path>Sounds/click.wav</path>
+        <condition>
+            <not>
+                <property>sim/sound/click</property>
+            </not>
+        </condition>
+        <volume>
+            <property>sim/sound/Cvolume</property>
+            <factor>0.3</factor>
+        </volume>
+        <position>
+            <x>2.5</x>
+            <y>0</y>
+            <z>0</z>
+        </position>
+        <reference-dist>2.5</reference-dist>
+        <max-dist>5.0</max-dist>
+    </click>
+
+</fx>
 
 </PropertyList>
