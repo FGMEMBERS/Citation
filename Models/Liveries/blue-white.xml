@@ -13,5 +13,8 @@
             <blue>0.8 </blue>
         </registration>
     </model>
+    <rendering>
+        <refl_correction type="string">0.15</refl_correction>
+    </rendering>
 </sim>
 </PropertyList>
