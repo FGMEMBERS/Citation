@@ -32,6 +32,9 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
                 <blue type="double">0</blue>
             </registration>
     </model>
+    <rendering>
+        <refl_correction type="string">0.15</refl_correction>
+    </rendering>
      
     <view n="0">
         <name>Cockpit</name>
@@ -158,6 +161,10 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         <name>Delete</name>
         <desc>toggle thrust reversers</desc>
       </key>
+      <key>  
+        <name>Ctrl-D</name>
+        <desc>Open/close cabin-door</desc>
+      </key>
     </help>
 
     <weight n="0">
@@ -237,8 +244,28 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
             <string  alias="/sim/multiplay/callsign"/>
         </generic>
     </multiplay>
+    
+    <flight-recorder>
+        <replay-config type="int">0</replay-config>
+        <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
+            <name type="string">Citation II - Flight Recorder</name>
+            <signal>
+                <type>bool</type>
+                <property type="string">/controls/engines/engine[%i]/reverser</property>
+            </signal>
+            <signal>
+                <type>float</type>
+		<property type="string">/surface-positions/reverser-norm[%i]</property>
+            </signal>
+            <signal>
+                <type>float</type>
+                <property type="string">/controls/cabin-door/position-norm</property>
+            </signal>
+        </config>
+    </flight-recorder>
 
 </sim>
+
 <!-- aircraft specific loading -->
 
 <controls>
