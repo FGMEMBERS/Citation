@@ -137,6 +137,25 @@
            <object-name>Glass</object-name>
        </effect>
 
+<effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+           <object-name>Door.glass</object-name>
+           <object-name>Glass.001</object-name>
+           <object-name>Glass</object-name>
+            <object-name>rednav</object-name>
+            <object-name>greennav</object-name>
+            <object-name>whitenav</object-name>
+            <object-name>Flash01</object-name>
+            <object-name>Flash02</object-name>
+            <object-name>beacon</object-name>
+            <object-name>beacon.001</object-name>
+            <object-name>beacon.002</object-name>
+            <object-name>beacon.003</object-name>
+            <object-name>Recog.flash1</object-name>
+            <object-name>Recog.flash2</object-name>
+            <object-name>LHland.light</object-name>
+            <object-name>RHland.light</object-name>
+    </effect>
 
     <!--text>
         <name>LHreg</name>

@@ -7,13 +7,13 @@
     <engine>
         <name>left n1</name>
         <path>Sounds/turbojet_fan.wav</path>
-        		<condition>
-					<greater-than>
-					<property>engines/engine[0]/fan</property>
-					<value>1</value>
-					</greater-than>
-				</condition>
-			<mode>looped</mode>
+                <condition>
+                    <greater-than>
+                    <property>engines/engine[0]/fan</property>
+                    <value>1</value>
+                    </greater-than>
+                </condition>
+            <mode>looped</mode>
         <volume>
             <property>sim/sound/Ovolume</property>
         </volume>
@@ -28,19 +28,19 @@
             <z>1</z>
         </position>
         <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <max-dist>2000.0</max-dist>
     </engine>
 
     <engine>
         <name>right n1</name>
         <path>Sounds/turbojet_fan.wav</path>
         <condition>
-		  <greater-than>
-		  <property>engines/engine[1]/fan</property>
-		  <value>1</value>
-		  </greater-than>
-		  </condition>
-		  <mode>looped</mode>
+          <greater-than>
+          <property>engines/engine[1]/fan</property>
+          <value>1</value>
+          </greater-than>
+          </condition>
+          <mode>looped</mode>
         <volume>
             <property>sim/sound/Ovolume</property>
         </volume>
@@ -55,7 +55,7 @@
             <z>1</z>
         </position>
         <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <max-dist>2000.0</max-dist>
     </engine>
 
     <engine>
@@ -88,7 +88,7 @@
             <z>1</z>
         </position>
         <reference-dist>100.0</reference-dist>
-        <max-dist>500.0</max-dist>
+        <max-dist>1000.0</max-dist>
     </engine>
 
     <rumble>
@@ -114,7 +114,7 @@
             <z>-2</z>
         </position>
         <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <max-dist>50.0</max-dist>
     </rumble>
 
     <gear>
@@ -132,7 +132,7 @@
             <y>0</y>
             <z>-1</z>
         </position>
-        <reference-dist>5.0</reference-dist>
+        <reference-dist>2.0</reference-dist>
         <max-dist>10.0</max-dist>
     </gear>
 
@@ -140,29 +140,30 @@
         <name>gear-lock</name>
         <path>Sounds/gear-lck.wav</path>
         <condition>
-			<or>
-				<equals>
-					<property>gear/gear[0]/position-norm</property>
-					<value>0</value>
-				</equals>
-				<equals>
-					<property>gear/gear[0]/position-norm</property>
-					<value>1</value>
-				</equals>
-			</or>
+            <or>
+                <equals>
+                    <property>gear/gear[0]/position-norm</property>
+                    <value>0</value>
+                </equals>
+                <equals>
+                    <property>gear/gear[0]/position-norm</property>
+                    <value>1</value>
+                </equals>
+            </or>
         </condition>
-		<mode>once</mode>
+        <mode>once</mode>
         <position>
             <x>5</x>
             <y>0</y>
             <z>-1</z>
         </position>
-        <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <reference-dist>2.0</reference-dist>
+        <max-dist>10.0</max-dist>
     </gear>
 
     <gear>
         <name>gear-horn</name>
+        <type>avionics</type>
         <path>Sounds/gear-hrn.wav</path>
         <condition>
             <property>instrumentation/alerts/gear-horn</property>
@@ -177,15 +178,17 @@
             <y>0</y>
             <z>0</z>
         </position>
-        <reference-dist>3</reference-dist>
-        <max-dist>6.0</max-dist>
     </gear>
 
     <squeal>
         <name>squeal</name>
         <path>Sounds/squeal2.wav</path>
         <condition>
+            <or>
                 <property>gear/gear[0]/wow</property>
+                <property>gear/gear[1]/wow</property>
+                <property>gear/gear[2]/wow</property>
+            </or>
         </condition>
         <volume>
             <property>velocities/airspeed-kt</property>
@@ -199,53 +202,10 @@
             <y>0</y>
             <z>-2</z>
         </position>
-        <reference-dist>20.0</reference-dist>
-        <max-dist>50.0</max-dist>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>1000.0</max-dist>
     </squeal>
 
-    <squeal>
-        <name>squeal</name>
-        <path>Sounds/squeal2.wav</path>
-        <condition>
-                <property>gear/gear[1]/wow</property>
-        </condition>
-        <volume>
-            <property>velocities/airspeed-kt</property>
-            <factor>0.01</factor>
-        </volume>
-        <volume>
-            <property>sim/sound/Ovolume</property>
-        </volume>
-        <position>
-            <x>7</x>
-            <y>-2</y>
-            <z>-2</z>
-        </position>
-        <reference-dist>20.0</reference-dist>
-        <max-dist>50.0</max-dist>
-    </squeal>
-
-    <squeal>
-        <name>squeal</name>
-        <path>Sounds/squeal2.wav</path>
-        <condition>
-                <property>gear/gear[2]/wow</property>
-        </condition>
-        <volume>
-            <property>velocities/airspeed-kt</property>
-            <factor>0.01</factor>
-        </volume>
-        <volume>
-            <property>sim/sound/Ovolume</property>
-        </volume>
-        <position>
-            <x>7</x>
-            <y>2</y>
-            <z>-2</z>
-        </position>
-        <reference-dist>20.0</reference-dist>
-        <max-dist>50.0</max-dist>
-    </squeal>
 
     <flap>
         <name>flaps</name>
@@ -261,7 +221,7 @@
             <y>0</y>
             <z>-1</z>
         </position>
-        <reference-dist>5.0</reference-dist>
+        <reference-dist>2.0</reference-dist>
         <max-dist>10.0</max-dist>
     </flap>
 
@@ -282,7 +242,7 @@
             <y>0</y>
             <z>-1</z>
         </position>
-        <reference-dist>5.0</reference-dist>
+        <reference-dist>2.0</reference-dist>
         <max-dist>10.0</max-dist>
     </speedbrake>
 
@@ -308,30 +268,25 @@
             <z>0</z>
         </position>
         <reference-dist>1</reference-dist>
-        <max-dist>2.0</max-dist>
+        <max-dist>5.0</max-dist>
     </wind>
 
     <click>
         <name>click1</name>
+        <type>avionics</type>
         <path>Sounds/click.wav</path>
         <condition>
             <property>sim/sound/click</property>
         </condition>
         <volume>
-            <property>sim/sound/Cvolume</property>
+            <property>sim/sound/volume</property>
             <factor>0.3</factor>
         </volume>
-        <position>
-            <x>5</x>
-            <y>0</y>
-            <z>0</z>
-        </position>
-        <reference-dist>2.5</reference-dist>
-        <max-dist>5.0</max-dist>
     </click>
 
     <click>
         <name>click2</name>
+        <type>avionics</type>
         <path>Sounds/click.wav</path>
         <condition>
             <not>
@@ -339,16 +294,9 @@
             </not>
         </condition>
         <volume>
-            <property>sim/sound/Cvolume</property>
+            <property>sim/sound/volume</property>
             <factor>0.3</factor>
         </volume>
-        <position>
-            <x>2.5</x>
-            <y>0</y>
-            <z>0</z>
-        </position>
-        <reference-dist>2.5</reference-dist>
-        <max-dist>5.0</max-dist>
     </click>
 
 </fx>
