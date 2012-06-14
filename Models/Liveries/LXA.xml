@@ -7,9 +7,10 @@
             <name type="string">Luxaviation</name>
             <texture>Liveries/LXA.png</texture>
         </livery>
-		<rendering>
-			<refl_correction type="string">0.25</refl_correction>
-		</rendering>
-	</model>
+        <rendering>
+            <refl_correction type="string">0.0</refl_correction>
+            <amb_correction type="string">0.1</amb_correction>
+        </rendering>
+    </model>
 </sim>
 </PropertyList>

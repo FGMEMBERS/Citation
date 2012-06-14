@@ -19,7 +19,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     <startup>
       <splash-texture>Aircraft/Citation/Citation-II-splash.png</splash-texture>
     </startup>
-     
+
     <model>
       <path>Aircraft/Citation/Models/Citation-II.xml</path>
                 <autostart type="bool">0</autostart>
@@ -31,11 +31,12 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
                 <green type="double">0</green>
                 <blue type="double">0</blue>
             </registration>
+            <rendering>
+                <refl_correction type="string">-0.1</refl_correction>
+                <amb_correction type="string">0.10</amb_correction>
+        </rendering>
     </model>
-    <rendering>
-        <refl_correction type="string">0.15</refl_correction>
-    </rendering>
-     
+
     <view n="0">
         <name>Cockpit</name>
         <type>lookfrom</type>

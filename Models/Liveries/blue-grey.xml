@@ -12,9 +12,10 @@
             <green>0.05</green>
             <blue>0.05</blue>
         </registration>
+        <rendering>
+            <refl_correction type="string">-0.1</refl_correction>
+            <amb_correction type="string">0.2</amb_correction>
+        </rendering>
     </model>
-    <rendering>
-        <refl_correction type="string">0.15</refl_correction>
-    </rendering>
 </sim>
 </PropertyList>

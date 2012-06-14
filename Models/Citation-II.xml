@@ -45,51 +45,6 @@
           <texture>Lv1.png</texture>
         </animation>
 
-       <animation>
-           <type>material</type>
-           <object-name>LEngine</object-name>
-           <object-name>REngine</object-name>
-           <object-name>LHwing</object-name>
-           <object-name>LHaileron</object-name>
-           <object-name>LHflap</object-name>
-           <object-name>LHmain.door</object-name>
-           <object-name>RHwing</object-name>
-           <object-name>RHaileron</object-name>
-           <object-name>RHflap</object-name>
-           <object-name>RHmain.door</object-name>
-           <object-name>Cabin.door</object-name>
-           <object-name>Fuselage</object-name>
-           <object-name>Pylons</object-name>
-           <object-name>Fin</object-name>
-           <object-name>Hstab</object-name>
-           <object-name>RHelevator</object-name>
-           <object-name>LHelevator</object-name>
-           <object-name>Rudder</object-name>
-           <object-name>FrDoor</object-name>
-           <object-name>FrRHdoor</object-name>
-           <object-name>FrLHdoor</object-name>
-           <shininess>16</shininess>
-       </animation>
-
-       <animation>
-           <type>material</type>
-           <object-name>RHwing.heater</object-name>
-           <object-name>LHwing.heater</object-name>
-           <object-name>REngine.heater</object-name>
-           <object-name>LEngine.heater</object-name>
-           <object-name>Door.handle</object-name>
-           <object-name>RH.Ureverser</object-name>
-           <object-name>LH.Ureverser</object-name>
-           <object-name>RH.Lreverser</object-name>
-           <object-name>LH.Lreverser</object-name>
-           <object-name>LHstrut</object-name>
-           <object-name>FrtStrut</object-name>
-           <object-name>RHstrut</object-name>
-           <object-name>Door.glass</object-name>
-           <object-name>Glass.001</object-name>
-           <object-name>Glass</object-name>
-           <shininess>192</shininess>
-       </animation>
 
        <!-- REFLECTION -->
        <effect>
@@ -120,22 +75,14 @@
            <object-name>FrDoor</object-name>
            <object-name>FrRHdoor</object-name>
            <object-name>FrLHdoor</object-name>
-           <object-name>RHwing.heater</object-name>
-           <object-name>LHwing.heater</object-name>
-           <object-name>REngine.heater</object-name>
-           <object-name>LEngine.heater</object-name>
-           <object-name>Door.handle</object-name>
-           <object-name>RH.Ureverser</object-name>
-           <object-name>LH.Ureverser</object-name>
-           <object-name>RH.Lreverser</object-name>
-           <object-name>LH.Lreverser</object-name>
-           <!--object-name>LHstrut</object-name>
-           <object-name>FrtStrut</object-name>
-           <object-name>RHstrut</object-name-->
+       </effect>
+
+<effect>
+        <inherits-from>Aircraft/Citation/Models/Effects/glass</inherits-from>
            <object-name>Door.glass</object-name>
            <object-name>Glass.001</object-name>
            <object-name>Glass</object-name>
-       </effect>
+     </effect>
 
 <effect>
         <inherits-from>Effects/model-transparent</inherits-from>
@@ -267,15 +214,6 @@
             <object-name>flightdeck</object-name>
             <min-m>0</min-m>
             <max-m>100</max-m>
-        </animation>
-
-        <animation>
-            <type>shader</type>
-            <shader>chrome</shader>
-            <texture>chrome1.png</texture>
-            <object-name>Door.glass</object-name>
-        <object-name>Glass</object-name>
-        <object-name>Glass.001</object-name>
         </animation>
 
         <animation>

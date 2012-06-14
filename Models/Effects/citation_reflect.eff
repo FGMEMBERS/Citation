@@ -1,24 +1,69 @@
 <PropertyList>
-    <name>skin_reflect</name>
-    <inherits-from>Effects/model-combined-deferred</inherits-from>
-    <parameters>
-        <reflection-enabled type="int">1</reflection-enabled>
-        <reflection-dynamic type="int">1</reflection-dynamic>
-        <reflect_map-enabled type="int">0</reflect_map-enabled>
-        <reflection-correction type="float">0.1</reflection-correction>
-         <texture n="5">
-            <type>cubemap</type>
-            <images>
-                <positive-x>Aircraft/Generic/Effects/fgfs-sky2/1.png</positive-x>
-                <negative-x>Aircraft/Generic/Effects/fgfs-sky2/4.png</negative-x>
-                <positive-y>Aircraft/Generic/Effects/fgfs-sky2/2.png</positive-y>
-                <negative-y>Aircraft/Generic/Effects/fgfs-sky2/3.png</negative-y>
-                <positive-z>Aircraft/Generic/Effects/fgfs-sky2/6.png</positive-z>
-                <negative-z>Aircraft/Generic/Effects/fgfs-sky2/5.png</negative-z>
-            </images>
-        </texture>
-                <reflection-rainbow type="float">0.05</reflection-rainbow>
-                <reflection-fresnel type="float">0.1</reflection-fresnel>
-        <ambient_correction>0.1</ambient_correction>
-    </parameters>
+ <name>Effects/citation_reflect</name>
+ <inherits-from>Effects/reflect</inherits-from>
+ <parameters>
+   <texture n="5">
+     <type>cubemap</type>
+     <images>
+        <positive-x>Aircraft/Generic/Effects/fgfs-sky2/1.png</positive-x>
+        <negative-x>Aircraft/Generic/Effects/fgfs-sky2/4.png</negative-x>
+        <positive-y>Aircraft/Generic/Effects/fgfs-sky2/2.png</positive-y>
+        <negative-y>Aircraft/Generic/Effects/fgfs-sky2/3.png</negative-y>
+        <positive-z>Aircraft/Generic/Effects/fgfs-sky2/6.png</positive-z>
+        <negative-z>Aircraft/Generic/Effects/fgfs-sky2/5.png</negative-z>
+     </images>
+   </texture>
+   <texture n="6">
+     <image>Aircraft/Generic/Effects/Rainbow.png</image>
+     <filter>linear-mipmap-linear</filter>
+     <wrap-s>repeat</wrap-s>
+     <wrap-t>repeat</wrap-t>
+     <internal-format>normalized</internal-format>
+   </texture>
+   <texture n="7">
+     <image>Aircraft/Generic/Effects/FresnelLookUp.png</image>
+     <filter>linear-mipmap-linear</filter>
+     <wrap-s>repeat</wrap-s>
+     <wrap-t>repeat</wrap-t>
+     <internal-format>normalized</internal-format>
+   </texture>
+     <texture n="8">
+     <image>Aircraft/Citation/Models/Effects/greymap.png</image>
+     <filter>linear-mipmap-linear</filter>
+     <wrap-s>repeat</wrap-s>
+     <wrap-t>repeat</wrap-t>
+     <internal-format>normalized</internal-format>
+   </texture>
+   <rendering-hint>transparent</rendering-hint>
+   <shade-model>smooth</shade-model>
+   <rainbowiness type="float">0.01</rainbowiness>
+   <fresneliness>0.05</fresneliness>
+   <noisiness>0.0</noisiness>
+   <!--refl_correction>0.25</refl_correction-->
+   <refl_correction><use>/sim/model/rendering/refl_correction</use></refl_correction>
+   <ambient_correction><use>/sim/model/rendering/amb_correction</use></ambient_correction>
+   <reflect_map>1</reflect_map>
+ </parameters>
 </PropertyList>
+
+<!--
+Explanation:
+(Taken from http://wiki.flightgear.org/index.php/Howto:_Aircraft_Reflection_Shader )
+
+The tags at the bottom:
+
+    * <rainbowiness> = adds a nice Rainbow-effect to the reflection. Perfect for the modern Airliner-windows or modern coatings.
+    * <fresneliness> = adds some black stripes to the reflection.
+    * <noisiness> = adds noise to the reflection. Usefull for dirt etc...
+    * <ambient_correction> = correct the appearance of the reflection at shadowed parts.
+    * <reflect_map> = enables the use of a greymap. If enabled the greymap will controll the strength of the reflection.
+        Black = zero reflection, White = full reflection. For modern aircraft coatings a grey of 75-90% is usefull, for chromish parts
+        about 10-25%.
+    * <refl_correction> = another parameter for controlling the strength of the reflection. Reflect_map and refl_correction are 
+        working together.
+    * "texture= n5" is the path to the image wich will be later the reflection. You can choose between cubemaps with 6 single images 
+        or a cubecross. You can take the one included in data/Aircraft/Generic/Effects or you can use your own.
+    * "texture= n6" is the path to the rainbow-texture.
+    * "texture= n7" path to the fresnel-texture.
+    * "texture= n8"is the path to the greymap. 
+-->
