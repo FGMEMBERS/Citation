@@ -45,6 +45,20 @@
           <texture>Lv1.png</texture>
         </animation>
 
+       <!-- Chrome parts, compatible with Rembrandt -->
+       <effect>
+         <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome</inherits-from>
+           <object-name>RHwing.heater</object-name>
+           <object-name>LHwing.heater</object-name>
+           <object-name>REngine.heater</object-name>
+           <object-name>LEngine.heater</object-name>
+           <object-name>Door.handle</object-name>
+           <object-name>RH.Ureverser</object-name>
+           <object-name>LH.Ureverser</object-name>
+           <object-name>RH.Lreverser</object-name>
+           <object-name>LH.Lreverser</object-name>
+       </effect>
+
 
        <!-- REFLECTION -->
        <effect>
@@ -77,14 +91,7 @@
            <object-name>FrLHdoor</object-name>
        </effect>
 
-<effect>
-        <inherits-from>Aircraft/Citation/Models/Effects/glass</inherits-from>
-           <object-name>Door.glass</object-name>
-           <object-name>Glass.001</object-name>
-           <object-name>Glass</object-name>
-     </effect>
-
-<effect>
+      <effect>
         <inherits-from>Effects/model-transparent</inherits-from>
            <object-name>Door.glass</object-name>
            <object-name>Glass.001</object-name>
@@ -104,6 +111,7 @@
             <object-name>RHland.light</object-name>
     </effect>
 
+<!-- disabled mp-callsign on the rudder -->
     <!--text>
         <name>LHreg</name>
         <offsets>
@@ -214,21 +222,6 @@
             <object-name>flightdeck</object-name>
             <min-m>0</min-m>
             <max-m>100</max-m>
-        </animation>
-
-        <animation>
-            <type>shader</type>
-            <shader>chrome</shader>
-            <texture>chrome.png</texture>
-            <object-name>RHwing.heater</object-name>
-            <object-name>LHwing.heater</object-name>
-            <object-name>REngine.heater</object-name>
-            <object-name>LEngine.heater</object-name>
-            <object-name>Door.handle</object-name>
-            <object-name>RH.Ureverser</object-name>
-            <object-name>LH.Ureverser</object-name>
-            <object-name>RH.Lreverser</object-name>
-            <object-name>LH.Lreverser</object-name>
         </animation>
 
         <animation>
