@@ -14,7 +14,7 @@ name "FrLHdoor"
 kids 2
 OBJECT poly
 name "FrLHdoor_0"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 8
@@ -51,7 +51,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FrLHdoor_1"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 16
@@ -172,7 +172,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Frwhwell_1"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 18
@@ -286,7 +286,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Cabin.door"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 69
@@ -1235,7 +1235,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FLdamper"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 45.000000
 numvert 8
@@ -1293,7 +1293,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FUdamper"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 45.000000
 numvert 8
@@ -1351,7 +1351,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Fin"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 465
@@ -2754,7 +2754,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Fin.001"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 14
@@ -2856,7 +2856,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FrDoor"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 30
@@ -3062,7 +3062,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FrRHdoor"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 16
@@ -3184,7 +3184,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FrtStrut"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 192
@@ -3720,7 +3720,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FrtWheel"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 506
@@ -7546,7 +7546,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Fuselage"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 1093
@@ -21224,7 +21224,7 @@ numsurf 0
 kids 0
 OBJECT poly
 name "Hstab"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 64
@@ -21812,7 +21812,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Hstab.001"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 28
@@ -21904,7 +21904,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LEngine"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 480
@@ -27768,7 +27768,7 @@ refs 3
 kids 0
 OBJECT poly
 name "LEngine.001"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 226
@@ -35515,7 +35515,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHU.spdbrake"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 8
@@ -35573,7 +35573,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHWwell"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 29
@@ -35756,7 +35756,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHaileron"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 10
@@ -35845,7 +35845,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHelevator"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 35
@@ -36284,7 +36284,7 @@ refs 3
 kids 0
 OBJECT poly
 name "LHflap"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 10
@@ -36710,7 +36710,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHmain.door"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 16
@@ -36832,7 +36832,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHram"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 34
@@ -37082,7 +37082,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHstrut"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 13
@@ -37181,7 +37181,7 @@ refs 3
 kids 0
 OBJECT poly
 name "LHwheel"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 506
@@ -41007,7 +41007,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHwing"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 214
@@ -43329,7 +43329,7 @@ refs 3
 kids 0
 OBJECT poly
 name "LHwing.guard"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 54
@@ -43639,7 +43639,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHwing.guard.001"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 10
@@ -43685,7 +43685,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LHwing.guard.002"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 24
@@ -43961,7 +43961,7 @@ refs 3
 kids 0
 OBJECT poly
 name "LLdamper"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 8
@@ -44019,7 +44019,7 @@ refs 4
 kids 0
 OBJECT poly
 name "LUdamper"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 8
@@ -44077,7 +44077,7 @@ refs 4
 kids 0
 OBJECT poly
 name "NavLights"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 62
@@ -44537,7 +44537,7 @@ refs 3
 kids 0
 OBJECT poly
 name "Pylons"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 68
@@ -44873,7 +44873,7 @@ refs 3
 kids 0
 OBJECT poly
 name "REngine"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 480
@@ -50737,7 +50737,7 @@ refs 3
 kids 0
 OBJECT poly
 name "REngine.001"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 226
@@ -58484,7 +58484,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHU.spdbrake"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 8
@@ -58542,7 +58542,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHWwell"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 29
@@ -58725,7 +58725,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHaileron"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 10
@@ -58814,7 +58814,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHelevator"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 35
@@ -59253,7 +59253,7 @@ refs 3
 kids 0
 OBJECT poly
 name "RHflap"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 10
@@ -59673,7 +59673,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHmain.door"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 16
@@ -59795,7 +59795,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHram"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 34
@@ -60045,7 +60045,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHstrut"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 13
@@ -60144,7 +60144,7 @@ refs 3
 kids 0
 OBJECT poly
 name "RHwheel"
-texture "Lv1.png"
+texture "Liveries/Lv1.png"
 texrep 1 1
 crease 60.000000
 numvert 506
@@ -63970,7 +63970,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHwing"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 214
@@ -66292,7 +66292,7 @@ refs 3
 kids 0
 OBJECT poly
 name "RHwing.guard"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 35
@@ -66503,7 +66503,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RHwing.guard.001"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 10
@@ -66720,7 +66720,7 @@ refs 3
 kids 0
 OBJECT poly
 name "RLdamper"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 8
@@ -66778,7 +66778,7 @@ refs 4
 kids 0
 OBJECT poly
 name "RUdamper"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 45.000000
 numvert 8
@@ -66874,7 +66874,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Rudder"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 60.000000
 numvert 70
@@ -67995,7 +67995,7 @@ refs 3
 kids 0
 OBJECT poly
 name "beacon.003"
-texture "Lv2.png"
+texture "Liveries/Lv2.png"
 texrep 1 1
 crease 30.000000
 numvert 18
