@@ -6,11 +6,10 @@
         <livery>
             <name type="string">Luxaviation</name>
             <texture>Liveries/LXA.png</texture>
+            <reflect-map-enabled type="int">1</reflect-map-enabled>
+            <reflection-correction type="float">0.0</reflection-correction>
+            <ambient-correction type="float">0.1</ambient-correction>
         </livery>
-        <rendering>
-            <refl_correction type="string">0.0</refl_correction>
-            <amb_correction type="string">0.1</amb_correction>
-        </rendering>
     </model>
 </sim>
 </PropertyList>

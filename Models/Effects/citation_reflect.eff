@@ -35,8 +35,12 @@
 
 <!-- Reflection -->
    <reflection-enabled type="int"> 1 </reflection-enabled>
-   <reflect-map-enabled type="int"> 1 </reflect-map-enabled>
-   <reflection-correction type="float"> -0.05 </reflection-correction>
+   <reflect-map-enabled type="int">
+     <use>sim/model/livery/reflect-map-enabled</use>
+   </reflect-map-enabled>
+   <reflection-correction type="float">
+     <use>sim/model/livery/reflection-correction</use>
+   </reflection-correction>
    <reflection-dynamic type="int"> 1 </reflection-dynamic>
    <texture n="4">
      <image>Aircraft/Citation/Models/Effects/greymap.png</image>
@@ -59,7 +63,9 @@
    <reflection-noise type="float"> 0.0 </reflection-noise>
 
 <!--Ambient correction -->
-   <ambient-correction type="float"> 0.02 </ambient-correction>
+   <ambient-correction type="float">
+     <use>sim/model/livery/ambient-correction</use>
+   </ambient-correction>
    <dirt-enabled type="int"> 0 </dirt-enabled>
    <dirt-color type="vec3d"> 0.0 0.0 0.0 </dirt-color>
    <dirt-factor type="float"> 0.0 </dirt-factor>
