@@ -1,0 +1,29 @@
+<PropertyList>
+
+<path>markers.ac</path>
+
+    <animation>
+        <type>select</type>
+        <object-name>Omrkr</object-name>
+        <condition>
+            <property>instrumentation/marker-beacon/outer</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Mmrkr</object-name>
+        <condition>
+            <property>instrumentation/marker-beacon/middle</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Imrkr</object-name>
+        <condition>
+            <property>instrumentation/marker-beacon/inner</property>
+        </condition>
+    </animation>
+
+</PropertyList>

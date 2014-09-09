@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">Luxaviation</name>
+            <texture>Liveries/LXA.png</texture>
+            <reflect-map-enabled type="int">1</reflect-map-enabled>
+            <reflection-correction type="float">0.0</reflection-correction>
+            <ambient-correction type="float">0.1</ambient-correction>
+        </livery>
+    </model>
+</sim>
+</PropertyList>
