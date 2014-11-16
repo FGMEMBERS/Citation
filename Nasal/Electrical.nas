@@ -1,6 +1,5 @@
 ####    jet engine electrical system    ####
 ####    Syd Adams  -  modified from Curt's original electrical code ####
-var count=0;
 var ammeter_ave = 0.0;
 var Lbus = props.globals.initNode("/systems/electrical/left-bus",0,"DOUBLE");
 var Rbus = props.globals.initNode("/systems/electrical/right-bus",0,"DOUBLE");
@@ -9,6 +8,8 @@ var ACbus = props.globals.initNode("/systems/electrical/ac-volts",0,"DOUBLE");
 var Amps = props.globals.initNode("/systems/electrical/amps",0,"DOUBLE");
 var EXT  = props.globals.initNode("/controls/electric/external-power",0,"DOUBLE");
 var XTie  = props.globals.initNode("/systems/electrical/xtie",0,"BOOL");
+var inverter_switch = props.globals.initNode ("controls/electric/inverter-switch", 1, "BOOL");
+
 var lbus_volts = 0.0;
 var rbus_volts = 0.0;
 
@@ -144,8 +145,8 @@ var Alternator = {
 #####################################################
 
 var battery = Battery.new("/controls/electric/battery-switch",24,30,34,1.0,7.0);
-var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","/engines/engine[0]/n1",20.0,28.0,60.0);
-var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","/engines/engine[1]/n1",20.0,28.0,60.0);
+var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","/engines/engine[0]/turbine",20.0,28.0,60.0);
+var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","/engines/engine[1]/turbine",20.0,28.0,60.0);
 
 setlistener("/sim/signals/fdm-initialized", func {
     init_switches();
@@ -155,7 +156,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 var init_switches = func{
     
-    setprop("controls/lighting/instruments-norm",0.8);
+	 setprop("controls/lighting/instruments-norm",0.8);
     setprop("controls/lighting/engines-norm",0.8);
     props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
     props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
@@ -247,60 +248,81 @@ var init_switches = func{
 
 update_virtual_bus = func( dt ) {
     var PWR = getprop("systems/electrical/serviceable");
-	 var AV = getprop("controls/electric/avionics-switch");
+    var AV = getprop("controls/electric/avionics-switch");
 	 
-	 var avbus=0;
     var xtie=0;
-    load = 0.0;
-    power_source = nil;
+    var left_load = 0.0;
+    var right_load = 0.0;
+
     var battery_volts = battery.get_output_volts();
-    if(count==0){
-        lbus_volts = battery_volts;
-        power_source = "battery";
-        var alternator1_volts = alternator1.get_output_volts();
-        if (alternator1_volts > lbus_volts) {
-            lbus_volts = alternator1_volts;
-            power_source = "alternator1";
-        }
-        lbus_volts *=PWR;
-         Lbus.setValue(lbus_volts);
-        load += lh_bus(lbus_volts);
-        alternator1.apply_load(load);
-    }elsif(count==1){
-        rbus_volts = battery_volts;
-        power_source = "battery";
-        var alternator2_volts = alternator2.get_output_volts();
-        if (alternator2_volts > rbus_volts) {
-            rbus_volts = alternator2_volts;
-            power_source = "alternator2";
-        }
-        rbus_volts *=PWR;
-        Rbus.setValue(rbus_volts);
-        load += rh_bus(rbus_volts);
-        alternator2.apply_load(load);
-    }elsif(count==2){
-		if(rbus_volts > lbus_volts){
-			avbus=AV*rbus_volts;
-		}else{
-			avbus=AV*lbus_volts;
-		}
-		load += av_bus(avbus);
-		}
-	 count+=1;
-	 if(count>2)count=0;
-    if(rbus_volts > 5 and  lbus_volts>5) xtie=1;
+    var alternator1_volts = alternator1.get_output_volts();
+    var alternator2_volts = alternator2.get_output_volts();
+
+    # Feed the two DC buses either from alternator or from battery.
+    if (alternator1_volts > battery_volts) {
+       lbus_volts = alternator1_volts;
+    }
+    else { lbus_volts = battery_volts; }
+    if (alternator2_volts > battery_volts) {
+       rbus_volts = alternator2_volts;
+    }
+    else { rbus_volts = battery_volts; }
+
+    # If the electrical system is not serviceable, cut power.
+    lbus_volts *=PWR;
+    rbus_volts *=PWR;
+
+    Lbus.setValue(lbus_volts);
+    left_load = lh_bus(lbus_volts);
+    Rbus.setValue(rbus_volts);
+    right_load = rh_bus(rbus_volts);
+
+    # Feed the avionics bus with the bus selected by the inverter switch
+    var avbus = 0;
+    if(inverter_switch.getValue ()) {
+       avbus = AV*lbus_volts;
+       left_load += av_bus (avbus);
+    }
+    else {
+       avbus = AV*rbus_volts;
+       right_load += av_bus (avbus);
+    }
+
+    # If either alternator is on, feed the AC bus with it.
+    if (lbus_volts > battery_volts) {
+        ACbus.setValue (lbus_volts * 4.1);
+    }
+    elsif  (rbus_volts > battery_volts) {
+        ACbus.setValue (rbus_volts * 4.1);
+    }
+    else {
+        ACbus.setValue (0.0);
+    }
+
+    # Apply load to alternators that are on
+    if (lbus_volts > battery_volts) {
+        alternator1.apply_load(left_load);
+    }
+    if (rbus_volts > battery_volts) {
+        alternator2.apply_load(right_load);
+    }
+
+    # If we've lost power on the left bus that powers them, the speedbrakes fail into the closed position.
+    if (lbus_volts < 5) {
+        setprop ("controls/flight/speedbrake", 0);
+    }
+    
+    if(rbus_volts > 5 and lbus_volts>5) xtie=1;
     XTie.setValue(xtie);
-    if(rbus_volts > 5 or  lbus_volts>5) load += lighting(24);
+    if(rbus_volts > 5 or  lbus_volts>5) right_load += lighting(24);
     ammeter = 0.0;
 
-
-return load;
+    return left_load + right_load;
 }
 
 rh_bus = func(bv) {
     var load = 0.0;
     var srvc = 0.0;
-    ACbus.setValue(bv * 4.1);
     for(var i=0; i<size(rbus_input); i+=1) {
         var srvc = rbus_input[i].getValue();
         load += rbus_load[i] * srvc;
@@ -312,8 +334,6 @@ rh_bus = func(bv) {
 lh_bus = func(bv) {
     var load = 0.0;
     var srvc = 0.0;
-    ACbus.setValue(bv * 4.1);
-    
     for(var i=0; i<size(lbus_input); i+=1) {
         var srvc = lbus_input[i].getValue();
         load += lbus_load[i] * srvc;
@@ -333,8 +353,6 @@ av_bus = func(bv) {
         load += avbus_load[i] * srvc;
         avbus_output[i].setValue(bv * srvc);
     }
-
-    setprop("systems/electrical/outputs/flaps",bv);
     return load;
 }
 

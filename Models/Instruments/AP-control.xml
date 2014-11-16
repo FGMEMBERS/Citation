@@ -4,219 +4,283 @@ Author : Syd Adams
 Autopilot Controller
 -->
 <PropertyList>
-<path>AP-control.ac</path>
+  <path>AP-control.ac</path>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP-on</object-name>
-        <condition>
-            <not>
-                <property>autopilot/locks/passive-mode</property>
-            </not>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP-on</object-name>
+    <condition>
+      <not>
+        <property>autopilot/locks/passive-mode</property>
+      </not>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>YD-on</object-name>
-        <condition>
-            <property>autopilot/locks/yaw-damper</property>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>YD-on</object-name>
+    <condition>
+      <property>autopilot/locks/yaw-damper</property>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>Low-on</object-name>
-        <condition>
-			<less-than>
-				<property>autopilot/settings/bank-limit</property>
-				<value>20</value>
-			</less-than>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>Low-on</object-name>
+    <condition>
+      <less-than>
+	<property>autopilot/settings/bank-limit</property>
+	<value>20</value>
+      </less-than>
+    </condition>
+  </animation>
 
-<!-- hotspots-->
-<animation>
+  <!-- hotspots-->
+  <animation>
     <type>pick</type>
     <object-name>AP-on.btn</object-name>
     <action>
-        <button>0</button>
-        <binding>
-            <command>property-toggle</command>
-                <property>autopilot/locks/passive-mode</property>
-        </binding>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          var fd_enabled = getprop ("/autopilot/locks/passive-mode");
+          if (fd_enabled) {
+            setprop ("autopilot/locks/passive-mode", "false");
+            setprop ("autopilot/locks/heading", "wing-leveler");
+            setprop ("autopilot/locks/altitude", "pitch-hold");
+          }
+          else {
+            setprop ("autopilot/locks/passive-mode", "true");
+            setprop ("autopilot/locks/heading", "");
+            setprop ("autopilot/locks/altitude", "");
+          }
+        </script>
+      </binding>
     </action>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
     <object-name>YD-on.btn</object-name>
     <action>
-        <button>0</button>
-        <binding>
-            <command>property-toggle</command>
-			<property>autopilot/locks/yaw-damper</property>
-        </binding>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+	<property>autopilot/locks/yaw-damper</property>
+      </binding>
     </action>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
     <object-name>Lowbank.btn</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>nasal</command>
-			<script>
-				if(getprop("autopilot/settings/bank-limit")!=14){
-					setprop("autopilot/settings/bank-limit",14);
-				}else{
-					setprop("autopilot/settings/bank-limit",27);
-				}
-			</script>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+	<script>
+	  if(getprop("autopilot/settings/bank-limit")!=14){
+	  setprop("autopilot/settings/bank-limit",14);
+	  }else{
+	  setprop("autopilot/settings/bank-limit",27);
+	  }
+	</script>
+      </binding>
     </action>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
     <object-name>Pitch.wheel</object-name>
     <action>
-        <button>0</button>
-        <repeatable>true</repeatable>
-		<interval-sec>0.1</interval-sec>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>altitude-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-altitude-ft</property>
-			<step>1000</step>
-			<min>1000</min>
-			<max>40000</max>
-        </binding>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>vertical-speed-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-vert-speed-fpm</property>
-			<step>100</step>
-			<min>-4000</min>
-			<max>4000</max>
-        </binding>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>1</step>
+	<min>-30</min>
+	<max>30</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>1000</step>
+	<min>1000</min>
+	<max>43000</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-vert-speed-fpm</property>
+	<step>100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
     </action>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
     <object-name>Pitch.wheel</object-name>
     <action>
-        <button>1</button>
-        <repeatable>true</repeatable>
-		<interval-sec>0.1</interval-sec>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>altitude-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-altitude-ft</property>
-			<step>-1000</step>
-			<min>1000</min>
-			<max>40000</max>
-        </binding>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>vertical-speed-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-vert-speed-fpm</property>
-			<step>-100</step>
-			<min>-4000</min>
-			<max>4000</max>
-        </binding>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>-1</step>
+	<min>-30</min>
+	<max>30</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>-1000</step>
+	<min>1000</min>
+	<max>43000</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-vert-speed-fpm</property>
+	<step>-100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
     </action>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
     <object-name>Pitch.wheel</object-name>
     <action>
-        <button>3</button>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>altitude-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-altitude-ft</property>
-			<step>1000</step>
-			<min>1000</min>
-			<max>40000</max>
-        </binding>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>vertical-speed-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-vert-speed-fpm</property>
-			<step>100</step>
-			<min>-4000</min>
-			<max>4000</max>
-        </binding>
+      <button>3</button>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>-1</step>
+	<min>-30</min>
+	<max>30</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>-1000</step>
+	<min>1000</min>
+	<max>43000</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-vert-speed-fpm</property>
+	<step>-100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
     </action>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
     <object-name>Pitch.wheel</object-name>
     <action>
-        <button>4</button>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>altitude-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-altitude-ft</property>
-			<step>-1000</step>
-			<min>1000</min>
-			<max>40000</max>
-        </binding>
-        <binding>
-			<condition>
-				<equals>
-					<property>autopilot/locks/altitude</property>
-					<value>vertical-speed-hold</value>
-				</equals>
-			</condition>
-            <command>property-adjust</command>
-            <property>autopilot/settings/target-vert-speed-fpm</property>
-			<step>-100</step>
-			<min>-4000</min>
-			<max>4000</max>
-        </binding>
+      <button>4</button>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>1</step>
+	<min>-30</min>
+	<max>30</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>1000</step>
+	<min>1000</min>
+	<max>43000</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-vert-speed-fpm</property>
+	<step>100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
     </action>
-</animation>
+  </animation>
 
 </PropertyList>
