@@ -8,7 +8,7 @@
             <z-m>0.097</z-m>
         </offsets>
     </model>
-    
+
     <model>
         <path>Aircraft/Citation/Models/Instruments/lightingpanel.xml</path>
         <offsets>

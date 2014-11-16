@@ -1,318 +1,358 @@
 <PropertyList>
 
-<path>FDAP.ac</path>
+  <path>FDAP.ac</path>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.fdoff.lit</object-name>
-        <condition>
-            <property>autopilot/locks/fd-off</property>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.fdoff.lit</object-name>
+    <condition>
+      <property>autopilot/locks/passive-mode</property>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.hdg.lit</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/heading</property>
-                    <value>dg-heading-hold</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.hdg.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/heading</property>
+        <value>dg-heading-hold</value>
+      </equals>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.nav.lit</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/heading</property>
-                    <value>true-heading-hold</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.nav.lit</object-name>
+    <condition>
+      <or>
+        <equals>
+          <property>autopilot/locks/heading</property>
+          <value>nav1-hold</value>
+        </equals>
+        <equals>
+          <property>autopilot/locks/heading</property>
+          <value>gps-hold</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.apr.lit</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/altitude</property>
-                    <value>gs1-hold</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.apr.lit</object-name>
+    <condition>
+      <or>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>gs1-hold</value>
+        </equals>
+        <property>autopilot/settings/gs-arm</property>
+      </or>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.bc.lit</object-name>
-        <condition>
-                <property>instrumentation/nav/back-course-btn</property>
-            </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.bc.lit</object-name>
+    <condition>
+      <property>instrumentation/nav/back-course-btn</property>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.nav1.lit</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/heading</property>
-                    <value>nav1-hold</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.nav1.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/heading</property>
+        <value>nav1-hold</value>
+      </equals>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.nav2.lit</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/heading</property>
-                    <value>nav2-hold</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.nav2.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/heading</property>
+        <value>gps-hold</value>
+      </equals>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.alt.lit</object-name>
-        <condition>
-            <equals>
-                <property>autopilot/locks/altitude</property>
-                <value>altitude-hold</value>
-            </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.alt.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>altitude-hold</value>
+      </equals>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.altsel.cap</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/altitude</property>
-                    <value>altsel</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.altsel.cap</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>altitude-hold</value>
+        </equals>
+        <greater-than-equals>
+          <expression>
+            <abs>
+              <difference>
+                <property>autopilot/settings/target-altitude-ft</property>
+                <property>instrumentation/altimeter/indicated-altitude-ft</property>
+              </difference>
+            </abs>
+          </expression>
+          <value type="double">100.0</value>
+        </greater-than-equals>
+      </and>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.altsel.hld</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/altitude</property>
-                    <value>altsel</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.altsel.hld</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>altitude-hold</value>
+        </equals>
+        <less-than-equals>
+          <expression>
+            <abs>
+              <difference>
+                <property>autopilot/settings/target-altitude-ft</property>
+                <property>instrumentation/altimeter/indicated-altitude-ft</property>
+              </difference>
+            </abs>
+          </expression>
+          <value type="double">100.0</value>
+        </less-than-equals>
+      </and>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.vnav.lit</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/altitude</property>
-                    <value>vnav</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.vnav.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>vnav</value>
+      </equals>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.vs.lit</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/altitude</property>
-                    <value>vertical-speed-hold</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.vs.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>vertical-speed-hold</value>
+      </equals>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.ias.cap</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/speed</property>
-                    <value>speed-with-throttle</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.ias.cap</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/speed</property>
+        <value>speed-with-throttle</value>
+      </equals>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>AP.ias.hld</object-name>
-        <condition>
-                <equals>
-                    <property>autopilot/locks/speed</property>
-                    <value>speed-with-throttle</value>
-                </equals>
-        </condition>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>AP.ias.hld</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/speed</property>
+        <value>speed-with-throttle</value>
+      </equals>
+    </condition>
+  </animation>
 
-<!-- hotspots -->
+  <!-- hotspots -->
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.hdg</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>nasal</command>
-                <script>
-                var mode = getprop("autopilot/locks/heading");
-                if( mode=="dg-heading-hold"){
-                    mode="wing-leveler";
-                }else{
-                    mode="dg-heading-hold";
-                }
-                setprop("autopilot/locks/heading",mode);
-                </script>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.hdg</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/heading") == "dg-heading-hold")
+            setprop ("autopilot/locks/heading", "wing-leveler");
+          else setprop ("autopilot/locks/heading", "dg-heading-hold");
+        </script>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.nav</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>nasal</command>
-                <script>
-                var mode = getprop("autopilot/locks/heading");
-                if( mode=="true-heading-hold"){
-                    mode="wing-leveler";
-                }else{
-                    mode="true-heading-hold";
-                }
-                setprop("autopilot/locks/heading",mode);
-                </script>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.nav</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/heading") == "nav1-hold")
+            setprop ("autopilot/locks/heading", "wing-leveler");
+          else setprop ("autopilot/locks/heading", "nav1-hold");
+        </script>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.apr</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>nasal</command>
-                <script>
-                    setprop("autopilot/locks/heading","nav1-hold");
-                    setprop("autopilot/locks/altitude","gs1-hold");
-                </script>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.apr</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/altitude") == "gs1-hold") {
+            setprop("autopilot/locks/heading","wing-leveler");
+            setprop("autopilot/locks/altitude","pitch-hold");
+          }
+          else {
+            setprop("autopilot/locks/heading","nav1-hold");
+            if (getprop ("instrumentation/nav[0]/gs-in-range")) {
+              setprop("autopilot/locks/altitude", "gs1-hold");
+              setprop("autopilot/settings/gs-arm", "false");
+            }
+            else {
+              setprop("autopilot/locks/altitude", "alt-hold");
+              setprop("autopilot/settings/gs-arm", "true");
+            }
+          }
+        </script>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.bc</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>property-toggle</command>
-                <property>instrumentation/nav/back-course-btn</property>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.bc</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/nav/back-course-btn</property>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.nav-hsi</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>nasal</command>
-                <script>
-                var mode = getprop("autopilot/locks/heading");
-                if( mode=="pitch-hold"){
-                    mode="nav1-hold";
-                }elsif(mode == "nav1-hold"){
-                    mode="nav2-hold";
-                }elsif(mode == "nav2-hold"){
-                    mode="pitch-hold";
-                }
-                setprop("autopilot/locks/heading",mode);
-                </script>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.nav-hsi</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          var lateral_mode = getprop ("autopilot/locks/heading");
+          if (lateral_mode == "nav1-hold")
+            setprop ("autopilot/locks/heading", "gps-hold");
+          if (lateral_mode == "gps-hold")
+            setprop ("autopilot/locks/heading", "nav1-hold");
+        </script>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.alt</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>nasal</command>
-                <script>
-                var mode = getprop("autopilot/locks/altitude");
-                if( mode=="pitch-hold"){
-                    mode="altitude-hold";
-                }else{
-                    mode="pitch-hold";
-                }
-                setprop("autopilot/locks/altitude",mode);
-                </script>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.alt</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/altitude") == "altitude-hold")
+            setprop ("autopilot/locks/altitude", "pitch-hold");
+          else setprop ("autopilot/locks/altitude", "altitude-hold");
+        </script>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.vs</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>nasal</command>
-                <script>
-                var mode = getprop("autopilot/locks/altitude");
-                if( mode=="pitch-hold"){
-                    mode="vertical-speed-hold";
-                }else{
-                    mode="pitch-hold";
-                }
-                setprop("autopilot/locks/altitude",mode);
-                </script>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.vs</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/altitude") == "vertical-speed-hold")
+            setprop ("autopilot/locks/altitude", "pitch-hold");
+          else setprop ("autopilot/locks/altitude", "vertical-speed-hold");
+        </script>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.ias</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>nasal</command>
-                <script>
-                var mode = getprop("autopilot/locks/speed");
-                if( mode=="speed-with-throttle"){
-                    mode="";
-                }else{
-                    mode="speed-with-throttle";
-                    setprop("autopilot/settings/target-speed-kt",getprop("velocities/airspeed-kt"));
-                }
-                setprop("autopilot/locks/speed",mode);
-                </script>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>AP.ias</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          var mode = getprop("autopilot/locks/speed");
+          if( mode=="speed-with-throttle"){
+          mode="";
+          }else{
+          mode="speed-with-throttle";
+          setprop("autopilot/settings/target-speed-kt",getprop("velocities/airspeed-kt"));
+          }
+          setprop("autopilot/locks/speed",mode);
+        </script>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>AP.fdoff</object-name>
-        <action>
-            <button>0</button>
-             <binding>
-                <command>property-toggle</command>
-                <property>autopilot/locks/passive-mode</property>
-            </binding>
-        </action>
-    </animation>
-
+  <animation>
+    <type>pick</type>
+    <object-name>AP.fdoff</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          var fd_enabled = getprop ("/autopilot/locks/passive-mode");
+          if (fd_enabled) {
+            setprop ("autopilot/locks/passive-mode", "false");
+            setprop ("autopilot/locks/heading", "wing-leveler");
+            setprop ("autopilot/locks/altitude", "pitch-hold");
+            setprop ("autopilot/settings/target-pitch-deg", getprop ("orientation/pitch-deg"));
+          }
+          else {
+            setprop ("autopilot/locks/passive-mode", "true");
+            setprop ("autopilot/locks/heading", "");
+            setprop ("autopilot/locks/altitude", "");
+          }
+        </script>
+      </binding>
+    </action>
+  </animation>
 
 </PropertyList>

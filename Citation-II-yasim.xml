@@ -19,7 +19,7 @@
 
 <airplane mass="8060">
 
- <approach speed="106" aoa="7" fuel="0.6">
+ <approach speed="106" aoa="7" fuel="0.2">
   <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="0.3"/>
   <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="0.3"/>
   <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
@@ -34,7 +34,7 @@
 
  <!-- throttle of 0.923 should map to v1=96%, since full throttle maps
       to v1=104% -->
- <cruise speed="331" alt="25000" fuel="0.6"> <!-- 229 indicated -->
+ <cruise speed="331" alt="25000" fuel="0.9"> <!-- 229 indicated -->
   <control-setting axis="/controls/flight/elevator-trim" value="0.0"/>
   <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="0.923"/>
   <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="0.923"/>
@@ -117,9 +117,14 @@
   <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
  </vstab>
 
- <!-- 2 wet wing tanks 360 US gallons usable -Jet A- per tank --> 
- <tank x="-7.18" y="1.5" z="0.0" capacity="2420" jet="true"/>
- <tank x="-7.18" y="-1.5" z="0.0" capacity="2420" jet="true"/>
+ <!-- 2 wet wing tanks 371 US gallons, ~366 US gallons usable each.
+      If using Jet A (6.84 lbs/gal)    2537.64lbs, 2504lbs usable
+      If using Jet A-1 (6.72 lbs/gal), 2493.12lbs, 2460lbs usable
+      Here we must specify the full weight, not the usable weight.
+      See Citation-II-set.xml for the unusable capacity.
+  --> 
+ <tank x="-7.18" y="1.5" z="0.0" capacity="2493.12" jet="true"/>
+ <tank x="-7.18" y="-1.5" z="0.0" capacity="2493.12" jet="true"/>
  <tank x="-7.18" y="0" z="0" capacity="0"/>
  
  <gear x="-1.760" y="0.00" z="-0.976" compression=".4" retract-time="7">
@@ -145,8 +150,8 @@
   <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
  </gear>
 
- <!-- Pratt and Whitney Canada Inc. JT150-4 Turbofan -->
- <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.562" egt="700"
+ <!-- Pratt and Whitney Canada Inc. JT15D-4 Turbofan --> 
+ <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.562" egt="973.15"
  n1-idle="45" n1-max="104.0" n2-idle="49.0" n2-max="105" spool-time="2.5" epr="2.7">
   <control-input axis="/controls/engines/engine[0]/throttle-lever" control="THROTTLE"
   src0="0.2" dst0="0" src1="1" dst1="1"/>
@@ -155,7 +160,7 @@
         <control-speed control="REVERSE_THRUST" transition-time="1.5"/>
  </jet>
 
- <jet x="-9.19" y="-1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.562" egt="700"
+ <jet x="-9.19" y="-1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.562" egt="973.15"
  n1-idle="45" n1-max="104.0" n2-idle="49.0" n2-max="105" spool-time="2.5" epr="2.7">
   <control-input axis="/controls/engines/engine[1]/throttle-lever" control="THROTTLE"
   src0="0.2" dst0="0" src1="1" dst1="1"/>
