@@ -155,7 +155,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 var init_switches = func{
     
-	 setprop("controls/lighting/instruments-norm",0.8);
+    setprop("controls/lighting/instruments-norm",0.8);
     setprop("controls/lighting/engines-norm",0.8);
     props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
     props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
@@ -221,7 +221,7 @@ var init_switches = func{
     append(lbus_output,props.globals.initNode("systems/electrical/outputs/DG",0,"DOUBLE"));
     append(lbus_load,1);
 
-	append(avbus_input,props.globals.initNode("instrumentation/adf/func-knob",1,"INT"));
+    append(avbus_input,props.globals.initNode("instrumentation/adf/func-knob",1,"INT"));
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/adf",0,"DOUBLE"));
     append(avbus_load,1);
     append(avbus_input,props.globals.initNode("instrumentation/dme/switch-position[1]",0,"INT"));
