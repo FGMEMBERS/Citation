@@ -8,6 +8,15 @@
             <z-m>0.097</z-m>
         </offsets>
     </model>
+    
+    <model>
+        <path>Aircraft/Citation/Models/Instruments/lightingpanel.xml</path>
+        <offsets>
+            <x-m>0.002</x-m>
+            <y-m>-0.309</y-m>
+            <z-m>0.018</z-m>
+        </offsets>
+    </model>
 
     <model>
         <path>Aircraft/Citation/Models/Instruments/ctnpanel.xml</path>
