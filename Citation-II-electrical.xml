@@ -97,6 +97,7 @@
   <output>
     <name>Landing Light Power</name>
     <prop>/systems/electrical/outputs/landing-light</prop>
+    <prop>/systems/electrical/outputs/landing-light[1]</prop>
   </output>
 
   <output>
@@ -246,7 +247,7 @@
     <input>Bus Bar</input>
     <output>Landing Light Power</output>
     <switch>
-      <prop>/controls/switches/landing-light</prop>
+      <prop>/systems/electrical/outputs/landing-light</prop>
     </switch>
   </connector>
 

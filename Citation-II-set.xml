@@ -38,7 +38,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </model>
 
     <view n="0">
-        <name>Cockpit</name>
+        <name>Captain</name>
         <type>lookfrom</type>
         <internal type="bool">true</internal>
         <config>
@@ -130,6 +130,34 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     </config>
     </view>
     
+    <view n="102">
+    <name>Copilot</name>
+    <internal archive="y">true</internal>
+    <type>lookfrom</type>
+    <config>
+      <from-model type="bool">true</from-model>
+      <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+      <heading-offset-deg type="double">0</heading-offset-deg>
+      <x-offset-m archive="y" type="double">0.34</x-offset-m> <!--Right-->
+      <y-offset-m archive="y" type="double">0.988</y-offset-m> <!--Up-->
+      <z-offset-m archive="y" type="double">3.227</z-offset-m> <!--Back-->
+      <pitch-offset-deg>-15</pitch-offset-deg>
+            <limits>
+                <enabled type="bool">true</enabled>
+                <left>
+                    <heading-max-deg type="double">120</heading-max-deg>
+                    <x-offset-max-m type="double">0.22</x-offset-max-m>
+                    <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+                </left>
+                <right>
+                    <heading-max-deg type="double">160</heading-max-deg>
+                    <x-offset-max-m type="double">0.25</x-offset-max-m>
+                    <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                </right>
+            </limits>
+    </config>
+    </view>
+    
     <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
     
     <systems>
@@ -158,6 +186,18 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 
     <help>
       <title>Cessna 550 Citation-II</title>
+      <key>
+          <name>s</name>
+          <desc>autostart</desc>
+      </key>
+      <key>
+          <name>y</name>
+          <desc>Show/Hide Yokes</desc>
+      </key>
+      <key>
+          <name>Ctrl-L</name>
+          <desc>Toggle landing lights</desc>
+      </key>
       <key>
         <name>Delete</name>
         <desc>toggle thrust reversers</desc>
@@ -346,6 +386,34 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 
     <input>
         <keyboard>
+            <key n="115">
+                <name>s</name>
+                <desc>autostart</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>sim/model/autostart</property>
+                </binding>
+            </key>
+            <key n="12">
+                <name>Ctrl-L</name>
+                <desc>Toggle landing lights</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/lighting/landing-light</property>
+                </binding>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/lighting/landing-light[1]</property>
+                </binding>
+            </key>
+            <key n="121">
+                <name>Y</name>
+                <desc>Show/Hide Yokes</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>sim/yokes-visible</property>
+                </binding>
+            </key>
             <key n="127">
                 <name>Delete</name>
                 <desc>Toggle Reversers</desc>
@@ -360,7 +428,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
             </key>
             <key n="4">
                 <name>Ctrl-D</name>
-                <desc>Open/close canopy</desc>
+                <desc>Open/close cabin-door</desc>
                 <binding>
                             <condition>
                                 <less-than>

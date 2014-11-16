@@ -92,24 +92,24 @@
        </effect>
 
       <effect>
-        <inherits-from>Effects/model-transparent</inherits-from>
-           <object-name>Door.glass</object-name>
-           <object-name>Glass.001</object-name>
-           <object-name>Glass</object-name>
-            <object-name>rednav</object-name>
-            <object-name>greennav</object-name>
-            <object-name>whitenav</object-name>
-            <object-name>Flash01</object-name>
-            <object-name>Flash02</object-name>
-            <object-name>beacon</object-name>
-            <object-name>beacon.001</object-name>
-            <object-name>beacon.002</object-name>
-            <object-name>beacon.003</object-name>
-            <object-name>Recog.flash1</object-name>
-            <object-name>Recog.flash2</object-name>
-            <object-name>LHland.light</object-name>
-            <object-name>RHland.light</object-name>
-    </effect>
+          <inherits-from>Effects/model-transparent</inherits-from>
+          <object-name>Door.glass</object-name>
+          <object-name>Glass.001</object-name>
+          <object-name>Glass</object-name>
+          <object-name>rednav</object-name>
+          <object-name>greennav</object-name>
+          <object-name>whitenav</object-name>
+          <object-name>Flash01</object-name>
+          <object-name>Flash02</object-name>
+          <object-name>beacon</object-name>
+          <object-name>beacon.001</object-name>
+          <object-name>beacon.002</object-name>
+          <object-name>beacon.003</object-name>
+          <object-name>Recog.flash1</object-name>
+          <object-name>Recog.flash2</object-name>
+          <object-name>LHland.light</object-name>
+          <object-name>RHland.light</object-name>
+      </effect>
 
 <!-- disabled mp-callsign on the rudder -->
     <!--text>
@@ -207,6 +207,56 @@
                 <y-m>0</y-m>
                 <z-m>0</z-m>
                 <pitch-deg>0</pitch-deg>
+            </offsets>
+        </model>
+        
+        <model>
+            <name>LandingLights</name>
+            <path>Aircraft/Citation/Models/Lights/landingLights.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+        
+        <model>
+            <name>StrobeLights</name>
+            <path>Aircraft/Citation/Models/Lights/strobeLights.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+        
+        <model>
+            <name>NavLights</name>
+            <path>Aircraft/Citation/Models/Lights/navLights.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+        
+        <model>
+            <name>RecogLights</name>
+            <path>Aircraft/Citation/Models/Lights/recogLights.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+        
+        <model>
+            <name>BeaconLight</name>
+            <path>Aircraft/Citation/Models/Lights/beaconLight.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
             </offsets>
         </model>
 
@@ -902,10 +952,16 @@
             <object-name>Recog.flash1</object-name>
             <object-name>Recog.flash2</object-name>
             <condition>
+                <and>
                 <greater-than>
-                <property>sim/multiplay/generic/int[5]</property>
-                <value>5</value>
+                    <property>sim/multiplay/generic/int[5]</property>
+                    <value>5</value>
                 </greater-than>
+                <greater-than>
+                    <property>systems/electrical/right-bus</property>
+                    <value>5</value>
+                </greater-than>
+                </and>
             </condition>
         </animation>
 
@@ -913,7 +969,17 @@
             <type>select</type>
             <object-name>RHland.light</object-name>
             <condition>
+                <and>
                 <property>sim/multiplay/generic/int[4]</property>
+                <greater-than>
+                    <property>systems/electrical/right-bus</property>
+                    <value>5</value>
+                </greater-than>
+                <greater-than>
+                    <property>gear/gear/position-norm</property>
+                    <value>0.85</value>
+                </greater-than>
+                </and>
             </condition>
         </animation>
 
@@ -921,7 +987,17 @@
             <type>select</type>
             <object-name>LHland.light</object-name>
             <condition>
+                <and>
                 <property>sim/multiplay/generic/int[3]</property>
+                <greater-than>
+                    <property>systems/electrical/left-bus</property>
+                    <value>5</value>
+                </greater-than>
+                <greater-than>
+                    <property>gear/gear/position-norm</property>
+                    <value>0.85</value>
+                </greater-than>
+                </and>
             </condition>
         </animation>
 
