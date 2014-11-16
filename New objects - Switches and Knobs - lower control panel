@@ -1,0 +1,16 @@
+$FGDATA/Citation/Models/Instruments/lightingpanel.xml
+
+lighting.panel
+
+PanelLight.sw
+StdbyGyroTest.sw
+PassSafetySeatBelt.sw
+Beacon.sw
+LandingLightLeft.sw
+LandingLightRight.sw
+
+FloodLight.knob 	--> blue, aft overhead console --> instruments
+LeftPanelLight.knob
+CenterPanelLight.knob 	--> above fan tachometer --> center panel
+RightPanelLight.knob
+EL.knob 		--> glareshield cathode tubes
