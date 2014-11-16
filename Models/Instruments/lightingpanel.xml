@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+<path>lightingpanel.ac</path>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Beacon.sw</object-name>
+        <property>controls/lighting/beacon</property>
+        <factor>30</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.002</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>LandingLightLeft.sw</object-name>
+        <property>controls/lighting/landing-light</property>
+        <factor>30</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.002</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>LandingLightRight.sw</object-name>
+        <property>controls/lighting/landing-light[1]</property>
+        <factor>30</factor>
+        <center>
+            <x-m>0.005</x-m>
+            <y-m>0.002</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+<!-- hotspots -->
+
+<animation>
+    <type>pick</type>
+    <object-name>Beacon.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/beacon</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>LandingLightLeft.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/landing-light</property>
+        </binding>
+            <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>LandingLightRight.sw</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/landing-light[1]</property>
+        </binding>
+            <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+</PropertyList>
