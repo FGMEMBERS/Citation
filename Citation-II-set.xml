@@ -14,11 +14,17 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
     <author>Curt Olson - Syd Adams</author>
     <flight-model>yasim</flight-model>
     <aero>Citation-II-yasim</aero>
-<!-- 5000 lbs max capacity so this specifies 6250 lbs. -->
-    <fuel-fraction>0.6</fuel-fraction>
     <startup>
       <splash-texture>Aircraft/Citation/Citation-II-splash.png</splash-texture>
     </startup>
+    
+    <status>beta</status>
+    <rating>
+      <FDM type="int">3</FDM>
+      <systems type="int">2</systems>
+      <cockpit type="int">4</cockpit>
+      <model type="int">4</model>
+    </rating>
 
     <model>
       <path>Aircraft/Citation/Models/Citation-II.xml</path>
@@ -206,6 +212,14 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         <name>Ctrl-D</name>
         <desc>Open/close cabin-door</desc>
       </key>
+      <key>
+        <name>j</name>
+        <desc>Retract spoilers</desc>
+      </key>
+      <key>
+        <name>k</name>
+        <desc>Extend spoilers (N1 &lt; 85%)</desc>
+      </key>
     </help>
 
     <weight n="0">
@@ -305,7 +319,30 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         </config>
     </flight-recorder>
 
-</sim>
+    <aircraft-data> <!-- to be recorded for next time -->
+      <path>consumables/fuel/tank[0]/level-lbs</path>
+      <path>consumables/fuel/tank[1]/level-lbs</path>
+      <path>sim/weight[0]/weight-lb</path>
+      <path>sim/weight[1]/weight-lb</path>
+      <path>sim/weight[2]/weight-lb</path>
+      <path>sim/weight[3]/weight-lb</path>
+    </aircraft-data>
+  </sim>
+
+  <consumables>
+    <fuel>
+      <!-- Here we specify the unusable part of the tanks, see also Citation-II-yasim.xml
+           for the maximum weight of fuel which determines the total capacity. -->
+      <tank n="0">
+        <!-- <capacity-gal_us type="double">371</capacity-gal_us> -->
+        <unusable-gal_us type="double">4.92</unusable-gal_us>
+      </tank>
+      <tank n="1">
+        <!-- <capacity-gal_us type="double">371</capacity-gal_us> -->
+        <unusable-gal_us type="double">4.92</unusable-gal_us>
+      </tank>
+    </fuel>
+  </consumables>
 
 <!-- aircraft specific loading -->
 
@@ -322,8 +359,8 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
       </engine>
     </engines>
      <electric>
-        <avionics-switch type="bool">1</avionics-switch>
-        <battery-switch type="bool">1</battery-switch>
+        <avionics-switch type="bool">0</avionics-switch>
+        <battery-switch type="bool">0</battery-switch>
      </electric>
   </controls>
 
@@ -361,24 +398,25 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         <locks>
             <yaw-damper type="bool">0</yaw-damper>
             <passive-mode type="bool">1</passive-mode>
-            <heading>wing-leveler</heading>
-            <altitude>pitch-hold</altitude>
+            <heading/>
+            <altitude/>
         </locks>
         <settings>
             <bank-limit type="double">27</bank-limit>
             <target-vert-speed-fpm type="double">0</target-vert-speed-fpm>
             <target-altitude-ft>10000</target-altitude-ft>
-            <gs-arm type="bool">0</gs-arm>
+            <gs1-arm type="bool">0</gs1-arm>
             <nav-arm type="bool">0</nav-arm>
             <alt-arm type="bool">0</alt-arm>
         </settings>
     </autopilot>
 
   <nasal>
-    <citation>
+      <citation>
         <file>Aircraft/Citation/Nasal/Electrical.nas</file>
-    <file>Aircraft/Citation/Nasal/citation2.nas</file>
-    </citation>
+        <file>Aircraft/Citation/Nasal/citation2.nas</file>
+        <file>Aircraft/Generic/limits.nas</file>
+      </citation>
     <m877>
         <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
@@ -440,7 +478,40 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
                     <script>citation.cabin_door.toggle();</script>
                 </binding>
             </key>
+            <key n="106">
+              <name>j</name>
+              <desc>Retract spoilers</desc>
+              <binding>
+                <command>property-assign</command>
+                <property>/controls/flight/speedbrake</property>
+                <value>0</value>
+              </binding>
+            </key>
+            <key n="107">
+              <name>k</name>
+              <desc>Deploy spoilers</desc>
+              <binding>
+                <command>property-assign</command>
+                <property>/controls/flight/speedbrake</property>
+                <value>1</value>
+              </binding>
+            </key>
         </keyboard>
     </input>
 
+  <limits>
+    <mass-and-balance>
+      <maximum-takeoff-mass-lbs>14100</maximum-takeoff-mass-lbs>
+      <maximum-landing-mass-lbs type="double">13500</maximum-landing-mass-lbs>
+    </mass-and-balance>
+    <max-flap-extension-speed>
+      <flaps type="double">0.324</flaps>
+      <speed type="double">202</speed>
+    </max-flap-extension-speed>
+    <max-flap-extension-speed>
+      <flaps type="double">0.99</flaps>
+      <speed type="double">176</speed>
+    </max-flap-extension-speed>
+    <max-gear-extension-speed type="double">262</max-gear-extension-speed>
+  </limits>
 </PropertyList>

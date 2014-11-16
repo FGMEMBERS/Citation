@@ -327,7 +327,7 @@
             <type>rotate</type>
             <object-name>LHflap</object-name>
             <property>surface-positions/flap-pos-norm</property>
-            <factor>35</factor>
+            <factor>40</factor>
             <axis>
                 <x1-m>7.739</x1-m>
                 <y1-m>-4.449</y1-m>
@@ -342,7 +342,7 @@
             <type>rotate</type>
             <object-name>RHflap</object-name>
             <property>surface-positions/flap-pos-norm</property>
-            <factor>35</factor>
+            <factor>40</factor>
             <axis>
                 <x1-m>8.034</x1-m>
                 <y1-m>1.581</y1-m>

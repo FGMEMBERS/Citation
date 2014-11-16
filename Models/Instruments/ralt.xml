@@ -18,7 +18,7 @@
 		<object-name>RALT.flag</object-name>
 		<condition>
 			<less-than>
-				<property>systems/electrical/bus-volts</property>
+				<property>systems/electrical/right-bus</property>
 				<value>1</value>
 			</less-than>
 		</condition>
