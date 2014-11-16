@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>sphereBeaconLight.ac</path>
+
+     <animation>
+        <type>select</type>
+        <object-name>sphereBeaconLight</object-name>
+        <condition>
+            <and>
+		<property>sim/rendering/rembrandt/enabled</property>
+		<greater-than>
+                    <property>/sim/rendering/shaders/lights</property>
+                    <value>3.0</value>
+                </greater-than>
+                <greater-than>
+                    <property>systems/electrical/outputs/beacon</property>
+                    <value>5</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+
+	<animation>
+		<type>light</type>
+		<light-type>point</light-type>
+		<name>BeaconLight.light</name>
+		<object-name>sphereBeaconLight</object-name>
+		<nopreview/>
+		<condition>
+		<property>controls/lighting/beacon</property>
+		</condition>
+		<position>
+			<x>13.85</x>
+			<y>0</y>
+			<z>3.6</z>
+		</position>
+		<ambient>
+			<r>0.6</r>
+			<g>0</g>
+			<b>0</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.4</r>
+			<g>0</g>
+			<b>0</b>
+			<a>0.6</a>
+		</diffuse>
+		<specular>
+			<r>0.4</r>
+			<g>0</g>
+			<b>0</b>
+			<a>0.6</a>
+		</specular>
+		<attenuation>
+			<c>6.0</c>
+			<l>1</l>
+			<q>1</q>
+		</attenuation>
+		<near-m>0.1</near-m>
+		<far-m>25</far-m>
+	</animation>
+
+</PropertyList>
