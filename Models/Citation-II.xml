@@ -211,52 +211,13 @@
         </model>
         
         <model>
-            <name>LandingLights</name>
-            <path>Aircraft/Citation/Models/Lights/landingLights.xml</path>
+            <name>Lights</name>
+            <path>Aircraft/Citation/Models/Lights/Lights.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
                 <z-m>0</z-m>
-            </offsets>
-        </model>
-        
-        <model>
-            <name>StrobeLights</name>
-            <path>Aircraft/Citation/Models/Lights/strobeLights.xml</path>
-            <offsets>
-                <x-m>0</x-m>
-                <y-m>0</y-m>
-                <z-m>0</z-m>
-            </offsets>
-        </model>
-        
-        <model>
-            <name>NavLights</name>
-            <path>Aircraft/Citation/Models/Lights/navLights.xml</path>
-            <offsets>
-                <x-m>0</x-m>
-                <y-m>0</y-m>
-                <z-m>0</z-m>
-            </offsets>
-        </model>
-        
-        <model>
-            <name>RecogLights</name>
-            <path>Aircraft/Citation/Models/Lights/recogLights.xml</path>
-            <offsets>
-                <x-m>0</x-m>
-                <y-m>0</y-m>
-                <z-m>0</z-m>
-            </offsets>
-        </model>
-        
-        <model>
-            <name>BeaconLight</name>
-            <path>Aircraft/Citation/Models/Lights/beaconLight.xml</path>
-            <offsets>
-                <x-m>0</x-m>
-                <y-m>0</y-m>
-                <z-m>0</z-m>
+                <pitch-deg>0</pitch-deg>
             </offsets>
         </model>
 

@@ -83,7 +83,11 @@
             <command>property-toggle</command>
             <property>controls/lighting/landing-light</property>
         </binding>
-            <binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/rendering/als-secondary-lights/use-landing-light</property>
+        </binding>
+        <binding>
             <command>property-toggle</command>
             <property>sim/sound/click</property>
         </binding>
@@ -100,7 +104,11 @@
             <command>property-toggle</command>
             <property>controls/lighting/landing-light[1]</property>
         </binding>
-            <binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/rendering/als-secondary-lights/use-alt-landing-light</property>
+        </binding>
+        <binding>
             <command>property-toggle</command>
             <property>sim/sound/click</property>
         </binding>
