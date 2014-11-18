@@ -189,6 +189,12 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
         </runways>
     </airport>
 
+    <rendering>  <!-- Set ALS Landing Lights -->
+        <als-secondary-lights>
+            <landing-light1-offset-deg>-6</landing-light1-offset-deg>
+            <landing-light2-offset-deg>6</landing-light2-offset-deg>
+        </als-secondary-lights>
+    </rendering>
 
     <help>
       <title>Cessna 550 Citation-II</title>
@@ -442,6 +448,14 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
                 <binding>
                     <command>property-toggle</command>
                     <property>controls/lighting/landing-light[1]</property>
+                </binding>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>sim/rendering/als-secondary-lights/use-landing-light</property>
+                </binding>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>sim/rendering/als-secondary-lights/use-alt-landing-light</property>
                 </binding>
             </key>
             <key n="121">
