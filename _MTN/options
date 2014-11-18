@@ -1,3 +1,0 @@
-database "/var/lib/monotone/flightgear-aircraft.mtn-1.0"
-  branch "org.flightgear.aircraft.Citation-II"
-  keydir "/home/lbrenta/.monotone/keys"
