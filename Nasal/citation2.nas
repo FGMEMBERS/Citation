@@ -227,6 +227,7 @@ var update_systems = func{
         setprop ("autopilot/locks/altitude", "");
         setprop ("autopilot/locks/heading", "");
         setprop ("autopilot/locks/yaw-damper", 0);
+        setprop ("autopilot/locks/speed", "");
       }
     }
 
