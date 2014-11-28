@@ -1,114 +1,127 @@
 <PropertyList>
 
-<path>altalerter.ac</path>
+  <path>altalerter.ac</path>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>digit100</object-name>
+  <animation>
+    <type>select</type>
+    <object-name>digit100</object-name>
+    <object-name>digit10</object-name>
+    <object-name>digit1</object-name>
+    <condition>
+      <greater-than>
+        <property>/systems/electrical/ac-volts</property>
+        <value>90</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>digit100</object-name>
+    <property>autopilot/settings/target-altitude-ft</property>
+    <factor>0.00001</factor>
+    <step>10000</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>digit10</object-name>
+    <property>autopilot/settings/target-altitude-ft</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>digit1</object-name>
+    <property>autopilot/settings/target-altitude-ft</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--  Hotspots -->
+
+  <animation>
+    <type>pick</type>
+    <object-name>Set.knob</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
         <property>autopilot/settings/target-altitude-ft</property>
-        <factor>0.00001</factor>
-		<step>10000</step>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
+        <step>100</step>
+        <min>500</min>
+        <max>43000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>digit10</object-name>
+  <animation>
+    <type>pick</type>
+    <object-name>Set.knob</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
         <property>autopilot/settings/target-altitude-ft</property>
-        <factor>0.0001</factor>
-		<step>1000</step>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
+        <step>-100</step>
+        <min>500</min>
+        <max>43000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>digit1</object-name>
+  <animation>
+    <type>pick</type>
+    <object-name>Set.knob</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
         <property>autopilot/settings/target-altitude-ft</property>
-        <factor>0.001</factor>
-		<step>100</step>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>
+        <step>100</step>
+        <min>500</min>
+        <max>43000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
 
-<!--  Hotspots -->
-
-    <animation>
-        <type>pick</type>
-        <object-name>Set.knob</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.2</interval-sec>
-             <binding>
-                <command>property-adjust</command>
-                <property>autopilot/settings/target-altitude-ft</property>
-                <step>100</step>
-                <min>500</min>
-                <max>43000</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>Set.knob</object-name>
-        <action>
-            <button>1</button>
-            <repeatable>true</repeatable>
-            <interval-sec>0.2</interval-sec>
-             <binding>
-                <command>property-adjust</command>
-                <property>autopilot/settings/target-altitude-ft</property>
-                <step>-100</step>
-                <min>500</min>
-                <max>43000</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>Set.knob</object-name>
-        <action>
-            <button>3</button>
-             <binding>
-                <command>property-adjust</command>
-                <property>autopilot/settings/target-altitude-ft</property>
-                <step>100</step>
-                <min>500</min>
-                <max>43000</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>Set.knob</object-name>
-        <action>
-            <button>4</button>
-             <binding>
-                <command>property-adjust</command>
-                <property>autopilot/settings/target-altitude-ft</property>
-                <step>-100</step>
-                <min>500</min>
-                <max>43000</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>Set.knob</object-name>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+        <step>-100</step>
+        <min>500</min>
+        <max>43000</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
 
 </PropertyList>

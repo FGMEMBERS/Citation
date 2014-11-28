@@ -7,6 +7,10 @@
     <object-name>AP.fdoff.lit</object-name>
     <condition>
       <property>autopilot/locks/passive-mode</property>
+      <greater-than>
+        <property>/systems/electrical/ac-volts</property>
+        <value>90</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -349,6 +353,7 @@
             setprop ("autopilot/locks/passive-mode", "true");
             setprop ("autopilot/locks/heading", "");
             setprop ("autopilot/locks/altitude", "");
+            setprop ("autopilot/locks/speed", "");
           }
         </script>
       </binding>

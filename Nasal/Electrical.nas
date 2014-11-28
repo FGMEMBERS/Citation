@@ -3,7 +3,6 @@
 var ammeter_ave = 0.0;
 var Lbus = props.globals.initNode("/systems/electrical/left-bus",0,"DOUBLE");
 var Rbus = props.globals.initNode("/systems/electrical/right-bus",0,"DOUBLE");
-var Mbus = props.globals.initNode("/systems/electrical/bus-volts",0,"DOUBLE");
 var ACbus = props.globals.initNode("/systems/electrical/ac-volts",0,"DOUBLE");
 var Amps = props.globals.initNode("/systems/electrical/amps",0,"DOUBLE");
 var EXT  = props.globals.initNode("/controls/electric/external-power",0,"DOUBLE");
@@ -277,26 +276,17 @@ update_virtual_bus = func( dt ) {
     Rbus.setValue(rbus_volts);
     right_load = rh_bus(rbus_volts);
 
-    # Feed the avionics bus with the bus selected by the inverter switch
+    # Feed the AC bus with the bus selected by the inverter switch iff the avionics switch is ON
     var avbus = 0;
     if(inverter_switch.getValue ()) {
-       avbus = AV*lbus_volts;
-       left_load += av_bus (avbus);
+        avbus = AV*lbus_volts;
+        left_load += av_bus (avbus);
+        ACbus.setValue (avbus*4.1);
     }
     else {
-       avbus = AV*rbus_volts;
-       right_load += av_bus (avbus);
-    }
-
-    # If either alternator is on, feed the AC bus with it.
-    if (lbus_volts > battery_volts) {
-        ACbus.setValue (lbus_volts * 4.1);
-    }
-    elsif  (rbus_volts > battery_volts) {
-        ACbus.setValue (rbus_volts * 4.1);
-    }
-    else {
-        ACbus.setValue (0.0);
+        avbus = AV*rbus_volts;
+        right_load += av_bus (avbus);
+        ACbus.setValue (avbus*4.1);
     }
 
     # Apply load to alternators that are on
