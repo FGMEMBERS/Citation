@@ -32,19 +32,17 @@
    <solve-weight idx="3" weight="0"/>
  </approach>
 
- <!-- throttle of 0.923 should map to v1=96%, since full throttle maps
-      to v1=104% -->
- <cruise speed="331" alt="25000" fuel="0.9"> <!-- 229 indicated -->
+ <cruise speed="331" alt="36000" fuel="0.87"> <!-- 162 indicated -->
   <control-setting axis="/controls/flight/elevator-trim" value="0.0"/>
-  <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="0.923"/>
-  <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="0.923"/>
+  <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="1.0"/>
+  <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="1.0"/>
   <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
   <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
   <control-setting axis="/controls/flight/flaps" value="0.0"/>
   <control-setting axis="/controls/gear/gear-down" value="0"/>
-   <solve-weight idx="0" weight="0"/>
-   <solve-weight idx="1" weight="400"/>
-   <solve-weight idx="2" weight="536"/>
+   <solve-weight idx="0" weight="117"/>
+   <solve-weight idx="1" weight="169"/>
+   <solve-weight idx="2" weight="768"/>
    <solve-weight idx="3" weight="0"/>
  </cruise>
 
@@ -150,9 +148,14 @@
   <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
  </gear>
 
- <!-- Pratt and Whitney Canada Inc. JT15D-4 Turbofan --> 
- <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.562" egt="973.15"
- n1-idle="45" n1-max="104.0" n2-idle="49.0" n2-max="105" spool-time="2.5" epr="2.7">
+ <!-- Pratt and Whitney Canada Inc. JT15D-4 Turbofan -->
+ <!-- The real-life values for n1-max and n2-max are 104% and 96%
+      respectively but YASim does not neem to provide a very accurate
+      simulation.  Here we use numbers tweaked to provide 104% and 96%
+      at full throttle during cruise, and 2500 pounds-force of thrust
+      at 104%, sea level and 0 knots. -->
+ <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2635.6" tsfc="0.562" egt="973.15"
+ n1-idle="45" n1-max="107.2" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
   <control-input axis="/controls/engines/engine[0]/throttle-lever" control="THROTTLE"
   src0="0.2" dst0="0" src1="1" dst1="1"/>
         <control-input axis="/controls/engines/engine[0]/reverser" control="REVERSE_THRUST"/>
@@ -160,8 +163,8 @@
         <control-speed control="REVERSE_THRUST" transition-time="1.5"/>
  </jet>
 
- <jet x="-9.19" y="-1.37"  z="0.76" mass="519" thrust="2500" tsfc="0.562" egt="973.15"
- n1-idle="45" n1-max="104.0" n2-idle="49.0" n2-max="105" spool-time="2.5" epr="2.7">
+ <jet x="-9.19" y="-1.37"  z="0.76" mass="519" thrust="2635.6" tsfc="0.562" egt="973.15"
+ n1-idle="45" n1-max="107.2" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
   <control-input axis="/controls/engines/engine[1]/throttle-lever" control="THROTTLE"
   src0="0.2" dst0="0" src1="1" dst1="1"/>
         <control-input axis="/controls/engines/engine[1]/reverser" control="REVERSE_THRUST"/>
