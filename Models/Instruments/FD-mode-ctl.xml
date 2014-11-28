@@ -319,17 +319,11 @@
     <action>
       <button>0</button>
       <binding>
-        <command>nasal</command>
-        <script>
-          var mode = getprop("autopilot/locks/speed");
-          if( mode=="speed-with-throttle"){
-          mode="";
-          }else{
-          mode="speed-with-throttle";
-          setprop("autopilot/settings/target-speed-kt",getprop("velocities/airspeed-kt"));
-          }
-          setprop("autopilot/locks/speed",mode);
-        </script>
+        <command>property-cycle</command>
+        <property>/autopilot/locks/speed</property>
+        <value type="string">speed-with-throttle</value>
+        <!-- value type="string">speed-with-pitch-trim</value--> <!-- not supported -->
+        <value type="string"/>
       </binding>
     </action>
   </animation>
@@ -340,22 +334,8 @@
     <action>
       <button>0</button>
       <binding>
-        <command>nasal</command>
-        <script>
-          var fd_enabled = getprop ("/autopilot/locks/passive-mode");
-          if (fd_enabled) {
-            setprop ("autopilot/locks/passive-mode", "false");
-            setprop ("autopilot/locks/heading", "wing-leveler");
-            setprop ("autopilot/locks/altitude", "pitch-hold");
-            setprop ("autopilot/settings/target-pitch-deg", getprop ("orientation/pitch-deg"));
-          }
-          else {
-            setprop ("autopilot/locks/passive-mode", "true");
-            setprop ("autopilot/locks/heading", "");
-            setprop ("autopilot/locks/altitude", "");
-            setprop ("autopilot/locks/speed", "");
-          }
-        </script>
+        <command>property-toggle</command>
+        <property>/autopilot/locks/passive-mode</property>
       </binding>
     </action>
   </animation>

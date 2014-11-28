@@ -251,3 +251,29 @@ var update_systems = func{
 
     settimer(update_systems,0);
 }
+
+################################################################################
+# Autopilot listeners
+
+var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (passive_mode) {
+    if (passive_mode.getBoolValue ()) {
+        setprop ("autopilot/locks/heading", "");
+        setprop ("autopilot/locks/altitude", "");
+        setprop ("autopilot/locks/speed", "");
+    }
+    else {
+        setprop ("autopilot/locks/heading", "wing-leveler");
+        setprop ("autopilot/locks/altitude", "pitch-hold");
+        setprop ("autopilot/settings/target-pitch-deg", getprop ("orientation/pitch-deg"));
+    }
+});
+
+var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) {
+    var speed_lock = speed.getValue ();
+    if (speed_lock == "speed-with-throttle") {
+        setprop("autopilot/settings/target-speed-kt", getprop ("velocities/airspeed-kt"));
+    }
+    elsif (speed_lock == "speed-with-pitch-trim") { # only possible from the generic AP dialog
+        screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
+    }
+});
