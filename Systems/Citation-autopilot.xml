@@ -43,9 +43,29 @@
     <input>0.0</input>
     <output>/autopilot/internal/target-roll-deg</output>
   </filter>
-  
+
   <filter>
-    <name>AP: lateral: stage 1: set target roll from direction deviation for Heading, NAV1 or GPS hold</name>
+    <name>AP: lateral: stage 0: NAV2 heading error</name>
+    <!-- copied and modified from Aircraft/Generic/generic-autopilot-helper.xml -->
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>instrumentation/nav[1]/radials/target-auto-hdg-deg</property>
+      <offset>
+        <property>orientation/heading-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>autopilot/internal/nav2-heading-error-deg</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
+  <filter>
+    <name>AP: lateral: stage 1: set target roll from direction deviation for Heading, NAV1/2 or GPS hold</name>
     <debug>false</debug>
     <enable> <!-- Enable if one of Heading, NAV1 or NAV2 is selected -->
       <condition>
@@ -55,6 +75,9 @@
           </equals>
           <equals>
             <property>/autopilot/locks/heading</property> <value>nav1-hold</value>
+          </equals>
+          <equals>
+            <property>/autopilot/locks/heading</property> <value>nav2-hold</value>
           </equals>
           <equals>
             <property>/autopilot/locks/heading</property> <value>gps-hold</value>
@@ -79,6 +102,14 @@
         </equals>
       </condition>
       <property>/autopilot/internal/nav1-heading-error-deg</property>
+    </input>
+    <input>
+      <condition>
+        <equals>
+          <property>/autopilot/locks/heading</property> <value>nav2-hold</value>
+        </equals>
+      </condition>
+      <property>/autopilot/internal/nav2-heading-error-deg</property>
     </input>
     <input>
       <condition>
@@ -174,39 +205,48 @@
       <condition>
         <less-than>
           <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <value>10000</value>
+          <property>/autopilot/limits/indicated-altitude-ft[0]</property>
         </less-than>
       </condition>
-      <value>3000</value>
+      <property>/autopilot/limits/max-climb-rate-fpm[0]</property>
     </max>
     <max>
       <condition>
         <less-than>
           <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <value>18500</value>
+          <property>/autopilot/limits/indicated-altitude-ft[1]</property>
         </less-than>
       </condition>
-      <value>2000</value>
+      <property>/autopilot/limits/max-climb-rate-fpm[1]</property>
     </max>
     <max>
       <condition>
         <less-than>
           <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <value>25000</value>
+          <property>/autopilot/limits/indicated-altitude-ft[2]</property>
         </less-than>
       </condition>
-      <value>1500</value>
+      <property>/autopilot/limits/max-climb-rate-fpm[2]</property>
     </max>
     <max>
       <condition>
         <less-than>
           <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <value>32000</value>
+          <property>/autopilot/limits/indicated-altitude-ft[3]</property>
         </less-than>
       </condition>
-      <value>1000</value>
+      <property>/autopilot/limits/max-climb-rate-fpm[3]</property>
     </max>
-    <max>500</max> <!-- above -->
+    <max>
+      <condition>
+        <less-than>
+          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>/autopilot/limits/indicated-altitude-ft[4]</property>
+        </less-than>
+      </condition>
+      <property>/autopilot/limits/max-climb-rate-fpm[4]</property>
+    </max>
+    <max>/autopilot/limits/max-climb-rate-fpm[5]</max> <!-- above -->
   </filter>
 
   <filter>
@@ -243,7 +283,13 @@
       <value>pitch-hold</value>
     </enable>
     <type>gain</type>
-    <input>/autopilot/settings/target-pitch-deg</input>
+    <input>
+      <property>/autopilot/settings/target-pitch-deg</property>
+      <offset> <!-- correct for our angle of attack -->
+        <property>/orientation/alpha-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
     <output>/autopilot/internal/target-pitch-deg</output>
     <gain>1.0</gain>
   </filter>
@@ -291,10 +337,12 @@
       </expression>
     </input>
     <output>/autopilot/internal/target-pitch-deg</output>
+    <min>-10.0</min>
+    <max>25.0</max>
   </filter>
 
   <pi-simple-controller>
-    <name>AP: vertical: stage 3: compute elevator trim from current and target pitch</name>
+    <name>AP: vertical: stage 3: compute target elevator from current and target pitch</name>
     <debug>false</debug>
     <enable>
       <condition>

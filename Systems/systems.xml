@@ -20,7 +20,7 @@
   <vacuum>
     <name>vacuum</name>
     <number>0</number>
-    <rpm>engines/engine[0]n1</rpm>
+    <rpm>engines/engine[0]/n1</rpm>
     <scale>15.0</scale>
   </vacuum>
 
