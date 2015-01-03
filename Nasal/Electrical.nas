@@ -188,8 +188,8 @@ var init_switches = func{
     append(lights_input,props.globals.initNode("controls/lighting/logo-lights",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/logo-lights",0,"DOUBLE"));
     append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/taxi-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/taxi-lights",0,"DOUBLE"));
+    append(lights_input,props.globals.initNode("controls/lighting/taxi-light",0,"BOOL"));
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/taxi-light",0,"DOUBLE"));
     append(lights_load,1);
     append(lights_input,props.globals.initNode("controls/lighting/beacon-state/state",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/beacon",0,"DOUBLE"));
@@ -358,7 +358,7 @@ lighting = func(bv) {
 
 #setprop("sim/multiplay/generic/int",getprop("systems/electrical/outputs/strobe"));
 #setprop("sim/multiplay/generic/int[1]",getprop("systems/electrical/outputs/beacon"));
-#setprop("sim/multiplay/generic/int[2]",getprop("systems/electrical/outputs/taxi-lights"));
+#setprop("sim/multiplay/generic/int[2]",getprop("systems/electrical/outputs/taxi-light"));
 #setprop("sim/multiplay/generic/int[3]",getprop("systems/electrical/outputs/landing-light[0]"));
 #setprop("sim/multiplay/generic/int[3]",getprop("systems/electrical/outputs/landing-light[1]"));
 #setprop("sim/multiplay/generic/int[4]",getprop("systems/electrical/outputs/recog-lights"));

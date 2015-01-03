@@ -26,9 +26,9 @@
   <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
   <control-setting axis="/controls/flight/flaps" value="1"/>
   <control-setting axis="/controls/gear/gear-down" value="1"/>
-   <solve-weight idx="0" weight="0"/>
-   <solve-weight idx="1" weight="400"/>
-   <solve-weight idx="2" weight="536"/>
+   <solve-weight idx="0" weight="117"/>
+   <solve-weight idx="1" weight="169"/>
+   <solve-weight idx="2" weight="768"/>
    <solve-weight idx="3" weight="0"/>
  </approach>
 

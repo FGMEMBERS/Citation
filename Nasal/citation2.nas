@@ -213,8 +213,11 @@ var update_systems = func{
     LHeng.update();
     RHeng.update();
     if(getprop("velocities/airspeed-kt")>40)cabin_door.close();
-    if(getprop("controls/flight/speedbrake")>0){
-        if(getprop("engines/engine/turbine")>85 or getprop("engines/engine/turbine")>85)setprop("controls/flight/speedbrake",0);
+    if(getprop("controls/flight/speedbrake")>0) {
+        if(getprop("engines/engine[0]/turbine")>85
+        or getprop("engines/engine[1]/turbine")>85) {
+           setprop("controls/flight/speedbrake", 0);
+        }
     }
 
     # Disengage the autopilot when reaching decision height selected on the radio
@@ -234,7 +237,7 @@ var update_systems = func{
     if(getprop("autopilot/settings/gs-arm")){
         if(getprop("instrumentation/nav/gs-in-range")){
             var GS = getprop("instrumentation/nav/gs-needle-deflection");
-            if(GS <= 3.5 and GS >= -3.5){
+            if(GS <= 0.0 and GS >= -3.5){
                 setprop("autopilot/settings/gs-arm",0);
                 setprop("autopilot/locks/altitude","gs1-hold");
             }
@@ -257,16 +260,18 @@ var update_systems = func{
 
 var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (passive_mode) {
     if (passive_mode.getBoolValue ()) {
+        # When engaging passive mode, disengage all locks
         setprop ("autopilot/locks/heading", "");
         setprop ("autopilot/locks/altitude", "");
         setprop ("autopilot/locks/speed", "");
     }
     else {
+        # When engaging the autopilot, engage wing leveler and pitch hold for current pitch.
         setprop ("autopilot/locks/heading", "wing-leveler");
         setprop ("autopilot/locks/altitude", "pitch-hold");
         setprop ("autopilot/settings/target-pitch-deg", getprop ("orientation/pitch-deg"));
     }
-});
+}, 0, 0);
 
 var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) {
     var speed_lock = speed.getValue ();
@@ -276,4 +281,4 @@ var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) 
     elsif (speed_lock == "speed-with-pitch-trim") { # only possible from the generic AP dialog
         screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
     }
-});
+}, 0, 0);
