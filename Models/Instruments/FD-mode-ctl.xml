@@ -36,6 +36,10 @@
         </equals>
         <equals>
           <property>autopilot/locks/heading</property>
+          <value>nav2-hold</value>
+        </equals>
+        <equals>
+          <property>autopilot/locks/heading</property>
           <value>gps-hold</value>
         </equals>
       </or>
@@ -81,7 +85,7 @@
     <condition>
       <equals>
         <property>autopilot/locks/heading</property>
-        <value>gps-hold</value>
+        <value>nav2-hold</value>
       </equals>
     </condition>
   </animation>
@@ -215,8 +219,12 @@
       <binding>
         <command>nasal</command>
         <script>
-          if (getprop ("autopilot/locks/heading") == "nav1-hold")
+          var current_value = getprop ("autopilot/locks/heading");
+          if (current_value == "nav1-hold"
+           or current_value == "nav2-hold"
+           or current_value == "gps-hold") {
             setprop ("autopilot/locks/heading", "wing-leveler");
+          }
           else setprop ("autopilot/locks/heading", "nav1-hold");
         </script>
       </binding>
@@ -242,7 +250,7 @@
               setprop("autopilot/settings/gs-arm", "false");
             }
             else {
-              setprop("autopilot/locks/altitude", "alt-hold");
+              setprop("autopilot/locks/altitude", "altitude-hold");
               setprop("autopilot/settings/gs-arm", "true");
             }
           }
@@ -273,9 +281,13 @@
         <script>
           var lateral_mode = getprop ("autopilot/locks/heading");
           if (lateral_mode == "nav1-hold")
+            setprop ("autopilot/locks/heading", "nav2-hold");
+          elsif (lateral_mode == "nav2-hold")
             setprop ("autopilot/locks/heading", "gps-hold");
-          if (lateral_mode == "gps-hold")
+          elsif (lateral_mode == "gps-hold")
             setprop ("autopilot/locks/heading", "nav1-hold");
+          else
+            print ("AP.nav-hsi: error: unknown lateral mode: " ~ lateral_mode);
         </script>
       </binding>
     </action>
