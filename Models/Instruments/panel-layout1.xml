@@ -119,9 +119,6 @@
 
     <model>
         <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
-        <overlay>
-            <nav-heading-deg>/instrumentation/nav[0]/heading-deg</nav-heading-deg>
-        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.422</y-m>
@@ -131,9 +128,6 @@
 
     <model>
         <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
-        <overlay>
-            <nav-heading-deg>/instrumentation/nav[1]/heading-deg</nav-heading-deg>
-        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.204</y-m>
@@ -196,45 +190,53 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
-        <overlay>
-            <volts>/systems/electrical/outputs/nav[0]</volts>
-            <has-gs>/instrumentation/nav[0]/has-gs</has-gs>
-            <in-range>/instrumentation/nav[0]/in-range</in-range>
-            <to-flag>/instrumentation/nav[0]/to-flag</to-flag>
-            <from-flag>/instrumentation/nav[0]/from-flag</from-flag>
-            <selected-deg>/instrumentation/nav[0]/radials/selected-deg</selected-deg>
-            <heading-needle-deflection>/instrumentation/nav[0]/heading-needle-deflection</heading-needle-deflection>
-            <heading-deg>/instrumentation/nav[0]/heading-deg</heading-deg>
-            <gs-needle-deflection>/instrumentation/nav[0]/gs-needle-deflection</gs-needle-deflection>
-            <nav-distance>/instrumentation/nav[0]/nav-distance</nav-distance>
-        </overlay>
-        <offsets>
-            <x-m>0</x-m>
-            <y-m>-0.312</y-m>
-            <z-m>0.200</z-m>
-        </offsets>
+      <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
+      <overlay>
+        <volts>/instrumentation/hsi[0]/volts</volts>
+        <inputs>
+          <from-flag>/instrumentation/hsi[0]/inputs/from-flag</from-flag>
+          <gs-needle-deflection>/instrumentation/hsi[0]/inputs/gs-needle-deflection</gs-needle-deflection>
+          <has-gs>/instrumentation/hsi[0]/inputs/has-gs</has-gs>
+          <heading-deg>/instrumentation/hsi[0]/inputs/heading-deg</heading-deg>
+          <heading-needle-deflection>/instrumentation/hsi[0]/inputs/heading-needle-deflection</heading-needle-deflection>
+          <in-range>/instrumentation/hsi[0]/inputs/in-range</in-range>
+          <nav-distance>/instrumentation/hsi[0]/inputs/nav-distance</nav-distance>
+          <radials>
+            <selected-deg>/instrumentation/hsi[0]/inputs/radials/selected-deg</selected-deg>
+          </radials>
+          <to-flag>/instrumentation/hsi[0]/inputs/to-flag</to-flag>
+        </inputs>
+      </overlay>
+      <offsets>
+        <x-m>0</x-m>
+        <y-m>-0.312</y-m>
+        <z-m>0.200</z-m>
+      </offsets>
     </model>
 
     <model>
-        <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
-        <overlay>
-            <volts>/systems/electrical/outputs/nav[1]</volts>
-            <has-gs>/instrumentation/nav[1]/has-gs</has-gs>
-            <in-range>/instrumentation/nav[1]/in-range</in-range>
-            <to-flag>/instrumentation/nav[1]/to-flag</to-flag>
-            <from-flag>/instrumentation/nav[1]/from-flag</from-flag>
-            <selected-deg>/instrumentation/nav[1]/radials/selected-deg</selected-deg>
-            <heading-needle-deflection>/instrumentation/nav[1]/heading-needle-deflection</heading-needle-deflection>
-            <heading-deg>/instrumentation/nav[1]/heading-deg</heading-deg>
-            <gs-needle-deflection>/instrumentation/nav[1]/gs-needle-deflection</gs-needle-deflection>
-            <nav-distance>/instrumentation/nav[1]/nav-distance</nav-distance>
-        </overlay>
-        <offsets>
-            <x-m>0</x-m>
-            <y-m>0.321</y-m>
-            <z-m>0.200</z-m>
-        </offsets>
+      <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
+      <overlay>
+        <volts>/instrumentation/hsi[1]/volts</volts>
+        <inputs>
+          <from-flag>/instrumentation/hsi[1]/inputs/from-flag</from-flag>
+          <gs-needle-deflection>/instrumentation/hsi[1]/inputs/gs-needle-deflection</gs-needle-deflection>
+          <has-gs>/instrumentation/hsi[1]/inputs/has-gs</has-gs>
+          <heading-deg>/instrumentation/hsi[1]/inputs/heading-deg</heading-deg>
+          <heading-needle-deflection>/instrumentation/hsi[1]/inputs/heading-needle-deflection</heading-needle-deflection>
+          <in-range>/instrumentation/hsi[1]/inputs/in-range</in-range>
+          <nav-distance>/instrumentation/hsi[1]/inputs/nav-distance</nav-distance>
+          <radials>
+            <selected-deg>/instrumentation/hsi[1]/inputs/radials/selected-deg</selected-deg>
+          </radials>
+          <to-flag>/instrumentation/hsi[1]/inputs/to-flag</to-flag>
+        </inputs>
+      </overlay>
+      <offsets>
+        <x-m>0</x-m>
+        <y-m>0.321</y-m>
+        <z-m>0.200</z-m>
+      </offsets>
     </model>
 
     <model>
@@ -310,7 +312,12 @@
     </model>
 
     <model>
+        <!-- Pilot's autopilot panel -->
         <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
+        <overlay>
+          <hsi-number>0</hsi-number>
+          <selected-nav>/instrumentation/hsi[0]/selected-nav</selected-nav>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.312</y-m>
@@ -319,7 +326,12 @@
     </model>
 
     <model>
+        <!-- Copilot's autopilot panel -->
         <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
+        <overlay>
+          <hsi-number>1</hsi-number>
+          <selected-nav>/instrumentation/hsi[1]/selected-nav</selected-nav>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.312</y-m>

@@ -131,6 +131,11 @@ setlistener("/sim/signals/fdm-initialized", func {
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);
     settimer(update_systems,2);
+    # Initially drive the pilot's HSI with NAV1 and copilot's with NAV2
+    drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[0]"),
+                        props.globals.getNode ("/instrumentation/nav[0]"));
+    drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[1]"),
+                        props.globals.getNode ("/instrumentation/nav[1]"));
 });
 
 setlistener("/sim/current-view/internal", func(vw){
@@ -282,3 +287,41 @@ var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) 
         screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
     }
 }, 0, 0);
+
+
+
+var alias_recursively = func (source, dest) { # source and dest must be nodes not names
+   var children = source.getChildren ();
+   if (size (children) == 0) {
+      dest.unalias ();
+      dest.alias (source);
+   }
+   foreach (var child; children) {
+      var dest_node = dest.getChild (child.getName (), child.getIndex (), 1);
+      alias_recursively (child, dest_node);
+   }
+};
+
+var drive_hsi_with_nav = func (hsi_node, nav_node) {
+   var inputs = hsi_node.getChild ("inputs", 0, 1);
+   alias_recursively (nav_node, inputs);
+   var source_volts_node =
+     props.globals.getNode ("/systems/electrical/outputs/nav[" ~ nav_node.getIndex () ~ "]");
+   var dest_volts_node = hsi_node.getChild ("volts", 0, 1);
+   dest_volts_node.unalias ();
+   dest_volts_node.alias (source_volts_node);
+};
+
+var pilot_hsi_listener =
+  setlistener ("/instrumentation/hsi[0]/selected-nav", func (selected_nav) {
+   var hsi_node = props.globals.getNode ("/instrumentation/hsi[0]");
+   var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
+   drive_hsi_with_nav (hsi_node, nav_node);
+}, 0, 0);  
+
+var copilot_hsi_listener =
+  setlistener ("/instrumentation/hsi[1]/selected-nav", func (selected_nav) {
+   var hsi_node = props.globals.getNode ("/instrumentation/hsi[1]");
+   var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
+   drive_hsi_with_nav (hsi_node, nav_node);
+}, 0, 0);  

@@ -72,10 +72,16 @@
     <type>select</type>
     <object-name>AP.nav1.lit</object-name>
     <condition>
-      <equals>
-        <property>autopilot/locks/heading</property>
-        <value>nav1-hold</value>
-      </equals>
+      <and>
+        <equals>
+          <property alias="../../../../../selected-nav"/>
+          <value>0</value>
+        </equals>
+        <greater-than>
+          <property>/systems/electrical/ac-volts</property>
+          <value>90</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -83,10 +89,16 @@
     <type>select</type>
     <object-name>AP.nav2.lit</object-name>
     <condition>
-      <equals>
-        <property>autopilot/locks/heading</property>
-        <value>nav2-hold</value>
-      </equals>
+      <and>
+        <equals>
+          <property alias="../../../../../selected-nav"/>
+          <value>1</value>
+        </equals>
+        <greater-than>
+          <property>/systems/electrical/ac-volts</property>
+          <value>90</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -218,14 +230,21 @@
       <button>0</button>
       <binding>
         <command>nasal</command>
+        <!-- State transitions: NAV to GPS to wing leveler to NAV selected by
+             the pilot's HSI -->
         <script>
           var current_value = getprop ("autopilot/locks/heading");
           if (current_value == "nav1-hold"
-           or current_value == "nav2-hold"
-           or current_value == "gps-hold") {
-            setprop ("autopilot/locks/heading", "wing-leveler");
+           or current_value == "nav2-hold") {
+            setprop ("/autopilot/locks/heading", "gps-hold");
           }
-          else setprop ("autopilot/locks/heading", "nav1-hold");
+          elsif (current_value == "gps-hold") {
+            setprop ("/autopilot/locks/heading", "wing-leveler");
+          }
+          elsif (current_value == "wing-leveler") {
+            var selected_nav = getprop ("/instrumentation/hsi[0]/selected-nav");
+            setprop ("/autopilot/locks/heading", "nav" ~ (selected_nav + 1) ~ "-hold");
+          }
         </script>
       </binding>
     </action>
@@ -277,17 +296,31 @@
     <action>
       <button>0</button>
       <binding>
+        <command>property-toggle</command>
+        <property alias="../../../../selected-nav"/>
+        <!-- This triggers a Nasal listener in citation2.nas to drive the HSI
+             from the selected nav radio. -->
+      </binding>
+      <binding>
         <command>nasal</command>
+        <!--
+            If autopilot is engaged in NAV mode, set it to follow the VOR beacon
+            selected on the pilot's HSI, in case it has just changed.  If this
+            script is triggered by toggling the copilot's HSI, it has no effect
+            since the pilot's selected nav has not changed.
+        -->
         <script>
-          var lateral_mode = getprop ("autopilot/locks/heading");
-          if (lateral_mode == "nav1-hold")
-            setprop ("autopilot/locks/heading", "nav2-hold");
-          elsif (lateral_mode == "nav2-hold")
-            setprop ("autopilot/locks/heading", "gps-hold");
-          elsif (lateral_mode == "gps-hold")
-            setprop ("autopilot/locks/heading", "nav1-hold");
-          else
-            print ("AP.nav-hsi: error: unknown lateral mode: " ~ lateral_mode);
+          var current_mode = getprop ("/autopilot/locks/heading");
+          if (current_mode == "nav1-hold"
+           or current_mode == "nav2-hold") {
+             var selected = getprop ("/instrumentation/hsi[0]/selected-nav");
+             if (selected == 0) {
+               setprop ("/autopilot/locks/heading", "nav1-hold");
+             }
+             elsif (selected == 1) {
+               setprop ("/autopilot/locks/heading", "nav2-hold");
+             }
+          }
         </script>
       </binding>
     </action>
