@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+Filters that compute values for various instruments in the Citation II.
+Copyright (C) 2015 Ludovic Brenta <ludovic@ludovic-brenta.org>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+<PropertyList>
+
+  <filter>
+    <name>RMI: single-stemmed needle: copy ADF bearing to position</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <enable>
+      <condition>
+        <equals>
+          <property>/instrumentation/rmi/single-needle/selected-input</property>
+          <value>ADF</value>
+        </equals>
+      </condition>
+    </enable>
+    <input>/instrumentation/adf/indicated-bearing-deg</input>
+    <output>/instrumentation/rmi/single-needle/position-deg</output>
+  </filter>
+
+  <filter>
+    <name>RMI: single-stemmed needle: compute position from VOR bearing and heading</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <enable>
+      <condition>
+        <equals>
+          <property>/instrumentation/rmi/single-needle/selected-input</property>
+          <value>VOR</value>
+        </equals>
+      </condition>
+    </enable>
+    <input>
+      <property>/instrumentation/nav[0]/heading-deg</property>
+      <offset>
+        <property>/orientation/heading-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>/instrumentation/rmi/single-needle/position-deg</output>
+    <period>
+      <min>0</min>
+      <max>360</max>
+    </period>
+  </filter>
+
+  <filter>
+    <name>RMI: double-stemmed needle: copy ADF bearing to position</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <enable>
+      <condition>
+        <equals>
+          <property>/instrumentation/rmi/double-needle/selected-input</property>
+          <value>ADF</value>
+        </equals>
+      </condition>
+    </enable>
+    <input>/instrumentation/adf/indicated-bearing-deg</input>
+    <output>/instrumentation/rmi/double-needle/position-deg</output>
+  </filter>
+
+  <filter>
+    <name>RMI: double-stemmed needle: compute position from VOR bearing and heading</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <enable>
+      <condition>
+        <equals>
+          <property>/instrumentation/rmi/double-needle/selected-input</property>
+          <value>VOR</value>
+        </equals>
+      </condition>
+    </enable>
+    <input>
+      <property>/instrumentation/nav[1]/heading-deg</property>
+      <offset>
+        <property>/orientation/heading-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>/instrumentation/rmi/double-needle/position-deg</output>
+    <period>
+      <min>0</min>
+      <max>360</max>
+    </period>
+  </filter>
+
+</PropertyList>
