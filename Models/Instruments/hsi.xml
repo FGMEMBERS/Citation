@@ -14,7 +14,7 @@
     <type>select</type>
     <object-name>gs.needle</object-name>
     <condition>
-      <property alias="../../../has-gs"/>
+      <property alias="../../../inputs/has-gs"/>
     </condition>
   </animation>
 
@@ -27,7 +27,7 @@
     <condition>
       <and>
 	<property alias="../../../../volts"/>
-	<property alias="../../../../in-range"/>
+	<property alias="../../../../inputs/in-range"/>
       </and>
     </condition>
   </animation>
@@ -42,7 +42,7 @@
 	  <property alias="../../../../../volts"/>
 	</not>
 	<not>
-	  <property alias="../../../../../in-range"/>
+	  <property alias="../../../../../inputs/in-range"/>
 	</not>
       </or>
     </condition>
@@ -52,7 +52,7 @@
     <type>select</type>
     <object-name>toflag</object-name>
     <condition>
-      <property alias="../../../to-flag"/>
+      <property alias="../../../inputs/to-flag"/>
     </condition>
   </animation>
 
@@ -60,7 +60,7 @@
     <type>select</type>
     <object-name>fromflag</object-name>
     <condition>
-      <property alias="../../../from-flag"/>
+      <property alias="../../../inputs/from-flag"/>
     </condition>
   </animation>
 
@@ -96,7 +96,7 @@
     <object-name>HSI.crsdeflection</object-name>
     <object-name>toflag</object-name>
     <object-name>fromflag</object-name>
-    <property alias="../../selected-deg"/>
+    <property alias="../../inputs/radials/selected-deg"/>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -107,7 +107,7 @@
   <animation>
     <type>translate</type>
     <object-name>HSI.crsdeflection</object-name>
-    <property alias="../../heading-needle-deflection"/>
+    <property alias="../../inputs/heading-needle-deflection"/>
     <interpolation>
       <entry><ind>-5</ind><dep>-0.0117</dep></entry>
       <entry><ind>0.0</ind><dep>0</dep></entry>
@@ -134,7 +134,7 @@
   <animation>
     <type>rotate</type>
     <object-name>HSI.navbrg</object-name>
-    <property alias="../../heading-deg"/>
+    <property alias="../../inputs/heading-deg"/>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -145,7 +145,7 @@
   <animation>
     <type>translate</type>
     <object-name>gs.needle</object-name>
-    <property alias="../../gs-needle-deflection"/>
+    <property alias="../../inputs/gs-needle-deflection"/>
     <interpolation>
       <entry><ind>-2.0</ind><dep>-0.0133</dep></entry>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
@@ -175,7 +175,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>HSI.crs100</object-name>
-    <property alias="../../selected-deg"/>
+    <property alias="../../inputs/radials/selected-deg"/>
     <factor>0.001</factor>
     <step>100</step>
     <axis>
@@ -188,7 +188,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>HSI.crs10</object-name>
-    <property alias="../../selected-deg"/>
+    <property alias="../../inputs/radials/selected-deg"/>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -201,7 +201,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>HSI.crs1</object-name>
-    <property alias="../../selected-deg"/>
+    <property alias="../../inputs/radials/selected-deg"/>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -216,7 +216,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>HSI.dst100</object-name>
-    <property alias="../../nav-distance"/>
+    <property alias="../../inputs/nav-distance"/>
     <factor>0.000000539956803</factor>
     <step>185200</step>
     <axis>
@@ -229,7 +229,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>HSI.dst10</object-name>
-    <property alias="../../nav-distance"/>
+    <property alias="../../inputs/nav-distance"/>
     <factor>0.00000539956803</factor>
     <step>18520</step>
     <axis>
@@ -242,7 +242,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>HSI.dst1</object-name>
-    <property alias="../../nav-distance"/>
+    <property alias="../../inputs/nav-distance"/>
     <factor>0.0000539956803</factor>
     <step>1852</step>
     <axis>
@@ -255,7 +255,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>HSI.dst0</object-name>
-    <property alias="../../nav-distance"/>
+    <property alias="../../inputs/nav-distance"/>
     <factor>0.000539956803</factor>
     <step>185.2</step>
     <axis>
@@ -268,7 +268,7 @@
   <animation>
     <type>rotate</type>
     <object-name>HSI.crsknob</object-name>
-    <property alias="../../selected-deg"/>
+    <property alias="../../inputs/radials/selected-deg"/>
     <factor>2</factor>
     <center>
       <x-m>0</x-m>
@@ -310,7 +310,7 @@
       <interval-sec>0.2</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property alias="../../../../selected-deg"/>
+        <property alias="../../../../inputs/radials/selected-deg"/>
         <step>1</step>
         <min>0</min>
         <max>360</max>
@@ -328,7 +328,7 @@
       <interval-sec>0.2</interval-sec>
       <binding>
         <command>property-adjust</command>
-        <property alias="../../../../selected-deg"/>
+        <property alias="../../../../inputs/radials/selected-deg"/>
         <step>-1</step>
         <min>0</min>
         <max>360</max>
@@ -344,7 +344,7 @@
       <button>3</button>
       <binding>
         <command>property-adjust</command>
-        <property alias="../../../../selected-deg"/>
+        <property alias="../../../../inputs/radials/selected-deg"/>
         <step>1</step>
         <min>0</min>
         <max>360</max>
@@ -360,7 +360,7 @@
       <button>4</button>
       <binding>
         <command>property-adjust</command>
-        <property alias="../../../../selected-deg"/>
+        <property alias="../../../../inputs/radials/selected-deg"/>
         <step>-1</step>
         <min>0</min>
         <max>360</max>

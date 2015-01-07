@@ -185,6 +185,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <path>Aircraft/Citation/Systems/Citation-autopilot.xml</path>
       </autopilot>
       <path>Aircraft/Citation/Systems/systems.xml</path>
+      <property-rule n="100">
+        <path>Models/Instruments/instrument-filters.xml</path>
+      </property-rule>
     </systems>
 
     <sound>
@@ -213,11 +216,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <help>
       <title>Cessna 550 Citation-II</title>
       <key>
-        <name>s</name>
+        <name>S</name>
         <desc>autostart</desc>
       </key>
       <key>
-        <name>y</name>
+        <name>Y</name>
         <desc>Show/Hide Yokes</desc>
       </key>
       <key>
@@ -229,15 +232,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <desc>toggle thrust reversers (Citation II, not Sierra Super II)</desc>
       </key>
       <key>  
-        <name>Ctrl-D</name>
+        <name>Ctrl+D</name>
         <desc>Open/close cabin-door</desc>
       </key>
       <key>
-        <name>j</name>
+        <name>J</name>
         <desc>Retract spoilers</desc>
       </key>
       <key>
-        <name>k</name>
+        <name>K</name>
         <desc>Extend spoilers (N1 &lt; 85%)</desc>
       </key>
       <key>
@@ -250,7 +253,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </key>
       <key>
         <name>NAV</name>
-        <desc>Follow the NAV1 or NAV2 radial or the GPS course</desc>
+        <desc>Cycle between wing leveler, NAV1 or NAV2, and GPS</desc>
       </key>
       <key>
         <name>APR</name>
@@ -262,7 +265,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </key>
       <key>
         <name>NAV/HSI</name>
-        <desc>Cycle NAV mode between NAV1, NAV2 and GPS</desc>
+        <desc>Toggle the HSI and autopilot between NAV1 and NAV2</desc>
       </key>
       <key>
         <name>ALT</name>
@@ -288,7 +291,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <name>PITCH wheel</name>
         <desc>Adjust pitch, selected altitude or vertical speed</desc>
       </key>
-      <line>Select NAV1 radial on the pilot side, NAV2 radial on the copilot side.</line>
       <line>Autopilot will disengage below decision height or 500ft above ground, whichever is highest.</line>
     </help>
 
@@ -470,6 +472,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <airspeed-indicator>
       <index-marker type="double">100</index-marker>
     </airspeed-indicator>
+    <rmi>
+      <single-needle>
+        <selected-input type="string">ADF</selected-input>
+        <position-deg type="double"/>
+        <!-- computed by a filter, see Models/Instruments/instrument-filters.xml -->
+      </single-needle>
+      <double-needle>
+        <selected-input type="string">VOR</selected-input>
+        <position-deg type="double"/>
+      </double-needle>
+    </rmi>
+    <hsi n="0">
+      <selected-nav type="int">0</selected-nav> <!-- pilot's HSI initially uses NAV1 -->
+      <volts type="double">0</volts>
+    </hsi>
+    <hsi n="1">
+      <selected-nav type="int">1</selected-nav> <!-- copilot's HSI initially uses NAV2 -->
+      <volts type="double">0</volts>
+    </hsi>
   </instrumentation>
 
   <autopilot>
@@ -491,8 +512,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   <nasal>
     <citation>
-      <file>Aircraft/Citation/Nasal/Electrical.nas</file>
-      <file>Aircraft/Citation/Nasal/citation2.nas</file>
+      <file>Nasal/Electrical.nas</file>
+      <file>Nasal/citation2.nas</file>
       <file>Aircraft/Generic/limits.nas</file>
     </citation>
     <m877>
