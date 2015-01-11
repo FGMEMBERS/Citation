@@ -4,7 +4,7 @@
 
         <nasal>
             <load>
-                var livery_update = aircraft.livery_update.new("Aircraft/Citation/Models/Liveries", 10);
+                var livery_update = aircraft.livery_update.new("Models/Liveries", 10);
             </load>
 
             <unload>
@@ -47,7 +47,7 @@
 
        <!-- Chrome parts, compatible with Rembrandt -->
        <effect>
-         <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome</inherits-from>
+         <inherits-from>Models/Effects/citationII-chrome</inherits-from>
            <object-name>RHwing.heater</object-name>
            <object-name>LHwing.heater</object-name>
            <object-name>REngine.heater</object-name>
@@ -62,7 +62,7 @@
 
        <!-- REFLECTION -->
        <effect>
-           <inherits-from>Aircraft/Citation/Models/Effects/citation_reflect</inherits-from>
+           <inherits-from>Models/Effects/citation_reflect</inherits-from>
            <object-name>LEngine</object-name>
            <object-name>REngine</object-name>
            <object-name>LHwing</object-name>
@@ -190,7 +190,7 @@
 
         <model>
         <name>cabin</name>
-            <path>Aircraft/Citation/Models/cabin.xml</path>
+            <path>Models/cabin.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
@@ -201,7 +201,7 @@
 
         <model>
         <name>flightdeck</name>
-            <path>Aircraft/Citation/Models/flightdeck.xml</path>
+            <path>Models/flightdeck.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
@@ -212,7 +212,7 @@
         
         <model>
             <name>Lights</name>
-            <path>Aircraft/Citation/Models/Lights/Lights.xml</path>
+            <path>Models/Lights/Lights.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>

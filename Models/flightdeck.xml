@@ -5,7 +5,7 @@
 
   <model>
     <name>panel1</name>
-    <path>Aircraft/Citation/Models/Instruments/panel-layout1.xml</path>
+    <path>Models/Instruments/panel-layout1.xml</path>
     <offsets>
       <x-m>2.484</x-m>
       <y-m>0</y-m>
@@ -23,7 +23,7 @@
   </animation>
 
   <model>
-    <path>Aircraft/Citation/Models/Instruments/magcompass.xml</path>
+    <path>Models/Instruments/magcompass.xml</path>
     <offsets>
       <x-m>2.440</x-m>
       <y-m>0</y-m>
@@ -32,7 +32,7 @@
   </model>
 
   <model>
-    <path>Aircraft/Citation/Models/Instruments/AP-control.xml</path>
+    <path>Models/Instruments/AP-control.xml</path>
     <offsets>
       <x-m>3.015</x-m>
       <y-m>0.006</y-m>
