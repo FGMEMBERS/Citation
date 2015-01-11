@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta</author>
     <flight-model>yasim</flight-model>
     <startup>
-      <splash-texture>Aircraft/Citation/Citation-II-splash.png</splash-texture>
+      <splash-texture>Citation-II-splash.png</splash-texture>
     </startup>
     
     <status>beta</status>
@@ -41,7 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </rating>
 
     <model>
-      <path>Aircraft/Citation/Models/Citation-II.xml</path>
+      <path>Models/Citation-II.xml</path>
       <autostart type="bool">0</autostart>
       <livery>
         <file type="string">blue-grey</file>
@@ -182,16 +182,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
     <systems>
       <autopilot>
-        <path>Aircraft/Citation/Systems/Citation-autopilot.xml</path>
+        <path>Systems/Citation-autopilot.xml</path>
       </autopilot>
-      <path>Aircraft/Citation/Systems/systems.xml</path>
+      <path>Systems/systems.xml</path>
       <property-rule n="100">
         <path>Models/Instruments/instrument-filters.xml</path>
       </property-rule>
     </systems>
 
     <sound>
-      <path>Aircraft/Citation/Citation-II-sound.xml</path>
+      <path>Citation-II-sound.xml</path>
     </sound>
     <hud>
       <enable3d>false</enable3d>
@@ -353,7 +353,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </menubar>
 
     <instrumentation>
-      <path>Aircraft/Citation/Systems/instrumentation.xml</path>
+      <path>Systems/instrumentation.xml</path>
     </instrumentation>
 
     <multiplay>

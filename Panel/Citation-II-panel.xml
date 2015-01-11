@@ -5,7 +5,7 @@
 <PropertyList>
 
  <name>Bravo Panel</name>
- <background>Aircraft/Citation/Panel/transparent-bg.rgb</background>
+ <background>Panel/transparent-bg.rgb</background>
  <w>1024</w>
  <h>768</h>
 

@@ -4,7 +4,7 @@
     -->
         <model>
             <name>LandingLights</name>
-            <path>Aircraft/Citation/Models/Lights/landingLights.xml</path>
+            <path>Models/Lights/landingLights.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
@@ -14,7 +14,7 @@
         
         <model>
             <name>StrobeLights</name>
-            <path>Aircraft/Citation/Models/Lights/strobeLights.xml</path>
+            <path>Models/Lights/strobeLights.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
@@ -24,7 +24,7 @@
         
         <model>
             <name>NavLights</name>
-            <path>Aircraft/Citation/Models/Lights/navLights.xml</path>
+            <path>Models/Lights/navLights.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
@@ -34,7 +34,7 @@
         
         <model>
             <name>RecogLights</name>
-            <path>Aircraft/Citation/Models/Lights/recogLights.xml</path>
+            <path>Models/Lights/recogLights.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
@@ -44,7 +44,7 @@
         
         <model>
             <name>BeaconLight</name>
-            <path>Aircraft/Citation/Models/Lights/beaconLight.xml</path>
+            <path>Models/Lights/beaconLight.xml</path>
             <offsets>
                 <x-m>0</x-m>
                 <y-m>0</y-m>
