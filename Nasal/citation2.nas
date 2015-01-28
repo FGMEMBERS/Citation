@@ -1,4 +1,4 @@
-aircraft.livery.init("Aircraft/Citation/Models/Liveries");
+aircraft.livery.init("Models/Liveries");
 var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);

@@ -73,4 +73,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <max-climb-rate-fpm type="double">750</max-climb-rate-fpm>
     </limits>
   </autopilot>
+  <instrumentation>
+    <cdu>
+      <display>IDENT</display>
+      <ident>
+        <model>Sierra Super II</model>
+        <engines>Williams FJ44-3</engines>
+      </ident>
+    </cdu>
+  </instrumentation>
 </PropertyList>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+Filters that compute the maximum load factors for the Citation II.
+Copyright (C) 2015 Ludovic Brenta <ludovic@ludovic-brenta.org>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+-->
+<PropertyList>
+
+  <filter>
+    <name>Maximum positive load factor depending on flap position</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <greater-than>
+          <property>/controls/flight/flaps</property>
+          <value>0</value>
+        </greater-than>
+      </condition>
+      <value>2.0</value>
+    </input>
+    <input>3.8</input>
+    <output>/limits/max-positive-g</output>
+  </filter>
+
+  <filter>
+    <name>Maximum negative load factor depending on flap position</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <greater-than>
+          <property>/controls/flight/flaps</property>
+          <value>0</value>
+        </greater-than>
+      </condition>
+      <value>0.0</value>
+    </input>
+    <input>-1.52</input>
+    <output>/limits/max-negative-g</output>
+  </filter>
+
+</PropertyList>

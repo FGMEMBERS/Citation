@@ -32,9 +32,22 @@
   </model>
 
   <model>
+    <path>Aircraft/Instruments-3d/cdu/boeing.xml</path>
+    <offsets>
+      <x-m>2.89</x-m>
+      <y-m>0.006</y-m>
+      <z-m>0.280</z-m>
+      <pitch-deg>-90.0</pitch-deg>
+    </offsets>
+    <overlay>
+      <texture>boeing_grey.png</texture>
+    </overlay>
+  </model>
+
+  <model>
     <path>Models/Instruments/AP-control.xml</path>
     <offsets>
-      <x-m>3.015</x-m>
+      <x-m>3.05</x-m>
       <y-m>0.006</y-m>
       <z-m>0.280</z-m>
       <pitch-deg>-90.0</pitch-deg>
