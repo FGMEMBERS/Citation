@@ -34,8 +34,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
     <status>beta</status>
     <rating>
-      <FDM type="int">3</FDM>
-      <systems type="int">2</systems>
+      <FDM type="int">5</FDM>
+      <systems type="int">4</systems>
       <cockpit type="int">4</cockpit>
       <model type="int">4</model>
     </rating>
@@ -187,6 +187,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>Systems/systems.xml</path>
       <property-rule n="100">
         <path>Models/Instruments/instrument-filters.xml</path>
+      </property-rule>
+      <property-rule n="101">
+        <path>Models/load-factor-filters.xml</path>
       </property-rule>
     </systems>
 
@@ -456,6 +459,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   </engines>
 
   <instrumentation>
+    <cdu>
+      <input type="string"/>
+      <serviceable type="bool">false</serviceable>
+    </cdu>
     <dme>
       <frequencies>
         <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
@@ -472,6 +479,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <airspeed-indicator>
       <index-marker type="double">100</index-marker>
     </airspeed-indicator>
+    <fmc>
+      <vspeeds>
+        <V1 type="double">110</V1>
+        <VR type="double">120</VR>
+        <V2 type="double">130</V2>
+      </vspeeds>
+    </fmc>
     <rmi>
       <single-needle>
         <selected-input type="string">ADF</selected-input>
@@ -511,6 +525,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   </autopilot>
 
   <nasal>
+    <cdu>
+      <file>Aircraft/Instruments-3d/cdu/boeing.nas</file>
+    </cdu>
     <citation>
       <file>Nasal/Electrical.nas</file>
       <file>Nasal/citation2.nas</file>
@@ -519,6 +536,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
+    <zkv500>
+      <file>Nasal/ZKV500.nas</file>
+    </zkv500>
   </nasal>
 
   <input>
@@ -620,5 +640,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <speed type="double">176</speed>
     </max-flap-extension-speed>
     <max-gear-extension-speed type="double">262</max-gear-extension-speed>
+    <max-negative-g type="double">-1.52</max-negative-g> <!-- 0.0 if flaps down -->
+    <max-positive-g type="double">3.8</max-positive-g> <!-- 2.0 if flaps down -->
+    <vne type="double">263</vne> <!-- indicated airspeed in knots -->
   </limits>
 </PropertyList>

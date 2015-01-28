@@ -67,4 +67,13 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
       <max-climb-rate-fpm type="double">500</max-climb-rate-fpm>
     </limits>
   </autopilot>
+  <instrumentation>
+    <cdu>
+      <display>IDENT</display>
+      <ident>
+        <model>Citation II</model>
+        <engines>PWC JT15D-4</engines>
+      </ident>
+    </cdu>
+  </instrumentation>
 </PropertyList>
