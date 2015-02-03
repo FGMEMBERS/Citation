@@ -110,17 +110,13 @@ GNU General Public License for more details.
     </binding>
   </item>
   <item>
-    <name>Level off at</name>
-    <value>1000 ft AGL</value>
+    <name>Accelerate to</name>
+    <value>180 KIAS</value>
     <condition>
       <greater-than>
-        <property>/position/altitude-agl-ft</property>
-        <value>500</value>
+        <property>/velocities/airspeed-kt</property>
+        <value>175</value>
       </greater-than>
-      <less-than>
-        <property>/position/altitude-agl-ft</property>
-        <value>2500</value>
-      </less-than>
     </condition>
   </item>
   <item>
@@ -137,6 +133,20 @@ GNU General Public License for more details.
       <property>/controls/flight/flaps</property>
       <value>0</value>
     </binding>
+  </item>
+  <item>
+    <name>Level off at</name>
+    <value>6000 ft AGL</value>
+    <condition>
+      <greater-than>
+        <property>/position/altitude-agl-ft</property>
+        <value>5500</value>
+      </greater-than>
+      <less-than>
+        <property>/position/altitude-agl-ft</property>
+        <value>6500</value>
+      </less-than>
+    </condition>
   </item>
   <item>
     <name>Left landing light</name>
@@ -170,15 +180,15 @@ GNU General Public License for more details.
   </item>
   <item>
     <name>Accelerate to</name>
-    <value>220 KIAS</value>
+    <value>250 KIAS</value>
     <condition>
       <greater-than>
         <property>/velocities/airspeed-kt</property>
-        <value>215</value>
+        <value>245</value>
       </greater-than>
       <less-than>
         <property>/velocities/airspeed-kt</property>
-        <value>250</value>
+        <value>255</value>
       </less-than>
     </condition>
   </item>
