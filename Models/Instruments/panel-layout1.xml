@@ -4,8 +4,8 @@
         <path>Models/Instruments/electricpanel.xml</path>
         <offsets>
             <x-m>0.002</x-m>
-            <y-m>-0.556</y-m>
-            <z-m>0.097</z-m>
+            <y-m>-0.561</y-m>
+            <z-m>0.103</z-m>
         </offsets>
     </model>
 
@@ -13,8 +13,8 @@
         <path>Models/Instruments/lightingpanel.xml</path>
         <offsets>
             <x-m>0.002</x-m>
-            <y-m>-0.309</y-m>
-            <z-m>0.018</z-m>
+            <y-m>-0.316</y-m>
+            <z-m>0.021</z-m>
         </offsets>
     </model>
 
@@ -85,7 +85,7 @@
         <path>Models/Instruments/asi.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.422</y-m>
+            <y-m>-0.417</y-m>
             <z-m>0.338</z-m>
         </offsets>
     </model>
@@ -121,7 +121,7 @@
         <path>Models/Instruments/rmi.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.422</y-m>
+            <y-m>-0.418</y-m>
             <z-m>0.250</z-m>
         </offsets>
     </model>
@@ -130,8 +130,8 @@
         <path>Models/Instruments/rmi.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.204</y-m>
-            <z-m>0.250</z-m>
+            <y-m>0.206</y-m>
+            <z-m>0.2505</z-m>
         </offsets>
     </model>
 
@@ -139,7 +139,7 @@
         <path>Models/Instruments/vsi.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.210</y-m>
+            <y-m>-0.213</y-m>
             <z-m>0.169</z-m>
         </offsets>
     </model>
@@ -234,7 +234,7 @@
       </overlay>
       <offsets>
         <x-m>0</x-m>
-        <y-m>0.321</y-m>
+        <y-m>0.311</y-m>
         <z-m>0.200</z-m>
       </offsets>
     </model>
@@ -243,7 +243,7 @@
         <path>Models/Instruments/dme40.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.210</y-m>
+            <y-m>-0.213</y-m>
             <z-m>0.086</z-m>
         </offsets>
     </model>
@@ -252,7 +252,7 @@
         <path>Models/Instruments/dme40.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.204</y-m>
+            <y-m>0.207</y-m>
             <z-m>0.161</z-m>
         </offsets>
     </model>
@@ -262,7 +262,7 @@
         <offsets>
             <x-m>0.0</x-m>
             <y-m>-0.498</y-m>
-            <z-m>0.345</z-m>
+            <z-m>0.346</z-m>
         </offsets>
     </model>
 
@@ -320,7 +320,7 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.312</y-m>
+            <y-m>-0.315</y-m>
             <z-m>0.127</z-m>
         </offsets>
     </model>
@@ -335,7 +335,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>0.312</y-m>
-            <z-m>0.127</z-m>
+            <z-m>0.126</z-m>
         </offsets>
     </model>
 
@@ -343,8 +343,8 @@
         <path>Models/Instruments/vor-ind.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.422</y-m>
-            <z-m>0.158</z-m>
+            <y-m>-0.417</y-m>
+            <z-m>0.166</z-m>
         </offsets>
     </model>
 
@@ -371,7 +371,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.542</y-m>
-            <z-m>0.224</z-m>
+            <z-m>0.233</z-m>
         </offsets>
     </model>
 
@@ -380,7 +380,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>0.542</y-m>
-            <z-m>0.224</z-m>
+            <z-m>0.233</z-m>
         </offsets>
     </model>
 
@@ -408,7 +408,7 @@
     <offsets>
       <x-m>  0.003 </x-m>
       <y-m> -0.415 </y-m>
-      <z-m>  0.078 </z-m>
+      <z-m>  0.082 </z-m>
     </offsets>
   </model>
 
