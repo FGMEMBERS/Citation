@@ -59,16 +59,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <limits>
       <!-- the number and ordering of these properties is important for the autopilot;
            see Citation-autopilot.xml, AP vertical stage 1. -->
-      <max-climb-rate-fpm type="double">4500</max-climb-rate-fpm>
-      <indicated-altitude-ft type="double">14000</indicated-altitude-ft>
       <max-climb-rate-fpm type="double">4000</max-climb-rate-fpm>
-      <indicated-altitude-ft type="double">18000</indicated-altitude-ft>
+      <indicated-altitude-ft type="double">17000</indicated-altitude-ft>
       <max-climb-rate-fpm type="double">3250</max-climb-rate-fpm>
-      <indicated-altitude-ft type="double">22000</indicated-altitude-ft>
+      <indicated-altitude-ft type="double">20000</indicated-altitude-ft>
       <max-climb-rate-fpm type="double">2500</max-climb-rate-fpm>
-      <indicated-altitude-ft type="double">27000</indicated-altitude-ft>
-      <max-climb-rate-fpm type="double">1250</max-climb-rate-fpm>
-      <indicated-altitude-ft type="double">37000</indicated-altitude-ft>
+      <indicated-altitude-ft type="double">23000</indicated-altitude-ft>
+      <max-climb-rate-fpm type="double">1750</max-climb-rate-fpm>
+      <indicated-altitude-ft type="double">26000</indicated-altitude-ft>
+      <max-climb-rate-fpm type="double">1000</max-climb-rate-fpm>
+      <indicated-altitude-ft type="double">29000</indicated-altitude-ft>
 
       <max-climb-rate-fpm type="double">750</max-climb-rate-fpm>
     </limits>
