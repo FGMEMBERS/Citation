@@ -1,23 +1,51 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
 
-<path>cabin.ac</path>
+  <path>cabin.ac</path>
 
+  <animation>
+    <type>rotate</type>
+    <object-name>Cabin.door1</object-name>
+    <property>sim/multiplay/generic/float</property>
+    <factor>120</factor>
+    <axis>
+      <x1-m>4.071</x1-m>
+      <y1-m>-0.768</y1-m>
+      <z1-m>0.617</z1-m>
+      <x2-m>4.071</x2-m>
+      <y2-m>-0.769</y2-m>
+      <z2-m>0.397</z2-m>
+    </axis>
+  </animation>
 
-     <animation>
-        <type>rotate</type>
-        <object-name>Cabin.door1</object-name>
+  <animation>
+    <type>select</type>
+    <object-name>Ladder.lRope</object-name>
+    <object-name>Ladder.rRope</object-name>
+    <condition>
+      <greater-than>
         <property>sim/multiplay/generic/float</property>
-        <factor>120</factor>
-        <axis>
-            <x1-m>4.071</x1-m>
-            <y1-m>-0.768</y1-m>
-            <z1-m>0.617</z1-m>
-            <x2-m>4.071</x2-m>
-            <y2-m>-0.769</y2-m>
-            <z2-m>0.397</z2-m>
-        </axis>
-    </animation>
+        <value>0.9</value>
+      </greater-than>
+    </condition>
+  </animation>
 
+  <animation>
+    <type>rotate</type>
+    <object-name>Ladder</object-name>
+    <property>sim/multiplay/generic/float</property>
+    <factor>-140</factor>
+    <offset-deg>140</offset-deg>
+    <center>
+      <x-m>4.651144</x-m>
+      <y-m>-0.456012</y-m>
+      <z-m>-0.089344</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
 
 </PropertyList>
