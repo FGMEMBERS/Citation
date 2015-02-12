@@ -57,66 +57,26 @@
   <!--  Hotspots -->
 
   <animation>
-    <type>pick</type>
+    <type>knob</type>
     <object-name>Set.knob</object-name>
+    <property>autopilot/settings/target-altitude-ft</property>
+    <value>1</value>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.0178435</y-m>
+      <z-m>-0.0007795</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <factor>1</factor>
     <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>autopilot/settings/target-altitude-ft</property>
-        <step>100</step>
-        <min>500</min>
-        <max>43000</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>Set.knob</object-name>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>autopilot/settings/target-altitude-ft</property>
-        <step>-100</step>
-        <min>500</min>
-        <max>43000</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>Set.knob</object-name>
-    <action>
-      <button>3</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>autopilot/settings/target-altitude-ft</property>
-        <step>100</step>
-        <min>500</min>
-        <max>43000</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>Set.knob</object-name>
-    <action>
-      <button>4</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>autopilot/settings/target-altitude-ft</property>
-        <step>-100</step>
+        <factor>100</factor>
         <min>500</min>
         <max>43000</max>
         <wrap>false</wrap>
