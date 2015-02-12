@@ -63,7 +63,7 @@
     <stall aoa="15" width="18" peak="1.5"/>
     <flap0 start="0" end=".52" lift="1.5" drag="1.7"/>
     <flap1 start=".52" end=".88" lift="1.2" drag="1.1"/>
-    <spoiler start="0.4" end="0.5" lift="0.2" drag="7.0"/>
+    <spoiler start="0.4" end="0.5" lift="1.0" drag="14.0"/>
     <control-input axis="/controls/flight/flaps" control="FLAP0"/>
     <control-speed control="FLAP0" transition-time="7"/>
     <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
