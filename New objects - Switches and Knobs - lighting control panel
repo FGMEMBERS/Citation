@@ -30,3 +30,10 @@ RMI.right_button
 RMI.DoubleArrow.SelectionIndicator
 RMI.DoubleArrow.SelectionIndicator.ADF  (<=)
 RMI.DoubleArrow.SelectionIndicator.VOR (=>)
+
+Models/Citation-II.ac
+=====================
+LH.uSpdBrk
+LH.uSpdBrk.rod
+RH.uSpdBrk
+RH.uSpdBrk.rod
