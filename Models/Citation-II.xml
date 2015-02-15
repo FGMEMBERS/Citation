@@ -67,6 +67,8 @@
     <object-name>RH.uSpdBrk.rod</object-name>
     <object-name>LH.lSpdBrk.rod</object-name>
     <object-name>RH.lSpdBrk.rod</object-name>
+    <object-name>LH.Cupholder</object-name>
+    <object-name>RH.Cupholder</object-name>
   </effect>
 
 
@@ -101,6 +103,8 @@
     <object-name>FrDoor</object-name>
     <object-name>FrRHdoor</object-name>
     <object-name>FrLHdoor</object-name>
+    <object-name>LH.Cupholder</object-name>
+    <object-name>RH.Cupholder</object-name>
   </effect>
 
   <effect>
