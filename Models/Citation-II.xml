@@ -69,8 +69,8 @@
     <object-name>RH.lSpdBrk.rod</object-name>
     <object-name>LH.Cupholder</object-name>
     <object-name>RH.Cupholder</object-name>
-    <object-name>AirCond.outlet</object-name>
     <object-name>Ashtray</object-name>
+    <object-name>FD.AirCond.outlet</object-name>
   </effect>
 
 
@@ -105,8 +105,6 @@
     <object-name>FrDoor</object-name>
     <object-name>FrRHdoor</object-name>
     <object-name>FrLHdoor</object-name>
-    <object-name>LH.Cupholder</object-name>
-    <object-name>RH.Cupholder</object-name>
   </effect>
 
   <effect>

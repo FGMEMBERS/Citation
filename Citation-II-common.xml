@@ -245,80 +245,100 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <help>
       <title>Cessna 550 Citation-II</title>
       <key>
-        <name>S</name>
-        <desc>autostart</desc>
+        <name>s</name>
+        <desc>Autostart</desc>
       </key>
       <key>
-        <name>Y</name>
+        <name>y</name>
         <desc>Show/Hide Yokes</desc>
       </key>
-      <key>
-        <name>Ctrl-L</name>
-        <desc>Toggle landing lights</desc>
-      </key>
-      <key>
-        <name>Delete</name>
-        <desc>toggle thrust reversers (Citation II, not Sierra Super II)</desc>
-      </key>
       <key>  
-        <name>Ctrl+D</name>
+        <name>Ctrl-d</name>
         <desc>Open/close cabin-door</desc>
       </key>
       <key>
-        <name>J</name>
+        <name>Ctrl-l</name>
+        <desc>Toggle landing lights</desc>
+      </key>
+      <key>
+	<name>b</name>
+	<desc>both brakes</desc>
+      </key>
+      <key>
+	<name>,</name>
+	<desc>left brakes</desc>
+      </key>
+      <key>
+	<name>.</name>
+	<desc>right brakes</desc>
+      </key>
+      <key>
+        <name>Delete</name>
+        <desc>Toggle thrust reversers (Citation II, not Sierra Super II)</desc>
+      </key>
+      <key>
+        <name>[ / ]</name>
+        <desc>Extend / retract flaps</desc>
+      </key>
+      <key>
+        <name>j</name>
         <desc>Retract spoilers</desc>
       </key>
       <key>
-        <name>K</name>
+        <name>k</name>
         <desc>Extend spoilers (N1 &lt; 85%)</desc>
       </key>
       <key>
+        <name>Ctrl-b</name>
+        <desc>Toggle speedbrakes</desc>
+      </key>
+      <key>
         <name>FD OFF</name>
-        <desc>Illuminated=OFF.  Engage wing leveler and pitch hold</desc>
+        <desc>AP: Illuminated=OFF. Engage wing leveler and pitch hold</desc>
       </key>
       <key>
         <name>HDG</name>
-        <desc>Follow heading bug</desc>
+        <desc>AP: Follow heading bug</desc>
       </key>
       <key>
         <name>NAV</name>
-        <desc>Cycle between wing leveler, NAV1 or NAV2, and GPS</desc>
+        <desc>AP: Cycle between wing leveler, NAV1 or NAV2, and GPS</desc>
       </key>
       <key>
         <name>APR</name>
-        <desc>NAV1 lateral and glideslope</desc>
+        <desc>AP: NAV1 lateral and glideslope</desc>
       </key>
       <key>
         <name>BC</name>
-        <desc>Backcourse</desc>
+        <desc>AP: Backcourse</desc>
       </key>
       <key>
         <name>NAV/HSI</name>
-        <desc>Toggle the HSI and autopilot between NAV1 and NAV2</desc>
+        <desc>AP: Toggle the HSI and autopilot between NAV1 and NAV2</desc>
       </key>
       <key>
         <name>ALT</name>
-        <desc>Altitude hold</desc>
+        <desc>AP: Altitude hold</desc>
       </key>
       <key>
         <name>ALT SEL</name>
-        <desc>(inoperative)</desc>
+        <desc>AP: (inoperative)</desc>
       </key>
       <key>
         <name>VNAV</name>
-        <desc>(inoperative)</desc>
+        <desc>AP: (inoperative)</desc>
       </key>
       <key>
         <name>V/S</name>
-        <desc>Hold vertical speed</desc>
+        <desc>AP: Hold vertical speed</desc>
       </key>
       <key>
         <name>IAS</name>
-        <desc>Autothrottle to hold current indicated airspeed</desc>
+        <desc>AP: Autothrottle to hold current indicated airspeed</desc>
       </key>
       <key>
         <name>PITCH wheel</name>
-        <desc>Adjust pitch, selected altitude or vertical speed</desc>
+        <desc>AP: Adjust pitch, selected altitude or vertical speed</desc>
       </key>
       <line>Autopilot will disengage below decision height or 500ft above ground, whichever is highest.</line>
     </help>
@@ -375,6 +395,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <binding>
               <command>nasal</command>
               <script>aircraft.livery.dialog.toggle()</script>
+            </binding>
+          </item>
+	  <item>
+            <label>Show Citation II wiki page in browser</label>
+            <binding>
+              <command>open-browser</command>
+              <path>http://wiki.flightgear.org/Cessna_550_Citation_II</path>
             </binding>
           </item>
         </menu>
