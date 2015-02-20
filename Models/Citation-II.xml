@@ -69,6 +69,8 @@
     <object-name>RH.lSpdBrk.rod</object-name>
     <object-name>LH.Cupholder</object-name>
     <object-name>RH.Cupholder</object-name>
+    <object-name>AirCond.outlet</object-name>
+    <object-name>Ashtray</object-name>
   </effect>
 
 
@@ -241,14 +243,14 @@
     <type>range</type>
     <object-name>cabin</object-name>
     <min-m>0</min-m>
-    <max-m>100</max-m>
+    <max-m>50</max-m>
   </animation>
 
   <animation>
     <type>range</type>
     <object-name>flightdeck</object-name>
     <min-m>0</min-m>
-    <max-m>100</max-m>
+    <max-m>50</max-m>
   </animation>
 
   <animation>

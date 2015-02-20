@@ -12,7 +12,7 @@
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
                     <property>/sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
+                    <value>2.0</value>
                 </greater-than>
                 <greater-than>
                     <property>systems/electrical/outputs/strobe</property>
@@ -64,11 +64,13 @@
 			<a>1</a>
 		</specular>
 		<attenuation>
-			<c>3.0</c>
-			<l>2</l>
-			<q>4</q>
+			<c>2.0</c>
+			<l>0.002</l>
+			<q>0.0025</q>
 		</attenuation>
-		<near-m>0.1</near-m>
+		<exponent>30.0</exponent>
+		<cutoff>300</cutoff>
+		<near-m>0.01</near-m>
 		<far-m>50</far-m>
 	</animation>
  
@@ -80,7 +82,7 @@
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
                     <property>/sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
+                    <value>2.0</value>
                 </greater-than>
                 <greater-than>
                     <property>systems/electrical/outputs/strobe</property>
@@ -132,11 +134,13 @@
 			<a>1</a>
 		</specular>
 		<attenuation>
-			<c>3.0</c>
-			<l>2</l>
-			<q>4</q>
+			<c>2.0</c>
+			<l>0.002</l>
+			<q>0.0025</q>
 		</attenuation>
-		<near-m>0.1</near-m>
+		<exponent>30.0</exponent>
+		<cutoff>300</cutoff>
+		<near-m>0.01</near-m>
 		<far-m>50</far-m>
 	</animation>
  

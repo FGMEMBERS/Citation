@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <PropertyList>
   <sim>
-    <author>Curt Olson - Syd Adams - Ludovic Brenta</author>
+    <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
     <startup>
       <splash-texture>Citation-II-splash.png</splash-texture>
@@ -58,6 +58,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </rendering>
     </model>
 
+    <dimensions>
+      <radius-m type="double">10.0</radius-m>
+      <parkpos-offset-m type="double">0.0</parkpos-offset-m>
+    </dimensions>
+    <aircraft-class type="string">bizjet</aircraft-class>
+    <aircraft-operator></aircraft-operator>
+    <aircraft-data>
+      <path>/sim/dimensions/radius-m</path>
+      <path>/sim/dimensions/parkpos-offset-m</path>
+      <path>/sim/aircraft-class</path>
+      <path>/sim/aircraft-operator</path>
+    </aircraft-data>
+    
+    <tags>
+      <tag>jet</tag>
+      <tag>2-engine</tag>
+      <tag>rembrandt</tag>
+      <tag>pressurized</tag>
+      <tag>retractable-gear</tag>
+      <tag>ifr</tag>
+      <tag>cessna</tag>
+      <tag>passenger</tag>
+      <tag>bizjet</tag>
+    </tags>
+    
     <view n="0">
       <name>Captain</name>
       <type>lookfrom</type>
@@ -166,14 +191,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <limits>
           <enabled type="bool">true</enabled>
           <left>
-            <heading-max-deg type="double">120</heading-max-deg>
-            <x-offset-max-m type="double">0.22</x-offset-max-m>
-            <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
-          </left>
-          <right>
             <heading-max-deg type="double">160</heading-max-deg>
             <x-offset-max-m type="double">0.25</x-offset-max-m>
             <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+          </left>
+          <right>
+            <heading-max-deg type="double">120</heading-max-deg>
+            <x-offset-max-m type="double">0.22</x-offset-max-m>
+            <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
           </right>
         </limits>
       </config>
