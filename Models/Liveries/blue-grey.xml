@@ -16,5 +16,6 @@
             <blue>0.05</blue>
         </registration>
     </model>
+    <aircraft-operator></aircraft-operator>
 </sim>
 </PropertyList>

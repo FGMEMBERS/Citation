@@ -11,5 +11,6 @@
             <ambient-correction type="float">0.1</ambient-correction>
         </livery>
     </model>
+    <aircraft-operator>LXA</aircraft-operator>
 </sim>
 </PropertyList>

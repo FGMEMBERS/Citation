@@ -2,8 +2,6 @@
 
 <PropertyList>
 
-<!-- Rembrandt Landing Lights -->
-
  <path>lightConeLandingLights.ac</path>
 
      <animation>
