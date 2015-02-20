@@ -12,7 +12,7 @@
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
                     <property>/sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
+                    <value>2.0</value>
                 </greater-than>
                 <greater-than>
                     <property>systems/electrical/left-bus</property>
@@ -72,7 +72,7 @@
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
                     <property>/sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
+                    <value>2.0</value>
                 </greater-than>
                 <greater-than>
                     <property>systems/electrical/right-bus</property>
