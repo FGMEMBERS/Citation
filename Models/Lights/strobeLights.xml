@@ -64,13 +64,11 @@
 			<a>1</a>
 		</specular>
 		<attenuation>
-			<c>2.0</c>
-			<l>0.002</l>
-			<q>0.0025</q>
+			<c>3.0</c>
+			<l>2</l>
+			<q>4</q>
 		</attenuation>
-		<exponent>30.0</exponent>
-		<cutoff>300</cutoff>
-		<near-m>0.01</near-m>
+		<near-m>0.1</near-m>
 		<far-m>50</far-m>
 	</animation>
  
@@ -134,13 +132,11 @@
 			<a>1</a>
 		</specular>
 		<attenuation>
-			<c>2.0</c>
-			<l>0.002</l>
-			<q>0.0025</q>
+			<c>3.0</c>
+			<l>2</l>
+			<q>4</q>
 		</attenuation>
-		<exponent>30.0</exponent>
-		<cutoff>300</cutoff>
-		<near-m>0.01</near-m>
+		<near-m>0.1</near-m>
 		<far-m>50</far-m>
 	</animation>
  
