@@ -378,6 +378,20 @@
   </animation>
 
   <animation>
+    <type>pick</type>
+    <object-name>Cabin.door</object-name>
+    <object-name>Door.handle</object-name>
+    <object-name>Door.glass</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>citation.cabin_door.toggle();</script>
+      </binding>
+    </action>
+  </animation>    
+
+  <animation>
     <type>rotate</type>
     <object-name>RH.Ureverser</object-name>
     <object-name>LH.Ureverser</object-name>
