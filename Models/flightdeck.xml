@@ -6,7 +6,7 @@
   <effect>  <!-- Chrome Effect! -->
     <inherits-from>Models/Effects/citationII-chrome</inherits-from>
     <object-name>Cupholder</object-name>
-    <object-name>AirConditioning.outlet</object-name>
+    <object-name>FD.AirCond.outlet</object-name>
     <object-name>Ashtray</object-name>
   </effect>
   
