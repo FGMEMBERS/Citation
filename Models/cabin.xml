@@ -7,6 +7,7 @@
     <inherits-from>Models/Effects/citationII-chrome</inherits-from>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
+    <object-name>RefreshmentCenter.handles</object-name>
   </effect>
   
   <animation>
