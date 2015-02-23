@@ -1048,4 +1048,73 @@
     </action>
   </animation>
 
+  <animation>
+    <type>rotate</type>
+    <object-name>speedBrake.switch</object-name>
+    <property>/controls/flight/speedbrake</property>
+    <offset-deg>-30</offset-deg>
+    <factor>60</factor>
+    <center>
+      <x-m>2.73903</x-m>
+      <y-m>-0.06489</y-m>
+      <z-m>0.298809</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>speedBrake.switch</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/flight/speedbrake</property>
+      </binding>
+    </action>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Seats.pilots.armrests</object-name>
+    <property>/controls/seat/armrests</property>
+    <factor>90</factor>
+    <center>
+      <x-m>3.33069</x-m>
+      <y-m>0</y-m>
+      <z-m>0.4197975</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>Seats.pilots.armrests</object-name>
+    <property>/controls/seat/armrests</property>
+    <factor>0.33374</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>Seats.pilots.armrests</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/seat/armrests</property>
+      </binding>
+    </action>
+  </animation>
+
 </PropertyList>
