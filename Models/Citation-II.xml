@@ -437,6 +437,22 @@
       <z2-m>0.125</z2-m>
     </axis>
   </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>LH.uSpdBrk.rod</object-name>
+    <property>surface-positions/speedbrake-pos-norm</property>
+    <factor>40</factor>
+    <center>
+      <x-m>7.713332</x-m>
+      <y-m>-3.9</y-m>
+      <z-m>0.17</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0.1</z>
+    </axis>
+  </animation>
 
   <animation>
     <type>rotate</type>
@@ -450,6 +466,22 @@
       <x2-m>7.58</x2-m>
       <y2-m>-3.239798</y2-m>
       <z2-m>-0.03</z2-m>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>LH.lSpdBrk.rod</object-name>
+    <property>surface-positions/speedbrake-pos-norm</property>
+    <factor>-50</factor>
+    <center>
+      <x-m>7.713332</x-m>
+      <y-m>-3.94</y-m>
+      <z-m>-0.12</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>-0.45</z>
     </axis>
   </animation>
 
@@ -467,6 +499,22 @@
       <z2-m>0.163</z2-m>
     </axis>
   </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>RH.uSpdBrk.rod</object-name>
+    <property>surface-positions/speedbrake-pos-norm</property>
+    <factor>-40</factor>
+    <center>
+      <x-m>7.713332</x-m>
+      <y-m>3.85</y-m>
+      <z-m>0.20</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0.1</z>
+    </axis>
+  </animation>
 
   <animation>
     <type>rotate</type>
@@ -480,6 +528,22 @@
       <x2-m>7.58</x2-m>
       <y2-m>3.239798</y2-m>
       <z2-m>-0.03</z2-m>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>RH.lSpdBrk.rod</object-name>
+    <property>surface-positions/speedbrake-pos-norm</property>
+    <factor>50</factor>
+    <center>
+      <x-m>7.713332</x-m>
+      <y-m>3.85</y-m>
+      <z-m>-0.12</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>-0.45</z>
     </axis>
   </animation>
 
