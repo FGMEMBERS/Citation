@@ -198,6 +198,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </config>
     </view>
     
+    <view n="103">
+      <name>Center Console</name>
+      <internal archive="y">true</internal>
+      <type>lookfrom</type>
+      <config>
+        <from-model type="bool">true</from-model>
+        <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+        <heading-offset-deg type="double">0</heading-offset-deg>
+        <x-offset-m archive="y" type="double">0.000</x-offset-m> <!--Right-->
+        <y-offset-m archive="y" type="double">0.800</y-offset-m> <!--Up-->
+        <z-offset-m archive="y" type="double">2.900</z-offset-m> <!--Back-->
+        <default-heading-offset-deg>0</default-heading-offset-deg>
+        <pitch-offset-deg>-90</pitch-offset-deg>
+      </config>
+    </view>
+    
     <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
     
     <systems>
