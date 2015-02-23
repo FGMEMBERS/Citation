@@ -3,6 +3,12 @@
 
   <path>cabin.ac</path>
 
+  <effect>  <!-- Chrome Effect! -->
+    <inherits-from>Models/Effects/citationII-chrome</inherits-from>
+    <object-name>Ladder.lRope</object-name>
+    <object-name>Ladder.rRope</object-name>
+  </effect>
+  
   <animation>
     <type>rotate</type>
     <object-name>Cabin.door1</object-name>
