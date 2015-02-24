@@ -59927,10 +59927,10 @@ refs 3
 48 0 0
 kids 0
 OBJECT poly
-name "speedBrake.switchSafe"
+name "speedBrake.swSafety"
 loc 2.744243 0.302129 0.06596
-data 21
-speedBrake.switchSafe
+data 19
+speedBrake.swSafety
 crease 179.000000
 numvert 384
 0.025895 0 -0
