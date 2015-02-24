@@ -67,6 +67,7 @@
     <object-name>RH.uSpdBrk.rod</object-name>
     <object-name>LH.lSpdBrk.rod</object-name>
     <object-name>RH.lSpdBrk.rod</object-name>
+    <object-name>Pitot.tubes</object-name>
   </effect>
 
 
