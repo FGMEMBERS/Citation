@@ -8,7 +8,7 @@
     <object-name>Cupholder</object-name>
     <object-name>FD.AirCond.outlet</object-name>
     <object-name>Ashtray</object-name>
-    <object-name>speedBrake.switchSafety</object-name>
+    <object-name>speedBrake.swSafety</object-name>
   </effect>
   
   <model>
