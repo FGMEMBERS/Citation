@@ -145,11 +145,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <config>
         <from-model type="bool">true</from-model>
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-        <heading-offset-deg type="double">180</heading-offset-deg>
-        <x-offset-m archive="y" type="double">-0.412</x-offset-m> <!--Right-->
+        <heading-offset-deg type="double">0</heading-offset-deg>
+        <x-offset-m archive="y" type="double">0.412</x-offset-m> <!--Right-->
         <y-offset-m archive="y" type="double">0.888</y-offset-m> <!--Up-->
         <z-offset-m archive="y" type="double">5.118</z-offset-m> <!--Back-->
-        <default-heading-offset-deg>180</default-heading-offset-deg>
+        <default-heading-offset-deg>0</default-heading-offset-deg>
         <pitch-offset-deg>0</pitch-offset-deg>
       </config>
     </view>
@@ -162,7 +162,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <from-model type="bool">true</from-model>
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
         <heading-offset-deg type="double">0</heading-offset-deg>
-        <x-offset-m archive="y" type="double">0.412</x-offset-m> <!--Right-->
+        <x-offset-m archive="y" type="double">-0.412</x-offset-m> <!--Right-->
         <y-offset-m archive="y" type="double">0.888</y-offset-m> <!--Up-->
         <z-offset-m archive="y" type="double">7.212</z-offset-m> <!--Back-->
         <default-heading-offset-deg>0</default-heading-offset-deg>
