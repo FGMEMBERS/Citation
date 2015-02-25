@@ -7,7 +7,9 @@
     <inherits-from>Models/Effects/citationII-chrome</inherits-from>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
-    <object-name>RefreshmentCenter.handles</object-name>
+    <object-name>RfrshmntCntr.handles</object-name>
+    <object-name>Cabin.FloorAirVents</object-name>
+    <object-name>Cabin.Cupholders</object-name>
   </effect>
   
   <animation>
