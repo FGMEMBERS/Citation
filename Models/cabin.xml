@@ -10,6 +10,7 @@
     <object-name>RfrshmntCntr.handles</object-name>
     <object-name>Cabin.FloorAirVents</object-name>
     <object-name>Cabin.Cupholders</object-name>
+    <object-name>Seat.levers</object-name>
   </effect>
   
   <animation>
