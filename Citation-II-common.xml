@@ -351,6 +351,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <desc>AP: Adjust pitch, selected altitude or vertical speed</desc>
       </key>
       <line>Autopilot will disengage below decision height or 500ft above ground, whichever is highest.</line>
+      <text>Stow / unstow the passenger's tables:
+Hold the mouse over the element you want to fold. Use mousewheel to move the elements. To stow and unstow the folded table, click on the cupholders. :)</text>
     </help>
 
     <weight n="0">
