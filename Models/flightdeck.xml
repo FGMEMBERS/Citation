@@ -245,6 +245,50 @@
 
   <animation>
     <type>rotate</type>
+    <object-name>ElevTrim.Indicator</object-name>
+    <property>/controls/flight/elevator-trim</property>
+    <factor>-25</factor>
+    <center>
+      <x-m>2.652</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.271</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>ElevTrim.Wheel</object-name>
+    <property>/controls/flight/elevator-trim</property>
+    <factor>-1000</factor>
+    <center>
+      <x-m>2.679713</x-m>
+      <y-m>-0.103984</y-m>
+      <z-m>0.270674</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/elevator-trim</property>
+        <factor>-0.001</factor>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
     <object-name>ThrLever01</object-name>
     <property>controls/engines/engine[0]/throttle</property>
     <factor>54</factor>
