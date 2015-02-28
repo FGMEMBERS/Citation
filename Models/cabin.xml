@@ -11,6 +11,7 @@
     <object-name>Cabin.FloorAirVents</object-name>
     <object-name>Cabin.Cupholders</object-name>
     <object-name>Seat.levers</object-name>
+    <object-name>Seats.mountLedges</object-name>
   </effect>
   
   <animation>
