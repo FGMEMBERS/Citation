@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>coneRightPanel.ac</path>
+
+     <animation>
+        <type>select</type>
+        <object-name>IntLight.RightPanel.Cone</object-name>
+        <condition>
+            <and>
+		<property>sim/rendering/rembrandt/enabled</property>
+		<property>controls/lighting/PanelLightsSwitch</property>
+		<greater-than>
+                    <property>/sim/rendering/shaders/lights</property>
+                    <value>2.0</value>
+                </greater-than>
+                <greater-than>
+                    <property>systems/electrical/right-bus</property>
+                    <value>5</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+	<type>light</type>
+	<light-type>spot</light-type>
+	<name>RightPanelLight</name>
+	<object-name>IntLight.RightPanel.Cone</object-name>
+	<nopreview/>
+	<position>
+		<x>2.54185</x>
+		<y>0.68223</y>
+		<z>0.55175</z>
+	</position>
+	<direction>
+		<x>-0.2</x>
+		<y>-1</y>
+		<z>0</z>
+	</direction>
+	<ambient>
+		<r>0.9</r>
+		<g>0.6</g>
+		<b>0.4</b>
+		<a>0.5</a>
+	</ambient>
+	<diffuse>
+		<r>0.7</r>
+		<g>0.4</g>
+		<b>0.3</b>
+		<a>0.7</a>
+	</diffuse>
+	<specular>
+		<r>0.7</r>
+		<g>0.4</g>
+		<b>0.3</b>
+		<a>0.9</a>
+	</specular>
+	<dim-factor>
+		<property>controls/lighting/RightPanelFactor</property>
+		<factor>1</factor>
+		<offset>0</offset>
+		<min>0</min>
+		<max>1</max>
+	</dim-factor>
+	<attenuation>
+		<c>0.0</c>
+		<l>3</l>
+		<q>50</q>
+	</attenuation>
+	<cutoff>90</cutoff>
+	<near-m>0.001</near-m>
+	<far-m>2</far-m>
+    </animation>
+</PropertyList>

@@ -55,5 +55,54 @@
     <!--
         Interior Lights
     -->
-        
+	<model>
+	  <name>EngInstrLight</name>
+	  <path>Models/Lights/EngInstrLight.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+	
+	<model>
+	  <name>FloodLight</name>
+	  <path>Models/Lights/FloodLight.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+	
+	<model>
+	  <name>CenterPanelLightLeft</name>
+	  <path>Models/Lights/CenterPanel.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+	
+	<model>
+	  <name>LeftPanelLight</name>
+	  <path>Models/Lights/LeftPanel.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+	
+	<model>
+	  <name>RightPanelLight</name>
+	  <path>Models/Lights/RightPanel.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+	
 </PropertyList>
