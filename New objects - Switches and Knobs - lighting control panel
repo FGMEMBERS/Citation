@@ -15,7 +15,7 @@ FloodLight.knob 	--> blue, aft overhead console --> instruments
 LeftPanelLight.knob
 CenterPanelLight.knob 	--> above fan tachometer --> center panel
 RightPanelLight.knob
-EL.knob 		--> glareshield cathode tubes
+EL.knob 		--> under glareshield - 2 cathode tubes
 
 
 RMI
