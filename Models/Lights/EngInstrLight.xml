@@ -2,11 +2,11 @@
 
 <PropertyList>
 
- <path>coneEngInstrLight.ac</path>
+    <path>coneCenterPanel.ac</path>
 
-     <animation>
+    <animation>
         <type>select</type>
-        <object-name>IntLight.EngInstr.Cone</object-name>
+        <object-name>IntLight.CenterPanel.Cone</object-name>
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
@@ -38,17 +38,17 @@
 	<type>light</type>
 	<light-type>spot</light-type>
 	<name>EngInstrLight</name>
-	<object-name>IntLight.EngInstr.Cone</object-name>
+        <object-name>IntLight.CenterPanel.Cone</object-name>
 	<nopreview/>
 	<position>
-		<x>2.42637</x>
+		<x>2.49712</x>
 		<y>0.0</y>
-		<z>0.80347</z>
+		<z>0.77277</z>
 	</position>
 	<direction>
-		<x>-0.0</x>
+		<x>-0.1</x>
 		<y>0.0</y>
-		<z>-1</z>
+		<z>-2</z>
 	</direction>
 	<ambient>
 		<r>0.9</r>
@@ -70,8 +70,8 @@
 	</specular>
 	<attenuation>
 		<c>0.0</c>
-		<l>8</l>
-		<q>80</q>
+		<l>3</l>
+		<q>50</q>
 	</attenuation>
 	<cutoff>70</cutoff>
 	<near-m>0.001</near-m>
