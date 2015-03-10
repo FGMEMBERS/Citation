@@ -53,7 +53,7 @@
             <z>0.0</z>
         </axis>
     </animation>
-    
+
     <animation>
         <type>rotate</type>
         <object-name>PanelLight.sw</object-name>
@@ -70,7 +70,7 @@
             <z>0.0</z>
         </axis>
     </animation>
-    
+
     <animation>
         <type>knob</type>
         <object-name>FloodLight.knob</object-name>
@@ -97,7 +97,7 @@
             </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>knob</type>
         <object-name>CenterPanelLight.knob</object-name>
@@ -122,9 +122,17 @@
                 <max>1</max>
                 <wrap>false</wrap>
             </binding>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/lighting/panel-norm</property>
+                <factor>0.03</factor>
+                <min>0</min>
+                <max>0.3</max>
+                <wrap>false</wrap>
+            </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>knob</type>
         <object-name>LeftPanelLight.knob</object-name>
@@ -151,7 +159,7 @@
             </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>knob</type>
         <object-name>RightPanelLight.knob</object-name>
@@ -171,6 +179,33 @@
             <binding>
                 <command>property-adjust</command>
                 <property>controls/lighting/RightPanelFactor</property>
+                <factor>0.1</factor>
+                <min>0</min>
+                <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>knob</type>
+        <object-name>EL.knob</object-name>
+        <property>controls/lighting/instrument-lights-norm</property>
+        <factor>300</factor>
+	<center>
+	    <x-m>0</x-m>
+            <y-m>0.01015</y-m>
+            <z-m>0.004096</z-m>
+	</center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <action>
+	    <binding>
+                <command>property-adjust</command>
+                <property>controls/lighting/instrument-lights-norm</property>
                 <factor>0.1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -300,6 +335,23 @@
         <binding>
             <command>property-toggle</command>
             <property>controls/lighting/RightPanelFactor</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>EL.knob</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+	<binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/instrument-lights-norm</property>
         </binding>
         <binding>
             <command>property-toggle</command>

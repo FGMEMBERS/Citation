@@ -11,6 +11,9 @@
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
 		<property>controls/lighting/PanelLightsSwitch</property>
+		    <!-- Make sure this only goes on, when EngINstrLight is off! -->
+		<property>engines/engine/started</property>
+	        <property>engines/engine[1]/started</property>
 		<greater-than>
                     <property>/sim/rendering/shaders/lights</property>
                     <value>2.0</value>
@@ -22,7 +25,7 @@
             </and>
         </condition>
     </animation>
-    
+
     <animation>
 	<type>light</type>
 	<light-type>spot</light-type>
@@ -41,21 +44,21 @@
 	</direction>
 	<ambient>
 		<r>0.9</r>
-		<g>0.6</g>
-		<b>0.4</b>
-		<a>0.5</a>
+		<g>0.7</g>
+		<b>0.5</b>
+		<a>1</a>
 	</ambient>
 	<diffuse>
 		<r>0.7</r>
 		<g>0.4</g>
 		<b>0.3</b>
-		<a>0.7</a>
+		<a>1</a>
 	</diffuse>
 	<specular>
 		<r>0.7</r>
 		<g>0.4</g>
 		<b>0.3</b>
-		<a>0.9</a>
+		<a>1</a>
 	</specular>
 	<dim-factor>
 		<property>controls/lighting/CenterPanelFactor</property>

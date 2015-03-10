@@ -15,16 +15,6 @@
                     <value>2.0</value>
                 </greater-than>
             </and>
-	    <or>
-                <greater-than>
-                    <property>systems/electrical/left-bus</property>
-                    <value>5</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/right-bus</property>
-                    <value>5</value>
-                </greater-than>
-	    </or>
 	    <not>
 	      <and>
 	        <property>engines/engine/started</property>
@@ -33,7 +23,7 @@
 	    </not>
         </condition>
     </animation>
-    
+
     <animation>
 	<type>light</type>
 	<light-type>spot</light-type>
@@ -52,21 +42,21 @@
 	</direction>
 	<ambient>
 		<r>0.9</r>
-		<g>0.6</g>
-		<b>0.4</b>
-		<a>0.5</a>
+		<g>0.7</g>
+		<b>0.5</b>
+		<a>1</a>
 	</ambient>
 	<diffuse>
 		<r>0.7</r>
 		<g>0.4</g>
 		<b>0.3</b>
-		<a>0.7</a>
+		<a>1</a>
 	</diffuse>
 	<specular>
 		<r>0.7</r>
 		<g>0.4</g>
 		<b>0.3</b>
-		<a>0.9</a>
+		<a>1</a>
 	</specular>
 	<attenuation>
 		<c>0.0</c>

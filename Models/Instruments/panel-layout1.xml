@@ -28,7 +28,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/VHF-22/ctl22-com1.xml</path>
+        <path>Models/Instruments/VHF-22/ctl22-com1.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.046</y-m>
@@ -37,7 +37,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/VHF-22/ctl22-com2.xml</path>
+        <path>Models/Instruments/VHF-22/ctl22-com2.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.107</y-m>
@@ -46,7 +46,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/VIR-32/ctl32-nav1.xml</path>
+        <path>Models/Instruments/VIR-32/ctl32-nav1.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.046</y-m>
@@ -55,7 +55,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/VIR-32/ctl32-nav2.xml</path>
+        <path>Models/Instruments/VIR-32/ctl32-nav2.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.107</y-m>
@@ -64,7 +64,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/TDR-94/ctl92-transponder.xml</path>
+        <path>Models/Instruments/TDR-94/ctl92-transponder.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.214</y-m>
@@ -73,7 +73,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/ADF-462/ctl62-adf.xml</path>
+        <path>Models/Instruments/ADF-462/ctl62-adf.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.122</y-m>
@@ -276,7 +276,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
+        <path>Models/Instruments/M877/m877.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.498</y-m>
@@ -285,7 +285,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
+        <path>Models/Instruments/M877/m877.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.498</y-m>
