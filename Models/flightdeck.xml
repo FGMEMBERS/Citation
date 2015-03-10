@@ -25,7 +25,7 @@
     <object-name>CircuitBreaker.Panel</object-name>
     <object-name>CircuitBreakers</object-name>
     <object-name>Panel</object-name>
-    <object-name>Fire.Ctlr</object-name>
+    <object-name>Fire.ctlr</object-name>
     <object-name>GearCtrl</object-name>
     <object-name>panel.001</object-name>
     <object-name>lighting.panel</object-name>
@@ -237,7 +237,6 @@
     <object-name>kpa02</object-name>
     <object-name>kpa03</object-name>
     <object-name>kpa04</object-name>
-    <object-name>AAlerter.display</object-name>
     <object-name>AOA.face</object-name>
     <object-name>AOA.needle</object-name>
     <object-name>ASI320.face</object-name>
