@@ -154,15 +154,15 @@ setlistener("/sim/signals/fdm-initialized", func {
 });
 
 var init_switches = func{
-    
-	 setprop("controls/lighting/instruments-norm",0.8);
+
     setprop("controls/lighting/engines-norm",0.8);
     props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
     props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
     props.globals.initNode("controls/electric/external-power",0,"BOOL");
-    setprop("controls/lighting/instrument-lights-norm",0.8);
     setprop("controls/lighting/efis-norm",0.8);
-    setprop("controls/lighting/panel-norm",0.8);
+    setprop("controls/lighting/panel-norm",0.0);
+    setprop("controls/lighting/instruments-norm",0.0);
+    setprop("controls/lighting/instrument-lights-norm",0.0);
 
     append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
@@ -210,7 +210,7 @@ var init_switches = func{
     append(rbus_input,props.globals.initNode("controls/engines/engine[1]/starter",0,"BOOL"));
     append(rbus_output,props.globals.initNode("systems/electrical/outputs/starter[1]",0,"DOUBLE"));
     append(rbus_load,1);
-	 
+
     append(lbus_input,props.globals.initNode("controls/engines/engine[0]/starter",0,"BOOL"));
     append(lbus_output,props.globals.initNode("systems/electrical/outputs/starter",0,"DOUBLE"));
     append(lbus_load,1);
@@ -248,7 +248,7 @@ var init_switches = func{
 update_virtual_bus = func( dt ) {
     var PWR = getprop("systems/electrical/serviceable");
     var AV = getprop("controls/electric/avionics-switch");
-	 
+
     var xtie=0;
     var left_load = 0.0;
     var right_load = 0.0;
@@ -301,7 +301,7 @@ update_virtual_bus = func( dt ) {
     if (lbus_volts < 5) {
         setprop ("controls/flight/speedbrake", 0);
     }
-    
+
     if(rbus_volts > 5 and lbus_volts>5) xtie=1;
     XTie.setValue(xtie);
     if(rbus_volts > 5 or  lbus_volts>5) right_load += lighting(24);
@@ -337,7 +337,7 @@ lh_bus = func(bv) {
 av_bus = func(bv) {
     var load = 0.0;
     var srvc = 0.0;
-    
+
     for(var i=0; i<size(avbus_input); i+=1) {
         var srvc = avbus_input[i].getValue();
         load += avbus_load[i] * srvc;
