@@ -10,25 +10,14 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/PanelLightsSwitch</property>
 		<greater-than>
                     <property>/sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
             </and>
-	    <or>
-                <greater-than>
-                    <property>systems/electrical/left-bus</property>
-                    <value>5</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/right-bus</property>
-                    <value>5</value>
-                </greater-than>
-	    </or>
         </condition>
     </animation>
-    
+
     <animation>
 	<type>light</type>
 	<light-type>spot</light-type>
@@ -36,32 +25,32 @@
 	<object-name>IntLight.FloodLight.cone</object-name>
 	<nopreview/>
 	<position>
-		<x>3.68365</x>
+		<x>3.63167</x>
 		<y>0.0</y>
-		<z>1.33437</z>
+		<z>1.2619</z>
 	</position>
 	<direction>
-		<x>-1.37280</x>
+		<x>-1.4157</x>
 		<y>0.0</y>
-		<z>-1.06451</z>
+		<z>-1.09778</z>
 	</direction>
 	<ambient>
 		<r>0.1</r>
 		<g>0.1</g>
 		<b>0.9</b>
-		<a>0.8</a>
+		<a>1</a>
 	</ambient>
 	<diffuse>
 		<r>0.0</r>
 		<g>0.0</g>
 		<b>0.4</b>
-		<a>0.7</a>
+		<a>1</a>
 	</diffuse>
 	<specular>
 		<r>0.4</r>
 		<g>0.4</g>
 		<b>0.7</b>
-		<a>0.9</a>
+		<a>1</a>
 	</specular>
 	<dim-factor>
 		<property>controls/lighting/FloodLightFactor</property>
