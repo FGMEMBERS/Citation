@@ -1,6 +1,6 @@
 AC3Db
-MATERIAL "interior" rgb 0.8 0.8 0.8  amb 0.8 0.8 0.8  emis 0.05 0.05 0.05  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "white" rgb 1 1 1  amb 1 1 1  emis 0.1 0.1 0.1  spec 0.5 0.5 0.5  shi 8  trans 0
+MATERIAL "interior" rgb 0.8 0.8 0.8  amb 0.8 0.8 0.8  emis 0.0 0.0 0.0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "white" rgb 1 1 1  amb 1 1 1  emis 0.0 0.0 0.0  spec 0.5 0.5 0.5  shi 8  trans 0
 MATERIAL "metal" rgb 0.7 0.7 0.7  amb 0.7 0.7 0.7  emis 0 0 0  spec 0.901362 0.901362 0.901362  shi 72  trans 0
 MATERIAL "lights" rgb 1 1 1  amb 0.5 0.5 0.5  emis 1 1 1  spec 0.135243 0.135243 0.135243  shi 72  trans 0
 MATERIAL "glosswhite" rgb 0.876525 0.876525 0.876525  amb 0.9 0.9 0.9  emis 0 0 0  spec 0.901362 0.901362 0.901362  shi 72  trans 0
