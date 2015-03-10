@@ -8,9 +8,9 @@
     <type>material</type>
     <condition>
       <!-- Doesn't work for some reason... :( -->
-      <!--not>
+      <not>
 	<property>sim/rendering/rembrandt/enabled</property>
-      </not-->
+      </not>
       <or>
 	<greater-than>
           <property>systems/electrical/left-bus</property>
@@ -37,14 +37,14 @@
     <object-name>LandingLightRight.sw</object-name>
     <object-name>LeftPanelLight.knob</object-name>
     <object-name>PanelLight.sw</object-name>
-    <object-name>PassSafetyBelt.sw</object-name>
+    <object-name>PassSafetySeatBelt.sw</object-name>
     <object-name>RightPanelLight.knob</object-name>
     <object-name>StdbyGyroTest.sw</object-name>
     <object-name>electric.panel</object-name>
     <object-name>LH.starter</object-name>
     <object-name>RH.starter</object-name>
     <object-name>avn.sw</object-name>
-    <object-name>batt.svn</object-name>
+    <object-name>batt.sw</object-name>
     <object-name>fuel.knob</object-name>
     <object-name>inv.sw</object-name>
     <object-name>lboost.sw</object-name>
@@ -111,8 +111,6 @@
     <object-name>AP-FD</object-name>
     <object-name>AP.knob</object-name>
     <object-name>HSI</object-name>
-    <object-name>HSI.crsknob</object-name>
-    <object-name>HSI.hdgknob</object-name>
     <!--object-name>magcompass</object-name-->
     <object-name>Marker.pnl</object-name>
     <object-name>OAT</object-name>
@@ -244,7 +242,7 @@
     <object-name>ASI320.ovrspeed</object-name>
     <object-name>index.marker</object-name>
     <object-name>mach.subdial</object-name>
-    <object-name>DME.invalid</object-name>
+    <!--object-name>DME.invalid</object-name-->
     <object-name>Starter.off</object-name>
     <object-name>HSI.card</object-name>
     <object-name>HSI.crsdeflection</object-name>
@@ -252,6 +250,8 @@
     <object-name>HSI.face</object-name>
     <object-name>HSI.hdgbug</object-name>
     <object-name>HSI.navbrg</object-name>
+    <object-name>HSI.crsknob</object-name>
+    <object-name>HSI.hdgknob</object-name>
     <object-name>Plane.137</object-name>
     <object-name>fromflag</object-name>
     <object-name>gs.needle</object-name>
