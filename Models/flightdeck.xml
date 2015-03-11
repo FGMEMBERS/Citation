@@ -9,6 +9,7 @@
     <object-name>FD.AirCond.outlet</object-name>
     <object-name>Ashtray</object-name>
     <object-name>speedBrake.swSafety</object-name>
+    <object-name>MapLights</object-name>
   </effect>
 
   <model>
@@ -1161,8 +1162,20 @@
     </action>
   </animation>
 
+  <animation>
+    <type>pick</type>
+    <object-name>MapLights</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/lighting/map-lights</property>
+      </binding>
+    </action>
+  </animation>
 
-  <!-- Panel Lights (non-Rembrandt) -->
+
+  <!-- Panel Lights (only with Rembrandt disabled) -->
   <animation>
     <type>material</type>
     <condition>
@@ -1330,13 +1343,48 @@
     </emission>
   </animation>
 
+  <!-- Panel Lights (only with Rembrandt disabled) (special treatment for ZKV500 GPS unit :P -->
   <animation>
+    <type>material</type>
+    <condition>
+      <property>controls/lighting/PanelLightsSwitch</property>
+      <not>
+	<property>sim/rendering/rembrandt/enabled</property>
+      </not>
+      <or>
+	<greater-than>
+          <property>systems/electrical/left-bus</property>
+          <value>5</value>
+        </greater-than>
+	<greater-than>
+          <property>systems/electrical/right-bus</property>
+          <value>5</value>
+        </greater-than>
+      </or>
+    </condition>
+    <object-name>body</object-name>
+    <object-name>LCD.display</object-name>
+    <object-name>LED.0_OFF</object-name>
+    <object-name>LED.1_OFF</object-name>
+    <object-name>button.ENTER</object-name>
+    <object-name>button.ESCAPE</object-name>
+    <object-name>button.START</object-name>
+    <object-name>knob.LEFT</object-name>
+    <object-name>knob.MODE</object-name>
+    <object-name>knob.POWER</object-name>
+    <object-name>knob.RIGHT</object-name>
+    <emission>
+      <red>0.1533</red>
+      <green>0.1533</green>
+      <blue>0.1533</blue>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
+    </emission>
+  </animation>
+
+  <animation> <!-- Simulate ambient light from panel lights -->
    <type>material</type>
     <condition>
       <property>controls/lighting/PanelLightsSwitch</property>
-      <!--not>
-	<property>sim/rendering/rembrandt/enabled</property>
-      </not-->
       <or>
 	<greater-than>
           <property>systems/electrical/left-bus</property>
@@ -1376,6 +1424,24 @@
       <green>0.3</green>
       <blue>0.2</blue>
       <factor-prop>controls/lighting/panel-norm</factor-prop>
+
+  <!--factor>
+    <expression>
+      <div>
+        <sum>
+          <property>controls/lighting/LeftPanelFactor</property>
+          <property>controls/lighting/CenterPanelFactor</property>
+          <property>controls/lighting/RightPanelFactor</property>
+          <property>controls/lighting/map-lights</property>
+          <property>controls/lighting/FloodLightFactor</property>
+          <property>controls/lighting/instrument-lights-norm</property>
+          <property>controls/lighting/panel-norm</property>
+        </sum>
+        <value>7</value>
+      </div>
+    </expression>
+  </factor-->
+
     </emission>
   </animation>
 
@@ -1383,9 +1449,6 @@
     <type>material</type>
     <condition>
       <property>controls/lighting/PanelLightsSwitch</property>
-      <!--not>
-	<property>sim/rendering/rembrandt/enabled</property>
-      </not-->
       <or>
 	<greater-than>
           <property>systems/electrical/left-bus</property>
@@ -1423,6 +1486,24 @@
       <green>0.05</green>
       <blue>0.04</blue>
       <factor-prop>controls/lighting/panel-norm</factor-prop>
+
+  <!--factor>
+    <expression>
+      <div>
+        <sum>
+          <property>controls/lighting/LeftPanelFactor</property>
+          <property>controls/lighting/CenterPanelFactor</property>
+          <property>controls/lighting/RightPanelFactor</property>
+          <property>controls/lighting/map-lights</property>
+          <property>controls/lighting/FloodLightFactor</property>
+          <property>controls/lighting/instrument-lights-norm</property>
+          <property>controls/lighting/panel-norm</property>
+        </sum>
+        <value>7</value>
+      </div>
+    </expression>
+  </factor-->
+
     </emission>
   </animation>
 
