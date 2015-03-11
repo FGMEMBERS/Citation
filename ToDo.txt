@@ -5,8 +5,6 @@ Still to do:
 ------------
 
 flightdeck:
-* Rembrandt: EL lights (supplemental instrument panel lights,
-             underneath glareshield, manual pg 6-57)
 * Rembrandt: map lights
 * Modelling: overhead panel
 * Modelling: more details like bags on side-panels, maps, manuals etc
