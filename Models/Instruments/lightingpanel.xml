@@ -206,8 +206,8 @@
 	    <binding>
                 <command>property-adjust</command>
                 <property>controls/lighting/instrument-lights-norm</property>
-                <factor>0.1</factor>
-                <min>0</min>
+                <factor>0.08</factor>
+                <min>0.1</min>
                 <max>1</max>
                 <wrap>false</wrap>
             </binding>

@@ -28,9 +28,9 @@ var lights_input=[];
 var lights_output=[];
 var lights_load=[];
 
-var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
+var strobe_switch = props.globals.getNode("controls/lighting/strobe", 0);
 aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
-var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
+var beacon_switch = props.globals.getNode("controls/lighting/beacon", 0);
 aircraft.light.new("controls/lighting/beacon-state", [1.0, 1.0], beacon_switch);
 
 ####################################################
@@ -160,9 +160,15 @@ var init_switches = func{
     props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
     props.globals.initNode("controls/electric/external-power",0,"BOOL");
     setprop("controls/lighting/efis-norm",0.8);
-    setprop("controls/lighting/panel-norm",0.0);
-    setprop("controls/lighting/instruments-norm",0.0);
-    setprop("controls/lighting/instrument-lights-norm",0.0);
+    setprop("controls/lighting/panel-norm",0.5);
+    setprop("controls/lighting/instruments-norm",0.5);
+    setprop("controls/lighting/instrument-lights-norm",0.5);
+    setprop("controls/lighting/LeftPanelFactor",0.5);
+    setprop("controls/lighting/CenterPanelFactor",0.5);
+    setprop("controls/lighting/RightPanelFactor",0.5);
+    props.globals.initNode("controls/lighting/MapLightLeft",0,"BOOL");
+    props.globals.initNode("controls/lighting/MapLightRight",0,"BOOL");
+    props.globals.initNode("controls/lighting/PanelLightsSwitch",0,"BOOL");
 
     append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
