@@ -404,7 +404,7 @@
 
   <!-- GPS -->
   <model>
-    <path>Aircraft/Instruments-3d/zkv500/ZKV500.xml</path>
+    <path>Models/Instruments/zkv500/ZKV500.xml</path>
     <offsets>
       <x-m>  0.003 </x-m>
       <y-m> -0.415 </y-m>

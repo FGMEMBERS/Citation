@@ -166,9 +166,8 @@ var init_switches = func{
     setprop("controls/lighting/LeftPanelFactor",0.5);
     setprop("controls/lighting/CenterPanelFactor",0.5);
     setprop("controls/lighting/RightPanelFactor",0.5);
-    props.globals.initNode("controls/lighting/MapLightLeft",0,"BOOL");
-    props.globals.initNode("controls/lighting/MapLightRight",0,"BOOL");
     props.globals.initNode("controls/lighting/PanelLightsSwitch",0,"BOOL");
+    setprop("controls/lighting/flightdeck-ambient-norm",0.0);
 
     append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));

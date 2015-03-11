@@ -5,7 +5,6 @@ Still to do:
 ------------
 
 flightdeck:
-* Rembrandt: map lights
 * Modelling: overhead panel
 * Modelling: more details like bags on side-panels, maps, manuals etc
              (a manual like on 707?)

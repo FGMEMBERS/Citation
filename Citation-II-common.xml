@@ -268,11 +268,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </key>
       <key>
 	<name>l</name>
-	<desc>Toggle panel lights (need power from battery or Generators)</desc>
+	<desc>Toggle panel lights</desc>
       </key>
       <key>
         <name>Ctrl-l</name>
         <desc>Toggle landing lights</desc>
+      </key>
+      <key>
+	<name>m</name>
+	<desc>Toggle map-lights on/off</desc>
       </key>
       <key>
 	<name>b</name>
@@ -288,77 +292,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </key>
       <key>
         <name>Delete</name>
-        <desc>Toggle thrust reversers (Citation II, not Sierra Super II)</desc>
+        <desc>Toggle thrust reversers
+(Citation II only)</desc>
       </key>
       <key>
         <name>[ / ]</name>
         <desc>Extend / retract flaps</desc>
       </key>
       <key>
-        <name>j</name>
-        <desc>Retract spoilers</desc>
-      </key>
-      <key>
-        <name>k</name>
-        <desc>Extend spoilers (N1 &lt; 85%)</desc>
+        <name>j / k</name>
+        <desc>Retract / Extend spoilers (N1 &lt; 85%)</desc>
       </key>
       <key>
         <name>Ctrl-b</name>
         <desc>Toggle speedbrakes</desc>
       </key>
-      <key>
-        <name>FD OFF</name>
-        <desc>AP: Illuminated=OFF. Engage wing leveler and pitch hold</desc>
-      </key>
-      <key>
-        <name>HDG</name>
-        <desc>AP: Follow heading bug</desc>
-      </key>
-      <key>
-        <name>NAV</name>
-        <desc>AP: Cycle between wing leveler, NAV1 or NAV2, and GPS</desc>
-      </key>
-      <key>
-        <name>APR</name>
-        <desc>AP: NAV1 lateral and glideslope</desc>
-      </key>
-      <key>
-        <name>BC</name>
-        <desc>AP: Backcourse</desc>
-      </key>
-      <key>
-        <name>NAV/HSI</name>
-        <desc>AP: Toggle the HSI and autopilot between NAV1 and NAV2</desc>
-      </key>
-      <key>
-        <name>ALT</name>
-        <desc>AP: Altitude hold</desc>
-      </key>
-      <key>
-        <name>ALT SEL</name>
-        <desc>AP: (inoperative)</desc>
-      </key>
-      <key>
-        <name>VNAV</name>
-        <desc>AP: (inoperative)</desc>
-      </key>
-      <key>
-        <name>V/S</name>
-        <desc>AP: Hold vertical speed</desc>
-      </key>
-      <key>
-        <name>IAS</name>
-        <desc>AP: Autothrottle to hold current indicated airspeed</desc>
-      </key>
-      <key>
-        <name>PITCH wheel</name>
-        <desc>AP: Adjust pitch, selected altitude or vertical speed</desc>
-      </key>
-      <text>Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
+      <line>Many features require power to operate. Make sure at least battery is switched on!</line>
+      <text>Autopilot operation:
+Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
 
-To fold / unfold the passenger's tables, left or middle click respectively, holding the button down as long as
-necessary to fold the elements. To stow and unstow the folded table, left or middle-click on the cupholders. :)
-      </text>
+FD OFF:         Illuminated=OFF. Engage wing leveler and pitch hold
+HDG:              Follow heading bug
+NAV:              Cycle between wing leveler, NAV1 or NAV2, and GPS
+APR:               NAV1 lateral and glideslope
+BC:                 Backcourse
+NAV/HSI:        Toggle the HSI and autopilot between NAV1 and NAV2
+ALT:                Altitude hold
+ALT SEL:         (inoperative)
+VNAV:            (inoperative)
+V/S:                Hold vertical speed
+IAS:                Autothrottle to hold current indicated airspeed
+PITCH wheel:  Adjust pitch, selected altitude or vertical speed
+
+---------------------------------------------------
+
+To fold / unfold the passenger's tables, left or middle click respectively,
+holding the button down as long as necessary to fold the elements. To stow
+and unstow the folded table, left or middle-click on the cupholders.</text>
     </help>
 
     <weight n="0">
@@ -703,6 +673,13 @@ necessary to fold the elements. To stow and unstow the folded table, left or mid
 	<binding>
           <command>property-toggle</command>
           <property>controls/lighting/PanelLightsSwitch</property>
+        </binding>
+      </key>
+      <key n="109">
+	<name>m</name>
+	<binding>
+          <command>property-toggle</command>
+          <property>controls/lighting/map-lights</property>
         </binding>
       </key>
     </keyboard>
