@@ -7,30 +7,13 @@
      <animation>
         <type>select</type>
         <object-name>IntLight.MapLightLeft.cone</object-name>
-        <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/map-lights</property>
-		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/right-bus</property>
-                    <value>5</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-    <animation>
-        <type>select</type>
         <object-name>IntLight.MapLightRight.cone</object-name>
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
 		<property>controls/lighting/map-lights</property>
 		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
+                    <property>sim/rendering/shaders/lights</property>
                     <value>3.0</value>
                 </greater-than>
 		<greater-than>

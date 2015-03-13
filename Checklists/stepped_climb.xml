@@ -20,7 +20,7 @@ GNU General Public License for more details.
     <value>33000 ft</value>
     <condition>
       <greater-than>
-        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter/indicated-altitude-ft</property>
         <value>33000</value>
       </greater-than>
     </condition>
@@ -33,7 +33,7 @@ GNU General Public License for more details.
     <value>&lt; .3</value>
     <condition>
       <less-than>
-        <property>/orientation/alpha-deg</property>
+        <property>orientation/alpha-deg</property>
         <value>4.2</value>
       </less-than>
     </condition>
@@ -43,13 +43,13 @@ GNU General Public License for more details.
     <value>36000 ft</value>
     <condition>
       <greater-than>
-        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter/indicated-altitude-ft</property>
         <value>36000</value>
       </greater-than>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/autopilot/settings/target-altitude-ft</property>
+      <property>autopilot/settings/target-altitude-ft</property>
       <value>36000</value>
     </binding>
   </item>
@@ -58,7 +58,7 @@ GNU General Public License for more details.
     <value>&lt; .3</value>
     <condition>
       <less-than>
-        <property>/orientation/alpha-deg</property>
+        <property>orientation/alpha-deg</property>
         <value>4.2</value>
       </less-than>
     </condition>
@@ -68,13 +68,13 @@ GNU General Public License for more details.
     <value>39000 ft</value>
     <condition>
       <greater-than>
-        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter/indicated-altitude-ft</property>
         <value>39000</value>
       </greater-than>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/autopilot/settings/target-altitude-ft</property>
+      <property>autopilot/settings/target-altitude-ft</property>
       <value>39000</value>
     </binding>
   </item>
@@ -83,7 +83,7 @@ GNU General Public License for more details.
     <value>&lt; .3</value>
     <condition>
       <less-than>
-        <property>/orientation/alpha-deg</property>
+        <property>orientation/alpha-deg</property>
         <value>4.2</value>
       </less-than>
     </condition>
@@ -93,13 +93,13 @@ GNU General Public License for more details.
     <value>42000 ft</value>
     <condition>
       <greater-than>
-        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter/indicated-altitude-ft</property>
         <value>42000</value>
       </greater-than>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/autopilot/settings/target-altitude-ft</property>
+      <property>autopilot/settings/target-altitude-ft</property>
       <value>42000</value>
     </binding>
   </item>
@@ -108,7 +108,7 @@ GNU General Public License for more details.
     <value>&lt; .3</value>
     <condition>
       <less-than>
-        <property>/orientation/alpha-deg</property>
+        <property>orientation/alpha-deg</property>
         <value>4.2</value>
       </less-than>
     </condition>

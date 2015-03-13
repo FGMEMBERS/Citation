@@ -22,7 +22,7 @@ GNU General Public License for more details.
     <input>
       <condition>
         <greater-than>
-          <property>/controls/flight/flaps</property>
+          <property>controls/flight/flaps</property>
           <value>0</value>
         </greater-than>
       </condition>
@@ -39,7 +39,7 @@ GNU General Public License for more details.
     <input>
       <condition>
         <greater-than>
-          <property>/controls/flight/flaps</property>
+          <property>controls/flight/flaps</property>
           <value>0</value>
         </greater-than>
       </condition>

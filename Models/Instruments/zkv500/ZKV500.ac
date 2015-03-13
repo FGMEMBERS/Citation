@@ -1158,7 +1158,7 @@ name "body"
 loc 0 0 -0
 data 4
 body
-texture "flightdeck.png"
+texture "../../flightdeck.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 72
@@ -2459,7 +2459,7 @@ name "knob.LEFT"
 loc 0 0 -0
 data 9
 knob.LEFT
-texture "flightdeck.png"
+texture "../../flightdeck.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 97
@@ -3272,7 +3272,7 @@ name "knob.MODE"
 loc 0 0 -0
 data 9
 knob.MODE
-texture "flightdeck.png"
+texture "../../flightdeck.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 97
@@ -4085,7 +4085,7 @@ name "knob.POWER"
 loc 0 0 -0
 data 10
 knob.POWER
-texture "flightdeck.png"
+texture "../../flightdeck.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 97
@@ -4856,7 +4856,7 @@ name "knob.RIGHT"
 loc 0 0 -0
 data 10
 knob.RIGHT
-texture "flightdeck.png"
+texture "../../flightdeck.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 97

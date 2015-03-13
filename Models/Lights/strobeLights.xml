@@ -11,7 +11,7 @@
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
+                    <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
                 <greater-than>
@@ -71,7 +71,7 @@
 		<near-m>0.1</near-m>
 		<far-m>50</far-m>
 	</animation>
- 
+
     <animation>
         <type>select</type>
         <object-name>sphereStrobeLight.2</object-name>
@@ -79,7 +79,7 @@
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
+                    <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
                 <greater-than>
@@ -93,7 +93,7 @@
             </and>
         </condition>
     </animation>
-        
+
 	<animation>
             <type>light</type>
             <light-type>point</light-type>
@@ -139,5 +139,5 @@
 		<near-m>0.1</near-m>
 		<far-m>50</far-m>
 	</animation>
- 
+
  </PropertyList>

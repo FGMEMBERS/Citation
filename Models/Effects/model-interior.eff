@@ -34,7 +34,7 @@
   <technique n="4">
     <predicate>
       <and>
-        <property>/sim/rendering/shaders/skydome</property>
+        <property>sim/rendering/shaders/skydome</property>
         <or>
           <less-equal>
             <value type="float">2.0</value>

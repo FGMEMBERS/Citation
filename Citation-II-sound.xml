@@ -96,9 +96,9 @@
         <path>Sounds/rumble.wav</path>
         <condition>
             <or>
-                <property>/gear/gear[0]/wow</property>
-                <property>/gear/gear[1]/wow</property>
-                <property>/gear/gear[2]/wow</property>
+                <property>gear/gear[0]/wow</property>
+                <property>gear/gear[1]/wow</property>
+                <property>gear/gear[2]/wow</property>
             </or>
         </condition>
         <mode>looped</mode>
@@ -210,7 +210,7 @@
     <flap>
         <name>flaps</name>
         <path>Sounds/flaps.wav</path>
-        <property>/surface-positions/flap-pos-norm</property>
+        <property>surface-positions/flap-pos-norm</property>
         <mode>in-transit</mode>
         <volume>
             <property>sim/sound/Cvolume</property>
