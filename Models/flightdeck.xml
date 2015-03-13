@@ -1592,11 +1592,10 @@
     <object-name>CTL-32.pwr</object-name>
     <object-name>CTL-32.vol</object-name>
     <emission>
-      <red>0.9</red>
+      <red>1</red>
       <green>0.6</green>
-      <blue>0.4</blue>
-      <factor-prop>controls/lighting/instrument-lights-emission</factor-prop>
-      <!--factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop-->
+      <blue>0.3</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
     </emission>
   </animation>
 

@@ -508,6 +508,10 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <instrument-lights-emission type="double">0.0</instrument-lights-emission>
       <map-lights-emission type="double">0.0</map-lights-emission>
       <flightdeck-average-ambient-light type="double">0.0</flightdeck-average-ambient-light>
+      <flightdeck-average-ambient-light-center-console type="double">0.0</flightdeck-average-ambient-light-center-console>
+      <flightdeck-average-ambient-light-environment type="double">0.0</flightdeck-average-ambient-light-environment>
+      <flightdeck-average-instrument-emission type="double">0.0</flightdeck-average-instrument-emission>
+      <panel-average-lighting type="double">0.0</panel-average-lighting>
     </lighting>
   </controls>
 

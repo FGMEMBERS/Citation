@@ -157,7 +157,7 @@
     <type>gain</type>
     <input>
       <property>controls/lighting/flightdeck-average-ambient-light</property>
-      <scale>0.7</scale>
+      <scale>0.4</scale>
     </input>
     <output>controls/lighting/flightdeck-average-ambient-light-center-console</output>
   </filter>
@@ -168,7 +168,7 @@
     <type>gain</type>
     <input>
       <property>controls/lighting/flightdeck-average-ambient-light</property>
-      <scale>0.5</scale>
+      <scale>0.2</scale>
     </input>
     <output>controls/lighting/flightdeck-average-ambient-light-environment</output>
   </filter>
@@ -200,26 +200,32 @@
   </filter>
 
   <!-- BUILDING SITE! -->
-  <!--filter>
-    <name>calculate average panel light on flightdeck : don't ignore instrument lights in illumination!</name>
+  <filter>
+    <name>calculate average panel light on flightdeck : don't ignore instrument lights in illumination</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
+      <!-- (( 1 - ( panel-average-lighting / 2 )) * instrument-lights-emission ) + (  panel-average-lighting / 2 ) -->
       <expression>
-	<product>
-	  <diff>
-	    <value>1</value>
-	    <div>
-	      <property>controls/lighting/panel-average-lighting</property>
-	      <value>2</value>
-	    </div>
-	  </diff>
-	  <property>controls/lighting/instrument-lights-emission</property>
-        </product>
+	<sum>
+	  <product>
+	    <difference>
+	      <value>1</value>
+	      <div>
+	        <property>controls/lighting/panel-average-lighting</property>
+		<value>2</value>
+	      </div>
+	    </difference>
+	    <property>controls/lighting/instrument-lights-emission</property>
+	  </product>
+	  <div>
+	    <property>controls/lighting/panel-average-lighting</property>
+	    <value>2</value>
+          </div>
+	</sum>
       </expression>
-      <scale>0.5</scale>
     </input>
     <output>controls/lighting/flightdeck-average-instrument-emission</output>
-  </filter-->
+  </filter>
 
 </PropertyList>
