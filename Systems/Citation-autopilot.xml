@@ -35,7 +35,7 @@
     <name>AP: lateral: stage 1: wing leveler, set target roll to 0</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/locks/heading</property>
+      <property>autopilot/locks/heading</property>
       <value>wing-leveler</value>
     </enable>
     <type>gain</type>
@@ -71,16 +71,16 @@
       <condition>
         <or>
           <equals>
-            <property>/autopilot/locks/heading</property> <value>dg-heading-hold</value>
+            <property>autopilot/locks/heading</property> <value>dg-heading-hold</value>
           </equals>
           <equals>
-            <property>/autopilot/locks/heading</property> <value>nav1-hold</value>
+            <property>autopilot/locks/heading</property> <value>nav1-hold</value>
           </equals>
           <equals>
-            <property>/autopilot/locks/heading</property> <value>nav2-hold</value>
+            <property>autopilot/locks/heading</property> <value>nav2-hold</value>
           </equals>
           <equals>
-            <property>/autopilot/locks/heading</property> <value>gps-hold</value>
+            <property>autopilot/locks/heading</property> <value>gps-hold</value>
           </equals>
         </or>
       </condition>
@@ -90,40 +90,40 @@
     <input>
       <condition>
         <equals>
-          <property>/autopilot/locks/heading</property> <value>dg-heading-hold</value>
+          <property>autopilot/locks/heading</property> <value>dg-heading-hold</value>
         </equals>
       </condition>
-      <property>/autopilot/internal/fdm-heading-bug-error-deg</property>
+      <property>autopilot/internal/fdm-heading-bug-error-deg</property>
     </input>
     <input>
       <condition>
         <equals>
-          <property>/autopilot/locks/heading</property> <value>nav1-hold</value>
+          <property>autopilot/locks/heading</property> <value>nav1-hold</value>
         </equals>
       </condition>
-      <property>/autopilot/internal/nav1-heading-error-deg</property>
+      <property>autopilot/internal/nav1-heading-error-deg</property>
     </input>
     <input>
       <condition>
         <equals>
-          <property>/autopilot/locks/heading</property> <value>nav2-hold</value>
+          <property>autopilot/locks/heading</property> <value>nav2-hold</value>
         </equals>
       </condition>
-      <property>/autopilot/internal/nav2-heading-error-deg</property>
+      <property>autopilot/internal/nav2-heading-error-deg</property>
     </input>
     <input>
       <condition>
         <equals>
-          <property>/autopilot/locks/heading</property> <value>gps-hold</value>
+          <property>autopilot/locks/heading</property> <value>gps-hold</value>
         </equals>
       </condition>
-      <property>/autopilot/internal/true-heading-error-deg</property>
+      <property>autopilot/internal/true-heading-error-deg</property>
     </input>
     <reference>0.0</reference>
     <output>autopilot/internal/target-roll-deg</output>
     <gain>2.0</gain>
-    <min><property>/autopilot/settings/bank-limit</property><scale>-1</scale></min>
-    <max><property>/autopilot/settings/bank-limit</property></max>
+    <min><property>autopilot/settings/bank-limit</property><scale>-1</scale></min>
+    <max><property>autopilot/settings/bank-limit</property></max>
   </filter>
 
   <pi-simple-controller>
@@ -132,13 +132,13 @@
     <enable>
       <condition>
         <not-equals>
-          <property>/autopilot/locks/heading</property> <value/>
+          <property>autopilot/locks/heading</property> <value/>
         </not-equals>
       </condition>
     </enable>
     <input>/orientation/roll-deg</input>
     <reference>/autopilot/internal/target-roll-deg</reference>
-    <output>/autopilot/internal/target-aileron</output>    
+    <output>/autopilot/internal/target-aileron</output>
     <config>
       <Kp>0.01</Kp>
       <Ki>0.001</Ki>
@@ -192,7 +192,7 @@
     <name>AP: vertical: stage 1: compute target climb rate (ALT mode)</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/locks/altitude</property>
+      <property>autopilot/locks/altitude</property>
       <value>altitude-hold</value>
     </enable>
     <type>gain</type>
@@ -204,47 +204,47 @@
     <max>
       <condition>
         <less-than>
-          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <property>/autopilot/limits/indicated-altitude-ft[0]</property>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[0]</property>
         </less-than>
       </condition>
-      <property>/autopilot/limits/max-climb-rate-fpm[0]</property>
+      <property>autopilot/limits/max-climb-rate-fpm[0]</property>
     </max>
     <max>
       <condition>
         <less-than>
-          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <property>/autopilot/limits/indicated-altitude-ft[1]</property>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[1]</property>
         </less-than>
       </condition>
-      <property>/autopilot/limits/max-climb-rate-fpm[1]</property>
+      <property>autopilot/limits/max-climb-rate-fpm[1]</property>
     </max>
     <max>
       <condition>
         <less-than>
-          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <property>/autopilot/limits/indicated-altitude-ft[2]</property>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[2]</property>
         </less-than>
       </condition>
-      <property>/autopilot/limits/max-climb-rate-fpm[2]</property>
+      <property>autopilot/limits/max-climb-rate-fpm[2]</property>
     </max>
     <max>
       <condition>
         <less-than>
-          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <property>/autopilot/limits/indicated-altitude-ft[3]</property>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[3]</property>
         </less-than>
       </condition>
-      <property>/autopilot/limits/max-climb-rate-fpm[3]</property>
+      <property>autopilot/limits/max-climb-rate-fpm[3]</property>
     </max>
     <max>
       <condition>
         <less-than>
-          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-          <property>/autopilot/limits/indicated-altitude-ft[4]</property>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[4]</property>
         </less-than>
       </condition>
-      <property>/autopilot/limits/max-climb-rate-fpm[4]</property>
+      <property>autopilot/limits/max-climb-rate-fpm[4]</property>
     </max>
     <max>/autopilot/limits/max-climb-rate-fpm[5]</max> <!-- above -->
   </filter>
@@ -253,7 +253,7 @@
     <name>AP: vertical: stage 1: acquire target climb rate (VS mode)</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/locks/altitude</property>
+      <property>autopilot/locks/altitude</property>
       <value>vertical-speed-hold</value>
     </enable>
     <type>gain</type>
@@ -266,7 +266,7 @@
     <name>AP: vertical: stage 1: acquire target climb rate (Glideslope)</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/locks/altitude</property>
+      <property>autopilot/locks/altitude</property>
       <value>gs1-hold</value>
     </enable>
     <type>gain</type>
@@ -279,14 +279,14 @@
     <name>AP: vertical: stage 2: acquire target pitch (Pitch hold)</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/locks/altitude</property>
+      <property>autopilot/locks/altitude</property>
       <value>pitch-hold</value>
     </enable>
     <type>gain</type>
     <input>
-      <property>/autopilot/settings/target-pitch-deg</property>
+      <property>autopilot/settings/target-pitch-deg</property>
       <offset> <!-- correct for our angle of attack -->
-        <property>/orientation/alpha-deg</property>
+        <property>orientation/alpha-deg</property>
         <scale>-1.0</scale>
       </offset>
     </input>
@@ -301,15 +301,15 @@
       <condition>
         <or>
           <equals>
-            <property>/autopilot/locks/altitude</property>
+            <property>autopilot/locks/altitude</property>
             <value>altitude-hold</value>
           </equals>
           <equals>
-            <property>/autopilot/locks/altitude</property>
+            <property>autopilot/locks/altitude</property>
             <value>vertical-speed-hold</value>
           </equals>
           <equals>
-            <property>/autopilot/locks/altitude</property>
+            <property>autopilot/locks/altitude</property>
             <value>gs1-hold</value>
           </equals>
         </or>
@@ -325,9 +325,9 @@
         <product>
           <asin> <!-- result in radians -->
             <div>
-              <property>/autopilot/internal/target-climb-rate-fpm</property>
+              <property>autopilot/internal/target-climb-rate-fpm</property>
               <product>
-                <property>/velocities/groundspeed-kt</property>
+                <property>velocities/groundspeed-kt</property>
                 <value>101.26859</value> <!-- fpm per knot -->
               </product>
             </div>
@@ -347,14 +347,14 @@
     <enable>
       <condition>
         <not-equals>
-          <property>/autopilot/locks/altitude</property> <value/>
+          <property>autopilot/locks/altitude</property> <value/>
         </not-equals>
       </condition>
     </enable>
     <input>
-      <property>/orientation/pitch-deg</property>
+      <property>orientation/pitch-deg</property>
       <offset> <!-- correct for our angle of attack -->
-        <property>/orientation/alpha-deg</property>
+        <property>orientation/alpha-deg</property>
         <scale>-1.0</scale>
       </offset>
     </input>
@@ -392,18 +392,18 @@
     <name>Auto Throttle</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/locks/speed</property>
+      <property>autopilot/locks/speed</property>
       <value>speed-with-throttle</value>
     </enable>
     <input>
-      <property>/velocities/airspeed-kt</property>
+      <property>velocities/airspeed-kt</property>
     </input>
     <reference>
-      <property>/autopilot/settings/target-speed-kt</property>
+      <property>autopilot/settings/target-speed-kt</property>
     </reference>
     <output>
-      <property>/controls/engines/engine[0]/throttle</property>
-      <property>/controls/engines/engine[1]/throttle</property>
+      <property>controls/engines/engine[0]/throttle</property>
+      <property>controls/engines/engine[1]/throttle</property>
     </output>
     <config>
       <Kp>0.1</Kp>
@@ -422,7 +422,7 @@
        explore the flight envelope (altitude and %rpm settings) to
        find out the best range cruise. I'll "cheat" by peeking at the
        property browser. -->
-  
+
   <filter>
     <name>Remaining Range computer</name>
     <debug>false</debug>
@@ -431,13 +431,13 @@
       <expression>
         <product>
           <div>
-            <property>/consumables/fuel/total-fuel-lbs</property>
+            <property>consumables/fuel/total-fuel-lbs</property>
             <sum>
-              <property>/engines/engine[0]/fuel-flow_pph</property>
-              <property>/engines/engine[1]/fuel-flow_pph</property>
+              <property>engines/engine[0]/fuel-flow_pph</property>
+              <property>engines/engine[1]/fuel-flow_pph</property>
             </sum>
           </div>
-          <property>/velocities/groundspeed-kt</property>
+          <property>velocities/groundspeed-kt</property>
         </product>
       </expression>
     </input>
@@ -452,8 +452,8 @@
     <input>
       <expression>
         <div>
-          <property>/autopilot/internal/range-remaining-nmi</property>
-          <property>/consumables/fuel/total-fuel-norm</property>
+          <property>autopilot/internal/range-remaining-nmi</property>
+          <property>consumables/fuel/total-fuel-norm</property>
         </div>
       </expression>
     </input>

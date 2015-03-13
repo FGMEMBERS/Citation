@@ -8,7 +8,7 @@
     <condition>
       <property>autopilot/locks/passive-mode</property>
       <greater-than>
-        <property>/systems/electrical/ac-volts</property>
+        <property>systems/electrical/ac-volts</property>
         <value>90</value>
       </greater-than>
     </condition>
@@ -78,7 +78,7 @@
           <value>0</value>
         </equals>
         <greater-than>
-          <property>/systems/electrical/ac-volts</property>
+          <property>systems/electrical/ac-volts</property>
           <value>90</value>
         </greater-than>
       </and>
@@ -95,7 +95,7 @@
           <value>1</value>
         </equals>
         <greater-than>
-          <property>/systems/electrical/ac-volts</property>
+          <property>systems/electrical/ac-volts</property>
           <value>90</value>
         </greater-than>
       </and>
@@ -365,7 +365,7 @@
       <button>0</button>
       <binding>
         <command>property-cycle</command>
-        <property>/autopilot/locks/speed</property>
+        <property>autopilot/locks/speed</property>
         <value type="string">speed-with-throttle</value>
         <!-- value type="string">speed-with-pitch-trim</value--> <!-- not supported -->
         <value type="string"/>
@@ -380,7 +380,7 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/autopilot/locks/passive-mode</property>
+        <property>autopilot/locks/passive-mode</property>
       </binding>
     </action>
   </animation>

@@ -166,7 +166,7 @@
     <object-name>HSI.crs1</object-name>
     <condition>
       <greater-than>
-        <property>/systems/electrical/ac-volts</property>
+        <property>systems/electrical/ac-volts</property>
         <value>100</value>
       </greater-than>
     </condition>

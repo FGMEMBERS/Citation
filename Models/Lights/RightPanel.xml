@@ -10,9 +10,9 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/PanelLightsSwitch</property>
+		<property>controls/lighting/panel-lights-switch</property>
 		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
+                    <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
                 <greater-than>
@@ -58,7 +58,7 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-		<property>controls/lighting/RightPanelFactor</property>
+		<property>controls/lighting/right-panel-norm</property>
 		<factor>1</factor>
 		<offset>0</offset>
 		<min>0</min>

@@ -8,21 +8,10 @@
         <type>select</type>
         <object-name>IntLight.CenterPanel.Cone</object-name>
         <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/PanelLightsSwitch</property>
-		    <!-- Make sure this only goes on, when EngINstrLight is off! -->
-		<property>engines/engine/started</property>
-	        <property>engines/engine[1]/started</property>
-		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
-                    <value>2.0</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/left-bus</property>
-                    <value>5</value>
-                </greater-than>
-            </and>
+          <greater-than>
+            <property>controls/lighting/center-panel-light-emission</property>
+            <value>0.01</value>
+          </greater-than>
         </condition>
     </animation>
 
@@ -61,7 +50,7 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-		<property>controls/lighting/CenterPanelFactor</property>
+		<property>controls/lighting/center-panel-light-emission</property>
 		<factor>1</factor>
 		<offset>0</offset>
 		<min>0</min>

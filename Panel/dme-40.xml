@@ -7,7 +7,7 @@
  <h-base>48</h-base>
 
  <layers>
-  
+
    <layer>
    <name>distance to station</name>
    <type>switch</type>
@@ -17,7 +17,7 @@
   <layer>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[1]</property>
+      <property>instrumentation/dme/switch-position[1]</property>
       <value type="int">0</value>
      </equals>
     </condition>
@@ -27,7 +27,7 @@
    <layer>
     <condition>
      <not>
-      <property>/instrumentation/dme/in-range</property>
+      <property>instrumentation/dme/in-range</property>
      </not>
     </condition>
     <name>display</name>
@@ -50,7 +50,7 @@
    <layer>
     <condition>
      <greater-than>
-      <property>/instrumentation/dme/indicated-distance-nm</property>
+      <property>instrumentation/dme/indicated-distance-nm</property>
       <value type="double">999.99</value>
      </greater-than>
     </condition>
@@ -84,7 +84,7 @@
     <chunks>
      <chunk>
       <type>number-value</type>
-      <property>/instrumentation/dme/indicated-distance-nm</property>
+      <property>instrumentation/dme/indicated-distance-nm</property>
       <format>%5.1f</format>
      </chunk>
     </chunks>
@@ -111,7 +111,7 @@
    <layer>
      <condition>
        <equals>
-         <property>/instrumentation/dme/switch-position[1]</property>
+         <property>instrumentation/dme/switch-position[1]</property>
          <value type="int">0</value>
        </equals>
      </condition>
@@ -121,7 +121,7 @@
    <layer>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[1]</property>
+      <property>instrumentation/dme/switch-position[1]</property>
       <value type="int">1</value>
      </equals>
     </condition>
@@ -131,7 +131,7 @@
    <layer>
     <condition>
      <not>
-       <property>/instrumentation/dme/in-range</property>
+       <property>instrumentation/dme/in-range</property>
      </not>
     </condition>
     <name>display</name>
@@ -154,7 +154,7 @@
    <layer>
     <condition>
      <greater-than>
-       <property>/instrumentation/dme/indicated-ground-speed-kt</property>
+       <property>instrumentation/dme/indicated-ground-speed-kt</property>
        <value type="double">999</value>
      </greater-than>
     </condition>
@@ -187,7 +187,7 @@
     <chunks>
      <chunk>
       <type>number-value</type>
-      <property>/instrumentation/dme/indicated-ground-speed-kt</property>
+      <property>instrumentation/dme/indicated-ground-speed-kt</property>
       <format>%3.0f</format>
      </chunk>
     </chunks>
@@ -212,7 +212,7 @@
    <layer>
      <condition>
        <equals>
-         <property>/instrumentation/dme/switch-position[1]</property>
+         <property>instrumentation/dme/switch-position[1]</property>
          <value type="int">0</value>
        </equals>
      </condition>
@@ -222,7 +222,7 @@
    <layer>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[1]</property>
+      <property>instrumentation/dme/switch-position[1]</property>
       <value type="int">2</value>
      </equals>
     </condition>
@@ -232,7 +232,7 @@
    <layer>
     <condition>
      <not>
-      <property>/instrumentation/dme/in-range</property>
+      <property>instrumentation/dme/in-range</property>
      </not>
     </condition>
     <name>display</name>
@@ -255,7 +255,7 @@
    <layer>
     <condition>
      <greater-than>
-      <property>/instrumentation/dme/indicated-time-min</property>
+      <property>instrumentation/dme/indicated-time-min</property>
       <value type="double">99</value>
      </greater-than>
     </condition>
@@ -288,7 +288,7 @@
     <chunks>
      <chunk>
       <type>number-value</type>
-      <property>/instrumentation/dme/indicated-time-min</property>
+      <property>instrumentation/dme/indicated-time-min</property>
       <format>%02.0f</format>
      </chunk>
     </chunks>
@@ -320,45 +320,45 @@
    <h>8</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/dme/switch-position[0]</property>
+    <property>instrumentation/dme/switch-position[0]</property>
     <step>-1</step>
     <min>1</min>
     <max>3</max>
     <wrap>0</wrap>
    </binding>
-   
+
    <binding>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[0]</property>
+      <property>instrumentation/dme/switch-position[0]</property>
       <value type="int">1</value>
      </equals>
     </condition>
     <command>property-assign</command>
-    <property>/instrumentation/dme/frequencies/source</property>
+    <property>instrumentation/dme/frequencies/source</property>
     <value>/instrumentation/nav[0]/frequencies/selected-mhz</value>
    </binding>
    <binding>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[0]</property>
+      <property>instrumentation/dme/switch-position[0]</property>
       <value type="int">2</value>
      </equals>
     </condition>
     <command>property-assign</command>
-    <property>/instrumentation/dme/frequencies/source</property>
+    <property>instrumentation/dme/frequencies/source</property>
     <value>/instrumentation/dme/frequencies/selected-mhz</value>
    </binding>
    <binding>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[0]</property>
+      <property>instrumentation/dme/switch-position[0]</property>
       <value type="int">3</value>
      </equals>
     </condition>
     <command>property-assign</command>
-    <property>/instrumentation/dme/frequencies/selected-mhz</property>
-    <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
+    <property>instrumentation/dme/frequencies/selected-mhz</property>
+    <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
    </binding>
   </action>
 
@@ -371,46 +371,46 @@
    <h>8</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/dme/switch-position[0]</property>
+    <property>instrumentation/dme/switch-position[0]</property>
     <step>1</step>
     <min>1</min>
     <max>3</max>
     <wrap>0</wrap>
    </binding>
-   
+
    <binding>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[0]</property>
+      <property>instrumentation/dme/switch-position[0]</property>
       <value type="int">1</value>
      </equals>
     </condition>
     <command>property-assign</command>
-    <property>/instrumentation/dme/frequencies/source</property>
+    <property>instrumentation/dme/frequencies/source</property>
     <value>/instrumentation/nav[0]/frequencies/selected-mhz</value>
    </binding>
-   
+
    <binding>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[0]</property>
+      <property>instrumentation/dme/switch-position[0]</property>
       <value type="int">2</value>
      </equals>
     </condition>
     <command>property-assign</command>
-    <property>/instrumentation/dme/frequencies/source</property>
+    <property>instrumentation/dme/frequencies/source</property>
     <value>/instrumentation/dme/frequencies/selected-mhz</value>
    </binding>
 
    <binding>
     <condition>
      <equals>
-      <property>/instrumentation/dme/switch-position[0]</property>
+      <property>instrumentation/dme/switch-position[0]</property>
       <value type="int">3</value>
      </equals>
     </condition>
     <command>property-assign</command>
-    <property>/instrumentation/dme/frequencies/source</property>
+    <property>instrumentation/dme/frequencies/source</property>
     <value>/instrumentation/nav[1]/frequencies/selected-mhz</value>
    </binding>
   </action>
@@ -424,7 +424,7 @@
     <h>8</h>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/dme/switch-position[1]</property>
+      <property>instrumentation/dme/switch-position[1]</property>
       <step>-1</step>
       <min>0</min>
       <max>2</max>
@@ -441,7 +441,7 @@
     <h>8</h>
     <binding>
       <command>property-adjust</command>
-      <property>/instrumentation/dme/switch-position[1]</property>
+      <property>instrumentation/dme/switch-position[1]</property>
       <step>1</step>
       <min>0</min>
       <max>2</max>
@@ -449,7 +449,7 @@
     </binding>
   </action>
 
-  
+
  </actions>
 
 </PropertyList>

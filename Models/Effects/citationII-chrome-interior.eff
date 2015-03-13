@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Citation II chrome effect for interior parts. Reflection dynamic is on-->
+<PropertyList>
+  <name>citationII-chrome-interior</name>
+  <inherits-from>Effects/model-combined-deferred</inherits-from>
+  <parameters>
+    <reflection-enabled type="int">1</reflection-enabled>
+    <reflection-dynamic type="int">1</reflection-dynamic>
+    <reflect_map-enabled type="int">1</reflect_map-enabled>
+    <reflection-correction type="float">1.0</reflection-correction>
+      <texture n="50">
+        <type>cubemap</type>
+        <images>
+          <positive-x>Models/Effects/CitationII/2.png</positive-x>
+          <negative-x>Models/Effects/CitationII/3.png</negative-x>
+          <positive-y>Models/Effects/CitationII/4.png</positive-y>
+          <negative-y>Models/Effects/CitationII/1.png</negative-y>
+          <positive-z>Models/Effects/CitationII/6.png</positive-z>
+          <negative-z>Models/Effects/CitationII/5.png</negative-z>
+        </images>
+      </texture>
+    <reflection-fresnel type="float"> 0.05 </reflection-fresnel>
+    <reflection-rainbow type="float"> 0.01 </reflection-rainbow>
+    <reflection-noise type="float"> 0.0 </reflection-noise>
+  </parameters>
+</PropertyList>

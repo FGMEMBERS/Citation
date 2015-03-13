@@ -115,4 +115,34 @@
             </offsets>
         </model>
 
+	<model>
+	  <name>cabinIndirectLights</name>
+	  <path>Models/Lights/cabinIndirect.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+
+	<model>
+	  <name>cabinRefrCntrLight</name>
+	  <path>Models/Lights/cabinRefrCntr.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+
+	<model>
+	  <name>cabinMapLights</name>
+	  <path>Models/Lights/cabinMapLights.xml</path>
+            <offsets>
+                <x-m>0</x-m>
+                <y-m>0</y-m>
+                <z-m>0</z-m>
+            </offsets>
+        </model>
+
 </PropertyList>

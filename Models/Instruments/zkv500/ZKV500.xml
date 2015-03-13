@@ -42,8 +42,8 @@
   <animation>
     <type>select</type>
     <condition>
-      <property>/sim/model/gps/redled/state</property>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>sim/model/gps/redled/state</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <object-name>LED.0_ON</object-name>
   </animation>
@@ -51,8 +51,8 @@
   <animation>
     <type>select</type>
     <condition>
-      <property>/sim/model/gps/greenled/state</property>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>sim/model/gps/greenled/state</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <object-name>LED.1_ON</object-name>
   </animation>
@@ -61,7 +61,7 @@
     <type>rotate</type>
     <object-name>knob.POWER</object-name>
     <object-name>knob.POWER.circle</object-name>
-    <property>/instrumentation/zkv500/power</property>
+    <property>instrumentation/zkv500/power</property>
     <factor>30</factor>
     <axis>
       <x>-1</x>
@@ -83,6 +83,7 @@
     <action>
       <name>increase gps state off - on - enlighted</name>
       <button>0</button>
+      <button>3</button>
       <repeatable>true</repeatable>
       <binding>
         <command>nasal</command>
@@ -92,6 +93,7 @@
     <action>
       <name>decrease gps state off - on - enlighted</name>
       <button>1</button>
+      <button>4</button>
       <repeatable>true</repeatable>
       <binding>
         <command>nasal</command>
@@ -106,11 +108,12 @@
     <object-name>knob.LEFT.circle</object-name>
     <visible>true</visible>
     <condition>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <action>
       <name>next menu</name>
       <button>0</button>
+      <button>3</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
@@ -120,6 +123,7 @@
     <action>
       <name>previous menu</name>
       <button>1</button>
+      <button>4</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
@@ -134,11 +138,12 @@
     <object-name>knob.RIGHT.circle</object-name>
     <visible>true</visible>
     <condition>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <action>
       <name>next item</name>
       <button>0</button>
+      <button>3</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
@@ -148,6 +153,7 @@
     <action>
       <name>previous item</name>
       <button>1</button>
+      <button>4</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
@@ -162,11 +168,12 @@
     <object-name>knob.MODE.circle</object-name>
     <visible>true</visible>
     <condition>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <action>
       <name>select next mode</name>
       <button>0</button>
+      <button>3</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
@@ -176,6 +183,7 @@
     <action>
       <name>select previous mode</name>
       <button>1</button>
+      <button>4</button>
       <repeatable>false</repeatable>
       <binding>
         <command>nasal</command>
@@ -189,7 +197,7 @@
     <object-name>button.ENTER</object-name>
     <visible>true</visible>
     <condition>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <action>
       <name>manage ENTER button (top left)</name>
@@ -207,7 +215,7 @@
     <object-name>button.ESCAPE</object-name>
     <visible>true</visible>
     <condition>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <action>
       <name>manage ESCAPE button (top middle)</name>
@@ -225,7 +233,7 @@
     <object-name>button.START</object-name>
     <visible>true</visible>
     <condition>
-      <property>/instrumentation/gps/serviceable</property>
+      <property>instrumentation/gps/serviceable</property>
     </condition>
     <action>
       <name>manage START button (top right)</name>

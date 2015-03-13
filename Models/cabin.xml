@@ -3,8 +3,8 @@
 
   <path>cabin.ac</path>
 
-  <effect>  <!-- Chrome Effect! -->
-    <inherits-from>Models/Effects/citationII-chrome</inherits-from>
+  <effect>  <!-- Chrome Effect for interior parts -->
+    <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
     <object-name>RfrshmntCntr.handles</object-name>
@@ -12,8 +12,15 @@
     <object-name>Cabin.Cupholders</object-name>
     <object-name>Seat.levers</object-name>
     <object-name>Seats.mountLedges</object-name>
+    <object-name>Cabin.MapLights</object-name>
+    <object-name>Cabin.MapLights.inside</object-name>
+    <object-name>Cabin.MapLights.Bulb</object-name>
   </effect>
-  
+
+  <effect> <!-- glass -->
+    <inherits-from>Effects/model-transparent</inherits-from>
+  </effect>
+
   <animation>
     <type>rotate</type>
     <object-name>Cabin.door1</object-name>
@@ -64,7 +71,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.1.in</object-name>
-    <property>/controls/table[1]/in</property>
+    <property>controls/table[1]/in</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -81,12 +88,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>/controls/table[1]/out</property>
+            <property>controls/table[1]/out</property>
             <value>10</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[1]/in</property>
+        <property>controls/table[1]/in</property>
         <factor>10</factor>
         <min>0</min>
         <max>180</max>
@@ -100,7 +107,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Table.1.in</object-name>
-    <property>/controls/table[1]/out</property>
+    <property>controls/table[1]/out</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -118,7 +125,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.1.out</object-name>
-    <property>/controls/table[1]/out</property>
+    <property>controls/table[1]/out</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -135,12 +142,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>/controls/table[1]/slide</property>
+            <property>controls/table[1]/slide</property>
             <value>0.01</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[1]/out</property>
+        <property>controls/table[1]/out</property>
         <factor>10</factor>
         <min>0</min>
         <max>90</max>
@@ -152,7 +159,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.1.in</object-name>
-    <property>/controls/table[1]/slide</property>
+    <property>controls/table[1]/slide</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -163,7 +170,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.1.out</object-name>
-    <property>/controls/table[1]/slide</property>
+    <property>controls/table[1]/slide</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -177,7 +184,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.2.in</object-name>
-    <property>/controls/table[2]/in</property>
+    <property>controls/table[2]/in</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -194,12 +201,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>/controls/table[2]/out</property>
+            <property>controls/table[2]/out</property>
             <value>10</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[2]/in</property>
+        <property>controls/table[2]/in</property>
         <factor>10</factor>
         <min>0</min>
         <max>180</max>
@@ -213,7 +220,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Table.2.in</object-name>
-    <property>/controls/table[2]/out</property>
+    <property>controls/table[2]/out</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -231,7 +238,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.2.out</object-name>
-    <property>/controls/table[2]/out</property>
+    <property>controls/table[2]/out</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -248,12 +255,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>/controls/table[2]/slide</property>
+            <property>controls/table[2]/slide</property>
             <value>0.01</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[2]/out</property>
+        <property>controls/table[2]/out</property>
         <factor>10</factor>
         <min>0</min>
         <max>90</max>
@@ -265,7 +272,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.2.in</object-name>
-    <property>/controls/table[2]/slide</property>
+    <property>controls/table[2]/slide</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -276,7 +283,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.2.out</object-name>
-    <property>/controls/table[2]/slide</property>
+    <property>controls/table[2]/slide</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -290,7 +297,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.3.in</object-name>
-    <property>/controls/table[3]/in</property>
+    <property>controls/table[3]/in</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -307,12 +314,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>/controls/table[3]/out</property>
+            <property>controls/table[3]/out</property>
             <value>10</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[3]/in</property>
+        <property>controls/table[3]/in</property>
         <factor>10</factor>
         <min>0</min>
         <max>180</max>
@@ -326,7 +333,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Table.3.in</object-name>
-    <property>/controls/table[3]/out</property>
+    <property>controls/table[3]/out</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -344,7 +351,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.3.out</object-name>
-    <property>/controls/table[3]/out</property>
+    <property>controls/table[3]/out</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -361,12 +368,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>/controls/table[3]/slide</property>
+            <property>controls/table[3]/slide</property>
             <value>0.01</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[3]/out</property>
+        <property>controls/table[3]/out</property>
         <factor>10</factor>
         <min>0</min>
         <max>90</max>
@@ -378,7 +385,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.3.in</object-name>
-    <property>/controls/table[3]/slide</property>
+    <property>controls/table[3]/slide</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -389,7 +396,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.3.out</object-name>
-    <property>/controls/table[3]/slide</property>
+    <property>controls/table[3]/slide</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -397,11 +404,11 @@
       <z>-1</z>
     </axis>
   </animation>
-  
+
   <!-- The cup-holders serve as magick buttons to lower (stow) or
        raise (deploy) the tables. All cup-holders act as one object,
        so act on all tables that are in the vertical position. -->
-  
+
   <animation>
     <type>pick</type>
     <object-name>Cabin.Cupholders</object-name>
@@ -411,12 +418,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>/controls/table[1]/out</property>
+            <property>controls/table[1]/out</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[1]/slide</property>
+        <property>controls/table[1]/slide</property>
         <step>0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -425,12 +432,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>/controls/table[2]/out</property>
+            <property>controls/table[2]/out</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[2]/slide</property>
+        <property>controls/table[2]/slide</property>
         <step>0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -439,12 +446,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>/controls/table[3]/out</property>
+            <property>controls/table[3]/out</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[3]/slide</property>
+        <property>controls/table[3]/slide</property>
         <step>0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -457,12 +464,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>/controls/table[1]/out</property>
+            <property>controls/table[1]/out</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[1]/slide</property>
+        <property>controls/table[1]/slide</property>
         <step>-0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -471,12 +478,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>/controls/table[2]/out</property>
+            <property>controls/table[2]/out</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[2]/slide</property>
+        <property>controls/table[2]/slide</property>
         <step>-0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -485,18 +492,171 @@
       <binding>
         <condition>
           <greater-than>
-            <property>/controls/table[3]/out</property>
+            <property>controls/table[3]/out</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>/controls/table[3]/slide</property>
+        <property>controls/table[3]/slide</property>
         <step>-0.01</step>
         <min>0</min>
         <max>0.243979</max>
         <wrap>false></wrap>
       </binding>
     </action>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <condition>
+      <greater-than>
+        <property>controls/lighting/cabin-lights-norm</property>
+	<value>0.05</value>
+      </greater-than>
+      <greater-than>
+        <property>systems/electrical/left-bus</property>
+        <value>5</value>
+      </greater-than>
+    </condition>
+    <object-name>Cabin</object-name>
+    <object-name>Cabin.AftComp.Door</object-name>
+    <object-name>Cabin.Cupholders</object-name>
+    <object-name>Cabin.DoorFrame</object-name>
+    <object-name>Cabin.Floor</object-name>
+    <object-name>Cabin.FllorAirVents</object-name>
+    <object-name>Cabin.OHPanel</object-name>
+    <object-name>Cabin.door1</object-name>
+    <object-name>Ladder</object-name>
+    <object-name>Ladder.Anchors</object-name>
+    <object-name>RfrshmntCntr</object-name>
+    <object-name>RfrshmntCntr.handles</object-name>
+    <object-name>Seat.1</object-name>
+    <object-name>Seat.2</object-name>
+    <object-name>Seat.3</object-name>
+    <object-name>Seat.4</object-name>
+    <object-name>Seat.5</object-name>
+    <object-name>Seat.6</object-name>
+    <object-name>Seat.7</object-name>
+    <object-name>Seat.levers</object-name>
+    <object-name>Seat.mountLedges</object-name>
+    <object-name>Table.1.in</object-name>
+    <object-name>Table.1.out</object-name>
+    <object-name>Table.2.in</object-name>
+    <object-name>Table.2.out</object-name>
+    <object-name>Table.3.in</object-name>
+    <object-name>Table.3.out</object-name>
+    <object-name>TableCasings</object-name>
+    <object-name>Cabin.MapLights</object-name>
+    <object-name>Cabin.LightKnob</object-name>
+    <object-name>Cabin.LightKnob.Plate</object-name>
+    <emission>
+      <red>0.3</red>
+      <green>0.2</green>
+      <blue>0.16</blue>
+      <factor-prop>controls/lighting/cabin-lights-norm</factor-prop>
+    </emission>
+  </animation>
+
+  <!-- Cabin Map Lights knob and animations -->
+  <animation>
+    <type>knob</type>
+    <object-name>Cabin.LightKnob</object-name>
+    <property>controls/lighting/cabin-lights-norm</property>
+    <factor>135</factor>
+    <center>
+      <x-m>4.27121</x-m>
+      <y-m>-0.57671</y-m>
+      <z-m>0.85835</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/lighting/cabin-lights-norm</property>
+        <factor>0.1</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>Cabin.LightKnob.Plate</object-name>
+    <property>controls/lighting/cabin-lights-norm</property>
+    <factor>135</factor>
+    <action>
+      <button>0</button>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/lighting/cabin-lights-norm</property>
+        <step>0.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/lighting/cabin-lights-norm</property>
+        <step>-0.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <condition>
+      <greater-than>
+        <property>controls/lighting/cabin-lights-norm</property>
+        <value>0.35</value>
+      </greater-than>
+      <greater-than>
+        <property>systems/electrical/right-bus</property>
+        <value>5</value>
+      </greater-than>
+    </condition>
+    <object-name>Cabin.MapLights.Bulb</object-name>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+      <factor-prop>controls/lighting/cabin-lights-norm</factor-prop>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <condition>
+      <greater-than>
+        <property>controls/lighting/cabin-lights-norm</property>
+	<value>0.35</value>
+      </greater-than>
+      <greater-than>
+        <property>systems/electrical/right-bus</property>
+        <value>5</value>
+      </greater-than>
+    </condition>
+    <object-name>Cabin.MapLights.inside</object-name>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+      <factor-prop>controls/lighting/cabin-lights-norm</factor-prop>
+    </emission>
   </animation>
 
 </PropertyList>

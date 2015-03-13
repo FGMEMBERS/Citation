@@ -25,7 +25,7 @@
   <layer>
    <name>background</name>
    <texture>
-     
+
      <path>Models/transparent-bg.rgb</path>
      <x1>0.0</x1>
      <y1>0.0</y1>
@@ -49,7 +49,7 @@
    <h>12</h>
    <binding>
     <command>property-toggle</command>
-    <property>/instrumentation/attitude-indicator/serviceable</property>
+    <property>instrumentation/attitude-indicator/serviceable</property>
    </binding>
   </action>
 
@@ -63,14 +63,14 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/heading-indicator/offset-deg</property>
+    <property>instrumentation/heading-indicator/offset-deg</property>
     <step>-1</step>
     <min>0</min>
     <max>360</max>
     <wrap>true</wrap>
    </binding>
   </action>
-  
+
   <action>
    <name></name>
    <button>1</button>
@@ -80,7 +80,7 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/heading-indicator/offset-deg</property>
+    <property>instrumentation/heading-indicator/offset-deg</property>
     <step>-5</step>
     <min>0</min>
     <max>360</max>
@@ -97,14 +97,14 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/heading-indicator/offset-deg</property>
+    <property>instrumentation/heading-indicator/offset-deg</property>
     <step>1</step>
     <min>0</min>
     <max>360</max>
     <wrap>true</wrap>
    </binding>
   </action>
-  
+
   <action>
    <name></name>
    <button>1</button>
@@ -114,14 +114,14 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/heading-indicator/offset-deg</property>
+    <property>instrumentation/heading-indicator/offset-deg</property>
     <step>5</step>
     <min>0</min>
     <max>360</max>
     <wrap>1</wrap>
    </binding>
   </action>
-  
+
   <!--       course needle          -->
   <action>
    <name></name>
@@ -132,14 +132,14 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>1</step>
     <min>0</min>
     <max>360</max>
     <wrap>true</wrap>
    </binding>
   </action>
-  
+
   <action>
    <name></name>
    <button>1</button>
@@ -149,7 +149,7 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>5</step>
     <min>0</min>
     <max>360</max>
@@ -166,14 +166,14 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>-1</step>
     <min>0</min>
     <max>360</max>
     <wrap>true</wrap>
    </binding>
   </action>
-  
+
   <action>
    <name></name>
    <button>1</button>
@@ -183,7 +183,7 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>-5</step>
     <min>0</min>
     <max>360</max>
@@ -191,10 +191,10 @@
    </binding>
   </action>
 
-  
-  
-  
-  
+
+
+
+
   <action>
    <name></name>
    <button>0</button>
@@ -204,14 +204,14 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/adf/frequencies/selected-mhz</property>
+    <property>instrumentation/adf/frequencies/selected-mhz</property>
     <step>1</step>
     <min>0</min>
     <max>360</max>
     <wrap>true</wrap>
    </binding>
   </action>
-  
+
   <action>
    <name></name>
    <button>1</button>
@@ -221,7 +221,7 @@
    <h>32</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/magnetic-compass/bookmark-heading-deg</property>
+    <property>instrumentation/magnetic-compass/bookmark-heading-deg</property>
     <step>5</step>
     <min>0</min>
     <max>360</max>
@@ -239,7 +239,7 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
+    <property>instrumentation/altimeter/setting-inhg</property>
     <step>-0.01</step>
     <min>26.0</min>
     <max>33.0</max>
@@ -256,7 +256,7 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
+    <property>instrumentation/altimeter/setting-inhg</property>
     <step>-0.1</step>
     <min>26.0</min>
     <max>33.0</max>
@@ -273,7 +273,7 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
+    <property>instrumentation/altimeter/setting-inhg</property>
     <step>0.01</step>
     <min>26.0</min>
     <max>33.0</max>
@@ -290,7 +290,7 @@
    <h>10</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
+    <property>instrumentation/altimeter/setting-inhg</property>
     <step>0.1</step>
     <min>26.0</min>
     <max>33.0</max>
@@ -308,7 +308,7 @@
    <h>81</h>
    <binding>
     <command>property-adjust</command>
-    <property>/controls/engines/engine[0]/magnetos</property>
+    <property>controls/engines/engine[0]/magnetos</property>
     <step>1</step>
     <min>0</min>
     <max>3</max>
@@ -325,7 +325,7 @@
    <h>81</h>
    <binding>
     <command>property-adjust</command>
-    <property>/controls/engines/engine[0]/magnetos</property>
+    <property>controls/engines/engine[0]/magnetos</property>
     <step>-1</step>
     <min>0</min>
     <max>3</max>
@@ -343,14 +343,14 @@
    <h>32</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/clock/offset-sec</property>
+    <property>instrumentation/clock/offset-sec</property>
     <step>-60</step>
     <min>0</min>
     <max>43200</max>
     <wrap>true</wrap>
    </binding>
   </action>
-  
+
   <action>
    <name>adjust left coarse</name>
    <button>1</button>
@@ -360,7 +360,7 @@
    <h>32</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/clock/offset-sec</property>
+    <property>instrumentation/clock/offset-sec</property>
     <step>-900</step>
     <min>0</min>
     <max>43200</max>
@@ -377,14 +377,14 @@
    <h>32</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/clock/offset-sec</property>
+    <property>instrumentation/clock/offset-sec</property>
     <step>60</step>
     <min>0</min>
     <max>43200</max>
     <wrap>true</wrap>
    </binding>
   </action>
-  
+
   <action>
    <name>adjust right coarse</name>
    <button>1</button>
@@ -394,7 +394,7 @@
    <h>32</h>
    <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/clock/offset-sec</property>
+    <property>instrumentation/clock/offset-sec</property>
     <step>900</step>
     <min>0</min>
     <max>43200</max>
@@ -413,7 +413,7 @@
    <h>96</h>
    <binding>
     <command>property-adjust</command>
-    <property>/controls/flight/flaps</property>
+    <property>controls/flight/flaps</property>
     <step>-0.34</step>
     <min>0.0</min>
     <max>1.0</max>
@@ -430,7 +430,7 @@
    <h>96</h>
    <binding>
     <command>property-adjust</command>
-    <property>/controls/flight/flaps</property>
+    <property>controls/flight/flaps</property>
     <step>0.34</step>
     <min>0.0</min>
     <max>1.0</max>
