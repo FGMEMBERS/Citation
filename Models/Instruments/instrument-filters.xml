@@ -22,7 +22,7 @@ GNU General Public License for more details.
     <enable>
       <condition>
         <equals>
-          <property>/instrumentation/rmi/single-needle/selected-input</property>
+          <property>instrumentation/rmi/single-needle/selected-input</property>
           <value>ADF</value>
         </equals>
       </condition>
@@ -38,15 +38,15 @@ GNU General Public License for more details.
     <enable>
       <condition>
         <equals>
-          <property>/instrumentation/rmi/single-needle/selected-input</property>
+          <property>instrumentation/rmi/single-needle/selected-input</property>
           <value>VOR</value>
         </equals>
       </condition>
     </enable>
     <input>
-      <property>/instrumentation/nav[0]/heading-deg</property>
+      <property>instrumentation/nav[0]/heading-deg</property>
       <offset>
-        <property>/orientation/heading-deg</property>
+        <property>orientation/heading-deg</property>
         <scale>-1.0</scale>
       </offset>
     </input>
@@ -64,7 +64,7 @@ GNU General Public License for more details.
     <enable>
       <condition>
         <equals>
-          <property>/instrumentation/rmi/double-needle/selected-input</property>
+          <property>instrumentation/rmi/double-needle/selected-input</property>
           <value>ADF</value>
         </equals>
       </condition>
@@ -80,15 +80,15 @@ GNU General Public License for more details.
     <enable>
       <condition>
         <equals>
-          <property>/instrumentation/rmi/double-needle/selected-input</property>
+          <property>instrumentation/rmi/double-needle/selected-input</property>
           <value>VOR</value>
         </equals>
       </condition>
     </enable>
     <input>
-      <property>/instrumentation/nav[1]/heading-deg</property>
+      <property>instrumentation/nav[1]/heading-deg</property>
       <offset>
-        <property>/orientation/heading-deg</property>
+        <property>orientation/heading-deg</property>
         <scale>-1.0</scale>
       </offset>
     </input>
@@ -106,7 +106,7 @@ GNU General Public License for more details.
     <input>
       <condition>
         <greater-than>
-          <property>/systems/electrical/ac-volts</property>
+          <property>systems/electrical/ac-volts</property>
           <value>1.0</value>
         </greater-than>
       </condition>

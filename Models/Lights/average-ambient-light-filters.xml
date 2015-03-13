@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <!-- No need to filter the Flood Lights! They are on emergency bus and have no toggle-switch. -->
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : instrument-light</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <property>controls/lighting/panel-lights-switch</property>
+      </condition>
+      <property>controls/lighting/instrument-lights-norm</property>
+    </input>
+    <input>
+      <value>0.0</value>
+    </input>
+    <output>controls/lighting/instrument-lights-emission</output>
+  </filter>
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : center-panel-light</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+          <property>engines/engine/started</property>
+          <property>engines/engine[1]/started</property>
+          <property>controls/lighting/panel-lights-switch</property>
+          <greater-than>
+            <property>systems/electrical/left-bus</property>
+            <value>5</value>
+          </greater-than>
+	</and>
+      </condition>
+      <property>controls/lighting/center-panel-norm</property>
+    </input>
+    <input>
+      <condition>
+	<not>
+	  <property>engines/engine/started</property>
+          <property>engines/engine[1]/started</property>
+	</not>
+      </condition>
+      <value>1.0</value>
+    </input>
+    <input>
+      <value>0.0</value>
+    </input>
+    <output>controls/lighting/center-panel-light-emission</output>
+  </filter>
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : left-panel-light</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+          <property>controls/lighting/panel-lights-switch</property>
+          <greater-than>
+            <property>systems/electrical/left-bus</property>
+            <value>5</value>
+          </greater-than>
+	</and>
+      </condition>
+      <property>controls/lighting/left-panel-norm</property>
+    </input>
+    <input>
+      <value>0.0</value>
+    </input>
+    <output>controls/lighting/left-panel-light-emission</output>
+  </filter>
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : right-panel-light</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+          <property>controls/lighting/panel-lights-switch</property>
+          <greater-than>
+            <property>systems/electrical/right-bus</property>
+            <value>5</value>
+          </greater-than>
+	</and>
+      </condition>
+      <property>controls/lighting/right-panel-norm</property>
+    </input>
+    <input>
+      <value>0.0</value>
+    </input>
+    <output>controls/lighting/right-panel-light-emission</output>
+  </filter>
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : map-lights</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+          <property>controls/lighting/map-lights</property>
+          <greater-than>
+            <property>systems/electrical/right-bus</property>
+            <value>5</value>
+          </greater-than>
+	</and>
+      </condition>
+      <property>controls/lighting/map-lights</property>
+    </input>
+    <input>
+      <value>0.0</value>
+    </input>
+    <output>controls/lighting/map-lights-emission</output>
+  </filter>
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : sum it all up</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+	<div>
+	  <sum>
+            <property>controls/lighting/left-panel-light-emission</property>
+	    <property>controls/lighting/center-panel-light-emission</property>
+            <property>controls/lighting/right-panel-light-emission</property>
+	    <product>
+              <property>controls/lighting/instrument-lights-emission</property>
+	      <value>0.5</value>
+	    </product>
+	    <product>
+	      <sum>
+                <property>controls/lighting/map-lights-emission</property>
+	        <property>controls/lighting/flood-light-norm</property>
+	      </sum>
+	      <value>1.2</value>
+	    </product>
+	  </sum>
+	  <value>5.9</value>
+	</div>
+      </expression>
+      <min>0.0</min>
+      <max>1.0</max>
+    </input>
+    <output>controls/lighting/flightdeck-average-ambient-light</output>
+  </filter>
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : sum it all up (Center Console)</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>controls/lighting/flightdeck-average-ambient-light</property>
+      <scale>0.7</scale>
+    </input>
+    <output>controls/lighting/flightdeck-average-ambient-light-center-console</output>
+  </filter>
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : sum it all up (environment)</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>controls/lighting/flightdeck-average-ambient-light</property>
+      <scale>0.5</scale>
+    </input>
+    <output>controls/lighting/flightdeck-average-ambient-light-environment</output>
+  </filter>
+
+  <filter>
+    <name>calculate average lighting on panel</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+	<div>
+	  <sum>
+            <property>controls/lighting/left-panel-light-emission</property>
+	    <property>controls/lighting/center-panel-light-emission</property>
+            <property>controls/lighting/right-panel-light-emission</property>
+	    <property>controls/lighting/map-lights-emission</property>
+	    <product>
+	      <property>controls/lighting/flood-light-norm</property>
+	      <value>1.2</value>
+	    </product>
+	  </sum>
+	  <value>5.2</value>
+	</div>
+      </expression>
+      <min>0.0</min>
+      <max>1.0</max>
+    </input>
+    <output>controls/lighting/panel-average-lighting</output>
+  </filter>
+
+  <!-- BUILDING SITE! -->
+  <!--filter>
+    <name>calculate average panel light on flightdeck : don't ignore instrument lights in illumination!</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+	<product>
+	  <diff>
+	    <value>1</value>
+	    <div>
+	      <property>controls/lighting/panel-average-lighting</property>
+	      <value>2</value>
+	    </div>
+	  </diff>
+	  <property>controls/lighting/instrument-lights-emission</property>
+        </product>
+      </expression>
+      <scale>0.5</scale>
+    </input>
+    <output>controls/lighting/flightdeck-average-instrument-emission</output>
+  </filter-->
+
+</PropertyList>

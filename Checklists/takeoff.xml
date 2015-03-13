@@ -20,13 +20,13 @@ GNU General Public License for more details.
     <value>RELEASED</value>
     <condition>
       <equals>
-        <property>/controls/gear/brake-parking</property>
+        <property>controls/gear/brake-parking</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/controls/gear/brake-parking</property>
+      <property>controls/gear/brake-parking</property>
       <value>0</value>
     </binding>
   </item>
@@ -35,19 +35,19 @@ GNU General Public License for more details.
     <value>95.9</value>
     <condition>
       <greater-than>
-        <property>/engines/engine[0]/fan</property>
+        <property>engines/engine[0]/fan</property>
         <value>95</value>
       </greater-than>
       <less-than>
-        <property>/engines/engine[0]/fan</property>
+        <property>engines/engine[0]/fan</property>
         <value>96</value>
       </less-than>
       <greater-than>
-        <property>/engines/engine[1]/fan</property>
+        <property>engines/engine[1]/fan</property>
         <value>95</value>
       </greater-than>
       <less-than>
-        <property>/engines/engine[1]/fan</property>
+        <property>engines/engine[1]/fan</property>
         <value>96</value>
       </less-than>
     </condition>
@@ -57,19 +57,19 @@ GNU General Public License for more details.
     <value>95.9</value>
     <condition>
       <greater-than>
-        <property>/engines/engine[0]/fan</property>
+        <property>engines/engine[0]/fan</property>
         <value>95</value>
       </greater-than>
       <less-than>
-        <property>/engines/engine[0]/fan</property>
+        <property>engines/engine[0]/fan</property>
         <value>96</value>
       </less-than>
       <greater-than>
-        <property>/engines/engine[1]/fan</property>
+        <property>engines/engine[1]/fan</property>
         <value>95</value>
       </greater-than>
       <less-than>
-        <property>/engines/engine[1]/fan</property>
+        <property>engines/engine[1]/fan</property>
         <value>96</value>
       </less-than>
     </condition>
@@ -79,7 +79,7 @@ GNU General Public License for more details.
     <value>130 KIAS</value>
     <condition>
       <greater-than>
-        <property>/velocities/airspeed-kt</property>
+        <property>velocities/airspeed-kt</property>
         <value>125</value>
       </greater-than>
     </condition>
@@ -89,7 +89,7 @@ GNU General Public License for more details.
     <value>140 KIAS</value>
     <condition>
       <greater-than>
-        <property>/velocities/airspeed-kt</property>
+        <property>velocities/airspeed-kt</property>
         <value>135</value>
       </greater-than>
     </condition>
@@ -99,13 +99,13 @@ GNU General Public License for more details.
     <value>UP</value>
     <condition>
       <equals>
-        <property>/controls/gear/gear-down</property>
+        <property>controls/gear/gear-down</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/controls/gear/gear-down</property>
+      <property>controls/gear/gear-down</property>
       <value>0</value>
     </binding>
   </item>
@@ -114,7 +114,7 @@ GNU General Public License for more details.
     <value>180 KIAS</value>
     <condition>
       <greater-than>
-        <property>/velocities/airspeed-kt</property>
+        <property>velocities/airspeed-kt</property>
         <value>175</value>
       </greater-than>
     </condition>
@@ -124,13 +124,13 @@ GNU General Public License for more details.
     <value>UP</value>
     <condition>
       <equals>
-        <property>/controls/flight/flaps</property>
+        <property>controls/flight/flaps</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/controls/flight/flaps</property>
+      <property>controls/flight/flaps</property>
       <value>0</value>
     </binding>
   </item>
@@ -139,11 +139,11 @@ GNU General Public License for more details.
     <value>6000 ft AGL</value>
     <condition>
       <greater-than>
-        <property>/position/altitude-agl-ft</property>
+        <property>position/altitude-agl-ft</property>
         <value>5500</value>
       </greater-than>
       <less-than>
-        <property>/position/altitude-agl-ft</property>
+        <property>position/altitude-agl-ft</property>
         <value>6500</value>
       </less-than>
     </condition>
@@ -153,13 +153,13 @@ GNU General Public License for more details.
     <value>OFF</value>
     <condition>
       <equals>
-        <property>/controls/lighting/landing-light[0]</property>
+        <property>controls/lighting/landing-light[0]</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/controls/lighting/landing-light[0]</property>
+      <property>controls/lighting/landing-light[0]</property>
       <value>0</value>
     </binding>
   </item>
@@ -168,13 +168,13 @@ GNU General Public License for more details.
     <value>OFF</value>
     <condition>
       <equals>
-        <property>/controls/lighting/landing-light[1]</property>
+        <property>controls/lighting/landing-light[1]</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/controls/lighting/landing-light[1]</property>
+      <property>controls/lighting/landing-light[1]</property>
       <value>0</value>
     </binding>
   </item>
@@ -183,11 +183,11 @@ GNU General Public License for more details.
     <value>250 KIAS</value>
     <condition>
       <greater-than>
-        <property>/velocities/airspeed-kt</property>
+        <property>velocities/airspeed-kt</property>
         <value>245</value>
       </greater-than>
       <less-than>
-        <property>/velocities/airspeed-kt</property>
+        <property>velocities/airspeed-kt</property>
         <value>255</value>
       </less-than>
     </condition>
@@ -199,7 +199,7 @@ GNU General Public License for more details.
     <value>&lt; 0.2</value>
     <condition>
       <less-than>
-        <property>/orientation/alpha-deg</property>
+        <property>orientation/alpha-deg</property>
         <value>2.8</value>
       </less-than>
     </condition>
@@ -209,7 +209,7 @@ GNU General Public License for more details.
     <value>ENGAGED</value>
     <condition>
       <equals>
-        <property>/autopilot/locks/passive-mode</property>
+        <property>autopilot/locks/passive-mode</property>
         <value>0</value>
       </equals>
     </condition>
@@ -219,7 +219,7 @@ GNU General Public License for more details.
     <value>ENGAGED</value>
     <condition>
       <equals>
-        <property>/autopilot/locks/altitude</property>
+        <property>autopilot/locks/altitude</property>
         <value>altitude-hold</value>
       </equals>
     </condition>

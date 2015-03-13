@@ -15,7 +15,7 @@
   </animation>
 
   <!-- Left button and single-stemmed needle -->
-  
+
   <animation>
     <type>pick</type>
     <object-name>RMI.left_button</object-name>
@@ -23,7 +23,7 @@
       <button>0</button>
       <binding>
         <command>property-cycle</command>
-        <property>/instrumentation/rmi/single-needle/selected-input</property>
+        <property>instrumentation/rmi/single-needle/selected-input</property>
         <value>ADF</value>
         <value>VOR</value>
       </binding>
@@ -49,7 +49,7 @@
   <animation>
     <type>rotate</type>
     <object-name>RMI.single_needle</object-name>
-    <property>/instrumentation/rmi/single-needle/position-deg</property>
+    <property>instrumentation/rmi/single-needle/position-deg</property>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -62,7 +62,7 @@
     <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
     <condition>
       <equals>
-        <property>/instrumentation/rmi/single-needle/selected-input</property>
+        <property>instrumentation/rmi/single-needle/selected-input</property>
         <value>ADF</value>
       </equals>
     </condition>
@@ -72,7 +72,7 @@
     <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
     <condition>
       <equals>
-        <property>/instrumentation/rmi/single-needle/selected-input</property>
+        <property>instrumentation/rmi/single-needle/selected-input</property>
         <value>VOR</value>
       </equals>
     </condition>
@@ -81,10 +81,10 @@
     <type>select</type>
     <object-name>RMI.SingleArrow.RadioContactIndicator</object-name>
     <condition>
-      <property>/instrumentation/rmi/single-needle/in-range</property>
+      <property>instrumentation/rmi/single-needle/in-range</property>
     </condition>
   </animation>
-  
+
   <!-- Right button and double-stemmed needle -->
 
   <animation>
@@ -94,7 +94,7 @@
       <button>0</button>
       <binding>
         <command>property-cycle</command>
-        <property>/instrumentation/rmi/double-needle/selected-input</property>
+        <property>instrumentation/rmi/double-needle/selected-input</property>
         <value>ADF</value>
         <value>VOR</value>
       </binding>
@@ -120,20 +120,20 @@
   <animation>
     <type>rotate</type>
     <object-name>RMI.double_needle</object-name>
-    <property>/instrumentation/rmi/double-needle/position-deg</property>
+    <property>instrumentation/rmi/double-needle/position-deg</property>
     <axis>
       <x>-1.0</x>
       <y>0</y>
       <z>0</z>
     </axis>
   </animation>
-  
+
   <animation>
     <type>select</type>
     <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
     <condition>
       <equals>
-        <property>/instrumentation/rmi/double-needle/selected-input</property>
+        <property>instrumentation/rmi/double-needle/selected-input</property>
         <value>ADF</value>
       </equals>
     </condition>
@@ -143,7 +143,7 @@
     <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
     <condition>
       <equals>
-        <property>/instrumentation/rmi/double-needle/selected-input</property>
+        <property>instrumentation/rmi/double-needle/selected-input</property>
         <value>VOR</value>
       </equals>
     </condition>
@@ -152,7 +152,7 @@
     <type>select</type>
     <object-name>RMI.DoubleArrow.RadioContactIndicator</object-name>
     <condition>
-      <property>/instrumentation/rmi/double-needle/in-range</property>
+      <property>instrumentation/rmi/double-needle/in-range</property>
     </condition>
   </animation>
 

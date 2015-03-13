@@ -227,6 +227,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="101">
         <path>Models/load-factor-filters.xml</path>
       </property-rule>
+      <property-rule n="102">
+        <path>Models/Lights/average-ambient-light-filters.xml</path>
+      </property-rule>
     </systems>
 
     <sound>
@@ -490,6 +493,22 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <avionics-switch type="bool">0</avionics-switch>
       <battery-switch type="bool">0</battery-switch>
     </electric>
+    <lighting>
+      <panel-norm type="double">0.5</panel-norm>
+      <instrument-lights-norm type="double">0.5</instrument-lights-norm>
+      <left-panel-norm type="double">0.5</left-panel-norm>
+      <center-panel-norm type="double">0.5</center-panel-norm>
+      <right-panel-norm type="double">0.5</right-panel-norm>
+      <map-lights type="bool">0</map-lights>
+      <panel-lights-switch type="bool">0</panel-lights-switch>
+      <flood-light-norm type="double">0.0</flood-light-norm>
+      <left-panel-light-emission type="double">0.0</left-panel-light-emission>
+      <center-panel-light-emission type="double">0.0</center-panel-light-emission>
+      <right-panel-light-emission type="double">0.0</right-panel-light-emission>
+      <instrument-lights-emission type="double">0.0</instrument-lights-emission>
+      <map-lights-emission type="double">0.0</map-lights-emission>
+      <flightdeck-average-ambient-light type="double">0.0</flightdeck-average-ambient-light>
+    </lighting>
   </controls>
 
   <engines>
@@ -655,7 +674,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <desc>Retract spoilers</desc>
         <binding>
           <command>property-assign</command>
-          <property>/controls/flight/speedbrake</property>
+          <property>controls/flight/speedbrake</property>
           <value>0</value>
         </binding>
       </key>
@@ -664,7 +683,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <desc>Deploy spoilers</desc>
         <binding>
           <command>property-assign</command>
-          <property>/controls/flight/speedbrake</property>
+          <property>controls/flight/speedbrake</property>
           <value>1</value>
         </binding>
       </key>
@@ -672,7 +691,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
 	<name>l</name>
 	<binding>
           <command>property-toggle</command>
-          <property>controls/lighting/PanelLightsSwitch</property>
+          <property>controls/lighting/panel-lights-switch</property>
         </binding>
       </key>
       <key n="109">

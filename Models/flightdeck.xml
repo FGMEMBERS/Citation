@@ -4,12 +4,18 @@
   <path>flightdeck.ac</path>
 
   <effect>  <!-- Chrome Effect! -->
-    <inherits-from>Models/Effects/citationII-chrome</inherits-from>
+    <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Cupholder</object-name>
     <object-name>FD.AirCond.outlet</object-name>
     <object-name>Ashtray</object-name>
     <object-name>speedBrake.swSafety</object-name>
     <object-name>MapLights</object-name>
+    <object-name>MapLights.inside</object-name>
+    <object-name>MapLights.Bulb</object-name>
+  </effect>
+
+  <effect> <!-- glass -->
+    <inherits-from>Effects/model-transparent</inherits-from>
   </effect>
 
   <model>
@@ -138,7 +144,7 @@
     <object-name>RH.lamp</object-name>
     <condition>
       <greater-than>
-        <property>/systems/electrical/ac-volts</property>
+        <property>systems/electrical/ac-volts</property>
         <value>90</value>
       </greater-than>
     </condition>
@@ -247,7 +253,7 @@
   <animation>
     <type>rotate</type>
     <object-name>ElevTrim.Indicator</object-name>
-    <property>/controls/flight/elevator-trim</property>
+    <property>controls/flight/elevator-trim</property>
     <factor>-25</factor>
     <center>
       <x-m>2.652</x-m>
@@ -264,7 +270,7 @@
   <animation>
     <type>knob</type>
     <object-name>ElevTrim.Wheel</object-name>
-    <property>/controls/flight/elevator-trim</property>
+    <property>controls/flight/elevator-trim</property>
     <factor>-1000</factor>
     <center>
       <x-m>2.679713</x-m>
@@ -279,7 +285,7 @@
     <action>
       <binding>
         <command>property-adjust</command>
-        <property>/controls/flight/elevator-trim</property>
+        <property>controls/flight/elevator-trim</property>
         <factor>-0.001</factor>
         <min>-1</min>
         <max>1</max>
@@ -434,7 +440,7 @@
     <object-name>Trb1warn</object-name>
     <condition>
       <greater-than>
-        <property>/systems/electrical/left-bus</property>
+        <property>systems/electrical/left-bus</property>
         <value>24.0</value>
       </greater-than>
     </condition>
@@ -449,7 +455,7 @@
     <object-name>Trb2warn</object-name>
     <condition>
       <greater-than>
-        <property>/systems/electrical/right-bus</property>
+        <property>systems/electrical/right-bus</property>
         <value>24.0</value>
       </greater-than>
     </condition>
@@ -1096,7 +1102,7 @@
   <animation>
     <type>rotate</type>
     <object-name>speedBrake.switch</object-name>
-    <property>/controls/flight/speedbrake</property>
+    <property>controls/flight/speedbrake</property>
     <offset-deg>-30</offset-deg>
     <factor>60</factor>
     <center>
@@ -1117,7 +1123,7 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/flight/speedbrake</property>
+        <property>controls/flight/speedbrake</property>
       </binding>
     </action>
   </animation>
@@ -1126,7 +1132,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Seats.pilots.armrests</object-name>
-    <property>/controls/seat/armrests</property>
+    <property>controls/seat/armrests</property>
     <factor>90</factor>
     <center>
       <x-m>3.33069</x-m>
@@ -1142,7 +1148,7 @@
   <animation>
     <type>translate</type>
     <object-name>Seats.pilots.armrests</object-name>
-    <property>/controls/seat/armrests</property>
+    <property>controls/seat/armrests</property>
     <factor>0.33374</factor>
     <axis>
       <x>1</x>
@@ -1157,7 +1163,7 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/seat/armrests</property>
+        <property>controls/seat/armrests</property>
       </binding>
     </action>
   </animation>
@@ -1165,13 +1171,62 @@
   <animation>
     <type>pick</type>
     <object-name>MapLights</object-name>
+    <object-name>MapLights.inside</object-name>
+    <object-name>MapLights.Bulb</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>/controls/lighting/map-lights</property>
+        <property>controls/lighting/map-lights</property>
       </binding>
     </action>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <condition>
+      <greater-than>
+        <property>controls/lighting/map-lights-emission</property>
+        <value>0.04</value>
+      </greater-than>
+    </condition>
+    <object-name>MapLights.Bulb</object-name>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+      <factor>2</factor>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+	<greater-than>
+          <property>controls/lighting/map-lights-emission</property>
+          <value>0.04</value>
+        </greater-than>
+      </not>
+    </condition>
+    <object-name>MapLights.Bulb</object-name>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+      <factor>0</factor>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>MapLights.inside</object-name>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+      <factor-prop>controls/lighting/map-lights-emission</factor-prop>
+    </emission>
   </animation>
 
 
@@ -1179,20 +1234,9 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/lighting/PanelLightsSwitch</property>
       <not>
 	<property>sim/rendering/rembrandt/enabled</property>
       </not>
-      <or>
-	<greater-than>
-          <property>systems/electrical/left-bus</property>
-          <value>5</value>
-        </greater-than>
-	<greater-than>
-          <property>systems/electrical/right-bus</property>
-          <value>5</value>
-        </greater-than>
-      </or>
     </condition>
     <object-name>Panel</object-name>
     <object-name>Fire.ctlr</object-name>
@@ -1339,7 +1383,7 @@
       <red>0.9</red>
       <green>0.6</green>
       <blue>0.4</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
     </emission>
   </animation>
 
@@ -1347,20 +1391,9 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/lighting/PanelLightsSwitch</property>
       <not>
 	<property>sim/rendering/rembrandt/enabled</property>
       </not>
-      <or>
-	<greater-than>
-          <property>systems/electrical/left-bus</property>
-          <value>5</value>
-        </greater-than>
-	<greater-than>
-          <property>systems/electrical/right-bus</property>
-          <value>5</value>
-        </greater-than>
-      </or>
     </condition>
     <object-name>body</object-name>
     <object-name>LCD.display</object-name>
@@ -1374,28 +1407,15 @@
     <object-name>knob.POWER</object-name>
     <object-name>knob.RIGHT</object-name>
     <emission>
-      <red>0.1533</red>
-      <green>0.1533</green>
-      <blue>0.1533</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
     </emission>
   </animation>
 
-  <animation> <!-- Simulate ambient light from panel lights -->
+  <animation> <!-- Simulate ambient light from panel lights (center console) -->
    <type>material</type>
-    <condition>
-      <property>controls/lighting/PanelLightsSwitch</property>
-      <or>
-	<greater-than>
-          <property>systems/electrical/left-bus</property>
-          <value>5</value>
-        </greater-than>
-	<greater-than>
-          <property>systems/electrical/right-bus</property>
-          <value>5</value>
-        </greater-than>
-      </or>
-    </condition>
     <object-name>APcontrol</object-name>
     <object-name>AP-on.btn</object-name>
     <object-name>Lowbank.btn</object-name>
@@ -1420,46 +1440,15 @@
     <object-name>speedBrake.switch</object-name>
     <object-name>speedBrake.swSafety</object-name>
     <emission>
-      <red>0.45</red>
-      <green>0.3</green>
-      <blue>0.2</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
-
-  <!--factor>
-    <expression>
-      <div>
-        <sum>
-          <property>controls/lighting/LeftPanelFactor</property>
-          <property>controls/lighting/CenterPanelFactor</property>
-          <property>controls/lighting/RightPanelFactor</property>
-          <property>controls/lighting/map-lights</property>
-          <property>controls/lighting/FloodLightFactor</property>
-          <property>controls/lighting/instrument-lights-norm</property>
-          <property>controls/lighting/panel-norm</property>
-        </sum>
-        <value>7</value>
-      </div>
-    </expression>
-  </factor-->
-
+      <red>1</red>
+      <green>0.6</green>
+      <blue>0.4</blue>
+      <factor-prop>controls/lighting/flightdeck-average-ambient-light-center-console</factor-prop>
     </emission>
   </animation>
 
-  <animation> <!-- Simulate ambient light from panel lights -->
+  <animation> <!-- Simulate ambient light from panel lights (environment) -->
     <type>material</type>
-    <condition>
-      <property>controls/lighting/PanelLightsSwitch</property>
-      <or>
-	<greater-than>
-          <property>systems/electrical/left-bus</property>
-          <value>5</value>
-        </greater-than>
-	<greater-than>
-          <property>systems/electrical/right-bus</property>
-          <value>5</value>
-        </greater-than>
-      </or>
-    </condition>
     <object-name>Yoke</object-name>
     <object-name>Yoke1</object-name>
     <object-name>Yoke2</object-name>
@@ -1482,39 +1471,17 @@
     <object-name>CircuitBreaker.Panel</object-name>
     <object-name>CircuitBreakers</object-name>
     <emission>
-      <red>0.075</red>
-      <green>0.05</green>
-      <blue>0.04</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
-
-  <!--factor>
-    <expression>
-      <div>
-        <sum>
-          <property>controls/lighting/LeftPanelFactor</property>
-          <property>controls/lighting/CenterPanelFactor</property>
-          <property>controls/lighting/RightPanelFactor</property>
-          <property>controls/lighting/map-lights</property>
-          <property>controls/lighting/FloodLightFactor</property>
-          <property>controls/lighting/instrument-lights-norm</property>
-          <property>controls/lighting/panel-norm</property>
-        </sum>
-        <value>7</value>
-      </div>
-    </expression>
-  </factor-->
-
+      <red>1</red>
+      <green>0.6</green>
+      <blue>0.4</blue>
+      <factor-prop>controls/lighting/flightdeck-average-ambient-light-environment</factor-prop>
     </emission>
   </animation>
 
-  <!-- Instrument Lights condition:ON -->
+  <!-- Instrument Lights -->
   <!-- Implement emis animation even for Rembrandt rendering! -->
   <animation>
     <type>material</type>
-    <!-- EL lights are on emergency bus, => always on power! But use PanelLightsSwitch to turn them on. -->
-    <condition>
-      <property>controls/lighting/PanelLightsSwitch</property>
-    </condition>
     <object-name>gauge2.001</object-name>
     <object-name>Fan01</object-name>
     <object-name>Fan02</object-name>
@@ -1628,133 +1595,8 @@
       <red>0.9</red>
       <green>0.6</green>
       <blue>0.4</blue>
-      <factor-prop>controls/lighting/instrument-lights-norm</factor-prop>
-    </emission>
-  </animation>
-
-  <!-- Instrument Lights condition:OFF -->
-  <!-- Implement emis animation even for Rembrandt rendering! -->
-  <animation>
-    <type>material</type>
-    <condition>
-      <not>
-        <property>controls/lighting/PanelLightsSwitch</property>
-      </not>
-    </condition>
-    <object-name>gauge2.001</object-name>
-    <object-name>Fan01</object-name>
-    <object-name>Fan02</object-name>
-    <object-name>ITT01</object-name>
-    <object-name>ITT02</object-name>
-    <object-name>FFlow01</object-name>
-    <object-name>FFlow02</object-name>
-    <object-name>FQty01</object-name>
-    <object-name>FQty02</object-name>
-    <object-name>OilT01</object-name>
-    <object-name>OilT02</object-name>
-    <object-name>OilP01</object-name>
-    <object-name>OilP02</object-name>
-    <object-name>dcvolts</object-name>
-    <object-name>ldcamps</object-name>
-    <object-name>rdcamps</object-name>
-    <object-name>AI.002</object-name>
-    <object-name>AI.gsneedle</object-name>
-    <object-name>AI.ring</object-name>
-    <object-name>AI.slipball</object-name>
-    <object-name>AIball</object-name>
-    <object-name>Circle.016</object-name>
-    <object-name>LOC.needle</object-name>
-    <object-name>Plane.109</object-name>
-    <object-name>Plane.110</object-name>
-    <object-name>Plane.111</object-name>
-    <object-name>aoa.needle</object-name>
-    <object-name>gs.flag</object-name>
-    <object-name>loc.flag</object-name>
-    <object-name>turn.needle</object-name>
-    <object-name>ALT.face</object-name>
-    <object-name>ALT.needle</object-name>
-    <object-name>Alt10</object-name>
-    <object-name>Alt100</object-name>
-    <object-name>Alt1000</object-name>
-    <object-name>Alt10000</object-name>
-    <object-name>ALTneg</object-name>
-    <object-name>inhg01</object-name>
-    <object-name>inhg02</object-name>
-    <object-name>inhg03</object-name>
-    <object-name>inhg04</object-name>
-    <object-name>kpa01</object-name>
-    <object-name>kpa02</object-name>
-    <object-name>kpa03</object-name>
-    <object-name>kpa04</object-name>
-    <object-name>AOA.face</object-name>
-    <object-name>AOA.needle</object-name>
-    <object-name>ASI320.face</object-name>
-    <object-name>ASI320.needle</object-name>
-    <object-name>ASI320.ovrspeed</object-name>
-    <object-name>index.marker</object-name>
-    <object-name>mach.subdial</object-name>
-    <object-name>Starter.off</object-name>
-    <object-name>HSI.card</object-name>
-    <object-name>HSI.crsdeflection</object-name>
-    <object-name>HSI.crsneedle</object-name>
-    <object-name>HSI.face</object-name>
-    <object-name>HSI.hdgbug</object-name>
-    <object-name>HSI.navbrg</object-name>
-    <object-name>HSI.crsknob</object-name>
-    <object-name>HSI.hdgknob</object-name>
-    <object-name>Plane.137</object-name>
-    <object-name>fromflag</object-name>
-    <object-name>gs.needle</object-name>
-    <object-name>navflag</object-name>
-    <object-name>toflag</object-name>
-    <object-name>compassrose</object-name>
-    <object-name>magcompass.sight</object-name>
-    <object-name>OAT.face</object-name>
-    <object-name>OAT.needle</object-name>
-    <object-name>DH.bug</object-name>
-    <object-name>RALT.face</object-name>
-    <object-name>RALT.flag</object-name>
-    <object-name>RALT.needle</object-name>
-    <object-name>RMI.face</object-name>
-    <object-name>RMI.DoubleArrow.RadioContactIndicator</object-name>
-    <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
-    <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
-    <object-name>RMI.SingleArrow.RadioContactIndicator</object-name>
-    <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
-    <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
-    <object-name>RMI.single_needle</object-name>
-    <object-name>RMI.double_needle</object-name>
-    <object-name>RMI.compass</object-name>
-    <object-name>VOR.face</object-name>
-    <object-name>VOR.off</object-name>
-    <object-name>VOR.to-flag</object-name>
-    <object-name>gs.needle</object-name>
-    <object-name>vor.needle</object-name>
-    <object-name>VSI.face</object-name>
-    <object-name>VSI.needle</object-name>
-    <object-name>CTL-62.freq</object-name>
-    <object-name>CTL-62.freq1</object-name>
-    <object-name>CTL-62.pwr</object-name>
-    <object-name>CTL-62.vol</object-name>
-    <object-name>M877.002</object-name>
-    <object-name>M877.display</object-name>
-    <object-name>CTL.btn</object-name>
-    <object-name>SEL.btn</object-name>
-    <object-name>CTL-92.pwr</object-name>
-    <object-name>CTL-92.vol</object-name>
-    <object-name>CTL-92.knob</object-name>
-    <object-name>CTL-92.knob1</object-name>
-    <object-name>CTL-22.pwr</object-name>
-    <object-name>CTL-22.vol</object-name>
-    <object-name>freq.knob</object-name>
-    <object-name>freq1.knob</object-name>
-    <object-name>CTL-32.pwr</object-name>
-    <object-name>CTL-32.vol</object-name>
-    <emission>
-      <red>0.9</red>
-      <green>0.6</green>
-      <blue>0.4</blue>
-      <factor>0</factor>
+      <factor-prop>controls/lighting/instrument-lights-emission</factor-prop>
+      <!--factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop-->
     </emission>
   </animation>
 

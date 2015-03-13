@@ -20,7 +20,7 @@ GNU General Public License for more details.
     <value>&lt; 250 kts</value>
     <condition>
       <less-than>
-        <property>/velocities/airspeed-kts</property>
+        <property>velocities/airspeed-kts</property>
         <value>250</value>
       </less-than>
     </condition>
@@ -30,7 +30,7 @@ GNU General Public License for more details.
     <value>&lt; 10000 ft</value>
     <condition>
       <less-than>
-        <property>/position/altitude-ft</property>
+        <property>position/altitude-ft</property>
         <value>10000</value>
       </less-than>
     </condition>
@@ -40,13 +40,13 @@ GNU General Public License for more details.
     <value>LOW</value>
     <condition>
       <equals>
-        <property>/autopilot/settings/bank-limit</property>
+        <property>autopilot/settings/bank-limit</property>
         <value>14</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/autopilot/settings/bank-limit</property>
+      <property>autopilot/settings/bank-limit</property>
       <value>14</value>
     </binding>
   </item>
@@ -56,11 +56,11 @@ GNU General Public License for more details.
     <condition>
       <and>
         <greater-than>
-          <property>/controls/engines/engine[0]/throttle</property>
+          <property>controls/engines/engine[0]/throttle</property>
           <value>0.99</value>
         </greater-than>
         <greater-than>
-          <property>/controls/engines/engine[1]/throttle</property>
+          <property>controls/engines/engine[1]/throttle</property>
           <value>0.99</value>
         </greater-than>
       </and>
@@ -75,7 +75,7 @@ GNU General Public License for more details.
     <value>18500 ft</value>
     <condition>
       <greater-than>
-        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        <property>instrumentation/altimeter/indicated-altitude-ft</property>
         <value>18500</value>
       </greater-than>
     </condition>
@@ -85,17 +85,17 @@ GNU General Public License for more details.
     <value>101.325 kPa</value>
     <condition>
       <greater-than>
-        <property>/instrumentation/altimeter/setting-kpa</property>
+        <property>instrumentation/altimeter/setting-kpa</property>
         <value>101.2</value>
       </greater-than>
       <less-than>
-        <property>/instrumentation/altimeter/setting-kpa</property>
+        <property>instrumentation/altimeter/setting-kpa</property>
         <value>101.4</value>
       </less-than>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>/instrumentation/altimeter/setting-inhg</property>
+      <property>instrumentation/altimeter/setting-inhg</property>
       <value>29.92</value> <!-- this property drives the -kpa property -->
     </binding>
   </item>

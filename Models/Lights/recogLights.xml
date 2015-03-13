@@ -11,7 +11,7 @@
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
+                    <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
                 <greater-than>
@@ -73,7 +73,7 @@
 		<near-m>0.01</near-m>
 		<far-m>300</far-m>
 	</animation>
- 
+
     <animation>
         <type>select</type>
         <object-name>RecogLightCone_R</object-name>
@@ -81,7 +81,7 @@
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
-                    <property>/sim/rendering/shaders/lights</property>
+                    <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
                 <greater-than>
@@ -95,7 +95,7 @@
             </and>
         </condition>
     </animation>
-        
+
 	<animation>
 		<type>light</type>
 		<light-type>spot</light-type>
@@ -143,5 +143,5 @@
 		<near-m>0.01</near-m>
 		<far-m>300</far-m>
 	</animation>
- 
+
  </PropertyList>

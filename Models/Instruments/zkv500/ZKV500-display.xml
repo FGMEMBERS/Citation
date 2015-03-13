@@ -11,10 +11,10 @@
       <name>line 0</name>
       <condition>
 	<greater-than>
-          <property>/instrumentation/zkv500/power</property>
+          <property>instrumentation/zkv500/power</property>
 	  <value>0</value>
 	</greater-than>
-	<property>/instrumentation/gps/serviceable</property>
+	<property>instrumentation/gps/serviceable</property>
       </condition>
       <type>text</type>
       <font>lcd</font>
@@ -27,21 +27,21 @@
       <chunks>
         <chunk>
           <type>text-value</type>
-          <property>/instrumentation/zkv500/line[0]</property>
+          <property>instrumentation/zkv500/line[0]</property>
           <format>%s</format>
         </chunk>
       </chunks>
     </layer>
 
-    <!-- Line 1 --> 
+    <!-- Line 1 -->
     <layer>
       <name>line 1</name>
       <condition>
 	<greater-than>
-          <property>/instrumentation/zkv500/power</property>
+          <property>instrumentation/zkv500/power</property>
 	  <value>0</value>
 	</greater-than>
-	<property>/instrumentation/gps/serviceable</property>
+	<property>instrumentation/gps/serviceable</property>
       </condition>
       <type>text</type>
       <font>lcd</font>
@@ -54,7 +54,7 @@
       <chunks>
         <chunk>
           <type>text-value</type>
-          <property>/instrumentation/zkv500/line[1]</property>
+          <property>instrumentation/zkv500/line[1]</property>
           <format>%s</format>
         </chunk>
       </chunks>
@@ -71,10 +71,10 @@
       <name>line 2</name>
       <condition>
 	<greater-than>
-          <property>/instrumentation/zkv500/power</property>
+          <property>instrumentation/zkv500/power</property>
 	  <value>0</value>
 	</greater-than>
-	<property>/instrumentation/gps/serviceable</property>
+	<property>instrumentation/gps/serviceable</property>
       </condition>
       <type>text</type>
       <font>lcd</font>
@@ -87,7 +87,7 @@
       <chunks>
         <chunk>
           <type>text-value</type>
-          <property>/instrumentation/zkv500/line[2]</property>
+          <property>instrumentation/zkv500/line[2]</property>
           <format>%s</format>
         </chunk>
       </chunks>
@@ -104,10 +104,10 @@
       <name>line 3</name>
       <condition>
 	<greater-than>
-          <property>/instrumentation/zkv500/power</property>
+          <property>instrumentation/zkv500/power</property>
 	  <value>0</value>
 	</greater-than>
-	<property>/instrumentation/gps/serviceable</property>
+	<property>instrumentation/gps/serviceable</property>
       </condition>
       <type>text</type>
       <font>lcd</font>
@@ -120,7 +120,7 @@
       <chunks>
         <chunk>
           <type>text-value</type>
-          <property>/instrumentation/zkv500/line[3]</property>
+          <property>instrumentation/zkv500/line[3]</property>
           <format>%s</format>
         </chunk>
       </chunks>
@@ -137,10 +137,10 @@
       <name>line 4</name>
       <condition>
 	<greater-than>
-          <property>/instrumentation/zkv500/power</property>
+          <property>instrumentation/zkv500/power</property>
 	  <value>0</value>
 	</greater-than>
-	<property>/instrumentation/gps/serviceable</property>
+	<property>instrumentation/gps/serviceable</property>
       </condition>
       <type>text</type>
       <font>lcd</font>
@@ -153,7 +153,7 @@
       <chunks>
         <chunk>
           <type>text-value</type>
-          <property>/instrumentation/zkv500/line[4]</property>
+          <property>instrumentation/zkv500/line[4]</property>
           <format>%s</format>
         </chunk>
       </chunks>
@@ -170,10 +170,10 @@
       <name>line 5</name>
       <condition>
 	<greater-than>
-          <property>/instrumentation/zkv500/power</property>
+          <property>instrumentation/zkv500/power</property>
 	  <value>0</value>
 	</greater-than>
-	<property>/instrumentation/gps/serviceable</property>
+	<property>instrumentation/gps/serviceable</property>
       </condition>
       <type>text</type>
       <font>lcd</font>
@@ -186,7 +186,7 @@
       <chunks>
         <chunk>
           <type>text-value</type>
-          <property>/instrumentation/zkv500/line[5]</property>
+          <property>instrumentation/zkv500/line[5]</property>
           <format>%s</format>
         </chunk>
       </chunks>
@@ -207,10 +207,10 @@
       <name>line 6</name>
       <condition>
 	<greater-than>
-          <property>/instrumentation/zkv500/power</property>
+          <property>instrumentation/zkv500/power</property>
 	  <value>0</value>
 	</greater-than>
-	<property>/instrumentation/gps/serviceable</property>
+	<property>instrumentation/gps/serviceable</property>
       </condition>
       <type>text</type>
       <font>lcd</font>
@@ -223,7 +223,7 @@
       <chunks>
         <chunk>
           <type>text-value</type>
-          <property>/instrumentation/zkv500/line[6]</property>
+          <property>instrumentation/zkv500/line[6]</property>
           <format>%s</format>
         </chunk>
       </chunks>

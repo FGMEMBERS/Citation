@@ -57,7 +57,7 @@
     <animation>
         <type>rotate</type>
         <object-name>PanelLight.sw</object-name>
-        <property>controls/lighting/PanelLightsSwitch</property>
+        <property>controls/lighting/panel-lights-switch</property>
         <factor>30</factor>
         <center>
             <x-m>0.005</x-m>
@@ -74,7 +74,7 @@
     <animation>
         <type>knob</type>
         <object-name>FloodLight.knob</object-name>
-        <property>controls/lighting/FloodLightFactor</property>
+        <property>controls/lighting/flood-light-norm</property>
         <factor>300</factor>
 	<center>
 	    <x-m>0</x-m>
@@ -89,7 +89,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>controls/lighting/FloodLightFactor</property>
+                <property>controls/lighting/flood-light-norm</property>
                 <factor>0.1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -101,7 +101,7 @@
     <animation>
         <type>knob</type>
         <object-name>CenterPanelLight.knob</object-name>
-        <property>controls/lighting/CenterPanelFactor</property>
+        <property>controls/lighting/center-panel-norm</property>
         <factor>300</factor>
 	<center>
 	    <x-m>0</x-m>
@@ -116,7 +116,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>controls/lighting/CenterPanelFactor</property>
+                <property>controls/lighting/center-panel-norm</property>
                 <factor>0.1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -136,7 +136,7 @@
     <animation>
         <type>knob</type>
         <object-name>LeftPanelLight.knob</object-name>
-        <property>controls/lighting/LeftPanelFactor</property>
+        <property>controls/lighting/left-panel-norm</property>
         <factor>300</factor>
 	<center>
 	    <x-m>0</x-m>
@@ -151,7 +151,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>controls/lighting/LeftPanelFactor</property>
+                <property>controls/lighting/left-panel-norm</property>
                 <factor>0.1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -163,7 +163,7 @@
     <animation>
         <type>knob</type>
         <object-name>RightPanelLight.knob</object-name>
-        <property>controls/lighting/RightPanelFactor</property>
+        <property>controls/lighting/right-panel-norm</property>
         <factor>300</factor>
 	<center>
 	    <x-m>0</x-m>
@@ -178,7 +178,7 @@
         <action>
             <binding>
                 <command>property-adjust</command>
-                <property>controls/lighting/RightPanelFactor</property>
+                <property>controls/lighting/right-panel-norm</property>
                 <factor>0.1</factor>
                 <min>0</min>
                 <max>1</max>
@@ -206,9 +206,9 @@
 	    <binding>
                 <command>property-adjust</command>
                 <property>controls/lighting/instrument-lights-norm</property>
-                <factor>0.08</factor>
-                <min>0.1</min>
-                <max>1</max>
+                <factor>0.1</factor>
+                <min>0.0</min>
+                <max>1.0</max>
                 <wrap>false</wrap>
             </binding>
         </action>
@@ -283,75 +283,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/lighting/PanelLightsSwitch</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>CenterPanelLight.knob</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/CenterPanelFactor</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>LeftPanelLight.knob</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/LeftPanelFactor</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>RightPanelLight.knob</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/RightPanelFactor</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>EL.knob</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-	<binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/instrument-lights-norm</property>
+            <property>controls/lighting/panel-lights-switch</property>
         </binding>
         <binding>
             <command>property-toggle</command>

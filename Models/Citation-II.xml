@@ -104,7 +104,7 @@
     <object-name>FrLHdoor</object-name>
   </effect>
 
-  <effect>
+  <effect> <!-- glass -->
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>Door.glass</object-name>
     <object-name>Glass.001</object-name>
@@ -222,7 +222,7 @@
       <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
-  
+
   <model>
     <name>Lights</name>
     <path>Models/Lights/Lights.xml</path>
@@ -386,7 +386,7 @@
         <script>citation.cabin_door.toggle();</script>
       </binding>
     </action>
-  </animation>    
+  </animation>
 
   <animation>
     <type>rotate</type>
