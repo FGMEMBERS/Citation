@@ -429,13 +429,15 @@
     <object-name>LH.uSpdBrk</object-name>
     <property>surface-positions/speedbrake-pos-norm</property>
     <factor>-60</factor>
+    <center>
+      <x-m>7.58501</x-m>
+      <y-m>-4.02802</y-m>
+      <z-m>0.17291</z-m>
+    </center>
     <axis>
-      <x1-m>7.605</x1-m>
-      <y1-m>-3.907</y1-m>
-      <z1-m>0.164</z1-m>
-      <x2-m>7.652</x2-m>
-      <y2-m>-3.306</y2-m>
-      <z2-m>0.125</z2-m>
+      <x>0.07276</x>
+      <y>0.61809</y>
+      <z>-0.04524</z>
     </axis>
   </animation>
   <animation>
@@ -460,13 +462,15 @@
     <object-name>LH.lSpdBrk</object-name>
     <property>surface-positions/speedbrake-pos-norm</property>
     <factor>60</factor>
+    <center>
+      <x-m>7.50055</x-m>
+      <y-m>-4.05732</y-m>
+      <z-m>0.02826</z-m>
+    </center>
     <axis>
-      <x1-m>7.47</x1-m>
-      <y1-m>-4.210114</y1-m>
-      <z1-m>0.04</z1-m>
-      <x2-m>7.58</x2-m>
-      <y2-m>-3.239798</y2-m>
-      <z2-m>-0.03</z2-m>
+      <x>0.06874</x>
+      <y>0.65855</y>
+      <z>-0.05615</z>
     </axis>
   </animation>
   <animation>
@@ -491,13 +495,15 @@
     <object-name>RH.uSpdBrk</object-name>
     <property>surface-positions/speedbrake-pos-norm</property>
     <factor>-60</factor>
+    <center>
+      <x-m>7.58998</x-m>
+      <y-m>3.95447</y-m>
+      <z-m>0.16737</z-m>
+    </center>
     <axis>
-      <x1-m>7.651</x1-m>
-      <y1-m>3.305</y1-m>
-      <z1-m>0.124</z1-m>
-      <x2-m>7.605</x2-m>
-      <y2-m>3.906</y2-m>
-      <z2-m>0.163</z2-m>
+      <x>-0.0645</x>
+      <y>0.61911</y>
+      <z>0.04368</z>
     </axis>
   </animation>
   <animation>
@@ -521,14 +527,16 @@
     <type>rotate</type>
     <object-name>RH.lSpdBrk</object-name>
     <property>surface-positions/speedbrake-pos-norm</property>
-    <factor>-60</factor>
+    <factor>60</factor>
+    <center>
+      <x-m>7.51274</x-m>
+      <y-m>3.97236</y-m>
+      <z-m>0.02149</z-m>
+    </center>
     <axis>
-      <x1-m>7.47</x1-m>
-      <y1-m>4.210114</y1-m>
-      <z1-m>0.04</z1-m>
-      <x2-m>7.58</x2-m>
-      <y2-m>3.239798</y2-m>
-      <z2-m>-0.03</z2-m>
+      <x>-0.06724</x>
+      <y>0.65869</y>
+      <z>0.05637</z>
     </axis>
   </animation>
   <animation>
