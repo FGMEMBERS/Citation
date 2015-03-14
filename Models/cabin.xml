@@ -3,6 +3,14 @@
 
   <path>cabin.ac</path>
 
+  <animation>
+    <!-- Do not show the following objects in the 3D preview of fgrun: -->
+    <object-name>Ladder</object-name>
+    <object-name>Ladder.lRope</object-name>
+    <object-name>Ladder.rRope</object-name>
+    <nopreview/>
+  </animation>
+
   <effect>  <!-- Chrome Effect for interior parts -->
     <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Ladder.lRope</object-name>
