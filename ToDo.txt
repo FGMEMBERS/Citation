@@ -13,12 +13,14 @@ flightdeck:
              take thousands of lines of nasal! Treat them like
              switches? Add to every feature a
                <condition>
-                 <property> (bool)
+                 <property type="bool">
                    systems/electrical/cb/correspondingCircuitBreaker
                  </property>
                </condition> ?)
+* XML:       Bring Rembrandt light volumes and animations up to specs
 
 cabin:
+* Texturing: CabinLightKnob needs retexturing
 * Texturing: contours of seats and refreshment-center need
              improvement (under certain light conditions very hazy)
 * XML/Nasal: make seat levers functional?
@@ -30,5 +32,5 @@ exterior:
 * Texturing: animated engine intakes?
 
 generic:
-* Texturing: better wood texture!!!
+* Texturing: better wood texture!?!
 * Modelling: MPModel!!! (LoRes)
