@@ -1593,7 +1593,7 @@
     <object-name>CTL-32.vol</object-name>
     <emission>
       <red>1</red>
-      <green>0.6</green>
+      <green>0.5</green>
       <blue>0.3</blue>
       <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
     </emission>

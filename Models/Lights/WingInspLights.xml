@@ -7,10 +7,11 @@
      <animation>
         <type>select</type>
         <object-name>Left.WingInspLight.cone</object-name>
-        <object-name>Wight.WingInspLight.cone</object-name>
+        <object-name>Right.WingInspLight.cone</object-name>
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
+		<property>controls/lighting/wing-lights</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>3.0</value>
@@ -22,6 +23,25 @@
             </and>
         </condition>
     </animation>
+
+    <!--animation>
+        <type>select</type>
+        <object-name>Right.WingInspLight.cone</object-name>
+        <condition>
+            <and>
+		<property>sim/rendering/rembrandt/enabled</property>
+		<property>controls/lighting/wing-lights</property>
+		<greater-than>
+                    <property>sim/rendering/shaders/lights</property>
+                    <value>3.0</value>
+                </greater-than>
+                <greater-than>
+                    <property>systems/electrical/right-bus</property>
+                    <value>5</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation-->
 
 	<animation>
 		<type>light</type>

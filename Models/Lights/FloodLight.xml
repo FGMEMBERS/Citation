@@ -27,12 +27,12 @@
 	<position>
 		<x>3.63167</x>
 		<y>0.0</y>
-		<z>1.2619</z>
+		<z>1.18</z>
 	</position>
 	<direction>
 		<x>-1.4735</x>
 		<y>0.0</y>
-		<z>-1.01887</z>
+		<z>-.90</z>
 	</direction>
 	<ambient>
 		<r>0.1</r>
@@ -60,13 +60,13 @@
 		<max>1</max>
 	</dim-factor>
 	<attenuation>
-		<c>0</c>
-		<l>0.001</l>
+		<c>-0.4</c>
+		<l>0.002</l>
 		<q>0.8</q>
 	</attenuation>
-	<exponent>1</exponent>
-	<cutoff>100</cutoff>
-	<near-m>0.001</near-m>
-	<far-m>2.0</far-m>
+	<exponent>18</exponent>
+	<cutoff>26</cutoff>
+	<near-m>0.1</near-m>
+	<far-m>2</far-m>
     </animation>
  </PropertyList>
