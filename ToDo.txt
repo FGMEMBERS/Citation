@@ -20,9 +20,9 @@ flightdeck:
 * XML:       Bring Rembrandt light volumes and animations up to specs
 
 cabin:
-* Texturing: CabinLightKnob needs retexturing
-* Texturing: contours of seats and refreshment-center need
-             improvement (under certain light conditions very hazy)
+* Texturing: contours of interior walls, seats and refreshment-center
+             need improvement (under certain light conditions very
+             hazy)
 * XML/Nasal: make seat levers functional?
 
 exterior:
