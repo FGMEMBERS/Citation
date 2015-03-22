@@ -21,7 +21,7 @@
     <object-name>Seat.levers</object-name>
     <object-name>Seats.mountLedges</object-name>
     <object-name>Cabin.MapLights</object-name>
-    <object-name>Cabin.MapLights.inside</object-name>
+    <object-name>Cabin.MapLights.ins</object-name>
     <object-name>Cabin.MapLights.Bulb</object-name>
   </effect>
 
@@ -658,7 +658,7 @@
         <value>5</value>
       </greater-than>
     </condition>
-    <object-name>Cabin.MapLights.inside</object-name>
+    <object-name>Cabin.MapLights.ins</object-name>
     <emission>
       <red>1</red>
       <green>1</green>
