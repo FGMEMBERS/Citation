@@ -40,7 +40,7 @@
         </equals>
         <equals>
           <property>autopilot/locks/heading</property>
-          <value>gps-hold</value>
+          <value>true-heading-hold</value>
         </equals>
       </or>
     </condition>
@@ -55,7 +55,7 @@
           <property>autopilot/locks/altitude</property>
           <value>gs1-hold</value>
         </equals>
-        <property>autopilot/settings/gs-arm</property>
+        <property>autopilot/settings/gs1-arm</property>
       </or>
     </condition>
   </animation>
@@ -218,6 +218,7 @@
           if (getprop ("autopilot/locks/heading") == "dg-heading-hold")
             setprop ("autopilot/locks/heading", "wing-leveler");
           else setprop ("autopilot/locks/heading", "dg-heading-hold");
+          setprop ("autopilot/settings/gs1-arm", 0);
         </script>
       </binding>
     </action>
@@ -237,9 +238,9 @@
           var current_value = getprop ("autopilot/locks/heading");
           if (current_value == "nav1-hold"
            or current_value == "nav2-hold") {
-            setprop ("/autopilot/locks/heading", "gps-hold");
+            setprop ("/autopilot/locks/heading", "true-heading-hold");
           }
-          elsif (current_value == "gps-hold") {
+          elsif (current_value == "true-heading-hold") {
             setprop ("/autopilot/locks/heading", "wing-leveler");
           }
           elsif (current_value == "dg-heading-hold" or
@@ -247,6 +248,7 @@
             var selected_nav = getprop ("/instrumentation/hsi[0]/selected-nav");
             setprop ("/autopilot/locks/heading", "nav" ~ (selected_nav + 1) ~ "-hold");
           }
+          setprop ("autopilot/settings/gs1-arm", 0);
         </script>
       </binding>
     </action>
@@ -268,11 +270,11 @@
             setprop("autopilot/locks/heading","nav1-hold");
             if (getprop ("instrumentation/nav[0]/gs-in-range")) {
               setprop("autopilot/locks/altitude", "gs1-hold");
-              setprop("autopilot/settings/gs-arm", "false");
+              setprop("autopilot/settings/gs1-arm", 0);
             }
             else {
               setprop("autopilot/locks/altitude", "altitude-hold");
-              setprop("autopilot/settings/gs-arm", "true");
+              setprop("autopilot/settings/gs1-arm", 1);
             }
           }
         </script>
@@ -339,6 +341,7 @@
           if (getprop ("autopilot/locks/altitude") == "altitude-hold")
             setprop ("autopilot/locks/altitude", "pitch-hold");
           else setprop ("autopilot/locks/altitude", "altitude-hold");
+          setprop ("autopilot/settings/gs1-arm", 0);
         </script>
       </binding>
     </action>
@@ -355,6 +358,7 @@
           if (getprop ("autopilot/locks/altitude") == "vertical-speed-hold")
             setprop ("autopilot/locks/altitude", "pitch-hold");
           else setprop ("autopilot/locks/altitude", "vertical-speed-hold");
+          setprop ("autopilot/settings/gs1-arm", 0);
         </script>
       </binding>
     </action>
@@ -383,6 +387,11 @@
       <binding>
         <command>property-toggle</command>
         <property>autopilot/locks/passive-mode</property>
+      </binding>
+      <binding>
+        <command>property-set</command>
+        <property>autopilot/settings/gs1-arm</property>
+        <value>0</value>
       </binding>
     </action>
   </animation>

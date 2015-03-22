@@ -132,7 +132,7 @@ Autopilot Controller
 	  </equals>
 	</condition>
         <command>property-adjust</command>
-        <property>autopilot/settings/target-vert-speed-fpm</property>
+        <property>autopilot/settings/vertical-speed-fpm</property>
 	<step>100</step>
 	<min>-4000</min>
 	<max>4000</max>
@@ -181,7 +181,7 @@ Autopilot Controller
 	  </equals>
 	</condition>
         <command>property-adjust</command>
-        <property>autopilot/settings/target-vert-speed-fpm</property>
+        <property>autopilot/settings/vertical-speed-fpm</property>
 	<step>-100</step>
 	<min>-4000</min>
 	<max>4000</max>
@@ -228,7 +228,7 @@ Autopilot Controller
 	  </equals>
 	</condition>
         <command>property-adjust</command>
-        <property>autopilot/settings/target-vert-speed-fpm</property>
+        <property>autopilot/settings/vertical-speed-fpm</property>
 	<step>-100</step>
 	<min>-4000</min>
 	<max>4000</max>
@@ -275,7 +275,7 @@ Autopilot Controller
 	  </equals>
 	</condition>
         <command>property-adjust</command>
-        <property>autopilot/settings/target-vert-speed-fpm</property>
+        <property>autopilot/settings/vertical-speed-fpm</property>
 	<step>100</step>
 	<min>-4000</min>
 	<max>4000</max>

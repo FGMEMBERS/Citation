@@ -239,22 +239,14 @@ var update_systems = func{
       }
     }
 
-    if(getprop("autopilot/settings/gs-arm")){
+    if(getprop("autopilot/settings/gs1-arm")){
         if(getprop("instrumentation/nav/gs-in-range")){
             var GS = getprop("instrumentation/nav/gs-needle-deflection");
-            if(GS <= 0.0 and GS >= -3.5){
-                setprop("autopilot/settings/gs-arm",0);
+            if(-3.5 <= GS and GS <= 0.0){
+                setprop("autopilot/settings/gs1-arm", 0);
                 setprop("autopilot/locks/altitude","gs1-hold");
             }
         }
-    }
-
-    if(getprop("autopilot/settings/nav-arm")){
-        var NAV = getprop("instrumentation/nav/heading-needle-needle");
-        if(NAV < 0.7 and NAV > -0.7){
-            setprop("autopilot/settings/nav-arm",0);
-            setprop("autopilot/locks/heading","nav-hold");
-        } 
     }
 
     settimer(update_systems,0);
