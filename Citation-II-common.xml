@@ -584,10 +584,9 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
     </locks>
     <settings>
       <bank-limit type="double">27</bank-limit>
-      <target-vert-speed-fpm type="double">0</target-vert-speed-fpm>
+      <vertical-speed-fpm type="double">0</vertical-speed-fpm>
       <target-altitude-ft>10000</target-altitude-ft>
       <gs1-arm type="bool">0</gs1-arm>
-      <nav-arm type="bool">0</nav-arm>
       <alt-arm type="bool">0</alt-arm>
     </settings>
   </autopilot>

@@ -80,7 +80,7 @@
             <property>autopilot/locks/heading</property> <value>nav2-hold</value>
           </equals>
           <equals>
-            <property>autopilot/locks/heading</property> <value>gps-hold</value>
+            <property>autopilot/locks/heading</property> <value>true-heading-hold</value>
           </equals>
         </or>
       </condition>
@@ -114,7 +114,7 @@
     <input>
       <condition>
         <equals>
-          <property>autopilot/locks/heading</property> <value>gps-hold</value>
+          <property>autopilot/locks/heading</property> <value>true-heading-hold</value>
         </equals>
       </condition>
       <property>autopilot/internal/true-heading-error-deg</property>
@@ -258,7 +258,7 @@
     </enable>
     <type>gain</type>
     <gain>1.0</gain>
-    <input>/autopilot/settings/target-vert-speed-fpm</input>
+    <input>/autopilot/settings/vertical-speed-fpm</input>
     <output>/autopilot/internal/target-climb-rate-fpm</output>
   </filter>
 
