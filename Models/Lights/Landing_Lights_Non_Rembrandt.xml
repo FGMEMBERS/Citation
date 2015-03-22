@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>light-cone.ac</path>
+
+  <effect>
+    <inherits-from>Effects/light-cone</inherits-from>
+    <object-name>Cone</object-name>
+  </effect>
+
+  <animation>
+    <object-name>Cone-texture</object-name>
+    <type>select</type>
+    <condition>
+      <and>
+        <not>
+          <property>sim/rendering/rembrandt/enabled</property>
+        </not>
+        <greater-than>
+          <property alias="../../../../../landing-light"/>
+          <value>5</value>
+        </greater-than>
+        <greater-than>
+          <property>gear/gear/position-norm</property>
+          <value>0.85</value>
+        </greater-than>
+        <greater-than>
+          <property alias="../../../../../bus-volts"/>
+          <value>5</value>
+        </greater-than>
+      </and>
+    </condition>
+  </animation>
+  
+</PropertyList>
