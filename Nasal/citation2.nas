@@ -263,7 +263,13 @@ var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (
         setprop ("autopilot/locks/speed", "");
     }
     else {
-        # When engaging the autopilot, engage wing leveler and pitch hold for current pitch.
+        # When engaging the autopilot, engage wing leveler and pitch hold for
+        # current pitch.  Set the target aileron and elevator commands to their
+        # current position, to prevent brutal manoeuvers.
+        setprop ("autopilot/internal/target-aileron",
+                 getprop ("controls/flight/aileron"));
+        setprop ("autopilot/internal/target-elevator",
+                 getprop ("controls/flight/elevator"));
         setprop ("autopilot/locks/heading", "wing-leveler");
         setprop ("autopilot/locks/altitude", "pitch-hold");
         setprop ("autopilot/settings/target-pitch-deg", getprop ("orientation/pitch-deg"));

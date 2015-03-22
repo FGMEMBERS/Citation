@@ -60,8 +60,11 @@
     <type>rotate</type>
     <object-name>Ladder</object-name>
     <property>sim/multiplay/generic/float</property>
-    <factor>-140</factor>
-    <offset-deg>140</offset-deg>
+    <interpolation>
+      <entry><ind>0.0</ind><dep> 140</dep></entry>
+      <entry><ind>0.1</ind><dep> 140</dep></entry>
+      <entry><ind>1.0</ind><dep>   0</dep></entry>
+    </interpolation>
     <center>
       <x-m>4.651144</x-m>
       <y-m>-0.456012</y-m>
@@ -577,7 +580,7 @@
       <z-m>0.85835</z-m>
     </center>
     <axis>
-      <x>1</x>
+      <x>-1</x>
       <y>0</y>
       <z>0</z>
     </axis>
