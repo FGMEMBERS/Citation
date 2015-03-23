@@ -52,7 +52,7 @@
   </animation>
 
   <!-- Chrome parts, compatible with Rembrandt -->
-  <effect>
+  <!--effect>
     <inherits-from>Models/Effects/citationII-chrome</inherits-from>
     <object-name>RHwing.heater</object-name>
     <object-name>LHwing.heater</object-name>
@@ -68,11 +68,10 @@
     <object-name>LH.lSpdBrk.rod</object-name>
     <object-name>RH.lSpdBrk.rod</object-name>
     <object-name>Pitot.tubes</object-name>
-  </effect>
-
+  </effect-->
 
   <!-- REFLECTION -->
-  <effect>
+  <!--effect>
     <inherits-from>Models/Effects/citation_reflect</inherits-from>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
@@ -102,10 +101,15 @@
     <object-name>FrDoor</object-name>
     <object-name>FrRHdoor</object-name>
     <object-name>FrLHdoor</object-name>
-  </effect>
+  </effect-->
 
-  <effect> <!-- glass -->
-    <inherits-from>Effects/model-transparent</inherits-from>
+  <!-- glass -->
+  <effect>
+    <inherits-from>Effects/model-combined-transparent</inherits-from>
+    <parameters>
+      <rendering-hint>transparent</rendering-hint>
+      <transparent>true</transparent>
+    </parameters>
     <object-name>Door.glass</object-name>
     <object-name>Glass.001</object-name>
     <object-name>Glass</object-name>
@@ -124,82 +128,28 @@
     <object-name>RHland.light</object-name>
   </effect>
 
-  <!-- disabled mp-callsign on the rudder -->
-  <!--text>
-      <name>LHreg</name>
-      <offsets>
-      <x-m>13.107</x-m>
-      <y-m>-0.06</y-m>
-      <z-m>2.411</z-m>
-      <roll-deg>0</roll-deg>
-      <pitch-deg>0</pitch-deg>
-      <heading-deg>0</heading-deg>
-      </offsets>
-      <alignment>center-center</alignment>
-      <axis-alignment>xz-plane</axis-alignment>
-      <type type="string">text-value</type>
-      <property type="string">sim/multiplay/generic/string[0]</property>
-      <format type="string">%.7s</format>
-      <font>arial_black.txf</font>
-      <character-size>0.8</character-size>
-      <character-aspect-ratio type="double">2.0</character-aspect-ratio>
-      <draw-alignment type="bool">false</draw-alignment>
-      <font-resolution>
-      <width type="int">128</width>
-      <height type="int">128</height>
-      </font-resolution>
-      </text>
-
-<text>
-<name>RHreg</name>
-<offsets>
-<x-m>13.107</x-m>
-<y-m>0.06</y-m>
-<z-m>2.411</z-m>
-<roll-deg>0</roll-deg>
-<pitch-deg>0</pitch-deg>
-<heading-deg>0</heading-deg>
-</offsets>
-<alignment>center-center</alignment>
-<axis-alignment>reversed-xz-plane</axis-alignment>
-<type type="string">text-value</type>
-<property type="string">sim/multiplay/generic/string[0]</property>
-<format type="string">%.7s</format>
-<font>arial_black.txf</font>
-<character-size>0.8</character-size>
-<character-aspect-ratio type="double">2.0</character-aspect-ratio>
-<draw-alignment type="bool">false</draw-alignment>
-<font-resolution>
-<width type="int">128</width>
-<height type="int">128</height>
-</font-resolution>
-</text>
-
-<animation>
-<type>material</type>
-<object-name>LHreg</object-name>
-<object-name>RHreg</object-name>
-<emission>
-<red>0</red>
-<green>0</green>
-<blue>0</blue>
-</emission>
-<ambient>
-<red-prop>sim/multiplay/generic/float[1]</red-prop>
-<green-prop>sim/multiplay/generic/float[2]</green-prop>
-<blue-prop>sim/multiplay/generic/float[3]</blue-prop>
-</ambient>
-<diffuse>
-<red-prop>sim/multiplay/generic/float[1]</red-prop>
-<green-prop>sim/multiplay/generic/float[2]</green-prop>
-<blue-prop>sim/multiplay/generic/float[3]</blue-prop>
-</diffuse>
-<specular>
-<red-prop>sim/multiplay/generic/float[1]</red-prop>
-<green-prop>sim/multiplay/generic/float[2]</green-prop>
-<blue-prop>sim/multiplay/generic/float[3]</blue-prop>
-</specular>
-</animation-->
+  <effect>
+    <!--inherits-from>Models/Effects/glass/glass</inherits-from-->
+    <inherits-from>Effects/glass</inherits-from>
+    <parameters>
+      <texture n="3">
+        <type>cubemap</type>
+        <images>
+         <positive-x>Effects/glass/refl_cube_back.png</positive-x>
+         <negative-x>Effects/glass/refl_cube_front.png</negative-x>
+         <positive-y>Effects/glass/refl_cube_right.png</positive-y>
+         <negative-y>Effects/glass/refl_cube_left.png</negative-y>
+         <positive-z>Effects/glass/refl_cube_up.png</positive-z>
+         <negative-z>Effects/glass/refl_cube_down.png</negative-z>
+        </images>
+      </texture>
+      <use-reflection type="int">1</use-reflection>
+      <reflection-strength type="float">0.7</reflection-strength>
+    </parameters>
+    <object-name>Door.glass.inside</object-name>
+    <object-name>Glass.001.inside</object-name>
+    <object-name>Glass.inside</object-name>
+  </effect>
 
   <model>
     <name>cabin</name>
@@ -362,6 +312,7 @@
     <object-name>Cabin.door</object-name>
     <object-name>Door.handle</object-name>
     <object-name>Door.glass</object-name>
+    <object-name>Door.glass.inside</object-name>
     <property>sim/multiplay/generic/float</property>
     <factor>120</factor>
     <axis>
@@ -379,6 +330,7 @@
     <object-name>Cabin.door</object-name>
     <object-name>Door.handle</object-name>
     <object-name>Door.glass</object-name>
+    <object-name>Door.glass.inside</object-name>
     <action>
       <button>0</button>
       <binding>
