@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+  <name>c172-interior-glass</name>
+  <inherits-from>Effects/model-interior</inherits-from>
+  <parameters>
+	<texture n="4">
+	  <type>cubemap</type>
+	  <images>
+		 <positive-x>Models/Effects/interior-shadow/back.png</positive-x>
+		 <negative-x>Models/Effects/interior-shadow/front.png</negative-x>
+		 <positive-y>Models/Effects/interior-shadow/right.png</positive-y>
+		 <negative-y>Models/Effects/interior-shadow/left.png</negative-y>
+		 <positive-z>Models/Effects/interior-shadow/up.png</positive-z>
+		 <negative-z>Models/Effects/interior-shadow/down.png</negative-z>
+	  </images>
+	</texture>
+	<opacity-cube-center type="vec3d" n="0"> 2.92428 0.0 0.6 </opacity-cube-center>
+	<opacity-cube-scale type="vec3d" n="0"> 1.47 1.434 1.132 </opacity-cube-scale>
+	<opacity-cube-angle type="float">0.0</opacity-cube-angle>
+  </parameters>
+</PropertyList>
