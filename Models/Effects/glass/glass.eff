@@ -5,7 +5,7 @@
 
   <parameters>
    <!-- functional masks -->
-   <texture n="2">
+   <!--texture n="2">
     <image>Effects/glass/canopy.png</image>
     <type>2d</type>
     <filter>linear-mipmap-linear</filter>
@@ -14,18 +14,18 @@
     <internal-format>normalized</internal-format>
    </texture>
    <use-mask type="int">1</use-mask>
-   <overlay-color type="vec3d" n="0">1.0 1.0 1.0</overlay-color>
+   <overlay-color type="vec3d" n="0">1.0 1.0 1.0</overlay-color-->
 
    <!-- internal cockpit reflection -->
    <texture n="3">
     <type>cubemap</type>
     <images>
-     <positive-x>Effects/glass/cockpit-cube-front.png</positive-x>
-     <negative-x>Effects/glass/cockpit-cube-back.png</negative-x>
-     <positive-y>Effects/glass/cockpit-cube-left.png</positive-y>
-     <negative-y>Effects/glass/cockpit-cube-right.png</negative-y>
-     <positive-z>Effects/glass/cockpit-cube-up.png</positive-z>
-     <negative-z>Effects/glass/cockpit-cube-down.png</negative-z>
+     <positive-x>Effects/glass/refl_cube_back.png</positive-x>
+     <negative-x>Effects/glass/refl_cube_front.png</negative-x>
+     <positive-y>Effects/glass/refl_cube_right.png</positive-y>
+     <negative-y>Effects/glass/refl_cube_left.png</negative-y>
+     <positive-z>Effects/glass/refl_cube_up.png</positive-z>
+     <negative-z>Effects/glass/refl_cube_down.png</negative-z>
     </images>
     </texture>
     <use-reflection type="int">1</use-reflection>
