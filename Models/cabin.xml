@@ -3,15 +3,16 @@
 
   <path>cabin.ac</path>
 
+  <!-- Do not show the following objects in the 3D preview of fgrun: -->
   <animation>
-    <!-- Do not show the following objects in the 3D preview of fgrun: -->
     <object-name>Ladder</object-name>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
     <nopreview/>
   </animation>
 
-  <effect>  <!-- Chrome Effect for interior parts -->
+  <!-- Chrome Effect for interior parts -->
+  <!--effect>
     <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
@@ -23,11 +24,12 @@
     <object-name>Cabin.MapLights</object-name>
     <object-name>Cabin.MapLights.ins</object-name>
     <object-name>Cabin.MapLights.Bulb</object-name>
-  </effect>
+  </effect-->
 
-  <effect> <!-- glass -->
+  <!-- glass -->
+  <!--effect>
     <inherits-from>Effects/model-transparent</inherits-from>
-  </effect>
+  </effect-->
 
   <animation>
     <type>rotate</type>
