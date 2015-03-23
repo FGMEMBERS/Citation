@@ -13,6 +13,11 @@
   </model>
 
   <model>
+    <condition>
+      <not>
+        <property>sim/rendering/shaders/skydome</property>
+      </not>
+    </condition>
     <name>Landing_Light_Non_Rembrandt_Left</name>
     <path>Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
@@ -29,6 +34,11 @@
   </model>
 
   <model>
+    <condition>
+      <not>
+        <property>sim/rendering/shaders/skydome</property>
+      </not>
+    </condition>
     <name>Landing_Light_Non_Rembrandt_Right</name>
     <path>Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
