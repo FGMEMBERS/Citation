@@ -1,0 +1,12 @@
+already installed circuit breakers:
+
+prop: systems/electrical/circuit-breakers/bus-[emer|left|right]/cb-*
+
+bus-emer/cb-light-panel-el (instrument-lights)
+bus-emer/cb-light-panel-enginstr (is on JBox inside aft-fuselage -> ignored)
+bus-emer/cb-light-panel-flood
+
+bus-left/cb-light-panel-center
+bus-left/cb-light-panel-left
+
+bus-right/cb-light-panel-right (right panel light + map lights)

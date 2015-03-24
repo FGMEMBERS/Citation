@@ -9,14 +9,8 @@ flightdeck:
 * Modelling: more details like bags on side-panels, maps, manuals etc
              (a manual like on 707?)
 * Modelling: pilots seats need some work
-* XML/Nasal: make circuit breakers functional? (Only if it doesn't
-             take thousands of lines of nasal! Treat them like
-             switches? Add to every feature a
-               <condition>
-                 <property type="bool">
-                   systems/electrical/cb/correspondingCircuitBreaker
-                 </property>
-               </condition> ?)
+* XML/Nasal: circuit breakers go into:
+             (prop:systems/electrical/circuit-breakers/bus-[emer|left|right]/cb-*)
 * XML:       Bring Rembrandt light volumes and animations up to specs
 
 cabin:
