@@ -333,6 +333,15 @@
   </animation>
 
   <model>
+    <path>Models/circuit-breakers.xml</path>
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+
+  <model>
     <path>Models/Instruments/magcompass.xml</path>
     <offsets>
       <x-m>2.440</x-m>

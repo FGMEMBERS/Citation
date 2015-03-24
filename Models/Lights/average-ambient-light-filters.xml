@@ -11,6 +11,7 @@
     <input>
       <condition>
         <property>controls/lighting/panel-lights-switch</property>
+	<property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-el</property>
       </condition>
       <property>controls/lighting/instrument-lights-norm</property>
     </input>
@@ -29,6 +30,7 @@
 	<and>
           <property>engines/engine/started</property>
           <property>engines/engine[1]/started</property>
+	  <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-center</property>
           <property>controls/lighting/panel-lights-switch</property>
           <greater-than>
             <property>systems/electrical/left-bus</property>
@@ -61,6 +63,7 @@
       <condition>
 	<and>
           <property>controls/lighting/panel-lights-switch</property>
+	  <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-left</property>
           <greater-than>
             <property>systems/electrical/left-bus</property>
             <value>5</value>
@@ -83,6 +86,7 @@
       <condition>
 	<and>
           <property>controls/lighting/panel-lights-switch</property>
+	  <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
           <greater-than>
             <property>systems/electrical/right-bus</property>
             <value>5</value>
@@ -104,6 +108,7 @@
     <input>
       <condition>
 	<and>
+	  <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
           <property>controls/lighting/map-lights</property>
           <greater-than>
             <property>systems/electrical/right-bus</property>
@@ -199,13 +204,11 @@
     <output>controls/lighting/panel-average-lighting</output>
   </filter>
 
-  <!-- BUILDING SITE! -->
   <filter>
     <name>calculate average panel light on flightdeck : don't ignore instrument lights in illumination</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
-      <!-- (( 1 - ( panel-average-lighting / 2 )) * instrument-lights-emission ) + (  panel-average-lighting / 2 ) -->
       <expression>
 	<sum>
 	  <product>

@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<PropertyList>
+
+  <path>circuit-breakers.ac</path>
+
+<!--
+########################
+####  EMERGENCY BUS ####
+########################
+  -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.ELPanel</object-name>
+    <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-el</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.ELPanel</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-el</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.Flood</object-name>
+    <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-flood</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.Flood</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-flood</property>
+      </binding>
+    </action>
+  </animation>
+
+<!--
+########################
+####    LEFT BUS    ####
+########################
+  -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.LHPanel</object-name>
+    <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.LHPanel</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-left</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.CenterPanel</object-name>
+    <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-center</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.CenterPanel</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-center</property>
+      </binding>
+    </action>
+  </animation>
+
+<!--
+########################
+####    RIGHT BUS   ####
+########################
+  -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.RHPanel</object-name>
+    <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.RHPanel</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

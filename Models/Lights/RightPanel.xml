@@ -10,6 +10,7 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
+		<property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
 		<property>controls/lighting/panel-lights-switch</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
