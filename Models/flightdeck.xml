@@ -4,7 +4,7 @@
   <path>flightdeck.ac</path>
 
   <!-- Chrome Effect! -->
-  <!--effect>
+  <effect>
     <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Cupholder</object-name>
     <object-name>FD.AirCond.outlet</object-name>
@@ -13,9 +13,9 @@
     <object-name>MapLights</object-name>
     <object-name>MapLights.inside</object-name>
     <object-name>MapLights.Bulb</object-name>
-  </effect-->
+  </effect>
 
-  <!--effect>
+  <effect>
     <inherits-from>Models/Effects/interior-shadow/citationII-interior</inherits-from>
     <object-name>Panel</object-name>
     <object-name>Fire.ctlr</object-name>
@@ -311,7 +311,7 @@
     <object-name>freq1.knob</object-name>
     <object-name>CTL-32.pwr</object-name>
     <object-name>CTL-32.vol</object-name>
-  </effect-->
+  </effect>
 
   <model>
     <name>panel1</name>
@@ -1398,11 +1398,11 @@
     <type>rotate</type>
     <object-name>speedBrake.switch</object-name>
     <property>controls/flight/speedbrake</property>
-    <offset-deg>-30</offset-deg>
-    <factor>60</factor>
+    <offset-deg>0</offset-deg>
+    <factor>30</factor>
     <center>
       <x-m>2.73903</x-m>
-      <y-m>-0.06489</y-m>
+      <y-m>0</y-m>
       <z-m>0.298809</z-m>
     </center>
     <axis>

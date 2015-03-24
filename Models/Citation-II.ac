@@ -6,7 +6,7 @@ MATERIAL "glosswhite" rgb 0.742441 0.742441 0.742441 amb 0.742441 0.742441 0.742
 MATERIAL "grey" rgb 0.75 0.75 0.75 amb 0.75 0.75 0.75 emis 0 0 0 spec 0.22742 0.22742 0.22742 shi 12 trans 0
 MATERIAL "dark" rgb 0.5 0.5 0.5 amb 0.5 0.5 0.5 emis 0 0 0 spec 0 0 0 shi 7 trans 0
 MATERIAL "chrome" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 64 trans 0
-MATERIAL "glass" rgb 0.2 0.2 0.2 amb 0.110851 0.110851 0.110851 emis 0 0 0 spec 0.901362 0.901362 0.901362 shi 72 trans 0.5
+MATERIAL "glass" rgb 0.8 0.8 0.8 amb 0.1 0.1 0.1 emis 0 0 0 spec 0.9 0.9 0.9 shi 109 trans 0.8
 OBJECT world
 kids 93
 OBJECT poly

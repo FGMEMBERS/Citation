@@ -3,7 +3,7 @@ var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
 var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
-#Jet Engine Helper class 
+#Jet Engine Helper class
 # ie: var Eng = JetEngine.new(engine number);
 
 # The jet engines in YASim are always on and cannot be turned off except by
@@ -73,7 +73,7 @@ var JetEngine = {
                 }
             }
         }
-        
+
         me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
         var hpsi =me.fan.getValue();
         if(hpsi>60)hpsi = 60;
@@ -122,7 +122,7 @@ var RHeng= JetEngine.new(1);
 setlistener ("/controls/engines/engine[0]/ignition", func (ignition) {
     LHeng.shutdown (ignition.getBoolValue ());
 });
-       
+
 setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
     RHeng.shutdown (ignition.getBoolValue ());
 });
@@ -315,11 +315,11 @@ var pilot_hsi_listener =
    var hsi_node = props.globals.getNode ("/instrumentation/hsi[0]");
    var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
    drive_hsi_with_nav (hsi_node, nav_node);
-}, 0, 0);  
+}, 0, 0);
 
 var copilot_hsi_listener =
   setlistener ("/instrumentation/hsi[1]/selected-nav", func (selected_nav) {
    var hsi_node = props.globals.getNode ("/instrumentation/hsi[1]");
    var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
    drive_hsi_with_nav (hsi_node, nav_node);
-}, 0, 0);  
+}, 0, 0);
