@@ -599,6 +599,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <file>Nasal/Electrical.nas</file>
       <file>Nasal/citation2.nas</file>
       <file>Aircraft/Generic/limits.nas</file>
+      <file>Nasal/rain.nas</file>
     </citation>
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>

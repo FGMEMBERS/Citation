@@ -12,7 +12,7 @@
   </animation>
 
   <!-- Chrome Effect for interior parts -->
-  <!--effect>
+  <effect>
     <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
@@ -24,7 +24,7 @@
     <object-name>Cabin.MapLights</object-name>
     <object-name>Cabin.MapLights.ins</object-name>
     <object-name>Cabin.MapLights.Bulb</object-name>
-  </effect-->
+  </effect>
 
   <!-- glass -->
   <!--effect>

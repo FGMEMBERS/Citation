@@ -52,7 +52,7 @@
   </animation>
 
   <!-- Chrome parts, compatible with Rembrandt -->
-  <!--effect>
+  <effect>
     <inherits-from>Models/Effects/citationII-chrome</inherits-from>
     <object-name>RHwing.heater</object-name>
     <object-name>LHwing.heater</object-name>
@@ -68,10 +68,10 @@
     <object-name>LH.lSpdBrk.rod</object-name>
     <object-name>RH.lSpdBrk.rod</object-name>
     <object-name>Pitot.tubes</object-name>
-  </effect-->
+  </effect>
 
   <!-- REFLECTION -->
-  <!--effect>
+  <effect>
     <inherits-from>Models/Effects/citation_reflect</inherits-from>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
@@ -101,15 +101,11 @@
     <object-name>FrDoor</object-name>
     <object-name>FrRHdoor</object-name>
     <object-name>FrLHdoor</object-name>
-  </effect-->
+  </effect>
 
   <!-- glass -->
   <effect>
-    <inherits-from>Effects/model-combined-transparent</inherits-from>
-    <parameters>
-      <rendering-hint>transparent</rendering-hint>
-      <transparent>true</transparent>
-    </parameters>
+    <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>Door.glass</object-name>
     <object-name>Glass.001</object-name>
     <object-name>Glass</object-name>
@@ -129,7 +125,6 @@
   </effect>
 
   <effect>
-    <!--inherits-from>Models/Effects/glass/glass</inherits-from-->
     <inherits-from>Effects/glass</inherits-from>
     <parameters>
       <texture n="3">
@@ -144,7 +139,7 @@
         </images>
       </texture>
       <use-reflection type="int">1</use-reflection>
-      <reflection-strength type="float">0.7</reflection-strength>
+      <reflection-strength type="float">0.5</reflection-strength>
     </parameters>
     <object-name>Door.glass.inside</object-name>
     <object-name>Glass.001.inside</object-name>
@@ -181,6 +176,30 @@
       <y-m>0</y-m>
       <z-m>0</z-m>
       <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- contrails copied from the Citation Bravo -->
+  <model>
+    <path>Models/Effects/contrail1.xml</path>
+    <offsets>
+      <x-m>20.0</x-m>
+      <y-m>-1.337</y-m>
+      <z-m>0.867</z-m>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>0</pitch-deg>
+      <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+  <model>
+    <path>Models/Effects/contrail2.xml</path>
+    <offsets>
+      <x-m>20.0</x-m>
+      <y-m>1.337</y-m>
+      <z-m>0.867</z-m>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>0</pitch-deg>
+      <heading-deg>0</heading-deg>
     </offsets>
   </model>
 
