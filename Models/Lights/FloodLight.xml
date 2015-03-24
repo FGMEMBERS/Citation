@@ -10,6 +10,7 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
+		<property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-flood</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
