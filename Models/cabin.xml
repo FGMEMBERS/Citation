@@ -84,7 +84,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.1.in</object-name>
-    <property>controls/table[1]/in</property>
+    <property>controls/table[1]/in-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -101,12 +101,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/table[1]/out</property>
+            <property>controls/table[1]/out-position-deg</property>
             <value>10</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[1]/in</property>
+        <property>controls/table[1]/in-position-deg</property>
         <factor>10</factor>
         <min>0</min>
         <max>180</max>
@@ -120,7 +120,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Table.1.in</object-name>
-    <property>controls/table[1]/out</property>
+    <property>controls/table[1]/out-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -138,7 +138,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.1.out</object-name>
-    <property>controls/table[1]/out</property>
+    <property>controls/table[1]/out-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -155,12 +155,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/table[1]/slide</property>
+            <property>controls/table[1]/slide-position-m</property>
             <value>0.01</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[1]/out</property>
+        <property>controls/table[1]/out-position-deg</property>
         <factor>10</factor>
         <min>0</min>
         <max>90</max>
@@ -172,7 +172,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.1.in</object-name>
-    <property>controls/table[1]/slide</property>
+    <property>controls/table[1]/slide-position-m</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -183,7 +183,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.1.out</object-name>
-    <property>controls/table[1]/slide</property>
+    <property>controls/table[1]/slide-position-m</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -197,7 +197,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.2.in</object-name>
-    <property>controls/table[2]/in</property>
+    <property>controls/table[2]/in-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -214,12 +214,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/table[2]/out</property>
+            <property>controls/table[2]/out-position-deg</property>
             <value>10</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[2]/in</property>
+        <property>controls/table[2]/in-position-deg</property>
         <factor>10</factor>
         <min>0</min>
         <max>180</max>
@@ -233,7 +233,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Table.2.in</object-name>
-    <property>controls/table[2]/out</property>
+    <property>controls/table[2]/out-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -251,7 +251,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.2.out</object-name>
-    <property>controls/table[2]/out</property>
+    <property>controls/table[2]/out-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -268,12 +268,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/table[2]/slide</property>
+            <property>controls/table[2]/slide-position-m</property>
             <value>0.01</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[2]/out</property>
+        <property>controls/table[2]/out-position-deg</property>
         <factor>10</factor>
         <min>0</min>
         <max>90</max>
@@ -285,7 +285,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.2.in</object-name>
-    <property>controls/table[2]/slide</property>
+    <property>controls/table[2]/slide-position-m</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -296,7 +296,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.2.out</object-name>
-    <property>controls/table[2]/slide</property>
+    <property>controls/table[2]/slide-position-m</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -310,7 +310,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.3.in</object-name>
-    <property>controls/table[3]/in</property>
+    <property>controls/table[3]/in-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -327,12 +327,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/table[3]/out</property>
+            <property>controls/table[3]/out-position-deg</property>
             <value>10</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[3]/in</property>
+        <property>controls/table[3]/in-position-deg</property>
         <factor>10</factor>
         <min>0</min>
         <max>180</max>
@@ -346,7 +346,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Table.3.in</object-name>
-    <property>controls/table[3]/out</property>
+    <property>controls/table[3]/out-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -364,7 +364,7 @@
   <animation>
     <type>knob</type>
     <object-name>Table.3.out</object-name>
-    <property>controls/table[3]/out</property>
+    <property>controls/table[3]/out-position-deg</property>
     <factor>1</factor>
     <offset-deg>0</offset-deg>
     <center>
@@ -381,12 +381,12 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/table[3]/slide</property>
+            <property>controls/table[3]/slide-position-m</property>
             <value>0.01</value>
           </less-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[3]/out</property>
+        <property>controls/table[3]/out-position-deg</property>
         <factor>10</factor>
         <min>0</min>
         <max>90</max>
@@ -398,7 +398,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.3.in</object-name>
-    <property>controls/table[3]/slide</property>
+    <property>controls/table[3]/slide-position-m</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -409,7 +409,7 @@
   <animation>
     <type>translate</type>
     <object-name>Table.3.out</object-name>
-    <property>controls/table[3]/slide</property>
+    <property>controls/table[3]/slide-position-m</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -418,9 +418,9 @@
     </axis>
   </animation>
 
-  <!-- The cup-holders serve as magick buttons to lower (stow) or
-       raise (deploy) the tables. All cup-holders act as one object,
-       so act on all tables that are in the vertical position. -->
+  <!-- The cup-holders serve as magic buttons to lower (stow) or raise
+       (deploy) the tables. All cup-holders act as one object, so act
+       on all tables that are in the vertical position. -->
 
   <animation>
     <type>pick</type>
@@ -431,12 +431,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/table[1]/out</property>
+            <property>controls/table[1]/out-position-deg</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[1]/slide</property>
+        <property>controls/table[1]/slide-position-m</property>
         <step>0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -445,12 +445,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/table[2]/out</property>
+            <property>controls/table[2]/out-position-deg</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[2]/slide</property>
+        <property>controls/table[2]/slide-position-m</property>
         <step>0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -459,12 +459,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/table[3]/out</property>
+            <property>controls/table[3]/out-position-deg</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[3]/slide</property>
+        <property>controls/table[3]/slide-position-m</property>
         <step>0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -477,12 +477,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/table[1]/out</property>
+            <property>controls/table[1]/out-position-deg</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[1]/slide</property>
+        <property>controls/table[1]/slide-position-m</property>
         <step>-0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -491,12 +491,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/table[2]/out</property>
+            <property>controls/table[2]/out-position-deg</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[2]/slide</property>
+        <property>controls/table[2]/slide-position-m</property>
         <step>-0.01</step>
         <min>0</min>
         <max>0.243979</max>
@@ -505,12 +505,12 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/table[3]/out</property>
+            <property>controls/table[3]/out-position-deg</property>
             <value>89</value>
           </greater-than>
         </condition>
         <command>property-adjust</command>
-        <property>controls/table[3]/slide</property>
+        <property>controls/table[3]/slide-position-m</property>
         <step>-0.01</step>
         <min>0</min>
         <max>0.243979</max>

@@ -538,14 +538,20 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-	<property>controls/baggage-doors/front-baggage-door-left</property>
+        <property>controls/baggage-door-front-left/command</property>
+      </binding>
+      <binding>
+        <command>property-interpolate</command>
+	<property>controls/baggage-door-front-left/position-norm</property>
+        <property>controls/baggage-door-front-left/command</property>
+        <rate>0.75</rate>
       </binding>
     </action>
   </animation>
   <animation>
     <type>rotate</type>
     <object-name>Front.BaggageDoor.LH</object-name>
-    <property>controls/baggage-doors/front-baggage-door-left</property>
+    <property>controls/baggage-door-front-left/position-norm</property>
     <factor>-90</factor>
     <center>
       <x-m>1.50592</x-m>
@@ -566,14 +572,20 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-	<property>controls/baggage-doors/front-baggage-door-right</property>
+        <property>controls/baggage-door-front-right/command</property>
+      </binding>
+      <binding>
+        <command>property-interpolate</command>
+	<property>controls/baggage-door-front-right/position-norm</property>
+        <property>controls/baggage-door-front-right/command</property>
+        <rate>0.75</rate>
       </binding>
     </action>
   </animation>
   <animation>
     <type>rotate</type>
     <object-name>Front.BaggageDoor.RH</object-name>
-    <property>controls/baggage-doors/front-baggage-door-right</property>
+    <property>controls/baggage-door-front-right/position-norm</property>
     <factor>90</factor>
     <center>
       <x-m>1.50592</x-m>
