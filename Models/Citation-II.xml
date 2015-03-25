@@ -46,6 +46,8 @@
     <object-name>FrDoor</object-name>
     <object-name>FrRHdoor</object-name>
     <object-name>FrLHdoor</object-name>
+    <object-name>Front.BaggageDoor.LH</object-name>
+    <object-name>Front.BaggageDoor.RH</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>Liveries/Lv1.png</texture>
@@ -101,6 +103,8 @@
     <object-name>FrDoor</object-name>
     <object-name>FrRHdoor</object-name>
     <object-name>FrLHdoor</object-name>
+    <object-name>Front.BaggageDoor.LH</object-name>
+    <object-name>Front.BaggageDoor.RH</object-name>
   </effect>
 
   <!-- glass -->
@@ -524,6 +528,62 @@
       <x>1</x>
       <y>0</y>
       <z>-0.45</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Front.BaggageDoor.LH</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+	<property>controls/baggage-doors/front-baggage-door-left</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Front.BaggageDoor.LH</object-name>
+    <property>controls/baggage-doors/front-baggage-door-left</property>
+    <factor>-90</factor>
+    <center>
+      <x-m>1.50592</x-m>
+      <y-m>-0.17988</y-m>
+      <z-m>0.60530</z-m>
+    </center>
+    <axis>
+      <x>0.41791</x>
+      <y>0.0</y>
+      <z>0.08151</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Front.BaggageDoor.RH</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+	<property>controls/baggage-doors/front-baggage-door-right</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Front.BaggageDoor.RH</object-name>
+    <property>controls/baggage-doors/front-baggage-door-right</property>
+    <factor>90</factor>
+    <center>
+      <x-m>1.50592</x-m>
+      <y-m>0.17988</y-m>
+      <z-m>0.60530</z-m>
+    </center>
+    <axis>
+      <x>0.41791</x>
+      <y>0.0</y>
+      <z>0.08151</z>
     </axis>
   </animation>
 
