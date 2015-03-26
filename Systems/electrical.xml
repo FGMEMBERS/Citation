@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <!-- Suppliers are defined in Citation-II-common.xml -->
+  <!-- power to buses -->
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<property>controls/electric/battery-switch</property>
+      </condition>
+      <property>systems/electrical/outputs/bus/battery-hot</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/bus/battery</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/electric/engine/generator</property>
+	  <property>controls/electric/circuit-breakers/bus-left-1</property>
+	  <property>controls/electric/circuit-breakers/bus-left-2</property>
+	  <property>controls/electric/circuit-breakers/bus-left-3</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/suppliers/alternator</property>
+	    <property>systems/electrical/outputs/bus/battery</property>
+	  </greater-than>
+	</and>
+      </condition>
+      <property>systems/electrical/outputs/suppliers/alternator</property>
+    </input>
+    <input>
+      <condition>
+	<and>
+          <property>controls/electric/battery-switch</property>
+	  <property>controls/electric/circuit-breakers/bus-left-1</property>
+	  <property>controls/electric/circuit-breakers/bus-left-2</property>
+	  <property>controls/electric/circuit-breakers/bus-left-3</property>
+	</and>
+      </condition>
+      <property>systems/electrical/outputs/bus/battery</property>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/bus/left</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/electric/engine[1]/generator</property>
+	  <property>controls/electric/circuit-breakers/bus-right-1</property>
+	  <property>controls/electric/circuit-breakers/bus-right-2</property>
+	  <property>controls/electric/circuit-breakers/bus-right-3</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/suppliers/alternator[1]</property>
+	    <property>systems/electrical/outputs/bus/battery</property>
+	  </greater-than>
+	</and>
+      </condition>
+      <property>systems/electrical/outputs/suppliers/alternator[1]</property>
+    </input>
+    <input>
+      <condition>
+	<and>
+          <property>controls/electric/battery-switch</property>
+	  <property>controls/electric/circuit-breakers/bus-right-1</property>
+	  <property>controls/electric/circuit-breakers/bus-right-2</property>
+	  <property>controls/electric/circuit-breakers/bus-right-3</property>
+	</and>
+      </condition>
+      <property>systems/electrical/outputs/bus/battery</property>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/bus/right</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<property>controls/electric/battery-switch</property>
+	<property>controls/electric/circuit-breakers/bus-emer</property>
+      </condition>
+      <property>systems/electrical/outputs/bus/battery-hot</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/bus/emer</property>
+    </output>
+  </filter>
+
+</PropertyList>

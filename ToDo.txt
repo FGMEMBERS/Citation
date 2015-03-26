@@ -10,7 +10,7 @@ flightdeck:
              (a manual like on 707?)
 * Modelling: pilots seats need some work
 * XML/Nasal: circuit breakers go into:
-             (prop:systems/electrical/circuit-breakers/bus-[emer|left|right]/cb-*)
+             (prop:controls/electric/circuit-breakers/bus-[emer|left|right]/cb-*)
 * XML:       Bring Rembrandt light volumes and animations up to specs
 
 cabin:
@@ -29,3 +29,16 @@ exterior:
 generic:
 * Texturing: better wood texture!?!
 * Modelling: MPModel!!! (LoRes)
+* XML/Nasal: Need version check for all shaders and effects for backward compability!
+
+
+##########################################################
+
+
+
+Shader / Effects incompabilities:
+
+Shader/Effect			needs FG version
+===========================================================
+ALS cockpit shadows		3.5
+ALS glass shader		3.5

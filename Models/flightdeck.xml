@@ -15,7 +15,14 @@
     <object-name>MapLights.Bulb</object-name>
   </effect>
 
+  <!-- cockpit shadows -->
   <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
     <inherits-from>Models/Effects/interior-shadow/citationII-interior</inherits-from>
     <object-name>Panel</object-name>
     <object-name>Fire.ctlr</object-name>

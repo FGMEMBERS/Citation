@@ -12,13 +12,13 @@
   <animation>
     <type>translate</type>
     <object-name>cb.Light.ELPanel</object-name>
-    <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-el</property>
+    <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0</z>
+      <z>0.2</z>
     </axis>
   </animation>
   <animation>
@@ -28,7 +28,7 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-el</property>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</property>
       </binding>
     </action>
   </animation>
@@ -36,13 +36,13 @@
   <animation>
     <type>translate</type>
     <object-name>cb.Light.Flood</object-name>
-    <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-flood</property>
+    <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</property>
     <factor>0.004</factor>
     <offset-m>-0.004</offset-m>
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0</z>
+      <z>0.2</z>
     </axis>
   </animation>
   <animation>
@@ -52,10 +52,18 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-flood</property>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</property>
       </binding>
     </action>
   </animation>
+
+<!--
+########################
+####   BATTERY BUS  ####
+########################
+  -->
+
+
 
 <!--
 ########################
@@ -65,14 +73,84 @@
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.LHPanel</object-name>
-    <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-left</property>
+    <object-name>cb.LHBus.1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left-1</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0</z>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.LHBus.1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left-1</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>cb.LHBus.2</object-name>
+    <property>controls/electric/circuit-breakers/bus-left-2</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.LHBus.2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left-2</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>cb.LHBus.3</object-name>
+    <property>controls/electric/circuit-breakers/bus-left-3</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.LHBus.3</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left-3</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.LHPanel</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
     </axis>
   </animation>
   <animation>
@@ -82,7 +160,7 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-left</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
       </binding>
     </action>
   </animation>
@@ -90,13 +168,13 @@
   <animation>
     <type>translate</type>
     <object-name>cb.Light.CenterPanel</object-name>
-    <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-center</property>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0</z>
+      <z>0.2</z>
     </axis>
   </animation>
   <animation>
@@ -106,7 +184,31 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-center</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.Beacon</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.Beacon</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
       </binding>
     </action>
   </animation>
@@ -119,14 +221,84 @@
 
   <animation>
     <type>translate</type>
+    <object-name>cb.RHBus.1</object-name>
+    <property>controls/electric/circuit-breakers/bus-right-1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.RHBus.1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right-1</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>cb.RHBus.2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right-2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.RHBus.2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right-2</property>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>cb.RHBus.3</object-name>
+    <property>controls/electric/circuit-breakers/bus-right-3</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.RHBus.3</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right-3</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
     <object-name>cb.Light.RHPanel</object-name>
-    <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
+    <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0</z>
+      <z>0.2</z>
     </axis>
   </animation>
   <animation>
@@ -136,7 +308,7 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
       </binding>
     </action>
   </animation>

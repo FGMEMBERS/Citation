@@ -11,7 +11,11 @@
     <input>
       <condition>
         <property>controls/lighting/panel-lights-switch</property>
-	<property>systems/electrical/circuit-breakers/bus-emer/cb-light-panel-el</property>
+	<property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</property>
+	<greater-than>
+	  <property>systems/electrical/outputs/bus/emer</property>
+	  <value>20</value>
+	</greater-than>
       </condition>
       <property>controls/lighting/instrument-lights-norm</property>
     </input>
@@ -30,11 +34,11 @@
 	<and>
           <property>engines/engine/started</property>
           <property>engines/engine[1]/started</property>
-	  <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-center</property>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
           <property>controls/lighting/panel-lights-switch</property>
           <greater-than>
-            <property>systems/electrical/left-bus</property>
-            <value>5</value>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
           </greater-than>
 	</and>
       </condition>
@@ -63,10 +67,10 @@
       <condition>
 	<and>
           <property>controls/lighting/panel-lights-switch</property>
-	  <property>systems/electrical/circuit-breakers/bus-left/cb-light-panel-left</property>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
           <greater-than>
-            <property>systems/electrical/left-bus</property>
-            <value>5</value>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
           </greater-than>
 	</and>
       </condition>
@@ -86,10 +90,10 @@
       <condition>
 	<and>
           <property>controls/lighting/panel-lights-switch</property>
-	  <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
           <greater-than>
-            <property>systems/electrical/right-bus</property>
-            <value>5</value>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
           </greater-than>
 	</and>
       </condition>
@@ -108,11 +112,11 @@
     <input>
       <condition>
 	<and>
-	  <property>systems/electrical/circuit-breakers/bus-right/cb-light-panel-right</property>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
           <property>controls/lighting/map-lights</property>
           <greater-than>
-            <property>systems/electrical/right-bus</property>
-            <value>5</value>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
           </greater-than>
 	</and>
       </condition>
