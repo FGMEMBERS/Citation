@@ -10,13 +10,14 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
+		<property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
                 <greater-than>
-                    <property>systems/electrical/outputs/beacon</property>
-                    <value>5</value>
+                    <property>systems/electrical/outputs/bus/left</property>
+                    <value>20</value>
                 </greater-than>
             </and>
         </condition>
