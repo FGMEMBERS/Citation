@@ -29,7 +29,7 @@
     </offsets>
     <overlay>
       <landing-light>sim/multiplay/generic/int[3]</landing-light>
-      <bus-volts>systems/electrical/left-bus</bus-volts>
+      <bus-volts>systems/electrical/outputs/bus/left</bus-volts>
     </overlay>
   </model>
 
@@ -50,7 +50,7 @@
     </offsets>
     <overlay>
       <landing-light>sim/multiplay/generic/int[4]</landing-light>
-      <bus-volts>systems/electrical/right-bus</bus-volts>
+      <bus-volts>systems/electrical/outputs/bus/right</bus-volts>
     </overlay>
   </model>
 

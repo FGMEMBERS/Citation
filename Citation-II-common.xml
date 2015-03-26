@@ -230,6 +230,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="102">
         <path>Models/Lights/average-ambient-light-filters.xml</path>
       </property-rule>
+      <property-rule n="103">
+	<path>Systems/electrical.xml</path>
+      </property-rule>
     </systems>
 
     <sound>
@@ -491,6 +494,28 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
     <electric>
       <avionics-switch type="bool">0</avionics-switch>
       <battery-switch type="bool">0</battery-switch>
+      <circuit-breakers>
+	<bus-emer type="bool">1</bus-emer> <!-- has no model, it's located in aft baggage compartment -->
+	<bus-left-1 type="bool">1</bus-left-1>
+	<bus-left-2 type="bool">1</bus-left-2>
+	<bus-left-3 type="bool">1</bus-left-3>
+	<bus-right-1 type="bool">1</bus-right-1>
+	<bus-right-2 type="bool">1</bus-right-2>
+	<bus-right-3 type="bool">1</bus-right-3>
+        <bus-emer>
+	  <cb-light-panel-el type="bool">1</cb-light-panel-el>
+	  <cb-light-panel-enginstr type="bool">1</cb-light-panel-enginstr>
+	  <cb-light-panel-flood type="bool">1</cb-light-panel-flood>
+        </bus-emer>
+        <bus-left>
+          <cb-light-panel-left type="bool">1</cb-light-panel-left>
+	  <cb-light-panel-center type="bool">1</cb-light-panel-center>
+	  <cb-light-beacon type="bool">1</cb-light-beacon>
+        </bus-left>
+        <bus-right>
+	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
+        </bus-right>
+      </circuit-breakers>
     </electric>
     <lighting>
       <panel-norm type="double">0.5</panel-norm>
@@ -756,20 +781,21 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
 
   <systems>
     <electrical>
-      <circuit-breakers>
-        <bus-emer>
-	  <cb-light-panel-el type="bool">1</cb-light-panel-el>
-	  <cb-light-panel-enginstr type="bool">1</cb-light-panel-enginstr>
-	  <cb-light-panel-flood type="bool">1</cb-light-panel-flood>
-        </bus-emer>
-        <bus-left>
-          <cb-light-panel-left type="bool">1</cb-light-panel-left>
-	  <cb-light-panel-center type="bool">1</cb-light-panel-center>
-        </bus-left>
-        <bus-right>
-	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
-        </bus-right>
-      </circuit-breakers>
+      <outputs>
+	<suppliers>
+	  <battery type="double">24</battery>
+	  <alternator n="0" alias="/engines/engine/amp-v" />
+	  <alternator n="1" alias="/engines/engine[1]/amp-v" />
+	  <external type="double">0</external>
+	</suppliers>
+	<bus>
+	  <battery-hot alias="/systems/electrical/outputs/suppliers/battery" />
+	  <battery type="double">0</battery>
+	  <left type="double">0</left>
+	  <right type="double">0</right>
+	  <emer type="double">0</emer>
+	</bus>
+      </outputs>
     </electrical>
   </systems>
 
