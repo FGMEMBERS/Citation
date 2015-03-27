@@ -122,10 +122,13 @@
         </axis>
     </animation>
 
+<!-- -1 NORM
+      0 OFF
+      1 ON -->
     <animation>
-        <type>rotate</type>
+        <type>knob</type>
         <object-name>lboost.sw</object-name>
-        <property>controls/fuel/tank/boost-pump</property>
+        <property>controls/fuel/tank/boost-pump-switch</property>
         <factor>15</factor>
         <center>
             <x-m>0.005</x-m>
@@ -137,14 +140,27 @@
             <y>-1.0</y>
             <z>0.0</z>
         </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/fuel/tank/boost-pump-switch</property>
+                <factor>1</factor>
+                <min>-1</min>
+                <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
     </animation>
 
+<!-- -1 NORM
+      0 OFF
+      1 ON -->
     <animation>
-        <type>rotate</type>
+        <type>knob</type>
         <object-name>rboost.sw</object-name>
-        <property>controls/fuel/tank[1]/boost-pump</property>
+        <property>controls/fuel/tank[1]/boost-pump-switch</property>
         <factor>15</factor>
-        <center>
+	<center>
             <x-m>0.005</x-m>
             <y-m>-0.059</y-m>
             <z-m>-0.002</z-m>
@@ -154,6 +170,16 @@
             <y>-1.0</y>
             <z>0.0</z>
         </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/fuel/tank[1]/boost-pump-switch</property>
+                <factor>1</factor>
+                <min>-1</min>
+                <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
     </animation>
 
 <!-- Light Switches-->
@@ -300,7 +326,7 @@
         </action>
     </animation>
 
-    
+
     <!--
     -2 LH Eng
     -1 LH tank
@@ -503,40 +529,6 @@
          <value>0</value>
        </binding>
      </mod-up>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>lboost.sw</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-     <binding>
-       <command>property-toggle</command>
-       <property>controls/fuel/tank/boost-pump</property>
-		 </binding>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>rboost.sw</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-     <binding>
-       <command>property-toggle</command>
-       <property>controls/fuel/tank[1]/boost-pump</property>
-		 </binding>
     </action>
 </animation>
 
