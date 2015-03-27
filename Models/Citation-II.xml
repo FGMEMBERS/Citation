@@ -130,9 +130,6 @@
 
   <!-- ALS cockpit glass effect (reflection cube, rain, frost, fog) -->
   <effect>
-    <condition>
-	<property>controls/electric/battery-switch</property>
-    </condition>
     <inherits-from>Effects/glass</inherits-from>
     <parameters>
       <texture n="3">
@@ -997,9 +994,11 @@
     <object-name>greennav</object-name>
     <object-name>whitenav</object-name>
     <condition>
+      <property>controls/lighting/nav-lights</property>
+      <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
       <greater-than>
-        <property>sim/multiplay/generic/int[2]</property>
-        <value>5</value>
+        <property>systems/electrical/outputs/bus/right</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -1087,18 +1086,15 @@
   <animation>
     <type>select</type>
     <object-name>Recog.flash1</object-name>
+    <condition>
+      <property>controls/lighting/recog-lights-left</property>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
     <object-name>Recog.flash2</object-name>
     <condition>
-      <and>
-        <greater-than>
-          <property>sim/multiplay/generic/int[5]</property>
-          <value>5</value>
-        </greater-than>
-        <greater-than>
-          <property>systems/electrical/right-bus</property>
-          <value>5</value>
-        </greater-than>
-      </and>
+      <property>controls/lighting/recog-lights-right</property>
     </condition>
   </animation>
 

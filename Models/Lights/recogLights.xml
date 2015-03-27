@@ -10,17 +10,10 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
+		<property>controls/lighting/recog-lights-left</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
-                </greater-than>
-                <greater-than>
-                    <property>sim/multiplay/generic/int[5]</property>
-                    <value>5</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/left-bus</property>
-                    <value>5</value>
                 </greater-than>
             </and>
         </condition>
@@ -80,17 +73,10 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
+		<property>controls/lighting/recog-lights-right</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
-                </greater-than>
-                <greater-than>
-                    <property>sim/multiplay/generic/int[5]</property>
-                    <value>5</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/right-bus</property>
-                    <value>5</value>
                 </greater-than>
             </and>
         </condition>
