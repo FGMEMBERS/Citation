@@ -497,6 +497,14 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <voltage-sel type="int">0</voltage-sel>
       <system-test type="int">10</system-test>
       <fuel-sel type="int">0</fuel-sel>
+      <fuel>
+	<tank n="0">
+	  <boost-pump-switch type="int">0</boost-pump-switch>
+	</tank>
+	<tank n="1">
+	  <boost-pump-switch type="int">0</boost-pump-switch>
+	</tank>
+      </fuel>
       <circuit-breakers>
 	<bus-emer type="bool" n="1">1</bus-emer> <!-- has no model, it's located in aft baggage compartment -->
 	<bus-left-1 type="bool">1</bus-left-1>
