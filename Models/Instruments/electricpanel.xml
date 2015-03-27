@@ -226,6 +226,115 @@
         </axis>
     </animation>
 
+
+    <!--
+    -1 LH GEN
+     0 BATT
+     1 RH GEN
+    -->
+    <animation>
+        <type>knob</type>
+        <object-name>test.knob.001</object-name>
+        <property>controls/electric/voltage-sel</property>
+        <factor>30</factor>
+	<center>
+	    <x-m>0.01023</x-m>
+            <y-m>-0.04251</y-m>
+            <z-m>0.07432</z-m>
+	</center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/electric/voltage-sel</property>
+                <factor>1</factor>
+                <min>-1</min>
+                <max>1</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+
+    <!--
+    1 OFF
+    2 ANNU
+    3 SPARE
+    4 OVERSPEED
+    5 W/S TEMP
+    6 THRU REV
+    7 SPARE
+    8 BATT TEMP
+    9 LDG GEAR
+   10 OFF
+    -->
+
+    <animation>
+        <type>knob</type>
+        <object-name>test.knob</object-name>
+        <property>controls/electric/system-test</property>
+        <factor>36</factor>
+	<center>
+	    <x-m>0.01023</x-m>
+            <y-m>-0.06491</y-m>
+            <z-m>0.03725</z-m>
+	</center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/electric/system-test</property>
+                <factor>1</factor>
+                <min>1</min>
+                <max>10</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    
+    <!--
+    -2 LH Eng
+    -1 LH tank
+     0 OFF
+     1 RH tank
+     2 RH Eng
+    -->
+    <animation>
+        <type>knob</type>
+        <object-name>fuel.knob</object-name>
+        <property>controls/electric/fuel-sel</property>
+        <factor>60</factor>
+	<center>
+	    <x-m>0.01023</x-m>
+            <y-m>-0.07044</y-m>
+            <z-m>-0.06660</z-m>
+	</center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/electric/fuel-sel</property>
+                <factor>1</factor>
+                <min>-2.5</min>
+                <max>2.5</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
+
 <!-- hotspots -->
 
 <animation>
