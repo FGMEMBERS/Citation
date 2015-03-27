@@ -143,7 +143,7 @@ var Alternator = {
 
 #####################################################
 
-var battery = Battery.new("/controls/electric/battery-switch",24,30,34,1.0,7.0);
+var battery = Battery.new("controls/electric/battery-bus-switch",24,30,34,1.0,7.0);
 var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","/engines/engine[0]/turbine",20.0,28.0,60.0);
 var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","/engines/engine[1]/turbine",20.0,28.0,60.0);
 
