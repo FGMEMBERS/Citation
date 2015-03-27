@@ -1902,6 +1902,9 @@
     <object-name>freq1.knob</object-name>
     <object-name>CTL-32.pwr</object-name>
     <object-name>CTL-32.vol</object-name>
+    <object-name>volts.needle</object-name>
+    <object-name>lAmps.needle</object-name>
+    <object-name>rAmps.needle</object-name>
     <emission>
       <red>1</red>
       <green>0.5</green>
