@@ -7,9 +7,15 @@
      <animation>
         <type>select</type>
         <object-name>IntLight.CabinIndirect.1</object-name>
+        <object-name>IntLight.CabinIndirect.2</object-name>
+        <object-name>IntLight.CabinIndirect.3</object-name>
+        <object-name>IntLight.CabinIndirect.4</object-name>
+        <object-name>IntLight.CabinIndirect.5</object-name>
+        <object-name>IntLight.CabinIndirect.6</object-name>
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
+		<property>controls/electric/circuit-breakers/bus-left/cb-light-cabin-ind</property>
 		<greater-than>
 		  <property>controls/lighting/cabin-lights-norm</property>
 		  <value>0.05</value>
@@ -69,28 +75,6 @@
 	<far-m>1</far-m>
     </animation>
 
-     <animation>
-        <type>select</type>
-        <object-name>IntLight.CabinIndirect.2</object-name>
-        <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<greater-than>
-		  <property>controls/lighting/cabin-lights-norm</property>
-		  <value>0.05</value>
-		</greater-than>
-		<greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/left</property>
-                    <value>20</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-
     <animation>
 	<type>light</type>
 	<light-type>point</light-type>
@@ -132,28 +116,6 @@
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
-    </animation>
-
-     <animation>
-        <type>select</type>
-        <object-name>IntLight.CabinIndirect.3</object-name>
-        <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<greater-than>
-		  <property>controls/lighting/cabin-lights-norm</property>
-		  <value>0.05</value>
-		</greater-than>
-		<greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/left</property>
-                    <value>20</value>
-                </greater-than>
-            </and>
-        </condition>
     </animation>
 
     <animation>
@@ -199,28 +161,6 @@
 	<far-m>1</far-m>
     </animation>
 
-     <animation>
-        <type>select</type>
-        <object-name>IntLight.CabinIndirect.4</object-name>
-        <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<greater-than>
-		  <property>controls/lighting/cabin-lights-norm</property>
-		  <value>0.05</value>
-		</greater-than>
-		<greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/left</property>
-                    <value>20</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-
     <animation>
 	<type>light</type>
 	<light-type>point</light-type>
@@ -264,28 +204,6 @@
 	<far-m>1</far-m>
     </animation>
 
-     <animation>
-        <type>select</type>
-        <object-name>IntLight.CabinIndirect.5</object-name>
-        <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<greater-than>
-		  <property>controls/lighting/cabin-lights-norm</property>
-		  <value>0.05</value>
-		</greater-than>
-		<greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/left</property>
-                    <value>20</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-
     <animation>
 	<type>light</type>
 	<light-type>point</light-type>
@@ -327,28 +245,6 @@
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
-    </animation>
-
-     <animation>
-        <type>select</type>
-        <object-name>IntLight.CabinIndirect.6</object-name>
-        <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<greater-than>
-		  <property>controls/lighting/cabin-lights-norm</property>
-		  <value>0.05</value>
-		</greater-than>
-		<greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/left</property>
-                    <value>20</value>
-                </greater-than>
-            </and>
-        </condition>
     </animation>
 
     <animation>

@@ -313,4 +313,76 @@
     </action>
   </animation>
 
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.NAV</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.NAV</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.Strobe</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.Strobe</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.WingInsp</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.WingInsp</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
+      </binding>
+    </action>
+  </animation>
+
 </PropertyList>
