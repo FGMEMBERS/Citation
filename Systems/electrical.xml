@@ -297,7 +297,8 @@
   -->
 
   <filter>
-    <type>gain</type>
+    <type>noise-spike</type>
+    <max-rate-of-change>5</max-rate-of-change>
     <input>
       <condition>
 	<equals>
