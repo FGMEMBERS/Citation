@@ -494,6 +494,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
     <electric>
       <avionics-switch type="bool">0</avionics-switch>
       <battery-switch type="bool">0</battery-switch>
+      <battery-bus-switch type="int">0</battery-bus-switch>
       <voltage-sel type="int">0</voltage-sel>
       <system-test type="int">10</system-test>
       <fuel-sel type="int">0</fuel-sel>

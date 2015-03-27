@@ -2559,7 +2559,7 @@ name "fuel.knob"
 loc 0.010233 -0.0666 0.070443
 data 9
 fuel.knob
-texture "cabinLightKnob.png"
+texture "../cabinLightKnob.png"
 texrep 1.000000 1.000000
 crease 39.999999
 numvert 25
@@ -12639,7 +12639,7 @@ name "test.knob"
 loc 0.010233 0.037247 0.064905
 data 9
 test.knob
-texture "cabinLightKnob.png"
+texture "../cabinLightKnob.png"
 texrep 1.000000 1.000000
 crease 39.999999
 numvert 25
@@ -12827,11 +12827,11 @@ refs 3
 0 0.809076011181 0.133840784431
 kids 0
 OBJECT poly
-name "test.knob.001"
+name "volt.knob"
 loc 0.010233 0.074321 0.042506
-data 13
-test.knob.001
-texture "cabinLightKnob.png"
+data 9
+volt.knob
+texture "../cabinLightKnob.png"
 texrep 1.000000 1.000000
 crease 39.999999
 numvert 25

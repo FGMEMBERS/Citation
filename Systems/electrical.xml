@@ -9,7 +9,10 @@
     <type>gain</type>
     <input>
       <condition>
-	<property>controls/electric/battery-switch</property>
+	<greater-than>
+	  <property>controls/electric/battery-bus-switch</property>
+	  <value>0.5</value>
+	</greater-than>
       </condition>
       <property>systems/electrical/outputs/bus/battery-hot</property>
     </input>
@@ -38,7 +41,10 @@
     <input>
       <condition>
 	<and>
-          <property>controls/electric/battery-switch</property>
+	  <greater-than>
+	    <property>controls/electric/battery-bus-switch</property>
+	    <value>0.5</value>
+	  </greater-than>
 	  <property>controls/electric/circuit-breakers/bus-left-1</property>
 	  <property>controls/electric/circuit-breakers/bus-left-2</property>
 	  <property>controls/electric/circuit-breakers/bus-left-3</property>
@@ -74,7 +80,10 @@
     <input>
       <condition>
 	<and>
-          <property>controls/electric/battery-switch</property>
+          <greater-than>
+	    <property>controls/electric/battery-bus-switch</property>
+	    <value>0.5</value>
+	  </greater-than>
 	  <property>controls/electric/circuit-breakers/bus-right-1</property>
 	  <property>controls/electric/circuit-breakers/bus-right-2</property>
 	  <property>controls/electric/circuit-breakers/bus-right-3</property>
@@ -94,7 +103,12 @@
     <type>gain</type>
     <input>
       <condition>
-	<property>controls/electric/battery-switch</property>
+	<not>
+	  <equals>
+	    <property>controls/electric/battery-bus-switch</property>
+	    <value>0</value>
+	  </equals>
+	</not>
 	<property>controls/electric/circuit-breakers/bus-emer[1]</property>
       </condition>
       <property>systems/electrical/outputs/bus/battery-hot</property>
@@ -271,6 +285,95 @@
     </input>
     <output>
       <property>controls/lighting/recog-lights-right</property>
+    </output>
+  </filter>
+
+
+
+<!--
+##########################
+####  Electric panel  ####
+##########################
+  -->
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<equals>
+	  <property>controls/electric/voltage-sel</property>
+	  <value>0</value>
+	</equals>
+      </condition>
+      <property>systems/electrical/outputs/bus/battery</property>
+    </input>
+    <input>
+      <condition>
+	<equals>
+	  <property>controls/electric/voltage-sel</property>
+	  <value>-1</value>
+	</equals>
+      </condition>
+      <property>engines/engine/amp-v</property>
+    </input>
+    <input>
+      <condition>
+	<equals>
+	  <property>controls/electric/voltage-sel</property>
+	  <value>1</value>
+	</equals>
+      </condition>
+      <property>engines/engine[1]/amp-v</property>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/electric/voltage-display</property>
+    </output>
+    <min>7</min>
+    <max>45</max>
+  </filter>
+
+  <!-- simplified to enable manual engine start for the moment -->
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<not>
+	  <equals>
+	    <property>controls/fuel/tank/boost-pump-switch</property>
+	    <value>0</value>
+	  </equals>
+	</not>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/fuel/tank/boost-pump</property>
+    </output>
+  </filter>
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<not>
+	  <equals>
+	    <property>controls/fuel/tank[1]/boost-pump-switch</property>
+	    <value>0</value>
+	  </equals>
+	</not>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/fuel/tank[1]/boost-pump</property>
     </output>
   </filter>
 
