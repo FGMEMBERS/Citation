@@ -161,7 +161,7 @@
     <animation>
         <type>rotate</type>
         <object-name>recog.sw</object-name>
-        <property>controls/lighting/recog-lights</property>
+        <property>controls/lighting/recog-lights-switch</property>
         <factor>30</factor>
         <center>
             <x-m>0.005</x-m>
@@ -178,7 +178,7 @@
     <animation>
         <type>rotate</type>
         <object-name>strobe.sw</object-name>
-        <property>controls/lighting/strobe</property>
+        <property>controls/lighting/strobe-switch</property>
         <factor>30</factor>
         <center>
             <x-m>0.005</x-m>
@@ -195,7 +195,7 @@
     <animation>
         <type>rotate</type>
         <object-name>nav.sw</object-name>
-        <property>controls/lighting/nav-lights</property>
+        <property>controls/lighting/nav-lights-switch</property>
         <factor>30</factor>
         <center>
             <x-m>0.005</x-m>
@@ -441,7 +441,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/lighting/recog-lights</property>
+            <property>controls/lighting/recog-lights-switch</property>
         </binding>
         <binding>
             <command>property-toggle</command>
@@ -458,7 +458,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/lighting/strobe</property>
+            <property>controls/lighting/strobe-switch</property>
         </binding>
         <binding>
             <command>property-toggle</command>
@@ -475,7 +475,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/lighting/nav-lights</property>
+            <property>controls/lighting/nav-lights-switch</property>
         </binding>
         <binding>
             <command>property-toggle</command>

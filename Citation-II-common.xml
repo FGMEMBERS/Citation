@@ -495,14 +495,15 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <avionics-switch type="bool">0</avionics-switch>
       <battery-switch type="bool">0</battery-switch>
       <circuit-breakers>
-	<bus-emer type="bool">1</bus-emer> <!-- has no model, it's located in aft baggage compartment -->
+	<bus-emer type="bool" n="1">1</bus-emer> <!-- has no model, it's located in aft baggage compartment -->
 	<bus-left-1 type="bool">1</bus-left-1>
 	<bus-left-2 type="bool">1</bus-left-2>
 	<bus-left-3 type="bool">1</bus-left-3>
 	<bus-right-1 type="bool">1</bus-right-1>
 	<bus-right-2 type="bool">1</bus-right-2>
 	<bus-right-3 type="bool">1</bus-right-3>
-        <bus-emer>
+        <bus-emer n="0">
+	  <cb-light-emer type="bool">1</cb-light-emer>
 	  <cb-light-panel-el type="bool">1</cb-light-panel-el>
 	  <cb-light-panel-enginstr type="bool">1</cb-light-panel-enginstr>
 	  <cb-light-panel-flood type="bool">1</cb-light-panel-flood>
@@ -511,9 +512,18 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
           <cb-light-panel-left type="bool">1</cb-light-panel-left>
 	  <cb-light-panel-center type="bool">1</cb-light-panel-center>
 	  <cb-light-beacon type="bool">1</cb-light-beacon>
+	  <cb-light-landing-left type="bool">1</cb-light-landing-left> <!-- has no model, it's located in aft baggage compartment -->
+	  <cb-light-strobe type="bool">1</cb-light-strobe>
+	  <cb-light-recog-left type="bool">1</cb-light-recog-left> <!-- has no model, it's located in aft baggage compartment -->
+	  <cb-light-winginsp type="bool">1</cb-light-winginsp>
+	  <cb-light-cabin-ind type="bool">1</cb-light-cabin-ind> <!-- has no model, it's located in aft baggage compartment -->
         </bus-left>
         <bus-right>
 	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
+	  <cb-light-nav type="bool">1</cb-light-nav>
+	  <cb-light-landing-right type="bool">1</cb-light-landing-right> <!-- has no model, it's located in aft baggage compartment -->
+	  <cb-light-recog-right type="bool">1</cb-light-recog-right> <!-- has no model, it's located in aft baggage compartment -->
+	  <cb-light-cabin-read type="bool">1</cb-light-cabin-read> <!-- has no model, it's located elsewhere -->
         </bus-right>
       </circuit-breakers>
     </electric>
@@ -676,19 +686,11 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <desc>Toggle landing lights</desc>
         <binding>
           <command>property-toggle</command>
-          <property>controls/lighting/landing-light</property>
+          <property>controls/lighting/landing-light-switch</property>
         </binding>
         <binding>
           <command>property-toggle</command>
-          <property>controls/lighting/landing-light[1]</property>
-        </binding>
-        <binding>
-          <command>property-toggle</command>
-          <property>sim/rendering/als-secondary-lights/use-landing-light</property>
-        </binding>
-        <binding>
-          <command>property-toggle</command>
-          <property>sim/rendering/als-secondary-lights/use-alt-landing-light</property>
+          <property>controls/lighting/landing-light-switch[1]</property>
         </binding>
       </key>
       <key n="121">

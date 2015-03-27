@@ -6,7 +6,7 @@
     <animation>
         <type>rotate</type>
         <object-name>Beacon.sw</object-name>
-        <property>controls/lighting/beacon</property>
+        <property>controls/lighting/beacon-switch</property>
         <factor>30</factor>
         <center>
             <x-m>0.005</x-m>
@@ -23,7 +23,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LandingLightLeft.sw</object-name>
-        <property>controls/lighting/landing-light</property>
+        <property>controls/lighting/landing-light-switch</property>
         <factor>30</factor>
         <center>
             <x-m>0.005</x-m>
@@ -40,7 +40,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LandingLightRight.sw</object-name>
-        <property>controls/lighting/landing-light[1]</property>
+        <property>controls/lighting/landing-light-switch[1]</property>
         <factor>30</factor>
         <center>
             <x-m>0.005</x-m>
@@ -224,7 +224,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/lighting/beacon</property>
+	    <property>controls/lighting/beacon-switch</property> <!-- handled in Systems/electrical.xml -->
         </binding>
         <binding>
             <command>property-toggle</command>
@@ -241,11 +241,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/lighting/landing-light</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/rendering/als-secondary-lights/use-landing-light</property>
+            <property>controls/lighting/landing-light-switch</property>
         </binding>
         <binding>
             <command>property-toggle</command>
@@ -262,11 +258,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/lighting/landing-light[1]</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/rendering/als-secondary-lights/use-alt-landing-light</property>
+            <property>controls/lighting/landing-light-switch[1]</property>
         </binding>
         <binding>
             <command>property-toggle</command>

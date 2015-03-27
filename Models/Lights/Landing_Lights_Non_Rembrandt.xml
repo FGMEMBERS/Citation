@@ -26,20 +26,13 @@
         <not>
           <property>sim/rendering/rembrandt/enabled</property>
         </not>
-        <greater-than>
-          <property alias="../../../../../landing-light"/>
-          <value>5</value>
-        </greater-than>
+        <property>controls/lighting/landing-light</property>
         <greater-than>
           <property>gear/gear/position-norm</property>
           <value>0.85</value>
         </greater-than>
-        <greater-than>
-          <property alias="../../../../../bus-volts"/>
-          <value>5</value>
-        </greater-than>
       </and>
     </condition>
   </animation>
-  
+
 </PropertyList>

@@ -95,12 +95,182 @@
     <input>
       <condition>
 	<property>controls/electric/battery-switch</property>
-	<property>controls/electric/circuit-breakers/bus-emer</property>
+	<property>controls/electric/circuit-breakers/bus-emer[1]</property>
       </condition>
       <property>systems/electrical/outputs/bus/battery-hot</property>
     </input>
     <output>
       <property>systems/electrical/outputs/bus/emer</property>
+    </output>
+  </filter>
+
+
+
+<!--
+##################
+####  LIGHTS  ####
+##################
+  -->
+
+  <!-- circumvent odd nasal program which controls beacon operation -->
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
+	  <property>controls/lighting/beacon-switch</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/left</property>
+	    <value>20</value>
+	  </greater-than>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/lighting/beacon</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/lighting/landing-light-switch</property>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-landing-left</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/left</property>
+	    <value>20</value>
+	  </greater-than>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/lighting/landing-light</property>
+      <property>sim/rendering/als-secondary-lights/use-landing-light</property>
+    </output>
+  </filter>
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/lighting/landing-light-switch[1]</property>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-light-landing-right</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/right</property>
+	    <value>20</value>
+	  </greater-than>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/lighting/landing-light[1]</property>
+      <property>sim/rendering/als-secondary-lights/use-alt-landing-light</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/lighting/strobe-switch</property>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/left</property>
+	    <value>20</value>
+	  </greater-than>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/lighting/strobe</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/lighting/nav-lights-switch</property>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/right</property>
+	    <value>20</value>
+	  </greater-than>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/lighting/nav-lights</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/lighting/recog-lights-switch</property>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-recog-left</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/left</property>
+	    <value>20</value>
+	  </greater-than>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/lighting/recog-lights-left</property>
+    </output>
+  </filter>
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <property>controls/lighting/recog-lights-switch</property>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-light-recog-right</property>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/right</property>
+	    <value>20</value>
+	  </greater-than>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/lighting/recog-lights-right</property>
     </output>
   </filter>
 

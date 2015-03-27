@@ -7,21 +7,19 @@
      <animation>
         <type>select</type>
         <object-name>sphereStrobeLight.1</object-name>
+        <object-name>sphereStrobeLight.2</object-name>
         <condition>
             <and>
+	      <property>controls/lighting/strobe</property>
 		<property>sim/rendering/rembrandt/enabled</property>
 		<greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>2.0</value>
+                  <property>sim/rendering/shaders/lights</property>
+                  <value>2.0</value>
                 </greater-than>
-                <greater-than>
-                    <property>systems/electrical/outputs/strobe</property>
-                    <value>5</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/left-bus</property>
-                    <value>5</value>
-                </greater-than>
+		<greater-than>
+		  <property>/systems/electrical/outputs/strobe</property>
+		  <value>20</value>
+		</greater-than>
             </and>
         </condition>
     </animation>
@@ -32,9 +30,6 @@
 		<name>StrobeLightLeft.light</name>
 		<object-name>sphereStrobeLight.1</object-name>
 		<nopreview/>
-		<condition>
-		<property>controls/lighting/strobe</property>
-		</condition>
 		<position>
 			<x>7</x>
 			<y>-8</y>
@@ -72,37 +67,12 @@
 		<far-m>50</far-m>
 	</animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>sphereStrobeLight.2</object-name>
-        <condition>
-            <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>2.0</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/outputs/strobe</property>
-                    <value>5</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/right-bus</property>
-                    <value>5</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-
 	<animation>
             <type>light</type>
             <light-type>point</light-type>
             <name>StrobeLightRight.light</name>
             <object-name>sphereStrobeLight.2</object-name>
             <nopreview/>
-            <condition>
-		<property>controls/lighting/strobe</property>
-            </condition>
 		<position>
 			<x>7</x>
 			<y>8</y>
