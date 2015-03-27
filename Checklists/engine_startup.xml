@@ -24,13 +24,13 @@ GNU General Public License for more details.
     <value>ON</value>
     <condition>
       <equals>
-        <property>controls/electric/battery-switch</property>
+        <property>controls/electric/battery-bus-switch</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/electric/battery-switch</property>
+      <property>controls/electric/battery-bus-switch</property>
       <value>1</value>
     </binding>
   </item>
