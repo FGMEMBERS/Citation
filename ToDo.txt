@@ -42,3 +42,4 @@ Shader/Effect			needs FG version
 ===========================================================
 ALS cockpit shadows		3.5
 ALS glass shader		3.5
+ALS landing light		3.2

@@ -18,8 +18,8 @@
                     <value>3.0</value>
                 </greater-than>
 		<greater-than>
-                    <property>systems/electrical/right-bus</property>
-                    <value>5</value>
+                    <property>systems/electrical/outputs/bus/right</property>
+                    <value>20</value>
                 </greater-than>
             </and>
         </condition>
