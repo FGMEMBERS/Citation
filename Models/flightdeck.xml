@@ -751,8 +751,8 @@
     <object-name>Trb1warn</object-name>
     <condition>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>24.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20.0</value>
       </greater-than>
     </condition>
   </animation>
@@ -766,8 +766,8 @@
     <object-name>Trb2warn</object-name>
     <condition>
       <greater-than>
-        <property>systems/electrical/right-bus</property>
-        <value>24.0</value>
+        <property>systems/electrical/outputs/bus/right</property>
+        <value>20.0</value>
       </greater-than>
     </condition>
   </animation>
@@ -1550,10 +1550,6 @@
       </not>
     </condition>
     <object-name>Panel</object-name>
-    <object-name>Fire.ctlr</object-name>
-    <object-name>Rvsr.arm</object-name>
-    <object-name>Rvsr.deploy</object-name>
-    <object-name>Rvsr.unlock</object-name>
     <object-name>GearCtrl</object-name>
     <object-name>Gear.unlocked</object-name>
     <object-name>GearLever</object-name>
@@ -1685,8 +1681,6 @@
     <object-name>CTL-32</object-name>
     <object-name>CTL-32.toggle</object-name>
     <object-name>EngCenterbezel.004</object-name>
-    <object-name>Cylinder.003</object-name>
-    <object-name>Cylinder.004</object-name>
     <object-name>Flap.indicator</object-name>
     <object-name>FlapLever</object-name>
     <object-name>Pbrake.lever</object-name>
