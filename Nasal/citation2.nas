@@ -1,5 +1,7 @@
 aircraft.livery.init("Models/Liveries");
 var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
+var front_baggage_door_left = aircraft.door.new("controls/front-baggage-door-left",2);
+var front_baggage_door_right = aircraft.door.new("controls/front-baggage-door-right",2);
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
 var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
@@ -55,8 +57,8 @@ var JetEngine = {
             # Engine not running.  Decide whether to start it or not.
             me.throttle_lever.setValue(0);
             if(me.starter.getBoolValue() # and it has electricity:
-               and (getprop ("/systems/electrical/left-bus") > 20.0
-                    or getprop ("/systems/electrical/right-bus") > 20.0))
+               and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
+                    or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
             {
                 if(me.cycle_up == 0)me.cycle_up=1;
             }
@@ -94,8 +96,8 @@ var JetEngine = {
         if (turbine > 20
             and me.ignition.getValue ()
             and me.fuel_pump_boost.getValue () # and it has electricity:
-            and (getprop ("/systems/electrical/left-bus") > 20.0
-                 or getprop ("/systems/electrical/right-bus") > 20.0))
+            and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
+                 or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
         {
             var fan = me.fan.getValue ()
                 + getprop ("sim/time/delta-sec") * n1 / scnds;
@@ -217,7 +219,11 @@ controls.flapsDown = func(v) {
 var update_systems = func{
     LHeng.update();
     RHeng.update();
-    if(getprop("velocities/airspeed-kt")>40)cabin_door.close();
+    if(getprop("velocities/airspeed-kt")>40) {
+        cabin_door.close();
+        front_baggage_door_left.close();
+        front_baggage_door_right.close();
+        }
     if(getprop("controls/flight/speedbrake")>0) {
         if(getprop("engines/engine[0]/turbine")>85
         or getprop("engines/engine[1]/turbine")>85) {

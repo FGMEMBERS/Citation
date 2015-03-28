@@ -135,6 +135,22 @@
         </axis>
     </animation>
 
+    <animation>
+      <type>select</type>
+      <object-name>LH.starter.active</object-name>
+      <condition>
+	<property>controls/engines/engine/starter</property>
+      </condition>
+    </animation>
+
+    <animation>
+      <type>select</type>
+      <object-name>RH.starter.active</object-name>
+      <condition>
+	<property>controls/engines/engine[1]/starter</property>
+      </condition>
+    </animation>
+
 <!-- -1 NORM
       0 OFF
       1 ON -->
@@ -510,13 +526,13 @@
        <property>controls/engines/engine[0]/starter</property>
        <value>1</value>
      </binding>
-     <mod-up>
+     <!--mod-up>
        <binding>
          <command>property-assign</command>
          <property>controls/engines/engine[0]/starter</property>
          <value>0</value>
        </binding>
-     </mod-up>
+     </mod-up-->
     </action>
 </animation>
 
@@ -535,14 +551,33 @@
        <property>controls/engines/engine[1]/starter</property>
        <value>1</value>
      </binding>
-     <mod-up>
+     <!--mod-up>
        <binding>
          <command>property-assign</command>
          <property>controls/engines/engine[1]/starter</property>
          <value>0</value>
        </binding>
-     </mod-up>
+     </mod-up-->
     </action>
+</animation>
+
+<animation>
+  <type>pick</type>
+  <object-name>Starter.off</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine/starter</property>
+      <value>0</value>
+    </binding>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine[1]/starter</property>
+      <value>0</value>
+    </binding>
+  </action>
 </animation>
 
 <!-- Lighting -->

@@ -9,8 +9,8 @@
     <condition>
       <property>controls/flight/speedbrake</property>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -23,8 +23,8 @@
         <property>controls/electric/engine[0]/generator</property>
       </not>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -37,8 +37,8 @@
         <property>controls/electric/engine[1]/generator</property>
       </not>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -52,8 +52,8 @@
         <value>15</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -67,8 +67,8 @@
         <value>0</value>
       </greater-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -79,8 +79,8 @@
     <condition>
       <property>controls/fuel/tank[0]/boost-pump</property>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -91,8 +91,8 @@
     <condition>
       <property>controls/fuel/tank[1]/boost-pump</property>
       <greater-than>
-        <property>systems/electrical/right-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/right</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -106,8 +106,8 @@
         <value>10</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -121,8 +121,8 @@
         <value>10</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -136,8 +136,8 @@
         <value>20</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -151,8 +151,8 @@
         <value>20</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -169,8 +169,8 @@
 	<property>controls/fuel/tank[0]/boost-pump</property>
       </not>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -187,8 +187,8 @@
 	<property>controls/fuel/tank[1]/boost-pump</property>
       </not>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -202,8 +202,8 @@
         <value>190</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>
@@ -217,8 +217,8 @@
         <value>190</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/left-bus</property>
-        <value>5.0</value>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>20</value>
       </greater-than>
     </condition>
   </animation>

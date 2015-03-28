@@ -46,10 +46,14 @@
     </input>
     <input>
       <condition>
-	<not>
-	  <property>engines/engine/started</property>
-          <property>engines/engine[1]/started</property>
-	</not>
+	<or>
+	  <not>
+	    <property>engines/engine/started</property>
+	  </not>
+	  <not>
+            <property>engines/engine[1]/started</property>
+	  </not>
+	</or>
       </condition>
       <value>1.0</value>
     </input>
