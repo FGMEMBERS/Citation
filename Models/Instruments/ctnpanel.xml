@@ -8,10 +8,6 @@
     <object-name>spdbrake.on</object-name>
     <condition>
       <property>controls/flight/speedbrake</property>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20</value>
-      </greater-than>
     </condition>
   </animation>
 

@@ -31,6 +31,15 @@ generic:
 * Modelling: MPModel!!! (LoRes)
 * XML/Nasal: Need version check for all shaders and effects for backward compability!
 
+autopilot:
+* XML/Nasal: When "Pitch-Trim" circuit-breaker is pulled
+             (prop:controls/electric/circuit-breakers/bus-left/cb-pitch-trim),
+             the autopilot can no longer control elevator-trim! Manual input on
+             Trim-wheel is always possible, but not for A/P!
+             Manual states: If electric elevator trim is malfunctioning/off the
+             autopilot should no longer be used! Seems like there's no automatic
+             A/P off. It simply should stop having an effect.
+
 
 ##########################################################
 

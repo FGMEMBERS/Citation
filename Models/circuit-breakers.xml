@@ -2,6 +2,15 @@
 <PropertyList>
 
   <path>circuit-breakers.ac</path>
+<!--
+C/B's on the left panel need:
+  <factor>-0.004</factor>
+  <offset-m>0.004</offset-m>
+
+C/B's on the right panel need:
+  <factor>0.004</factor>
+  <offset-m>-0.004</offset-m>
+  -->
 
 <!--
 ########################
@@ -209,6 +218,78 @@
       <binding>
         <command>property-toggle</command>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.SpeedBrake</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.SpeedBrake</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.PitchTrim</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-pitch-trim</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <!--animation>
+    <type>pick</type>
+    <object-name>cb.PitchTrim</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-pitch-trim</property>
+      </binding>
+    </action>
+  </animation-->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.GearCtrl</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.GearCtrl</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
       </binding>
     </action>
   </animation>
