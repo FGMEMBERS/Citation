@@ -207,8 +207,6 @@
     <object-name>LHpedal</object-name>
     <object-name>RHpedal</object-name>
     <object-name>magcompass</object-name>
-    <object-name>CircuitBreaker.Panel</object-name>
-    <object-name>CircuitBreakers</object-name>
     <object-name>gauge2.001</object-name>
     <object-name>Fan01</object-name>
     <object-name>Fan02</object-name>
@@ -1413,7 +1411,7 @@
   <animation>
     <type>rotate</type>
     <object-name>speedBrake.switch</object-name>
-    <property>controls/flight/speedbrake</property>
+    <property>controls/flight/speedbrake-switch</property>
     <offset-deg>0</offset-deg>
     <factor>30</factor>
     <center>
@@ -1434,7 +1432,7 @@
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/flight/speedbrake</property>
+        <property>controls/flight/speedbrake-switch</property>
       </binding>
     </action>
   </animation>
@@ -1773,8 +1771,8 @@
     <object-name>LHpedal</object-name>
     <object-name>RHpedal</object-name>
     <object-name>magcompass</object-name>
-    <object-name>CircuitBreaker.Panel</object-name>
-    <object-name>CircuitBreakers</object-name>
+    <object-name>cbPanel.Left</object-name>
+    <object-name>cbPanel.Right</object-name>
     <emission>
       <red>1</red>
       <green>0.6</green>

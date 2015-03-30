@@ -386,4 +386,32 @@
     </output>
   </filter>
 
+
+
+<!--
+###########################
+####  Flight Controls  ####
+###########################
+  -->
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
+	<greater-than>
+	  <property>systems/electrical/outputs/bus/left</property>
+	  <value>20</value>
+	</greater-than>
+      </condition>
+      <property>controls/flight/speedbrake-switch</property>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>controls/flight/speedbrake</property>
+    </output>
+  </filter>
+
 </PropertyList>
