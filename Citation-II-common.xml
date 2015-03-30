@@ -529,6 +529,9 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
 	  <cb-light-recog-left type="bool">1</cb-light-recog-left> <!-- has no model, it's located in aft baggage compartment -->
 	  <cb-light-winginsp type="bool">1</cb-light-winginsp>
 	  <cb-light-cabin-ind type="bool">1</cb-light-cabin-ind> <!-- has no model, it's located in aft baggage compartment -->
+	  <cb-speedbrakes type="bool">1</cb-speedbrakes>
+	  <cb-pitch-trim type="bool">1</cb-pitch-trim>
+	  <cb-gear-ctl type="bool">1</cb-gear-ctl>
         </bus-left>
         <bus-right>
 	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
