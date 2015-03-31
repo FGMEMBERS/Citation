@@ -37,13 +37,13 @@
     },
 #### flightmeter ####
     fmeter_control : func(){
-	var ias =getprop("velocities/airspeed-kt");
-        if(ias>30){
+	var onground =getprop("gear/gear[1]/wow");
+        if(onground == 1){
 		if(me.ft_running==0){
 			me.ft_running=1;
 			me.fmeter.start();
 		}
-	}elsif(ias<30){
+	}elsif(onground == 0){
 		if(me.ft_running==1){
 			me.ft_running=0;
 			me.fmeter.stop();
@@ -101,22 +101,22 @@
 
 #### set GMT  ####
     set_gmt : func(){
-    
+
     },
 
 #### set LT  ####
     set_lt : func(){
-    
+
     },
 
 #### set FT  ####
     set_ft : func(){
-    
+
     },
 
 #### set ET  ####
     set_et : func(){
-    
+
     },
 
 #### elapsed time  ####
@@ -163,7 +163,7 @@
             pwr=1;
         }
         me.power.setValue(pwr);
-	
+
         if(me.flip==0){
             me.update_ET();
         }else{

@@ -306,7 +306,7 @@
 
   <filter>
     <type>noise-spike</type>
-    <max-rate-of-change>5</max-rate-of-change>
+    <max-rate-of-change>10</max-rate-of-change>
     <input>
       <condition>
 	<equals>
