@@ -66,10 +66,68 @@ C/B's on the right panel need:
     </action>
   </animation>
 
+
+
+
 <!--
-########################
-####   BATTERY BUS  ####
-########################
+###########################
+####  HOT BATTERY BUS  ####
+###########################
+  -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Clock.LH</object-name>
+    <property>controls/electric/circuit-breakers/bus-battery-hot/cb-clock-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <!--animation>
+    <type>pick</type>
+    <object-name>cb.Clock.LH</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-battery-hot/cb-clock-left</property>
+      </binding>
+    </action>
+  </animation-->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Clock.RH</object-name>
+    <property>controls/electric/circuit-breakers/bus-battery-hot/cb-clock-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <!--animation>
+    <type>pick</type>
+    <object-name>cb.Clock.RH</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-battery-hot/cb-clock-right</property>
+      </binding>
+    </action>
+  </animation-->
+
+
+<!--
+#######################
+####  BATTERY BUS  ####
+#######################
   -->
 
 
@@ -224,6 +282,54 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
+    <object-name>cb.Light.Strobe</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.Strobe</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.WingInsp</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.WingInsp</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
     <object-name>cb.SpeedBrake</object-name>
     <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
     <factor>-0.004</factor>
@@ -338,6 +444,54 @@ C/B's on the right panel need:
       <binding>
         <command>property-toggle</command>
         <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ThrustReverser.LH</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <!--animation>
+    <type>pick</type>
+    <object-name>cb.ThrustReverser.LH</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</property>
+      </binding>
+    </action>
+  </animation-->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Start.LH</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Start.LH</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
       </binding>
     </action>
   </animation>
@@ -468,8 +622,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.Strobe</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+    <object-name>cb.ThrustReverser.RH</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
@@ -478,24 +632,24 @@ C/B's on the right panel need:
       <z>0.2</z>
     </axis>
   </animation>
-  <animation>
+  <!--animation>
     <type>pick</type>
-    <object-name>cb.Light.Strobe</object-name>
+    <object-name>cb.ThrustReverser.RH</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+        <property>controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</property>
       </binding>
     </action>
-  </animation>
+  </animation-->
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.WingInsp</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
+    <object-name>cb.Start.RH</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
     <axis>
       <x>0</x>
       <y>1</y>
@@ -504,12 +658,12 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.WingInsp</object-name>
+    <object-name>cb.Start.RH</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
+        <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
       </binding>
     </action>
   </animation>
