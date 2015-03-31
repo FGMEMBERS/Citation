@@ -522,7 +522,7 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/electric/circuit-breakers/cb-light-cabin-ind</property>
+      <property>controls/electric/circuit-breakers/bus-left/cb-light-cabin-ind</property>
       <greater-than>
         <property>controls/lighting/cabin-lights-norm</property>
 	<value>0.05</value>
