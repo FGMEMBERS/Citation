@@ -524,6 +524,9 @@
             <property>sim/sound/click</property>
         </binding>
      <binding>
+       <condition>
+	 <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
+       </condition>
        <command>property-assign</command>
        <property>controls/engines/engine[0]/starter</property>
        <value>1</value>
@@ -549,6 +552,9 @@
             <property>sim/sound/click</property>
         </binding>
      <binding>
+       <condition>
+	 <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
+       </condition>
        <command>property-assign</command>
        <property>controls/engines/engine[1]/starter</property>
        <value>1</value>

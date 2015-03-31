@@ -30,6 +30,10 @@ generic:
 * Texturing: better wood texture!?!
 * Modelling: MPModel!!! (LoRes)
 * XML/Nasal: Need version check for all shaders and effects for backward compability!
+* XML/Nasal: Spool up behaves somewhat strange: when ignition switched off during spool
+             up, it stays at current value until ignition is switched on again. Should
+             spool down instead! While at it, starter-disengage should be hung into
+             that as well!
 
 autopilot:
 * XML/Nasal: When "Pitch-Trim" circuit-breaker is pulled
