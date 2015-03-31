@@ -200,17 +200,18 @@ var Shutdown = func{
 }
 
 controls.gearDown = func(v) {
-    if (v < 0) {
-        if(!getprop("gear/gear[1]/wow"))setprop("/controls/gear/gear-down", 0);
-    } elsif (v > 0) {
-      setprop("/controls/gear/gear-down", 1);
+    if (v < 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
+        if(!getprop("gear/gear[1]/wow")) {
+          setprop("/controls/gear/gear-down", 0);
+        }
+    } elsif (v > 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
+       setprop("/controls/gear/gear-down", 1);
     }
 }
 
 controls.flapsDown = func(v) {
     var flap_pos=getprop("controls/flight/flaps") or 0;
-    flap_power = getprop("systems/electrical/outputs/flaps") or 0;
-    if ( flap_power > 5) {
+    if (getprop("systems/electrical/outputs/bus/left") > 20 and getprop("controls/electric/circuit-breakers/bus-left/cb-flap-ctl") and getprop("controls/electric/circuit-breakers/bus-left/cb-flap-motor")) {
         flap_pos += v*0.125;
     }
     setprop("controls/flight/flaps",flap_pos);
@@ -227,7 +228,7 @@ var update_systems = func{
     if(getprop("controls/flight/speedbrake")>0) {
         if(getprop("engines/engine[0]/turbine")>85
         or getprop("engines/engine[1]/turbine")>85) {
-           setprop("controls/flight/speedbrake", 0);
+           setprop("controls/flight/speedbrake-switch", 0);
         }
     }
 

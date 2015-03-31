@@ -491,6 +491,9 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <magnetos>3</magnetos>
       </engine>
     </engines>
+    <flight>
+      <speedbrake-switch type="bool">0</speedbrake-switch>
+    </flight>
     <electric>
       <avionics-switch type="bool">0</avionics-switch>
       <battery-switch type="bool">0</battery-switch>
@@ -532,6 +535,8 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
 	  <cb-speedbrakes type="bool">1</cb-speedbrakes>
 	  <cb-pitch-trim type="bool">1</cb-pitch-trim>
 	  <cb-gear-ctl type="bool">1</cb-gear-ctl>
+	  <cb-flap-ctl type="bool">1</cb-flap-ctl>
+	  <cb-flap-motor type="bool">1</cb-flap-motor>
         </bus-left>
         <bus-right>
 	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
@@ -729,7 +734,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         </binding>
       </key>
       <key n="4">
-        <name>Ctrl-D</name>
+        <name>Ctrl-d</name>
         <desc>Open/close cabin-door</desc>
         <binding>
           <condition>
@@ -742,12 +747,19 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
           <script>citation.cabin_door.toggle();</script>
         </binding>
       </key>
+      <key n="2">
+	<name>Ctrl-b</name>
+	<binding>
+	  <command>property-toggle</command>
+	  <property>controls/flight/speedbrake-switch</property>
+	</binding>
+      </key>
       <key n="106">
         <name>j</name>
         <desc>Retract spoilers</desc>
         <binding>
           <command>property-assign</command>
-          <property>controls/flight/speedbrake</property>
+          <property>controls/flight/speedbrake-switch</property>
           <value>0</value>
         </binding>
       </key>
@@ -756,7 +768,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <desc>Deploy spoilers</desc>
         <binding>
           <command>property-assign</command>
-          <property>controls/flight/speedbrake</property>
+          <property>controls/flight/speedbrake-switch</property>
           <value>1</value>
         </binding>
       </key>

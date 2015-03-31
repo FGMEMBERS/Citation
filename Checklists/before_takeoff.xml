@@ -24,13 +24,13 @@ GNU General Public License for more details.
     <value>RETRACTED</value>
     <condition>
       <equals>
-        <property>controls/flight/speedbrake</property>
+        <property>controls/flight/speedbrake-switch</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/flight/speedbrake</property>
+      <property>controls/flight/speedbrake-switch</property>
       <value>0</value>
     </binding>
   </item>
