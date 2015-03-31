@@ -294,6 +294,54 @@ C/B's on the right panel need:
     </action>
   </animation>
 
+  <animation>
+    <type>translate</type>
+    <object-name>cb.FlapCtrl</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-flap-ctl</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.FlapCtrl</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-flap-ctl</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.FlapMotor</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.FlapMotor</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
+      </binding>
+    </action>
+  </animation>
+
 <!--
 ########################
 ####    RIGHT BUS   ####
