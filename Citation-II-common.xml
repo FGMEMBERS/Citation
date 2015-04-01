@@ -207,7 +207,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
         <heading-offset-deg type="double">0</heading-offset-deg>
         <x-offset-m archive="y" type="double">0.000</x-offset-m> <!--Right-->
-        <y-offset-m archive="y" type="double">0.800</y-offset-m> <!--Up-->
+        <y-offset-m archive="y" type="double">0.850</y-offset-m> <!--Up-->
         <z-offset-m archive="y" type="double">2.900</z-offset-m> <!--Back-->
         <default-heading-offset-deg>0</default-heading-offset-deg>
         <pitch-offset-deg>-90</pitch-offset-deg>
@@ -694,16 +694,16 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
-    <zkv500>
+    <!--zkv500>
       <file>Nasal/ZKV500.nas</file>
-    </zkv500>
+    </zkv500-->
   </nasal>
 
   <input>
     <keyboard>
       <key n="115">
         <name>s</name>
-        <desc>autostart</desc>
+        <desc>toggle autostart</desc>
         <binding>
           <command>property-toggle</command>
           <property>sim/model/autostart</property>
@@ -733,10 +733,28 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <name>Delete</name>
         <desc>Toggle Reversers</desc>
         <binding>
+	  <condition>
+	    <and>
+	      <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</property>
+	      <greater-than>
+		<property>systems/electrical/outputs/bus/left</property>
+		<value>20</value>
+	      </greater-than>
+	    </and>
+	  </condition>
           <command>property-toggle</command>
           <property>controls/engines/engine[0]/reverser</property>
         </binding>
         <binding>
+	  <condition>
+	    <and>
+	      <property>controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</property>
+	      <greater-than>
+		<property>systems/electrical/outputs/bus/right</property>
+		<value>20</value>
+	      </greater-than>
+	    </and>
+	  </condition>
           <command>property-toggle</command>
           <property>controls/engines/engine[1]/reverser</property>
         </binding>
@@ -757,6 +775,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       </key>
       <key n="2">
 	<name>Ctrl-b</name>
+	<desc>toggle speed brakes</desc>
 	<binding>
 	  <command>property-toggle</command>
 	  <property>controls/flight/speedbrake-switch</property>
@@ -782,6 +801,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       </key>
       <key n="108">
 	<name>l</name>
+	<desc>toggle panel lights</desc>
 	<binding>
           <command>property-toggle</command>
           <property>controls/lighting/panel-lights-switch</property>
@@ -789,6 +809,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       </key>
       <key n="109">
 	<name>m</name>
+	<desc>toggle map lights</desc>
 	<binding>
           <command>property-toggle</command>
           <property>controls/lighting/map-lights</property>
