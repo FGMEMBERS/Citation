@@ -71,7 +71,7 @@ Your ZKV500 is ready to be powered on!
 It comes with "vi-like" multikey system, accessible with ":g" sequence.
 To intall it, just add in the <input> section of your configuration file the
 following line:
-  <keyboard n="0" include="../Instruments-3d/zkv500/multikey.xml"/>
+  <keyboard n="0" include="Aircraft/Instruments-3d/zkv500/multikey.xml"/>
 NOTE: to avoid creation of multiple instances of keyboard node, it is 
 recommanded to explicit n="0" for each call of keyboard tag.
 Now turning knobs is as simple as using up or down arrow!
