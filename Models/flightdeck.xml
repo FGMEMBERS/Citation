@@ -1708,33 +1708,6 @@
     </emission>
   </animation>
 
-  <!-- Panel Lights (only with Rembrandt disabled) (special treatment for ZKV500 GPS unit :P -->
-  <!--animation>
-    <type>material</type>
-    <condition>
-      <not>
-	<property>sim/rendering/rembrandt/enabled</property>
-      </not>
-    </condition>
-    <object-name>body</object-name>
-    <object-name>LCD.display</object-name>
-    <object-name>LED.0_OFF</object-name>
-    <object-name>LED.1_OFF</object-name>
-    <object-name>button.ENTER</object-name>
-    <object-name>button.ESCAPE</object-name>
-    <object-name>button.START</object-name>
-    <object-name>knob.LEFT</object-name>
-    <object-name>knob.MODE</object-name>
-    <object-name>knob.POWER</object-name>
-    <object-name>knob.RIGHT</object-name>
-    <emission>
-      <red>1</red>
-      <green>1</green>
-      <blue>1</blue>
-      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
-    </emission>
-  </animation-->
-
   <animation> <!-- Simulate ambient light from panel lights (center console) -->
    <type>material</type>
     <object-name>APcontrol</object-name>

@@ -9,6 +9,8 @@ panel, and external 3D model.
 
 November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 Copyright (c) 2014 Ludovic Brenta <ludovic@ludovic-brenta.org>
+2015-04-08 chris_blues <chris@musicchris.de>
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
@@ -481,7 +483,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
 
   <controls>
     <gear>
-      <brake-parking>1</brake-parking>
+      <brake-parking type="bool">1</brake-parking>
     </gear>
     <engines>
       <engine n="0">
@@ -694,9 +696,6 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
-    <!--zkv500>
-      <file>Nasal/ZKV500.nas</file>
-    </zkv500-->
   </nasal>
 
   <input>
