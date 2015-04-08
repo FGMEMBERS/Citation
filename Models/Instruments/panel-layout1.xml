@@ -402,14 +402,4 @@
         </offsets>
     </model>
 
-  <!-- GPS -->
-  <!--model>
-    <path>Models/Instruments/zkv500/ZKV500.xml</path>
-    <offsets>
-      <x-m>  0.003 </x-m>
-      <y-m> -0.415 </y-m>
-      <z-m>  0.082 </z-m>
-    </offsets>
-  </model-->
-
 </PropertyList>
