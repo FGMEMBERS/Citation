@@ -3,7 +3,6 @@ MATERIAL "DefaultWhite" rgb 1.0000 1.0000 1.0000  amb 0.2000 0.2000 0.2000  emis
 MATERIAL "interior" rgb 0.8000 0.8000 0.8000  amb 0.8000 0.8000 0.8000  emis 0.0 0.0 0.0  spec 0.0000 0.0000 0.0000  shi 50 trans 0.0000
 MATERIAL "illum" rgb 0.9000 0.9000 0.9000  amb 0.9000 0.9000 0.9000  emis 0.4000 0.4000 0.4000  spec 0.0000 0.0000 0.0000  shi 50 trans 0.0000
 OBJECT world
-name "Blender_export__alt.ac"
 kids 18
 OBJECT poly
 name "ALT"
