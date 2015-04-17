@@ -22,7 +22,6 @@ cabin:
 
 exterior:
 * Modelling: more details for landing gear
-* Modelling: Cargo doors
 * Texturing: plating, rivets & stuff (-> livery)
 * Texturing: animated engine intakes?
 
