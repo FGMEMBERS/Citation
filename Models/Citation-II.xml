@@ -48,6 +48,7 @@
     <object-name>FrLHdoor</object-name>
     <object-name>Front.BaggageDoor.LH</object-name>
     <object-name>Front.BaggageDoor.RH</object-name>
+    <object-name>Aft.BaggageDoor</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>Liveries/Lv1.png</texture>
@@ -105,6 +106,7 @@
     <object-name>FrLHdoor</object-name>
     <object-name>Front.BaggageDoor.LH</object-name>
     <object-name>Front.BaggageDoor.RH</object-name>
+    <object-name>Aft.BaggageDoor</object-name>
   </effect>
 
   <!-- glass -->
@@ -597,6 +599,40 @@
       <x>0.41791</x>
       <y>0.0</y>
       <z>0.08151</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>Aft.BaggageDoor</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/baggage-door-aft/command</property>
+      </binding>
+      <binding>
+        <command>property-interpolate</command>
+	<property>controls/baggage-door-aft/position-norm</property>
+        <property>controls/baggage-door-aft/command</property>
+        <rate>0.75</rate>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Aft.BaggageDoor</object-name>
+    <property>controls/baggage-door-aft/position-norm</property>
+    <factor>100</factor>
+    <center>
+      <x-m>9.91858</x-m>
+      <y-m>-0.60130</y-m>
+      <z-m>0.54612</z-m>
+    </center>
+    <axis>
+      <x>-0.62969</x>
+      <y>-0.08081</y>
+      <z>-0.04237</z>
     </axis>
   </animation>
 
