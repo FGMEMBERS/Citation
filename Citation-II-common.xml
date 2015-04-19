@@ -589,6 +589,10 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <command type="bool">0</command>
       <position-norm type="double">0</position-norm>
     </baggage-door-aft>
+    <seat> <!-- the pilot and copilot seats -->
+      <armrests type="bool">0</armrests>
+      <armrests-pos type="double">0</armrests-pos>
+    </seat>
     <table n="0"/>
     <table n="1"> <!-- between forward seats -->
       <in-position-deg type="double">0</in-position-deg>
