@@ -1459,7 +1459,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Seats.pilots.armrests</object-name>
-    <property>controls/seat/armrests</property>
+    <property>controls/seat/armrests-pos</property>
     <factor>90</factor>
     <center>
       <x-m>3.33069</x-m>
@@ -1475,7 +1475,7 @@
   <animation>
     <type>translate</type>
     <object-name>Seats.pilots.armrests</object-name>
-    <property>controls/seat/armrests</property>
+    <property>controls/seat/armrests-pos</property>
     <factor>0.33374</factor>
     <axis>
       <x>1</x>
@@ -1491,6 +1491,12 @@
       <binding>
         <command>property-toggle</command>
         <property>controls/seat/armrests</property>
+      </binding>
+      <binding>
+        <command>property-interpolate</command>
+        <property>controls/seat/armrests-pos</property>
+        <property>controls/seat/armrests</property>
+        <rate>0.5</rate>
       </binding>
     </action>
   </animation>
