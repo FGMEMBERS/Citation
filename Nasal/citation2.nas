@@ -1,7 +1,8 @@
 aircraft.livery.init("Models/Liveries");
 var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
-var front_baggage_door_left = aircraft.door.new("controls/front-baggage-door-left",2);
-var front_baggage_door_right = aircraft.door.new("controls/front-baggage-door-right",2);
+var baggage_door_front_left = aircraft.door.new("controls/baggage-door-front-left",2);
+var baggage_door_front_right = aircraft.door.new("controls/baggage-door-front-right",2);
+var baggage_door_aft = aircraft.door.new("controls/baggage-door-aft",2);
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
 var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
@@ -220,11 +221,12 @@ controls.flapsDown = func(v) {
 var update_systems = func{
     LHeng.update();
     RHeng.update();
-    if(getprop("velocities/airspeed-kt")>40) {
+    if(getprop("velocities/groundspeed-kt")>10) {
         cabin_door.close();
-        front_baggage_door_left.close();
-        front_baggage_door_right.close();
-        }
+        baggage_door_aft.close();
+        baggage_door_front_left.close();
+        baggage_door_front_right.close();
+    }
     if(getprop("controls/flight/speedbrake")>0) {
         if(getprop("engines/engine[0]/turbine")>85
         or getprop("engines/engine[1]/turbine")>85) {
