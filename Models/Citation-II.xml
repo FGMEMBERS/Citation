@@ -540,14 +540,8 @@
     <action>
       <button>0</button>
       <binding>
-        <command>property-toggle</command>
-        <property>controls/baggage-door-front-left/command</property>
-      </binding>
-      <binding>
-        <command>property-interpolate</command>
-	<property>controls/baggage-door-front-left/position-norm</property>
-        <property>controls/baggage-door-front-left/command</property>
-        <rate>0.75</rate>
+        <command>nasal</command>
+        <script>citation.baggage_door_front_left.toggle();</script>
       </binding>
     </action>
   </animation>
@@ -574,14 +568,8 @@
     <action>
       <button>0</button>
       <binding>
-        <command>property-toggle</command>
-        <property>controls/baggage-door-front-right/command</property>
-      </binding>
-      <binding>
-        <command>property-interpolate</command>
-	<property>controls/baggage-door-front-right/position-norm</property>
-        <property>controls/baggage-door-front-right/command</property>
-        <rate>0.75</rate>
+        <command>nasal</command>
+        <script>citation.baggage_door_front_right.toggle();</script>
       </binding>
     </action>
   </animation>
@@ -608,14 +596,8 @@
     <action>
       <button>0</button>
       <binding>
-        <command>property-toggle</command>
-        <property>controls/baggage-door-aft/command</property>
-      </binding>
-      <binding>
-        <command>property-interpolate</command>
-	<property>controls/baggage-door-aft/position-norm</property>
-        <property>controls/baggage-door-aft/command</property>
-        <rate>0.75</rate>
+        <command>nasal</command>
+        <script>citation.baggage_door_aft.toggle();</script>
       </binding>
     </action>
   </animation>
