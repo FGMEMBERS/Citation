@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Citation-II-splash.png</splash-texture>
     </startup>
 
-    <aircraft-version>2.0.1</aircraft-version>
+    <aircraft-version>3.0</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
@@ -269,6 +269,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <key>
         <name>y</name>
         <desc>Show/Hide Yokes</desc>
+      </key>
+      <key>
+        <name>Shift+C</name>
+        <desc>Toggle auto-coordination</desc>
       </key>
       <key>
         <name>Ctrl-d</name>
@@ -783,6 +787,13 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
 	  <command>property-toggle</command>
 	  <property>controls/flight/speedbrake-switch</property>
 	</binding>
+      </key>
+      <key n="67">
+        <name>C</name>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/flight/auto-coordination</property>
+        </binding>
       </key>
       <key n="106">
         <name>j</name>
