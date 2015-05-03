@@ -3,11 +3,11 @@ MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 
 MATERIAL "polishedWood" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 118 trans 0
 MATERIAL "chrome" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 64 trans 0
 MATERIAL "flatblack" rgb 0 0 0 amb 0 0 0 emis 0 0 0 spec 0 0 0 shi 0 trans 0
-MATERIAL "Leather" rgb 1 1 1 amb 0.317073 0.317073 0.317073 emis 0 0 0 spec 0.5 0.5 0.5 shi 24 trans 0
+MATERIAL "Leather" rgb 1 1 1 amb 0.317073 0.317073 0.317073 emis 0 0 0 spec 0.5 0.5 0.5 shi 64 trans 0
 MATERIAL "metal" rgb 0.7 0.7 0.7 amb 0.7 0.7 0.7 emis 0 0 0 spec 0.901362 0.901362 0.901362 shi 72 trans 0
-MATERIAL "Rubber" rgb 0.010022 0.010022 0.010022 amb 1 1 1 emis 0 0 0 spec 0.083531 0.083531 0.083531 shi 128 trans 0
+MATERIAL "Rubber" rgb 0.010022 0.010022 0.010022 amb 1 1 1 emis 0 0 0 spec 0.083531 0.083531 0.083531 shi 50 trans 0
 MATERIAL "Lights" rgb 1 1 1 amb 1 1 1 emis 1 1 1 spec 1 1 1 shi 0 trans 0
-MATERIAL "interior" rgb 0.8 0.8 0.8 amb 0.8 0.8 0.8 emis 0 0 0 spec 0 0 0 shi 0 trans 0
+MATERIAL "interior" rgb 0.8 0.8 0.8 amb 0.8 0.8 0.8 emis 0 0 0 spec 0 0 0 shi 64 trans 0
 OBJECT world
 kids 42
 OBJECT poly
