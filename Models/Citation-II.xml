@@ -51,7 +51,7 @@
     <object-name>Aft.BaggageDoor</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
-    <texture>Liveries/Lv1.png</texture>
+    <texture>Aircraft/Citation/Liveries/Lv1.png</texture>
   </animation>
 
   <!-- Chrome parts, compatible with Rembrandt -->
@@ -155,7 +155,7 @@
 
   <model>
     <name>cabin</name>
-    <path>Models/cabin.xml</path>
+    <path>Aircraft/Citation/Models/cabin.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -166,7 +166,7 @@
 
   <model>
     <name>flightdeck</name>
-    <path>Models/flightdeck.xml</path>
+    <path>Aircraft/Citation/Models/flightdeck.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -177,7 +177,7 @@
 
   <model>
     <name>Lights</name>
-    <path>Models/Lights/Lights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/Lights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -188,7 +188,7 @@
 
   <!-- contrails copied from the Citation Bravo -->
   <model>
-    <path>Models/Effects/contrail1.xml</path>
+    <path>Aircraft/Citation/Models/Effects/contrail1.xml</path>
     <offsets>
       <x-m>20.0</x-m>
       <y-m>-1.337</y-m>
@@ -199,7 +199,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/Effects/contrail2.xml</path>
+    <path>Aircraft/Citation/Models/Effects/contrail2.xml</path>
     <offsets>
       <x-m>20.0</x-m>
       <y-m>1.337</y-m>
@@ -214,14 +214,14 @@
     <type>range</type>
     <object-name>cabin</object-name>
     <min-m>0</min-m>
-    <max-m>50</max-m>
+    <max-m>200</max-m>
   </animation>
 
   <animation>
     <type>range</type>
     <object-name>flightdeck</object-name>
     <min-m>0</min-m>
-    <max-m>50</max-m>
+    <max-m>200</max-m>
   </animation>
 
   <animation>
@@ -540,6 +540,11 @@
     <action>
       <button>0</button>
       <binding>
+        <condition>
+          <not>
+            <property>sim/current-view/internal</property>
+          </not>
+        </condition>
         <command>nasal</command>
         <script>citation.baggage_door_front_left.toggle();</script>
       </binding>
@@ -568,6 +573,11 @@
     <action>
       <button>0</button>
       <binding>
+        <condition>
+          <not>
+            <property>sim/current-view/internal</property>
+          </not>
+        </condition>
         <command>nasal</command>
         <script>citation.baggage_door_front_right.toggle();</script>
       </binding>
@@ -596,6 +606,11 @@
     <action>
       <button>0</button>
       <binding>
+        <condition>
+          <not>
+            <property>sim/current-view/internal</property>
+          </not>
+        </condition>
         <command>nasal</command>
         <script>citation.baggage_door_aft.toggle();</script>
       </binding>

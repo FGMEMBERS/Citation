@@ -44,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </rating>
 
     <model>
-      <path>Models/Citation-II.xml</path>
+      <path>Aircraft/Citation/Models/Citation-II.xml</path>
       <autostart type="bool">0</autostart>
       <livery>
         <file type="string">blue-grey</file>
