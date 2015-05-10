@@ -8,7 +8,7 @@ include the flight data model, instrument panel, and external 3D model.
 November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 ************************************************************************
 -->
-<PropertyList include="Aircraft/Citation/Citation-II-common.xml">
+<PropertyList include="Citation-II-common.xml">
   <sim>
     <aero>Citation-II-yasim</aero>
     <description>Cessna 550/551 Citation II</description>
