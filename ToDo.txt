@@ -4,6 +4,8 @@ Citation II:
 Still to do:
 ------------
 
+update splash.png to reflect improvements, maybe with *-ready badges?
+
 flightdeck:
 * Modelling: overhead panel
 * Modelling: more details like bags on side-panels, maps, manuals etc
@@ -17,7 +19,7 @@ cabin:
 * Modelling: aft compartment
 * Texturing: contours of interior walls, seats and refreshment-center
              need improvement (under certain light conditions very
-             hazy)
+             hazy) - need blender baked textures!
 * XML/Nasal: make seat levers functional?
 
 exterior:
