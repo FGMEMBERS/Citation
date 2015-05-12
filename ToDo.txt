@@ -43,6 +43,9 @@ autopilot:
              autopilot should no longer be used! Seems like there's no automatic
              A/P off. It simply should stop having an effect.
 
+multiplayer:
+* XML/Nasal: Rudder movements non functional over mp -> needs fix
+             Lights non functional over mp -> needs fix
 
 ##########################################################
 

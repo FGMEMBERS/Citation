@@ -5,7 +5,7 @@
     <model>
         <livery>
             <name type="string">Blue-white</name>
-            <texture>Liveries/Lv2.png</texture>
+            <texture type="string">Liveries/Lv2.png</texture>
             <reflect-map-enabled type="int">0</reflect-map-enabled>
             <reflection-correction type="float">-0.15</reflection-correction>
             <ambient-correction type="float">0.2</ambient-correction>
@@ -16,6 +16,6 @@
             <blue>0.8 </blue>
         </registration>
     </model>
-    <aircraft-operator></aircraft-operator>
+    <aircraft-operator>private</aircraft-operator>
 </sim>
 </PropertyList>
