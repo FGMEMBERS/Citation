@@ -2,7 +2,7 @@
 
 <PropertyList>
 
- <path>Models/Lights/cabinRfrshCntr.ac</path>
+ <path>Models/Lights/cabinRefrCntr.ac</path>
 
      <animation>
         <type>select</type>

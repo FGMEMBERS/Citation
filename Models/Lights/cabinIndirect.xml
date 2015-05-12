@@ -63,13 +63,13 @@
 	</specular>
 	<dim-factor>
 	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>3.3</factor>
+	  <!--factor>3.3</factor-->
 	  <max>1.0</max>
 	</dim-factor>
 	<attenuation>
-		<c>1</c>
-		<l>9</l>
-		<q>40</q>
+		<c>5</c>
+		<l>0.1</l>
+		<q>1</q>
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
@@ -106,13 +106,13 @@
 	</specular>
 	<dim-factor>
 	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>3.3</factor>
+	  <!--factor>3.3</factor-->
 	  <max>1.0</max>
 	</dim-factor>
 	<attenuation>
-		<c>1</c>
-		<l>9</l>
-		<q>40</q>
+		<c>5</c>
+		<l>0.1</l>
+		<q>1</q>
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
@@ -149,13 +149,13 @@
 	</specular>
 	<dim-factor>
 	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>3.3</factor>
+	  <!--factor>3.3</factor-->
 	  <max>1.0</max>
 	</dim-factor>
 	<attenuation>
-		<c>1</c>
-		<l>9</l>
-		<q>40</q>
+		<c>5</c>
+		<l>0.1</l>
+		<q>1</q>
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
@@ -192,13 +192,13 @@
 	</specular>
 	<dim-factor>
 	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>3.3</factor>
+	  <!--factor>3.3</factor-->
 	  <max>1.0</max>
 	</dim-factor>
 	<attenuation>
-		<c>1</c>
-		<l>9</l>
-		<q>40</q>
+		<c>5</c>
+		<l>0.1</l>
+		<q>1</q>
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
@@ -235,13 +235,13 @@
 	</specular>
 	<dim-factor>
 	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>3.3</factor>
+	  <!--factor>3.3</factor-->
 	  <max>1.0</max>
 	</dim-factor>
 	<attenuation>
-		<c>1</c>
-		<l>9</l>
-		<q>40</q>
+		<c>5</c>
+		<l>0.1</l>
+		<q>1</q>
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
@@ -278,13 +278,13 @@
 	</specular>
 	<dim-factor>
 	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>3.3</factor>
+	  <!--factor>3.3</factor-->
 	  <max>1.0</max>
 	</dim-factor>
 	<attenuation>
-		<c>1</c>
-		<l>9</l>
-		<q>40</q>
+		<c>5</c>
+		<l>0.1</l>
+		<q>1</q>
 	</attenuation>
 	<near-m>0.001</near-m>
 	<far-m>1</far-m>
