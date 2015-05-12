@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ************************************************************************
 -->
-<PropertyList include="Aircraft/Citation/Citation-II-common.xml">
+<PropertyList include="Citation-II-common.xml">
   <sim>
     <aero>Sierra-Super-II-yasim</aero>
     <description>Sierra Super II</description>

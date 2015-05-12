@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Citation-II-splash.png</splash-texture>
     </startup>
 
-    <aircraft-version>3.0.1</aircraft-version>
+    <aircraft-version>3.0.3</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
@@ -238,7 +238,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </systems>
 
     <sound>
-      <path>Citation-II-sound.xml</path>
+      <path>Aircraft/Citation/Citation-II-sound.xml</path>
     </sound>
     <hud>
       <enable3d>false</enable3d>
@@ -418,8 +418,9 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <int n="2" alias="/systems/electrical/outputs/nav-lights"/>
         <int n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
         <int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
-        <int n="5" alias="/systems/electrical/outputs/recog-lights"/>
-        <float  alias="/controls/cabin-door/position-norm"/>
+        <int n="5" alias="/controls/lighting/recog-lights-left"/>
+        <int n="6" alias="/controls/lighting/recog-lights-right"/>
+        <float n="0" alias="/controls/cabin-door/position-norm"/>
         <float n="1" alias="/sim/model/registration/red"/>
         <float n="2" alias="/sim/model/registration/green"/>
         <float n="3" alias="/sim/model/registration/blue"/>
