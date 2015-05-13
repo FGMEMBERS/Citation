@@ -2,6 +2,23 @@
 
   <path>asi.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>ASI320</object-name>
+    <object-name>ASI320.face</object-name>
+    <object-name>ASI320.knob</object-name>
+    <object-name>ASI320.needle</object-name>
+    <object-name>ASI320.ovrspeed</object-name>
+    <object-name>index.marker</object-name>
+    <object-name>mach.subdial</object-name>
+  </effect>
+
   <animation>
     <type>rotate</type>
     <object-name>ASI320.needle</object-name>

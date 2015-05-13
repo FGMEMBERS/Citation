@@ -2,6 +2,19 @@
 
 <path>oat.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>OAT</object-name>
+    <object-name>OAT.face</object-name>
+    <object-name>OAT.needle</object-name>
+  </effect>
+
     <animation>
         <type>rotate</type>
         <object-name>OAT.needle</object-name>

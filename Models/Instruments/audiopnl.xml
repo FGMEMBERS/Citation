@@ -1,5 +1,33 @@
 <PropertyList>
 
-<path>audiopnl.ac</path>
+  <path>audiopnl.ac</path>
+
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>AudioPnl</object-name>
+    <object-name>AudioPnl.knob</object-name>
+    <object-name>AudioPnl.knob1</object-name>
+    <object-name>AudioPnl.knob2</object-name>
+    <object-name>toggle</object-name>
+    <object-name>toggle.001</object-name>
+    <object-name>toggle.002</object-name>
+    <object-name>toggle.003</object-name>
+    <object-name>toggle.004</object-name>
+    <object-name>toggle.005</object-name>
+    <object-name>toggle.006</object-name>
+    <object-name>toggle.007</object-name>
+    <object-name>toggle.008</object-name>
+    <object-name>toggle.009</object-name>
+    <object-name>toggle.010</object-name>
+    <object-name>toggle.011</object-name>
+    <object-name>toggle.012</object-name>
+    <object-name>toggle.013</object-name>
+  </effect>
 
 </PropertyList>

@@ -4,7 +4,6 @@ MATERIAL "illum" rgb 0.9000 0.9000 0.9000  amb 0.9000 0.9000 0.9000  emis 0.5000
 MATERIAL "lights" rgb 1.0000 1.0000 1.0000  amb 1.0000 1.0000 1.0000  emis 1.0000 1.0000 1.0000  spec 0.0974 0.0974 0.0974  shi 50 trans 0.0000
 MATERIAL "interior" rgb 0.8000 0.8000 0.8000  amb 0.8000 0.8000 0.8000  emis 0.0 0.0 0.0  spec 0.3200 0.3200 0.3200  shi 50 trans 0.0000
 OBJECT world
-name "World"
 kids 7
 OBJECT poly
 name "DH.bug"

@@ -59,7 +59,7 @@ refs 4
 7 0.00315821613185 0.99728935957
 kids 0
 OBJECT poly
-name "AudoiPnl.knob"
+name "AudioPnl.knob"
 data 12
 Cylinder.032
 crease 60.000000
@@ -308,7 +308,7 @@ refs 4
 31 0 0
 kids 0
 OBJECT poly
-name "AudoiPnl.knob1"
+name "AudioPnl.knob1"
 data 12
 Cylinder.033
 crease 60.000000
@@ -557,7 +557,7 @@ refs 4
 31 0 0
 kids 0
 OBJECT poly
-name "AudoiPnl.knob1.001"
+name "AudioPnl.knob2"
 data 12
 Cylinder.034
 crease 60.000000

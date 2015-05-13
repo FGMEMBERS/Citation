@@ -3,6 +3,31 @@
 
     <path>m877.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>CTL.btn</object-name>
+    <object-name>HR.001</object-name>
+    <object-name>HR.002</object-name>
+    <object-name>M877</object-name>
+    <object-name>M877.002</object-name>
+    <object-name>M877.colon</object-name>
+    <object-name>M877.display</object-name>
+    <object-name>MN.001</object-name>
+    <object-name>MN.002</object-name>
+    <object-name>SEL.btn</object-name>
+    <object-name>SET.btn</object-name>
+    <object-name>et</object-name>
+    <object-name>ft</object-name>
+    <object-name>gmt</object-name>
+    <object-name>lt</object-name>
+  </effect>
+
     <animation>
         <type>select</type>
         <object-name>M877.colon</object-name>

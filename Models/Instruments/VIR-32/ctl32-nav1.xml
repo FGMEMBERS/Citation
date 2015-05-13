@@ -3,7 +3,7 @@
 Active and preset displayed +
 6 frequency memory storage
 2.375"W x 2.625"H
-Freq. range 108.000 - 117.975 (normal) 
+Freq. range 108.000 - 117.975 (normal)
 Strap option 133.00 - 135.95
  05 khz spacing
 Syd Adams
@@ -12,6 +12,42 @@ Syd Adams
 <PropertyList>
 
     <path>ctl32.ac</path>
+
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>CTL-32</object-name>
+    <object-name>CTL-32.pwr</object-name>
+    <object-name>CTL-32.toggle</object-name>
+    <object-name>CTL-32.vol</object-name>
+    <object-name>act.btn</object-name>
+    <object-name>freq.001</object-name>
+    <object-name>freq.002</object-name>
+    <object-name>freq.003</object-name>
+    <object-name>freq.004</object-name>
+    <object-name>freq.005</object-name>
+    <object-name>freq.dec</object-name>
+    <object-name>freq.dwn</object-name>
+    <object-name>freq.knob</object-name>
+    <object-name>freq.up</object-name>
+    <object-name>freq1.knob</object-name>
+    <object-name>mem.annun</object-name>
+    <object-name>stby.001</object-name>
+    <object-name>stby.002</object-name>
+    <object-name>stby.003</object-name>
+    <object-name>stby.dec</object-name>
+    <object-name>stby.004</object-name>
+    <object-name>stby.005</object-name>
+    <object-name>stby.dec</object-name>
+    <object-name>sto.btn</object-name>
+    <object-name>test.btn</object-name>
+    <object-name>xmt.annun</object-name>
+  </effect>
 
     <animation>
         <type>select</type>

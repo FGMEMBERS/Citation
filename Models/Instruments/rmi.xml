@@ -3,6 +3,29 @@
 
   <path>rmi.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>RMI.DoubleArrow.Radio</object-name>
+    <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
+    <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
+    <object-name>RMI.SingleArrow.Radio</object-name>
+    <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
+    <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
+    <object-name>RMI.bezel</object-name>
+    <object-name>RMI.compass</object-name>
+    <object-name>RMI.double_needle</object-name>
+    <object-name>RMI.face</object-name>
+    <object-name>RMI.left_button</object-name>
+    <object-name>RMI.right_button</object-name>
+    <object-name>RMI.single_needle</object-name>
+  </effect>
+
   <animation>
     <type>rotate</type>
     <object-name>RMI.compass</object-name>

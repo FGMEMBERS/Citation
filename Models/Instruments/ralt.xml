@@ -2,6 +2,23 @@
 
 <path>ralt.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>DH.bug</object-name>
+    <object-name>DH.lamp</object-name>
+    <object-name>RALT.face</object-name>
+    <object-name>RALT.flag</object-name>
+    <object-name>RALT.knob</object-name>
+    <object-name>RALT.needle</object-name>
+    <object-name>RALT315</object-name>
+  </effect>
+
 	<animation>
 		<type>select</type>
 		<object-name>DH.lamp</object-name>

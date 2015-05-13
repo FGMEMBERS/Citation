@@ -2,6 +2,43 @@
 
   <path>FDAP.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>AP-FD</object-name>
+    <object-name>AP.alt</object-name>
+    <object-name>AP.alt.lit</object-name>
+    <object-name>AP.altsel</object-name>
+    <object-name>AP.altsel.cap</object-name>
+    <object-name>AP.altsel.hld</object-name>
+    <object-name>AP.apr</object-name>
+    <object-name>AP.apr.lit</object-name>
+    <object-name>AP.bc</object-name>
+    <object-name>AP.bc.lit</object-name>
+    <object-name>AP.fdoff</object-name>
+    <object-name>AP.fdoff.lit</object-name>
+    <object-name>AP.hdg</object-name>
+    <object-name>AP.hdg.lit</object-name>
+    <object-name>AP.ias</object-name>
+    <object-name>AP.ias.cap</object-name>
+    <object-name>AP.ias.hld</object-name>
+    <object-name>AP.knob</object-name>
+    <object-name>AP.nav</object-name>
+    <object-name>AP.nav-hsi</object-name>
+    <object-name>AP.nav.lit</object-name>
+    <object-name>AP.nav1.lit</object-name>
+    <object-name>AP.nav2.lit</object-name>
+    <object-name>AP.vnav</object-name>
+    <object-name>AP.vnav.lit</object-name>
+    <object-name>AP.vs</object-name>
+    <object-name>AP.vs.lit</object-name>
+  </effect>
+
   <animation>
     <type>select</type>
     <object-name>AP.fdoff.lit</object-name>
