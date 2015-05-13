@@ -2,6 +2,21 @@
 
 <path>markers.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>Imrkr</object-name>
+    <object-name>Marker.pnl</object-name>
+    <object-name>Mmrkr</object-name>
+    <object-name>Mrkr.off</object-name>
+    <object-name>Omrkr</object-name>
+  </effect>
+
     <animation>
         <type>select</type>
         <object-name>Omrkr</object-name>

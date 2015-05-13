@@ -2,6 +2,22 @@
 
 <path>vor-ind.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>VOR</object-name>
+    <object-name>VOR.face</object-name>
+    <object-name>VOR.off</object-name>
+    <object-name>VOR.to-flag</object-name>
+    <object-name>gs.needle</object-name>
+    <object-name>vor.needle</object-name>
+  </effect>
+
     <animation>
         <type>select</type>
         <object-name>VOR.to-flag</object-name>

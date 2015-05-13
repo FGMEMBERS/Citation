@@ -7,6 +7,20 @@ Citation magnetic compass
 
 <path>magcompass.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>compassrose</object-name>
+    <object-name>magcompass</object-name>
+    <object-name>magcompass.002</object-name>
+    <object-name>magcompass.sight</object-name>
+  </effect>
+
     <animation>
         <type>rotate</type>
         <object-name>compassrose</object-name>
