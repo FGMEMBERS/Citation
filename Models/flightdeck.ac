@@ -13271,7 +13271,7 @@ refs 3
 2 0.763846993446 0.624316990376
 kids 0
 OBJECT poly
-name "Fire.ctlr"
+name "Fire.ctrl"
 loc 0 0 -0
 data 9
 Fire.ctlr

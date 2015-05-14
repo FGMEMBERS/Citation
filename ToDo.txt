@@ -10,10 +10,8 @@ flightdeck:
 * Modelling: overhead panel
 * Modelling: more details like bags on side-panels, maps, manuals etc
              (a manual like on 707?)
-* Modelling: pilots seats need some work
 * XML/Nasal: circuit breakers go into:
              (prop:controls/electric/circuit-breakers/bus-[emer|left|right]/cb-*)
-* XML:       Bring Rembrandt light volumes and animations up to specs
 
 cabin:
 * Modelling: aft compartment
@@ -24,7 +22,7 @@ cabin:
 
 exterior:
 * Modelling: more details for landing gear
-* Texturing: plating, rivets & stuff (-> livery)
+* Texturing: plating, rivets & stuff (-> livery? normalmap?)
 * Texturing: animated engine intakes?
 
 generic:

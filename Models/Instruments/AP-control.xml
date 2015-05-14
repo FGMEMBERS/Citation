@@ -6,6 +6,25 @@ Autopilot Controller
 <PropertyList>
   <path>AP-control.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>AP-on</object-name>
+    <object-name>APcontrol</object-name>
+    <object-name>AP-on.btn</object-name>
+    <object-name>Low-on</object-name>
+    <object-name>Lowbank.btn</object-name>
+    <object-name>Pitch.wheel</object-name>
+    <object-name>Roll.trim</object-name>
+    <object-name>YD-on</object-name>
+    <object-name>YD-on.btn</object-name>
+  </effect>
+
   <animation>
     <type>select</type>
     <object-name>AP-on</object-name>

@@ -1,28 +1,41 @@
 <?xml version="1.0"?>
 <PropertyList>
 
-    <path>vsi.ac</path>
+  <path>vsi.ac</path>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>VSI.needle</object-name>
-        <property>autopilot/internal/vert-speed-fpm</property>
-        <interpolation>
-            <entry><ind>-6000.0</ind><dep>-170.0</dep></entry>
-            <entry><ind>-2000.0</ind><dep>-90.0</dep></entry>
-            <entry><ind>-1000.0</ind><dep>-55.0</dep></entry>
-            <entry><ind>-500.0</ind><dep>-27.5</dep></entry>
-            <entry><ind>0.0</ind><dep>0.0</dep></entry>
-            <entry><ind>500.0</ind><dep>27.5</dep></entry>
-            <entry><ind>1000.0</ind><dep>55.0</dep></entry>
-            <entry><ind>2000.0</ind><dep>90.0</dep></entry>
-            <entry><ind>6000.0</ind><dep>170.0</dep></entry>
-        </interpolation>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>-0</z>
-        </axis>
-    </animation>
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>ASI320</object-name>
+    <object-name>VSI.face</object-name>
+    <object-name>VSI.needle</object-name>
+  </effect>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>VSI.needle</object-name>
+    <property>autopilot/internal/vert-speed-fpm</property>
+    <interpolation>
+      <entry><ind>-6000.0</ind><dep>-170.0</dep></entry>
+      <entry><ind>-2000.0</ind><dep>-90.0</dep></entry>
+      <entry><ind>-1000.0</ind><dep>-55.0</dep></entry>
+      <entry><ind>-500.0</ind><dep>-27.5</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>500.0</ind><dep>27.5</dep></entry>
+      <entry><ind>1000.0</ind><dep>55.0</dep></entry>
+      <entry><ind>2000.0</ind><dep>90.0</dep></entry>
+      <entry><ind>6000.0</ind><dep>170.0</dep></entry>
+    </interpolation>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>-0</z>
+    </axis>
+  </animation>
 
 </PropertyList>

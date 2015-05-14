@@ -3,6 +3,55 @@
 
 <path>elpanel.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>LH.ign.active</object-name>
+    <object-name>LH.starter</object-name>
+    <object-name>LH.starter.active</object-name>
+    <object-name>RH.ign.active</object-name>
+    <object-name>RH.starter</object-name>
+    <object-name>RH.starter.active</object-name>
+    <object-name>Starter.off</object-name>
+    <object-name>avn.sw</object-name>
+    <object-name>batt.sw</object-name>
+    <object-name>dcvolts</object-name>
+    <object-name>electric.panel</object-name>
+    <object-name>fuel.knob</object-name>
+    <object-name>inv.sw</object-name>
+    <object-name>lAmps.needle</object-name>
+    <object-name>lboost.sw</object-name>
+    <object-name>ldcamps</object-name>
+    <object-name>lgen.sw</object-name>
+    <object-name>lign.sw</object-name>
+    <object-name>lign.sw.001</object-name>
+    <object-name>lign.sw.002</object-name>
+    <object-name>lign.sw.003</object-name>
+    <object-name>nav.sw</object-name>
+    <object-name>rAmps.needle</object-name>
+    <object-name>rboost.sw</object-name>
+    <object-name>rdcamps</object-name>
+    <object-name>recog.sw</object-name>
+    <object-name>rgen.sw</object-name>
+    <object-name>rign.sw</object-name>
+    <object-name>rign.sw.001</object-name>
+    <object-name>rign.sw.002</object-name>
+    <object-name>rign.sw.003</object-name>
+    <object-name>rign.sw.004</object-name>
+    <object-name>rign.sw.005</object-name>
+    <object-name>rign.sw.006</object-name>
+    <object-name>strobe.sw</object-name>
+    <object-name>test.knob</object-name>
+    <object-name>volt.knob</object-name>
+    <object-name>volts.needle</object-name>
+    <object-name>wing.sw</object-name>
+  </effect>
+
 <!-- -1 BATT
       0 OFF
       1 EMER -->

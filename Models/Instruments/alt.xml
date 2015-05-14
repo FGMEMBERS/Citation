@@ -2,6 +2,34 @@
 
   <path>alt.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>ALT</object-name>
+    <object-name>ALT.face</object-name>
+    <object-name>ALT.knob</object-name>
+    <object-name>ALT.needle</object-name>
+    <object-name>ALTneg</object-name>
+    <object-name>Alt10</object-name>
+    <object-name>Alt100</object-name>
+    <object-name>Alt1000</object-name>
+    <object-name>Alt10000</object-name>
+    <object-name>Cylinder</object-name>
+    <object-name>inhg01</object-name>
+    <object-name>inhg02</object-name>
+    <object-name>inhg03</object-name>
+    <object-name>inhg04</object-name>
+    <object-name>kpa01</object-name>
+    <object-name>kpa02</object-name>
+    <object-name>kpa03</object-name>
+    <object-name>kpa04</object-name>
+  </effect>
+
   <animation>
     <type>select</type>
     <object-name>ALTneg</object-name>

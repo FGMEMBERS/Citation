@@ -3,6 +3,28 @@
 
 <path>lightingpanel.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>Beacon.sw</object-name>
+    <object-name>CenterPanelLight.knob</object-name>
+    <object-name>EL.knob</object-name>
+    <object-name>FloodLight.knob</object-name>
+    <object-name>LandingLightLeft.sw</object-name>
+    <object-name>LandingLightRight.sw</object-name>
+    <object-name>LeftPanelLight.knob</object-name>
+    <object-name>PanelLight.sw</object-name>
+    <object-name>PassSafetySeatBelt.sw</object-name>
+    <object-name>RightPanelLight.knob</object-name>
+    <object-name>StdbyGyroTest.sw</object-name>
+    <object-name>lighting.panel</object-name>
+  </effect>
+
     <animation>
         <type>rotate</type>
         <object-name>Beacon.sw</object-name>

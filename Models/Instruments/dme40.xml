@@ -2,6 +2,33 @@
 
   <path>dme40.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>DME</object-name>
+    <object-name>DME.display</object-name>
+    <object-name>DME.invalid</object-name>
+    <object-name>DME40.dim</object-name>
+    <object-name>DME40.knob1</object-name>
+    <object-name>DME40.knob2</object-name>
+    <object-name>DME40.test</object-name>
+    <object-name>NM.1</object-name>
+    <object-name>NM1</object-name>
+    <object-name>NM10</object-name>
+    <object-name>NM100</object-name>
+    <object-name>kt1</object-name>
+    <object-name>kt10</object-name>
+    <object-name>kt100</object-name>
+    <object-name>min1</object-name>
+    <object-name>min10</object-name>
+    <object-name>min100</object-name>
+  </effect>
+
   <animation>
     <type>select</type>
     <object-name>DME.invalid</object-name>

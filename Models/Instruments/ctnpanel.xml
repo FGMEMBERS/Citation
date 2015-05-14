@@ -3,6 +3,32 @@
 
   <path>ctnpanel.ac</path>
 
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>ACfail.on</object-name>
+    <object-name>Ctn.panel</object-name>
+    <object-name>Lfuel.lo</object-name>
+    <object-name>Lgen.off</object-name>
+    <object-name>Rfuel.lo</object-name>
+    <object-name>Rgen.off</object-name>
+    <object-name>door.ajar</object-name>
+    <object-name>lFpsi.on</object-name>
+    <object-name>lHpsi.on</object-name>
+    <object-name>lOpsi.on</object-name>
+    <object-name>lboost.on</object-name>
+    <object-name>rFpsi.on</object-name>
+    <object-name>rHpsi.on</object-name>
+    <object-name>rOpsi.on</object-name>
+    <object-name>rboost.on</object-name>
+    <object-name>spdbrake.on</object-name>
+  </effect>
+
   <animation>
     <type>select</type>
     <object-name>spdbrake.on</object-name>

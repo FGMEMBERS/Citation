@@ -3,7 +3,7 @@
 Active and preset displayed +
 4 frequency memory storage
 2.375"W x 2.625"H
-Freq. range 190.0 - 1800.0 (normal) 
+Freq. range 190.0 - 1800.0 (normal)
 Strap option 2179.0 - 2185.0
  500 khz spacing
 Syd Adams
@@ -12,6 +12,39 @@ Syd Adams
 <PropertyList>
 
     <path>ctl62.ac</path>
+
+  <effect>
+    <condition>
+      <greater-than>
+	<property>sim/version/flightgear</property>
+	<value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <object-name>ADFfreq.001</object-name>
+    <object-name>ADFfreq.002</object-name>
+    <object-name>ADFfreq.003</object-name>
+    <object-name>ADFfreq.004</object-name>
+    <object-name>ADFfreq.005</object-name>
+    <object-name>ADFstby.001</object-name>
+    <object-name>ADFstby.002</object-name>
+    <object-name>ADFstby.003</object-name>
+    <object-name>ADFstby.004</object-name>
+    <object-name>ADFstby.005</object-name>
+    <object-name>C62act.btn</object-name>
+    <object-name>C62sto.btn</object-name>
+    <object-name>C62test.btn</object-name>
+    <object-name>CTL-62</object-name>
+    <object-name>CTL-62.freq</object-name>
+    <object-name>CTL-62.freq1</object-name>
+    <object-name>CTL-62.pwr</object-name>
+    <object-name>CTL-62.toggle</object-name>
+    <object-name>CTL-62.vol</object-name>
+    <object-name>freq.dec</object-name>
+    <object-name>mem.annun</object-name>
+    <object-name>stby.dec</object-name>
+    <object-name>xmt.annun</object-name>
+  </effect>
 
     <animation>
         <type>select</type>
