@@ -7,8 +7,8 @@
     <input>
       <expression>
         <div>
-          <property>engines/engine/itt-norm</property>
-          <value>10</value>
+          <property>engines/engine/fan</property>
+          <value>1000</value>
         </div>
       </expression>
     </input>
@@ -19,8 +19,8 @@
     <input>
       <expression>
         <div>
-          <property>engines/engine[1]/itt-norm</property>
-          <value>10</value>
+          <property>engines/engine[1]/fan</property>
+          <value>1000</value>
         </div>
       </expression>
     </input>
