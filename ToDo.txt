@@ -55,6 +55,7 @@ Shader / Effects incompabilities:
 
 Shader/Effect			needs FG version
 ===========================================================
+ALS flame/heat blur effect	3.5
 ALS cockpit shadows		3.5
 ALS glass shader		3.5
 ALS landing light		3.2
