@@ -12,7 +12,7 @@
     </animation>
 
     <effect>
-      <inherits-from>Aircraft/Citation/Models/Effects/ssme-flamer</inherits-from>
+      <inherits-from>Aircraft/Citation/Models/Effects/thrust-flamer</inherits-from>
       <object-name>Bounding_box</object-name>
     </effect>
 

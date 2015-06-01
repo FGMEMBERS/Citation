@@ -30,12 +30,46 @@
   <filter>
     <type>gain</type>
     <input>
+      <property>velocities/airspeed-kt</property>
+      <min>0</min>
+      <max>100</max>
+    </input>
+    <output>engines/engine/heatblur/airspeed-kt</output>
+    <output>engines/engine[1]/heatblur/airspeed-kt</output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<greater-than>
+	  <property>engines/engine/fan</property>
+	  <property>engines/engine/heatblur/airspeed-kt</property>
+	</greater-than>
+      </condition>
       <expression>
         <difference>
           <value>0.5</value>
           <div>
             <property>engines/engine/fan</property>
-            <value>400</value>
+            <value>500</value>
+          </div>
+        </difference>
+      </expression>
+    </input>
+    <input>
+      <condition>
+	<greater-than>
+	  <property>engines/engine/heatblur/airspeed-kt</property>
+	  <property>engines/engine/fan</property>
+	</greater-than>
+      </condition>
+      <expression>
+        <difference>
+          <value>0.5</value>
+          <div>
+            <property>engines/engine/heatblur/airspeed-kt</property>
+            <value>500</value>
           </div>
         </difference>
       </expression>
@@ -45,12 +79,35 @@
   <filter>
     <type>gain</type>
     <input>
+      <condition>
+	<greater-than>
+	  <property>engines/engine[1]/fan</property>
+	  <property>engines/engine[1]/heatblur/airspeed-kt</property>
+	</greater-than>
+      </condition>
       <expression>
         <difference>
           <value>0.5</value>
           <div>
             <property>engines/engine[1]/fan</property>
-            <value>400</value>
+            <value>500</value>
+          </div>
+        </difference>
+      </expression>
+    </input>
+    <input>
+      <condition>
+	<greater-than>
+	  <property>engines/engine[1]/heatblur/airspeed-kt</property>
+	  <property>engines/engine[1]/fan</property>
+	</greater-than>
+      </condition>
+      <expression>
+        <difference>
+          <value>0.5</value>
+          <div>
+            <property>engines/engine[1]/heatblur/airspeed-kt</property>
+            <value>500</value>
           </div>
         </difference>
       </expression>
@@ -83,7 +140,7 @@
           <value>1</value>
           <div>
             <property>engines/engine/fan</property>
-            <value>166.6666</value>
+            <value>166.66666666</value>
           </div>
         </difference>
       </expression>
@@ -98,7 +155,7 @@
           <value>1</value>
           <div>
             <property>engines/engine[1]/fan</property>
-            <value>166.6666</value>
+            <value>166.66666666</value>
           </div>
         </difference>
       </expression>
