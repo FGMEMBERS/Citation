@@ -24,6 +24,8 @@ exterior:
 * Modelling: more details for landing gear
 * Texturing: plating, rivets & stuff (-> livery? normalmap?)
 * Texturing: animated engine intakes?
+* Effects:   Thrust/Flame effect doesn't work properly, when engines cut off in flight
+             the thrust flame doesn't disappear. It illudes me why.
 
 generic:
 * Texturing: better wood texture!?!
