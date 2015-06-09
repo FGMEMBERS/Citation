@@ -153,8 +153,9 @@
     <object-name>Glass.inside</object-name>
   </effect>
 
-
-  <model>
+  <!-- ALS Thrust/Flame Effect -->
+  <!-- Disabled, because I have no time to finish its refinement before 3.6 freeze -->
+  <!--<model>
     <name>flamer</name>
     <path>Aircraft/Citation/Models/Effects/flamel.xml</path>
     <offsets>
@@ -173,7 +174,7 @@
       <z-m>0.8</z-m>
       <pitch-deg>0</pitch-deg>
     </offsets>
-  </model>
+  </model>-->
 
   <model>
     <name>cabin</name>
