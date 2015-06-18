@@ -31,7 +31,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
     <startup>
-      <splash-texture>Citation-II-splash.png</splash-texture>
+      <splash-texture>Citation-II-splash-01.png</splash-texture>
+      <splash-texture>Citation-II-splash-02.png</splash-texture>
+      <splash-texture>Citation-II-splash-03.png</splash-texture>
+      <splash-texture>Citation-II-splash-04.png</splash-texture>
     </startup>
 
     <aircraft-version>3.0.6</aircraft-version>
