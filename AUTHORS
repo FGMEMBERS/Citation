@@ -1,15 +1,18 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
 Files: *
-Copyright: Copyright: 2004, Curtis L. Olson  http://www.flightgear.org/~curt,
- 2014-2015, Ludovic Brenta <ludovic@ludovic-brenta.org>,
- 2014-2015, chris_blues <chris@musicchris.de>
+Copyright: 2004, Curtis L. Olson  http://www.flightgear.org/~curt,
+           2014-2015, Ludovic Brenta <ludovic@ludovic-brenta.org>,
+           2014-2015, chris_blues <chris@musicchris.de>
 License: GPL-2+
 
 Files: Models/carpet*.png, Models/seats.png, Models/leather*.png
-Copyright: Emmanuel PUYBARET / eTeks <info@eteks.com> and Scopia Visual Interfaces Systems, s.l. (http://www.scopia.es)
+Copyright: 2015, Emmanuel PUYBARET / eTeks <info@eteks.com>
+           2015, Scopia Visual Interfaces Systems, s.l. (http://www.scopia.es)
 Comment: Small adjustments to color were made on all these files. chris_blues <chris@musicchris.de>
-License: CC-BY 4.0
+License: CC-BY-4.0
+
+License: CC-BY-4.0
  Creative Commons Attribution 4.0 International Public License
 
  By exercising the Licensed Rights (defined below), You accept and agree
