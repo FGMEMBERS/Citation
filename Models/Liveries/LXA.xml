@@ -11,6 +11,6 @@
             <ambient-correction type="float">0.1</ambient-correction>
         </livery>
     </model>
-    <aircraft-operator>Luxaviation</aircraft-operator>
+    <aircraft-operator>LXA</aircraft-operator>
 </sim>
 </PropertyList>
