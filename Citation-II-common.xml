@@ -70,7 +70,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <!-- <aircraft-class> can be: ga (general aviation), cargo (cargo), gate (commercial passenger traffic), mil-fighter (military fighter), mil-cargo (military transport)
          see: http://wiki.flightgear.org/Interactive_traffic#A_technical_perspective -->
     <aircraft-class type="string">ga</aircraft-class>
-    <aircraft-operator></aircraft-operator>
+    <aircraft-operator type="string"></aircraft-operator>
 
     <tags> <!-- See: http://wiki.flightgear.org/Catalog_metadata#Supported_Tags -->
       <tag>jet</tag>

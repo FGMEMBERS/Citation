@@ -17,5 +17,6 @@
         </registration>
     </model>
     <aircraft-operator>private</aircraft-operator>
+    <aircraft-class>ga</aircraft-class>
 </sim>
 </PropertyList>

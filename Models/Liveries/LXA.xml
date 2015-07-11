@@ -12,5 +12,6 @@
         </livery>
     </model>
     <aircraft-operator>LXA</aircraft-operator>
+    <aircraft-class>ga</aircraft-class>
 </sim>
 </PropertyList>
