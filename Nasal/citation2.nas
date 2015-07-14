@@ -176,8 +176,8 @@ var Startup = func{
     setprop("controls/lighting/strobe",1);
     setprop("controls/engines/engine[0]/ignition",1);
     setprop("controls/engines/engine[1]/ignition",1);
-    setprop("controls/fuel/tank[0]/boost-pump",1);
-    setprop("controls/fuel/tank[1]/boost-pump",1);
+    setprop("controls/fuel/tank[0]/boost-pump-switch",1);
+    setprop("controls/fuel/tank[1]/boost-pump-switch",1);
     setprop("controls/engines/engine[0]/starter",1);
     setprop("controls/engines/engine[1]/starter",1);
     setprop("controls/engines/throttle_idle",1);
@@ -194,8 +194,8 @@ var Shutdown = func{
     setprop("controls/lighting/strobe",0);
     setprop("controls/engines/engine[0]/ignition",0);
     setprop("controls/engines/engine[1]/ignition",0);
-    setprop("controls/fuel/tank[0]/boost-pump",0);
-    setprop("controls/fuel/tank[1]/boost-pump",0);
+    setprop("controls/fuel/tank[0]/boost-pump-switch",0);
+    setprop("controls/fuel/tank[1]/boost-pump-switch",0);
     setprop("engines/engine[0]/running",0);
     setprop("engines/engine[1]/running",0);
 }
