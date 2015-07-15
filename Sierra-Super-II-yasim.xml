@@ -107,8 +107,7 @@
   <tank x="-7.18" y="-1.5" z="0.0" capacity="2493.12" jet="true"/>
   <tank x="-7.18" y="0" z="0" capacity="0"/>
   
-  <gear x="-1.760" y="0.00" z="-0.976" compression=".4" retract-time="7"
-        sfric="0.8" dfric="0.7">
+  <gear x="-1.760" y="0.00" z="-0.976" compression=".4" retract-time="7" sfric="0.99">
     <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-speed control="EXTEND" transition-time="7"/>
@@ -139,15 +138,13 @@
   -->
   <jet x="-9.19" y="1.37"  z="0.76" mass="535" thrust="2963.39" tsfc="0.470" egt="973.15"
        n1-idle="45" n1-max="107" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
-    <control-input axis="/controls/engines/engine[0]/throttle-lever" control="THROTTLE"
-                   src0="0.2" dst0="0" src1="1" dst1="1"/>
+    <control-input axis="/controls/engines/engine[0]/throttle-lever" control="THROTTLE"/>
     <actionpt x="-10.5" y="1.37" z="0.76"/>
   </jet>
 
   <jet x="-9.19" y="-1.37"  z="0.76" mass="535" thrust="2963.39" tsfc="0.470" egt="973.15"
        n1-idle="45" n1-max="107" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
-    <control-input axis="/controls/engines/engine[1]/throttle-lever" control="THROTTLE"
-                   src0="0.2" dst0="0" src1="1" dst1="1"/>
+    <control-input axis="/controls/engines/engine[1]/throttle-lever" control="THROTTLE"/>
     <actionpt x="-10.5" y="-1.37" z="0.76"/>
   </jet>
 
