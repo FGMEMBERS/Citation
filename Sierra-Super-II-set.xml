@@ -70,6 +70,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	Gegensatz zu 1780 N bei den alten Triebwerken.
       </long-description>
     </de>
+    <variant-of>Citation-II</variant-of>
   </sim>
   <autopilot>
     <limits>
