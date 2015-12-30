@@ -153,42 +153,6 @@
     <object-name>Glass.inside</object-name>
   </effect>
 
-  <!-- NormalMap Effect -->
-  <!--effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/citation_normalmap</inherits-from>
-    <object-name>LEngine</object-name>
-    <object-name>REngine</object-name>
-    <object-name>LHwing</object-name>
-    <object-name>LHwing.guard.001</object-name>
-    <object-name>RH.uSpdBrk</object-name>
-    <object-name>LH.uSpdBrk</object-name>
-    <object-name>RH.lSpdBrk</object-name>
-    <object-name>LH.lSpdBrk</object-name>
-    <object-name>LHaileron</object-name>
-    <object-name>LHflap</object-name>
-    <object-name>LHmain.door</object-name>
-    <object-name>RHwing</object-name>
-    <object-name>RHwing.guard.001</object-name>
-    <object-name>RHaileron</object-name>
-    <object-name>RHflap</object-name>
-    <object-name>RHmain.door</object-name>
-    <object-name>Cabin.door</object-name>
-    <object-name>Fuselage</object-name>
-    <object-name>Pylons</object-name>
-    <object-name>Fin</object-name>
-    <object-name>UprReverser</object-name>
-    <object-name>Hstab</object-name>
-    <object-name>RHelevator</object-name>
-    <object-name>LHelevator</object-name>
-    <object-name>Rudder</object-name>
-    <object-name>FrDoor</object-name>
-    <object-name>FrRHdoor</object-name>
-    <object-name>FrLHdoor</object-name>
-    <object-name>Front.BaggageDoor.LH</object-name>
-    <object-name>Front.BaggageDoor.RH</object-name>
-    <object-name>Aft.BaggageDoor</object-name>
-  </effect-->
-
   <!-- ALS Thrust/Flame Effect - in this case more like exhaust effect :o) -->
   <model>
     <name>flamer</name>
@@ -289,8 +253,8 @@
     <object-name>beacon</object-name>
     <object-name>beacon.001</object-name>
     <object-name>beacon.002</object-name>
-    <property>controls/flight/rudder</property>
-    <factor>-15</factor>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>15</factor>
     <axis>
       <x1-m>13.901</x1-m>
       <y1-m>0</y1-m>
@@ -428,7 +392,7 @@
     <type>rotate</type>
     <object-name>RH.Ureverser</object-name>
     <object-name>LH.Ureverser</object-name>
-    <property>surface-positions/reverser-norm</property>
+    <property>sim/multiplay/generic/float[4]</property>
     <factor>60</factor>
     <center>
       <x-m>10.251</x-m>
@@ -446,7 +410,7 @@
     <type>rotate</type>
     <object-name>RH.Lreverser</object-name>
     <object-name>LH.Lreverser</object-name>
-    <property>surface-positions/reverser-norm</property>
+    <property>sim/multiplay/generic/float[5]</property>
     <factor>60</factor>
     <center>
       <x-m>10.251</x-m>
@@ -611,7 +575,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Front.BaggageDoor.LH</object-name>
-    <property>controls/baggage-door-front-left/position-norm</property>
+    <property>sim/multiplay/generic/float[6]</property>
     <factor>-90</factor>
     <center>
       <x-m>1.50592</x-m>
@@ -644,7 +608,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Front.BaggageDoor.RH</object-name>
-    <property>controls/baggage-door-front-right/position-norm</property>
+    <property>sim/multiplay/generic/float[7]</property>
     <factor>90</factor>
     <center>
       <x-m>1.50592</x-m>
@@ -677,7 +641,7 @@
   <animation>
     <type>rotate</type>
     <object-name>Aft.BaggageDoor</object-name>
-    <property>controls/baggage-door-aft/position-norm</property>
+    <property>sim/multiplay/generic/float[8]</property>
     <factor>100</factor>
     <center>
       <x-m>9.91858</x-m>
@@ -699,8 +663,8 @@
     <object-name>FrtWheel</object-name>
     <object-name>FLdamper</object-name>
     <object-name>FUdamper</object-name>
-    <property>controls/flight/rudder</property>
-    <factor>35</factor>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>-35</factor>
     <condition>
       <equals>
         <property>gear/gear[0]/position-norm</property>
@@ -1085,12 +1049,7 @@
     <object-name>greennav</object-name>
     <object-name>whitenav</object-name>
     <condition>
-      <property>controls/lighting/nav-lights</property>
-      <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>20</value>
-      </greater-than>
+      <property>sim/multiplay/generic/int[2]</property>
     </condition>
   </animation>
 
@@ -1193,17 +1152,7 @@
     <type>select</type>
     <object-name>RHland.light</object-name>
     <condition>
-      <and>
         <property>sim/multiplay/generic/int[4]</property>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
-        <greater-than>
-          <property>gear/gear/position-norm</property>
-          <value>0.85</value>
-        </greater-than>
-      </and>
     </condition>
   </animation>
 
@@ -1211,17 +1160,7 @@
     <type>select</type>
     <object-name>LHland.light</object-name>
     <condition>
-      <and>
         <property>sim/multiplay/generic/int[3]</property>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
-        <greater-than>
-          <property>gear/gear/position-norm</property>
-          <value>0.85</value>
-        </greater-than>
-      </and>
     </condition>
   </animation>
 

@@ -4,8 +4,6 @@ Citation II:
 Still to do:
 ------------
 
-update splash.png to reflect improvements, maybe with *-ready badges?
-
 flightdeck:
 * Modelling: overhead panel
 * Modelling: more details like bags on side-panels, maps, manuals etc
