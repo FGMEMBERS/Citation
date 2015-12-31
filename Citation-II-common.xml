@@ -441,36 +441,36 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       </generic>
     </multiplay>
 
-    <flight-recorder>
+    <!--flight-recorder>
       <replay-config type="int">0</replay-config>
       <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
         <name type="string">Citation II - Flight Recorder</name>
         <signal>
-          <type>float</type>
+          <type>int</type>
           <property type="int">/sim/control/multiplay/int</property>
         </signal>
         <signal>
-          <type>float</type>
+          <type>int</type>
           <property type="int">/sim/control/multiplay/int[1]</property>
         </signal>
         <signal>
-          <type>float</type>
+          <type>int</type>
           <property type="int">/sim/control/multiplay/int[2]</property>
         </signal>
         <signal>
-          <type>float</type>
+          <type>int</type>
           <property type="int">/sim/control/multiplay/int[3]</property>
         </signal>
         <signal>
-          <type>float</type>
+          <type>int</type>
           <property type="int">/sim/control/multiplay/int[4]</property>
         </signal>
         <signal>
-          <type>float</type>
+          <type>int</type>
           <property type="int">/sim/control/multiplay/int[5]</property>
         </signal>
         <signal>
-          <type>float</type>
+          <type>int</type>
           <property type="int">/sim/control/multiplay/int[6]</property>
         </signal>
         <signal>
@@ -510,7 +510,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
           <property type="float">/sim/control/multiplay/float[8]</property>
         </signal>
       </config>
-    </flight-recorder>
+    </flight-recorder-->
 
     <aircraft-data> <!-- to be recorded for next time -->
       <path>/consumables/fuel/tank[0]/level-lbs</path>
