@@ -10,7 +10,7 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/recog-lights-left</property>
+		<property>sim/multiplay/generic/int[5]</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
@@ -26,7 +26,7 @@
 		<object-name>RecogLightCone_L</object-name>
 		<nopreview/>
 		<condition>
-		<property>controls/lighting/recog-lights</property>
+		<property>sim/multiplay/generic/int[5]</property>
 		</condition>
 		<position>
 			<x>6.7</x>
@@ -73,7 +73,7 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/recog-lights-right</property>
+		<property>sim/multiplay/generic/int[6]</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
@@ -89,7 +89,7 @@
 		<object-name>RecogLightCone_R</object-name>
 		<nopreview/>
 		<condition>
-		<property>controls/lighting/recog-lights</property>
+		<property>sim/multiplay/generic/int[6]</property>
 		</condition>
 		<position>
 			<x>6.7</x>

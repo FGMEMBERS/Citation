@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Citation-II-splash-04.png</splash-texture>
     </startup>
 
-    <aircraft-version>3.0.7</aircraft-version>
+    <aircraft-version>3.0.8</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
@@ -421,45 +421,102 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
 
     <multiplay>
       <generic>
-        <int n="0" alias="/systems/electrical/outputs/strobe"/>
-        <int n="1" alias="/systems/electrical/outputs/beacon"/>
-        <int n="2" alias="/systems/electrical/outputs/nav-lights"/>
-        <int n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
-        <int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
-        <int n="5" alias="/controls/lighting/recog-lights-left"/>
-        <int n="6" alias="/controls/lighting/recog-lights-right"/>
-        <float n="0" alias="/controls/cabin-door/position-norm"/>
-        <float n="1" alias="/sim/model/registration/red"/>
-        <float n="2" alias="/sim/model/registration/green"/>
-        <float n="3" alias="/sim/model/registration/blue"/>
-        <string  alias="/sim/multiplay/callsign"/>
+        <int type="int" n="0" alias="/systems/electrical/outputs/strobe"/>
+        <int type="int" n="1" alias="/systems/electrical/outputs/beacon"/>
+        <int type="int" n="2" alias="/systems/electrical/outputs/nav-lights"/>
+        <int type="int" n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
+        <int type="int" n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
+        <int type="int" n="5" alias="/controls/lighting/recog-lights-left"/>
+        <int type="int" n="6" alias="/controls/lighting/recog-lights-right"/>
+        <float type="float" n="0" alias="/controls/cabin-door/position-norm"/>
+        <float type="float" n="1" alias="/sim/model/registration/red"/>
+        <float type="float" n="2" alias="/sim/model/registration/green"/>
+        <float type="float" n="3" alias="/sim/model/registration/blue"/>
+        <float type="float" n="4" alias="/surface-positions/reverser-norm"/>
+        <float type="float" n="5" alias="/surface-positions/reverser-norm[1]"/>
+        <float type="float" n="6" alias="/controls/baggage-door-front-left/position-norm"/>
+        <float type="float" n="7" alias="/controls/baggage-door-front-right/position-norm"/>
+        <float type="float" n="8" alias="/controls/baggage-door-aft/position-norm"/>
+        <string type="string" alias="/sim/multiplay/callsign"/>
       </generic>
     </multiplay>
 
-    <flight-recorder>
+    <!--flight-recorder>
       <replay-config type="int">0</replay-config>
       <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
         <name type="string">Citation II - Flight Recorder</name>
         <signal>
-          <type>bool</type>
-          <property type="string">/controls/engines/engine[%i]/reverser</property>
+          <type>int</type>
+          <property type="int">/sim/control/multiplay/int</property>
+        </signal>
+        <signal>
+          <type>int</type>
+          <property type="int">/sim/control/multiplay/int[1]</property>
+        </signal>
+        <signal>
+          <type>int</type>
+          <property type="int">/sim/control/multiplay/int[2]</property>
+        </signal>
+        <signal>
+          <type>int</type>
+          <property type="int">/sim/control/multiplay/int[3]</property>
+        </signal>
+        <signal>
+          <type>int</type>
+          <property type="int">/sim/control/multiplay/int[4]</property>
+        </signal>
+        <signal>
+          <type>int</type>
+          <property type="int">/sim/control/multiplay/int[5]</property>
+        </signal>
+        <signal>
+          <type>int</type>
+          <property type="int">/sim/control/multiplay/int[6]</property>
         </signal>
         <signal>
           <type>float</type>
-	  <property type="string">/surface-positions/reverser-norm[%i]</property>
+          <property type="float">/sim/control/multiplay/float</property>
         </signal>
         <signal>
           <type>float</type>
-          <property type="string">/controls/cabin-door/position-norm</property>
+          <property type="float">/sim/control/multiplay/float[1]</property>
+        </signal>
+        <signal>
+          <type>float</type>
+          <property type="float">/sim/control/multiplay/float[2]m</property>
+        </signal>
+        <signal>
+          <type>float</type>
+          <property type="float">/sim/control/multiplay/float[3]</property>
+        </signal>
+        <signal>
+          <type>float</type>
+          <property type="float">/sim/control/multiplay/float[4]</property>
+        </signal>
+        <signal>
+          <type>float</type>
+          <property type="float">/sim/control/multiplay/float[5]</property>
+        </signal>
+        <signal>
+          <type>float</type>
+          <property type="float">/sim/control/multiplay/float[6]</property>
+        </signal>
+        <signal>
+          <type>float</type>
+          <property type="float">/sim/control/multiplay/float[7]</property>
+        </signal>
+        <signal>
+          <type>float</type>
+          <property type="float">/sim/control/multiplay/float[8]</property>
         </signal>
       </config>
-    </flight-recorder>
+    </flight-recorder-->
 
     <aircraft-data> <!-- to be recorded for next time -->
       <path>/consumables/fuel/tank[0]/level-lbs</path>
       <path>/consumables/fuel/tank[1]/level-lbs</path>
-      <path>/sim/aircraft-class</path>
-      <path>/sim/aircraft-operator</path>
+      <!--path>/sim/aircraft-class</path>
+      <path>/sim/aircraft-operator</path-->
       <path>/sim/dimensions/parkpos-offset-m</path>
       <path>/sim/dimensions/radius-m</path>
       <path>/sim/weight[0]/weight-lb</path>
