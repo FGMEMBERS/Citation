@@ -232,6 +232,84 @@
     </offsets>
   </model>
 
+  <!-- The human models depend on some properties (sim/model/crew/).
+         Since the properties never change, we can just directly add it
+         to the /ai/model/multiplay[i] tree.
+    -->
+    <multiplay>
+        <sim>
+            <model>
+                <crew>
+                    <pilot n="0">
+                        <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
+                        <character>0</character>
+                        <outfit>2</outfit>
+                        <equipment>0</equipment>
+                    </pilot>
+                    <pilot n="1">
+                        <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
+                        <character>0</character>
+                        <outfit>2</outfit>
+                        <equipment>0</equipment>
+                    </pilot>
+                </crew>
+            </model>
+        </sim>
+    </multiplay>
+
+  <model>
+    <name>pilot</name>
+    <path>Aircraft/Generic/Human/Models/female-pilot.xml</path>
+    <offsets>
+      <x-m>3.21</x-m>
+      <y-m>-0.31</y-m>
+      <z-m>-0.57</z-m>
+    </offsets>
+  </model>
+    <!-- Hide pilot in pilots view -->
+  <animation>
+    <type>select</type>
+    <object-name>pilot</object-name>
+    <condition>
+      <not-equals>
+        <property>sim/current-view/name</property>
+	<value>Captain</value>
+      </not-equals>
+      <not-equals>
+        <property>sim/current-view/name</property>
+	<value>Center Console</value>
+      </not-equals>
+      <not>
+	<property>/sim/walker/outside</property>
+      </not>
+    </condition>
+  </animation>
+
+  <model>
+    <name>copilot</name>
+    <path>Aircraft/Generic/Human/Models/male-copilot.xml</path>
+    <offsets>
+      <x-m>3.21</x-m>
+      <y-m>0.32</y-m>
+      <z-m>-0.57</z-m>
+    </offsets>
+  </model>
+    <!-- Hide copilot in copilots view -->
+  <animation>
+    <type>select</type>
+    <object-name>copilot</object-name>
+    <condition>
+      <not-equals>
+        <property>sim/current-view/name</property>
+	<value>Copilot</value>
+      </not-equals>
+      <not-equals>
+        <property>sim/current-view/name</property>
+	<value>Center Console</value>
+      </not-equals>
+    </condition>
+  </animation>
+
   <animation>
     <type>range</type>
     <object-name>cabin</object-name>
