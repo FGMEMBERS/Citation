@@ -241,7 +241,7 @@
             <model>
                 <crew>
                     <pilot n="0">
-                        <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
+                        <pose include="Human/pose-pilot.xml"/>
                         <character>0</character>
                         <outfit>2</outfit>
                         <equipment>0</equipment>
@@ -249,7 +249,7 @@
                         <headgear>1</headgear>
                     </pilot>
                     <pilot n="1">
-                        <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
+                        <pose include="Human/pose-copilot.xml"/>
                         <character>0</character>
                         <outfit>2</outfit>
                         <equipment>0</equipment>
@@ -266,7 +266,7 @@
             <model>
                 <crew>
                     <pilot n="0">
-                        <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
+                        <pose include="Human/pose-pilot.xml"/>
                         <character>0</character>
                         <outfit>2</outfit>
                         <equipment>0</equipment>
@@ -274,7 +274,7 @@
                         <headgear>1</headgear>
                     </pilot>
                     <pilot n="1">
-                        <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
+                        <pose include="Human/pose-copilot.xml"/>
                         <character>0</character>
                         <outfit>2</outfit>
                         <equipment>0</equipment>
@@ -287,14 +287,14 @@
 
   <model>
     <name>pilot</name>
-    <path>Aircraft/Generic/Human/Models/female-pilot.xml</path>
+    <path>Aircraft/Citation/Models/Human/female-pilot.xml</path>
     <offsets>
       <x-m>3.21</x-m>
       <y-m>-0.31</y-m>
       <z-m>-0.57</z-m>
     </offsets>
   </model>
-    <!-- Hide pilot in pilots view and both pilots in Center Console View -->
+  <!-- Hide pilot in pilots view and both pilots in Center Console View -->
   <animation>
     <type>select</type>
     <object-name>pilot</object-name>
@@ -315,7 +315,7 @@
 
   <model>
     <name>copilot</name>
-    <path>Aircraft/Generic/Human/Models/male-copilot.xml</path>
+    <path>Aircraft/Citation/Models/Human/male-copilot.xml</path>
     <offsets>
       <x-m>3.21</x-m>
       <y-m>0.32</y-m>
