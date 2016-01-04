@@ -245,17 +245,45 @@
                         <character>0</character>
                         <outfit>2</outfit>
                         <equipment>0</equipment>
+                        <eyewear>1</eyewear>
+                        <headgear>1</headgear>
                     </pilot>
                     <pilot n="1">
                         <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
                         <character>0</character>
                         <outfit>2</outfit>
                         <equipment>0</equipment>
+                        <eyewear>1</eyewear>
+                        <headgear>1</headgear>
                     </pilot>
                 </crew>
             </model>
         </sim>
     </multiplay>
+    
+	
+        <sim>
+            <model>
+                <crew>
+                    <pilot n="0">
+                        <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
+                        <character>0</character>
+                        <outfit>2</outfit>
+                        <equipment>0</equipment>
+                        <eyewear>1</eyewear>
+                        <headgear>1</headgear>
+                    </pilot>
+                    <pilot n="1">
+                        <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
+                        <character>0</character>
+                        <outfit>2</outfit>
+                        <equipment>0</equipment>
+                        <eyewear>1</eyewear>
+                        <headgear>1</headgear>
+                    </pilot>
+                </crew>
+            </model>
+        </sim>
 
   <model>
     <name>pilot</name>
@@ -266,7 +294,7 @@
       <z-m>-0.57</z-m>
     </offsets>
   </model>
-    <!-- Hide pilot in pilots view -->
+    <!-- Hide pilot in pilots view and both pilots in Center Console View -->
   <animation>
     <type>select</type>
     <object-name>pilot</object-name>
@@ -294,7 +322,7 @@
       <z-m>-0.57</z-m>
     </offsets>
   </model>
-    <!-- Hide copilot in copilots view -->
+    <!-- Hide copilot in copilots view and both pilots in Center Console View -->
   <animation>
     <type>select</type>
     <object-name>copilot</object-name>

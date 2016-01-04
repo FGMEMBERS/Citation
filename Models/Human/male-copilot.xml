@@ -79,6 +79,11 @@
 	<model> 
 		<path>Aircraft/Generic/Human/Models/equipment/headset-m.xml</path>
 		<name>Headset I</name>
+		<offsets>
+			<x-m>-0.5</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</offsets>
 	</model>
  <animation>
   <type>select</type>

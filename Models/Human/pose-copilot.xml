@@ -13,11 +13,11 @@
       <y-deg type="double">11.0959</y-deg>
     </limb>
     <limb n="1"> <!-- chest -->
-      <y-deg type="double">0</y-deg>
+      <y-deg type="double">-7</y-deg>
       <z-deg type="double">0</z-deg>
     </limb>
     <limb n="2"> <!-- head -->
-      <y-deg type="double">-18.7222</y-deg>
+      <y-deg type="double">-8.7222</y-deg>
       <z-deg type="double">0</z-deg>
     </limb>
     <limb n="3"> <!-- arm1.R -->

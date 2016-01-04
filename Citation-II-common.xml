@@ -66,14 +66,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<pilot n="0">
           <pose include="Models/Human/pose-pilot.xml"/>
           <character>0</character>
-          <outfit>2</outfit>
 	  <equipment>0</equipment>
+	  <eyewear>1</eyewear>
+	  <headgear>1</headgear>
+          <outfit>2</outfit>
         </pilot>
         <pilot n="1">
           <pose include="Models/Human/pose-copilot.xml"/>
           <character>0</character>
-          <outfit>2</outfit>
 	  <equipment>0</equipment>
+	  <eyewear>1</eyewear>
+	  <headgear>1</headgear>
+          <outfit>2</outfit>
         </pilot>
       </crew>
 
