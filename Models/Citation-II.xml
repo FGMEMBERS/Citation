@@ -232,69 +232,16 @@
     </offsets>
   </model>
 
-  <!-- The human models depend on some properties (sim/model/crew/).
-         Since the properties never change, we can just directly add it
-         to the /ai/model/multiplay[i] tree.
-    -->
-    <multiplay>
-        <sim>
-            <model>
-                <crew>
-                    <pilot n="0">
-                        <pose include="Human/pose-pilot.xml"/>
-                        <character>0</character>
-                        <outfit>2</outfit>
-                        <equipment>0</equipment>
-                        <eyewear>1</eyewear>
-                        <headgear>1</headgear>
-                    </pilot>
-                    <pilot n="1">
-                        <pose include="Human/pose-copilot.xml"/>
-                        <character>0</character>
-                        <outfit>2</outfit>
-                        <equipment>0</equipment>
-                        <eyewear>1</eyewear>
-                        <headgear>1</headgear>
-                    </pilot>
-                </crew>
-            </model>
-        </sim>
-    </multiplay>
-    
-	
-        <sim>
-            <model>
-                <crew>
-                    <pilot n="0">
-                        <pose include="Human/pose-pilot.xml"/>
-                        <character>0</character>
-                        <outfit>2</outfit>
-                        <equipment>0</equipment>
-                        <eyewear>1</eyewear>
-                        <headgear>1</headgear>
-                    </pilot>
-                    <pilot n="1">
-                        <pose include="Human/pose-copilot.xml"/>
-                        <character>0</character>
-                        <outfit>2</outfit>
-                        <equipment>0</equipment>
-                        <eyewear>1</eyewear>
-                        <headgear>1</headgear>
-                    </pilot>
-                </crew>
-            </model>
-        </sim>
-
   <model>
     <name>pilot</name>
-    <path>Aircraft/Citation/Models/Human/female-pilot.xml</path>
+    <path>Aircraft/Generic/Human/Models/pilot.xml</path>
     <offsets>
       <x-m>3.21</x-m>
       <y-m>-0.31</y-m>
-      <z-m>-0.57</z-m>
+      <z-m>-0.70</z-m>
     </offsets>
   </model>
-  <!-- Hide pilot in pilots view and both pilots in Center Console View -->
+    <!-- Hide pilot in pilots view and both pilots in Center Console View -->
   <animation>
     <type>select</type>
     <object-name>pilot</object-name>
@@ -315,11 +262,11 @@
 
   <model>
     <name>copilot</name>
-    <path>Aircraft/Citation/Models/Human/male-copilot.xml</path>
+    <path>Aircraft/Generic/Human/Models/copilot.xml</path>
     <offsets>
       <x-m>3.21</x-m>
       <y-m>0.32</y-m>
-      <z-m>-0.57</z-m>
+      <z-m>-0.60</z-m>
     </offsets>
   </model>
     <!-- Hide copilot in copilots view and both pilots in Center Console View -->

@@ -62,24 +62,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <amb_correction type="string">0.10</amb_correction>
       </rendering>
 
-      <crew>
-	<pilot n="0">
-          <pose include="Models/Human/pose-pilot.xml"/>
-          <character>0</character>
-	  <equipment>0</equipment>
-	  <eyewear>1</eyewear>
-	  <headgear>1</headgear>
-          <outfit>2</outfit>
-        </pilot>
-        <pilot n="1">
-          <pose include="Models/Human/pose-copilot.xml"/>
-          <character>0</character>
-	  <equipment>0</equipment>
-	  <eyewear>1</eyewear>
-	  <headgear>1</headgear>
-          <outfit>2</outfit>
-        </pilot>
-      </crew>
+    <!-- Settings for human models -->
+        <crew>
+          <pilot n="0">
+            <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
+            <character>0</character>
+	    <gender>1</gender>
+	    <hair>1</hair>
+            <outfit>2</outfit>
+            <equipment>0</equipment>
+            <eyewear>1</eyewear>
+            <headgear>1</headgear>
+	    <enabled type="bool">1</enabled>
+          </pilot>
+          <pilot n="1">
+            <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
+            <character>0</character>
+	    <gender>0</gender>
+	    <hair>1</hair>
+            <outfit>2</outfit>
+            <equipment>0</equipment>
+            <eyewear>1</eyewear>
+            <headgear>1</headgear>
+	    <enabled type="bool">1</enabled>
+          </pilot>
+        </crew>
 
 	<!-- Human models persistent menu choice -->
       <occupants type="bool">true</occupants>
@@ -482,6 +489,32 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <float type="float" n="8" alias="/controls/baggage-door-aft/position-norm"/>
         <string type="string" alias="/sim/multiplay/callsign"/>
       </generic>
+      <sim>
+        <model>
+          <crew>
+            <pilot n="0">
+              <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
+              <character>0</character>
+	      <gender>1</gender>
+	      <hair>1</hair>
+              <outfit>2</outfit>
+              <equipment>0</equipment>
+              <eyewear>1</eyewear>
+              <headgear>1</headgear>
+	    </pilot>
+            <pilot n="1">
+              <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
+              <character>0</character>
+	      <gender>0</gender>
+	      <hair>1</hair>
+              <outfit>2</outfit>
+              <equipment>0</equipment>
+              <eyewear>1</eyewear>
+              <headgear>1</headgear>
+            </pilot>
+          </crew>
+        </model>
+      </sim>
     </multiplay>
 
     <flight-recorder>
@@ -501,24 +534,6 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <signal><type>float</type><property type="string">/controls/baggage-door-front-left/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-front-right/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-aft/position-norm</property></signal>
-	<!--
-	<signal><type>int</type><property type="int">/sim/control/multiplay/generic/int</property></signal>
-        <signal><type>int</type><property type="int">/sim/control/multiplay/generic/int[1]</property></signal>
-        <signal><type>int</type><property type="int">/sim/control/multiplay/generic/int[2]</property></signal>
-        <signal><type>int</type><property type="int">/sim/control/multiplay/generic/int[3]</property></signal>
-        <signal><type>int</type><property type="int">/sim/control/multiplay/generic/int[4]</property></signal>
-        <signal><type>int</type><property type="int">/sim/control/multiplay/generic/int[5]</property></signal>
-        <signal><type>int</type><property type="int">/sim/control/multiplay/generic/int[6]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[1]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[2]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[3]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[4]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[5]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[6]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[7]</property></signal>
-        <signal><type>float</type><property type="double">/sim/control/multiplay/generic/float[8]</property></signal>
-	-->
       </config>
     </flight-recorder>
 
