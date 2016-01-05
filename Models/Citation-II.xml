@@ -137,12 +137,12 @@
       <texture n="3">
         <type>cubemap</type>
         <images>
-         <positive-x>Effects/glass/refl_cube_back.png</positive-x>
-         <negative-x>Effects/glass/refl_cube_front.png</negative-x>
-         <positive-y>Effects/glass/refl_cube_right.png</positive-y>
-         <negative-y>Effects/glass/refl_cube_left.png</negative-y>
-         <positive-z>Effects/glass/refl_cube_up.png</positive-z>
-         <negative-z>Effects/glass/refl_cube_down.png</negative-z>
+          <positive-x>Effects/glass/refl_cube_back.png</positive-x>
+          <negative-x>Effects/glass/refl_cube_front.png</negative-x>
+          <positive-y>Effects/glass/refl_cube_right.png</positive-y>
+          <negative-y>Effects/glass/refl_cube_left.png</negative-y>
+          <positive-z>Effects/glass/refl_cube_up.png</positive-z>
+          <negative-z>Effects/glass/refl_cube_down.png</negative-z>
         </images>
       </texture>
       <use-reflection type="int">1</use-reflection>
@@ -241,7 +241,7 @@
       <z-m>-0.70</z-m>
     </offsets>
   </model>
-    <!-- Hide pilot in pilots view and both pilots in Center Console View -->
+  <!-- Hide pilot in pilots view and both pilots in Center Console View -->
   <animation>
     <type>select</type>
     <object-name>pilot</object-name>
@@ -269,7 +269,7 @@
       <z-m>-0.60</z-m>
     </offsets>
   </model>
-    <!-- Hide copilot in copilots view and both pilots in Center Console View -->
+  <!-- Hide copilot in copilots view and both pilots in Center Console View -->
   <animation>
     <type>select</type>
     <object-name>copilot</object-name>
@@ -1205,7 +1205,7 @@
     <type>select</type>
     <object-name>RHland.light</object-name>
     <condition>
-        <property>sim/multiplay/generic/int[4]</property>
+      <property>sim/multiplay/generic/int[4]</property>
     </condition>
   </animation>
 
@@ -1213,7 +1213,7 @@
     <type>select</type>
     <object-name>LHland.light</object-name>
     <condition>
-        <property>sim/multiplay/generic/int[3]</property>
+      <property>sim/multiplay/generic/int[3]</property>
     </condition>
   </animation>
 

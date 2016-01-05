@@ -62,33 +62,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <amb_correction type="string">0.10</amb_correction>
       </rendering>
 
-    <!-- Settings for human models -->
-        <crew>
-          <pilot n="0">
-            <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
-            <character>0</character>
-	    <gender>1</gender>
-	    <hair>1</hair>
-            <outfit>2</outfit>
-            <equipment>0</equipment>
-            <eyewear>1</eyewear>
-            <headgear>1</headgear>
-	    <enabled type="bool">1</enabled>
-          </pilot>
-          <pilot n="1">
-            <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
-            <character>0</character>
-	    <gender>0</gender>
-	    <hair>1</hair>
-            <outfit>2</outfit>
-            <equipment>0</equipment>
-            <eyewear>1</eyewear>
-            <headgear>1</headgear>
-	    <enabled type="bool">1</enabled>
-          </pilot>
-        </crew>
+      <!-- Settings for human models -->
+      <crew>
+        <pilot n="0">
+          <pose include="Models/Human/pose-pilot.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>1</eyewear>
+          <headgear>1</headgear>
+	  <enabled type="bool">1</enabled>
+        </pilot>
+        <pilot n="1">
+          <pose include="Models/Human/pose-copilot.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>1</eyewear>
+          <headgear>1</headgear>
+	  <enabled type="bool">1</enabled>
+        </pilot>
+      </crew>
 
-	<!-- Human models persistent menu choice -->
+      <!-- Human models persistent menu choice -->
       <occupants type="bool">true</occupants>
 
       <!-- An exit for the walker -->
@@ -378,26 +378,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </key>
       <line>Many features require power to operate. Make sure at least battery is switched on!</line>
       <text>Autopilot operation:
-Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
+      Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
 
-FD OFF:         Illuminated=OFF. Engage wing leveler and pitch hold
-HDG:              Follow heading bug
-NAV:              Cycle between wing leveler, NAV1 or NAV2, and GPS
-APR:               NAV1 lateral and glideslope
-BC:                 Backcourse
-NAV/HSI:        Toggle the HSI and autopilot between NAV1 and NAV2
-ALT:                Altitude hold
-ALT SEL:         (inoperative)
-VNAV:            (inoperative)
-V/S:                Hold vertical speed
-IAS:                Autothrottle to hold current indicated airspeed
-PITCH wheel:  Adjust pitch, selected altitude or vertical speed
+      FD OFF:         Illuminated=OFF. Engage wing leveler and pitch hold
+      HDG:              Follow heading bug
+      NAV:              Cycle between wing leveler, NAV1 or NAV2, and GPS
+      APR:               NAV1 lateral and glideslope
+      BC:                 Backcourse
+      NAV/HSI:        Toggle the HSI and autopilot between NAV1 and NAV2
+      ALT:                Altitude hold
+      ALT SEL:         (inoperative)
+      VNAV:            (inoperative)
+      V/S:                Hold vertical speed
+      IAS:                Autothrottle to hold current indicated airspeed
+      PITCH wheel:  Adjust pitch, selected altitude or vertical speed
 
----------------------------------------------------
+      ---------------------------------------------------
 
-To fold / unfold the passenger's tables, left or middle click respectively,
-holding the button down as long as necessary to fold the elements. To stow
-and unstow the folded table, left or middle-click on the cupholders.</text>
+      To fold / unfold the passenger's tables, left or middle click respectively,
+      holding the button down as long as necessary to fold the elements. To stow
+      and unstow the folded table, left or middle-click on the cupholders.</text>
     </help>
 
     <weight n="0">
@@ -495,7 +495,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <model>
           <crew>
             <pilot n="0">
-              <pose include="Aircraft/Citation/Models/Human/pose-pilot.xml"/>
+              <pose include="Models/Human/pose-pilot.xml"/>
               <character>0</character>
 	      <gender>1</gender>
 	      <hair>1</hair>
@@ -505,7 +505,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
               <headgear>1</headgear>
 	    </pilot>
             <pilot n="1">
-              <pose include="Aircraft/Citation/Models/Human/pose-copilot.xml"/>
+              <pose include="Models/Human/pose-copilot.xml"/>
               <character>0</character>
 	      <gender>0</gender>
 	      <hair>1</hair>
@@ -964,4 +964,4 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
     </electrical>
   </systems>
 
-  </PropertyList>
+</PropertyList>
