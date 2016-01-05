@@ -487,6 +487,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <float type="float" n="6" alias="/controls/baggage-door-front-left/position-norm"/>
         <float type="float" n="7" alias="/controls/baggage-door-front-right/position-norm"/>
         <float type="float" n="8" alias="/controls/baggage-door-aft/position-norm"/>
+        <string type="string" alias="/sim/aircraft"/>
         <string type="string" alias="/sim/multiplay/callsign"/>
       </generic>
       <sim>
