@@ -65,7 +65,7 @@
     <object-name>Aft.BaggageDoor</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
-    <texture>Aircraft/Citation/Liveries/Lv1.png</texture>
+    <texture>Aircraft/Citation/Models/Liveries/Lv1.png</texture>
   </animation>
 
   <!-- Chrome parts, compatible with Rembrandt -->
@@ -254,6 +254,7 @@
       <y-m>-0.31</y-m>
       <z-m>-0.70</z-m>
     </offsets>
+    <nopreview/>
   </model>
   <!-- Hide pilot in pilots view and both pilots in Center Console View -->
   <animation>
@@ -282,6 +283,7 @@
       <y-m>0.32</y-m>
       <z-m>-0.60</z-m>
     </offsets>
+    <nopreview/>
   </model>
     <!-- Hide copilot in copilots view and both pilots in Center Console View OR hide copilot if crew-weight is less than 200lbs -->
   <animation>
@@ -313,6 +315,7 @@
       <y-m>0.3</y-m>
       <z-m>-0.65</z-m>
     </offsets>
+    <nopreview/>
   </model>
   <animation>
     <type>select</type>
@@ -334,6 +337,7 @@
       <z-m>-0.65</z-m>
       <heading-deg>180</heading-deg>
     </offsets>
+    <nopreview/>
   </model>
   <animation>
     <type>select</type>
@@ -354,6 +358,7 @@
       <y-m>0.3</y-m>
       <z-m>-0.65</z-m>
     </offsets>
+    <nopreview/>
   </model>
   <animation>
     <type>select</type>
@@ -375,6 +380,7 @@
       <z-m>-0.65</z-m>
       <heading-deg>180</heading-deg>
     </offsets>
+    <nopreview/>
   </model>
   <animation>
     <type>select</type>
@@ -395,6 +401,7 @@
       <y-m>-0.3</y-m>
       <z-m>-0.65</z-m>
     </offsets>
+    <nopreview/>
   </model>
   <animation>
     <type>select</type>
@@ -416,6 +423,7 @@
       <z-m>-0.65</z-m>
       <heading-deg>180</heading-deg>
     </offsets>
+    <nopreview/>
   </model>
   <animation>
     <type>select</type>
@@ -436,6 +444,7 @@
       <y-m>-0.3</y-m>
       <z-m>-0.65</z-m>
     </offsets>
+    <nopreview/>
   </model>
   <animation>
     <type>select</type>

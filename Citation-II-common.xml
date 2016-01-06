@@ -87,85 +87,85 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	  <enabled type="bool">1</enabled>
         </pilot>
       </crew>
-	<pax>
-          <pax n="0">
-            <pose include="Models/Human/pose-pax0.xml"/>
-            <character>0</character>
-	    <gender>1</gender>
-	    <hair>1</hair>
-            <outfit>0</outfit>
-            <equipment>0</equipment>
-            <eyewear>0</eyewear>
-            <headgear>0</headgear>
-	    <enabled type="bool">1</enabled>
-          </pax>
-          <pax n="1">
-            <pose include="Models/Human/pose-pax1.xml"/>
-            <character>0</character>
-	    <gender>0</gender>
-	    <hair>1</hair>
-            <outfit>2</outfit>
-            <equipment>0</equipment>
-            <eyewear>0</eyewear>
-            <headgear>0</headgear>
-	    <enabled type="bool">1</enabled>
-          </pax>
-          <pax n="2">
-            <pose include="Models/Human/pose-pax2.xml"/>
-            <character>0</character>
-	    <gender>0</gender>
-	    <hair>1</hair>
-            <outfit>2</outfit>
-            <equipment>0</equipment>
-            <eyewear>0</eyewear>
-            <headgear>0</headgear>
-	    <enabled type="bool">1</enabled>
-          </pax>
-          <pax n="3">
-            <pose include="Models/Human/pose-pax3.xml"/>
-            <character>0</character>
-	    <gender>1</gender>
-	    <hair>1</hair>
-            <outfit>0</outfit>
-            <equipment>0</equipment>
-            <eyewear>0</eyewear>
-            <headgear>0</headgear>
-	    <enabled type="bool">1</enabled>
-          </pax>
-          <pax n="4">
-            <pose include="Models/Human/pose-pax4.xml"/>
-            <character>0</character>
-	    <gender>0</gender>
-	    <hair>1</hair>
-            <outfit>2</outfit>
-            <equipment>0</equipment>
-            <eyewear>0</eyewear>
-            <headgear>0</headgear>
-	    <enabled type="bool">1</enabled>
-          </pax>
-          <pax n="5">
-            <pose include="Models/Human/pose-pax5.xml"/>
-            <character>0</character>
-	    <gender>1</gender>
-	    <hair>1</hair>
-            <outfit>0</outfit>
-            <equipment>0</equipment>
-            <eyewear>0</eyewear>
-            <headgear>0</headgear>
-	    <enabled type="bool">1</enabled>
-          </pax>
-          <pax n="6">
-            <pose include="Models/Human/pose-pax6.xml"/>
-            <character>0</character>
-	    <gender>0</gender>
-	    <hair>1</hair>
-            <outfit>0</outfit>
-            <equipment>0</equipment>
-            <eyewear>0</eyewear>
-            <headgear>0</headgear>
-	    <enabled type="bool">1</enabled>
-          </pax>
+      <pax>
+        <pax n="0">
+          <pose include="Models/Human/pose-pax0.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
         </pax>
+        <pax n="1">
+          <pose include="Models/Human/pose-pax1.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="2">
+          <pose include="Models/Human/pose-pax2.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="3">
+          <pose include="Models/Human/pose-pax3.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="4">
+          <pose include="Models/Human/pose-pax4.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="5">
+          <pose include="Models/Human/pose-pax5.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="6">
+          <pose include="Models/Human/pose-pax6.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+      </pax>
 
       <!-- Human models persistent menu choice -->
       <occupants type="bool">true</occupants>
