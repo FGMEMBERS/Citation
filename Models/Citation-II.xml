@@ -12,6 +12,20 @@
     </unload>
   </nasal>
 
+  <!-- Do not show the following objects in the 3D preview of fgrun: -->
+  <animation>
+    <object-name>pilot</object-name>
+    <object-name>copilot</object-name>
+    <object-name>Pax0</object-name>
+    <object-name>Pax1</object-name>
+    <object-name>Pax2</object-name>
+    <object-name>Pax3</object-name>
+    <object-name>Pax4</object-name>
+    <object-name>Pax5</object-name>
+    <object-name>Pax6</object-name>
+    <nopreview/>
+  </animation>
+
   <animation>
     <type>material</type>
     <object-name>LEngine</object-name>
