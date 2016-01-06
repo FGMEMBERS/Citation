@@ -87,6 +87,85 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	  <enabled type="bool">1</enabled>
         </pilot>
       </crew>
+	<pax>
+          <pax n="0">
+            <pose include="Models/Human/pose-pax0.xml"/>
+            <character>0</character>
+	    <gender>1</gender>
+	    <hair>1</hair>
+            <outfit>0</outfit>
+            <equipment>0</equipment>
+            <eyewear>0</eyewear>
+            <headgear>0</headgear>
+	    <enabled type="bool">1</enabled>
+          </pax>
+          <pax n="1">
+            <pose include="Models/Human/pose-pax1.xml"/>
+            <character>0</character>
+	    <gender>0</gender>
+	    <hair>1</hair>
+            <outfit>2</outfit>
+            <equipment>0</equipment>
+            <eyewear>0</eyewear>
+            <headgear>0</headgear>
+	    <enabled type="bool">1</enabled>
+          </pax>
+          <pax n="2">
+            <pose include="Models/Human/pose-pax2.xml"/>
+            <character>0</character>
+	    <gender>0</gender>
+	    <hair>1</hair>
+            <outfit>2</outfit>
+            <equipment>0</equipment>
+            <eyewear>0</eyewear>
+            <headgear>0</headgear>
+	    <enabled type="bool">1</enabled>
+          </pax>
+          <pax n="3">
+            <pose include="Models/Human/pose-pax3.xml"/>
+            <character>0</character>
+	    <gender>1</gender>
+	    <hair>1</hair>
+            <outfit>0</outfit>
+            <equipment>0</equipment>
+            <eyewear>0</eyewear>
+            <headgear>0</headgear>
+	    <enabled type="bool">1</enabled>
+          </pax>
+          <pax n="4">
+            <pose include="Models/Human/pose-pax4.xml"/>
+            <character>0</character>
+	    <gender>0</gender>
+	    <hair>1</hair>
+            <outfit>2</outfit>
+            <equipment>0</equipment>
+            <eyewear>0</eyewear>
+            <headgear>0</headgear>
+	    <enabled type="bool">1</enabled>
+          </pax>
+          <pax n="5">
+            <pose include="Models/Human/pose-pax5.xml"/>
+            <character>0</character>
+	    <gender>1</gender>
+	    <hair>1</hair>
+            <outfit>0</outfit>
+            <equipment>0</equipment>
+            <eyewear>0</eyewear>
+            <headgear>0</headgear>
+	    <enabled type="bool">1</enabled>
+          </pax>
+          <pax n="6">
+            <pose include="Models/Human/pose-pax6.xml"/>
+            <character>0</character>
+	    <gender>0</gender>
+	    <hair>1</hair>
+            <outfit>0</outfit>
+            <equipment>0</equipment>
+            <eyewear>0</eyewear>
+            <headgear>0</headgear>
+	    <enabled type="bool">1</enabled>
+          </pax>
+        </pax>
 
       <!-- Human models persistent menu choice -->
       <occupants type="bool">true</occupants>
@@ -138,7 +217,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <config>
 	<default-field-of-view>70</default-field-of-view>
         <x-offset-m type="double">-0.3</x-offset-m>
-        <y-offset-m type="double">1.1</y-offset-m>
+        <y-offset-m type="double">1.05</y-offset-m>
         <z-offset-m type="double">3.3</z-offset-m>
         <pitch-offset-deg>-20</pitch-offset-deg>
         <limits>
@@ -235,7 +314,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
         <heading-offset-deg type="double">0</heading-offset-deg>
         <x-offset-m archive="y" type="double">0.3</x-offset-m> <!--Right-->
-        <y-offset-m archive="y" type="double">1.1</y-offset-m> <!--Up-->
+        <y-offset-m archive="y" type="double">1.05</y-offset-m> <!--Up-->
         <z-offset-m archive="y" type="double">3.3</z-offset-m> <!--Back-->
         <pitch-offset-deg>-20</pitch-offset-deg>
         <limits>
@@ -401,31 +480,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </help>
 
     <weight n="0">
-      <name>Frt Baggage</name>
-      <weight-lb>0</weight-lb>
-      <max-lb>350</max-lb>
-      <min-lb>0</min-lb>
+      <name type="string">Frt Baggage</name>
+      <weight-lb type="double">0</weight-lb>
+      <max-lb type="int">350</max-lb>
+      <min-lb type="int">0</min-lb>
     </weight>
 
     <weight n="1">
-      <name>Crew</name>
-      <weight-lb>400</weight-lb>
-      <max-lb>500</max-lb>
-      <min-lb>100</min-lb>
+      <name type="string">Crew</name>
+      <weight-lb type="double">375</weight-lb>
+      <max-lb type="int">400</max-lb>
+      <min-lb type="int">100</min-lb>
     </weight>
 
     <weight n="2">
-      <name>Passengers</name>
-      <weight-lb>636</weight-lb>
-      <max-lb>1200</max-lb>
-      <min-lb>0</min-lb>
+      <name type="string">Passengers</name>
+      <weight-lb type="double">636</weight-lb>
+      <max-lb type="int">1200</max-lb>
+      <min-lb type="int">0</min-lb>
     </weight>
 
     <weight n="3">
-      <name>Rear Baggage</name>
-      <weight-lb>0</weight-lb>
-      <max-lb>500</max-lb>
-      <min-lb>0</min-lb>
+      <name type="string">Rear Baggage</name>
+      <weight-lb type="double">0</weight-lb>
+      <max-lb type="int">500</max-lb>
+      <min-lb type="int">0</min-lb>
     </weight>
 
     <menubar>
@@ -542,10 +621,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <aircraft-data> <!-- to be recorded for next time -->
       <path>/consumables/fuel/tank[0]/level-lbs</path>
       <path>/consumables/fuel/tank[1]/level-lbs</path>
-      <path>/sim/aircraft-class</path>
+      <!--path>/sim/aircraft-class</path>
       <path>/sim/aircraft-operator</path>
       <path>/sim/dimensions/parkpos-offset-m</path>
-      <path>/sim/dimensions/radius-m</path>
+      <path>/sim/dimensions/radius-m</path-->
       <path>/sim/weight[0]/weight-lb</path>
       <path>/sim/weight[1]/weight-lb</path>
       <path>/sim/weight[2]/weight-lb</path>

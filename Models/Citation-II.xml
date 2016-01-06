@@ -269,19 +269,168 @@
       <z-m>-0.60</z-m>
     </offsets>
   </model>
-  <!-- Hide copilot in copilots view and both pilots in Center Console View -->
+    <!-- Hide copilot in copilots view and both pilots in Center Console View OR hide copilot if crew-weight is less than 200lbs -->
   <animation>
     <type>select</type>
     <object-name>copilot</object-name>
     <condition>
-      <not-equals>
-        <property>sim/current-view/name</property>
-	<value>Copilot</value>
-      </not-equals>
-      <not-equals>
-        <property>sim/current-view/name</property>
-	<value>Center Console</value>
-      </not-equals>
+      <and>
+        <not-equals>
+          <property>sim/current-view/name</property>
+          <value>Copilot</value>
+        </not-equals>
+        <not-equals>
+          <property>sim/current-view/name</property>
+          <value>Center Console</value>
+        </not-equals>
+        <greater-than>
+          <property>/sim/weight[1]/weight-lb</property>
+          <value>200lbs</value>
+        </greater-than>
+      </and>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax0</name>
+    <path>Models/Human/pax0.xml</path>
+    <offsets>
+      <x-m>7.22</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax0</object-name>
+    <condition>
+      <greater-than>
+	<property>/sim/weight[2]/weight-lb</property>
+        <value>170</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax1</name>
+    <path>Models/Human/pax1.xml</path>
+    <offsets>
+      <x-m>5.85</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+      <heading-deg>180</heading-deg>
+    </offsets>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax1</object-name>
+    <condition>
+      <greater-than>
+	<property>/sim/weight[2]/weight-lb</property>
+        <value>850</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax2</name>
+    <path>Models/Human/pax2.xml</path>
+    <offsets>
+      <x-m>5.33</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax2</object-name>
+    <condition>
+      <greater-than>
+	<property>/sim/weight[2]/weight-lb</property>
+        <value>510</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax3</name>
+    <path>Models/Human/pax3.xml</path>
+    <offsets>
+      <x-m>3.97</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+      <heading-deg>180</heading-deg>
+    </offsets>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax3</object-name>
+    <condition>
+      <greater-than>
+	<property>/sim/weight[2]/weight-lb</property>
+        <value>1190</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax4</name>
+    <path>Models/Human/pax4.xml</path>
+    <offsets>
+      <x-m>7.22</x-m>
+      <y-m>-0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax4</object-name>
+    <condition>
+      <greater-than>
+	<property>/sim/weight[2]/weight-lb</property>
+        <value>340</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax5</name>
+    <path>Models/Human/pax5.xml</path>
+    <offsets>
+      <x-m>5.85</x-m>
+      <y-m>-0.3</y-m>
+      <z-m>-0.65</z-m>
+      <heading-deg>180</heading-deg>
+    </offsets>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax5</object-name>
+    <condition>
+      <greater-than>
+	<property>/sim/weight[2]/weight-lb</property>
+        <value>1020</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax6</name>
+    <path>Models/Human/pax6.xml</path>
+    <offsets>
+      <x-m>5.33</x-m>
+      <y-m>-0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax6</object-name>
+    <condition>
+      <greater-than>
+	<property>/sim/weight[2]/weight-lb</property>
+        <value>680</value>
+      </greater-than>
     </condition>
   </animation>
 
