@@ -5,22 +5,21 @@ Still to do:
 ------------
 
 flightdeck:
+* adjust view height vs human model height vs cabin height - humans appear too big / Citation is too small (Thanks to Thomas Polzer)
 * Modelling: overhead panel
 * Modelling: more details like bags on side-panels, maps, manuals etc
              (a manual like on 707?)
-* XML/Nasal: circuit breakers go into:
-             (prop:controls/electric/circuit-breakers/bus-[emer|left|right]/cb-*)
+* XML/Nasal: ongoing: circuit breakers go into: prop:controls/electric/circuit-breakers/bus-[emer|left|right]/cb-*
 
 cabin:
 * Modelling: aft compartment
 * Texturing: contours of interior walls, seats and refreshment-center
              need improvement (under certain light conditions very
-             hazy) - need blender baked textures!
-* XML/Nasal: make seat levers functional?
+             hazy) - need blender baked textures? http://wiki.flightgear.org/ALS_technical_notes#Irradiance_maps
 
 exterior:
 * Modelling: more details for landing gear
-* Texturing: plating, rivets & stuff (-> livery? normalmap?)
+* Texturing: plating, rivets & stuff (-> normalmap) WIP
 * Texturing: animated engine intakes?
 * Effects:   Thrust/Flame effect doesn't work properly, when engines cut off in flight
              the thrust flame doesn't disappear. It illudes me why.
@@ -44,8 +43,8 @@ autopilot:
              A/P off. It simply should stop having an effect.
 
 multiplayer:
-* XML/Nasal: Rudder movements non functional over mp -> needs fix
-             Lights non functional over mp -> needs fix
+* XML/Nasal: Rudder movements non functional over mp -> needs fix -> commit request filed on devel-list
+             Lights non functional over mp -> needs fix !Not intended over mp, should be built into the mp-version ($FGDATA/AI/Aircraft/Citation/Citation-II.*)
 
 ##########################################################
 

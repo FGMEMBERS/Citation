@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Citation-II-splash-04.png</splash-texture>
     </startup>
 
-    <aircraft-version>3.0.8</aircraft-version>
+    <aircraft-version>3.0.9</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
