@@ -470,6 +470,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       VNAV:            (inoperative)
       V/S:                Hold vertical speed
       IAS:                Autothrottle to hold current indicated airspeed
+                            (use ASI-knob to change speed)
       PITCH wheel:  Adjust pitch, selected altitude or vertical speed
 
       ---------------------------------------------------
