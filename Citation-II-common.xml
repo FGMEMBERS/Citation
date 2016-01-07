@@ -817,7 +817,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <decision-height type="double">200</decision-height>
     </altimeter>
     <airspeed-indicator>
-      <index-marker type="double">100</index-marker>
+      <index-marker type="double">220</index-marker>
     </airspeed-indicator>
     <fmc>
       <vspeeds>
@@ -860,6 +860,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <target-altitude-ft>10000</target-altitude-ft>
       <gs1-arm type="bool">0</gs1-arm>
       <alt-arm type="bool">0</alt-arm>
+      <target-speed-kt alias="/instrumentation/airspeed-indicator/index-marker"/>
     </settings>
   </autopilot>
 
