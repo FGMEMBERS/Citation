@@ -131,6 +131,10 @@ setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
 });
 
 setlistener("/sim/signals/fdm-initialized", func {
+    # Read old fuel levels
+    setprop("/consumables/fuel/tank[0]/level-gal_us", getprop("/consumables/fuel/fuel-gal_us-0"));
+    setprop("/consumables/fuel/tank[1]/level-gal_us", getprop("/consumables/fuel/fuel-gal_us-1"));
+
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);
     settimer(update_systems,2);
@@ -258,6 +262,8 @@ var update_systems = func{
         }
     }
 
+    setprop("/consumables/fuel/fuel-gal_us-0", getprop("/consumables/fuel/tank[0]/level-gal_us"));
+    setprop("/consumables/fuel/fuel-gal_us-1", getprop("/consumables/fuel/tank[1]/level-gal_us"));
     settimer(update_systems,0);
 }
 

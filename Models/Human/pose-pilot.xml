@@ -50,22 +50,22 @@
     </limb>
     <limb n="9"> <!-- leg1.R -->
       <x-deg type="double">0</x-deg>
-      <y-deg type="double">-85</y-deg>
+      <y-deg type="double">-105</y-deg>
       <z-deg type="double">0</z-deg>
     </limb>
     <limb n="10"> <!-- leg2.R -->
-      <y-deg type="double">35</y-deg>
+      <y-deg type="double">50</y-deg>
     </limb>
     <limb n="11"> <!-- foot.R -->
       <y-deg type="double">30</y-deg>
     </limb>
     <limb n="12"> <!-- leg1.L -->
       <x-deg type="double">0</x-deg>
-      <y-deg type="double">-85</y-deg>
+      <y-deg type="double">-105</y-deg>
       <z-deg type="double">0</z-deg>
     </limb>
     <limb n="13"> <!-- leg2.L -->
-      <y-deg type="double">35</y-deg>
+      <y-deg type="double">50</y-deg>
     </limb>
     <limb n="14"> <!-- foot.L -->
       <y-deg type="double">30</y-deg>

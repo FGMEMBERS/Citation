@@ -620,12 +620,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </flight-recorder>
 
     <aircraft-data> <!-- to be recorded for next time -->
-      <path>/consumables/fuel/tank[0]/level-lbs</path>
-      <path>/consumables/fuel/tank[1]/level-lbs</path>
-      <!--path>/sim/aircraft-class</path>
+      <!-- dirty hack! The fuel levels didn't get reloaded, so in
+           Nasal/Citaion2.nas this gets read instead and in turn 
+           updates every following frame. -->
+      <path>/consumables/fuel/fuel-gal_us-0</path>
+      <path>/consumables/fuel/fuel-gal_us-1</path>
+
+      <path>/sim/aircraft-class</path>
       <path>/sim/aircraft-operator</path>
       <path>/sim/dimensions/parkpos-offset-m</path>
-      <path>/sim/dimensions/radius-m</path-->
+      <path>/sim/dimensions/radius-m</path>
       <path>/sim/weight[0]/weight-lb</path>
       <path>/sim/weight[1]/weight-lb</path>
       <path>/sim/weight[2]/weight-lb</path>
