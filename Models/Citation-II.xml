@@ -36,7 +36,7 @@
     <object-name>RH.reverserClamp</object-name>
     <condition>
       <equals>
-        <property>multiplay/generic/int[7]</property>
+        <property>sim/multiplay/generic/int[7]</property>
         <value>0</value>
       </equals>
     </condition>
