@@ -558,7 +558,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <int type="int" n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
         <int type="int" n="5" alias="/controls/lighting/recog-lights-left"/>
         <int type="int" n="6" alias="/controls/lighting/recog-lights-right"/>
-	<int type="int" n="7" alias="/sim/model/variant"/>
         <float type="float" n="0" alias="/controls/cabin-door/position-norm"/>
         <float type="float" n="1" alias="/sim/model/registration/red"/>
         <float type="float" n="2" alias="/sim/model/registration/green"/>
