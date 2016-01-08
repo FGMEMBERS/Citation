@@ -567,6 +567,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <float type="float" n="6" alias="/controls/baggage-door-front-left/position-norm"/>
         <float type="float" n="7" alias="/controls/baggage-door-front-right/position-norm"/>
         <float type="float" n="8" alias="/controls/baggage-door-aft/position-norm"/>
+        <float type="float" n="9" alias="/sim/weight[1]/weight-lb"/>
+        <float type="float" n="10" alias="/sim/weight[2]/weight-lb"/>
         <string type="string" n="0" alias="/sim/multiplay/callsign"/>
 	<string type="string" n="1" alias="/sim/aircraft-version"/>
 	<!--string type="string" n="2" alias="/sim/description"/--> <!-- "Citation II" or "Sierra Super II" -->

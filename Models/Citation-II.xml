@@ -290,7 +290,7 @@
 	<value>Center Console</value>
       </not-equals>
       <not>
-	<property>/sim/walker/outside</property>
+	<property>sim/walker/outside</property>
       </not>
     </condition>
   </animation>
@@ -320,7 +320,7 @@
           <value>Center Console</value>
         </not-equals>
         <greater-than>
-          <property>/sim/weight[1]/weight-lb</property>
+          <property>sim/multiplay/generic/float[9]</property>
           <value>200lbs</value>
         </greater-than>
       </and>
@@ -342,7 +342,7 @@
     <object-name>Pax0</object-name>
     <condition>
       <greater-than>
-	<property>/sim/weight[2]/weight-lb</property>
+	<property>sim/multiplay/generic/float[10]</property>
         <value>170</value>
       </greater-than>
     </condition>
@@ -364,7 +364,7 @@
     <object-name>Pax1</object-name>
     <condition>
       <greater-than>
-	<property>/sim/weight[2]/weight-lb</property>
+	<property>sim/multiplay/generic/float[10]</property>
         <value>850</value>
       </greater-than>
     </condition>
@@ -385,7 +385,7 @@
     <object-name>Pax2</object-name>
     <condition>
       <greater-than>
-	<property>/sim/weight[2]/weight-lb</property>
+	<property>sim/multiplay/generic/float[10]</property>
         <value>510</value>
       </greater-than>
     </condition>
@@ -407,7 +407,7 @@
     <object-name>Pax3</object-name>
     <condition>
       <greater-than>
-	<property>/sim/weight[2]/weight-lb</property>
+	<property>sim/multiplay/generic/float[10]</property>
         <value>1190</value>
       </greater-than>
     </condition>
@@ -428,7 +428,7 @@
     <object-name>Pax4</object-name>
     <condition>
       <greater-than>
-	<property>/sim/weight[2]/weight-lb</property>
+	<property>sim/multiplay/generic/float[10]</property>
         <value>340</value>
       </greater-than>
     </condition>
@@ -450,7 +450,7 @@
     <object-name>Pax5</object-name>
     <condition>
       <greater-than>
-	<property>/sim/weight[2]/weight-lb</property>
+	<property>sim/multiplay/generic/float[10]</property>
         <value>1020</value>
       </greater-than>
     </condition>
@@ -471,7 +471,7 @@
     <object-name>Pax6</object-name>
     <condition>
       <greater-than>
-	<property>/sim/weight[2]/weight-lb</property>
+	<property>sim/multiplay/generic/float[10]</property>
         <value>680</value>
       </greater-than>
     </condition>
