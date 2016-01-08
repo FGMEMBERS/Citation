@@ -219,7 +219,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <x-offset-m type="double">-0.3</x-offset-m>
         <y-offset-m type="double">1.05</y-offset-m>
         <z-offset-m type="double">3.3</z-offset-m>
-        <pitch-offset-deg>-20</pitch-offset-deg>
+        <pitch-offset-deg>-15</pitch-offset-deg>
         <limits>
           <enabled type="bool">true</enabled>
           <left>
@@ -316,7 +316,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <x-offset-m archive="y" type="double">0.3</x-offset-m> <!--Right-->
         <y-offset-m archive="y" type="double">1.05</y-offset-m> <!--Up-->
         <z-offset-m archive="y" type="double">3.3</z-offset-m> <!--Back-->
-        <pitch-offset-deg>-20</pitch-offset-deg>
+        <pitch-offset-deg>-15</pitch-offset-deg>
         <limits>
           <enabled type="bool">true</enabled>
           <left>
@@ -621,8 +621,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <aircraft-data> <!-- to be recorded for next time -->
       <!-- dirty hack! The fuel levels didn't get reloaded, so in
-           Nasal/Citaion2.nas this gets read instead and in turn 
-           updates every following frame. -->
+           Nasal/Citaion2.nas this gets read instead (l.135) and in turn 
+           updates every following frame (l.265). -->
       <path>/consumables/fuel/fuel-gal_us-0</path>
       <path>/consumables/fuel/fuel-gal_us-1</path>
 

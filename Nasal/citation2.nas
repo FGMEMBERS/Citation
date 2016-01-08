@@ -132,8 +132,15 @@ setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
 
 setlistener("/sim/signals/fdm-initialized", func {
     # Read old fuel levels
-    setprop("/consumables/fuel/tank[0]/level-gal_us", getprop("/consumables/fuel/fuel-gal_us-0"));
-    setprop("/consumables/fuel/tank[1]/level-gal_us", getprop("/consumables/fuel/fuel-gal_us-1"));
+    var fuelL= getprop("/consumables/fuel/fuel-gal_us-0");
+    var fuelR= getprop("/consumables/fuel/fuel-gal_us-1");
+      # make sure we don't pass along a nil! (Most likely because this is our
+      # first run with this model and have no previous value stored.)
+    if(fuelL == nil){ fuelL = 371; }
+    if(fuelR == nil){ fuelR = 371; }
+    # Override default "full tanks" with read values
+    setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
+    setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
 
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);
