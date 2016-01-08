@@ -27,6 +27,22 @@
   </animation>
 
   <animation>
+    <type>select</type>
+    <object-name>LH.Lreverser</object-name>
+    <object-name>LH.Ureverser</object-name>
+    <object-name>LH.reverserClamp</object-name>
+    <object-name>RH.Lreverser</object-name>
+    <object-name>RH.Ureverser</object-name>
+    <object-name>RH.reverserClamp</object-name>
+    <condition>
+      <equals>
+        <property>sim/model/variant</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
     <type>material</type>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
@@ -75,6 +91,10 @@
     <object-name>LHwing.heater</object-name>
     <object-name>REngine.heater</object-name>
     <object-name>LEngine.heater</object-name>
+    <object-name>LEngine.nozzle</object-name>
+    <object-name>REngine.nozzle</object-name>
+    <object-name>LHstrut</object-name>
+    <object-name>RHstrut</object-name>
     <object-name>Door.handle</object-name>
     <object-name>RH.Ureverser</object-name>
     <object-name>LH.Ureverser</object-name>
