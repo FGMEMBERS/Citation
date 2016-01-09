@@ -268,7 +268,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </view>
     <view n="7">
       <config>
-        <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+        <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
       </config>
     </view>
 

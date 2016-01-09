@@ -95,11 +95,18 @@
     <object-name>REngine.nozzle</object-name>
     <object-name>LHstrut</object-name>
     <object-name>RHstrut</object-name>
+    <object-name>FrtStrut</object-name>
+    <object-name>RHlandLight</object-name>
+    <object-name>LHlandLight</object-name>
+    <object-name>LHram</object-name>
+    <object-name>RHram</object-name>
     <object-name>Door.handle</object-name>
     <object-name>RH.Ureverser</object-name>
     <object-name>LH.Ureverser</object-name>
     <object-name>RH.Lreverser</object-name>
     <object-name>LH.Lreverser</object-name>
+    <object-name>LH.reverserClamp</object-name>
+    <object-name>RH.reverserClamp</object-name>
     <object-name>LH.uSpdBrk.rod</object-name>
     <object-name>RH.uSpdBrk.rod</object-name>
     <object-name>LH.lSpdBrk.rod</object-name>
@@ -905,6 +912,7 @@
   <animation>
     <type>rotate</type>
     <object-name>FrtStrut</object-name>
+    <object-name>FrtStrut.fittings</object-name>
     <object-name>FrtWheel</object-name>
     <object-name>FLdamper</object-name>
     <object-name>FUdamper</object-name>
@@ -931,6 +939,7 @@
   <animation>
     <type>rotate</type>
     <object-name>FrtStrut</object-name>
+    <object-name>FrtStrut.fittings</object-name>
     <object-name>FrtWheel</object-name>
     <object-name>FLdamper</object-name>
     <object-name>FUdamper</object-name>
@@ -1018,6 +1027,7 @@
   <animation>
     <type>translate</type>
     <object-name>FrtStrut</object-name>
+    <object-name>FrtStrut.fittings</object-name>
     <object-name>FrtWheel</object-name>
     <property>gear/gear[0]/compression-m</property>
     <axis>
