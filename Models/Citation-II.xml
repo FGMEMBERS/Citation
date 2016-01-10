@@ -641,6 +641,62 @@
   </animation>
 
   <animation>
+    <type>select</type>
+    <object-name>LEngine.fan</object-name>
+    <condition>
+      <less-than>
+	<property>engines/engine/fan</property>
+	<value>30</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>REngine.fan</object-name>
+    <condition>
+      <less-than>
+	<property>engines/engine[1]/fan</property>
+	<value>30</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>LEngine.fan</object-name>
+    <property>engines/engine/fan</property>
+    <factor>10</factor>
+    <center>
+      <x-m>8.31368</x-m>
+      <y-m>-1.28875</y-m>
+      <z-m>0.84903</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>REngine.fan</object-name>
+    <property>engines/engine[1]/fan</property>
+    <factor>10</factor>
+    <center>
+      <x-m>8.31368</x-m>
+      <y-m>1.28875</y-m>
+      <z-m>0.84903</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
     <type>rotate</type>
     <object-name>RH.Ureverser</object-name>
     <object-name>LH.Ureverser</object-name>
