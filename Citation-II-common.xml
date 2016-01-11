@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ************************************************************************
 -->
-<PropertyList>
+<PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
   <sim>
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Citation-II-splash-04.png</splash-texture>
     </startup>
 
-    <aircraft-version>3.0.8</aircraft-version>
+    <aircraft-version>3.0.9</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
@@ -61,7 +61,133 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <refl_correction type="string">-0.1</refl_correction>
         <amb_correction type="string">0.10</amb_correction>
       </rendering>
+
+      <!-- Settings for human models -->
+      <crew>
+        <pilot n="0">
+          <pose include="Models/Human/pose-pilot.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>1</eyewear>
+          <headgear>1</headgear>
+	  <enabled type="bool">1</enabled>
+        </pilot>
+        <pilot n="1">
+          <pose include="Models/Human/pose-copilot.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>1</eyewear>
+          <headgear>1</headgear>
+	  <enabled type="bool">1</enabled>
+        </pilot>
+      </crew>
+      <pax>
+        <pax n="0">
+          <pose include="Models/Human/pose-pax0.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="1">
+          <pose include="Models/Human/pose-pax1.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="2">
+          <pose include="Models/Human/pose-pax2.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="3">
+          <pose include="Models/Human/pose-pax3.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="4">
+          <pose include="Models/Human/pose-pax4.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>2</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="5">
+          <pose include="Models/Human/pose-pax5.xml"/>
+          <character>0</character>
+	  <gender>1</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+        <pax n="6">
+          <pose include="Models/Human/pose-pax6.xml"/>
+          <character>0</character>
+	  <gender>0</gender>
+	  <hair>1</hair>
+          <outfit>0</outfit>
+          <equipment>0</equipment>
+          <eyewear>0</eyewear>
+          <headgear>0</headgear>
+	  <enabled type="bool">1</enabled>
+        </pax>
+      </pax>
+
+      <!-- Human models persistent menu choice -->
+      <occupants type="bool">true</occupants>
+
+      <!-- An exit for the walker -->
+      <map>
+        <default_exit>
+          <x-offset-m type="float">5.8</x-offset-m>
+          <y-offset-m type="float">-1.4</y-offset-m>
+        </default_exit>
+      </map>
     </model>
+
+    <!-- Walker settings -->
+    <walker>
+      <gender>1</gender>
+      <outfit>2</outfit>
+      <equipment>1</equipment>
+      <eyewear>1</eyewear>
+      <headgear>0</headgear>
+      <altitude-ft>-5.0</altitude-ft>
+    </walker>
 
     <dimensions>
       <radius-m type="double">10.0</radius-m>
@@ -89,15 +215,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <type>lookfrom</type>
       <internal type="bool">true</internal>
       <config>
-        <x-offset-m type="double">-0.34</x-offset-m>
-        <y-offset-m type="double">0.948</y-offset-m>
-        <z-offset-m type="double">3.127</z-offset-m>
+	<default-field-of-view>70</default-field-of-view>
+        <x-offset-m type="double">-0.3</x-offset-m>
+        <y-offset-m type="double">1.05</y-offset-m>
+        <z-offset-m type="double">3.3</z-offset-m>
         <pitch-offset-deg>-15</pitch-offset-deg>
         <limits>
           <enabled type="bool">true</enabled>
           <left>
             <heading-max-deg type="double">120</heading-max-deg>
-            <x-offset-max-m type="double">0.22</x-offset-max-m>
+            <x-offset-max-m type="double">0.05</x-offset-max-m>
             <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
           </left>
           <right>
@@ -141,7 +268,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </view>
     <view n="7">
       <config>
-        <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+        <target-z-offset-m archive="y" type="double">0</target-z-offset-m>
       </config>
     </view>
 
@@ -182,12 +309,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <internal archive="y">true</internal>
       <type>lookfrom</type>
       <config>
+	<default-field-of-view>70</default-field-of-view>
         <from-model type="bool">true</from-model>
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
         <heading-offset-deg type="double">0</heading-offset-deg>
-        <x-offset-m archive="y" type="double">0.34</x-offset-m> <!--Right-->
-        <y-offset-m archive="y" type="double">0.948</y-offset-m> <!--Up-->
-        <z-offset-m archive="y" type="double">3.127</z-offset-m> <!--Back-->
+        <x-offset-m archive="y" type="double">0.3</x-offset-m> <!--Right-->
+        <y-offset-m archive="y" type="double">1.05</y-offset-m> <!--Up-->
+        <z-offset-m archive="y" type="double">3.3</z-offset-m> <!--Back-->
         <pitch-offset-deg>-15</pitch-offset-deg>
         <limits>
           <enabled type="bool">true</enabled>
@@ -198,7 +326,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
           </left>
           <right>
             <heading-max-deg type="double">120</heading-max-deg>
-            <x-offset-max-m type="double">0.22</x-offset-max-m>
+            <x-offset-max-m type="double">0.05</x-offset-max-m>
             <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
           </right>
         </limits>
@@ -216,8 +344,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <x-offset-m archive="y" type="double">0.000</x-offset-m> <!--Right-->
         <y-offset-m archive="y" type="double">0.850</y-offset-m> <!--Up-->
         <z-offset-m archive="y" type="double">2.900</z-offset-m> <!--Back-->
-        <default-heading-offset-deg>0</default-heading-offset-deg>
-        <pitch-offset-deg>-90</pitch-offset-deg>
+        <default-heading-offset-deg type="double">0</default-heading-offset-deg>
+        <pitch-offset-deg type="double">-85</pitch-offset-deg>
+	<default-field-of-view type="double">60</default-field-of-view>
       </config>
     </view>
 
@@ -257,7 +386,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <airport>
       <runways>
-        <start-offset-m>20</start-offset-m>
+        <start-offset-m>10</start-offset-m>
       </runways>
     </airport>
 
@@ -328,54 +457,55 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </key>
       <line>Many features require power to operate. Make sure at least battery is switched on!</line>
       <text>Autopilot operation:
-Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
+      Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
 
-FD OFF:         Illuminated=OFF. Engage wing leveler and pitch hold
-HDG:              Follow heading bug
-NAV:              Cycle between wing leveler, NAV1 or NAV2, and GPS
-APR:               NAV1 lateral and glideslope
-BC:                 Backcourse
-NAV/HSI:        Toggle the HSI and autopilot between NAV1 and NAV2
-ALT:                Altitude hold
-ALT SEL:         (inoperative)
-VNAV:            (inoperative)
-V/S:                Hold vertical speed
-IAS:                Autothrottle to hold current indicated airspeed
-PITCH wheel:  Adjust pitch, selected altitude or vertical speed
+      FD OFF:         Illuminated=OFF. Engage wing leveler and pitch hold
+      HDG:              Follow heading bug
+      NAV:              Cycle between wing leveler, NAV1 or NAV2, and GPS
+      APR:               NAV1 lateral and glideslope
+      BC:                 Backcourse
+      NAV/HSI:        Toggle the HSI and autopilot between NAV1 and NAV2
+      ALT:                Altitude hold
+      ALT SEL:         (inoperative)
+      VNAV:            (inoperative)
+      V/S:                Hold vertical speed
+      IAS:                Autothrottle to hold current indicated airspeed
+                            (use ASI-knob to change speed)
+      PITCH wheel:  Adjust pitch, selected altitude or vertical speed
 
----------------------------------------------------
+      ---------------------------------------------------
 
-To fold / unfold the passenger's tables, left or middle click respectively,
-holding the button down as long as necessary to fold the elements. To stow
-and unstow the folded table, left or middle-click on the cupholders.</text>
+      To fold / unfold the passenger's tables, left or middle click respectively,
+      holding the button down as long as necessary to fold the elements. To stow
+      and unstow the folded table, left or middle-click on the cupholders.</text>
     </help>
 
     <weight n="0">
-      <name>Frt Baggage</name>
-      <weight-lb>0</weight-lb>
-      <max-lb>350</max-lb>
-      <min-lb>0</min-lb>
+      <name type="string">Frt Baggage</name>
+      <weight-lb type="double">0</weight-lb>
+      <max-lb type="int">350</max-lb>
+      <min-lb type="int">0</min-lb>
     </weight>
 
     <weight n="1">
-      <name>Crew</name>
-      <weight-lb>400</weight-lb>
-      <max-lb>500</max-lb>
-      <min-lb>100</min-lb>
+      <name type="string">Crew</name>
+      <weight-lb type="double">375</weight-lb>
+      <max-lb type="int">400</max-lb>
+      <min-lb type="int">100</min-lb>
     </weight>
 
     <weight n="2">
-      <name>Passengers</name>
-      <weight-lb>636</weight-lb>
-      <max-lb>1200</max-lb>
-      <min-lb>0</min-lb>
+      <name type="string">Passengers</name>
+      <weight-lb type="double">636</weight-lb>
+      <max-lb type="int">1200</max-lb>
+      <min-lb type="int">0</min-lb>
     </weight>
 
     <weight n="3">
-      <name>Rear Baggage</name>
-      <weight-lb>0</weight-lb>
-      <max-lb>500</max-lb>
-      <min-lb>0</min-lb>
+      <name type="string">Rear Baggage</name>
+      <weight-lb type="double">0</weight-lb>
+      <max-lb type="int">500</max-lb>
+      <min-lb type="int">0</min-lb>
     </weight>
 
     <menubar>
@@ -437,86 +567,69 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
         <float type="float" n="6" alias="/controls/baggage-door-front-left/position-norm"/>
         <float type="float" n="7" alias="/controls/baggage-door-front-right/position-norm"/>
         <float type="float" n="8" alias="/controls/baggage-door-aft/position-norm"/>
-        <string type="string" alias="/sim/multiplay/callsign"/>
+        <float type="float" n="9" alias="/sim/weight[1]/weight-lb"/>
+        <float type="float" n="10" alias="/sim/weight[2]/weight-lb"/>
+        <string type="string" n="0" alias="/sim/multiplay/callsign"/>
+	<string type="string" n="1" alias="/sim/aircraft-version"/>
+	<!--string type="string" n="2" alias="/sim/description"/--> <!-- "Citation II" or "Sierra Super II" -->
       </generic>
+      <sim>
+        <model>
+          <crew>
+            <pilot n="0">
+              <pose include="Models/Human/pose-pilot.xml"/>
+              <character>0</character>
+	      <gender>1</gender>
+	      <hair>1</hair>
+              <outfit>2</outfit>
+              <equipment>0</equipment>
+              <eyewear>1</eyewear>
+              <headgear>1</headgear>
+	    </pilot>
+            <pilot n="1">
+              <pose include="Models/Human/pose-copilot.xml"/>
+              <character>0</character>
+	      <gender>0</gender>
+	      <hair>1</hair>
+              <outfit>2</outfit>
+              <equipment>0</equipment>
+              <eyewear>1</eyewear>
+              <headgear>1</headgear>
+            </pilot>
+          </crew>
+        </model>
+      </sim>
     </multiplay>
 
-    <!--flight-recorder>
+    <flight-recorder>
       <replay-config type="int">0</replay-config>
-      <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
-        <name type="string">Citation II - Flight Recorder</name>
-        <signal>
-          <type>int</type>
-          <property type="int">/sim/control/multiplay/int</property>
-        </signal>
-        <signal>
-          <type>int</type>
-          <property type="int">/sim/control/multiplay/int[1]</property>
-        </signal>
-        <signal>
-          <type>int</type>
-          <property type="int">/sim/control/multiplay/int[2]</property>
-        </signal>
-        <signal>
-          <type>int</type>
-          <property type="int">/sim/control/multiplay/int[3]</property>
-        </signal>
-        <signal>
-          <type>int</type>
-          <property type="int">/sim/control/multiplay/int[4]</property>
-        </signal>
-        <signal>
-          <type>int</type>
-          <property type="int">/sim/control/multiplay/int[5]</property>
-        </signal>
-        <signal>
-          <type>int</type>
-          <property type="int">/sim/control/multiplay/int[6]</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[1]</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[2]m</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[3]</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[4]</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[5]</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[6]</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[7]</property>
-        </signal>
-        <signal>
-          <type>float</type>
-          <property type="float">/sim/control/multiplay/float[8]</property>
-        </signal>
+      <config n="0" include="Aircraft/Generic/flightrecorder/generic-jet.xml">
+        <name>Citation II - Flight Recorder</name>
+	<signal><type>int</type><property type="string">/systems/electrical/outputs/strobe</property></signal>
+        <signal><type>int</type><property type="string">/systems/electrical/outputs/beacon</property></signal>
+        <signal><type>int</type><property type="string">/systems/electrical/outputs/nav-lights</property></signal>
+        <signal><type>int</type><property type="string">/systems/electrical/outputs/landing-light[0]</property></signal>
+        <signal><type>int</type><property type="string">/systems/electrical/outputs/landing-light[1]</property></signal>
+        <signal><type>int</type><property type="string">/controls/lighting/recog-lights-left</property></signal>
+        <signal><type>int</type><property type="string">/controls/lighting/recog-lights-right</property></signal>
+        <signal><type>float</type><property type="string">/controls/cabin-door/position-norm</property></signal>
+        <signal><type>float</type><property type="string">/surface-positions/reverser-norm</property></signal>
+        <signal><type>float</type><property type="string">/surface-positions/reverser-norm[1]</property></signal>
+        <signal><type>float</type><property type="string">/controls/baggage-door-front-left/position-norm</property></signal>
+        <signal><type>float</type><property type="string">/controls/baggage-door-front-right/position-norm</property></signal>
+        <signal><type>float</type><property type="string">/controls/baggage-door-aft/position-norm</property></signal>
       </config>
-    </flight-recorder-->
+    </flight-recorder>
 
     <aircraft-data> <!-- to be recorded for next time -->
-      <path>/consumables/fuel/tank[0]/level-lbs</path>
-      <path>/consumables/fuel/tank[1]/level-lbs</path>
-      <!--path>/sim/aircraft-class</path>
-      <path>/sim/aircraft-operator</path-->
+      <!-- dirty hack! The fuel levels didn't get reloaded, so in
+           Nasal/Citaion2.nas this gets read instead (l.135) and in turn 
+           updates every following frame (l.265). -->
+      <path>/consumables/fuel/fuel-gal_us-0</path>
+      <path>/consumables/fuel/fuel-gal_us-1</path>
+
+      <path>/sim/aircraft-class</path>
+      <path>/sim/aircraft-operator</path>
       <path>/sim/dimensions/parkpos-offset-m</path>
       <path>/sim/dimensions/radius-m</path>
       <path>/sim/weight[0]/weight-lb</path>
@@ -711,7 +824,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <decision-height type="double">200</decision-height>
     </altimeter>
     <airspeed-indicator>
-      <index-marker type="double">100</index-marker>
+      <index-marker type="double">220</index-marker>
     </airspeed-indicator>
     <fmc>
       <vspeeds>
@@ -754,6 +867,7 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
       <target-altitude-ft>10000</target-altitude-ft>
       <gs1-arm type="bool">0</gs1-arm>
       <alt-arm type="bool">0</alt-arm>
+      <target-speed-kt alias="/instrumentation/airspeed-indicator/index-marker"/>
     </settings>
   </autopilot>
 
@@ -937,4 +1051,4 @@ and unstow the folded table, left or middle-click on the cupholders.</text>
     </electrical>
   </systems>
 
-  </PropertyList>
+</PropertyList>

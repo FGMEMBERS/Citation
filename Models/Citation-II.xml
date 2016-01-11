@@ -12,6 +12,36 @@
     </unload>
   </nasal>
 
+  <!-- Do not show the following objects in the 3D preview of fgrun: -->
+  <animation>
+    <object-name>pilot</object-name>
+    <object-name>copilot</object-name>
+    <object-name>Pax0</object-name>
+    <object-name>Pax1</object-name>
+    <object-name>Pax2</object-name>
+    <object-name>Pax3</object-name>
+    <object-name>Pax4</object-name>
+    <object-name>Pax5</object-name>
+    <object-name>Pax6</object-name>
+    <nopreview/>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LH.Lreverser</object-name>
+    <object-name>LH.Ureverser</object-name>
+    <object-name>LH.reverserClamp</object-name>
+    <object-name>RH.Lreverser</object-name>
+    <object-name>RH.Ureverser</object-name>
+    <object-name>RH.reverserClamp</object-name>
+    <condition>
+      <equals>
+        <property>sim/model/variant</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
   <animation>
     <type>material</type>
     <object-name>LEngine</object-name>
@@ -51,7 +81,7 @@
     <object-name>Aft.BaggageDoor</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
-    <texture>Aircraft/Citation/Liveries/Lv1.png</texture>
+    <texture>Aircraft/Citation/Models/Liveries/Lv1.png</texture>
   </animation>
 
   <!-- Chrome parts, compatible with Rembrandt -->
@@ -61,11 +91,22 @@
     <object-name>LHwing.heater</object-name>
     <object-name>REngine.heater</object-name>
     <object-name>LEngine.heater</object-name>
+    <object-name>LEngine.nozzle</object-name>
+    <object-name>REngine.nozzle</object-name>
+    <object-name>LHstrut</object-name>
+    <object-name>RHstrut</object-name>
+    <object-name>FrtStrut</object-name>
+    <object-name>RHlandLight</object-name>
+    <object-name>LHlandLight</object-name>
+    <object-name>LHram</object-name>
+    <object-name>RHram</object-name>
     <object-name>Door.handle</object-name>
     <object-name>RH.Ureverser</object-name>
     <object-name>LH.Ureverser</object-name>
     <object-name>RH.Lreverser</object-name>
     <object-name>LH.Lreverser</object-name>
+    <object-name>LH.reverserClamp</object-name>
+    <object-name>RH.reverserClamp</object-name>
     <object-name>LH.uSpdBrk.rod</object-name>
     <object-name>RH.uSpdBrk.rod</object-name>
     <object-name>LH.lSpdBrk.rod</object-name>
@@ -137,12 +178,12 @@
       <texture n="3">
         <type>cubemap</type>
         <images>
-         <positive-x>Effects/glass/refl_cube_back.png</positive-x>
-         <negative-x>Effects/glass/refl_cube_front.png</negative-x>
-         <positive-y>Effects/glass/refl_cube_right.png</positive-y>
-         <negative-y>Effects/glass/refl_cube_left.png</negative-y>
-         <positive-z>Effects/glass/refl_cube_up.png</positive-z>
-         <negative-z>Effects/glass/refl_cube_down.png</negative-z>
+          <positive-x>Effects/glass/refl_cube_back.png</positive-x>
+          <negative-x>Effects/glass/refl_cube_front.png</negative-x>
+          <positive-y>Effects/glass/refl_cube_right.png</positive-y>
+          <negative-y>Effects/glass/refl_cube_left.png</negative-y>
+          <positive-z>Effects/glass/refl_cube_up.png</positive-z>
+          <negative-z>Effects/glass/refl_cube_down.png</negative-z>
         </images>
       </texture>
       <use-reflection type="int">1</use-reflection>
@@ -231,6 +272,217 @@
       <heading-deg>0</heading-deg>
     </offsets>
   </model>
+
+  <model>
+    <name>pilot</name>
+    <path>Aircraft/Generic/Human/Models/pilot.xml</path>
+    <offsets>
+      <x-m>3.21</x-m>
+      <y-m>-0.31</y-m>
+      <z-m>-0.70</z-m>
+    </offsets>
+    <nopreview/>
+  </model>
+  <!-- Hide pilot in pilots view and both pilots in Center Console View -->
+  <animation>
+    <type>select</type>
+    <object-name>pilot</object-name>
+    <condition>
+      <not-equals>
+        <property>sim/current-view/name</property>
+	<value>Captain</value>
+      </not-equals>
+      <not-equals>
+        <property>sim/current-view/name</property>
+	<value>Center Console</value>
+      </not-equals>
+      <not>
+	<property>sim/walker/outside</property>
+      </not>
+    </condition>
+  </animation>
+
+  <model>
+    <name>copilot</name>
+    <path>Aircraft/Generic/Human/Models/copilot.xml</path>
+    <offsets>
+      <x-m>3.21</x-m>
+      <y-m>0.32</y-m>
+      <z-m>-0.60</z-m>
+    </offsets>
+    <nopreview/>
+  </model>
+    <!-- Hide copilot in copilots view and both pilots in Center Console View OR hide copilot if crew-weight is less than 200lbs -->
+  <animation>
+    <type>select</type>
+    <object-name>copilot</object-name>
+    <condition>
+      <and>
+        <not-equals>
+          <property>sim/current-view/name</property>
+          <value>Copilot</value>
+        </not-equals>
+        <not-equals>
+          <property>sim/current-view/name</property>
+          <value>Center Console</value>
+        </not-equals>
+        <greater-than>
+          <property>sim/multiplay/generic/float[9]</property>
+          <value>200lbs</value>
+        </greater-than>
+      </and>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax0</name>
+    <path>Models/Human/pax0.xml</path>
+    <offsets>
+      <x-m>7.22</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+    <nopreview/>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax0</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[10]</property>
+        <value>170</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax1</name>
+    <path>Models/Human/pax1.xml</path>
+    <offsets>
+      <x-m>5.85</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+      <heading-deg>180</heading-deg>
+    </offsets>
+    <nopreview/>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax1</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[10]</property>
+        <value>850</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax2</name>
+    <path>Models/Human/pax2.xml</path>
+    <offsets>
+      <x-m>5.33</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+    <nopreview/>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax2</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[10]</property>
+        <value>510</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax3</name>
+    <path>Models/Human/pax3.xml</path>
+    <offsets>
+      <x-m>3.97</x-m>
+      <y-m>0.3</y-m>
+      <z-m>-0.65</z-m>
+      <heading-deg>180</heading-deg>
+    </offsets>
+    <nopreview/>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax3</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[10]</property>
+        <value>1190</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax4</name>
+    <path>Models/Human/pax4.xml</path>
+    <offsets>
+      <x-m>7.22</x-m>
+      <y-m>-0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+    <nopreview/>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax4</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[10]</property>
+        <value>340</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax5</name>
+    <path>Models/Human/pax5.xml</path>
+    <offsets>
+      <x-m>5.85</x-m>
+      <y-m>-0.3</y-m>
+      <z-m>-0.65</z-m>
+      <heading-deg>180</heading-deg>
+    </offsets>
+    <nopreview/>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax5</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[10]</property>
+        <value>1020</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Pax6</name>
+    <path>Models/Human/pax6.xml</path>
+    <offsets>
+      <x-m>5.33</x-m>
+      <y-m>-0.3</y-m>
+      <z-m>-0.65</z-m>
+    </offsets>
+    <nopreview/>
+  </model>
+  <animation>
+    <type>select</type>
+    <object-name>Pax6</object-name>
+    <condition>
+      <greater-than>
+	<property>sim/multiplay/generic/float[10]</property>
+        <value>680</value>
+      </greater-than>
+    </condition>
+  </animation>
 
   <animation>
     <type>range</type>
@@ -386,6 +638,62 @@
         <script>citation.cabin_door.toggle();</script>
       </binding>
     </action>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>LEngine.fan</object-name>
+    <condition>
+      <less-than>
+	<property>engines/engine/fan</property>
+	<value>30</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>REngine.fan</object-name>
+    <condition>
+      <less-than>
+	<property>engines/engine[1]/fan</property>
+	<value>30</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>LEngine.fan</object-name>
+    <property>engines/engine/fan</property>
+    <factor>10</factor>
+    <center>
+      <x-m>8.31368</x-m>
+      <y-m>-1.28875</y-m>
+      <z-m>0.84903</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>REngine.fan</object-name>
+    <property>engines/engine[1]/fan</property>
+    <factor>10</factor>
+    <center>
+      <x-m>8.31368</x-m>
+      <y-m>1.28875</y-m>
+      <z-m>0.84903</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
   </animation>
 
   <animation>
@@ -660,6 +968,7 @@
   <animation>
     <type>rotate</type>
     <object-name>FrtStrut</object-name>
+    <object-name>FrtStrut.fittings</object-name>
     <object-name>FrtWheel</object-name>
     <object-name>FLdamper</object-name>
     <object-name>FUdamper</object-name>
@@ -686,6 +995,7 @@
   <animation>
     <type>rotate</type>
     <object-name>FrtStrut</object-name>
+    <object-name>FrtStrut.fittings</object-name>
     <object-name>FrtWheel</object-name>
     <object-name>FLdamper</object-name>
     <object-name>FUdamper</object-name>
@@ -773,6 +1083,7 @@
   <animation>
     <type>translate</type>
     <object-name>FrtStrut</object-name>
+    <object-name>FrtStrut.fittings</object-name>
     <object-name>FrtWheel</object-name>
     <property>gear/gear[0]/compression-m</property>
     <axis>
@@ -1152,7 +1463,7 @@
     <type>select</type>
     <object-name>RHland.light</object-name>
     <condition>
-        <property>sim/multiplay/generic/int[4]</property>
+      <property>sim/multiplay/generic/int[4]</property>
     </condition>
   </animation>
 
@@ -1160,7 +1471,7 @@
     <type>select</type>
     <object-name>LHland.light</object-name>
     <condition>
-        <property>sim/multiplay/generic/int[3]</property>
+      <property>sim/multiplay/generic/int[3]</property>
     </condition>
   </animation>
 
