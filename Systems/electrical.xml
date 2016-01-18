@@ -126,7 +126,27 @@
     </output>
   </filter>
 
-
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <greater-than>
+	    <property>systems/electrical/outputs/bus/right</property>
+	    <value>1</value>
+	  </greater-than>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
+	</and>
+      </condition>
+      <property>systems/electrical/outputs/bus/right</property>
+    </input>
+    <input>
+      <value>0</value>
+    </input>
+    <output>
+      <property>/systems/electrical/outputs/mk-viii</property>
+    </output>
+  </filter>
 
 <!--
 ##################
