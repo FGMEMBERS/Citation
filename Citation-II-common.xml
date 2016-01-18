@@ -832,7 +832,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <serviceable type="bool">false</serviceable>
     </cdu>
     <garmin196>
-      <texture-file>/Aircraft/Citation/Models/garmin196.png</texture-file>
+      <texture-file>Aircraft/Citation/Models/garmin196.png</texture-file>
     </garmin196>
     <dme>
       <frequencies>

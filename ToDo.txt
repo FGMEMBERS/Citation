@@ -31,7 +31,6 @@ generic:
              up, it stays at current value until ignition is switched on again. Should
              spool down instead! While at it, starter-disengage should be hung into
              that as well!
-* XML:	     Include MK-VII ( http://wiki.flightgear.org/Ground_proximity_warning_system )
 
 autopilot:
 * XML/Nasal: When "Pitch-Trim" circuit-breaker is pulled
