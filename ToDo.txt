@@ -20,7 +20,6 @@ cabin:
 exterior:
 * Modelling: more details for landing gear
 * Texturing: plating, rivets & stuff (-> normalmap) WIP
-* Texturing: animated engine intakes?
 * Effects:   Thrust/Flame effect doesn't work properly, when engines cut off in flight
              the thrust flame doesn't disappear. It illudes me why.
 
@@ -32,6 +31,7 @@ generic:
              up, it stays at current value until ignition is switched on again. Should
              spool down instead! While at it, starter-disengage should be hung into
              that as well!
+* XML:	     Include MK-VII ( http://wiki.flightgear.org/Ground_proximity_warning_system )
 
 autopilot:
 * XML/Nasal: When "Pitch-Trim" circuit-breaker is pulled
@@ -43,8 +43,7 @@ autopilot:
              A/P off. It simply should stop having an effect.
 
 multiplayer:
-* XML/Nasal: Rudder movements non functional over mp -> needs fix -> commit request filed on devel-list
-             Lights non functional over mp -> needs fix !Not intended over mp, should be built into the mp-version ($FGDATA/AI/Aircraft/Citation/Citation-II.*)
+* XML/Nasal: Lights non functional over mp -> needs fix !Not intended over mp, should be built into the mp-version ($FGDATA/AI/Aircraft/Citation/Citation-II.*)
 
 ##########################################################
 
