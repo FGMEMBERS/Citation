@@ -456,7 +456,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <desc>Toggle speedbrakes</desc>
       </key>
       <line>Many features require power to operate. Make sure at least battery is switched on!</line>
-      <text>Autopilot operation:
+      <text>Ground Proximity Warning System: Use circuit breaker 'GROUND PROXI' on right circuit breaker panel to switch off warnings.
+
+      Autopilot operation:
       Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
 
       FD OFF:         Illuminated=OFF. Engage wing leveler and pitch hold
