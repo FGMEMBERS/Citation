@@ -116,4 +116,24 @@ GNU General Public License for more details.
     <output>/instrumentation/cdu/serviceable</output>
   </filter>
 
+  <filter>
+    <name>Turn the GPWS on and off with the circuit breaker (Ground Prox) and power</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+	<and>
+	  <greater-than>
+	    <property>systems/electrical/right-bus</property>
+	    <value>1.0</value>
+	  </greater-than>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
+	</and>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>0</input>
+    <output>/instrumentation/mk-viii/serviceable</output>
+  </filter>
+
 </PropertyList>

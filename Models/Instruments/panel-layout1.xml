@@ -357,13 +357,13 @@
         </offsets>
     </model>
 
-    <model>
-        <path>Models/Instruments/wxradar.xml</path>
-        <offsets>
-            <x-m>0</x-m>
-            <y-m>-0.072</y-m>
-            <z-m>0.154</z-m>
-        </offsets>
+    <model> 
+      <path>Aircraft/Instruments-3d/garmin196/garmin196.xml</path>
+      <offsets> 
+	<x-m>0</x-m>
+	<y-m>-0.072</y-m>
+	<z-m>0.186</z-m>
+      </offsets>
     </model>
 
     <model>

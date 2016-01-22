@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Citation-II-splash-04.png</splash-texture>
     </startup>
 
-    <aircraft-version>3.0.9</aircraft-version>
+    <aircraft-version>3.0.11</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
@@ -456,7 +456,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <desc>Toggle speedbrakes</desc>
       </key>
       <line>Many features require power to operate. Make sure at least battery is switched on!</line>
-      <text>Autopilot operation:
+      <text>Ground Proximity Warning System: Use circuit breaker 'GROUND PROXI' on right circuit breaker panel to switch off warnings.
+
+      Autopilot operation:
       Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
 
       FD OFF:         Illuminated=OFF. Engage wing leveler and pitch hold
@@ -547,6 +549,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <instrumentation>
       <path>Systems/instrumentation.xml</path>
+      <mk-viii>                           <!-- http://wiki.flightgear.org/index.php/GPWS -->
+        <serviceable>true</serviceable>   <!-- EGPWS_ENABLE -->
+	<configuration-module>
+	  <category-1>   1 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+	  <category-8>   3 </category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
+	</configuration-module>
+	<inputs>                          <!-- Module I/O -->
+	  <arinc429>
+	    <decision-height-ncd> false </decision-height-ncd>
+	    <decision-height> 200 </decision-height>
+	  </arinc429>
+	</inputs>
+	<speaker>                         <!-- Speaker Configuration -->
+	  <volume> 0.4 </volume>          <!-- Volume at reference distance -->
+	</speaker>
+	<voice>
+	  <file-prefix type="string">Sounds/mk-viii/</file-prefix>
+                                         <!-- sound file path and prefix -->
+	</voice>
+      </mk-viii>
     </instrumentation>
 
     <multiplay>
@@ -737,6 +759,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	  <cb-light-cabin-read type="bool">1</cb-light-cabin-read> <!-- has no model, it's located elsewhere -->
 	  <cb-thrust-reverser-right type="bool">1</cb-thrust-reverser-right>
 	  <cb-start-right type="bool">1</cb-start-right>
+	  <cb-ground-prox type="bool">1</cb-ground-prox>
         </bus-right>
       </circuit-breakers>
     </electric>
@@ -810,6 +833,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <input type="string"/>
       <serviceable type="bool">false</serviceable>
     </cdu>
+    <garmin196>
+      <texture-file>Aircraft/Citation/Models/garmin196.png</texture-file>
+    </garmin196>
     <dme>
       <frequencies>
         <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>

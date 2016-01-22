@@ -23,3 +23,4 @@ bus-right/cb-light-nav
 bus-right/cb-light-landing-right
 bus-right/cb-light-recog-right
 bus-right/cb-light-cabin-read
+bus-right/cb-ground-prox
