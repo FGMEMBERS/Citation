@@ -910,9 +910,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
-    <garmin196>
-      <file>Aircraft/Instruments-3d/garmin196/garmin196.nas</file>
-    </garmin196>
   </nasal>
 
   <input>
