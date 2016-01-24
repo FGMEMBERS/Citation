@@ -907,6 +907,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
+    <tyresmoke>
+      <file>Aircraft/Citation/Nasal/tyresmoke.nas</file>
+    </tyresmoke>
   </nasal>
 
   <input>
