@@ -833,9 +833,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <input type="string"/>
       <serviceable type="bool">false</serviceable>
     </cdu>
-    <garmin196>
-      <texture-file>Aircraft/Citation/Models/garmin196.png</texture-file>
-    </garmin196>
     <dme>
       <frequencies>
         <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
