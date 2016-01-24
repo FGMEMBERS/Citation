@@ -48,5 +48,23 @@ GNU General Public License for more details.
     <input>-1.52</input>
     <output>/limits/max-negative-g</output>
   </filter>
+  
+  <filter>
+    <name>Lift force on the wings for wingflexer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+	<difference>
+	  <product>
+	    <property>yasim/gross-weight-lbs</property>
+	    <property>accelerations/n-z-cg-fps_sec</property>
+	  </product>
+	  <property></property>
+	</difference>
+      </expression>
+    </input>
+    <output>/yasim/fbz-aero-lbs</output>
+  </filter>
 
 </PropertyList>

@@ -1548,6 +1548,8 @@
     </condition>
   </animation>
 
+  <!-- tyre smoke -->
+
   <model>
     <path>Aircraft/Generic/Effects/tyre-smoke-nose.xml</path>
     <name>tyre-smoke-n</name>

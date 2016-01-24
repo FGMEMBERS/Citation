@@ -372,6 +372,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="104">
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
+      <wingflexer include="Systems/wingflexer-params.xml"/>
+      <property-rule n="105">
+	<name>wing flexer property rule</name>
+	<path>Aircraft/Generic/wingflexer.xml</path>
+      </property-rule>
     </systems>
 
     <sound>
