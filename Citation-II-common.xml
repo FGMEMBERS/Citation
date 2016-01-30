@@ -372,6 +372,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="104">
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
+      <wingflexer include="Systems/wingflexer-params.xml"/>
+      <property-rule n="105">
+	<name>wing flexer property rule</name>
+	<path>Aircraft/Generic/wingflexer.xml</path>
+      </property-rule>
     </systems>
 
     <sound>
@@ -833,9 +838,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <input type="string"/>
       <serviceable type="bool">false</serviceable>
     </cdu>
-    <garmin196>
-      <texture-file>Aircraft/Citation/Models/garmin196.png</texture-file>
-    </garmin196>
     <dme>
       <frequencies>
         <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
@@ -910,6 +912,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
+    <tyresmoke>
+      <file>Aircraft/Citation/Nasal/tyresmoke.nas</file>
+    </tyresmoke>
   </nasal>
 
   <input>

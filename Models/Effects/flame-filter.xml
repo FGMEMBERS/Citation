@@ -8,7 +8,7 @@
       <expression>
         <div>
           <property>engines/engine/fan</property>
-          <value>1000</value>
+          <value>2000</value>
         </div>
       </expression>
     </input>
@@ -20,7 +20,7 @@
       <expression>
         <div>
           <property>engines/engine[1]/fan</property>
-          <value>1000</value>
+          <value>2000</value>
         </div>
       </expression>
     </input>
