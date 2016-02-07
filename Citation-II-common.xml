@@ -404,10 +404,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <help>
       <title>Cessna 550 Citation-II</title>
-      <key>
+      <!--<key>
         <name>s</name>
         <desc>Autostart</desc>
-      </key>
+      </key> -->
       <key>
         <name>y</name>
         <desc>Show/Hide Yokes</desc>
@@ -919,14 +919,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   <input>
     <keyboard>
-      <key n="115">
+      <!-- <key n="115">
         <name>s</name>
         <desc>toggle autostart</desc>
         <binding>
           <command>property-toggle</command>
           <property>sim/model/autostart</property>
         </binding>
-      </key>
+      </key> -->
       <key n="12">
         <name>Ctrl-L</name>
         <desc>Toggle landing lights</desc>
