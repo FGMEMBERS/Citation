@@ -18,5 +18,8 @@
 	<opacity-cube-center type="vec3d" n="0"> 2.92428 0.0 0.6 </opacity-cube-center>
 	<opacity-cube-scale type="vec3d" n="0"> 1.47 1.434 1.132 </opacity-cube-scale>
 	<opacity-cube-angle type="float">0.0</opacity-cube-angle>
+<!-- Irradiance Map -->
+	<irradiance-map-type type="int">2</irradiance-map-type>
+	<irradiance-map-strength type="float">0.5</irradiance-map-strength>
   </parameters>
 </PropertyList>

@@ -17,7 +17,7 @@
 
   <!-- cockpit shadows -->
   <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>Ashtray</object-name>
     <object-name>AuxGear.Panel</object-name>
     <object-name>AuxGearLever</object-name>
