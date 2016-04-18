@@ -46,7 +46,9 @@
     <type>material</type>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
-    <object-name>LHwing</object-name>
+    <object-name>LHwing.001</object-name>
+    <object-name>LHwing.002</object-name>
+    <object-name>LHwing.003</object-name>
     <object-name>LHwing.guard.001</object-name>
     <object-name>RH.uSpdBrk</object-name>
     <object-name>LH.uSpdBrk</object-name>
@@ -59,7 +61,9 @@
     <object-name>LHaileron</object-name>
     <object-name>LHflap</object-name>
     <object-name>LHmain.door</object-name>
-    <object-name>RHwing</object-name>
+    <object-name>RHwing.001</object-name>
+    <object-name>RHwing.002</object-name>
+    <object-name>RHwing.003</object-name>
     <object-name>RHwing.guard.001</object-name>
     <object-name>RHaileron</object-name>
     <object-name>RHflap</object-name>
@@ -87,8 +91,10 @@
   <!-- Chrome parts, compatible with Rembrandt -->
   <effect>
     <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome</inherits-from>
-    <object-name>RHwing.heater</object-name>
-    <object-name>LHwing.heater</object-name>
+    <object-name>RHwing.heater.001</object-name>
+    <object-name>RHwing.heater.002</object-name>
+    <object-name>LHwing.heater.001</object-name>
+    <object-name>LHwing.heater.002</object-name>
     <object-name>REngine.heater</object-name>
     <object-name>LEngine.heater</object-name>
     <object-name>LEngine.nozzle</object-name>
@@ -119,8 +125,11 @@
     <inherits-from>Aircraft/Citation/Models/Effects/citation_reflect</inherits-from>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
-    <object-name>LHwing</object-name>
+    <object-name>LHwing.001</object-name>
+    <object-name>LHwing.002</object-name>
+    <object-name>LHwing.003</object-name>
     <object-name>LHwing.guard.001</object-name>
+    <object-name>LHwing.guard.002</object-name>
     <object-name>RH.uSpdBrk</object-name>
     <object-name>LH.uSpdBrk</object-name>
     <object-name>RH.lSpdBrk</object-name>
@@ -128,8 +137,11 @@
     <object-name>LHaileron</object-name>
     <object-name>LHflap</object-name>
     <object-name>LHmain.door</object-name>
-    <object-name>RHwing</object-name>
+    <object-name>RHwing.001</object-name>
+    <object-name>RHwing.002</object-name>
+    <object-name>RHwing.003</object-name>
     <object-name>RHwing.guard.001</object-name>
+    <object-name>RHwing.guard.002</object-name>
     <object-name>RHaileron</object-name>
     <object-name>RHflap</object-name>
     <object-name>RHmain.door</object-name>
@@ -169,6 +181,8 @@
     <object-name>Recog.flash2</object-name>
     <object-name>LHland.light</object-name>
     <object-name>RHland.light</object-name>
+    <object-name>LHwing.guard.003</object-name>
+    <object-name>RHwing.guard.003</object-name>
   </effect>
 
   <!-- ALS cockpit glass effect (reflection cube, rain, frost, fog) -->
