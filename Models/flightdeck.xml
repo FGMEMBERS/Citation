@@ -118,6 +118,8 @@
     <object-name>trbn204</object-name>
     <object-name>trbn205</object-name>
     <object-name>trbn206</object-name>
+    <object-name>pilot</object-name>
+    <object-name>copilot</object-name>
   </effect>
 
   <model>

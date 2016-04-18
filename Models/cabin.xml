@@ -65,6 +65,13 @@
     <object-name>Table.3.in</object-name>
     <object-name>Table.3.out</object-name>
     <object-name>TableCasings</object-name>
+    <object-name>Pax0</object-name>
+    <object-name>Pax1</object-name>
+    <object-name>Pax2</object-name>
+    <object-name>Pax3</object-name>
+    <object-name>Pax4</object-name>
+    <object-name>Pax5</object-name>
+    <object-name>Pax6</object-name>
   </effect>
 
   <animation>
