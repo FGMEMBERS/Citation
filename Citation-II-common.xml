@@ -215,7 +215,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <type>lookfrom</type>
       <internal type="bool">true</internal>
       <config>
-	<default-field-of-view>70</default-field-of-view>
+	<default-field-of-view-deg>70</default-field-of-view-deg>
         <x-offset-m type="double">-0.3</x-offset-m>
         <y-offset-m type="double">1.05</y-offset-m>
         <z-offset-m type="double">3.3</z-offset-m>
@@ -309,7 +309,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <internal archive="y">true</internal>
       <type>lookfrom</type>
       <config>
-	<default-field-of-view>70</default-field-of-view>
+	<default-field-of-view-deg>70</default-field-of-view-deg>
         <from-model type="bool">true</from-model>
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
         <heading-offset-deg type="double">0</heading-offset-deg>
@@ -346,7 +346,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <z-offset-m archive="y" type="double">2.900</z-offset-m> <!--Back-->
         <default-heading-offset-deg type="double">0</default-heading-offset-deg>
         <pitch-offset-deg type="double">-85</pitch-offset-deg>
-	<default-field-of-view type="double">60</default-field-of-view>
+	<default-field-of-view-deg type="double">60</default-field-of-view-deg>
       </config>
     </view>
 
@@ -528,10 +528,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             </binding>
           </item>
           <item>
-            <label>Yokes On/Off</label>
+            <label>Yokes On/Off [y]</label>
             <binding>
               <command>property-toggle</command>
               <property>sim/yokes-visible</property>
+            </binding>
+          </item>
+          <item>
+            <label>Toggle human models</label>
+            <binding>
+              <command>property-toggle</command>
+              <property>controls/human-models</property>
             </binding>
           </item>
           <item>
@@ -663,6 +670,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/sim/weight[1]/weight-lb</path>
       <path>/sim/weight[2]/weight-lb</path>
       <path>/sim/weight[3]/weight-lb</path>
+      <path>/controls/human-models</path>
     </aircraft-data>
 
     <checklists>
@@ -692,6 +700,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <!-- aircraft specific loading -->
 
   <controls>
+    <human-models type="bool">1</human-models>
     <gear>
       <brake-parking type="bool">1</brake-parking>
     </gear>

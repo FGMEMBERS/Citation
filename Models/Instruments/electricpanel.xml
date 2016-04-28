@@ -10,7 +10,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>LH.ign.active</object-name>
     <object-name>LH.starter</object-name>
     <object-name>LH.starter.active</object-name>

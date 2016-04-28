@@ -15,7 +15,7 @@ Syd Adams
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>C92freq.001</object-name>
     <object-name>C92freq.002</object-name>
     <object-name>C92freq.003</object-name>

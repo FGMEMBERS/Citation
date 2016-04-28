@@ -26,10 +26,53 @@
     <object-name>Cabin.MapLights.Bulb</object-name>
   </effect>
 
-  <!-- glass -->
-  <!--effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-  </effect-->
+  <!-- cockpit shadows -->
+  <effect>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
+    <object-name>Cabin</object-name>
+    <object-name>Cabin.AftComp.Door</object-name>
+    <object-name>Cabin.Cupholders</object-name>
+    <object-name>Cabin.DoorFrame</object-name>
+    <object-name>Cabin.Floor</object-name>
+    <object-name>Cabin.Floor.low</object-name>
+    <object-name>Cabin.FloorAirVents</object-name>
+    <object-name>Cabin.LightKnob</object-name>
+    <object-name>Cabin.LightKnob.Plate</object-name>
+    <object-name>Cabin.MapLights</object-name>
+    <object-name>Cabin.MapLights.Bulb</object-name>
+    <object-name>Cabin.MapLights.ins</object-name>
+    <object-name>Cabin.OHPanel</object-name>
+    <object-name>Cabin.door1</object-name>
+    <object-name>Door.handle</object-name>
+    <object-name>ExitSign</object-name>
+    <object-name>Ladder</object-name>
+    <object-name>Ladder.Anchors</object-name>
+    <object-name>RfrshmntCntr</object-name>
+    <object-name>RfrshmntCntr.handles</object-name>
+    <object-name>Seat.000</object-name>
+    <object-name>Seat.002</object-name>
+    <object-name>Seat.003</object-name>
+    <object-name>Seat.004</object-name>
+    <object-name>Seat.005</object-name>
+    <object-name>Seat.006</object-name>
+    <object-name>Seat.1</object-name>
+    <object-name>Seat.levers</object-name>
+    <object-name>Seat.mountLedges</object-name>
+    <object-name>Table.1.in</object-name>
+    <object-name>Table.1.out</object-name>
+    <object-name>Table.2.in</object-name>
+    <object-name>Table.2.out</object-name>
+    <object-name>Table.3.in</object-name>
+    <object-name>Table.3.out</object-name>
+    <object-name>TableCasings</object-name>
+    <object-name>Pax0</object-name>
+    <object-name>Pax1</object-name>
+    <object-name>Pax2</object-name>
+    <object-name>Pax3</object-name>
+    <object-name>Pax4</object-name>
+    <object-name>Pax5</object-name>
+    <object-name>Pax6</object-name>
+  </effect>
 
   <animation>
     <type>rotate</type>

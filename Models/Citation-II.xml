@@ -46,7 +46,9 @@
     <type>material</type>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
-    <object-name>LHwing</object-name>
+    <object-name>LHwing.001</object-name>
+    <object-name>LHwing.002</object-name>
+    <object-name>LHwing.003</object-name>
     <object-name>LHwing.guard.001</object-name>
     <object-name>RH.uSpdBrk</object-name>
     <object-name>LH.uSpdBrk</object-name>
@@ -59,7 +61,9 @@
     <object-name>LHaileron</object-name>
     <object-name>LHflap</object-name>
     <object-name>LHmain.door</object-name>
-    <object-name>RHwing</object-name>
+    <object-name>RHwing.001</object-name>
+    <object-name>RHwing.002</object-name>
+    <object-name>RHwing.003</object-name>
     <object-name>RHwing.guard.001</object-name>
     <object-name>RHaileron</object-name>
     <object-name>RHflap</object-name>
@@ -87,8 +91,10 @@
   <!-- Chrome parts, compatible with Rembrandt -->
   <effect>
     <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome</inherits-from>
-    <object-name>RHwing.heater</object-name>
-    <object-name>LHwing.heater</object-name>
+    <object-name>RHwing.heater.001</object-name>
+    <object-name>RHwing.heater.002</object-name>
+    <object-name>LHwing.heater.001</object-name>
+    <object-name>LHwing.heater.002</object-name>
     <object-name>REngine.heater</object-name>
     <object-name>LEngine.heater</object-name>
     <object-name>LEngine.nozzle</object-name>
@@ -119,8 +125,11 @@
     <inherits-from>Aircraft/Citation/Models/Effects/citation_reflect</inherits-from>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
-    <object-name>LHwing</object-name>
+    <object-name>LHwing.001</object-name>
+    <object-name>LHwing.002</object-name>
+    <object-name>LHwing.003</object-name>
     <object-name>LHwing.guard.001</object-name>
+    <object-name>LHwing.guard.002</object-name>
     <object-name>RH.uSpdBrk</object-name>
     <object-name>LH.uSpdBrk</object-name>
     <object-name>RH.lSpdBrk</object-name>
@@ -128,8 +137,11 @@
     <object-name>LHaileron</object-name>
     <object-name>LHflap</object-name>
     <object-name>LHmain.door</object-name>
-    <object-name>RHwing</object-name>
+    <object-name>RHwing.001</object-name>
+    <object-name>RHwing.002</object-name>
+    <object-name>RHwing.003</object-name>
     <object-name>RHwing.guard.001</object-name>
+    <object-name>RHwing.guard.002</object-name>
     <object-name>RHaileron</object-name>
     <object-name>RHflap</object-name>
     <object-name>RHmain.door</object-name>
@@ -169,6 +181,8 @@
     <object-name>Recog.flash2</object-name>
     <object-name>LHland.light</object-name>
     <object-name>RHland.light</object-name>
+    <object-name>LHwing.guard.003</object-name>
+    <object-name>RHwing.guard.003</object-name>
   </effect>
 
   <!-- ALS cockpit glass effect (reflection cube, rain, frost, fog) -->
@@ -273,6 +287,128 @@
     </offsets>
   </model>
 
+  <!-- Wing Flex Right Wing -->
+  <animation>
+    <type>rotate</type>
+    <property>sim/systems/wingflexer/z-m</property>
+    <factor>-1</factor>
+    <object-name>RH.uSpdBrk</object-name>
+    <object-name>RH.uSpdBrk.rod</object-name>
+    <object-name>RH.lSpdBrk</object-name>
+    <object-name>RH.lSpdBrk.rod</object-name>
+    <object-name>RHwing.002</object-name>
+    <object-name>RHwing.003</object-name>
+    <object-name>RHaileron</object-name>
+    <object-name>RHflap</object-name>
+    <object-name>RHmain.door</object-name>
+    <object-name>greennav</object-name>
+    <object-name>Recog.flash2</object-name>
+    <object-name>RHland.light</object-name>
+    <object-name>RHwing.guard.001</object-name>
+    <object-name>RHwing.guard.002</object-name>
+    <object-name>RHwing.guard.003</object-name>
+    <object-name>RHwing.heater.002</object-name>
+    <object-name>RHgear</object-name>
+    <object-name>RHstrut</object-name>
+    <object-name>RHlandLight</object-name>
+    <object-name>RHland.light</object-name>
+    <object-name>RHwheel</object-name>
+    <object-name>RUdamper</object-name>
+    <object-name>RLdamper</object-name>
+    <object-name>RHram</object-name>
+    <object-name>RHWwell</object-name>
+    <object-name>RHNavLight</object-name>
+    <axis>
+      <x1-m>6.58084</x1-m>
+      <y1-m>1.58536</y1-m>
+      <z1-m>-0.17491</z1-m>
+      <x2-m>7.79641</x2-m>
+      <y2-m>1.58211</y2-m>
+      <z2-m>-0.18475</z2-m>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <property>sim/systems/wingflexer/z-m</property>
+    <factor>-1</factor>
+    <object-name>RHwing.003</object-name>
+    <object-name>RHaileron</object-name>
+    <object-name>RHwing.guard.002</object-name>
+    <object-name>RHwing.guard.003</object-name>
+    <object-name>RHNavLight</object-name>
+    <object-name>greennav</object-name>
+    <object-name>Recog.flash2</object-name>
+    <axis>
+      <x1-m>6.70880</x1-m>
+      <y1-m>4.45147</y1-m>
+      <z1-m>0.06692</z1-m>
+      <x2-m>7.57054</x2-m>
+      <y2-m>4.44916</y2-m>
+      <z2-m>0.05994</z2-m>
+    </axis>
+  </animation>
+
+  <!-- Wing Flex Left Wing -->
+  <animation>
+    <type>rotate</type>
+    <property>sim/systems/wingflexer/z-m</property>
+    <factor>1</factor>
+    <object-name>LHwing.002</object-name>
+    <object-name>LHwing.003</object-name>
+    <object-name>LH.uSpdBrk</object-name>
+    <object-name>LH.uSpdBrk.rod</object-name>
+    <object-name>LH.lSpdBrk</object-name>
+    <object-name>LH.lSpdBrk.rod</object-name>
+    <object-name>LHaileron</object-name>
+    <object-name>LHflap</object-name>
+    <object-name>LHmain.door</object-name>
+    <object-name>LHland.light</object-name>
+    <object-name>LHwing.guard.001</object-name>
+    <object-name>LHwing.guard.002</object-name>
+    <object-name>LHwing.guard.003</object-name>
+    <object-name>LHwing.heater.002</object-name>
+    <object-name>rednav</object-name>
+    <object-name>Recog.flash1</object-name>
+    <object-name>LHgear</object-name>
+    <object-name>LHstrut</object-name>
+    <object-name>LHlandLight</object-name>
+    <object-name>LHland.light</object-name>
+    <object-name>LHwheel</object-name>
+    <object-name>LUdamper</object-name>
+    <object-name>LLdamper</object-name>
+    <object-name>LHram</object-name>
+    <object-name>LHWwell</object-name>
+    <object-name>LHNavLight</object-name>
+    <axis>
+      <x1-m>6.58084</x1-m>
+      <y1-m>-1.58536</y1-m>
+      <z1-m>-0.17491</z1-m>
+      <x2-m>7.79614</x2-m>
+      <y2-m>-1.58211</y2-m>
+      <z2-m>-0.18475</z2-m>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <property>sim/systems/wingflexer/z-m</property>
+    <factor>1</factor>
+    <object-name>LHwing.003</object-name>
+    <object-name>LHaileron</object-name>
+    <object-name>LHwing.guard.002</object-name>
+    <object-name>LHwing.guard.003</object-name>
+    <object-name>rednav</object-name>
+    <object-name>Recog.flash1</object-name>
+    <object-name>LHNavLight</object-name>
+    <axis>
+      <x1-m>6.70880</x1-m>
+      <y1-m>-4.45147</y1-m>
+      <z1-m>0.06692</z1-m>
+      <x2-m>7.57054</x2-m>
+      <y2-m>-4.44916</y2-m>
+      <z2-m>0.05994</z2-m>
+    </axis>
+  </animation>
+
   <model>
     <name>pilot</name>
     <path>Aircraft/Generic/Human/Models/pilot.xml</path>
@@ -288,17 +424,20 @@
     <type>select</type>
     <object-name>pilot</object-name>
     <condition>
-      <not-equals>
-        <property>sim/current-view/name</property>
-	<value>Captain</value>
-      </not-equals>
-      <not-equals>
-        <property>sim/current-view/name</property>
-	<value>Center Console</value>
-      </not-equals>
-      <not>
-	<property>sim/walker/outside</property>
-      </not>
+      <and>
+        <property>controls/human-models</property>
+        <not-equals>
+          <property>sim/current-view/name</property>
+	  <value>Captain</value>
+        </not-equals>
+        <not-equals>
+          <property>sim/current-view/name</property>
+	  <value>Center Console</value>
+        </not-equals>
+        <not>
+	  <property>sim/walker/outside</property>
+        </not>
+      </and>
     </condition>
   </animation>
 
@@ -318,6 +457,7 @@
     <object-name>copilot</object-name>
     <condition>
       <and>
+	<property>controls/human-models</property>
         <not-equals>
           <property>sim/current-view/name</property>
           <value>Copilot</value>
@@ -348,10 +488,13 @@
     <type>select</type>
     <object-name>Pax0</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>170</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>170</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -370,10 +513,13 @@
     <type>select</type>
     <object-name>Pax1</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>850</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>850</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -391,10 +537,13 @@
     <type>select</type>
     <object-name>Pax2</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>510</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>510</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -413,10 +562,13 @@
     <type>select</type>
     <object-name>Pax3</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>1190</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>1190</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -434,10 +586,13 @@
     <type>select</type>
     <object-name>Pax4</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>340</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>340</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -456,10 +611,13 @@
     <type>select</type>
     <object-name>Pax5</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>1020</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>1020</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -477,10 +635,13 @@
     <type>select</type>
     <object-name>Pax6</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>680</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>680</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
