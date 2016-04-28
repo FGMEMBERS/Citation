@@ -424,17 +424,20 @@
     <type>select</type>
     <object-name>pilot</object-name>
     <condition>
-      <not-equals>
-        <property>sim/current-view/name</property>
-	<value>Captain</value>
-      </not-equals>
-      <not-equals>
-        <property>sim/current-view/name</property>
-	<value>Center Console</value>
-      </not-equals>
-      <not>
-	<property>sim/walker/outside</property>
-      </not>
+      <and>
+        <property>controls/human-models</property>
+        <not-equals>
+          <property>sim/current-view/name</property>
+	  <value>Captain</value>
+        </not-equals>
+        <not-equals>
+          <property>sim/current-view/name</property>
+	  <value>Center Console</value>
+        </not-equals>
+        <not>
+	  <property>sim/walker/outside</property>
+        </not>
+      </and>
     </condition>
   </animation>
 
@@ -454,6 +457,7 @@
     <object-name>copilot</object-name>
     <condition>
       <and>
+	<property>controls/human-models</property>
         <not-equals>
           <property>sim/current-view/name</property>
           <value>Copilot</value>
@@ -484,10 +488,13 @@
     <type>select</type>
     <object-name>Pax0</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>170</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>170</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -506,10 +513,13 @@
     <type>select</type>
     <object-name>Pax1</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>850</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>850</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -527,10 +537,13 @@
     <type>select</type>
     <object-name>Pax2</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>510</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>510</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -549,10 +562,13 @@
     <type>select</type>
     <object-name>Pax3</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>1190</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>1190</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -570,10 +586,13 @@
     <type>select</type>
     <object-name>Pax4</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>340</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>340</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -592,10 +611,13 @@
     <type>select</type>
     <object-name>Pax5</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>1020</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>1020</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 
@@ -613,10 +635,13 @@
     <type>select</type>
     <object-name>Pax6</object-name>
     <condition>
-      <greater-than>
-	<property>sim/multiplay/generic/float[10]</property>
-        <value>680</value>
-      </greater-than>
+      <and>
+	<property>controls/human-models</property>
+        <greater-than>
+	  <property>sim/multiplay/generic/float[10]</property>
+          <value>680</value>
+        </greater-than>
+      </and>
     </condition>
   </animation>
 

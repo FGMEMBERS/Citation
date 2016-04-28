@@ -528,10 +528,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             </binding>
           </item>
           <item>
-            <label>Yokes On/Off</label>
+            <label>Yokes On/Off [y]</label>
             <binding>
               <command>property-toggle</command>
               <property>sim/yokes-visible</property>
+            </binding>
+          </item>
+          <item>
+            <label>Toggle human models</label>
+            <binding>
+              <command>property-toggle</command>
+              <property>controls/human-models</property>
             </binding>
           </item>
           <item>
@@ -663,6 +670,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/sim/weight[1]/weight-lb</path>
       <path>/sim/weight[2]/weight-lb</path>
       <path>/sim/weight[3]/weight-lb</path>
+      <path>/controls/human-models</path>
     </aircraft-data>
 
     <checklists>
@@ -692,6 +700,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <!-- aircraft specific loading -->
 
   <controls>
+    <human-models type="bool">1</human-models>
     <gear>
       <brake-parking type="bool">1</brake-parking>
     </gear>
