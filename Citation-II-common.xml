@@ -658,7 +658,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <aircraft-data> <!-- to be recorded for next time -->
       <!-- dirty hack! The fuel levels didn't get reloaded, so in
            Nasal/Citaion2.nas this gets read instead (l.135) and in turn 
-           updates every following frame (l.265). -->
+           updates every following frame (l.272). -->
       <path>/consumables/fuel/fuel-gal_us-0</path>
       <path>/consumables/fuel/fuel-gal_us-1</path>
 
@@ -703,6 +703,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <human-models type="bool">1</human-models>
     <gear>
       <brake-parking type="bool">1</brake-parking>
+      <brake-left type="double">0.0</brake-left>
+      <brake-right type="double">0.0</brake-right>
     </gear>
     <engines>
       <engine n="0">
