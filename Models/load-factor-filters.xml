@@ -48,7 +48,7 @@ GNU General Public License for more details.
     <input>-1.52</input>
     <output>/limits/max-negative-g</output>
   </filter>
-  
+
   <filter>
     <name>Lift force on the wings for wingflexer</name>
     <debug>false</debug>
@@ -60,11 +60,30 @@ GNU General Public License for more details.
 	    <property>yasim/gross-weight-lbs</property>
 	    <property>accelerations/n-z-cg-fps_sec</property>
 	  </product>
-	  <property></property>
+	  <!--div>
+	    <property>yasim/gross-weight-lbs</property>
+	    <property>accelerations/ned/down-accel-fps_sec</property>
+	  </div-->
 	</difference>
       </expression>
     </input>
     <output>/yasim/fbz-aero-lbs</output>
   </filter>
 
+  <filter>
+    <name>Convert wing deflection z-m to z-deg</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+	<tan> <!-- tan alpha = a / b -->
+	  <div>
+	    <property>sim/systems/wingflexer/z-m</property>
+	    <value>7</value> <!-- wing length in meter -->
+	  </div>
+	</tan>
+      </expression>
+    </input>
+    <output>/sim/systems/wingflexer/z-deg</output>
+  </filter>
 </PropertyList>

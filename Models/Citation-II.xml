@@ -290,8 +290,8 @@
   <!-- Wing Flex Right Wing -->
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-m</property>
-    <factor>-1</factor>
+    <property>sim/systems/wingflexer/z-deg</property>
+    <factor>1</factor>
     <object-name>RH.uSpdBrk</object-name>
     <object-name>RH.uSpdBrk.rod</object-name>
     <object-name>RH.lSpdBrk</object-name>
@@ -318,6 +318,7 @@
     <object-name>RHram</object-name>
     <object-name>RHWwell</object-name>
     <object-name>RHNavLight</object-name>
+    <object-name>Flash02</object-name>
     <axis>
       <x1-m>6.58084</x1-m>
       <y1-m>1.58536</y1-m>
@@ -329,8 +330,8 @@
   </animation>
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-m</property>
-    <factor>-1</factor>
+    <property>sim/systems/wingflexer/z-deg</property>
+    <factor>1</factor>
     <object-name>RHwing.003</object-name>
     <object-name>RHaileron</object-name>
     <object-name>RHwing.guard.002</object-name>
@@ -338,6 +339,7 @@
     <object-name>RHNavLight</object-name>
     <object-name>greennav</object-name>
     <object-name>Recog.flash2</object-name>
+    <object-name>Flash02</object-name>
     <axis>
       <x1-m>6.70880</x1-m>
       <y1-m>4.45147</y1-m>
@@ -351,8 +353,8 @@
   <!-- Wing Flex Left Wing -->
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-m</property>
-    <factor>1</factor>
+    <property>sim/systems/wingflexer/z-deg</property>
+    <factor>-1</factor>
     <object-name>LHwing.002</object-name>
     <object-name>LHwing.003</object-name>
     <object-name>LH.uSpdBrk</object-name>
@@ -379,6 +381,7 @@
     <object-name>LHram</object-name>
     <object-name>LHWwell</object-name>
     <object-name>LHNavLight</object-name>
+    <object-name>Flash01</object-name>
     <axis>
       <x1-m>6.58084</x1-m>
       <y1-m>-1.58536</y1-m>
@@ -390,8 +393,8 @@
   </animation>
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-m</property>
-    <factor>1</factor>
+    <property>sim/systems/wingflexer/z-deg</property>
+    <factor>-1</factor>
     <object-name>LHwing.003</object-name>
     <object-name>LHaileron</object-name>
     <object-name>LHwing.guard.002</object-name>
@@ -399,6 +402,7 @@
     <object-name>rednav</object-name>
     <object-name>Recog.flash1</object-name>
     <object-name>LHNavLight</object-name>
+    <object-name>Flash01</object-name>
     <axis>
       <x1-m>6.70880</x1-m>
       <y1-m>-4.45147</y1-m>
