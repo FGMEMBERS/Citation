@@ -31,19 +31,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
     <startup>
-      <splash-texture>Citation-II-splash-01.png</splash-texture>
-      <splash-texture>Citation-II-splash-02.png</splash-texture>
-      <splash-texture>Citation-II-splash-03.png</splash-texture>
-      <splash-texture>Citation-II-splash-04.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-01.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-02.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-03.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-04.png</splash-texture>
     </startup>
 
     <thumbnail n="0">
       <type>exterior</type>
-      <name>Thumbnails/thumbnail-exterior.jpg</name>
+      <name>Pics/thumbnail-exterior.jpg</name>
     </thumbnail>
     <thumbnail n="0">
       <type>panel</type>
-      <name>Thumbnails/thumbnail-panel.jpg</name>
+      <name>Pics/thumbnail-panel.jpg</name>
     </thumbnail>
 
     <aircraft-version>3.0.11</aircraft-version>
