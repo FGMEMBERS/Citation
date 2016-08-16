@@ -37,6 +37,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Citation-II-splash-04.png</splash-texture>
     </startup>
 
+    <thumbnail n="0">
+      <type>exterior</type>
+      <name>Thumbnails/thumbnail-exterior.jpg</name>
+    </thumbnail>
+    <thumbnail n="0">
+      <type>panel</type>
+      <name>Thumbnails/thumbnail-panel.jpg</name>
+    </thumbnail>
+
     <aircraft-version>3.0.11</aircraft-version>
     <status>production</status>
     <rating>
