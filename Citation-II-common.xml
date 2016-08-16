@@ -3,7 +3,7 @@
 ************************************************************************
 
 This files ties together all the components used by FGFS to represent
-he Cessna 550/551 Citation II and its aftermarket engine upgrade the
+the Cessna 550/551 Citation II and its aftermarket engine upgrade the
 Sierra Super-II. Components include the flight data model, instrument
 panel, and external 3D model.
 
@@ -41,7 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <type>exterior</type>
       <name>Pics/thumbnail-exterior.jpg</name>
     </thumbnail>
-    <thumbnail n="0">
+    <thumbnail n="1">
       <type>panel</type>
       <name>Pics/thumbnail-panel.jpg</name>
     </thumbnail>
