@@ -702,6 +702,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/instrumentation/transponder/inputs/knob-mode</path>
       <path>/instrumentation/airspeed-indicator/index-marker</path>
       <path>/instrumentation/clock/m877/mode-string</path>
+      <path>/instrumentation/dme/switch-position</path>
+      <path>/instrumentation/dme/switch-position[1]</path>
       <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-left</path>
       <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-right</path>
       <path>/controls/electric/circuit-breakers/bus-emer/cb-light-emer</path>
@@ -739,6 +741,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/controls/electric/circuit-breakers/bus-right-2</path>
       <path>/controls/electric/circuit-breakers/bus-right-3</path>
       <path>/sim/yokes-visible</path>
+      <path>/controls/seat/armrests-pos</path>
     </aircraft-data>
 
     <checklists>
