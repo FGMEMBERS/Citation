@@ -697,7 +697,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/instrumentation/adf/volume-norm</path>
       <path>/instrumentation/adf[1]/frequencies/selected-khz</path>
       <path>/instrumentation/adf[1]/frequencies/standby-khz</path>
-      <path>/instrumentation/adf[1]/volume-norm</path></path>
+      <path>/instrumentation/adf[1]/volume-norm</path>
       <path>/instrumentation/transponder/id-code</path>
       <path>/instrumentation/transponder/inputs/knob-mode</path>
       <path>/instrumentation/airspeed-indicator/index-marker</path>
@@ -705,9 +705,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-left</path>
       <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-right</path>
       <path>/controls/electric/circuit-breakers/bus-emer/cb-light-emer</path>
-      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-el</path>
-      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-enginstr</path>
-      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-flood</path>
+      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</path>
+      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-enginstr</path>
+      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</path>
       <path>/controls/electric/circuit-breakers/bus-emer[1]</path>
       <path>/controls/electric/circuit-breakers/bus-left/cb-flap-ctl</path>
       <path>/controls/electric/circuit-breakers/bus-left/cb-flap-motor</path>
@@ -729,7 +729,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/controls/electric/circuit-breakers/bus-left-3</path>
       <path>/controls/electric/circuit-breakers/bus-right/cb-ground-prox</path>
       <path>/controls/electric/circuit-breakers/bus-right/cb-light-cabin-read</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-light-landing-light-right</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-light-landing-right</path>
       <path>/controls/electric/circuit-breakers/bus-right/cb-light-nav</path>
       <path>/controls/electric/circuit-breakers/bus-right/cb-light-panel-right</path>
       <path>/controls/electric/circuit-breakers/bus-right/cb-light-recog-right</path>
@@ -738,6 +738,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/controls/electric/circuit-breakers/bus-right-1</path>
       <path>/controls/electric/circuit-breakers/bus-right-2</path>
       <path>/controls/electric/circuit-breakers/bus-right-3</path>
+      <path>/sim/yokes-visible</path>
     </aircraft-data>
 
     <checklists>
