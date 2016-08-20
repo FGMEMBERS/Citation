@@ -3,7 +3,7 @@
 ************************************************************************
 
 This files ties together all the components used by FGFS to represent
-he Cessna 550/551 Citation II and its aftermarket engine upgrade the
+the Cessna 550/551 Citation II and its aftermarket engine upgrade the
 Sierra Super-II. Components include the flight data model, instrument
 panel, and external 3D model.
 
@@ -31,11 +31,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
     <startup>
-      <splash-texture>Citation-II-splash-01.png</splash-texture>
-      <splash-texture>Citation-II-splash-02.png</splash-texture>
-      <splash-texture>Citation-II-splash-03.png</splash-texture>
-      <splash-texture>Citation-II-splash-04.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-01.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-02.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-03.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-04.png</splash-texture>
     </startup>
+
+    <thumbnail n="0">
+      <type>exterior</type>
+      <name>Pics/thumbnail-exterior.jpg</name>
+    </thumbnail>
+    <thumbnail n="1">
+      <type>panel</type>
+      <name>Pics/thumbnail-panel.jpg</name>
+    </thumbnail>
 
     <aircraft-version>3.0.11</aircraft-version>
     <status>production</status>
@@ -671,6 +680,68 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/sim/weight[2]/weight-lb</path>
       <path>/sim/weight[3]/weight-lb</path>
       <path>/controls/human-models</path>
+      <path>/instrumentation/comm/frequencies/selected-mhz</path>
+      <path>/instrumentation/comm/frequencies/standby-mhz</path>
+      <path>/instrumentation/comm/volume</path>
+      <path>/instrumentation/comm[1]/frequencies/selected-mhz</path>
+      <path>/instrumentation/comm[1]/frequencies/standby-mhz</path>
+      <path>/instrumentation/comm[1]/volume</path>
+      <path>/instrumentation/nav/frequencies/selected-mhz</path>
+      <path>/instrumentation/nav/frequencies/standby-mhz</path>
+      <path>/instrumentation/nav/volume</path>
+      <path>/instrumentation/nav[1]/frequencies/selected-mhz</path>
+      <path>/instrumentation/nav[1]/frequencies/standby-mhz</path>
+      <path>/instrumentation/nav[1]/volume</path>
+      <path>/instrumentation/adf/frequencies/selected-khz</path>
+      <path>/instrumentation/adf/frequencies/standby-khz</path>
+      <path>/instrumentation/adf/volume-norm</path>
+      <path>/instrumentation/adf[1]/frequencies/selected-khz</path>
+      <path>/instrumentation/adf[1]/frequencies/standby-khz</path>
+      <path>/instrumentation/adf[1]/volume-norm</path>
+      <path>/instrumentation/transponder/id-code</path>
+      <path>/instrumentation/transponder/inputs/knob-mode</path>
+      <path>/instrumentation/airspeed-indicator/index-marker</path>
+      <path>/instrumentation/clock/m877/mode-string</path>
+      <path>/instrumentation/dme/switch-position</path>
+      <path>/instrumentation/dme/switch-position[1]</path>
+      <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-left</path>
+      <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-right</path>
+      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-emer</path>
+      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</path>
+      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-enginstr</path>
+      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</path>
+      <path>/controls/electric/circuit-breakers/bus-emer[1]</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-flap-ctl</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-flap-motor</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-gear-ctl</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-beacon</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-cabin-ind</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-landing-left</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-panel-center</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-panel-left</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-recog-left</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-strobe</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-light-winginsp</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-pitch-trim</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-speedbrakes</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-start-left</path>
+      <path>/controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</path>
+      <path>/controls/electric/circuit-breakers/bus-left-1</path>
+      <path>/controls/electric/circuit-breakers/bus-left-2</path>
+      <path>/controls/electric/circuit-breakers/bus-left-3</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-ground-prox</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-light-cabin-read</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-light-landing-right</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-light-nav</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-light-panel-right</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-light-recog-right</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-start-right</path>
+      <path>/controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</path>
+      <path>/controls/electric/circuit-breakers/bus-right-1</path>
+      <path>/controls/electric/circuit-breakers/bus-right-2</path>
+      <path>/controls/electric/circuit-breakers/bus-right-3</path>
+      <path>/sim/yokes-visible</path>
+      <path>/controls/seat/armrests-pos</path>
     </aircraft-data>
 
     <checklists>
