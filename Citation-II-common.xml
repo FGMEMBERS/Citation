@@ -35,6 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Pics/Citation-II-splash-02.png</splash-texture>
       <splash-texture>Pics/Citation-II-splash-03.png</splash-texture>
       <splash-texture>Pics/Citation-II-splash-04.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-05.png</splash-texture>
     </startup>
 
     <thumbnail n="0">
@@ -381,11 +382,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="104">
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
-      <wingflexer include="Systems/wingflexer-params.xml"/>
+      <!--wingflexer include="Systems/wingflexer-params.xml"/>
       <property-rule n="105">
 	<name>wing flexer property rule</name>
 	<path>Aircraft/Generic/wingflexer.xml</path>
-      </property-rule>
+      </property-rule-->
     </systems>
 
     <sound>
