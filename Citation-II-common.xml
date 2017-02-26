@@ -382,6 +382,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="104">
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
+      <!-- doesn't work very well, so I deactivated it. The calculations are missing a working g force parameter! -->
       <!--wingflexer include="Systems/wingflexer-params.xml"/>
       <property-rule n="105">
 	<name>wing flexer property rule</name>
@@ -667,7 +668,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <aircraft-data> <!-- to be recorded for next time -->
       <!-- dirty hack! The fuel levels didn't get reloaded, so in
-           Nasal/Citaion2.nas this gets read instead (l.135) and in turn 
+           Nasal/Citaion2.nas this gets read instead (l.135) and in turn
            updates every following frame (l.272). -->
       <path>/consumables/fuel/fuel-gal_us-0</path>
       <path>/consumables/fuel/fuel-gal_us-1</path>
