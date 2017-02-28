@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <PropertyList include="Citation-II-common.xml">
   <sim>
+    <variant-of>Citation-II</variant-of>
     <aero>Sierra-Super-II-yasim</aero>
     <description>Sierra Super II</description>
     <long-description>

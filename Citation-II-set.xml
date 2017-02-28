@@ -10,6 +10,7 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 -->
 <PropertyList include="Citation-II-common.xml">
   <sim>
+    <primary-set type="bool">true</primary-set>
     <aero>Citation-II-yasim</aero>
     <description>Cessna 550/551 Citation II</description>
     <long-description>
@@ -68,7 +69,6 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 	Super II, verfügbar für FlightGear mit diesem Flugzeug.
       </long-description>
     </de>
-    <primary-set type="bool">true</primary-set>
   </sim>
 
   <autopilot>
