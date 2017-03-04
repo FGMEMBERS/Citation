@@ -36,6 +36,50 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-texture>Pics/Citation-II-splash-03.png</splash-texture>
       <splash-texture>Pics/Citation-II-splash-04.png</splash-texture>
       <splash-texture>Pics/Citation-II-splash-05.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-06.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-07.png</splash-texture>
+      <splash-texture>Pics/Citation-II-splash-08.png</splash-texture>
+    </startup>
+
+    <previews>
+      <preview>
+        <type>interior</type>
+        <path>Pics/Citation-II-splash-01.png</path>
+      </preview>
+      <preview>
+        <type></type>
+        <path>Pics/Citation-II-splash-02.png</path>
+      </preview>
+      <preview>
+        <type></type>
+        <path>Pics/Citation-II-splash-03.png</path>
+      </preview>
+      <preview>
+        <type></type>
+        <path>Pics/Citation-II-splash-04.png</path>
+      </preview>
+      <preview>
+        <type></type>
+        <path>Pics/Citation-II-splash-05.png</path>
+      </preview>
+      <preview>
+        <type></type>
+        <path>Pics/Citation-II-splash-06.png</path>
+      </preview>
+      <preview>
+        <type></type>
+        <path>Pics/Citation-II-splash-07.png</path>
+      </preview>
+      <preview>
+        <type></type>
+        <path>Pics/Citation-II-splash-08.png</path>
+      </preview>
+    </previews>
+
+    <startup>
+      <splash-logo-image>Pics/Logo_Citation-II.png</splash-logo-image>
+      <!-- logo is 50% of the screen width -->
+      <splash-logo-width>0.5</splash-logo-width>
     </startup>
 
     <thumbnail n="0">
