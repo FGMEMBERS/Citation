@@ -82,14 +82,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-logo-width>0.5</splash-logo-width>
     </startup>
 
-    <thumbnail n="0">
-      <type>exterior</type>
-      <name>Pics/thumbnail-exterior.jpg</name>
-    </thumbnail>
-    <thumbnail n="1">
-      <type>panel</type>
-      <name>Pics/thumbnail-panel.jpg</name>
-    </thumbnail>
+    <thumbnail>Pics/thumbnail-exterior.jpg</thumbnail>
 
     <aircraft-version>3.0.11</aircraft-version>
     <status>production</status>
