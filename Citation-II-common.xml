@@ -43,35 +43,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <previews>
       <preview>
-        <type>interior</type>
+        <type>panel</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-01.png</path>
       </preview>
       <preview>
-        <type></type>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-02.png</path>
       </preview>
       <preview>
-        <type></type>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-03.png</path>
       </preview>
       <preview>
-        <type></type>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-04.png</path>
       </preview>
       <preview>
-        <type></type>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-05.png</path>
       </preview>
       <preview>
-        <type></type>
+        <type>interior</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-06.png</path>
       </preview>
       <preview>
-        <type></type>
+        <type>panel</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-07.png</path>
       </preview>
       <preview>
-        <type></type>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
         <path>Pics/Citation-II-splash-08.png</path>
       </preview>
     </previews>
@@ -81,8 +89,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <!-- logo is 50% of the screen width -->
       <splash-logo-width>0.5</splash-logo-width>
     </startup>
-
-    <thumbnail>Pics/thumbnail-exterior.jpg</thumbnail>
 
     <aircraft-version>3.0.11</aircraft-version>
     <status>production</status>
