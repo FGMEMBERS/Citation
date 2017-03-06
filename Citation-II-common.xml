@@ -84,6 +84,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </preview>
     </previews>
 
+    <thumbnail>thumbnail.jpg</thumbnail>
+
     <startup>
       <splash-logo-image>Pics/Logo_Citation-II.png</splash-logo-image>
       <!-- logo is 50% of the screen width -->
