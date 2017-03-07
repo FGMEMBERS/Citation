@@ -30,16 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <sim>
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
-    <startup>
-      <splash-texture>Pics/Citation-II-splash-01.png</splash-texture>
-      <splash-texture>Pics/Citation-II-splash-02.png</splash-texture>
-      <splash-texture>Pics/Citation-II-splash-03.png</splash-texture>
-      <splash-texture>Pics/Citation-II-splash-04.png</splash-texture>
-      <splash-texture>Pics/Citation-II-splash-05.png</splash-texture>
-      <splash-texture>Pics/Citation-II-splash-06.png</splash-texture>
-      <splash-texture>Pics/Citation-II-splash-07.png</splash-texture>
-      <splash-texture>Pics/Citation-II-splash-08.png</splash-texture>
-    </startup>
 
     <previews>
       <preview>
