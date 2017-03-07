@@ -71,6 +71,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	Gegensatz zu 1780 N bei den alten Triebwerken.
       </long-description>
     </de>
+    <model>
+      <variant type="int">1</variant> <!-- transmitted over multiplayer -->
+    </model>
   </sim>
   <autopilot>
     <limits>      <!-- the number and ordering of these properties is important for the autopilot;

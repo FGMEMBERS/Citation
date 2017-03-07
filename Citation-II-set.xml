@@ -69,6 +69,9 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 	Super II, verfügbar für FlightGear mit diesem Flugzeug.
       </long-description>
     </de>
+    <model>
+      <variant type="int">0</variant> <!-- transmitted over multiplayer -->
+    </model>
   </sim>
 
   <autopilot>
