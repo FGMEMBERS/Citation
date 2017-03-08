@@ -99,7 +99,14 @@
         <max>320</max>
         <wrap>false</wrap>
       </binding>
-    </action>
+      </action><hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>target-airspeed</tooltip-id>
+        <label>A/P: Target Airspeed: %d kts</label>
+        <property>instrumentation/airspeed-indicator/index-marker</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>

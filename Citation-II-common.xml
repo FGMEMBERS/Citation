@@ -650,8 +650,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <float type="float" n="9" alias="/sim/weight[1]/weight-lb"/>
         <float type="float" n="10" alias="/sim/weight[2]/weight-lb"/>
         <string type="string" n="0" alias="/sim/multiplay/callsign"/>
-	<string type="string" n="1" alias="/sim/aircraft-version"/>
-	<!--string type="string" n="2" alias="/sim/description"/--> <!-- "Citation II" or "Sierra Super II" -->
+	<string type="string" n="1" alias="/sim/aircraft-version"/> <!-- "Citation II" or "Sierra Super II" -->
       </generic>
       <sim>
         <model>
@@ -1005,6 +1004,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <locks>
       <yaw-damper type="bool">0</yaw-damper>
       <passive-mode type="bool">1</passive-mode>
+      <lowbank type="bool">0</lowbank>
+      <autothrottle type="bool">0</autothrottle>
       <heading/>
       <altitude/>
     </locks>

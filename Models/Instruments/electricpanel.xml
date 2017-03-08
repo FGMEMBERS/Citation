@@ -80,6 +80,19 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>battery-bus-switch</tooltip-id>
+                <label>Battery bus: %s</label>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['OFF', 'BATT', 'EMER'];
+                    return modes[arg[0]];
+                </script>
+                <property>controls/electric/battery-bus-switch</property>
+            </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -230,6 +243,19 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>boost-pump-left</tooltip-id>
+                <label>Left fuel boost pump: %s</label>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['OFF', 'ON', 'NORM'];
+                    return modes[arg[0]];
+                </script>
+                <property>controls/fuel/tank/boost-pump-switch</property>
+            </binding>
+        </hovered>
     </animation>
 
 <!-- -1 NORM
@@ -260,6 +286,19 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>boost-pump-right</tooltip-id>
+                <label>Right fuel boost pump: %s</label>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['OFF', 'ON', 'NORM'];
+                    return modes[arg[0]];
+                </script>
+                <property>controls/fuel/tank[1]/boost-pump-switch</property>
+            </binding>
+        </hovered>
     </animation>
 
 <!-- Light Switches-->
@@ -363,6 +402,19 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+            <binding>
+              <command>set-tooltip</command>
+              <tooltip-id>voltage-sel</tooltip-id>
+              <label>Voltage selector: %s</label>
+              <mapping>nasal</mapping>
+              <script>
+                var modes = ['Battery', 'Right hand generator', 'Left hand generator'];
+                return modes[arg[0]];
+              </script>
+              <property>controls/electric/voltage-sel</property>
+            </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -421,6 +473,19 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+            <binding>
+              <command>set-tooltip</command>
+              <tooltip-id>electric-systems-test</tooltip-id>
+              <label>Electric systems test: %s (non-functional)</label>
+              <mapping>nasal</mapping>
+              <script>
+                var modes = ['', 'OFF', 'Landing gear', 'Battery temp', 'Spare', 'Thrust reversers', 'W/S temp', 'Overspeed', 'Spare', 'Annu', 'OFF'];
+                return modes[arg[0]];
+              </script>
+              <property>controls/electric/system-test</property>
+            </binding>
+        </hovered>
     </animation>
 
 
@@ -456,6 +521,19 @@
                 <wrap>true</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>fuel-sel</tooltip-id>
+            <label>Fuel flow selector: %s (non-functional)</label>
+            <mapping>nasal</mapping>
+            <script>
+              var modes = ['OFF', 'Right hand tank', 'Right hand engine', 'Left hand engine', 'Left hand tank'];
+              return modes[arg[0]];
+            </script>
+            <property>controls/electric/fuel-sel</property>
+          </binding>
+        </hovered>
     </animation>
 
 <!-- hotspots -->
@@ -475,6 +553,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lgen</tooltip-id>
+        <label>Left hand generator: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/electric/engine[0]/generator</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -492,6 +579,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>rgen</tooltip-id>
+        <label>Right hand generator: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/electric/engine[1]/generator</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -508,7 +604,20 @@
             <command>property-toggle</command>
             <property>sim/sound/click</property>
         </binding>
-    </action>
+      </action>
+      <hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>inv.sel</tooltip-id>
+          <label>Inverter select: %s</label>
+          <mapping>nasal</mapping>
+          <script>
+            var modes = ['Inverter 2', 'Inverter 1'];
+            return modes[arg[0]];
+          </script>
+          <property>controls/electric/inverter-switch</property>
+        </binding>
+      </hovered>
 </animation>
 
 <animation>
@@ -526,6 +635,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>avn-switch</tooltip-id>
+        <label>Avionics: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/electric/avionics-switch</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -543,6 +661,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lign-switch</tooltip-id>
+        <label>Left hand ignition: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/engines/engine[0]/ignition</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -560,6 +687,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>rign-switch</tooltip-id>
+        <label>Right hand ignition: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/engines/engine[1]/ignition</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -588,6 +724,15 @@
        </binding>
      </mod-up-->
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lstarter</tooltip-id>
+        <label>Left hand starter: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/engines/engine[0]/starter</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -616,6 +761,15 @@
        </binding>
      </mod-up-->
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>rstarter</tooltip-id>
+        <label>Right hand starter: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/engines/engine[1]/starter</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -635,6 +789,13 @@
       <value>0</value>
     </binding>
   </action>
+  <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>starter-disengage</tooltip-id>
+      <label>Starter disengage</label>
+    </binding>
+  </hovered>
 </animation>
 
 <!-- Lighting -->
@@ -654,6 +815,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights.recog.sw</tooltip-id>
+        <label>Recognition lights: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/recog-lights-switch</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -671,6 +841,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights.strobe.sw</tooltip-id>
+        <label>Strobe lights: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/strobe-switch</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -688,6 +867,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights.nav.sw</tooltip-id>
+        <label>Navigation lights: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/nav-lights-switch</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -705,6 +893,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights.wing.sw</tooltip-id>
+        <label>Wing inspection lights: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/wing-lights</property>
+      </binding>
+    </hovered>
 </animation>
 
 </PropertyList>

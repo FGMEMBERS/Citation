@@ -640,6 +640,15 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cabin-lights</tooltip-id>
+        <label>Cabin lights: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/lighting/cabin-lights-norm</property>
+      </binding>
+    </hovered>
   </animation>
   <animation>
     <type>pick</type>
@@ -672,6 +681,15 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cabin-lights</tooltip-id>
+        <label>Cabin lights: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/lighting/cabin-lights-norm</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>

@@ -322,6 +322,15 @@
         <wrap>true</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>hsi-crs</tooltip-id>
+        <label>HSI: Course: %3d</label>
+        <mapping>heading</mapping>
+        <property>instrumentation/hsi/inputs/radials/selected-deg</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -349,6 +358,15 @@
         <wrap>true</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>hsi-hdg</tooltip-id>
+        <label>HSI: Heading: %3d</label>
+        <mapping>heading</mapping>
+        <property>autopilot/settings/heading-bug-deg</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>

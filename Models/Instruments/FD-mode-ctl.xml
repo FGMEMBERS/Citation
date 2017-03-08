@@ -259,6 +259,14 @@
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-hdg</tooltip-id>
+        <label>A/P: heading mode: %s</label>
+        <property>autopilot/locks/heading</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -289,6 +297,14 @@
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-nav</tooltip-id>
+        <label>A/P: NAV mode: %s</label>
+        <property>autopilot/locks/heading</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -302,21 +318,32 @@
           if (getprop ("autopilot/locks/altitude") == "gs1-hold") {
             setprop("autopilot/locks/heading","wing-leveler");
             setprop("autopilot/locks/altitude","pitch-hold");
+            setprop("autopilot/locks/approach-mode", "Locator/Glideslope hold");
           }
           else {
             setprop("autopilot/locks/heading","nav1-hold");
             if (getprop ("instrumentation/nav[0]/gs-in-range")) {
               setprop("autopilot/locks/altitude", "gs1-hold");
               setprop("autopilot/settings/gs1-arm", 0);
+              setprop("autopilot/locks/approach-mode", "Locator/Glideslope stand-by");
             }
             else {
               setprop("autopilot/locks/altitude", "altitude-hold");
               setprop("autopilot/settings/gs1-arm", 1);
+              setprop("autopilot/locks/approach-mode", "Locator/Glideslope armed");
             }
           }
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-appr</tooltip-id>
+        <label>A/P: Approach mode: %s</label>
+        <property>autopilot/locks/approach-mode</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -329,6 +356,15 @@
         <property>instrumentation/nav/back-course-btn</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-bc</tooltip-id>
+        <label>A/P: Back course: %s</label>
+        <mapping>on-off</mapping>
+        <property>instrumentation/nav/back-course-btn</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -365,6 +401,14 @@
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-nav-hsi</tooltip-id>
+        <label>A/P: NAV HSI: %s</label>
+        <property>autopilot/locks/heading</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -382,6 +426,14 @@
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-alt</tooltip-id>
+        <label>A/P: Altitude mode: %s</label>
+        <property>autopilot/locks/altitude</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -399,6 +451,14 @@
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-vs</tooltip-id>
+        <label>A/P: Vertical speed mode: %s</label>
+        <property>autopilot/locks/altitude</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -413,7 +473,20 @@
         <!-- value type="string">speed-with-pitch-trim</value--> <!-- not supported -->
         <value type="string"/>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property type="bool">autopilot/locks/autothrottle</property>
+      </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-ias</tooltip-id>
+        <label>A/P: Autothrottle: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/autothrottle</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -431,6 +504,15 @@
         <value>0</value>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-fdoff</tooltip-id>
+        <label>A/P: Flight director: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/passive-mode</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>

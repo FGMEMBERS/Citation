@@ -248,6 +248,15 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>ALT-knob</tooltip-id>
+        <label>Altimeter setting: %.2f inHg</label>
+        <!--<mapping>percent</mapping>-->
+        <property>instrumentation/altimeter/setting-inhg</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>

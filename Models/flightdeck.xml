@@ -405,6 +405,15 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>elevator trim</tooltip-id>
+        <label>Elevator trim: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/flight/elevator-trim</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -422,6 +431,15 @@
       <y>-1.0</y>
       <z>0.0</z>
     </axis>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>throttle0</tooltip-id>
+        <label>Throttle: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/engines/engine[0]/throttle</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -439,6 +457,15 @@
       <y>-1.0</y>
       <z>0.0</z>
     </axis>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>throttle1</tooltip-id>
+        <label>Throttle: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/engines/engine[1]/throttle</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -456,6 +483,15 @@
       <y>1.0</y>
       <z>0.0</z>
     </axis>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>flaps</tooltip-id>
+        <label>Flaps: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/flight/flaps</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -473,6 +509,15 @@
       <y>1.0</y>
       <z>0.0</z>
     </axis>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>flaps_indicator</tooltip-id>
+        <label>Flaps: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>surface-positions/flap-pos-norm</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -1174,6 +1219,15 @@
         <property>controls/gear/brake-parking</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>parking-brake</tooltip-id>
+        <label>Parking brake: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/gear/brake-parking</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -1201,6 +1255,15 @@
         </binding>
       </mod-up>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>gear</tooltip-id>
+        <label>Gear: %s</label>
+        <mapping>down-up</mapping>
+        <property>controls/gear/gear-down</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -1257,6 +1320,15 @@
         <property>controls/flight/speedbrake-switch</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>speedbrake</tooltip-id>
+        <label>Speed brake: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/flight/speedbrake-switch</property>
+      </binding>
+    </hovered>
   </animation>
 
 
@@ -1317,6 +1389,15 @@
         <property>controls/lighting/map-lights</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>map-lights</tooltip-id>
+        <label>Map lights: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/map-lights</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>

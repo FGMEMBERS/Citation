@@ -77,6 +77,15 @@ Autopilot Controller
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-on</tooltip-id>
+        <label>A/P: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/passive-mode</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -89,6 +98,15 @@ Autopilot Controller
 	<property>autopilot/locks/yaw-damper</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>YD-on</tooltip-id>
+        <label>A/P: Yaw damper: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/yaw-damper</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -101,13 +119,24 @@ Autopilot Controller
         <command>nasal</command>
 	<script>
 	  if(getprop("autopilot/settings/bank-limit")!=14){
+          setprop("autopilot/locks/lowbank", "true");
 	  setprop("autopilot/settings/bank-limit",14);
 	  }else{
+          setprop("autopilot/locks/lowbank", "false");
 	  setprop("autopilot/settings/bank-limit",27);
 	  }
 	</script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lowBank-on</tooltip-id>
+        <label>A/P: low bank: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/lowbank</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -128,8 +157,17 @@ Autopilot Controller
         <property>autopilot/settings/target-pitch-deg</property>
 	<step>1</step>
 	<min>-30</min>
-	<max>30</max>
+        <max>30</max>
       </binding>
+      <!--<hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>VS-on</tooltip-id>
+          <label>A/P: Pitch: %.3f</label>
+          <property>autopilot/settings/target-pitch-deg</property>
+        </binding>
+      </hovered>-->
+
       <binding>
 	<condition>
 	  <equals>
@@ -141,8 +179,17 @@ Autopilot Controller
         <property>autopilot/settings/target-altitude-ft</property>
 	<step>1000</step>
 	<min>1000</min>
-	<max>43000</max>
+        <max>43000</max>
       </binding>
+      <!--<hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>VS-on</tooltip-id>
+          <label>A/P: Target Altitude: %d ft</label>
+          <property>autopilot/settings/target-altitude-ft</property>
+        </binding>
+      </hovered>-->
+
       <binding>
 	<condition>
 	  <equals>
@@ -156,6 +203,14 @@ Autopilot Controller
 	<min>-4000</min>
 	<max>4000</max>
       </binding>
+      <!--<hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>VS-on</tooltip-id>
+          <label>A/P: vertical speed: %d ft/min</label>
+          <property>autopilot/settings/vertical-speed-fpm</property>
+        </binding>
+      </hovered>-->
     </action>
   </animation>
 

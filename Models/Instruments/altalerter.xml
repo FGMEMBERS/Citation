@@ -100,6 +100,14 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>target-altitude</tooltip-id>
+        <label>Target altitude: %d ft</label>
+        <property>autopilot/settings/target-altitude-ft</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>
