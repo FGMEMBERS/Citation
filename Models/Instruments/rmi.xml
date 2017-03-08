@@ -67,6 +67,14 @@
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>rmi-left-button</tooltip-id>
+        <label>Radio magnetic indicator 1 source: %s</label>
+        <property>instrumentation/rmi/single-needle/selected-input</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -138,6 +146,14 @@
         </script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>rmi-right-button</tooltip-id>
+        <label>Radio magnetic indicator 2 source: %s</label>
+        <property>instrumentation/rmi/double-needle/selected-input</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>

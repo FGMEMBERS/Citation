@@ -85,7 +85,6 @@ Syd Adams
             </binding>
         </action>
 
-
         <property>instrumentation/transponder/inputs/knob-mode</property>
         <interpolation>
             <entry><ind>0</ind><dep>0.0</dep></entry><!--OFF-->
@@ -108,6 +107,19 @@ Syd Adams
             <y>0</y>
             <z>0</z>
         </axis>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>transponder-mode</tooltip-id>
+            <label>Transponder mode: %s</label>
+            <property>instrumentation/transponder/inputs/knob-mode</property>
+            <mapping>nasal</mapping>
+            <script>
+              var modes = ['Off', 'Stand by', 'Test', 'Ground', 'On', 'Alt'];
+              return modes[arg[0]];
+            </script>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -175,111 +187,160 @@ Syd Adams
             <property>instrumentation/transponder/inputs/ident-btn</property>
         </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>transponder-ident</tooltip-id>
+            <label>Transponder ident: %s</label>
+            <property>instrumentation/transponder/inputs/ident-btn</property>
+            <mapping>on-off</mapping>
+          </binding>
+        </hovered>
     </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>atc.pre</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-            <command>property-assign</command>
-            <property>instrumentation/transponder/id-code</property>
-            <value>1200</value>
+  <animation>
+    <type>pick</type>
+    <object-name>atc.pre</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/transponder/id-code</property>
+        <value>1200</value>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-id-code</tooltip-id>
+        <label>Transponder id code: %d</label>
+        <property>instrumentation/transponder/id-code</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>CTL-92.toggle</object-name>
+    <action>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/tdr-94/mem-selected</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-mem-toggle</tooltip-id>
+        <label>Transponder mem: %s</label>
+        <property>instrumentation/tdr-94/mem-selected</property>
+        <mapping>on-off</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>atc.test</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/tdr-94/saved-mode</property>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <value>2</value> <!-- test mode -->
+      </binding>
+
+      <mod-up>
+        <!-- restore previous mode on button release -->
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/transponder/inputs/knob-mode</property>
+          <property>instrumentation/tdr-94/saved-mode</property>
         </binding>
-        </action>
-    </animation>
+      </mod-up>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-atc-test</tooltip-id>
+        <label>Transponder ATC test</label>
+      </binding>
+    </hovered>
+  </animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>CTL-92.toggle</object-name>
-        <action>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>instrumentation/tdr-94/mem-selected</property>
-            </binding>
-        </action>
-    </animation>
+  <animation>
+    <type>knob</type>
+    <object-name>CTL-92.knob</object-name>
+    <action>
+      <binding>
+        <command>nasal</command>
+        <script><![CDATA[
+          var loDigit = getprop('instrumentation/transponder/inputs/digit[2]') or 2;
+          var hiDigit = getprop('instrumentation/transponder/inputs/digit[3]') or 1;
 
-    <animation>
-        <type>pick</type>
-        <object-name>atc.test</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-assign</command>
-                <property>instrumentation/tdr-94/saved-mode</property>
-                <property>instrumentation/transponder/inputs/knob-mode</property>
-            </binding>
-            <binding>
-                <command>property-assign</command>
-                <property>instrumentation/transponder/inputs/knob-mode</property>
-                <value>2</value> <!-- test mode -->
-            </binding>
+          var offset = int(cmdarg().getNode('offset').getValue());
+          var incr = (offset > 0);
 
-            <mod-up>
-                <!-- restore previous mode on button release -->
-                <binding>
-                    <command>property-assign</command>
-                    <property>instrumentation/transponder/inputs/knob-mode</property>
-                    <property>instrumentation/tdr-94/saved-mode</property>
-                </binding>
-            </mod-up>
-        </action>
-    </animation>
+          if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
+          hiDigit = math.mod(hiDigit + offset, 8);
+          }
 
-    <animation>
-        <type>knob</type>
-        <object-name>CTL-92.knob</object-name>
-        <action>
-           <binding>
-               <command>nasal</command>
-               <script><![CDATA[
-                   var loDigit = getprop('instrumentation/transponder/inputs/digit[2]') or 2;
-                   var hiDigit = getprop('instrumentation/transponder/inputs/digit[3]') or 1;
+          loDigit = math.mod(loDigit + offset, 8);
+          setprop('instrumentation/transponder/inputs/digit[2]', loDigit);
+          setprop('instrumentation/transponder/inputs/digit[3]', hiDigit);
+        ]]></script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-squawk</tooltip-id>
+        <label>Transponder squawk: %d</label>
+        <property>instrumentation/transponder/id-code</property>
+      </binding>
+    </hovered>
+  </animation>
 
-                   var offset = int(cmdarg().getNode('offset').getValue());
-                   var incr = (offset > 0);
+  <animation>
+    <type>knob</type>
+    <object-name>CTL-92.knob1</object-name>
+    <action>
+      <binding>
+        <command>nasal</command>
+        <script><![CDATA[
+          var loDigit = getprop('instrumentation/transponder/inputs/digit[0]') or 0;
+          var hiDigit = getprop('instrumentation/transponder/inputs/digit[1]') or 0;
 
-                   if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
-                     hiDigit = math.mod(hiDigit + offset, 8);
-                   }
+          var offset = int(cmdarg().getNode('offset').getValue());
+          var incr = (offset > 0);
 
-                   loDigit = math.mod(loDigit + offset, 8);
-                   setprop('instrumentation/transponder/inputs/digit[2]', loDigit);
-                   setprop('instrumentation/transponder/inputs/digit[3]', hiDigit);
-               ]]></script>
-            </binding>
-        </action>
-    </animation>
+          if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
+          hiDigit = math.mod(hiDigit + offset, 8);
+          }
 
-    <animation>
-        <type>knob</type>
-        <object-name>CTL-92.knob1</object-name>
-        <action>
-            <binding>
-                <command>nasal</command>
-                <script><![CDATA[
-                    var loDigit = getprop('instrumentation/transponder/inputs/digit[0]') or 0;
-                    var hiDigit = getprop('instrumentation/transponder/inputs/digit[1]') or 0;
-
-                    var offset = int(cmdarg().getNode('offset').getValue());
-                    var incr = (offset > 0);
-
-                    if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
-                      hiDigit = math.mod(hiDigit + offset, 8);
-                    }
-
-                    loDigit = math.mod(loDigit + offset, 8);
-                    setprop('instrumentation/transponder/inputs/digit[0]', loDigit);
-                    setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
-                ]]></script>
-            </binding>
-        </action>
-    </animation>
+          loDigit = math.mod(loDigit + offset, 8);
+          setprop('instrumentation/transponder/inputs/digit[0]', loDigit);
+          setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
+        ]]></script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-squawk</tooltip-id>
+        <label>Transponder squawk: %d</label>
+        <property>instrumentation/transponder/id-code</property>
+      </binding>
+    </hovered>
+  </animation>
 
 
 </PropertyList>

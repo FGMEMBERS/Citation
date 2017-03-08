@@ -87,8 +87,8 @@
   </effect>
 
   <animation>
-	<type>material</type>
-	<texture alias="../../texture"/>
+    <type>material</type>
+    <texture alias="../../texture"/>
   </animation>
 
 <!-- Replace lightmap animation (left disabled but intact below) shipped with this CDU with emis animation -->

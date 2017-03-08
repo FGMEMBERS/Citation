@@ -299,6 +299,13 @@ Syd Adams
                 <property>instrumentation/comm[1]/frequencies/standby-mhz</property>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>comm2-toggle</tooltip-id>
+            <label>Comm2 swap frequencies</label>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -312,6 +319,15 @@ Syd Adams
                 <property>instrumentation/comm[1]/serviceable</property>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>comm2-power</tooltip-id>
+            <label>Comm2 power: %s</label>
+            <property>instrumentation/comm[1]/serviceable</property>
+            <mapping>on-off</mapping>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -329,6 +345,15 @@ Syd Adams
                 <max>1</max>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>comm2-vol</tooltip-id>
+            <label>Comm2 volume: %d%%</label>
+            <property>instrumentation/comm[1]/volume</property>
+            <mapping>percent</mapping>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -400,6 +425,14 @@ Syd Adams
                 <wrap>true</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>comm2-freq</tooltip-id>
+            <label>Comm2 frequency: %.3f MHz</label>
+            <property>instrumentation/comm[1]/frequencies/standby-mhz</property>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -496,6 +529,14 @@ Syd Adams
                 <wrap>true</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>comm2-freq</tooltip-id>
+            <label>Comm2 frequency: %.3f MHz</label>
+            <property>instrumentation/comm[1]/frequencies/standby-mhz</property>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>

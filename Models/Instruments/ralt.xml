@@ -112,6 +112,14 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
+                <hovered>
+                  <binding>
+                    <command>set-tooltip</command>
+                    <tooltip-id>RAlt</tooltip-id>
+                    <label>Radio altitude: %d ft</label>
+                    <property>instrumentation/altimeter/decision-height</property>
+                  </binding>
+                </hovered>
 	</animation>
 
 	<animation>
@@ -150,6 +158,14 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
+                <hovered>
+                  <binding>
+                    <command>set-tooltip</command>
+                    <tooltip-id>RAlt</tooltip-id>
+                    <label>Radio altitude: %d ft</label>
+                    <property>instrumentation/altimeter/decision-height</property>
+                  </binding>
+                </hovered>
 	</animation>
 
 	<animation>
@@ -186,6 +202,14 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
+                <hovered>
+                  <binding>
+                    <command>set-tooltip</command>
+                    <tooltip-id>RAlt</tooltip-id>
+                    <label>Radio altitude: %d ft</label>
+                    <property>instrumentation/altimeter/decision-height</property>
+                  </binding>
+                </hovered>
 	</animation>
 
 	<animation>
@@ -222,6 +246,14 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
+                <hovered>
+                  <binding>
+                    <command>set-tooltip</command>
+                    <tooltip-id>RAlt</tooltip-id>
+                    <label>Radio altitude: %d ft</label>
+                    <property>instrumentation/altimeter/decision-height</property>
+                  </binding>
+                </hovered>
 	</animation>
 
 </PropertyList>
