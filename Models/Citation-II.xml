@@ -288,7 +288,7 @@
   </model>
 
   <!-- Wing Flex Right Wing -->
-  <!--animation>
+  <animation>
     <type>rotate</type>
     <property>sim/systems/wingflexer/z-deg</property>
     <factor>1</factor>
@@ -348,10 +348,10 @@
       <y2-m>4.44916</y2-m>
       <z2-m>0.05994</z2-m>
     </axis>
-  </animation-->
+  </animation>
 
   <!-- Wing Flex Left Wing -->
-  <!--animation>
+  <animation>
     <type>rotate</type>
     <property>sim/systems/wingflexer/z-deg</property>
     <factor>-1</factor>
@@ -411,7 +411,7 @@
       <y2-m>-4.44916</y2-m>
       <z2-m>0.05994</z2-m>
     </axis>
-  </animation-->
+  </animation>
 
   <model>
     <name>pilot</name>

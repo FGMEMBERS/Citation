@@ -35,42 +35,42 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <preview>
         <type>panel</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-01.png</path>
+        <path>Pics/Citation-II-splash-01.jpg</path>
       </preview>
       <preview>
         <type>exterior</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-02.png</path>
+        <path>Pics/Citation-II-splash-02.jpg</path>
       </preview>
       <preview>
         <type>exterior</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-03.png</path>
+        <path>Pics/Citation-II-splash-03.jpg</path>
       </preview>
       <preview>
         <type>exterior</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-04.png</path>
+        <path>Pics/Citation-II-splash-04.jpg</path>
       </preview>
       <preview>
         <type>exterior</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-05.png</path>
+        <path>Pics/Citation-II-splash-05.jpg</path>
       </preview>
       <preview>
         <type>interior</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-06.png</path>
+        <path>Pics/Citation-II-splash-06.jpg</path>
       </preview>
       <preview>
         <type>panel</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-07.png</path>
+        <path>Pics/Citation-II-splash-07.jpg</path>
       </preview>
       <preview>
         <type>exterior</type>
         <splash type="bool">true</splash>
-        <path>Pics/Citation-II-splash-08.png</path>
+        <path>Pics/Citation-II-splash-08.jpg</path>
       </preview>
     </previews>
 
@@ -418,11 +418,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
       <!-- doesn't work very well, so I deactivated it. The calculations are missing a working g force parameter! -->
-      <!--wingflexer include="Systems/wingflexer-params.xml"/>
+      <wingflexer include="Systems/wingflexer-params.xml"/>
       <property-rule n="105">
 	<name>wing flexer property rule</name>
 	<path>Aircraft/Generic/wingflexer.xml</path>
-      </property-rule-->
+      </property-rule>
     </systems>
 
     <sound>
