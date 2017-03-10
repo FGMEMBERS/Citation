@@ -82,7 +82,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <splash-logo-width>0.5</splash-logo-width>
     </startup>
 
-    <aircraft-version>3.0.11</aircraft-version>
+    <aircraft-version>3.1.0</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
