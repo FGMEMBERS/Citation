@@ -55,16 +55,10 @@ GNU General Public License for more details.
     <type>gain</type>
     <input>
       <expression>
-	<difference>
-	  <product>
-	    <property>yasim/gross-weight-lbs</property>
-	    <property>accelerations/pilot-g</property>
-	  </product>
-	  <!--div>
-	    <property>yasim/gross-weight-lbs</property>
-	    <property>accelerations/ned/down-accel-fps_sec</property>
-	  </div-->
-	</difference>
+	<product>
+	  <property>yasim/gross-weight-lbs</property>
+	  <property>accelerations/pilot-g</property>
+	</product>
       </expression>
     </input>
     <output>/yasim/fbz-aero-lbs</output>
