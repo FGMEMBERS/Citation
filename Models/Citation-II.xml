@@ -290,7 +290,7 @@
   <!-- Wing Flex Right Wing -->
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-deg</property>
+    <property>sim/systems/wingflexer/z-m</property>
     <factor>1</factor>
     <object-name>RH.uSpdBrk</object-name>
     <object-name>RH.uSpdBrk.rod</object-name>
@@ -330,7 +330,7 @@
   </animation>
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-deg</property>
+    <property>sim/systems/wingflexer/z-m</property>
     <factor>1</factor>
     <object-name>RHwing.003</object-name>
     <object-name>RHaileron</object-name>
@@ -353,7 +353,7 @@
   <!-- Wing Flex Left Wing -->
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-deg</property>
+    <property>sim/systems/wingflexer/z-m</property>
     <factor>-1</factor>
     <object-name>LHwing.002</object-name>
     <object-name>LHwing.003</object-name>
@@ -393,7 +393,7 @@
   </animation>
   <animation>
     <type>rotate</type>
-    <property>sim/systems/wingflexer/z-deg</property>
+    <property>sim/systems/wingflexer/z-m</property>
     <factor>-1</factor>
     <object-name>LHwing.003</object-name>
     <object-name>LHaileron</object-name>

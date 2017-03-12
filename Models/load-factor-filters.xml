@@ -58,7 +58,7 @@ GNU General Public License for more details.
 	<difference>
 	  <product>
 	    <property>yasim/gross-weight-lbs</property>
-	    <property>accelerations/n-z-cg-fps_sec</property>
+	    <property>accelerations/pilot-g</property>
 	  </product>
 	  <!--div>
 	    <property>yasim/gross-weight-lbs</property>
@@ -70,20 +70,23 @@ GNU General Public License for more details.
     <output>/yasim/fbz-aero-lbs</output>
   </filter>
 
+<!--
   <filter>
     <name>Convert wing deflection z-m to z-deg</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
       <expression>
-	<tan> <!-- tan alpha = a / b -->
+	<tan>
 	  <div>
 	    <property>sim/systems/wingflexer/z-m</property>
-	    <value>7</value> <!-- wing length in meter -->
+	    <value>7</value>
 	  </div>
 	</tan>
       </expression>
     </input>
     <output>/sim/systems/wingflexer/z-deg</output>
   </filter>
+  -->
+
 </PropertyList>
