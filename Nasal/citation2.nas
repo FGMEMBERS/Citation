@@ -6,6 +6,7 @@ var baggage_door_aft = aircraft.door.new("controls/baggage-door-aft",2);
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
 var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
+
 #Jet Engine Helper class
 # ie: var Eng = JetEngine.new(engine number);
 
@@ -118,6 +119,9 @@ var JetEngine = {
     }
 
 };
+
+
+
 #################################################
 var LHeng= JetEngine.new(0);
 var RHeng= JetEngine.new(1);
@@ -141,6 +145,52 @@ setlistener("/sim/signals/fdm-initialized", func {
     # Override default "full tanks" with read values
     setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
     setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
+
+
+
+    # start looking for weight and gear-compression
+    var WFinitAllDone = 0;
+    var WFinitWeight = 0;
+    var WFinitCompL = 0;
+    var WFinitCompR = 0;
+    var iterationCounter = 0;
+
+    var WFinitChecker = maketimer(5, func() {
+
+      # Initial values of weight and corresponding gear-compression.
+      # Used in Models/load-factor-filter.xml to calculate wingflex
+
+      var initialWeight = getprop("yasim/gross-weight-lbs");
+      var correspondingGearCompressionL = getprop("gear/gear[1]/compression-norm");
+      var correspondingGearCompressionR = getprop("gear/gear[2]/compression-norm");
+
+      if (initialWeight != nil and iterationCounter > 1) {
+        WFinitWeight = 1;
+
+      }
+      if (correspondingGearCompressionL != nil and iterationCounter > 1) {
+        WFinitCompL = 1;
+      }
+      if (correspondingGearCompressionR != nil and iterationCounter > 1) {
+        WFinitCompR = 1;
+      }
+
+      if (WFinitWeight == 1 and WFinitCompL == 1 and WFinitCompR == 1) { WFinitAllDone = 1; }
+
+      iterationCounter = iterationCounter + 1;
+
+      if (WFinitAllDone == 1 and iterationCounter > 1) {
+        var averageGearCompression = (correspondingGearCompressionL + correspondingGearCompressionR) / 2;
+        setprop("sim/systems/wingflexer/initialGearCompression", averageGearCompression);
+        setprop("sim/systems/wingflexer/initialWeight", initialWeight);
+        WFinitChecker.stop();
+      }
+      else { WFinitChecker.restart(5); }
+    });
+    WFinitChecker.singleShot = 1;
+    WFinitChecker.start();
+
+
 
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);

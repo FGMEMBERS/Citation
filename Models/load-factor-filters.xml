@@ -50,15 +50,48 @@ GNU General Public License for more details.
   </filter>
 
   <filter>
+    <name>calculate weight on wheels</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <greater-than>
+          <property>sim/systems/wingflexer/initialGearCompression</property>
+          <value>0</value>
+        </greater-than>
+      </condition>
+      <expression>
+        <div>
+          <div>
+            <sum>
+              <property>gear/gear[1]/compression-norm</property>
+              <property>gear/gear[2]/compression-norm</property>
+            </sum>
+            <value>2</value>
+          </div>
+          <product>
+            <property>sim/systems/wingflexer/initialGearCompression</property>
+            <property>sim/systems/wingflexer/initialWeight</property>
+          </product>
+        </div>
+      </expression>
+    </input>
+    <output>/sim/systems/wingflexer/weight-on-wheels</output>
+  </filter>
+
+  <filter>
     <name>Lift force on the wings for wingflexer</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
       <expression>
-	<product>
-	  <property>yasim/gross-weight-lbs</property>
-	  <property>accelerations/pilot-g</property>
-	</product>
+        <difference>
+	  <product>
+	    <property>yasim/gross-weight-lbs</property>
+	    <property>accelerations/pilot-g</property>
+	  </product>
+          <property>sim/systems/wingflexer/weight-on-wheels</property>
+        </difference>
       </expression>
     </input>
     <output>/yasim/fbz-aero-lbs</output>
