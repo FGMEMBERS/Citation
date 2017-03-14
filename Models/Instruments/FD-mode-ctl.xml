@@ -483,8 +483,7 @@
         <command>set-tooltip</command>
         <tooltip-id>AP-ias</tooltip-id>
         <label>A/P: Autothrottle: %s</label>
-        <mapping>on-off</mapping>
-        <property>autopilot/locks/autothrottle</property>
+        <property>autopilot/locks/speed</property>
       </binding>
     </hovered>
   </animation>

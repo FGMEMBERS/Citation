@@ -135,12 +135,20 @@ setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
 });
 
 setlistener("/sim/signals/fdm-initialized", func {
-    # Read old fuel levels
+
     if (getprop("/consumables/fuel/fuel_overlay") == 1) {
+      # if we initialising a state overlay, then use pre-programmed fuel levels
       var fuelL= getprop("/consumables/fuel/fuel_overlay_0");
       var fuelR= getprop("/consumables/fuel/fuel_overlay_1");
+
+      # set some other properties
+      if(getprop("/gear/gear_overlay") == 1) {
+        print("forcing gear down!");
+        setprop("/controls/gear/gear-down", 1);
+      }
     }
     else {
+      # Read old fuel levels
       var fuelL= getprop("/consumables/fuel/fuel-gal_us-0");
       var fuelR= getprop("/consumables/fuel/fuel-gal_us-1");
         # make sure we don't pass along a nil! (Most likely because this is our
@@ -151,19 +159,6 @@ setlistener("/sim/signals/fdm-initialized", func {
       # Override default "full tanks" with read values
     setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
     setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
-
-
-
-#    if (getprop("/controls/overlay") == 1) {
-#      var resetThrottle = maketimer(2, func() {
-#        var throttleValue = getprop("/controls/throttle_overlay");
-#        print("Resetting throttle to ", throttleValue, " to conform with the state overlay");
-#        setprop("controls/engines/engine[0]/throttle", throttleValue);
-#        setprop("controls/engines/engine[1]/throttle", throttleValue);
-#      });
-#      resetThrottle.singleShot = 1;
-#      resetThrottle.start();
-#    }
 
 
 

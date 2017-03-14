@@ -2,13 +2,12 @@
 
 <PropertyList>
 
-  <name type="string" n="1">taxi</name>
+  <name type="string" n="1">take-off</name>
 
   <overlay>
     <autopilot>
       <settings>
         <target-altitude-ft type="double">10000</target-altitude-ft>
-        <target-speed-kt type="double">200</target-speed-kt>
       </settings>
 
       <locks>
@@ -23,8 +22,8 @@
     <consumables>
       <fuel>
         <fuel_overlay type="bool">true</fuel_overlay>
-        <fuel_overlay_0 type="double">360</fuel_overlay_0>
-        <fuel_overlay_1 type="double">360</fuel_overlay_1>
+        <fuel_overlay_0 type="double">350</fuel_overlay_0>
+        <fuel_overlay_1 type="double">350</fuel_overlay_1>
       </fuel>
     </consumables>
 
@@ -32,7 +31,7 @@
     <controls>
 
       <flight>
-        <flaps type="double">0</flaps>
+        <flaps type="double">0.375</flaps>
         <flaps-serviceable type="bool">true</flaps-serviceable>
         <speedbrake-switch type="bool">false</speedbrake-switch>
       </flight>
@@ -62,7 +61,7 @@
       </engines>
 
       <gear>
-        <brake-parking type="double">1</brake-parking>
+        <brake-parking type="double">0</brake-parking>
         <gear-down type="bool">true</gear-down>
       </gear>
 
@@ -106,7 +105,7 @@
         <landing-light-switch n="1" type="bool">true</landing-light-switch>
         <nav-lights-switch type="bool">true</nav-lights-switch>
         <strobe-switch type="bool">true</strobe-switch>
-        <recog-lights-switch type="bool">false</recog-lights-switch>
+        <recog-lights-switch type="bool">true</recog-lights-switch>
 
         <panel-lights-switch type="bool">true</panel-lights-switch>
         <instrument-lights-norm type="double">0.5</instrument-lights-norm>
@@ -132,7 +131,7 @@
     </engines>
 
     <gear>
-      <gear n="0">
+      <gear>
         <position-norm type="float">1</position-norm>
       </gear>
       <gear n="1">

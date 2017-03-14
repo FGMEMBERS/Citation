@@ -93,6 +93,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <state include="states/parking-overlay.xml" n="0" />
     <state include="states/taxi-overlay.xml" n="1" />
+    <state include="states/takeoff-overlay.xml" n="2" />
+    <state include="states/cruise-overlay.xml" n="3" />
+    <state include="states/approach-overlay.xml" n="4" />
 
     <model>
       <path>Aircraft/Citation/Models/Citation-II.xml</path>

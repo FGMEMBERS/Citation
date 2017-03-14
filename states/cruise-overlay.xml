@@ -2,20 +2,22 @@
 
 <PropertyList>
 
-  <name type="string" n="1">taxi</name>
+  <name type="string" n="1">cruise</name>
 
   <overlay>
+
     <autopilot>
       <settings>
-        <target-altitude-ft type="double">10000</target-altitude-ft>
-        <target-speed-kt type="double">200</target-speed-kt>
+        <bank-limit type="double">14</bank-limit>
+        <target-altitude-ft type="double">36000</target-altitude-ft>
       </settings>
 
       <locks>
-        <yaw-damper type="bool">false</yaw-damper>
-        <heading type="string"></heading>
-        <altitude type="string"></altitude>
-        <speed type="string"></speed>
+        <yaw-damper type="bool">true</yaw-damper>
+        <passive-mode type="bool">false</passive-mode>
+        <heading type="string">wing-leveler</heading>
+        <altitude type="string">altitude-hold</altitude>
+        <speed>speed-with-throttle</speed>
       </locks>
     </autopilot>
 
@@ -23,8 +25,8 @@
     <consumables>
       <fuel>
         <fuel_overlay type="bool">true</fuel_overlay>
-        <fuel_overlay_0 type="double">360</fuel_overlay_0>
-        <fuel_overlay_1 type="double">360</fuel_overlay_1>
+        <fuel_overlay_0 type="double">300</fuel_overlay_0>
+        <fuel_overlay_1 type="double">300</fuel_overlay_1>
       </fuel>
     </consumables>
 
@@ -46,7 +48,7 @@
           <WEP type="bool">false</WEP>
           <ignition type="int">1</ignition>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle type="double">1</throttle>
         </engine>
 
         <engine n="1">
@@ -57,13 +59,13 @@
           <WEP type="bool">false</WEP>
           <ignition type="int">1</ignition>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle type="double">1</throttle>
         </engine>
       </engines>
 
       <gear>
-        <brake-parking type="double">1</brake-parking>
-        <gear-down type="bool">true</gear-down>
+        <brake-parking type="double">0</brake-parking>
+        <gear-down type="bool">false</gear-down>
       </gear>
 
       <electric>
@@ -102,11 +104,11 @@
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
-        <landing-light-switch n="0" type="bool">true</landing-light-switch>
-        <landing-light-switch n="1" type="bool">true</landing-light-switch>
+        <landing-light-switch n="0" type="bool">false</landing-light-switch>
+        <landing-light-switch n="1" type="bool">false</landing-light-switch>
         <nav-lights-switch type="bool">true</nav-lights-switch>
         <strobe-switch type="bool">true</strobe-switch>
-        <recog-lights-switch type="bool">false</recog-lights-switch>
+        <recog-lights-switch type="bool">true</recog-lights-switch>
 
         <panel-lights-switch type="bool">true</panel-lights-switch>
         <instrument-lights-norm type="double">0.5</instrument-lights-norm>
@@ -132,16 +134,23 @@
     </engines>
 
     <gear>
-      <gear n="0">
-        <position-norm type="float">1</position-norm>
+      <gear>
+        <position-norm type="float">0</position-norm>
       </gear>
       <gear n="1">
-        <position-norm type="float">1</position-norm>
+        <position-norm type="float">0</position-norm>
       </gear>
       <gear n="2">
-        <position-norm type="float">1</position-norm>
+        <position-norm type="float">0</position-norm>
       </gear>
     </gear>
+
+    <sim>
+      <presets>
+        <airspeed-kt type="double">190</airspeed-kt>
+        <altitude-ft type="double">36300</altitude-ft>
+      </presets>
+    </sim>
 
   </overlay>
 

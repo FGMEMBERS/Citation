@@ -2,20 +2,21 @@
 
 <PropertyList>
 
-  <name type="string" n="1">taxi</name>
+  <name type="string" n="1">approach</name>
 
   <overlay>
+
     <autopilot>
       <settings>
-        <target-altitude-ft type="double">10000</target-altitude-ft>
-        <target-speed-kt type="double">200</target-speed-kt>
+        <target-altitude-ft type="double">3000</target-altitude-ft>
       </settings>
 
       <locks>
         <yaw-damper type="bool">false</yaw-damper>
-        <heading type="string"></heading>
-        <altitude type="string"></altitude>
-        <speed type="string"></speed>
+        <passive-mode type="bool">false</passive-mode>
+        <heading type="string">nav1-hold</heading>
+        <altitude type="string">gs1-hold</altitude>
+        <speed>speed-with-throttle</speed>
       </locks>
     </autopilot>
 
@@ -23,8 +24,8 @@
     <consumables>
       <fuel>
         <fuel_overlay type="bool">true</fuel_overlay>
-        <fuel_overlay_0 type="double">360</fuel_overlay_0>
-        <fuel_overlay_1 type="double">360</fuel_overlay_1>
+        <fuel_overlay_0 type="double">50</fuel_overlay_0>
+        <fuel_overlay_1 type="double">50</fuel_overlay_1>
       </fuel>
     </consumables>
 
@@ -32,7 +33,7 @@
     <controls>
 
       <flight>
-        <flaps type="double">0</flaps>
+        <flaps type="double">0.375</flaps>
         <flaps-serviceable type="bool">true</flaps-serviceable>
         <speedbrake-switch type="bool">false</speedbrake-switch>
       </flight>
@@ -46,7 +47,7 @@
           <WEP type="bool">false</WEP>
           <ignition type="int">1</ignition>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle type="double">0.3293094756</throttle>
         </engine>
 
         <engine n="1">
@@ -57,12 +58,12 @@
           <WEP type="bool">false</WEP>
           <ignition type="int">1</ignition>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle type="double">0.3293094756</throttle>
         </engine>
       </engines>
 
       <gear>
-        <brake-parking type="double">1</brake-parking>
+        <brake-parking type="double">0</brake-parking>
         <gear-down type="bool">true</gear-down>
       </gear>
 
@@ -106,7 +107,7 @@
         <landing-light-switch n="1" type="bool">true</landing-light-switch>
         <nav-lights-switch type="bool">true</nav-lights-switch>
         <strobe-switch type="bool">true</strobe-switch>
-        <recog-lights-switch type="bool">false</recog-lights-switch>
+        <recog-lights-switch type="bool">true</recog-lights-switch>
 
         <panel-lights-switch type="bool">true</panel-lights-switch>
         <instrument-lights-norm type="double">0.5</instrument-lights-norm>
@@ -132,7 +133,8 @@
     </engines>
 
     <gear>
-      <gear n="0">
+      <gear_overlay type="bool">1</gear_overlay>
+      <gear>
         <position-norm type="float">1</position-norm>
       </gear>
       <gear n="1">
@@ -142,6 +144,13 @@
         <position-norm type="float">1</position-norm>
       </gear>
     </gear>
+
+    <sim>
+      <presets>
+        <airspeed-kt type="double">200</airspeed-kt>
+        <altitude-ft type="double">3000</altitude-ft>
+      </presets>
+    </sim>
 
   </overlay>
 
