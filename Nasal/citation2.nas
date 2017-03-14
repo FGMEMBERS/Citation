@@ -154,16 +154,16 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 
 
-    if (getprop("/controls/overlay") == 1) {
-      var resetThrottle = maketimer(2, func() {
-        var throttleValue = getprop("/controls/throttle_overlay");
-        print("Resetting throttle to ", throttleValue, " to conform with the state overlay");
-        setprop("controls/engines/engine[0]/throttle", throttleValue);
-        setprop("controls/engines/engine[1]/throttle", throttleValue);
-      });
-      resetThrottle.singleShot = 1;
-      resetThrottle.start();
-    }
+#    if (getprop("/controls/overlay") == 1) {
+#      var resetThrottle = maketimer(2, func() {
+#        var throttleValue = getprop("/controls/throttle_overlay");
+#        print("Resetting throttle to ", throttleValue, " to conform with the state overlay");
+#        setprop("controls/engines/engine[0]/throttle", throttleValue);
+#        setprop("controls/engines/engine[1]/throttle", throttleValue);
+#      });
+#      resetThrottle.singleShot = 1;
+#      resetThrottle.start();
+#    }
 
 
 
@@ -209,14 +209,6 @@ setlistener("/sim/signals/fdm-initialized", func {
     });
     WFinitChecker.singleShot = 1;
     WFinitChecker.start();
-
-
-#    var dumpPropTree = maketimer(60, func() {
-#      print("Dumping Property Tree...");
-#      io.write_properties( path: "/home/chris/.fgfs/Export/PropTree-Taxi.xml", prop: "/" );
-#    });
-#    dumpPropTree.singleShot = 1;
-#    dumpPropTree.start();
 
 
 

@@ -8,7 +8,7 @@
     <autopilot>
       <settings>
         <icao-aircraft-category type="string">C</icao-aircraft-category>
-        <bank-limit type="double">14</bank-limit>
+        <bank-limit type="double">27</bank-limit>
         <vertical-speed-fpm type="double">0</vertical-speed-fpm>
         <target-altitude-ft type="double">10000</target-altitude-ft>
         <gs1-arm type="bool">false</gs1-arm>
@@ -27,9 +27,9 @@
         <passive-mode type="bool">false</passive-mode>
         <lowbank type="bool">false</lowbank>
         <autothrottle type="bool">false</autothrottle>
-        <heading type="string">wing-leveler</heading>
-        <altitude type="string">pitch-hold</altitude>
-        <speed>speed-with-throttle</speed>
+        <heading type="string"></heading>
+        <altitude type="string"></altitude>
+        <speed type="string"></speed>
       </locks>
     </autopilot>
 
@@ -39,21 +39,11 @@
         <fuel_overlay type="bool">true</fuel_overlay>
         <fuel_overlay_0 type="double">255</fuel_overlay_0>
         <fuel_overlay_1 type="double">255</fuel_overlay_1>
-        <fuel-gal_us-0 type="double">255</fuel-gal_us-0>
-        <fuel-gal_us-1 type="double">255</fuel-gal_us-1>
-        <tank n="0">
-          <level-gal_us type="double">255</level-gal_us>
-        </tank>
-        <tank n="1">
-          <level-gal_us type="double">255</level-gal_us>
-        </tank>
       </fuel>
     </consumables>
 
 
     <controls>
-      <overlay type="bool">true</overlay>
-      <throttle_overlay type="double">0</throttle_overlay>
 
       <flight>
         <flaps type="double">0</flaps>
@@ -126,92 +116,43 @@
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
-        <center-panel-norm type="double">0.2</center-panel-norm>
-        <instrument-lights-norm type="double">0.5</instrument-lights-norm>
         <landing-light-switch n="0" type="bool">true</landing-light-switch>
         <landing-light-switch n="1" type="bool">true</landing-light-switch>
-        <left-panel-norm type="double">0.2</left-panel-norm>
         <nav-lights-switch type="bool">true</nav-lights-switch>
-        <panel-lights-switch type="bool">true</panel-lights-switch>
-        <right-panel-norm type="double">0.2</right-panel-norm>
         <strobe-switch type="bool">true</strobe-switch>
+
+        <panel-lights-switch type="bool">true</panel-lights-switch>
+        <instrument-lights-norm type="double">0.5</instrument-lights-norm>
+        <left-panel-norm type="double">0.2</left-panel-norm>
+        <center-panel-norm type="double">0.2</center-panel-norm>
+        <right-panel-norm type="double">0.2</right-panel-norm>
       </lighting>
     </controls>
 
 
     <engines>
       <engine>
-        <rpm>1000</rpm>
         <reverser-position type="double">0</reverser-position>
-        <amp-v type="double">28</amp-v>
-        <fan type="double">97.63083649</fan>
-        <turbine type="double">90.68478394</turbine>
         <started type="bool">true</started>
-        <heatblur>
-          <thrust_density type="double">0.04883242798</thrust_density>
-          <airspeed-kt type="double">100</airspeed-kt>
-          <thrust_collimation type="double">0.3</thrust_collimation>
-          <noise_scale type="double">0.2596124725</noise_scale>
-          <noise_strength type="double">0.4140108642</noise_strength>
-        </heatblur>
-        <n1 type="float">97.6308</n1>
-        <n2 type="float">90.6848</n2>
-        <thrust-lbs type="float">1848.27</thrust-lbs>
-        <egt-degf type="float">1077.1</egt-degf>
-        <epr type="float">2.40439</epr>
         <running type="bool">true</running>
-        <cranking type="bool">false</cranking>
-        <fuel-flow_pph type="double">1071.471372</fuel-flow_pph>
-        <itt-norm type="float">0.846893</itt-norm>
-        <oilt-norm type="float">0.878632</oilt-norm>
-        <oilp-norm type="float">0.837048</oilp-norm>
-        <out-of-fuel type="bool">false</out-of-fuel>
-        <fuel-flow-gph type="double">159.4451447</fuel-flow-gph>
-        <prop-thrust type="float">1848.27</prop-thrust>
-        <fuel-consumed-lbs type="double">0.01241005887</fuel-consumed-lbs>
       </engine>
 
       <engine n="1">
-        <rpm>1000</rpm>
         <reverser-position type="double">0</reverser-position>
-        <amp-v type="double">28</amp-v>
-        <fan type="double">97.6424408</fan>
         <started type="bool">true</started>
-        <heatblur>
-          <thrust_density type="double">0.048837883</thrust_density>
-          <airspeed-kt type="double">100</airspeed-kt>
-          <thrust_collimation type="double">0.3</thrust_collimation>
-          <noise_scale type="double">0.2596124725</noise_scale>
-          <noise_strength type="double">0.413945404</noise_strength>
-        </heatblur>
-        <n1 type="float">97.6424</n1>
-        <n2 type="float">90.6983</n2>
-        <thrust-lbs type="float">1848.7</thrust-lbs>
-        <egt-degf type="float">1077.46</egt-degf>
-        <epr type="float">2.40464</epr>
         <running type="bool">true</running>
-        <cranking type="bool">false</cranking>
-        <fuel-flow_pph type="double">1072.111934</fuel-flow_pph>
-        <turbine type="double">90.69833374</turbine>
-        <itt-norm type="float">0.846888</itt-norm>
-        <oilt-norm type="float">0.878631</oilt-norm>
-        <oilp-norm type="float">0.837025</oilp-norm>
-        <out-of-fuel type="bool">false</out-of-fuel>
-        <fuel-flow-gph type="double">159.5404663</fuel-flow-gph>
-        <prop-thrust type="float">1848.7</prop-thrust>
-        <fuel-consumed-lbs type="double">0.01241703308</fuel-consumed-lbs>
       </engine>
     </engines>
 
     <gear>
       <gear>
-        <position-norm type="float">0</position-norm>
+        <position-norm type="float">1</position-norm>
       </gear>
       <gear n="1">
-        <position-norm type="float">0</position-norm>
+        <position-norm type="float">1</position-norm>
       </gear>
       <gear n="2">
-        <position-norm type="float">0</position-norm>
+        <position-norm type="float">1</position-norm>
       </gear>
     </gear>
 
