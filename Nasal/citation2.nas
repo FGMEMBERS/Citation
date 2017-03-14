@@ -136,15 +136,34 @@ setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
 
 setlistener("/sim/signals/fdm-initialized", func {
     # Read old fuel levels
-    var fuelL= getprop("/consumables/fuel/fuel-gal_us-0");
-    var fuelR= getprop("/consumables/fuel/fuel-gal_us-1");
-      # make sure we don't pass along a nil! (Most likely because this is our
-      # first run with this model and have no previous value stored.)
-    if(fuelL == nil){ fuelL = 371; }
-    if(fuelR == nil){ fuelR = 371; }
-    # Override default "full tanks" with read values
+    if (getprop("/consumables/fuel/fuel_overlay") == 1) {
+      var fuelL= getprop("/consumables/fuel/fuel_overlay_0");
+      var fuelR= getprop("/consumables/fuel/fuel_overlay_1");
+    }
+    else {
+      var fuelL= getprop("/consumables/fuel/fuel-gal_us-0");
+      var fuelR= getprop("/consumables/fuel/fuel-gal_us-1");
+        # make sure we don't pass along a nil! (Most likely because this is our
+        # first run with this model and have no previous value stored.)
+      if(fuelL == nil) { fuelL = 371; }
+      if(fuelR == nil) { fuelR = 371; }
+    }
+      # Override default "full tanks" with read values
     setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
     setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
+
+
+
+    if (getprop("/controls/overlay") == 1) {
+      var resetThrottle = maketimer(2, func() {
+        var throttleValue = getprop("/controls/throttle_overlay");
+        print("Resetting throttle to ", throttleValue, " to conform with the state overlay");
+        setprop("controls/engines/engine[0]/throttle", throttleValue);
+        setprop("controls/engines/engine[1]/throttle", throttleValue);
+      });
+      resetThrottle.singleShot = 1;
+      resetThrottle.start();
+    }
 
 
 
@@ -183,12 +202,21 @@ setlistener("/sim/signals/fdm-initialized", func {
         var averageGearCompression = (correspondingGearCompressionL + correspondingGearCompressionR) / 2;
         setprop("sim/systems/wingflexer/initialGearCompression", averageGearCompression);
         setprop("sim/systems/wingflexer/initialWeight", initialWeight);
+        setprop("sim/systems/wingflexer/initComplete", 1);
         WFinitChecker.stop();
       }
       else { WFinitChecker.restart(5); }
     });
     WFinitChecker.singleShot = 1;
     WFinitChecker.start();
+
+
+#    var dumpPropTree = maketimer(60, func() {
+#      print("Dumping Property Tree...");
+#      io.write_properties( path: "/home/chris/.fgfs/Export/PropTree-Taxi.xml", prop: "/" );
+#    });
+#    dumpPropTree.singleShot = 1;
+#    dumpPropTree.start();
 
 
 

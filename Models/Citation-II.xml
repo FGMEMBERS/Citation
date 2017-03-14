@@ -290,6 +290,12 @@
   <!-- Wing Flex Right Wing -->
   <animation>
     <type>rotate</type>
+    <condition>
+      <equals>
+        <property>sim/systems/wingflexer/initComplete</property>
+        <value>1</value>
+      </equals>
+    </condition>
     <property>sim/systems/wingflexer/z-m</property>
     <factor>1</factor>
     <object-name>RH.uSpdBrk</object-name>
@@ -330,6 +336,12 @@
   </animation>
   <animation>
     <type>rotate</type>
+    <condition>
+      <equals>
+        <property>sim/systems/wingflexer/initComplete</property>
+        <value>1</value>
+      </equals>
+    </condition>
     <property>sim/systems/wingflexer/z-m</property>
     <factor>1</factor>
     <object-name>RHwing.003</object-name>
@@ -353,6 +365,12 @@
   <!-- Wing Flex Left Wing -->
   <animation>
     <type>rotate</type>
+    <condition>
+      <equals>
+        <property>sim/systems/wingflexer/initComplete</property>
+        <value>1</value>
+      </equals>
+    </condition>
     <property>sim/systems/wingflexer/z-m</property>
     <factor>-1</factor>
     <object-name>LHwing.002</object-name>
@@ -393,6 +411,12 @@
   </animation>
   <animation>
     <type>rotate</type>
+    <condition>
+      <equals>
+        <property>sim/systems/wingflexer/initComplete</property>
+        <value>1</value>
+      </equals>
+    </condition>
     <property>sim/systems/wingflexer/z-m</property>
     <factor>-1</factor>
     <object-name>LHwing.003</object-name>

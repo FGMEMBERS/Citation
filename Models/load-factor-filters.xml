@@ -29,7 +29,7 @@ GNU General Public License for more details.
       <value>2.0</value>
     </input>
     <input>3.8</input>
-    <output>/limits/max-positive-g</output>
+    <output>limits/max-positive-g</output>
   </filter>
 
   <filter>
@@ -46,7 +46,7 @@ GNU General Public License for more details.
       <value>0.0</value>
     </input>
     <input>-1.52</input>
-    <output>/limits/max-negative-g</output>
+    <output>limits/max-negative-g</output>
   </filter>
 
   <filter>
@@ -76,7 +76,7 @@ GNU General Public License for more details.
         </div>
       </expression>
     </input>
-    <output>/sim/systems/wingflexer/weight-on-wheels</output>
+    <output>sim/systems/wingflexer/weight-on-wheels</output>
   </filter>
 
   <filter>
@@ -94,7 +94,7 @@ GNU General Public License for more details.
         </difference>
       </expression>
     </input>
-    <output>/yasim/fbz-aero-lbs</output>
+    <output>yasim/fbz-aero-lbs</output>
   </filter>
 
 <!--
@@ -112,7 +112,7 @@ GNU General Public License for more details.
 	</tan>
       </expression>
     </input>
-    <output>/sim/systems/wingflexer/z-deg</output>
+    <output>sim/systems/wingflexer/z-deg</output>
   </filter>
   -->
 

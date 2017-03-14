@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<PropertyList>
+
+  <name type="string" n="1">taxi</name>
+
+  <overlay>
+    <autopilot>
+      <settings>
+        <icao-aircraft-category type="string">C</icao-aircraft-category>
+        <bank-limit type="double">14</bank-limit>
+        <vertical-speed-fpm type="double">0</vertical-speed-fpm>
+        <target-altitude-ft type="double">10000</target-altitude-ft>
+        <gs1-arm type="bool">false</gs1-arm>
+        <alt-arm type="bool">false</alt-arm>
+        <target-speed-kt alias="/instrumentation[0]/airspeed-indicator[0]/index-marker[0]"/>
+        <gps-driving-true-heading type="bool">false</gps-driving-true-heading>
+        <true-heading-deg type="double">0</true-heading-deg>
+        <target-pitch-deg type="double">0</target-pitch-deg>
+        <heading-bug-deg type="double">0</heading-bug-deg>
+        <target-aoa-deg type="double">0</target-aoa-deg>
+        <target-agl-ft type="double">0</target-agl-ft>
+      </settings>
+
+      <locks>
+        <yaw-damper type="bool">false</yaw-damper>
+        <passive-mode type="bool">false</passive-mode>
+        <lowbank type="bool">false</lowbank>
+        <autothrottle type="bool">false</autothrottle>
+        <heading type="string">wing-leveler</heading>
+        <altitude type="string">pitch-hold</altitude>
+        <speed>speed-with-throttle</speed>
+      </locks>
+    </autopilot>
+
+
+    <consumables>
+      <fuel>
+        <fuel_overlay type="bool">true</fuel_overlay>
+        <fuel_overlay_0 type="double">255</fuel_overlay_0>
+        <fuel_overlay_1 type="double">255</fuel_overlay_1>
+        <fuel-gal_us-0 type="double">255</fuel-gal_us-0>
+        <fuel-gal_us-1 type="double">255</fuel-gal_us-1>
+        <tank n="0">
+          <level-gal_us type="double">255</level-gal_us>
+        </tank>
+        <tank n="1">
+          <level-gal_us type="double">255</level-gal_us>
+        </tank>
+      </fuel>
+    </consumables>
+
+
+    <controls>
+      <overlay type="bool">true</overlay>
+      <throttle_overlay type="double">0</throttle_overlay>
+
+      <flight>
+        <flaps type="double">0</flaps>
+        <flaps-serviceable type="bool">true</flaps-serviceable>
+        <speedbrake-switch type="bool">false</speedbrake-switch>
+      </flight>
+
+      <engines>
+        <engine n="0">
+          <starter type="bool">false</starter>
+          <fuel-pump type="bool">false</fuel-pump>
+          <cutoff type="bool">false</cutoff>
+          <feed_tank type="int">-1</feed_tank>
+          <WEP type="bool">false</WEP>
+          <ignition type="int">1</ignition>
+          <reverser type="bool">false</reverser>
+          <throttle type="double">0</throttle>
+        </engine>
+
+        <engine n="1">
+          <starter type="bool">false</starter>
+          <fuel-pump type="bool">false</fuel-pump>
+          <cutoff type="bool">true</cutoff>
+          <feed_tank type="int">-1</feed_tank>
+          <WEP type="bool">false</WEP>
+          <ignition type="int">1</ignition>
+          <reverser type="bool">false</reverser>
+          <throttle type="double">0</throttle>
+        </engine>
+      </engines>
+
+      <gear>
+        <brake-parking type="double">1</brake-parking>
+        <gear-down type="bool">true</gear-down>
+      </gear>
+
+      <electric>
+        <avionics-switch type="bool">true</avionics-switch>
+        <battery-bus-switch type="int">1</battery-bus-switch>
+        <voltage-sel type="int">0</voltage-sel>
+        <system-test type="int">10</system-test>
+        <fuel-sel type="int">0</fuel-sel>
+        <engine>
+          <generator type="bool">true</generator>
+        </engine>
+        <engine n="1">
+          <generator type="bool">true</generator>
+        </engine>
+      </electric>
+
+      <fuel>
+        <tank>
+          <fuel_selector type="bool">false</fuel_selector>
+          <to_engine type="int">0</to_engine>
+          <to_tank type="int">0</to_tank>
+          <boost-pump type="bool">false</boost-pump>
+          <boost-pump n="1" type="bool">false</boost-pump>
+          <boost-pump-switch type="double">0</boost-pump-switch>
+        </tank>
+
+        <tank n="1">
+          <fuel_selector type="bool">false</fuel_selector>
+          <to_engine type="int">0</to_engine>
+          <to_tank type="int">0</to_tank>
+          <boost-pump type="bool">false</boost-pump>
+          <boost-pump n="1" type="bool">false</boost-pump>
+          <boost-pump-switch type="double">0</boost-pump-switch>
+        </tank>
+      </fuel>
+
+      <lighting>
+        <beacon-switch type="bool">true</beacon-switch>
+        <center-panel-norm type="double">0.2</center-panel-norm>
+        <instrument-lights-norm type="double">0.5</instrument-lights-norm>
+        <landing-light-switch n="0" type="bool">true</landing-light-switch>
+        <landing-light-switch n="1" type="bool">true</landing-light-switch>
+        <left-panel-norm type="double">0.2</left-panel-norm>
+        <nav-lights-switch type="bool">true</nav-lights-switch>
+        <panel-lights-switch type="bool">true</panel-lights-switch>
+        <right-panel-norm type="double">0.2</right-panel-norm>
+        <strobe-switch type="bool">true</strobe-switch>
+      </lighting>
+    </controls>
+
+
+    <engines>
+      <engine>
+        <rpm>1000</rpm>
+        <reverser-position type="double">0</reverser-position>
+        <amp-v type="double">28</amp-v>
+        <fan type="double">97.63083649</fan>
+        <turbine type="double">90.68478394</turbine>
+        <started type="bool">true</started>
+        <heatblur>
+          <thrust_density type="double">0.04883242798</thrust_density>
+          <airspeed-kt type="double">100</airspeed-kt>
+          <thrust_collimation type="double">0.3</thrust_collimation>
+          <noise_scale type="double">0.2596124725</noise_scale>
+          <noise_strength type="double">0.4140108642</noise_strength>
+        </heatblur>
+        <n1 type="float">97.6308</n1>
+        <n2 type="float">90.6848</n2>
+        <thrust-lbs type="float">1848.27</thrust-lbs>
+        <egt-degf type="float">1077.1</egt-degf>
+        <epr type="float">2.40439</epr>
+        <running type="bool">true</running>
+        <cranking type="bool">false</cranking>
+        <fuel-flow_pph type="double">1071.471372</fuel-flow_pph>
+        <itt-norm type="float">0.846893</itt-norm>
+        <oilt-norm type="float">0.878632</oilt-norm>
+        <oilp-norm type="float">0.837048</oilp-norm>
+        <out-of-fuel type="bool">false</out-of-fuel>
+        <fuel-flow-gph type="double">159.4451447</fuel-flow-gph>
+        <prop-thrust type="float">1848.27</prop-thrust>
+        <fuel-consumed-lbs type="double">0.01241005887</fuel-consumed-lbs>
+      </engine>
+
+      <engine n="1">
+        <rpm>1000</rpm>
+        <reverser-position type="double">0</reverser-position>
+        <amp-v type="double">28</amp-v>
+        <fan type="double">97.6424408</fan>
+        <started type="bool">true</started>
+        <heatblur>
+          <thrust_density type="double">0.048837883</thrust_density>
+          <airspeed-kt type="double">100</airspeed-kt>
+          <thrust_collimation type="double">0.3</thrust_collimation>
+          <noise_scale type="double">0.2596124725</noise_scale>
+          <noise_strength type="double">0.413945404</noise_strength>
+        </heatblur>
+        <n1 type="float">97.6424</n1>
+        <n2 type="float">90.6983</n2>
+        <thrust-lbs type="float">1848.7</thrust-lbs>
+        <egt-degf type="float">1077.46</egt-degf>
+        <epr type="float">2.40464</epr>
+        <running type="bool">true</running>
+        <cranking type="bool">false</cranking>
+        <fuel-flow_pph type="double">1072.111934</fuel-flow_pph>
+        <turbine type="double">90.69833374</turbine>
+        <itt-norm type="float">0.846888</itt-norm>
+        <oilt-norm type="float">0.878631</oilt-norm>
+        <oilp-norm type="float">0.837025</oilp-norm>
+        <out-of-fuel type="bool">false</out-of-fuel>
+        <fuel-flow-gph type="double">159.5404663</fuel-flow-gph>
+        <prop-thrust type="float">1848.7</prop-thrust>
+        <fuel-consumed-lbs type="double">0.01241703308</fuel-consumed-lbs>
+      </engine>
+    </engines>
+
+    <gear>
+      <gear>
+        <position-norm type="float">0</position-norm>
+      </gear>
+      <gear n="1">
+        <position-norm type="float">0</position-norm>
+      </gear>
+      <gear n="2">
+        <position-norm type="float">0</position-norm>
+      </gear>
+    </gear>
+
+  </overlay>
+
+</PropertyList>

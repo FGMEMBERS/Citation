@@ -91,6 +91,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <model type="int">5</model>
     </rating>
 
+    <state include="states/parking-overlay.xml" n="0" />
+    <state include="states/taxi-overlay.xml" n="1" />
+
     <model>
       <path>Aircraft/Citation/Models/Citation-II.xml</path>
       <autostart type="bool">0</autostart>
@@ -417,8 +420,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="104">
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
-      <!-- doesn't work very well, so I deactivated it. The calculations are missing a working g force parameter! -->
-      <wingflexer include="Systems/wingflexer-params.xml"/>
+      <wingflexer include="Systems/wingflexer-params.xml">
+        <initComplete type="bool">0</initComplete>
+      </wingflexer>
       <property-rule n="105">
 	<name>wing flexer property rule</name>
 	<path>Aircraft/Generic/wingflexer.xml</path>
@@ -426,7 +430,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </systems>
 
     <sound>
-      <path>Aircraft/Citation/Citation-II-sound.xml</path>
+      <path>Citation-II-sound.xml</path>
     </sound>
     <hud>
       <enable3d>false</enable3d>
@@ -697,6 +701,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <signal><type>float</type><property type="string">/controls/baggage-door-front-left/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-front-right/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-aft/position-norm</property></signal>
+        <signal><type>float</type><property type="string">/sim/systems/wingflexer/z-m</property></signal>
       </config>
     </flight-recorder>
 

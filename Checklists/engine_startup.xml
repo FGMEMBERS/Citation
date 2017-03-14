@@ -15,10 +15,12 @@ GNU General Public License for more details.
 -->
 <PropertyList>
   <title>I - Engine startup</title>
+
   <item>
     <name>Fuel</name>
     <value>As required</value>
   </item>
+
   <item>
     <name>Battery</name>
     <value>ON</value>

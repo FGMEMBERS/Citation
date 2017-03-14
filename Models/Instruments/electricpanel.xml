@@ -52,9 +52,9 @@
     <object-name>wing.sw</object-name>
   </effect>
 
-<!-- -1 BATT
-      0 OFF
-      1 EMER -->
+<!-- 1 BATT
+     0 OFF
+    -1 EMER -->
     <animation>
         <type>knob</type>
         <object-name>batt.sw</object-name>
@@ -548,7 +548,7 @@
             <command>property-toggle</command>
             <property>controls/electric/engine[0]/generator</property>
         </binding>
-            <binding>
+        <binding>
             <command>property-toggle</command>
             <property>sim/sound/click</property>
         </binding>
@@ -574,7 +574,7 @@
             <command>property-toggle</command>
             <property>controls/electric/engine[1]/generator</property>
         </binding>
-            <binding>
+        <binding>
             <command>property-toggle</command>
             <property>sim/sound/click</property>
         </binding>
