@@ -49,19 +49,30 @@ GNU General Public License for more details.
     <output>limits/max-negative-g</output>
   </filter>
 
+
+
+<!--
+
+  Instead of calculating the initial weight to gear compression ratio
+  I've calculated them once using this formula:
+
+    weight-on-wheels = 0.5 * compression_norm(t) * (w_0 / c_0)
+
+  where compression_norm(t) is derived from /gear/gear[1]/compression-norm
+  and w_0 = initialWeight          = 13909.19628906249 lbs
+  and c_0 = initialGearCompression = 0.2607718557119369
+
+  Now w_0 / c_0 = 53307.28336965086
+
+-->
+
   <filter>
     <name>calculate weight on wheels</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
-      <condition>
-        <greater-than>
-          <property>sim/systems/wingflexer/initialGearCompression</property>
-          <value>0</value>
-        </greater-than>
-      </condition>
       <expression>
-        <div>
+        <product>
           <div>
             <sum>
               <property>gear/gear[1]/compression-norm</property>
@@ -69,11 +80,8 @@ GNU General Public License for more details.
             </sum>
             <value>2</value>
           </div>
-          <product>
-            <property>sim/systems/wingflexer/initialGearCompression</property>
-            <property>sim/systems/wingflexer/initialWeight</property>
-          </product>
-        </div>
+          <value>53307.28336965086</value>
+        </product>
       </expression>
     </input>
     <output>sim/systems/wingflexer/weight-on-wheels</output>
@@ -96,24 +104,5 @@ GNU General Public License for more details.
     </input>
     <output>yasim/fbz-aero-lbs</output>
   </filter>
-
-<!--
-  <filter>
-    <name>Convert wing deflection z-m to z-deg</name>
-    <debug>false</debug>
-    <type>gain</type>
-    <input>
-      <expression>
-	<tan>
-	  <div>
-	    <property>sim/systems/wingflexer/z-m</property>
-	    <value>7</value>
-	  </div>
-	</tan>
-      </expression>
-    </input>
-    <output>sim/systems/wingflexer/z-deg</output>
-  </filter>
-  -->
 
 </PropertyList>

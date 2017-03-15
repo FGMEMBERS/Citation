@@ -10,6 +10,7 @@
       <settings>
         <bank-limit type="double">14</bank-limit>
         <target-altitude-ft type="double">36000</target-altitude-ft>
+        <target-speed-kt type="double">250</target-speed-kt>
       </settings>
 
       <locks>
@@ -33,32 +34,14 @@
 
     <controls>
 
-      <flight>
-        <flaps type="double">0</flaps>
-        <flaps-serviceable type="bool">true</flaps-serviceable>
-        <speedbrake-switch type="bool">false</speedbrake-switch>
-      </flight>
-
       <engines>
         <engine n="0">
-          <starter type="bool">false</starter>
-          <fuel-pump type="bool">false</fuel-pump>
-          <cutoff type="bool">false</cutoff>
-          <feed_tank type="int">-1</feed_tank>
-          <WEP type="bool">false</WEP>
-          <ignition type="int">1</ignition>
-          <reverser type="bool">false</reverser>
+          <ignition type="bool">1</ignition>
           <throttle type="double">1</throttle>
         </engine>
 
         <engine n="1">
-          <starter type="bool">false</starter>
-          <fuel-pump type="bool">false</fuel-pump>
-          <cutoff type="bool">true</cutoff>
-          <feed_tank type="int">-1</feed_tank>
-          <WEP type="bool">false</WEP>
-          <ignition type="int">1</ignition>
-          <reverser type="bool">false</reverser>
+          <ignition type="bool">1</ignition>
           <throttle type="double">1</throttle>
         </engine>
       </engines>
@@ -82,7 +65,7 @@
         </engine>
       </electric>
 
-      <fuel>
+      <!--fuel>
         <tank>
           <fuel_selector type="bool">false</fuel_selector>
           <to_engine type="int">0</to_engine>
@@ -100,12 +83,10 @@
           <boost-pump n="1" type="bool">false</boost-pump>
           <boost-pump-switch type="double">0</boost-pump-switch>
         </tank>
-      </fuel>
+      </fuel-->
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
-        <landing-light-switch n="0" type="bool">false</landing-light-switch>
-        <landing-light-switch n="1" type="bool">false</landing-light-switch>
         <nav-lights-switch type="bool">true</nav-lights-switch>
         <strobe-switch type="bool">true</strobe-switch>
         <recog-lights-switch type="bool">true</recog-lights-switch>
@@ -121,13 +102,11 @@
 
     <engines>
       <engine>
-        <reverser-position type="double">0</reverser-position>
         <started type="bool">true</started>
         <running type="bool">true</running>
       </engine>
 
       <engine n="1">
-        <reverser-position type="double">0</reverser-position>
         <started type="bool">true</started>
         <running type="bool">true</running>
       </engine>
@@ -148,7 +127,7 @@
     <sim>
       <presets>
         <airspeed-kt type="double">190</airspeed-kt>
-        <altitude-ft type="double">36300</altitude-ft>
+        <altitude-ft type="double">36000</altitude-ft>
       </presets>
     </sim>
 

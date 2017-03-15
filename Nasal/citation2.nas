@@ -59,8 +59,8 @@ var JetEngine = {
             # Engine not running.  Decide whether to start it or not.
             me.throttle_lever.setValue(0);
             if(me.starter.getBoolValue() # and it has electricity:
-               and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
-                    or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
+               and (getprop ("systems/electrical/outputs/bus/left") > 20.0
+                    or getprop ("systems/electrical/outputs/bus/right") > 20.0))
             {
                 if(me.cycle_up == 0)me.cycle_up=1;
             }
@@ -98,8 +98,8 @@ var JetEngine = {
         if (turbine > 20
             and me.ignition.getValue ()
             and me.fuel_pump_boost.getValue () # and it has electricity:
-            and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
-                 or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
+            and (getprop ("systems/electrical/outputs/bus/left") > 20.0
+                 or getprop ("systems/electrical/outputs/bus/right") > 20.0))
         {
             var fan = me.fan.getValue ()
                 + getprop ("sim/time/delta-sec") * n1 / scnds;
@@ -126,88 +126,75 @@ var JetEngine = {
 var LHeng= JetEngine.new(0);
 var RHeng= JetEngine.new(1);
 
-setlistener ("/controls/engines/engine[0]/ignition", func (ignition) {
+setlistener ("controls/engines/engine[0]/ignition", func (ignition) {
     LHeng.shutdown (ignition.getBoolValue ());
 });
 
-setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
+setlistener ("controls/engines/engine[1]/ignition", func (ignition) {
     RHeng.shutdown (ignition.getBoolValue ());
 });
 
-setlistener ("/sim/signals/fdm-initialized", func {
+setlistener("sim/signals/fdm-initialized", func {
 
   setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
   switch_rmi ("single-needle", 0);
 
-  if (getprop("/consumables/fuel/fuel_overlay") == 1) {
+
+  if (getprop("consumables/fuel/fuel_overlay") == 1) {
     # if we initialising a state overlay, then use pre-programmed fuel levels
-    var fuelL= getprop("/consumables/fuel/fuel_overlay_0");
-    var fuelR= getprop("/consumables/fuel/fuel_overlay_1");
+    var fuelL= getprop("consumables/fuel/fuel_overlay_0");
+    var fuelR= getprop("consumables/fuel/fuel_overlay_1");
+    var totalFuel = fuelL + fuelR;
+    print("Setting fuel levels to ", totalFuel, "lbs total.");
 
     # set some other properties
-    if(getprop("/gear/gear_overlay") == 1) {
+    if(getprop("gear/gear_overlay") == 1) {
       print("forcing gear down!");
-      setprop("/controls/gear/gear-down", 1);
+      setprop("controls/gear/gear-down", 1);
     }
 
     # Try to get the preset numbers into the instruments
-    setprop("/instrumentation/rmi/single-needle/selected-input", getprop("/sim/presets/heading-deg"));
+    #setprop("instrumentation/rmi/single-needle/selected-input", getprop("sim/presets/heading-deg"));
 
   }
   else {
     # Read old fuel levels
-    var fuelL= getprop("/consumables/fuel/fuel-gal_us-0");
-    var fuelR= getprop("/consumables/fuel/fuel-gal_us-1");
+    var fuelL= getprop("consumables/fuel/fuel-gal_us-0");
+    var fuelR= getprop("consumables/fuel/fuel-gal_us-1");
       # make sure we don't pass along a nil! (Most likely because this is our
       # first run with this model and have no previous value stored.)
-    if(fuelL == nil) { fuelL = 371; }
-    if(fuelR == nil) { fuelR = 371; }
+    if(fuelL == nil or fuelR == nil) {
+      fuelL = 371;
+      fuelR = 371;
+      print("No stored fuel-levels found. Setting to full.");
+    }
+    else {
+      var totalFuel = fuelL + fuelR;
+      print("Old fuel-levels restored. You have ", totalFuel, "lbs of fuel aboard.")
+    }
   }
     # Override default "full tanks" with read values
-  setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
-  setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
+  setprop("consumables/fuel/tank[0]/level-gal_us", fuelL);
+  setprop("consumables/fuel/tank[1]/level-gal_us", fuelR);
 
 
+  # on state overlays "taxi", "take-off" and "approach" we set the pressure automatically
+  # since every checklist would agree to do this ahead of time!
+  if (getprop("environment/overlay") == 1) {
+    var setAltimeterToPressure = maketimer(2, func() {
+      setprop("instrumentation/altimeter/setting-inhg", getprop("environment/metar[0]/pressure-sea-level-inhg"));
+      print("Altimeter set to ", getprop("environment/metar[0]/pressure-sea-level-inhg"));
+      setAltimeterToPressure.stop();
+    });
+    setAltimeterToPressure.singleShot = 1;
+    setAltimeterToPressure.start();
+  }
 
-  # start looking for weight and gear-compression
-  var WFinitAllDone = 0;
-  var WFinitWeight = 0;
-  var WFinitCompL = 0;
-  var WFinitCompR = 0;
-  var iterationCounter = 0;
 
   var WFinitChecker = maketimer(5, func() {
-
-    # Initial values of weight and corresponding gear-compression.
-    # Used in Models/load-factor-filter.xml to calculate wingflex
-
-    var initialWeight = getprop("yasim/gross-weight-lbs");
-    var correspondingGearCompressionL = getprop("gear/gear[1]/compression-norm");
-    var correspondingGearCompressionR = getprop("gear/gear[2]/compression-norm");
-
-    if (initialWeight != nil and iterationCounter > 1) {
-      WFinitWeight = 1;
-
-    }
-    if (correspondingGearCompressionL != nil and iterationCounter > 1) {
-      WFinitCompL = 1;
-    }
-    if (correspondingGearCompressionR != nil and iterationCounter > 1) {
-      WFinitCompR = 1;
-    }
-
-    if (WFinitWeight == 1 and WFinitCompL == 1 and WFinitCompR == 1) { WFinitAllDone = 1; }
-
-    iterationCounter = iterationCounter + 1;
-
-    if (WFinitAllDone == 1 and iterationCounter > 1) {
-      var averageGearCompression = (correspondingGearCompressionL + correspondingGearCompressionR) / 2;
-      setprop("sim/systems/wingflexer/initialGearCompression", averageGearCompression);
-      setprop("sim/systems/wingflexer/initialWeight", initialWeight);
-      setprop("sim/systems/wingflexer/initComplete", 1);
-      WFinitChecker.stop();
-    }
-    else { WFinitChecker.restart(5); }
+    setprop("sim/systems/wingflexer/initComplete", 1);
+    print("WingFlexer has been initialised.");
+    WFinitChecker.stop();
   });
   WFinitChecker.singleShot = 1;
   WFinitChecker.start();
@@ -224,7 +211,7 @@ setlistener ("/sim/signals/fdm-initialized", func {
                       props.globals.getNode ("/instrumentation/nav[1]"));
 });
 
-setlistener("/sim/current-view/internal", func(vw){
+setlistener("sim/current-view/internal", func(vw){
     if(vw.getBoolValue()){
         SndIn.setDoubleValue(0.75);
         SndOut.setDoubleValue(0.10);
@@ -234,7 +221,7 @@ setlistener("/sim/current-view/internal", func(vw){
     }
 },1,0);
 
-setlistener("/instrumentation/altimeter/setting-inhg", func(inhg){
+setlistener("instrumentation/altimeter/setting-inhg", func(inhg){
     var kpa = inhg.getValue() * 3.386389;
      KPA.setValue(kpa);
 },1,0);
@@ -286,10 +273,10 @@ var Shutdown = func{
 controls.gearDown = func(v) {
     if (v < 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
         if(!getprop("gear/gear[1]/wow")) {
-          setprop("/controls/gear/gear-down", 0);
+          setprop("controls/gear/gear-down", 0);
         }
     } elsif (v > 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
-       setprop("/controls/gear/gear-down", 1);
+       setprop("controls/gear/gear-down", 1);
     }
 }
 

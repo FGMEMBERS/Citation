@@ -9,14 +9,12 @@
     <autopilot>
       <settings>
         <target-altitude-ft type="double">3000</target-altitude-ft>
+        <target-speed-kt type="double">180</target-speed-kt>
       </settings>
 
       <locks>
-        <yaw-damper type="bool">false</yaw-damper>
-        <passive-mode type="bool">false</passive-mode>
         <heading type="string">nav1-hold</heading>
         <altitude type="string">gs1-hold</altitude>
-        <speed>speed-with-throttle</speed>
       </locks>
     </autopilot>
 
@@ -34,30 +32,16 @@
 
       <flight>
         <flaps type="double">0.375</flaps>
-        <flaps-serviceable type="bool">true</flaps-serviceable>
-        <speedbrake-switch type="bool">false</speedbrake-switch>
       </flight>
 
       <engines>
         <engine n="0">
-          <starter type="bool">false</starter>
-          <fuel-pump type="bool">false</fuel-pump>
-          <cutoff type="bool">false</cutoff>
-          <feed_tank type="int">-1</feed_tank>
-          <WEP type="bool">false</WEP>
-          <ignition type="int">1</ignition>
-          <reverser type="bool">false</reverser>
+          <ignition type="bool">1</ignition>
           <throttle type="double">0.3293094756</throttle>
         </engine>
 
         <engine n="1">
-          <starter type="bool">false</starter>
-          <fuel-pump type="bool">false</fuel-pump>
-          <cutoff type="bool">true</cutoff>
-          <feed_tank type="int">-1</feed_tank>
-          <WEP type="bool">false</WEP>
-          <ignition type="int">1</ignition>
-          <reverser type="bool">false</reverser>
+          <ignition type="bool">1</ignition>
           <throttle type="double">0.3293094756</throttle>
         </engine>
       </engines>
@@ -81,7 +65,7 @@
         </engine>
       </electric>
 
-      <fuel>
+      <!--fuel>
         <tank>
           <fuel_selector type="bool">false</fuel_selector>
           <to_engine type="int">0</to_engine>
@@ -99,7 +83,7 @@
           <boost-pump n="1" type="bool">false</boost-pump>
           <boost-pump-switch type="double">0</boost-pump-switch>
         </tank>
-      </fuel>
+      </fuel-->
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
@@ -120,13 +104,11 @@
 
     <engines>
       <engine>
-        <reverser-position type="double">0</reverser-position>
         <started type="bool">true</started>
         <running type="bool">true</running>
       </engine>
 
       <engine n="1">
-        <reverser-position type="double">0</reverser-position>
         <started type="bool">true</started>
         <running type="bool">true</running>
       </engine>
@@ -145,10 +127,13 @@
       </gear>
     </gear>
 
+    <environment>
+      <overlay type="bool">true</overlay>
+    </environment>
+
     <sim>
       <presets>
-        <airspeed-kt type="double">200</airspeed-kt>
-        <altitude-ft type="double">3000</altitude-ft>
+        <airspeed-kt type="double">180</airspeed-kt>
       </presets>
     </sim>
 

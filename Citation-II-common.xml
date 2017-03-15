@@ -829,6 +829,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <magnetos>3</magnetos>
       </engine>
     </engines>
+    <fuel>
+      <tank n="0">
+        <boost-pump-switch type="int">0</boost-pump-switch>
+      </tank>
+      <tank n="1">
+        <boost-pump-switch type="int">0</boost-pump-switch>
+      </tank>
+    </fuel>
     <flight>
       <speedbrake-switch type="bool">0</speedbrake-switch>
     </flight>

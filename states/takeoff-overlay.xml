@@ -8,14 +8,8 @@
     <autopilot>
       <settings>
         <target-altitude-ft type="double">10000</target-altitude-ft>
+        <target-speed-kt type="double">220</target-speed-kt>
       </settings>
-
-      <locks>
-        <yaw-damper type="bool">false</yaw-damper>
-        <heading type="string"></heading>
-        <altitude type="string"></altitude>
-        <speed type="string"></speed>
-      </locks>
     </autopilot>
 
 
@@ -32,8 +26,6 @@
 
       <flight>
         <flaps type="double">0.375</flaps>
-        <flaps-serviceable type="bool">true</flaps-serviceable>
-        <speedbrake-switch type="bool">false</speedbrake-switch>
       </flight>
 
       <engines>
@@ -43,7 +35,7 @@
           <cutoff type="bool">false</cutoff>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>
-          <ignition type="int">1</ignition>
+          <ignition type="bool">1</ignition>
           <reverser type="bool">false</reverser>
           <throttle type="double">0</throttle>
         </engine>
@@ -54,7 +46,7 @@
           <cutoff type="bool">true</cutoff>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>
-          <ignition type="int">1</ignition>
+          <ignition type="bool">1</ignition>
           <reverser type="bool">false</reverser>
           <throttle type="double">0</throttle>
         </engine>
@@ -79,7 +71,7 @@
         </engine>
       </electric>
 
-      <fuel>
+      <!--fuel>
         <tank>
           <fuel_selector type="bool">false</fuel_selector>
           <to_engine type="int">0</to_engine>
@@ -97,7 +89,7 @@
           <boost-pump n="1" type="bool">false</boost-pump>
           <boost-pump-switch type="double">0</boost-pump-switch>
         </tank>
-      </fuel>
+      </fuel-->
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
@@ -118,13 +110,11 @@
 
     <engines>
       <engine>
-        <reverser-position type="double">0</reverser-position>
         <started type="bool">true</started>
         <running type="bool">true</running>
       </engine>
 
       <engine n="1">
-        <reverser-position type="double">0</reverser-position>
         <started type="bool">true</started>
         <running type="bool">true</running>
       </engine>
@@ -141,6 +131,10 @@
         <position-norm type="float">1</position-norm>
       </gear>
     </gear>
+
+    <environment>
+      <overlay type="bool">true</overlay>
+    </environment>
 
   </overlay>
 

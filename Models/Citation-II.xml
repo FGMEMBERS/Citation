@@ -297,7 +297,7 @@
       </equals>
     </condition>
     <property>sim/systems/wingflexer/z-m</property>
-    <factor>1</factor>
+    <factor>-1</factor>
     <object-name>RH.uSpdBrk</object-name>
     <object-name>RH.uSpdBrk.rod</object-name>
     <object-name>RH.lSpdBrk</object-name>
@@ -343,7 +343,7 @@
       </equals>
     </condition>
     <property>sim/systems/wingflexer/z-m</property>
-    <factor>1</factor>
+    <factor>-1</factor>
     <object-name>RHwing.003</object-name>
     <object-name>RHaileron</object-name>
     <object-name>RHwing.guard.002</object-name>
@@ -372,7 +372,7 @@
       </equals>
     </condition>
     <property>sim/systems/wingflexer/z-m</property>
-    <factor>-1</factor>
+    <factor>1</factor>
     <object-name>LHwing.002</object-name>
     <object-name>LHwing.003</object-name>
     <object-name>LH.uSpdBrk</object-name>
@@ -418,7 +418,7 @@
       </equals>
     </condition>
     <property>sim/systems/wingflexer/z-m</property>
-    <factor>-1</factor>
+    <factor>1</factor>
     <object-name>LHwing.003</object-name>
     <object-name>LHaileron</object-name>
     <object-name>LHwing.guard.002</object-name>
