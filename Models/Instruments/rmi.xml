@@ -53,7 +53,7 @@
       <binding>
         <command>nasal</command>
         <script>
-          switchRmi(single-needle);
+          switch_rmi ("single-needle", 0);
         </script>
       </binding>
     </action>
@@ -122,7 +122,7 @@
       <binding>
         <command>nasal</command>
         <script>
-          switchRmi(double-needle);
+          switch_rmi ("double-needle", 1);
         </script>
       </binding>
     </action>

@@ -134,10 +134,10 @@ setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
     RHeng.shutdown (ignition.getBoolValue ());
 });
 
-setlistener("/sim/signals/fdm-initialized", func {
+setlistener ("/sim/signals/fdm-initialized", func {
 
-  setprop("/instrumentation/rmi/single-needle/selected-input", "VOR");
-  switchRmi(single-needle);
+  setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
+  switch_rmi ("single-needle", 0);
 
   if (getprop("/consumables/fuel/fuel_overlay") == 1) {
     # if we initialising a state overlay, then use pre-programmed fuel levels
@@ -301,7 +301,7 @@ controls.flapsDown = func(v) {
     setprop("controls/flight/flaps",flap_pos);
 }
 
-var switchRmi = func( needle ){
+var switch_rmi = func (needle, nav_number) {
   var selected_input = getprop ("/instrumentation/rmi/"~needle~"/selected-input");
   var dest_node = props.globals.getNode ("/instrumentation/rmi/"~needle~"/in-range", 1);
   dest_node.unalias ();
@@ -310,7 +310,7 @@ var switchRmi = func( needle ){
     dest_node.alias (source_node);
   }
   elsif (selected_input == "VOR") {
-    var source_node = props.globals.getNode ("/instrumentation/nav[0]/in-range");
+    var source_node = props.globals.getNode ("/instrumentation/nav[" ~ nav_number ~ "]/in-range");
     dest_node.alias (source_node);
   }
 }
