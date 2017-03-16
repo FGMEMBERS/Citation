@@ -704,7 +704,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <signal><type>float</type><property type="string">/controls/baggage-door-front-left/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-front-right/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-aft/position-norm</property></signal>
-        <signal><type>float</type><property type="string">/sim/systems/wingflexer/z-m</property></signal>
+        <signal><type>float</type><property type="string">/gear/gear[1]/compression-norm</property></signal>
+        <signal><type>float</type><property type="string">/gear/gear[2]/compression-norm</property></signal>
+        <signal><type>float</type><property type="string">/yasim/gross-weight-lbs</property></signal>
+        <signal><type>float</type><property type="string">/accelerations/pilot-g</property></signal>
       </config>
     </flight-recorder>
 

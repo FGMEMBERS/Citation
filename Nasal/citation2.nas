@@ -1,10 +1,10 @@
 aircraft.livery.init("Models/Liveries");
-var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
+var cabin_door = aircraft.door.new("controls/cabin-door", 2);
 var baggage_door_front_left = aircraft.door.new("controls/baggage-door-front-left",2);
 var baggage_door_front_right = aircraft.door.new("controls/baggage-door-front-right",2);
 var baggage_door_aft = aircraft.door.new("controls/baggage-door-aft",2);
-var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
-var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
+var SndIn = props.globals.getNode("sim/sound/Cvolume",1);
+var SndOut = props.globals.getNode("sim/sound/Ovolume",1);
 var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
 
 #Jet Engine Helper class
@@ -136,7 +136,7 @@ setlistener ("controls/engines/engine[1]/ignition", func (ignition) {
 
 setlistener("sim/signals/fdm-initialized", func {
 
-  setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
+  setprop ("instrumentation/rmi/single-needle/selected-input", "VOR");
   switch_rmi ("single-needle", 0);
 
 
@@ -205,10 +205,10 @@ setlistener("sim/signals/fdm-initialized", func {
   SndOut.setDoubleValue(0.15);
   settimer(update_systems,2);
   # Initially drive the pilot's HSI with NAV1 and copilot's with NAV2
-  drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[0]"),
-                      props.globals.getNode ("/instrumentation/nav[0]"));
-  drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[1]"),
-                      props.globals.getNode ("/instrumentation/nav[1]"));
+  drive_hsi_with_nav (props.globals.getNode ("instrumentation/hsi[0]"),
+                      props.globals.getNode ("instrumentation/nav[0]"));
+  drive_hsi_with_nav (props.globals.getNode ("instrumentation/hsi[1]"),
+                      props.globals.getNode ("instrumentation/nav[1]"));
 });
 
 setlistener("sim/current-view/internal", func(vw){
@@ -289,15 +289,15 @@ controls.flapsDown = func(v) {
 }
 
 var switch_rmi = func (needle, nav_number) {
-  var selected_input = getprop ("/instrumentation/rmi/"~needle~"/selected-input");
-  var dest_node = props.globals.getNode ("/instrumentation/rmi/"~needle~"/in-range", 1);
+  var selected_input = getprop ("instrumentation/rmi/"~needle~"/selected-input");
+  var dest_node = props.globals.getNode ("instrumentation/rmi/"~needle~"/in-range", 1);
   dest_node.unalias ();
   if (selected_input == "ADF") {
-    var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
+    var source_node = props.globals.getNode ("instrumentation/adf/in-range");
     dest_node.alias (source_node);
   }
   elsif (selected_input == "VOR") {
-    var source_node = props.globals.getNode ("/instrumentation/nav[" ~ nav_number ~ "]/in-range");
+    var source_node = props.globals.getNode ("instrumentation/nav[" ~ nav_number ~ "]/in-range");
     dest_node.alias (source_node);
   }
 }
@@ -342,15 +342,15 @@ var update_systems = func{
         }
     }
 
-    setprop("/consumables/fuel/fuel-gal_us-0", getprop("/consumables/fuel/tank[0]/level-gal_us"));
-    setprop("/consumables/fuel/fuel-gal_us-1", getprop("/consumables/fuel/tank[1]/level-gal_us"));
+    setprop("consumables/fuel/fuel-gal_us-0", getprop("consumables/fuel/tank[0]/level-gal_us"));
+    setprop("consumables/fuel/fuel-gal_us-1", getprop("consumables/fuel/tank[1]/level-gal_us"));
     settimer(update_systems,0);
 }
 
 ################################################################################
 # Autopilot listeners
 
-var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (passive_mode) {
+var passive_mode_listener = setlistener ("autopilot/locks/passive-mode", func (passive_mode) {
     if (passive_mode.getBoolValue ()) {
         # When engaging passive mode, disengage all locks
         setprop ("autopilot/locks/heading", "");
@@ -371,7 +371,7 @@ var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (
     }
 }, 0, 0);
 
-var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) {
+var autothrottle_listener = setlistener ("autopilot/locks/speed", func (speed) {
     var speed_lock = speed.getValue ();
     if (speed_lock == "speed-with-throttle") {
         setprop("autopilot/settings/target-speed-kt", getprop ("velocities/airspeed-kt"));
@@ -399,22 +399,22 @@ var drive_hsi_with_nav = func (hsi_node, nav_node) {
    var inputs = hsi_node.getChild ("inputs", 0, 1);
    alias_recursively (nav_node, inputs);
    var source_volts_node =
-     props.globals.getNode ("/systems/electrical/outputs/nav[" ~ nav_node.getIndex () ~ "]");
+     props.globals.getNode ("systems/electrical/outputs/nav[" ~ nav_node.getIndex () ~ "]");
    var dest_volts_node = hsi_node.getChild ("volts", 0, 1);
    dest_volts_node.unalias ();
    dest_volts_node.alias (source_volts_node);
 };
 
 var pilot_hsi_listener =
-  setlistener ("/instrumentation/hsi[0]/selected-nav", func (selected_nav) {
-   var hsi_node = props.globals.getNode ("/instrumentation/hsi[0]");
-   var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
+  setlistener ("instrumentation/hsi[0]/selected-nav", func (selected_nav) {
+   var hsi_node = props.globals.getNode ("instrumentation/hsi[0]");
+   var nav_node = props.globals.getNode ("instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
    drive_hsi_with_nav (hsi_node, nav_node);
 }, 0, 0);
 
 var copilot_hsi_listener =
-  setlistener ("/instrumentation/hsi[1]/selected-nav", func (selected_nav) {
-   var hsi_node = props.globals.getNode ("/instrumentation/hsi[1]");
-   var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
+  setlistener ("instrumentation/hsi[1]/selected-nav", func (selected_nav) {
+   var hsi_node = props.globals.getNode ("instrumentation/hsi[1]");
+   var nav_node = props.globals.getNode ("instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
    drive_hsi_with_nav (hsi_node, nav_node);
 }, 0, 0);
