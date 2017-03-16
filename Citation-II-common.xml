@@ -727,7 +727,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/sim/weight[2]/weight-lb</path>
       <path>/sim/weight[3]/weight-lb</path>
       <path>/controls/human-models</path>
-      <path>/instrumentation/comm/frequencies/selected-mhz</path>
+      <!--path>/instrumentation/comm/frequencies/selected-mhz</path>
       <path>/instrumentation/comm/frequencies/standby-mhz</path>
       <path>/instrumentation/comm/volume</path>
       <path>/instrumentation/comm[1]/frequencies/selected-mhz</path>
@@ -744,7 +744,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/instrumentation/adf/volume-norm</path>
       <path>/instrumentation/adf[1]/frequencies/selected-khz</path>
       <path>/instrumentation/adf[1]/frequencies/standby-khz</path>
-      <path>/instrumentation/adf[1]/volume-norm</path>
+      <path>/instrumentation/adf[1]/volume-norm</path-->
       <path>/instrumentation/transponder/id-code</path>
       <path>/instrumentation/transponder/inputs/knob-mode</path>
       <path>/instrumentation/airspeed-indicator/index-marker</path>
