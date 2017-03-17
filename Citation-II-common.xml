@@ -426,10 +426,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <wingflexer include="Systems/wingflexer-params.xml">
         <initComplete type="bool">0</initComplete>
       </wingflexer>
-      <property-rule n="105">
+      <autopilot>
 	<name>wing flexer property rule</name>
 	<path>Aircraft/Generic/wingflexer.xml</path>
-      </property-rule>
+      </autopilot>
     </systems>
 
     <sound>
