@@ -404,7 +404,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
 
     <systems>
-      <autopilot>
+      <autopilot n="100">
         <path>Systems/Citation-autopilot.xml</path>
       </autopilot>
       <path>Systems/systems.xml</path>
@@ -424,7 +424,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
       <wingflexer include="Systems/wingflexer-params.xml" />
-      <autopilot>
+      <autopilot n="101">
 	<name>wing flexer property rule</name>
 	<path>Aircraft/Generic/wingflexer.xml</path>
       </autopilot>
