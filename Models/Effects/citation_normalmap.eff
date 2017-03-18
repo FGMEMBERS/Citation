@@ -29,11 +29,11 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
 -->
 
 <!--PropertyList>
-    <name>Aircraft/Citation/Models/Effects/bumpspec</name>
+    <name>Models/Effects/bumpspec</name>
     <inherits-from>Effects/model-combined</inherits-from>
     <parameters>
       <texture n="2">
-        <image>Aircraft/Citation/Models/Effects/normalmap.png</image>
+        <image>Models/Effects/normalmap.png</image>
         <filter>linear-mipmap-linear</filter>
         <wrap-s>repeat</wrap-s>
         <wrap-t>repeat</wrap-t>
@@ -43,7 +43,7 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
 </PropertyList-->
 
 <PropertyList>
-	<name>Aircraft/Citation/Models/Effects/citation_normalmap</name>
+	<name>Models/Effects/citation_normalmap</name>
 	<inherits-from>Effects/model-combined</inherits-from>
 	<parameters>
 	<!-- Normal Map -->
@@ -51,14 +51,16 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
 		<normalmap-dds type="int">0</normalmap-dds>
 		<normalmap-tiling type="float">1.0</normalmap-tiling>
 		<texture n="2">
-			<image>Aircraft/Citation/Models/Effects/normalmap.png</image>
+			<image>Models/Effects/normalmap.png</image>
 		</texture>
 	</parameters>
 
 <!--WARNING: Do not edit below this line -->
-<!-- ####################
+<!--
+#########################
 ### NORMALMAP INCLUDE ###
-######################### -->
+#########################
+-->
 <!--		<generate>
 			<tangent type="int">6</tangent>
 			<binormal type="int">7</binormal>
@@ -108,7 +110,9 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
 			</program>
 		  </pass>
 </technique> -->
-<!-- ########################
+<!--
+#############################
 ### END NORMALMAP INCLUDE ###
-############################# -->
+#############################
+-->
 </PropertyList>

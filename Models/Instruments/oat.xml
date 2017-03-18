@@ -9,7 +9,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>OAT</object-name>
     <object-name>OAT.face</object-name>
     <object-name>OAT.needle</object-name>

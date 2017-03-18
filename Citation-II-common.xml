@@ -98,7 +98,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <state include="states/approach-overlay.xml" n="4" />
 
     <model>
-      <path>Aircraft/Citation/Models/Citation-II.xml</path>
+      <path>Models/Citation-II.xml</path>
       <autostart type="bool">0</autostart>
       <livery>
         <file type="string">blue-grey</file>
@@ -424,7 +424,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
       <wingflexer include="Systems/wingflexer-params.xml">
-        <initComplete type="bool">0</initComplete>
+        <!--initComplete type="bool">0</initComplete-->
       </wingflexer>
       <autopilot>
 	<name>wing flexer property rule</name>
@@ -704,10 +704,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <signal><type>float</type><property type="string">/controls/baggage-door-front-left/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-front-right/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-aft/position-norm</property></signal>
-        <!--signal><type>float</type><property type="string">/gear/gear[1]/compression-norm</property></signal>
-        <signal><type>float</type><property type="string">/gear/gear[2]/compression-norm</property></signal>
-        <signal><type>float</type><property type="string">/yasim/gross-weight-lbs</property></signal>
-        <signal><type>float</type><property type="string">/accelerations/pilot-g</property></signal-->
       </config>
     </flight-recorder>
 
@@ -1052,7 +1048,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
     <tyresmoke>
-      <file>Aircraft/Citation/Nasal/tyresmoke.nas</file>
+      <file>Nasal/tyresmoke.nas</file>
     </tyresmoke>
   </nasal>
 

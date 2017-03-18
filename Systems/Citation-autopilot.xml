@@ -319,8 +319,8 @@
     <gain>1.0</gain>
     <input>
       <expression>
-        <!-- target-climb-rate = groundspeed * sin (target-pitch-deg) -->
-        <!-- sin (target-pitch-deg) = target-climb-rate / groundspeed -->
+        <!-- target-climb-rate = groundspeed * sin (target-pitch-deg)  -->
+        <!-- sin (target-pitch-deg) = target-climb-rate / groundspeed  -->
         <!-- target-pitch-deg = asin (target-climb-rate / groundspeed) -->
         <product>
           <asin> <!-- result in radians -->

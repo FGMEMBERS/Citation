@@ -28,7 +28,7 @@
 
   <!-- cockpit shadows -->
   <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
     <object-name>Cabin</object-name>
     <object-name>Cabin.AftComp.Door</object-name>
     <object-name>Cabin.Cupholders</object-name>

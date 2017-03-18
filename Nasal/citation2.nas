@@ -191,13 +191,39 @@ setlistener("sim/signals/fdm-initialized", func {
   }
 
 
-  var WFinitChecker = maketimer(5, func() {
-    setprop("sim/systems/wingflexer/initComplete", 1);
-    print("WingFlexer has been initialised.");
-    WFinitChecker.stop();
+  #  var WFinitChecker = maketimer(5, func() {
+  #    setprop("/sim/systems/wingflexer/initComplete", 1);
+  #    print("WingFlexer has been initialised.");
+  #    WFinitChecker.stop();
+  #  });
+  #  WFinitChecker.singleShot = 1;
+  #  WFinitChecker.start();
+
+
+
+  var resetControls = func() {
+    setprop("/controls/flight/elevator-trim", 0);
+    setprop("/controls/flight/rudder-trim", 0);
+    setprop("/controls/flight/aileron-trim", 0);
+    print("All flight controls reset to 0...");
+  };
+
+  var resetTrim = func(){
+    setprop("/controls/flight/elevator-trim", 0);
+    setprop("/controls/flight/rudder-trim", 0);
+    setprop("/controls/flight/aileron-trim", 0);
+    print("All trim settings reset to 0...");
+  };
+
+  setlistener("/sim/signals/fdm-initialized", func() {
+    var resetFlightControls = maketimer(0.5, func() {
+      resetTrim();
+      resetControls();
+      resetFlightControls.stop();
+    });
+    resetFlightControls.singleShot = 1;
+    resetFlightControls.start();
   });
-  WFinitChecker.singleShot = 1;
-  WFinitChecker.start();
 
 
 
@@ -288,19 +314,23 @@ controls.flapsDown = func(v) {
     setprop("controls/flight/flaps",flap_pos);
 }
 
-var switch_rmi = func (needle, nav_number) {
-  var selected_input = getprop ("instrumentation/rmi/"~needle~"/selected-input");
-  var dest_node = props.globals.getNode ("instrumentation/rmi/"~needle~"/in-range", 1);
+var switch_rmi = func(needle, nav_number) {
+  print("switch_rmi(", needle, ", ",nav_number, ");");
+  var selected_input = getprop ("/instrumentation/rmi/" ~ needle ~ "/selected-input");
+  print("/instrumentation/rmi/", needle, "/selected-input = ", selected_input);
+  var dest_node = props.globals.getNode ("/instrumentation/rmi/" ~ needle ~ "/in-range", 1);
   dest_node.unalias ();
   if (selected_input == "ADF") {
-    var source_node = props.globals.getNode ("instrumentation/adf/in-range");
+    print("selected_input == ADF (", selected_input, ")");
+    var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
     dest_node.alias (source_node);
   }
   elsif (selected_input == "VOR") {
-    var source_node = props.globals.getNode ("instrumentation/nav[" ~ nav_number ~ "]/in-range");
+    print("selected_input == VOR (", selected_input, ")");
+    var source_node = props.globals.getNode ("/instrumentation/nav[" ~ nav_number ~ "]/in-range");
     dest_node.alias (source_node);
   }
-}
+};
 
 var update_systems = func{
     LHeng.update();

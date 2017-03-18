@@ -7,7 +7,7 @@ var ACbus = props.globals.initNode("/systems/electrical/ac-volts",0,"DOUBLE");
 var Amps = props.globals.initNode("/systems/electrical/amps",0,"DOUBLE");
 var EXT  = props.globals.initNode("/controls/electric/external-power",0,"DOUBLE");
 var XTie  = props.globals.initNode("/systems/electrical/xtie",0,"BOOL");
-var inverter_switch = props.globals.initNode ("controls/electric/inverter-switch", 1, "BOOL");
+var inverter_switch = props.globals.initNode ("/controls/electric/inverter-switch", 1, "BOOL");
 
 var lbus_volts = 0.0;
 var rbus_volts = 0.0;

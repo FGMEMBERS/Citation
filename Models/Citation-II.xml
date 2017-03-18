@@ -85,12 +85,12 @@
     <object-name>Aft.BaggageDoor</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
-    <texture>Aircraft/Citation/Models/Liveries/Lv1.png</texture>
+    <texture>Models/Liveries/Lv1.png</texture>
   </animation>
 
   <!-- Chrome parts, compatible with Rembrandt -->
   <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome</inherits-from>
+    <inherits-from>Models/Effects/citationII-chrome</inherits-from>
     <object-name>RHwing.heater.001</object-name>
     <object-name>RHwing.heater.002</object-name>
     <object-name>LHwing.heater.001</object-name>
@@ -122,7 +122,7 @@
 
   <!-- REFLECTION, NormalMap -->
   <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/citation_reflect</inherits-from>
+    <inherits-from>Models/Effects/citation_reflect</inherits-from>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
     <object-name>LHwing.001</object-name>
@@ -187,7 +187,7 @@
 
   <!-- ALS cockpit glass effect (reflection cube, rain, frost, fog) -->
   <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/glass/glass</inherits-from>
+    <inherits-from>Models/Effects/glass/glass</inherits-from>
     <parameters>
       <texture n="3">
         <type>cubemap</type>
@@ -211,7 +211,7 @@
   <!-- ALS Thrust/Flame Effect - in this case more like exhaust effect :o) -->
   <model>
     <name>flamer</name>
-    <path>Aircraft/Citation/Models/Effects/flamel.xml</path>
+    <path>Models/Effects/flamel.xml</path>
     <offsets>
       <x-m>10.2</x-m>
       <y-m>-1.3</y-m>
@@ -221,7 +221,7 @@
   </model>
   <model>
     <name>flamel</name>
-    <path>Aircraft/Citation/Models/Effects/flamer.xml</path>
+    <path>Models/Effects/flamer.xml</path>
     <offsets>
       <x-m>10.2</x-m>
       <y-m>1.3</y-m>
@@ -232,7 +232,7 @@
 
   <model>
     <name>cabin</name>
-    <path>Aircraft/Citation/Models/cabin.xml</path>
+    <path>Models/cabin.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -243,7 +243,7 @@
 
   <model>
     <name>flightdeck</name>
-    <path>Aircraft/Citation/Models/flightdeck.xml</path>
+    <path>Models/flightdeck.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -254,7 +254,7 @@
 
   <model>
     <name>Lights</name>
-    <path>Aircraft/Citation/Models/Lights/Lights.xml</path>
+    <path>Models/Lights/Lights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -265,7 +265,7 @@
 
   <!-- contrails copied from the Citation Bravo -->
   <model>
-    <path>Aircraft/Citation/Models/Effects/contrail1.xml</path>
+    <path>Models/Effects/contrail1.xml</path>
     <offsets>
       <x-m>20.0</x-m>
       <y-m>-1.337</y-m>
@@ -276,7 +276,7 @@
     </offsets>
   </model>
   <model>
-    <path>Aircraft/Citation/Models/Effects/contrail2.xml</path>
+    <path>Models/Effects/contrail2.xml</path>
     <offsets>
       <x-m>20.0</x-m>
       <y-m>1.337</y-m>
@@ -290,12 +290,12 @@
   <!-- Wing Flex Right Wing -->
   <animation>
     <type>rotate</type>
-    <condition>
+    <!--<condition>
       <equals>
         <property>sim/systems/wingflexer/initComplete</property>
         <value>1</value>
       </equals>
-    </condition>
+    </condition>-->
     <property>sim/systems/wingflexer/z-m</property>
     <factor>-1</factor>
     <object-name>RH.uSpdBrk</object-name>
@@ -336,12 +336,12 @@
   </animation>
   <animation>
     <type>rotate</type>
-    <condition>
+    <!--<condition>
       <equals>
         <property>sim/systems/wingflexer/initComplete</property>
         <value>1</value>
       </equals>
-    </condition>
+    </condition>-->
     <property>sim/systems/wingflexer/z-m</property>
     <factor>-1</factor>
     <object-name>RHwing.003</object-name>
@@ -365,12 +365,12 @@
   <!-- Wing Flex Left Wing -->
   <animation>
     <type>rotate</type>
-    <condition>
+    <!--<condition>
       <equals>
         <property>sim/systems/wingflexer/initComplete</property>
         <value>1</value>
       </equals>
-    </condition>
+    </condition>-->
     <property>sim/systems/wingflexer/z-m</property>
     <factor>1</factor>
     <object-name>LHwing.002</object-name>
@@ -411,12 +411,12 @@
   </animation>
   <animation>
     <type>rotate</type>
-    <condition>
+    <!--<condition>
       <equals>
         <property>sim/systems/wingflexer/initComplete</property>
         <value>1</value>
       </equals>
-    </condition>
+    </condition>-->
     <property>sim/systems/wingflexer/z-m</property>
     <factor>1</factor>
     <object-name>LHwing.003</object-name>

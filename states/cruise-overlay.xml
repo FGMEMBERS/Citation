@@ -7,16 +7,17 @@
   <overlay>
 
     <autopilot>
+      <heading_overlay type="bool">true</heading_overlay>
       <settings>
         <bank-limit type="double">14</bank-limit>
         <target-altitude-ft type="double">36000</target-altitude-ft>
-        <target-speed-kt type="double">250</target-speed-kt>
+        <target-speed-kt type="double">220</target-speed-kt>
       </settings>
 
       <locks>
         <yaw-damper type="bool">true</yaw-damper>
         <passive-mode type="bool">false</passive-mode>
-        <heading type="string">wing-leveler</heading>
+        <heading type="string">dg-heading-hold</heading>
         <altitude type="string">altitude-hold</altitude>
         <speed>speed-with-throttle</speed>
       </locks>

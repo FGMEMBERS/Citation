@@ -9,7 +9,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>Imrkr</object-name>
     <object-name>Marker.pnl</object-name>
     <object-name>Mmrkr</object-name>

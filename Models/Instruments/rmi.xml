@@ -10,7 +10,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>RMI.DoubleArrow.Radio</object-name>
     <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
     <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
@@ -53,7 +53,17 @@
       <binding>
         <command>nasal</command>
         <script>
-          switch_rmi ("single-needle", 0);
+          var selected_input = getprop ("/instrumentation/rmi/single-needle/selected-input");
+          var dest_node = props.globals.getNode ("/instrumentation/rmi/single-needle/in-range", 1);
+          dest_node.unalias ();
+          if (selected_input == "ADF") {
+          var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
+          dest_node.alias (source_node);
+          }
+          elsif (selected_input == "VOR") {
+          var source_node = props.globals.getNode ("/instrumentation/nav[0]/in-range");
+          dest_node.alias (source_node);
+          }
         </script>
       </binding>
     </action>
@@ -122,7 +132,17 @@
       <binding>
         <command>nasal</command>
         <script>
-          switch_rmi ("double-needle", 1);
+          var selected_input = getprop ("/instrumentation/rmi/double-needle/selected-input");
+          var dest_node = props.globals.getNode ("/instrumentation/rmi/double-needle/in-range", 1);
+          dest_node.unalias ();
+          if (selected_input == "ADF") {
+          var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
+          dest_node.alias (source_node);
+          }
+          elsif (selected_input == "VOR") {
+          var source_node = props.globals.getNode ("/instrumentation/nav[0]/in-range");
+          dest_node.alias (source_node);
+          }
         </script>
       </binding>
     </action>
