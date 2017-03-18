@@ -1,10 +1,10 @@
 aircraft.livery.init("Models/Liveries");
-var cabin_door = aircraft.door.new("controls/cabin-door", 2);
+var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
 var baggage_door_front_left = aircraft.door.new("controls/baggage-door-front-left",2);
 var baggage_door_front_right = aircraft.door.new("controls/baggage-door-front-right",2);
 var baggage_door_aft = aircraft.door.new("controls/baggage-door-aft",2);
-var SndIn = props.globals.getNode("sim/sound/Cvolume",1);
-var SndOut = props.globals.getNode("sim/sound/Ovolume",1);
+var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
+var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
 var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
 
 #Jet Engine Helper class
@@ -59,8 +59,8 @@ var JetEngine = {
             # Engine not running.  Decide whether to start it or not.
             me.throttle_lever.setValue(0);
             if(me.starter.getBoolValue() # and it has electricity:
-               and (getprop ("systems/electrical/outputs/bus/left") > 20.0
-                    or getprop ("systems/electrical/outputs/bus/right") > 20.0))
+               and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
+                    or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
             {
                 if(me.cycle_up == 0)me.cycle_up=1;
             }
@@ -98,8 +98,8 @@ var JetEngine = {
         if (turbine > 20
             and me.ignition.getValue ()
             and me.fuel_pump_boost.getValue () # and it has electricity:
-            and (getprop ("systems/electrical/outputs/bus/left") > 20.0
-                 or getprop ("systems/electrical/outputs/bus/right") > 20.0))
+            and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
+                 or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
         {
             var fan = me.fan.getValue ()
                 + getprop ("sim/time/delta-sec") * n1 / scnds;
@@ -126,41 +126,41 @@ var JetEngine = {
 var LHeng= JetEngine.new(0);
 var RHeng= JetEngine.new(1);
 
-setlistener ("controls/engines/engine[0]/ignition", func (ignition) {
+setlistener ("/controls/engines/engine[0]/ignition", func (ignition) {
     LHeng.shutdown (ignition.getBoolValue ());
 });
 
-setlistener ("controls/engines/engine[1]/ignition", func (ignition) {
+setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
     RHeng.shutdown (ignition.getBoolValue ());
 });
 
-setlistener("sim/signals/fdm-initialized", func {
+setlistener("/sim/signals/fdm-initialized", func {
 
-  setprop ("instrumentation/rmi/single-needle/selected-input", "VOR");
-  switch_rmi ("single-needle", 0);
+  setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
+  switch_rmi("single-needle", 0);
 
 
-  if (getprop("consumables/fuel/fuel_overlay") == 1) {
+  if (getprop("/consumables/fuel/fuel_overlay") == 1) {
     # if we initialising a state overlay, then use pre-programmed fuel levels
-    var fuelL= getprop("consumables/fuel/fuel_overlay_0");
-    var fuelR= getprop("consumables/fuel/fuel_overlay_1");
+    var fuelL= getprop("/consumables/fuel/fuel_overlay_0");
+    var fuelR= getprop("/consumables/fuel/fuel_overlay_1");
     var totalFuel = fuelL + fuelR;
     print("Setting fuel levels to ", totalFuel, "lbs total.");
 
     # set some other properties
-    if(getprop("gear/gear_overlay") == 1) {
+    if(getprop("/gear/gear_overlay") == 1) {
       print("forcing gear down!");
-      setprop("controls/gear/gear-down", 1);
+      setprop("/controls/gear/gear-down", 1);
     }
 
     # Try to get the preset numbers into the instruments
-    #setprop("instrumentation/rmi/single-needle/selected-input", getprop("sim/presets/heading-deg"));
+    #setprop("/instrumentation/rmi/single-needle/selected-input", getprop("/sim/presets/heading-deg"));
 
   }
   else {
     # Read old fuel levels
-    var fuelL= getprop("consumables/fuel/fuel-gal_us-0");
-    var fuelR= getprop("consumables/fuel/fuel-gal_us-1");
+    var fuelL= getprop("/consumables/fuel/fuel-gal_us-0");
+    var fuelR= getprop("/consumables/fuel/fuel-gal_us-1");
       # make sure we don't pass along a nil! (Most likely because this is our
       # first run with this model and have no previous value stored.)
     if(fuelL == nil or fuelR == nil) {
@@ -174,30 +174,35 @@ setlistener("sim/signals/fdm-initialized", func {
     }
   }
     # Override default "full tanks" with read values
-  setprop("consumables/fuel/tank[0]/level-gal_us", fuelL);
-  setprop("consumables/fuel/tank[1]/level-gal_us", fuelR);
+  setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
+  setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
 
 
   # on state overlays "taxi", "take-off" and "approach" we set the pressure automatically
   # since every checklist would agree to do this ahead of time!
-  if (getprop("environment/overlay") == 1) {
+  if (getprop("/environment/overlay") == 1) {
     var setAltimeterToPressure = maketimer(2, func() {
-      setprop("instrumentation/altimeter/setting-inhg", getprop("environment/metar[0]/pressure-sea-level-inhg"));
-      print("Altimeter set to ", getprop("environment/metar[0]/pressure-sea-level-inhg"));
+      setprop("/instrumentation/altimeter/setting-inhg", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
+      print("Altimeter set to ", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
       setAltimeterToPressure.stop();
     });
     setAltimeterToPressure.singleShot = 1;
     setAltimeterToPressure.start();
   }
 
+  # on states "cruise" and "approach" we set a heading from the launcher/CLI
+#  if (getprop("autopilot/settings/heading_overlay") == true) {
+#
+#  }
 
-  #  var WFinitChecker = maketimer(5, func() {
-  #    setprop("/sim/systems/wingflexer/initComplete", 1);
-  #    print("WingFlexer has been initialised.");
-  #    WFinitChecker.stop();
-  #  });
-  #  WFinitChecker.singleShot = 1;
-  #  WFinitChecker.start();
+
+#  var WFinitChecker = maketimer(5, func() {
+#    setprop("/sim/systems/wingflexer/initComplete", 1);
+#    print("WingFlexer has been initialised.");
+#    WFinitChecker.stop();
+#  });
+#  WFinitChecker.singleShot = 1;
+#  WFinitChecker.start();
 
 
 
@@ -231,13 +236,13 @@ setlistener("sim/signals/fdm-initialized", func {
   SndOut.setDoubleValue(0.15);
   settimer(update_systems,2);
   # Initially drive the pilot's HSI with NAV1 and copilot's with NAV2
-  drive_hsi_with_nav (props.globals.getNode ("instrumentation/hsi[0]"),
-                      props.globals.getNode ("instrumentation/nav[0]"));
-  drive_hsi_with_nav (props.globals.getNode ("instrumentation/hsi[1]"),
-                      props.globals.getNode ("instrumentation/nav[1]"));
+  drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[0]"),
+                      props.globals.getNode ("/instrumentation/nav[0]"));
+  drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[1]"),
+                      props.globals.getNode ("/instrumentation/nav[1]"));
 });
 
-setlistener("sim/current-view/internal", func(vw){
+setlistener("/sim/current-view/internal", func(vw){
     if(vw.getBoolValue()){
         SndIn.setDoubleValue(0.75);
         SndOut.setDoubleValue(0.10);
@@ -247,7 +252,7 @@ setlistener("sim/current-view/internal", func(vw){
     }
 },1,0);
 
-setlistener("instrumentation/altimeter/setting-inhg", func(inhg){
+setlistener("/instrumentation/altimeter/setting-inhg", func(inhg){
     var kpa = inhg.getValue() * 3.386389;
      KPA.setValue(kpa);
 },1,0);
@@ -299,12 +304,12 @@ var Shutdown = func{
 controls.gearDown = func(v) {
     if (v < 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
         if(!getprop("gear/gear[1]/wow")) {
-          setprop("controls/gear/gear-down", 0);
+          setprop("/controls/gear/gear-down", 0);
         }
     } elsif (v > 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
-       setprop("controls/gear/gear-down", 1);
+       setprop("/controls/gear/gear-down", 1);
     }
-}
+};
 
 controls.flapsDown = func(v) {
     var flap_pos=getprop("controls/flight/flaps") or 0;
@@ -312,7 +317,7 @@ controls.flapsDown = func(v) {
         flap_pos += v*0.125;
     }
     setprop("controls/flight/flaps",flap_pos);
-}
+};
 
 var switch_rmi = func(needle, nav_number) {
   print("switch_rmi(", needle, ", ",nav_number, ");");
@@ -332,7 +337,7 @@ var switch_rmi = func(needle, nav_number) {
   }
 };
 
-var update_systems = func{
+var update_systems = func() {
     LHeng.update();
     RHeng.update();
     if(getprop("velocities/groundspeed-kt")>10) {
@@ -372,15 +377,17 @@ var update_systems = func{
         }
     }
 
-    setprop("consumables/fuel/fuel-gal_us-0", getprop("consumables/fuel/tank[0]/level-gal_us"));
-    setprop("consumables/fuel/fuel-gal_us-1", getprop("consumables/fuel/tank[1]/level-gal_us"));
+    # ugly hack! See Citation-II-common.xml line 711
+    setprop("/consumables/fuel/fuel-gal_us-0", getprop("/consumables/fuel/tank[0]/level-gal_us"));
+    setprop("/consumables/fuel/fuel-gal_us-1", getprop("/consumables/fuel/tank[1]/level-gal_us"));
+
     settimer(update_systems,0);
 }
 
 ################################################################################
 # Autopilot listeners
 
-var passive_mode_listener = setlistener ("autopilot/locks/passive-mode", func (passive_mode) {
+var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (passive_mode) {
     if (passive_mode.getBoolValue ()) {
         # When engaging passive mode, disengage all locks
         setprop ("autopilot/locks/heading", "");
@@ -401,7 +408,7 @@ var passive_mode_listener = setlistener ("autopilot/locks/passive-mode", func (p
     }
 }, 0, 0);
 
-var autothrottle_listener = setlistener ("autopilot/locks/speed", func (speed) {
+var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) {
     var speed_lock = speed.getValue ();
     if (speed_lock == "speed-with-throttle") {
         setprop("autopilot/settings/target-speed-kt", getprop ("velocities/airspeed-kt"));
@@ -429,22 +436,22 @@ var drive_hsi_with_nav = func (hsi_node, nav_node) {
    var inputs = hsi_node.getChild ("inputs", 0, 1);
    alias_recursively (nav_node, inputs);
    var source_volts_node =
-     props.globals.getNode ("systems/electrical/outputs/nav[" ~ nav_node.getIndex () ~ "]");
+     props.globals.getNode ("/systems/electrical/outputs/nav[" ~ nav_node.getIndex () ~ "]");
    var dest_volts_node = hsi_node.getChild ("volts", 0, 1);
    dest_volts_node.unalias ();
    dest_volts_node.alias (source_volts_node);
 };
 
 var pilot_hsi_listener =
-  setlistener ("instrumentation/hsi[0]/selected-nav", func (selected_nav) {
-   var hsi_node = props.globals.getNode ("instrumentation/hsi[0]");
-   var nav_node = props.globals.getNode ("instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
+  setlistener ("/instrumentation/hsi[0]/selected-nav", func (selected_nav) {
+   var hsi_node = props.globals.getNode ("/instrumentation/hsi[0]");
+   var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
    drive_hsi_with_nav (hsi_node, nav_node);
 }, 0, 0);
 
 var copilot_hsi_listener =
-  setlistener ("instrumentation/hsi[1]/selected-nav", func (selected_nav) {
-   var hsi_node = props.globals.getNode ("instrumentation/hsi[1]");
-   var nav_node = props.globals.getNode ("instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
+  setlistener ("/instrumentation/hsi[1]/selected-nav", func (selected_nav) {
+   var hsi_node = props.globals.getNode ("/instrumentation/hsi[1]");
+   var nav_node = props.globals.getNode ("/instrumentation/nav[" ~ selected_nav.getValue () ~ "]");
    drive_hsi_with_nav (hsi_node, nav_node);
 }, 0, 0);
