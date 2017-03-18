@@ -91,14 +91,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <model type="int">5</model>
     </rating>
 
-    <state include="states/parking-overlay.xml" n="0" />
-    <state include="states/taxi-overlay.xml" n="1" />
-    <state include="states/takeoff-overlay.xml" n="2" />
-    <state include="states/cruise-overlay.xml" n="3" />
-    <state include="states/approach-overlay.xml" n="4" />
+    <state n="0" include="states/parking-overlay.xml" />
+    <state n="1" include="states/taxi-overlay.xml" />
+    <state n="2" include="states/takeoff-overlay.xml" />
+    <state n="3" include="states/cruise-overlay.xml" />
+    <state n="4" include="states/approach-overlay.xml" />
 
     <model>
-      <path>Models/Citation-II.xml</path>
+      <path>Aircraft/Citation/Models/Citation-II.xml</path>
       <autostart type="bool">0</autostart>
       <livery>
         <file type="string">blue-grey</file>
@@ -710,7 +710,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <!-- dirty hack! The fuel levels didn't get reloaded, so in
            Nasal/Citaion2.nas this gets read instead (l.135) and in turn
            updates every following frame (l.272). -->
-      <path>/consumables/fuel/fuel-gal_us-0</path>
+<!--      <path>/consumables/fuel/fuel-gal_us-0</path>
       <path>/consumables/fuel/fuel-gal_us-1</path>
 
       <path>/sim/aircraft-class</path>
@@ -721,7 +721,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/sim/weight[1]/weight-lb</path>
       <path>/sim/weight[2]/weight-lb</path>
       <path>/sim/weight[3]/weight-lb</path>
-      <path>/controls/human-models</path>
+      <path>/controls/human-models</path>-->
       <!--path>/instrumentation/comm/frequencies/selected-mhz</path>
       <path>/instrumentation/comm/frequencies/standby-mhz</path>
       <path>/instrumentation/comm/volume</path>
@@ -740,7 +740,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/instrumentation/adf[1]/frequencies/selected-khz</path>
       <path>/instrumentation/adf[1]/frequencies/standby-khz</path>
       <path>/instrumentation/adf[1]/volume-norm</path-->
-      <path>/instrumentation/transponder/id-code</path>
+<!--      <path>/instrumentation/transponder/id-code</path>
       <path>/instrumentation/transponder/inputs/knob-mode</path>
       <path>/instrumentation/airspeed-indicator/index-marker</path>
       <path>/instrumentation/clock/m877/mode-string</path>
@@ -783,7 +783,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>/controls/electric/circuit-breakers/bus-right-2</path>
       <path>/controls/electric/circuit-breakers/bus-right-3</path>
       <path>/sim/yokes-visible</path>
-      <path>/controls/seat/armrests-pos</path>
+      <path>/controls/seat/armrests-pos</path>-->
     </aircraft-data>
 
     <checklists>
@@ -827,14 +827,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <magnetos>3</magnetos>
       </engine>
     </engines>
-    <fuel>
+    <!--fuel>
       <tank n="0">
         <boost-pump-switch type="int">0</boost-pump-switch>
       </tank>
       <tank n="1">
         <boost-pump-switch type="int">0</boost-pump-switch>
       </tank>
-    </fuel>
+    </fuel-->
     <flight>
       <speedbrake-switch type="bool">0</speedbrake-switch>
     </flight>
@@ -1020,8 +1020,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <passive-mode type="bool">1</passive-mode>
       <lowbank type="bool">0</lowbank>
       <autothrottle type="bool">0</autothrottle>
-      <heading/>
-      <altitude/>
     </locks>
     <settings>
       <bank-limit type="double">27</bank-limit>
