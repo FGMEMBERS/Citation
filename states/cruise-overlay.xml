@@ -8,27 +8,30 @@
 
     <autopilot>
       <heading_overlay type="bool">true</heading_overlay>
+      <overlay-name type="string">cruise</overlay-name>
+
       <settings>
         <bank-limit type="double">14</bank-limit>
         <target-altitude-ft type="double">36000</target-altitude-ft>
         <target-speed-kt type="double">220</target-speed-kt>
+        <!--<target-pitch-deg type="double">0.5</target-pitch-deg>-->
       </settings>
 
-      <locks>
+      <!--<locks>
         <yaw-damper type="bool">true</yaw-damper>
         <passive-mode type="bool">false</passive-mode>
-        <heading type="string">dg-heading-hold</heading>
+        <heading type="string">true-heading-hold</heading>
         <altitude type="string">altitude-hold</altitude>
         <speed>speed-with-throttle</speed>
-      </locks>
+      </locks>-->
     </autopilot>
 
 
     <consumables>
       <fuel>
         <fuel_overlay type="bool">true</fuel_overlay>
-        <fuel_overlay_0 type="double">300</fuel_overlay_0>
-        <fuel_overlay_1 type="double">300</fuel_overlay_1>
+        <fuel_overlay_0 type="double">320</fuel_overlay_0>
+        <fuel_overlay_1 type="double">320</fuel_overlay_1>
       </fuel>
     </consumables>
 
@@ -65,26 +68,6 @@
           <generator type="bool">true</generator>
         </engine>
       </electric>
-
-      <!--fuel>
-        <tank>
-          <fuel_selector type="bool">false</fuel_selector>
-          <to_engine type="int">0</to_engine>
-          <to_tank type="int">0</to_tank>
-          <boost-pump type="bool">false</boost-pump>
-          <boost-pump n="1" type="bool">false</boost-pump>
-          <boost-pump-switch type="double">0</boost-pump-switch>
-        </tank>
-
-        <tank n="1">
-          <fuel_selector type="bool">false</fuel_selector>
-          <to_engine type="int">0</to_engine>
-          <to_tank type="int">0</to_tank>
-          <boost-pump type="bool">false</boost-pump>
-          <boost-pump n="1" type="bool">false</boost-pump>
-          <boost-pump-switch type="double">0</boost-pump-switch>
-        </tank>
-      </fuel-->
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>

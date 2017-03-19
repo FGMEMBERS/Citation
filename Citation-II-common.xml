@@ -404,7 +404,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
 
     <systems>
-      <autopilot n="100">
+      <autopilot>
         <path>Systems/Citation-autopilot.xml</path>
       </autopilot>
       <path>Systems/systems.xml</path>
@@ -1020,6 +1020,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <passive-mode type="bool">1</passive-mode>
       <lowbank type="bool">0</lowbank>
       <autothrottle type="bool">0</autothrottle>
+      <heading/>
+      <altitude/>
     </locks>
     <settings>
       <bank-limit type="double">27</bank-limit>

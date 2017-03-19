@@ -7,15 +7,20 @@
   <overlay>
 
     <autopilot>
+      <heading_overlay type="bool">true</heading_overlay>
+      <overlay-name type="string">approach</overlay-name>
+
       <settings>
         <target-altitude-ft type="double">3000</target-altitude-ft>
-        <target-speed-kt type="double">180</target-speed-kt>
+        <target-speed-kt type="double">160</target-speed-kt>
       </settings>
 
-      <locks>
+      <!--<locks>
+        <passive-mode type="bool">false</passive-mode>
         <heading type="string">nav1-hold</heading>
         <altitude type="string">gs1-hold</altitude>
-      </locks>
+        <speed>speed-with-throttle</speed>
+      </locks>-->
     </autopilot>
 
 
@@ -64,26 +69,6 @@
           <generator type="bool">true</generator>
         </engine>
       </electric>
-
-      <!--fuel>
-        <tank>
-          <fuel_selector type="bool">false</fuel_selector>
-          <to_engine type="int">0</to_engine>
-          <to_tank type="int">0</to_tank>
-          <boost-pump type="bool">false</boost-pump>
-          <boost-pump n="1" type="bool">false</boost-pump>
-          <boost-pump-switch type="double">0</boost-pump-switch>
-        </tank>
-
-        <tank n="1">
-          <fuel_selector type="bool">false</fuel_selector>
-          <to_engine type="int">0</to_engine>
-          <to_tank type="int">0</to_tank>
-          <boost-pump type="bool">false</boost-pump>
-          <boost-pump n="1" type="bool">false</boost-pump>
-          <boost-pump-switch type="double">0</boost-pump-switch>
-        </tank>
-      </fuel-->
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>

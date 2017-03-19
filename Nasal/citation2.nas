@@ -134,6 +134,26 @@ setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
     RHeng.shutdown (ignition.getBoolValue ());
 });
 
+
+
+
+var resetTrim = func(){
+  setprop("/controls/flight/elevator-trim", 0);
+  setprop("/controls/flight/rudder-trim", 0);
+  setprop("/controls/flight/aileron-trim", 0);
+  print("All trim settings reset to 0...");
+}
+
+var resetControls = func() {
+  setprop("/controls/flight/elevator-trim", 0);
+  setprop("/controls/flight/rudder-trim", 0);
+  setprop("/controls/flight/aileron-trim", 0);
+  print("All flight controls reset to 0...");
+}
+
+
+
+
 setlistener("/sim/signals/fdm-initialized", func {
 
   setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
@@ -190,45 +210,65 @@ setlistener("/sim/signals/fdm-initialized", func {
     setAltimeterToPressure.start();
   }
 
-  # on states "cruise" and "approach" we set a heading from the launcher/CLI
-#  if (getprop("autopilot/settings/heading_overlay") == true) {
-#
-#  }
+  # on states "cruise" and "approach" we set a heading from the launcher/CLI (--heading=123)
+  if (getprop("/autopilot/heading_overlay") == 1) {
+    var copyHeading = getprop("/sim/presets/heading-deg");
+    print("HeadingOverlay requested... Setting true-heading to ", copyHeading, "°");
+    setprop("/autopilot/settings/true-heading-deg", copyHeading);
+
+    # start autopilot late, to avoid turbulent reactions from it
+    var start_autopilot_in_air = maketimer(3, func(){
+      print("Starting A/P ...");
+
+      setprop("/autopilot/locks/passive-mode", 0);
+      print("passive-mode: ", getprop("/autopilot/locks/passive-mode"));
+
+      var overlay_name = getprop("/autopilot/overlay-name");
+      if (overlay_name == "cruise") {
+        var damper_mode = 1;
+        var alt_mode = "altitude-hold";
+        var hdg_mode = "true-heading-hold";
+      }
+      if (overlay_name == "approach") {
+        var damper_mode = 0;
+        var alt_mode = "gs1-hold";
+        var hdg_mode = "nav1-hold";
+      }
+      setprop("/autopilot/locks/yaw-damper", damper_mode);
+      print("yaw-damper: ", getprop("/autopilot/locks/yaw-damper"));
+
+      setprop("/autopilot/locks/speed", "speed-with-throttle");
+      print("speed: ", getprop("/autopilot/locks/speed"));
 
 
-#  var WFinitChecker = maketimer(5, func() {
-#    setprop("/sim/systems/wingflexer/initComplete", 1);
-#    print("WingFlexer has been initialised.");
-#    WFinitChecker.stop();
-#  });
-#  WFinitChecker.singleShot = 1;
-#  WFinitChecker.start();
+      setprop("/autopilot/locks/altitude", alt_mode);
+      print("altitude: ", getprop("/autopilot/locks/altitude"));
 
-
-
-  var resetControls = func() {
-    setprop("/controls/flight/elevator-trim", 0);
-    setprop("/controls/flight/rudder-trim", 0);
-    setprop("/controls/flight/aileron-trim", 0);
-    print("All flight controls reset to 0...");
-  };
-
-  var resetTrim = func(){
-    setprop("/controls/flight/elevator-trim", 0);
-    setprop("/controls/flight/rudder-trim", 0);
-    setprop("/controls/flight/aileron-trim", 0);
-    print("All trim settings reset to 0...");
-  };
-
-  setlistener("/sim/signals/fdm-initialized", func() {
-    var resetFlightControls = maketimer(0.5, func() {
-      resetTrim();
-      resetControls();
-      resetFlightControls.stop();
+      setprop("/autopilot/locks/heading", hdg_mode);
+      print("heading: ", getprop("/autopilot/locks/heading"));
+      start_autopilot_in_air.stop();
     });
-    resetFlightControls.singleShot = 1;
-    resetFlightControls.start();
+    start_autopilot_in_air.singleShot = 1;
+    #start_autopilot_in_air.start();
+  }
+
+
+
+  resetTrim();
+  resetControls();
+
+
+
+  var resetFlightControls = maketimer(0.5, func() {
+    resetTrim();
+    resetControls();
+    resetFlightControls.stop();
   });
+  resetFlightControls.singleShot = 1;
+  resetFlightControls.start();
+
+
+
 
 
 
@@ -309,7 +349,7 @@ controls.gearDown = func(v) {
     } elsif (v > 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
        setprop("/controls/gear/gear-down", 1);
     }
-};
+}
 
 controls.flapsDown = func(v) {
     var flap_pos=getprop("controls/flight/flaps") or 0;
@@ -317,25 +357,23 @@ controls.flapsDown = func(v) {
         flap_pos += v*0.125;
     }
     setprop("controls/flight/flaps",flap_pos);
-};
+}
 
 var switch_rmi = func(needle, nav_number) {
-  print("switch_rmi(", needle, ", ",nav_number, ");");
   var selected_input = getprop ("/instrumentation/rmi/" ~ needle ~ "/selected-input");
-  print("/instrumentation/rmi/", needle, "/selected-input = ", selected_input);
   var dest_node = props.globals.getNode ("/instrumentation/rmi/" ~ needle ~ "/in-range", 1);
   dest_node.unalias ();
   if (selected_input == "ADF") {
-    print("selected_input == ADF (", selected_input, ")");
+    print("RMI[", nav_number, "]: selected_input == ADF (", selected_input, ")");
     var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
     dest_node.alias (source_node);
   }
   elsif (selected_input == "VOR") {
-    print("selected_input == VOR (", selected_input, ")");
+    print("RMI[", nav_number, "]: selected_input == VOR (", selected_input, ")");
     var source_node = props.globals.getNode ("/instrumentation/nav[" ~ nav_number ~ "]/in-range");
     dest_node.alias (source_node);
   }
-};
+}
 
 var update_systems = func() {
     LHeng.update();
@@ -378,8 +416,8 @@ var update_systems = func() {
     }
 
     # ugly hack! See Citation-II-common.xml line 711
-    setprop("/consumables/fuel/fuel-gal_us-0", getprop("/consumables/fuel/tank[0]/level-gal_us"));
-    setprop("/consumables/fuel/fuel-gal_us-1", getprop("/consumables/fuel/tank[1]/level-gal_us"));
+    setprop("/consumables/fuel/fuel-gal_us-0", getprop("consumables/fuel/tank[0]/level-gal_us"));
+    setprop("/consumables/fuel/fuel-gal_us-1", getprop("consumables/fuel/tank[1]/level-gal_us"));
 
     settimer(update_systems,0);
 }
@@ -430,7 +468,7 @@ var alias_recursively = func (source, dest) { # source and dest must be nodes no
       var dest_node = dest.getChild (child.getName (), child.getIndex (), 1);
       alias_recursively (child, dest_node);
    }
-};
+}
 
 var drive_hsi_with_nav = func (hsi_node, nav_node) {
    var inputs = hsi_node.getChild ("inputs", 0, 1);
@@ -440,7 +478,7 @@ var drive_hsi_with_nav = func (hsi_node, nav_node) {
    var dest_volts_node = hsi_node.getChild ("volts", 0, 1);
    dest_volts_node.unalias ();
    dest_volts_node.alias (source_volts_node);
-};
+}
 
 var pilot_hsi_listener =
   setlistener ("/instrumentation/hsi[0]/selected-nav", func (selected_nav) {

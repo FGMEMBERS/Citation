@@ -16,8 +16,8 @@
     <consumables>
       <fuel>
         <fuel_overlay type="bool">true</fuel_overlay>
-        <fuel_overlay_0 type="double">350</fuel_overlay_0>
-        <fuel_overlay_1 type="double">350</fuel_overlay_1>
+        <fuel_overlay_0 type="double">360</fuel_overlay_0>
+        <fuel_overlay_1 type="double">360</fuel_overlay_1>
       </fuel>
     </consumables>
 

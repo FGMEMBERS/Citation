@@ -356,13 +356,6 @@ lighting = func(bv) {
         lights_output[i].setValue(bv * srvc);
     }
 
-#setprop("sim/multiplay/generic/int",getprop("systems/electrical/outputs/strobe"));
-#setprop("sim/multiplay/generic/int[1]",getprop("systems/electrical/outputs/beacon"));
-#setprop("sim/multiplay/generic/int[2]",getprop("systems/electrical/outputs/taxi-light"));
-#setprop("sim/multiplay/generic/int[3]",getprop("systems/electrical/outputs/landing-light[0]"));
-#setprop("sim/multiplay/generic/int[3]",getprop("systems/electrical/outputs/landing-light[1]"));
-#setprop("sim/multiplay/generic/int[4]",getprop("systems/electrical/outputs/recog-lights"));
-
 return load;
 
 }
