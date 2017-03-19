@@ -34,21 +34,102 @@
     <layout>vbox</layout>
     <padding>6</padding>
 
-    <!--group>
+    <group>
       <layout>vbox</layout>
       <checkbox>
         <halign>left</halign>
         <label>Save state of aircraft between sessions</label>
-        <property>/sim/model/c172p/save-state</property>
+        <property>/controls/save-state/general</property>
         <live>true</live>
         <binding>
           <command>dialog-apply</command>
         </binding>
       </checkbox>
-    </group-->
+    </group>
+
+    <group>
+      <layout>hbox</layout>
+      <group>
+        <layout>vbox</layout>
+        <padding>6</padding>
+      </group>
+
+      <group>
+        <layout>vbox</layout>
+        <checkbox>
+          <halign>left</halign>
+          <label>Save fuel and weight settings</label>
+          <enable>
+            <property>/controls/save-state/general</property>
+          </enable>
+          <property>/controls/save-state/fuel</property>
+          <live>true</live>
+          <binding>
+            <command>dialog-apply</command>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Save radio settings</label>
+          <enable>
+            <property>/controls/save-state/general</property>
+          </enable>
+          <property>/controls/save-state/radios</property>
+          <live>true</live>
+          <binding>
+            <command>dialog-apply</command>
+          </binding>
+        </checkbox>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Save circuit-breakers</label>
+          <enable>
+            <property>/controls/save-state/general</property>
+          </enable>
+          <property>/controls/save-state/circuitBreakers</property>
+          <live>true</live>
+          <binding>
+            <command>dialog-apply</command>
+          </binding>
+        </checkbox>
+
+        <button>
+          <legend>Close all circuit breakers</legend>
+          <equal>true</equal>
+          <default>true</default>
+          <binding>
+            <command>nasal</command>
+            <script> saveState.reset_circuitBreakers(); </script>
+          </binding>
+        </button>
+
+        <checkbox>
+          <halign>left</halign>
+          <label>Save models settings</label>
+          <enable>
+            <property>/controls/save-state/general</property>
+          </enable>
+          <property>/controls/save-state/models</property>
+          <live>true</live>
+          <binding>
+            <command>dialog-apply</command>
+          </binding>
+        </checkbox>
+      </group>
+    </group>
+
+    <hrule/>
 
     <group>
       <layout>vbox</layout>
+
+      <empty><stretch>true</stretch></empty>
+      <text>
+        <label>Model Options</label>
+      </text>
+
       <checkbox>
         <halign>left</halign>
         <label>Show yokes</label>
@@ -58,10 +139,7 @@
           <command>dialog-apply</command>
         </binding>
       </checkbox>
-    </group>
 
-    <group>
-      <layout>vbox</layout>
       <checkbox>
         <halign>left</halign>
         <label>Show human models</label>

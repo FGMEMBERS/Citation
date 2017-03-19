@@ -31,6 +31,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
 
+    <aircraft-version>3.1.0</aircraft-version>
+    <status>production</status>
+    <rating>
+      <FDM type="int">5</FDM>
+      <systems type="int">4</systems>
+      <cockpit type="int">5</cockpit>
+      <model type="int">5</model>
+    </rating>
+
+    <dimensions>
+      <radius-m type="double">10.0</radius-m>
+      <parkpos-offset-m type="double">0.0</parkpos-offset-m>
+    </dimensions>
+    <!-- <aircraft-class> can be: ga (general aviation), cargo (cargo), gate (commercial passenger traffic), mil-fighter (military fighter), mil-cargo (military transport)
+    see: http://wiki.flightgear.org/Interactive_traffic#A_technical_perspective -->
+    <aircraft-class type="string">ga</aircraft-class>
+    <aircraft-operator type="string"></aircraft-operator>
+
+    <tags> <!-- See: http://wiki.flightgear.org/Catalog_metadata#Supported_Tags -->
+      <tag>jet</tag>
+      <tag>2-engine</tag>
+      <tag>rembrandt</tag>
+      <tag>pressurized</tag>
+      <tag>retractable-gear</tag>
+      <tag>ifr</tag>
+      <tag>cessna</tag>
+      <tag>passenger</tag>
+      <tag>bizjet</tag>
+    </tags>
+
     <previews>
       <preview>
         <type>panel</type>
@@ -81,15 +111,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <!-- logo is 50% of the screen width -->
       <splash-logo-width>0.5</splash-logo-width>
     </startup>
-
-    <aircraft-version>3.1.0</aircraft-version>
-    <status>production</status>
-    <rating>
-      <FDM type="int">5</FDM>
-      <systems type="int">4</systems>
-      <cockpit type="int">5</cockpit>
-      <model type="int">5</model>
-    </rating>
 
     <state n="0" include="states/parking-overlay.xml" />
     <state n="1" include="states/taxi-overlay.xml" />
@@ -239,27 +260,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <headgear>0</headgear>
       <altitude-ft>-5.0</altitude-ft>
     </walker>
-
-    <dimensions>
-      <radius-m type="double">10.0</radius-m>
-      <parkpos-offset-m type="double">0.0</parkpos-offset-m>
-    </dimensions>
-    <!-- <aircraft-class> can be: ga (general aviation), cargo (cargo), gate (commercial passenger traffic), mil-fighter (military fighter), mil-cargo (military transport)
-         see: http://wiki.flightgear.org/Interactive_traffic#A_technical_perspective -->
-    <aircraft-class type="string">ga</aircraft-class>
-    <aircraft-operator type="string"></aircraft-operator>
-
-    <tags> <!-- See: http://wiki.flightgear.org/Catalog_metadata#Supported_Tags -->
-      <tag>jet</tag>
-      <tag>2-engine</tag>
-      <tag>rembrandt</tag>
-      <tag>pressurized</tag>
-      <tag>retractable-gear</tag>
-      <tag>ifr</tag>
-      <tag>cessna</tag>
-      <tag>passenger</tag>
-      <tag>bizjet</tag>
-    </tags>
 
     <view n="0">
       <name>Captain</name>
@@ -739,83 +739,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </flight-recorder>
 
     <aircraft-data> <!-- to be recorded for next time -->
-      <!-- dirty hack! The fuel levels didn't get reloaded, so in
-           Nasal/Citaion2.nas this gets read instead (l.135) and in turn
-           updates every following frame (l.272). -->
-<!--      <path>/consumables/fuel/fuel-gal_us-0</path>
-      <path>/consumables/fuel/fuel-gal_us-1</path>
+      <path>/controls/save-state</path>
 
       <path>/sim/aircraft-class</path>
       <path>/sim/aircraft-operator</path>
       <path>/sim/dimensions/parkpos-offset-m</path>
       <path>/sim/dimensions/radius-m</path>
-      <path>/sim/weight[0]/weight-lb</path>
-      <path>/sim/weight[1]/weight-lb</path>
-      <path>/sim/weight[2]/weight-lb</path>
-      <path>/sim/weight[3]/weight-lb</path>
-      <path>/controls/human-models</path>-->
-      <!--path>/instrumentation/comm/frequencies/selected-mhz</path>
-      <path>/instrumentation/comm/frequencies/standby-mhz</path>
-      <path>/instrumentation/comm/volume</path>
-      <path>/instrumentation/comm[1]/frequencies/selected-mhz</path>
-      <path>/instrumentation/comm[1]/frequencies/standby-mhz</path>
-      <path>/instrumentation/comm[1]/volume</path>
-      <path>/instrumentation/nav/frequencies/selected-mhz</path>
-      <path>/instrumentation/nav/frequencies/standby-mhz</path>
-      <path>/instrumentation/nav/volume</path>
-      <path>/instrumentation/nav[1]/frequencies/selected-mhz</path>
-      <path>/instrumentation/nav[1]/frequencies/standby-mhz</path>
-      <path>/instrumentation/nav[1]/volume</path>
-      <path>/instrumentation/adf/frequencies/selected-khz</path>
-      <path>/instrumentation/adf/frequencies/standby-khz</path>
-      <path>/instrumentation/adf/volume-norm</path>
-      <path>/instrumentation/adf[1]/frequencies/selected-khz</path>
-      <path>/instrumentation/adf[1]/frequencies/standby-khz</path>
-      <path>/instrumentation/adf[1]/volume-norm</path-->
-<!--      <path>/instrumentation/transponder/id-code</path>
-      <path>/instrumentation/transponder/inputs/knob-mode</path>
-      <path>/instrumentation/airspeed-indicator/index-marker</path>
-      <path>/instrumentation/clock/m877/mode-string</path>
-      <path>/instrumentation/dme/switch-position</path>
-      <path>/instrumentation/dme/switch-position[1]</path>
-      <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-left</path>
-      <path>/controls/electric/circuit-breakers/bus-battery-hot/cb-clock-right</path>
-      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-emer</path>
-      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</path>
-      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-enginstr</path>
-      <path>/controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</path>
-      <path>/controls/electric/circuit-breakers/bus-emer[1]</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-flap-ctl</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-flap-motor</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-gear-ctl</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-beacon</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-cabin-ind</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-landing-left</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-panel-center</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-panel-left</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-recog-left</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-strobe</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-light-winginsp</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-pitch-trim</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-speedbrakes</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-start-left</path>
-      <path>/controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</path>
-      <path>/controls/electric/circuit-breakers/bus-left-1</path>
-      <path>/controls/electric/circuit-breakers/bus-left-2</path>
-      <path>/controls/electric/circuit-breakers/bus-left-3</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-ground-prox</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-light-cabin-read</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-light-landing-right</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-light-nav</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-light-panel-right</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-light-recog-right</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-start-right</path>
-      <path>/controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</path>
-      <path>/controls/electric/circuit-breakers/bus-right-1</path>
-      <path>/controls/electric/circuit-breakers/bus-right-2</path>
-      <path>/controls/electric/circuit-breakers/bus-right-3</path>
-      <path>/sim/yokes-visible</path>
-      <path>/controls/seat/armrests-pos</path>-->
     </aircraft-data>
 
     <checklists>
@@ -964,6 +893,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <command type="bool">0</command>
       <position-norm type="double">0</position-norm>
     </baggage-door-aft>
+    <save-state>
+      <general type="bool">0</general>
+      <fuel type="bool">0</fuel>
+      <radios type="bool">0</radios>
+      <models type="bool">0</models>
+      <circuitBreakers type="bool">0</circuitBreakers>
+    </save-state>
     <seat> <!-- the pilot and copilot seats -->
       <armrests type="bool">0</armrests>
       <armrests-pos type="double">0</armrests-pos>
@@ -1075,6 +1011,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <file>Aircraft/Generic/limits.nas</file>
       <file>Nasal/rain.nas</file>
     </citation>
+    <saveState>
+      <file>Nasal/save-state.nas</file>
+    </saveState>
     <m877>
       <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
     </m877>
