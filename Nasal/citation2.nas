@@ -141,14 +141,14 @@ var resetTrim = func(){
   setprop("/controls/flight/elevator-trim", 0);
   setprop("/controls/flight/rudder-trim", 0);
   setprop("/controls/flight/aileron-trim", 0);
-  print("All trim settings reset to 0...");
+  #print("All trim settings reset to 0...");
 }
 
 var resetControls = func() {
   setprop("/controls/flight/elevator-trim", 0);
   setprop("/controls/flight/rudder-trim", 0);
   setprop("/controls/flight/aileron-trim", 0);
-  print("All flight controls reset to 0...");
+  #print("All flight controls reset to 0...");
 }
 
 
@@ -213,61 +213,61 @@ setlistener("/sim/signals/fdm-initialized", func {
   # on states "cruise" and "approach" we set a heading from the launcher/CLI (--heading=123)
   if (getprop("/autopilot/heading_overlay") == 1) {
     var copyHeading = getprop("/sim/presets/heading-deg");
-    print("HeadingOverlay requested... Setting true-heading to ", copyHeading, "°");
-    setprop("/autopilot/settings/true-heading-deg", copyHeading);
+    print("HeadingOverlay requested... True-heading set to ", copyHeading, "°");
 
     # start autopilot late, to avoid turbulent reactions from it
     var start_autopilot_in_air = maketimer(3, func(){
       print("Starting A/P ...");
-
-      setprop("/autopilot/locks/passive-mode", 0);
-      print("passive-mode: ", getprop("/autopilot/locks/passive-mode"));
 
       var overlay_name = getprop("/autopilot/overlay-name");
       if (overlay_name == "cruise") {
         var damper_mode = 1;
         var alt_mode = "altitude-hold";
         var hdg_mode = "true-heading-hold";
+        var speed-mode = "speed-with-throttle";
+        var bank_limit = 14;
+        var target_speed = 220;
+        var target_altitude = 36000;
       }
       if (overlay_name == "approach") {
         var damper_mode = 0;
-        var alt_mode = "gs1-hold";
-        var hdg_mode = "nav1-hold";
+        var alt_mode = "";
+        var hdg_mode = "";
+        var speed-mode = "";
+        var bank_limit = 27;
+        var target_speed = 100;
+        var target_altitude = 3000;
       }
+      setprop("/autopilot/locks/passive-mode", 0);
+      setprop("/autopilot/settings/bank-limit", bank_limit);
       setprop("/autopilot/locks/yaw-damper", damper_mode);
-      print("yaw-damper: ", getprop("/autopilot/locks/yaw-damper"));
 
       setprop("/autopilot/locks/speed", "speed-with-throttle");
-      print("speed: ", getprop("/autopilot/locks/speed"));
-
+      setprop("/autopilot/settings/target-speed-kt", target_speed);
 
       setprop("/autopilot/locks/altitude", alt_mode);
-      print("altitude: ", getprop("/autopilot/locks/altitude"));
+      setprop("/autopilot/settings/target-altitude-ft", target_altitude);
 
       setprop("/autopilot/locks/heading", hdg_mode);
-      print("heading: ", getprop("/autopilot/locks/heading"));
+      setprop("/autopilot/settings/true-heading-deg", copyHeading);
       start_autopilot_in_air.stop();
     });
     start_autopilot_in_air.singleShot = 1;
-    #start_autopilot_in_air.start();
+    start_autopilot_in_air.start();
   }
 
 
 
-  resetTrim();
-  resetControls();
-
-
-
-  var resetFlightControls = maketimer(0.5, func() {
-    resetTrim();
-    resetControls();
-    resetFlightControls.stop();
-  });
-  resetFlightControls.singleShot = 1;
-  resetFlightControls.start();
-
-
+#  resetTrim();
+#  resetControls();
+#
+#  var resetFlightControls = maketimer(0.5, func() {
+#    resetTrim();
+#    resetControls();
+#    resetFlightControls.stop();
+#  });
+#  resetFlightControls.singleShot = 1;
+#  resetFlightControls.start();
 
 
 
@@ -364,12 +364,12 @@ var switch_rmi = func(needle, nav_number) {
   var dest_node = props.globals.getNode ("/instrumentation/rmi/" ~ needle ~ "/in-range", 1);
   dest_node.unalias ();
   if (selected_input == "ADF") {
-    print("RMI[", nav_number, "]: selected_input == ADF (", selected_input, ")");
+    #print("RMI[", nav_number, "]: selected_input == ADF (", selected_input, ")");
     var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
     dest_node.alias (source_node);
   }
   elsif (selected_input == "VOR") {
-    print("RMI[", nav_number, "]: selected_input == VOR (", selected_input, ")");
+    #print("RMI[", nav_number, "]: selected_input == VOR (", selected_input, ")");
     var source_node = props.globals.getNode ("/instrumentation/nav[" ~ nav_number ~ "]/in-range");
     dest_node.alias (source_node);
   }

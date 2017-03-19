@@ -404,26 +404,40 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <chase-distance-m type="double" archive="y">-20.0</chase-distance-m>
 
     <!--
-    autopilot configuration rules:
+    autopilot configuration / property rules as of FG-2017.2:
+    resides in /sim/systems/*
 
-    autopilot[0] = Systems/Citation-autopilot.xml                 <- overwrites Aircraft/Generic/generic-autopilot.xml
-    autopilot[1] = Aircraft/Generic/generic-autopilot-helper.xml  <- set by default
-    autopilot[101] = Aircraft/Generic/wingflexer.xml
-    property-rule[0] = Environment/metarinterpolator.xml          <- set by default
-    property-rule[1] = Environment/interpolator.xml               <- set by default
-    property-rule[2] = Environment/local-weather-rules.xml        <- set by default
-    property-rule[3] = Aircraft/Generic/g-forces.xml              <- set by default
+    autopilot[0] = Systems/Citation-autopilot.xml                 <- overrides Aircraft/Generic/generic-autopilot.xml
+    autopilot[1] = Aircraft/Generic/generic-autopilot-helper.xml  <- set by default by FG
+    wingflexer = Systems/wingflexer-params.xml
+    autopilot[100] = Aircraft/Generic/wingflexer.xml
+    property-rule[0] = Environment/metarinterpolator.xml          <- set by default by FG
+    property-rule[1] = Environment/interpolator.xml               <- set by default by FG
+    property-rule[2] = Environment/local-weather-rules.xml        <- set by default by FG
+    property-rule[3] = Aircraft/Generic/g-forces.xml              <- set by default by FG
     property-rule[100] = Models/Instruments/instrument-filters.xml
     property-rule[101] = Models/load-factor-filters.xml
     property-rule[102] = Models/Lights/average-ambient-light-filters.xml
     property-rule[103] = Systems/electrical.xml
     property-rule[104] = Models/Effects/flame-filter.xml
+
+    The configs below, without an index, overwrite existing rules and
+    are being indexed, as they come unless they come with an index.
     -->
     <systems>
       <autopilot>
+        <name>Citation II autopilot</name>
         <path>Systems/Citation-autopilot.xml</path>
       </autopilot>
+
+      <wingflexer include="Systems/wingflexer-params.xml" />
+      <autopilot n="100">
+        <name>wing flexer property rule</name>
+        <path>Aircraft/Generic/wingflexer.xml</path>
+      </autopilot>
+
       <path>Systems/systems.xml</path>
+
       <property-rule n="100">
         <path>Models/Instruments/instrument-filters.xml</path>
       </property-rule>
@@ -439,11 +453,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="104">
 	<path>Models/Effects/flame-filter.xml</path>
       </property-rule>
-      <wingflexer include="Systems/wingflexer-params.xml" />
-      <autopilot n="101">
-	<name>wing flexer property rule</name>
-        <path>Aircraft/Generic/wingflexer.xml</path>
-      </autopilot>
     </systems>
 
     <sound>

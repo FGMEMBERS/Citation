@@ -4,6 +4,27 @@
 
   <name type="string" n="1">approach</name>
 
+  <description>
+    You will start the sim on glide-slope, with flaps APP
+    configuration and gear down, autopilot off. If you provide the
+    correct frequency for an ILS via --nav1=179:110.3 for example,
+    where 179 is the radial and 110.3 the frequency, the ILS will be
+    already tuned in when you enter the cockpit.
+
+    Start this state with --state=approach
+
+    If you're starting via the QTlauncher, you won't need extra
+    options. Just tick the checkbox "on approach".
+
+    Options needed for other launchers:
+    --glideslope=3.0
+    --offset-distance=10.0
+    --in-air
+
+    optional:
+    --nav1=179:110.30
+  </description>
+
   <overlay>
 
     <autopilot>
@@ -15,12 +36,12 @@
         <target-speed-kt type="double">160</target-speed-kt>
       </settings>
 
-      <!--<locks>
+      <locks>
         <passive-mode type="bool">false</passive-mode>
-        <heading type="string">nav1-hold</heading>
+        <!--<heading type="string">nav1-hold</heading>
         <altitude type="string">gs1-hold</altitude>
-        <speed>speed-with-throttle</speed>
-      </locks>-->
+        <speed>speed-with-throttle</speed>-->
+      </locks>
     </autopilot>
 
 

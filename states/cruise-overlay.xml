@@ -4,6 +4,21 @@
 
   <name type="string" n="1">cruise</name>
 
+  <description>
+    You will start the sim on cruise level, FL 360 with autopilot
+    engaged, set to
+    "autothrottle"
+    "true heading"
+    "altitude hold"
+
+    Start this state with --state=cruise
+
+    If you're starting via the QTlauncher, you won't need extra
+    options.
+    Options needed for other launchers:
+    --in-air
+  </description>
+
   <overlay>
 
     <autopilot>
@@ -14,16 +29,15 @@
         <bank-limit type="double">14</bank-limit>
         <target-altitude-ft type="double">36000</target-altitude-ft>
         <target-speed-kt type="double">220</target-speed-kt>
-        <!--<target-pitch-deg type="double">0.5</target-pitch-deg>-->
       </settings>
 
-      <!--<locks>
+      <locks>
         <yaw-damper type="bool">true</yaw-damper>
         <passive-mode type="bool">false</passive-mode>
-        <heading type="string">true-heading-hold</heading>
+        <!--<heading type="string">true-heading-hold</heading>
         <altitude type="string">altitude-hold</altitude>
-        <speed>speed-with-throttle</speed>
-      </locks>-->
+        <speed>speed-with-throttle</speed>-->
+      </locks>
     </autopilot>
 
 

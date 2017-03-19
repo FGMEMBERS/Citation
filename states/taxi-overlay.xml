@@ -4,6 +4,14 @@
 
   <name type="string" n="1">taxi</name>
 
+  <description>
+    You will start the sim on the tarmac. All systems are go and you
+    are ready to taxi to the active runway. Make sure you select a
+    parking spot instead of a runway!
+
+    Start this state with --state=taxi
+  </description>
+
   <overlay>
     <autopilot>
       <settings>
@@ -51,26 +59,6 @@
           <generator type="bool">true</generator>
         </engine>
       </electric>
-
-      <!--fuel>
-        <tank>
-          <fuel_selector type="bool">false</fuel_selector>
-          <to_engine type="int">0</to_engine>
-          <to_tank type="int">0</to_tank>
-          <boost-pump type="bool">false</boost-pump>
-          <boost-pump n="1" type="bool">false</boost-pump>
-          <boost-pump-switch type="double">0</boost-pump-switch>
-        </tank>
-
-        <tank n="1">
-          <fuel_selector type="bool">false</fuel_selector>
-          <to_engine type="int">0</to_engine>
-          <to_tank type="int">0</to_tank>
-          <boost-pump type="bool">false</boost-pump>
-          <boost-pump n="1" type="bool">false</boost-pump>
-          <boost-pump-switch type="double">0</boost-pump-switch>
-        </tank>
-      </fuel-->
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
