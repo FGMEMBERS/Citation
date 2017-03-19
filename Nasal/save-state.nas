@@ -93,55 +93,46 @@ var citation_array_circuitBreakers = [
 ];
 
 var reset_circuitBreakers = func() {
-  print("Resetting all circuit-breakers to closed.");
+  screen.log.write("All circuit-breakers reset to closed.");
   foreach(var path; citation_array_circuitBreakers) {
     setprop(path, 1);
   }
 }
 
+
+var switchProp = func(which) {
+  if (getprop("/controls/save-state/" ~ which)) {
+    setprop("/controls/save-state/" ~ which, 0);
+  }
+  else {
+    setprop("/controls/save-state/" ~ which, 1);
+  }
+  saveState.update_saveState();
+}
+
+
 var update_saveState = func() {
 
   aircraft.data.catalog = [];
 
-  print("SaveState: Adding general properties.");
   aircraft.data.add(citation_save_general);
 
   if (getprop("/controls/save-state/general")) {
     if (getprop("/controls/save-state/fuel")) {
-      print("SaveState: Adding fuel and weight properties.");
       aircraft.data.add(citation_array_fuel);
     }
 
     if (getprop("/controls/save-state/models")) {
-      print("SaveState: Adding models properties.");
       aircraft.data.add(citation_array_models);
     }
 
     if (getprop("/controls/save-state/radios")) {
-      print("SaveState: Adding radios properties.");
       aircraft.data.add(citation_array_radios);
     }
 
     if (getprop("/controls/save-state/circuitBreakers")) {
-      print("SaveState: Adding circuit breakers properties.");
       aircraft.data.add(citation_array_circuitBreakers);
     }
+#    aircraft.data.save();
   }
 }
-
-gui.property_browser("/controls/save-state/");
-
-setlistener("/sim/signals/fdm-initialized", func() {
-  print("FDM intialised ...");
-  var save_state_timer = maketimer(4, func() {
-    print("save_state_timer (4 secs after FDM_init) has fired.");
-    setlistener("/controls/save-state", saveState.update_saveState(), 0, 2);
-    save_state_timer.stop();
-  });
-  save_state_timer.singleShot = 1;
-  save_state_timer.start();
-},0 ,0);
-
-
-
-

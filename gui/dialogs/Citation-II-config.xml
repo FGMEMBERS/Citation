@@ -42,7 +42,10 @@
         <property>/controls/save-state/general</property>
         <live>true</live>
         <binding>
-          <command>dialog-apply</command>
+          <command>nasal</command>
+          <script>
+            saveState.switchProp("general");
+          </script>
         </binding>
       </checkbox>
     </group>
@@ -65,7 +68,10 @@
           <property>/controls/save-state/fuel</property>
           <live>true</live>
           <binding>
-            <command>dialog-apply</command>
+            <command>nasal</command>
+            <script>
+              saveState.switchProp("fuel");
+            </script>
           </binding>
         </checkbox>
 
@@ -78,7 +84,10 @@
           <property>/controls/save-state/radios</property>
           <live>true</live>
           <binding>
-            <command>dialog-apply</command>
+            <command>nasal</command>
+            <script>
+              saveState.switchProp("radios");
+            </script>
           </binding>
         </checkbox>
 
@@ -91,7 +100,10 @@
           <property>/controls/save-state/circuitBreakers</property>
           <live>true</live>
           <binding>
-            <command>dialog-apply</command>
+            <command>nasal</command>
+            <script>
+              saveState.switchProp("circuitBreakers");
+            </script>
           </binding>
         </checkbox>
 
@@ -114,7 +126,10 @@
           <property>/controls/save-state/models</property>
           <live>true</live>
           <binding>
-            <command>dialog-apply</command>
+            <command>nasal</command>
+            <script>
+              saveState.switchProp("models");
+            </script>
           </binding>
         </checkbox>
       </group>
