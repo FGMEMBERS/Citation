@@ -597,26 +597,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
           <label>Citation-II</label>
           <enabled type="bool">true</enabled>
           <item>
+            <label>Citation II config</label>
+            <binding>
+              <command>dialog-show</command>
+              <dialog-name>Citation-II-config</dialog-name>
+            </binding>
+          </item>
+          <item>
             <label>Autostart</label>
             <binding>
               <command>property-toggle</command>
               <property>sim/model/autostart</property>
             </binding>
           </item>
-          <item>
+          <!--<item>
             <label>Yokes On/Off [y]</label>
             <binding>
               <command>property-toggle</command>
               <property>sim/yokes-visible</property>
             </binding>
-          </item>
-          <item>
+          </item>-->
+          <!--<item>
             <label>Toggle human models</label>
             <binding>
               <command>property-toggle</command>
               <property>controls/human-models</property>
             </binding>
-          </item>
+          </item>-->
           <item>
             <label>Select Livery</label>
             <binding>

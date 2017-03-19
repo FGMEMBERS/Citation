@@ -211,45 +211,48 @@ setlistener("/sim/signals/fdm-initialized", func {
   }
 
   # on states "cruise" and "approach" we set a heading from the launcher/CLI (--heading=123)
-  if (getprop("/autopilot/heading_overlay") == 1) {
-    var copyHeading = getprop("/sim/presets/heading-deg");
-    print("HeadingOverlay requested... True-heading set to ", copyHeading, "°");
+  if (getprop("/autopilot/heading_overlay")) {
 
     # start autopilot late, to avoid turbulent reactions from it
     var start_autopilot_in_air = maketimer(3, func(){
       print("Starting A/P ...");
 
       var overlay_name = getprop("/autopilot/overlay-name");
-      if (overlay_name == "cruise") {
-        var damper_mode = 1;
-        var alt_mode = "altitude-hold";
-        var hdg_mode = "true-heading-hold";
-        var speed-mode = "speed-with-throttle";
-        var bank_limit = 14;
-        var target_speed = 220;
-        var target_altitude = 36000;
+      if (overlay_name != nil) {
+        if (overlay_name == "cruise") {
+          var damper_mode = 1;
+          var alt_mode = "altitude-hold";
+          var hdg_mode = "true-heading-hold";
+          var speed_mode = "speed-with-throttle";
+          var bank_limit = 14;
+          var target_speed = 220;
+          var target_altitude = 36000;
+        }
+        if (overlay_name == "approach") {
+          var damper_mode = 0;
+          var alt_mode = "";
+          var hdg_mode = "";
+          var speed_mode = "";
+          var bank_limit = 27;
+          var target_speed = 100;
+          var target_altitude = 3000;
+        }
+
+        setprop("/autopilot/locks/passive-mode", 0);
+        setprop("/autopilot/settings/bank-limit", bank_limit);
+        setprop("/autopilot/locks/yaw-damper", damper_mode);
+
+        setprop("/autopilot/locks/speed", speed_mode);
+        setprop("/autopilot/settings/target-speed-kt", target_speed);
+
+        setprop("/autopilot/locks/altitude", alt_mode);
+        setprop("/autopilot/settings/target-altitude-ft", target_altitude);
+
+        var copyHeading = getprop("/sim/presets/heading-deg");
+        setprop("/autopilot/locks/heading", hdg_mode);
+        setprop("/autopilot/settings/true-heading-deg", copyHeading);
+        print("HeadingOverlay requested... True-heading set to ", copyHeading, "°");
       }
-      if (overlay_name == "approach") {
-        var damper_mode = 0;
-        var alt_mode = "";
-        var hdg_mode = "";
-        var speed-mode = "";
-        var bank_limit = 27;
-        var target_speed = 100;
-        var target_altitude = 3000;
-      }
-      setprop("/autopilot/locks/passive-mode", 0);
-      setprop("/autopilot/settings/bank-limit", bank_limit);
-      setprop("/autopilot/locks/yaw-damper", damper_mode);
-
-      setprop("/autopilot/locks/speed", "speed-with-throttle");
-      setprop("/autopilot/settings/target-speed-kt", target_speed);
-
-      setprop("/autopilot/locks/altitude", alt_mode);
-      setprop("/autopilot/settings/target-altitude-ft", target_altitude);
-
-      setprop("/autopilot/locks/heading", hdg_mode);
-      setprop("/autopilot/settings/true-heading-deg", copyHeading);
       start_autopilot_in_air.stop();
     });
     start_autopilot_in_air.singleShot = 1;
@@ -449,10 +452,10 @@ var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (
 var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) {
     var speed_lock = speed.getValue ();
     if (speed_lock == "speed-with-throttle") {
-        setprop("autopilot/settings/target-speed-kt", getprop ("velocities/airspeed-kt"));
+      setprop("autopilot/settings/target-speed-kt", getprop ("instrumentation/airspeed-indicator/index-marker"));
     }
     elsif (speed_lock == "speed-with-pitch-trim") { # only possible from the generic AP dialog
-        screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
+      screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
     }
 }, 0, 0);
 
