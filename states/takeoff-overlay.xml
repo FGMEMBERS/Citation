@@ -32,10 +32,19 @@
 
 
     <controls>
-
-      <flight>
-        <flaps type="double">0.375</flaps>
-      </flight>
+      <electric>
+        <avionics-switch type="bool">true</avionics-switch>
+        <battery-bus-switch type="int">1</battery-bus-switch>
+        <voltage-sel type="int">0</voltage-sel>
+        <system-test type="int">10</system-test>
+        <fuel-sel type="int">0</fuel-sel>
+        <engine>
+          <generator type="bool">true</generator>
+        </engine>
+        <engine n="1">
+          <generator type="bool">true</generator>
+        </engine>
+      </electric>
 
       <engines>
         <engine n="0">
@@ -61,24 +70,23 @@
         </engine>
       </engines>
 
+      <flight>
+        <flaps type="double">0.375</flaps>
+      </flight>
+
+      <fuel>
+        <tank n="0">
+          <boost-pump-switch type="int">0</boost-pump-switch>
+        </tank>
+        <tank n="1">
+          <boost-pump-switch type="int">0</boost-pump-switch>
+        </tank>
+      </fuel>
+
       <gear>
         <brake-parking type="double">0</brake-parking>
         <gear-down type="bool">true</gear-down>
       </gear>
-
-      <electric>
-        <avionics-switch type="bool">true</avionics-switch>
-        <battery-bus-switch type="int">1</battery-bus-switch>
-        <voltage-sel type="int">0</voltage-sel>
-        <system-test type="int">10</system-test>
-        <fuel-sel type="int">0</fuel-sel>
-        <engine>
-          <generator type="bool">true</generator>
-        </engine>
-        <engine n="1">
-          <generator type="bool">true</generator>
-        </engine>
-      </electric>
 
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
