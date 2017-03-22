@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>3.1.1</aircraft-version>
+    <aircraft-version>3.2.0</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
@@ -754,6 +754,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <checklist include="Checklists/initial_climb.xml"/>
       <checklist include="Checklists/stepped_climb.xml"/>
     </checklists>
+
+    <tutorials>
+      <tutorial include="Tutorials/Citation-II-tutorial-startup.xml"/>
+      <tutorial include="Tutorials/Citation-II-tutorial-takeOff.xml"/>
+    </tutorials>
   </sim>
 
   <consumables>
@@ -775,6 +780,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   <controls>
     <human-models type="bool">1</human-models>
+    <fuelSet type="bool">false</fuelSet>
     <gear>
       <brake-parking type="bool">1</brake-parking>
       <brake-left type="double">0.0</brake-left>

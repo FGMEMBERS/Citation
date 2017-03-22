@@ -252,8 +252,10 @@
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>ALT-knob</tooltip-id>
+        <!--<label>Altimeter setting: %.2f inHg - %.2f hPa</label>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <property>instrumentation/altimeter/setting-hpa</property>-->
         <label>Altimeter setting: %.2f inHg</label>
-        <!--<mapping>percent</mapping>-->
         <property>instrumentation/altimeter/setting-inhg</property>
       </binding>
     </hovered>

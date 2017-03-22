@@ -3,6 +3,11 @@
 
   <path>flightdeck.ac</path>
 
+  <!-- needed for tutorials -->
+  <model>
+    <path>Aircraft/Generic/marker.xml</path>
+  </model>
+
   <!-- Chrome Effect! -->
   <effect>
     <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>

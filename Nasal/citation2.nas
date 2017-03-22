@@ -253,12 +253,16 @@ setlistener("/sim/signals/fdm-initialized", func {
         setprop("/autopilot/settings/true-heading-deg", copyHeading);
         print("HeadingOverlay requested... True-heading set to ", copyHeading, "°");
       }
+
       start_autopilot_in_air.stop();
     });
     start_autopilot_in_air.singleShot = 1;
     start_autopilot_in_air.start();
   }
 
+
+  # override saved aircraft-data. It stores some useless data, and ignores some useful data.
+  saveState.update_saveState();
 
 
 #  resetTrim();

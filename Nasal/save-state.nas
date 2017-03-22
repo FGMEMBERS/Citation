@@ -9,6 +9,7 @@ var citation_save_general = [
   "/sim/aircraft-operator",
   "/sim/dimensions/parkpos-offset-m",
   "/sim/dimensions/radius-m",
+  "/sim/model/livery",
 ];
 
 var citation_array_fuel = [

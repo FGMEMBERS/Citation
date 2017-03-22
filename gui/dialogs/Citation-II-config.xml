@@ -187,9 +187,17 @@
           <layout>vbox</layout>
 
           <button>
+            <legend>Fuel and weights</legend>
+            <equal>true</equal>
+            <binding>
+              <command>nasal</command>
+              <script>gui.showWeightDialog()</script>
+            </binding>
+          </button>
+
+          <button>
             <legend>Select livery</legend>
             <equal>true</equal>
-            <default>true</default>
             <binding>
               <command>nasal</command>
               <script>aircraft.livery.dialog.toggle()</script>
@@ -199,7 +207,6 @@
           <button>
             <legend>Close all circuit breakers</legend>
             <equal>true</equal>
-            <default>true</default>
             <binding>
               <command>nasal</command>
               <script> saveState.reset_circuitBreakers(); </script>
@@ -209,7 +216,6 @@
           <button>
             <legend>Autostart</legend>
             <equal>true</equal>
-            <default>true</default>
             <binding>
               <command>property-toggle</command>
               <property>sim/model/autostart</property>
@@ -218,63 +224,53 @@
 
         </group>
 
-        <hrule/>
-
-        <group>
-          <layout>vbox</layout>
-
-          <button>
-            <legend>Open checklists</legend>
-            <equal>true</equal>
-            <default>true</default>
-            <binding>
-              <command>dialog-show</command>
-              <dialog-name>checklist</dialog-name>
-            </binding>
-          </button>
-
-          <button>
-            <legend>Open tutorials</legend>
-            <equal>true</equal>
-            <default>true</default>
-            <binding>
-              <command>dialog-show</command>
-              <dialog-name>tutorial</dialog-name>
-            </binding>
-          </button>
-
-          <button>
-            <legend>Open help dialog</legend>
-            <equal>true</equal>
-            <default>true</default>
-            <binding>
-              <command>nasal</command>
-              <script>gui.showHelpDialog("/sim/help")</script>
-            </binding>
-          </button>
-
-          <button>
-            <legend>Open wiki page</legend>
-            <equal>true</equal>
-            <default>true</default>
-            <binding>
-              <command>open-browser</command>
-              <path>http://wiki.flightgear.org/Cessna_550_Citation_II</path>
-            </binding>
-          </button>
-
-        </group>
       </group>
 
     </group>
-
 
     <hrule/>
 
     <group>
       <layout>hbox</layout>
 
-      <empty><stretch>true</stretch></empty>
+      <button>
+        <legend>Open checklists</legend>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>checklist</dialog-name>
+        </binding>
+      </button>
+
+      <button>
+        <legend>Open tutorials</legend>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>tutorial</dialog-name>
+        </binding>
+      </button>
+
+      <button>
+        <legend>Open help dialog</legend>
+        <binding>
+          <command>nasal</command>
+          <script>gui.showHelpDialog("/sim/help")</script>
+        </binding>
+      </button>
+
+      <button>
+        <legend>Open wiki page</legend>
+        <binding>
+          <command>open-browser</command>
+          <path>http://wiki.flightgear.org/Cessna_550_Citation_II</path>
+        </binding>
+      </button>
+
+    </group>
+
+    <hrule/>
+
+    <group>
+      <layout>hbox</layout>
 
       <group>
         <layout>vbox</layout>
@@ -283,12 +279,11 @@
           <legend>Save and close</legend>
           <equal>true</equal>
           <key>Esc</key>
-          <default>true</default>
-          <binding>
-            <command>dialog-close</command>
-          </binding>
           <binding>
             <command>dialog-apply</command>
+          </binding>
+          <binding>
+            <command>dialog-close</command>
           </binding>
         </button>
 
