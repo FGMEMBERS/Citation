@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>3.2.0</aircraft-version>
+    <aircraft-version>3.2.1</aircraft-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
@@ -604,6 +604,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             </binding>
           </item>
           <item>
+            <label>Fuel and Payload</label>
+            <binding>
+              <command>dialog-show</command>
+              <dialog-name>Citation-II-fuelAndWeight</dialog-name>
+            </binding>
+          </item>
+          <item>
+            <label>------------------</label>
+            <enabled>false</enabled>
+          </item>
+          <item>
             <label>Autostart</label>
             <binding>
               <command>property-toggle</command>
@@ -630,6 +641,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
               <command>nasal</command>
               <script>aircraft.livery.dialog.toggle()</script>
             </binding>
+          </item>
+          <item>
+            <label>------------------</label>
+            <enabled>false</enabled>
           </item>
 	  <item>
             <label>Show Citation II wiki page in browser</label>
@@ -756,8 +771,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </checklists>
 
     <tutorials>
-      <tutorial include="Tutorials/Citation-II-tutorial-startup.xml"/>
-      <tutorial include="Tutorials/Citation-II-tutorial-takeOff.xml"/>
+      <tutorial n="0" include="Tutorials/Citation-II-tutorial-startup.xml"/>
+      <tutorial n="1" include="Tutorials/Citation-II-tutorial-takeOff.xml"/>
     </tutorials>
   </sim>
 

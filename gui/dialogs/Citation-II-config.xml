@@ -30,7 +30,6 @@
           <pref-width>16</pref-width>
           <pref-height>16</pref-height>
           <legend></legend>
-          <default>1</default>
           <keynum>27</keynum>
           <border>2</border>
           <binding>
@@ -190,8 +189,8 @@
             <legend>Fuel and weights</legend>
             <equal>true</equal>
             <binding>
-              <command>nasal</command>
-              <script>gui.showWeightDialog()</script>
+              <command>dialog-show</command>
+              <dialog-name>Citation-II-fuelAndWeight</dialog-name>
             </binding>
           </button>
 
@@ -277,7 +276,7 @@
 
         <button>
           <legend>Save and close</legend>
-          <equal>true</equal>
+          <default>1</default>
           <key>Esc</key>
           <binding>
             <command>dialog-apply</command>

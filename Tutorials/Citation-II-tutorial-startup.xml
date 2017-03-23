@@ -89,10 +89,9 @@ GNU General Public License for more details.
       <value>0</value>
     </set>
     <set>
-      <property type="bool">/controls/fuelSet</property>
+      <property>/controls/fuelSet</property>
       <value>0</value>
     </set>
-
     <set>
       <property>/consumables/fuel/tank[0]/level-gal_us</property>
       <value>20</value>
@@ -113,66 +112,13 @@ GNU General Public License for more details.
       <property>/instrumentation/altimeter/setting-inhg</property>
       <value>29.92</value>
     </set>
-    <!--<nasal>
-      <script>
-        var showFuelSetDialog = func {
-          var name = "fuelSet";
-          var text = "Have you finished setting up your fuel and weights?";
-
-          gui.dialog[name] = gui.Widget.new();
-          gui.dialog[name].set("name", name);
-          gui.dialog[name].set("layout", "vbox");
-
-          var header = gui.dialog[name].addChild("group");
-          header.set("layout", "hbox");
-          header.addChild("empty").set("stretch", "1");
-          header.addChild("text").set("label", text);
-          header.addChild("empty").set("stretch", "1");
-
-          var contentArea = gui.dialog[name].addChild("group");
-          contentArea.set("layout", "hbox");
-          contentArea.set("default-padding", 10);
-
-          var buttonBar = gui.dialog[name].addChild("group");
-          buttonBar.set("layout", "hbox");
-          buttonBar.set("default-padding", 10);
-
-          var close = buttonBar.addChild("button");
-          close.set("legend", "Yes I'm done.");
-          close.set("default", "true");
-          close.set("key", "Enter");
-          #close.setBinding(setprop("/controls/fuelSet", 1));
-          close.setBinding("dialog-close");
-        }
-      </script>
-    </nasal>-->
   </init>
 
   <step>
     <message>
       First, you need to check if you have enough fuel!
-      Open the menu, choose Equipment, then &quot;Fuel and Payload&quot; - and set your desired fuel and weights.
+      Open the menu, choose Citation-II, then &quot;Fuel and Payload&quot; - and set your desired fuel and weights.
     </message>
-
-    <!--<nasal>
-      <script>
-        showFuelSetDialog();
-        gui.showWeightDialog();
-        var fuelSet = setlistener(__dlg.showWeightDialog.dialog-close, func() {
-          setprop("/controls/fuelSet", 1);
-        });
-      </script>
-    </nasal>-->
-
-    <error>
-      <message>You have to have fuel in order to fly! :o)</message>
-      <condition>
-        <equals>
-          <property>controls/fuelSet</property>
-          <value>1</value>
-        </equals>
-      </condition>
-    </error>
 
     <exit>
       <condition>
@@ -188,8 +134,8 @@ GNU General Public License for more details.
     <message>switch battery master bus ON!</message>
 
     <view>
-      <heading-offset-deg>14.8</heading-offset-deg>
-      <pitch-offset-deg>-34.5</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -228,8 +174,8 @@ GNU General Public License for more details.
     <message>Switch on left ignition!</message>
 
     <view>
-      <heading-offset-deg>14.1</heading-offset-deg>
-      <pitch-offset-deg>-35.4</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -258,8 +204,8 @@ GNU General Public License for more details.
     <message>Activate left fuel pump!</message>
 
     <view>
-      <heading-offset-deg>20.4</heading-offset-deg>
-      <pitch-offset-deg>-34.5</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -288,8 +234,8 @@ GNU General Public License for more details.
     <message>Press left engine starter!</message>
 
     <view>
-      <heading-offset-deg>17.6</heading-offset-deg>
-      <pitch-offset-deg>-34.0</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -337,7 +283,7 @@ GNU General Public License for more details.
     <exit>
       <condition>
         <greater-than-equals>
-          <property>engines/engine[0]/generator</property>
+          <property>engines/engine[0]/turbine</property>
           <value>20</value>
         </greater-than-equals>
       </condition>
@@ -547,7 +493,7 @@ GNU General Public License for more details.
     <exit>
       <condition>
         <greater-than-equals>
-          <property>engines/engine[1]/generator</property>
+          <property>engines/engine[1]/turbine</property>
           <value>20</value>
         </greater-than-equals>
       </condition>
@@ -588,8 +534,8 @@ GNU General Public License for more details.
     <message>Start the right engine generator!</message>
 
     <view>
-      <heading-offset-deg>15.8</heading-offset-deg>
-      <pitch-offset-deg>-34.5</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -648,8 +594,8 @@ GNU General Public License for more details.
     <message>Now let&apos;s activate the avionics!</message>
 
     <view>
-      <heading-offset-deg>13.4</heading-offset-deg>
-      <pitch-offset-deg>-34.0</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -708,8 +654,8 @@ GNU General Public License for more details.
     <message>Switch off the left fuel pump!</message>
 
     <view>
-      <heading-offset-deg>16.2</heading-offset-deg>
-      <pitch-offset-deg>-33.5</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -768,8 +714,8 @@ GNU General Public License for more details.
     <message>Switch off the right fuel pump!</message>
 
     <view>
-      <heading-offset-deg>14.4</heading-offset-deg>
-      <pitch-offset-deg>-34.2</pitch-offset-deg>
+      <heading-offset-deg>17.2</heading-offset-deg>
+      <pitch-offset-deg>-35.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
@@ -798,18 +744,28 @@ GNU General Public License for more details.
     <message>Well done! Both engines are running.</message>
 
     <view>
-      <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <heading-offset-deg>343.1</heading-offset-deg>
+      <pitch-offset-deg>-25.1</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>
       <y-offset-m>1.1</y-offset-m>
       <z-offset-m>3.3</z-offset-m>
-      <field-of-view>75.0</field-of-view>
+      <field-of-view>24.4</field-of-view>
     </view>
   </step>
 
   <step>
     <message>Set altimeter QNH from latest METAR. Look in menu, environment, weather. Use the mouse wheel to change the setting.</message>
+
+    <nasal>
+      <script>
+        var pressure = getprop("environment/pressure-inhg");
+        var pressure_max = pressure + 0.1;
+        var pressure_min = pressure - 0.1;
+        setprop("controls/pressMax", pressure_max);
+        setprop("controls/pressMin", pressure_min);
+      </script>
+    </nasal>
 
     <view>
       <heading-offset-deg>354.4</heading-offset-deg>
@@ -830,12 +786,16 @@ GNU General Public License for more details.
 
     <exit>
       <condition>
-        <not>
-          <equals>
+        <and>
+          <greater-than>
             <property>instrumentation/altimeter/setting-inhg</property>
-            <value>29.92</value>
-          </equals>
-        </not>
+            <property>controls/pressMin</property>
+          </greater-than>
+          <less-than>
+            <property>instrumentation/altimeter/setting-inhg</property>
+            <property>controls/pressMax</property>
+          </less-than>
+        </and>
       </condition>
     </exit>
   </step>
@@ -934,7 +894,7 @@ GNU General Public License for more details.
     <message>Switch on the nav lights!</message>
 
     <view>
-      <heading-offset-deg>13.0</heading-offset-deg>
+      <heading-offset-deg>13.7</heading-offset-deg>
       <pitch-offset-deg>-38.9</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
       <x-offset-m>-0.3</x-offset-m>

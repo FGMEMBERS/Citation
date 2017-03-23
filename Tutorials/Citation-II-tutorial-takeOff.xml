@@ -57,7 +57,10 @@ GNU General Public License for more details.
   </init>
 
   <step>
-    <message>Increase throttle SLOWLY to N2 = 95.9%</message>
+    <message>
+      Increase throttle SLOWLY to N2 = 95.9%
+      Press PgUp to increase throttle, PgDn to decrease throttle.
+    </message>
 
     <view>
       <heading-offset-deg>349.8</heading-offset-deg>
@@ -75,31 +78,6 @@ GNU General Public License for more details.
       <z-m>0.6405</z-m>
       <scale>1.9835</scale>
     </marker>
-
-    <error>
-      <message>Press PgUp to increase throttle, PgDn to decrease throttle.</message>
-
-      <condition>
-        <and>
-          <greater-than>
-            <property>engines/engine[0]/fan</property>
-            <value>95</value>
-          </greater-than>
-          <less-than>
-            <property>engines/engine[0]/fan</property>
-            <value>96</value>
-          </less-than>
-          <greater-than>
-            <property>engines/engine[1]/fan</property>
-            <value>95</value>
-          </greater-than>
-          <less-than>
-            <property>engines/engine[1]/fan</property>
-            <value>96</value>
-          </less-than>
-        </and>
-      </condition>
-    </error>
 
     <exit>
       <condition>
@@ -695,6 +673,7 @@ GNU General Public License for more details.
   </step>
 
   <end>
+    <message>Congratulations! You're on your way to FL330. Keep watching your AOA (angle of attack) and airspeed!</message>
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
       <pitch-offset-deg>-15.0</pitch-offset-deg>
