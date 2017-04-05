@@ -2,7 +2,7 @@
 <PropertyList>
   <params>
     <m-wing-dry-kg type="double">300</m-wing-dry-kg>
-    <K type="double">1000</K>
+    <K type="double">2000</K>
     <D type="double">40</D>
     <fuel-frac type="double">0.375</fuel-frac>
     <lift-node-lbs alias="/yasim/fbz-aero-lbs"/>

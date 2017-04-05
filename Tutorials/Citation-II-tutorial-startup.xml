@@ -755,17 +755,23 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Set altimeter QNH from latest METAR. Look in menu, environment, weather. Use the mouse wheel to change the setting.</message>
 
     <nasal>
       <script>
-        var pressure = getprop("environment/pressure-inhg");
-        var pressure_max = pressure + 0.1;
-        var pressure_min = pressure - 0.1;
+        var pressure = getprop("environment/pressure-sea-level-inhg");
+        var tmp = pressure * 100;
+        var tmp_tmp = math.round(tmp);
+        var tmp = tmp_tmp / 100;
+        var pressureHumanReadable = tmp_tmp / 100;
+        var pressure_max = pressureHumanReadable + 0.01;
+        var pressure_min = pressureHumanReadable - 0.01;
         setprop("controls/pressMax", pressure_max);
         setprop("controls/pressMin", pressure_min);
       </script>
     </nasal>
+
+    <message>Set altimeter QNH from latest METAR. (%.2f)</message>
+    <message-param><property>environment/pressure-sea-level-inhg</property></message-param>
 
     <view>
       <heading-offset-deg>354.4</heading-offset-deg>

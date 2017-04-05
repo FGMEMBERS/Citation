@@ -15,7 +15,7 @@ GNU General Public License for more details.
 -->
 <PropertyList>
 
-  <filter>
+  <filter n="10000">
     <name>Maximum positive load factor depending on flap position</name>
     <debug>false</debug>
     <type>gain</type>
@@ -32,7 +32,7 @@ GNU General Public License for more details.
     <output>/limits/max-positive-g</output>
   </filter>
 
-  <filter>
+  <filter n="10001">
     <name>Maximum negative load factor depending on flap position</name>
     <debug>false</debug>
     <type>gain</type>
@@ -66,7 +66,7 @@ GNU General Public License for more details.
 
 -->
 
-  <filter>
+  <filter n="10100">
     <name>calculate weight on wheels</name>
     <debug>false</debug>
     <type>gain</type>
@@ -87,7 +87,7 @@ GNU General Public License for more details.
     <output>/sim/systems/wingflexer/weight-on-wheels</output>
   </filter>
 
-  <filter>
+  <filter n="10101">
     <name>Lift force on the wings for wingflexer</name>
     <debug>false</debug>
     <type>gain</type>
@@ -103,6 +103,21 @@ GNU General Public License for more details.
       </expression>
     </input>
     <output>/yasim/fbz-aero-lbs</output>
+  </filter>
+
+  <filter n="10102">
+    <name>convert Newton to pound</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <product>
+          <property>/fdm/yasim/forces/f0-aero-z-lift</property>
+          <value>0.273205311997</value>
+        </product>
+      </expression>
+    </input>
+    <output>/yasim/lift-lbs</output>
   </filter>
 
 </PropertyList>
