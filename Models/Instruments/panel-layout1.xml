@@ -99,7 +99,7 @@
         </offsets>
     </model>
 
-    <!--<model>
+    <model>
         <path>Models/Instruments/alt.xml</path>
         <offsets>
             <x-m>0</x-m>
@@ -115,7 +115,7 @@
             <y-m>0.422</y-m>
             <z-m>0.336</z-m>
         </offsets>
-    </model>-->
+    </model>
 
     <model>
         <path>Models/Instruments/rmi.xml</path>
@@ -171,7 +171,7 @@
         </offsets>
     </model>
 
-    <!--<model>
+    <model>
         <path>Models/Instruments/ai.xml</path>
         <offsets>
             <x-m>0</x-m>
@@ -187,7 +187,7 @@
             <y-m>0.312</y-m>
             <z-m>0.322</z-m>
         </offsets>
-    </model>-->
+    </model>
 
     <model>
       <path>Models/Instruments/hsi.xml</path>
