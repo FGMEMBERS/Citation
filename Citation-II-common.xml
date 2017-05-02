@@ -50,15 +50,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <aircraft-operator type="string"></aircraft-operator>
 
     <tags> <!-- See: http://wiki.flightgear.org/Catalog_metadata#Supported_Tags -->
-      <tag>jet</tag>
-      <tag>2-engine</tag>
-      <tag>rembrandt</tag>
-      <tag>pressurized</tag>
-      <tag>retractable-gear</tag>
-      <tag>ifr</tag>
-      <tag>cessna</tag>
-      <tag>passenger</tag>
+      <tag>1970s</tag> <!-- certified 1978 -->
+      <tag>1980s</tag>
+      <tag>1990s</tag> <!-- production ended 1994, replaced by the Bravo -->
       <tag>bizjet</tag>
+      <tag>cessna</tag>
+      <tag>ifr</tag>
+      <tag>jet</tag>
+      <tag>rembrandt</tag>
+      <tag>retractable-gear</tag>
+      <tag>tricycle</tag>
+      <tag>twin-engine</tag>
     </tags>
 
     <previews>
