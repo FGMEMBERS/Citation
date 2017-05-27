@@ -10,7 +10,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>Beacon.sw</object-name>
     <object-name>CenterPanelLight.knob</object-name>
     <object-name>EL.knob</object-name>
@@ -118,6 +118,15 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>lights-floodlight</tooltip-id>
+            <label>Floodlight: %d%%</label>
+            <mapping>percent</mapping>
+            <property>controls/lighting/flood-light-norm</property>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -153,6 +162,15 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>lights-panellight-center</tooltip-id>
+            <label>Center panel light: %d%%</label>
+            <mapping>percent</mapping>
+            <property>controls/lighting/center-panel-norm</property>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -180,6 +198,15 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>lights-panellight-left</tooltip-id>
+            <label>Left panel light: %d%%</label>
+            <mapping>percent</mapping>
+            <property>controls/lighting/left-panel-norm</property>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -207,6 +234,15 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>lights-panellight-right</tooltip-id>
+            <label>Right panel light: %d%%</label>
+            <mapping>percent</mapping>
+            <property>controls/lighting/right-panel-norm</property>
+          </binding>
+        </hovered>
     </animation>
 
     <animation>
@@ -234,6 +270,15 @@
                 <wrap>false</wrap>
             </binding>
         </action>
+        <hovered>
+          <binding>
+            <command>set-tooltip</command>
+            <tooltip-id>lights-instruments</tooltip-id>
+            <label>Instrument lights: %d%%</label>
+            <mapping>percent</mapping>
+            <property>controls/lighting/instrument-lights-norm</property>
+          </binding>
+        </hovered>
     </animation>
 
 <!-- hotspots -->
@@ -253,6 +298,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights-beacon</tooltip-id>
+        <label>Beacon light: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/beacon-switch</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -270,6 +324,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights-landing-left</tooltip-id>
+        <label>Landing light left: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/landing-light-switch</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -287,6 +350,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights-landing-right</tooltip-id>
+        <label>Landing light right: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/landing-light-switch[1]</property>
+      </binding>
+    </hovered>
 </animation>
 
 <animation>
@@ -304,6 +376,15 @@
             <property>sim/sound/click</property>
         </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lights-panel</tooltip-id>
+        <label>Panel lights: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/lighting/panel-lights-switch</property>
+      </binding>
+    </hovered>
 </animation>
 
 </PropertyList>

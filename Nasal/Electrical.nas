@@ -7,7 +7,7 @@ var ACbus = props.globals.initNode("/systems/electrical/ac-volts",0,"DOUBLE");
 var Amps = props.globals.initNode("/systems/electrical/amps",0,"DOUBLE");
 var EXT  = props.globals.initNode("/controls/electric/external-power",0,"DOUBLE");
 var XTie  = props.globals.initNode("/systems/electrical/xtie",0,"BOOL");
-var inverter_switch = props.globals.initNode ("controls/electric/inverter-switch", 1, "BOOL");
+var inverter_switch = props.globals.initNode ("/controls/electric/inverter-switch", 1, "BOOL");
 
 var lbus_volts = 0.0;
 var rbus_volts = 0.0;
@@ -39,7 +39,7 @@ var Battery = {
     new : func(swtch,vlt,amp,hr,chp,cha){
     m = { parents : [Battery] };
             m.switch = props.globals.getNode(swtch,1);
-            m.switch.setBoolValue(0);
+#            m.switch.setBoolValue(0);
             m.ideal_volts = vlt;
             m.ideal_amps = amp;
             m.amp_hours = hr;
@@ -78,7 +78,7 @@ var Battery = {
         var x = 1.0 - me.charge_percent;
         var tmp = -(3.0 * x - 1.0);
         var factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
-        var output =me.ideal_amps * factor;
+        var output = me.ideal_amps * factor;
         return output;
         }else return 0;
     }
@@ -91,7 +91,7 @@ var Alternator = {
     new : func (num,switch,src,thr,vlt,amp){
         m = { parents : [Alternator] };
         m.switch =  props.globals.getNode(switch,1);
-        m.switch.setBoolValue(0);
+#        m.switch.setBoolValue(0);
         m.meter =  props.globals.getNode("systems/electrical/gen-load["~num~"]",1);
         m.meter.setDoubleValue(0);
         m.gen_output =  props.globals.getNode("engines/engine["~num~"]/amp-v",1);
@@ -355,13 +355,6 @@ lighting = func(bv) {
         load += lights_load[i] * srvc;
         lights_output[i].setValue(bv * srvc);
     }
-
-#setprop("sim/multiplay/generic/int",getprop("systems/electrical/outputs/strobe"));
-#setprop("sim/multiplay/generic/int[1]",getprop("systems/electrical/outputs/beacon"));
-#setprop("sim/multiplay/generic/int[2]",getprop("systems/electrical/outputs/taxi-light"));
-#setprop("sim/multiplay/generic/int[3]",getprop("systems/electrical/outputs/landing-light[0]"));
-#setprop("sim/multiplay/generic/int[3]",getprop("systems/electrical/outputs/landing-light[1]"));
-#setprop("sim/multiplay/generic/int[4]",getprop("systems/electrical/outputs/recog-lights"));
 
 return load;
 

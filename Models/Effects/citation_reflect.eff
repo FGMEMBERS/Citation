@@ -10,7 +10,7 @@
    <normalmap-dds type="int"> 0 </normalmap-dds>
    <normalmap-tiling type="float"> 1.0 </normalmap-tiling>
    <texture n="2">
-     <image>Aircraft/Citation/Models/Effects/normalmap.png</image>
+     <image>Models/Effects/normalmap.png</image>
    </texture>
 
 <!-- Light Map -->
@@ -24,7 +24,7 @@
    <lightmap-color type="vec3d" n="2"> 1.0 1.0 1.0 </lightmap-color>
    <lightmap-factor type="float" n="3">1.0</lightmap-factor>
    <lightmap-color type="vec3d" n="3"> 1.0 1.0 1.0 </lightmap-color>
-   
+
    <texture n="3">
      <image>Aircraft/Generic/Effects/greymap.png</image>
      <filter>linear-mipmap-linear</filter>
@@ -43,7 +43,7 @@
    </reflection-correction>
    <reflection-dynamic type="int"> 1 </reflection-dynamic>
    <texture n="4">
-     <image>Aircraft/Citation/Models/Effects/greymap.png</image>
+     <image>Models/Effects/greymap.png</image>
    </texture>
 
    <texture n="5">

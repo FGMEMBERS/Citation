@@ -6,6 +6,7 @@ var baggage_door_aft = aircraft.door.new("controls/baggage-door-aft",2);
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
 var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
+
 #Jet Engine Helper class
 # ie: var Eng = JetEngine.new(engine number);
 
@@ -118,6 +119,9 @@ var JetEngine = {
     }
 
 };
+
+
+
 #################################################
 var LHeng= JetEngine.new(0);
 var RHeng= JetEngine.new(1);
@@ -130,26 +134,159 @@ setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
     RHeng.shutdown (ignition.getBoolValue ());
 });
 
+
+
+
+var resetTrim = func(){
+  setprop("/controls/flight/elevator-trim", 0);
+  setprop("/controls/flight/rudder-trim", 0);
+  setprop("/controls/flight/aileron-trim", 0);
+  #print("All trim settings reset to 0...");
+}
+
+var resetControls = func() {
+  setprop("/controls/flight/elevator-trim", 0);
+  setprop("/controls/flight/rudder-trim", 0);
+  setprop("/controls/flight/aileron-trim", 0);
+  #print("All flight controls reset to 0...");
+}
+
+
+
+
 setlistener("/sim/signals/fdm-initialized", func {
+
+  setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
+  switch_rmi("single-needle", 0);
+
+
+  if (getprop("/consumables/fuel/fuel_overlay") == 1) {
+    # if we initialising a state overlay, then use pre-programmed fuel levels
+    var fuelL= getprop("/consumables/fuel/fuel_overlay_0");
+    var fuelR= getprop("/consumables/fuel/fuel_overlay_1");
+    var totalFuel = fuelL + fuelR;
+    print("Setting fuel levels to ", totalFuel, "lbs total.");
+
+    # set some other properties
+    if(getprop("/gear/gear_overlay") == 1) {
+      print("forcing gear down!");
+      setprop("/controls/gear/gear-down", 1);
+    }
+
+    # Try to get the preset numbers into the instruments
+    #setprop("/instrumentation/rmi/single-needle/selected-input", getprop("/sim/presets/heading-deg"));
+
+  }
+  else {
     # Read old fuel levels
     var fuelL= getprop("/consumables/fuel/fuel-gal_us-0");
     var fuelR= getprop("/consumables/fuel/fuel-gal_us-1");
       # make sure we don't pass along a nil! (Most likely because this is our
       # first run with this model and have no previous value stored.)
-    if(fuelL == nil){ fuelL = 371; }
-    if(fuelR == nil){ fuelR = 371; }
+    if(fuelL == nil or fuelR == nil) {
+      fuelL = 371;
+      fuelR = 371;
+      print("No stored fuel-levels found. Setting to full.");
+    }
+    else {
+      var totalFuel = fuelL + fuelR;
+      print("Old fuel-levels restored. You have ", totalFuel, "lbs of fuel aboard.")
+    }
+  }
     # Override default "full tanks" with read values
-    setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
-    setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
+  setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
+  setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
 
-    SndIn.setDoubleValue(0.75);
-    SndOut.setDoubleValue(0.15);
-    settimer(update_systems,2);
-    # Initially drive the pilot's HSI with NAV1 and copilot's with NAV2
-    drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[0]"),
-                        props.globals.getNode ("/instrumentation/nav[0]"));
-    drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[1]"),
-                        props.globals.getNode ("/instrumentation/nav[1]"));
+
+  # on state overlays "taxi", "take-off" and "approach" we set the pressure automatically
+  # since every checklist would agree to do this ahead of time!
+  if (getprop("/environment/overlay") == 1) {
+    var setAltimeterToPressure = maketimer(2, func() {
+      setprop("/instrumentation/altimeter/setting-inhg", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
+      print("Altimeter set to ", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
+      setAltimeterToPressure.stop();
+    });
+    setAltimeterToPressure.singleShot = 1;
+    setAltimeterToPressure.start();
+  }
+
+  # on states "cruise" and "approach" we set a heading from the launcher/CLI (--heading=123)
+  if (getprop("/autopilot/heading_overlay")) {
+
+    # start autopilot late, to avoid turbulent reactions from it
+    var start_autopilot_in_air = maketimer(3, func(){
+      print("Starting A/P ...");
+
+      var overlay_name = getprop("/autopilot/overlay-name");
+      if (overlay_name != nil) {
+        if (overlay_name == "cruise") {
+          var damper_mode = 1;
+          var alt_mode = "altitude-hold";
+          var hdg_mode = "true-heading-hold";
+          var speed_mode = "speed-with-throttle";
+          var bank_limit = 14;
+          var target_speed = 220;
+          var target_altitude = 36000;
+        }
+        if (overlay_name == "approach") {
+          var damper_mode = 0;
+          var alt_mode = "";
+          var hdg_mode = "";
+          var speed_mode = "";
+          var bank_limit = 27;
+          var target_speed = 100;
+          var target_altitude = 3000;
+        }
+
+        setprop("/autopilot/locks/passive-mode", 0);
+        setprop("/autopilot/settings/bank-limit", bank_limit);
+        setprop("/autopilot/locks/yaw-damper", damper_mode);
+
+        setprop("/autopilot/locks/speed", speed_mode);
+        setprop("/autopilot/settings/target-speed-kt", target_speed);
+
+        setprop("/autopilot/locks/altitude", alt_mode);
+        setprop("/autopilot/settings/target-altitude-ft", target_altitude);
+
+        var copyHeading = getprop("/sim/presets/heading-deg");
+        setprop("/autopilot/locks/heading", hdg_mode);
+        setprop("/autopilot/settings/true-heading-deg", copyHeading);
+        print("HeadingOverlay requested... True-heading set to ", copyHeading, "°");
+      }
+
+      start_autopilot_in_air.stop();
+    });
+    start_autopilot_in_air.singleShot = 1;
+    start_autopilot_in_air.start();
+  }
+
+
+  # override saved aircraft-data. It stores some useless data, and ignores some useful data.
+  saveState.update_saveState();
+
+
+#  resetTrim();
+#  resetControls();
+#
+#  var resetFlightControls = maketimer(0.5, func() {
+#    resetTrim();
+#    resetControls();
+#    resetFlightControls.stop();
+#  });
+#  resetFlightControls.singleShot = 1;
+#  resetFlightControls.start();
+
+
+
+
+  SndIn.setDoubleValue(0.75);
+  SndOut.setDoubleValue(0.15);
+  settimer(update_systems,2);
+  # Initially drive the pilot's HSI with NAV1 and copilot's with NAV2
+  drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[0]"),
+                      props.globals.getNode ("/instrumentation/nav[0]"));
+  drive_hsi_with_nav (props.globals.getNode ("/instrumentation/hsi[1]"),
+                      props.globals.getNode ("/instrumentation/nav[1]"));
 });
 
 setlistener("/sim/current-view/internal", func(vw){
@@ -229,7 +366,23 @@ controls.flapsDown = func(v) {
     setprop("controls/flight/flaps",flap_pos);
 }
 
-var update_systems = func{
+var switch_rmi = func(needle, nav_number) {
+  var selected_input = getprop ("/instrumentation/rmi/" ~ needle ~ "/selected-input");
+  var dest_node = props.globals.getNode ("/instrumentation/rmi/" ~ needle ~ "/in-range", 1);
+  dest_node.unalias ();
+  if (selected_input == "ADF") {
+    #print("RMI[", nav_number, "]: selected_input == ADF (", selected_input, ")");
+    var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
+    dest_node.alias (source_node);
+  }
+  elsif (selected_input == "VOR") {
+    #print("RMI[", nav_number, "]: selected_input == VOR (", selected_input, ")");
+    var source_node = props.globals.getNode ("/instrumentation/nav[" ~ nav_number ~ "]/in-range");
+    dest_node.alias (source_node);
+  }
+}
+
+var update_systems = func() {
     LHeng.update();
     RHeng.update();
     if(getprop("velocities/groundspeed-kt")>10) {
@@ -269,8 +422,10 @@ var update_systems = func{
         }
     }
 
-    setprop("/consumables/fuel/fuel-gal_us-0", getprop("/consumables/fuel/tank[0]/level-gal_us"));
-    setprop("/consumables/fuel/fuel-gal_us-1", getprop("/consumables/fuel/tank[1]/level-gal_us"));
+    # ugly hack! See Citation-II-common.xml line 711
+    setprop("/consumables/fuel/fuel-gal_us-0", getprop("consumables/fuel/tank[0]/level-gal_us"));
+    setprop("/consumables/fuel/fuel-gal_us-1", getprop("consumables/fuel/tank[1]/level-gal_us"));
+
     settimer(update_systems,0);
 }
 
@@ -301,10 +456,10 @@ var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (
 var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) {
     var speed_lock = speed.getValue ();
     if (speed_lock == "speed-with-throttle") {
-        setprop("autopilot/settings/target-speed-kt", getprop ("velocities/airspeed-kt"));
+      setprop("autopilot/settings/target-speed-kt", getprop ("instrumentation/airspeed-indicator/index-marker"));
     }
     elsif (speed_lock == "speed-with-pitch-trim") { # only possible from the generic AP dialog
-        screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
+      screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
     }
 }, 0, 0);
 
@@ -320,7 +475,7 @@ var alias_recursively = func (source, dest) { # source and dest must be nodes no
       var dest_node = dest.getChild (child.getName (), child.getIndex (), 1);
       alias_recursively (child, dest_node);
    }
-};
+}
 
 var drive_hsi_with_nav = func (hsi_node, nav_node) {
    var inputs = hsi_node.getChild ("inputs", 0, 1);
@@ -330,7 +485,7 @@ var drive_hsi_with_nav = func (hsi_node, nav_node) {
    var dest_volts_node = hsi_node.getChild ("volts", 0, 1);
    dest_volts_node.unalias ();
    dest_volts_node.alias (source_volts_node);
-};
+}
 
 var pilot_hsi_listener =
   setlistener ("/instrumentation/hsi[0]/selected-nav", func (selected_nav) {

@@ -9,7 +9,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>ASI320</object-name>
     <object-name>ASI320.face</object-name>
     <object-name>ASI320.knob</object-name>
@@ -99,7 +99,14 @@
         <max>320</max>
         <wrap>false</wrap>
       </binding>
-    </action>
+      </action><hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>target-airspeed</tooltip-id>
+        <label>A/P: Target Airspeed: %d kts</label>
+        <property>instrumentation/airspeed-indicator/index-marker</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>

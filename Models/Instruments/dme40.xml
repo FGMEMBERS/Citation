@@ -9,7 +9,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>DME</object-name>
     <object-name>DME.display</object-name>
     <object-name>DME.invalid</object-name>
@@ -281,6 +281,19 @@
 	  }</script>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>DME-source</tooltip-id>
+        <label>DME source: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['NAV1', 'HOLD', 'NAV2'];
+          return modes[arg[0]];
+        </script>
+        <property>instrumentation/dme/switch-position[0]</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -314,6 +327,19 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>DME-mode</tooltip-id>
+        <label>DME mode: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'minutes', 'Kts'];
+          return modes[arg[0]];
+        </script>
+        <property>instrumentation/dme/switch-position[1]</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>

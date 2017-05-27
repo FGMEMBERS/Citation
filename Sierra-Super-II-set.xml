@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <PropertyList include="Citation-II-common.xml">
   <sim>
+    <variant-of>Citation-II</variant-of>
     <aero>Sierra-Super-II-yasim</aero>
     <description>Sierra Super II</description>
     <long-description>
@@ -56,23 +57,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </fr>
     <de>
       <long-description>
-	Die Sierra Super II ist ein nachgerüsteter Umbau der Cessna
-	550/551 bei welcher die Triebwerke mit Williams International
-	FJ44-3 Mantelstrom-Triebwerken ausgestauscht wurden, die 2004
-	vorgestellt wurden. Diese liefern mehr Schub und verbrauchen
-	weniger Treibstoff. Die Steigrate wird dadurch erheblich
-	gesteigert. Bei vollem Startgewicht beträgt die Reise-
-	geschwindigkeit 370 KTAS bei FL430; die Reichweite beträgt
-	2500 nautische Meilen.
+        Die Sierra Super II ist ein nachgerüsteter Umbau der Cessna
+        550/551 bei welcher die Triebwerke mit Williams International
+        FJ44-3 Mantelstrom-Triebwerken ausgestauscht wurden, die 2004
+        vorgestellt wurden. Diese liefern mehr Schub und verbrauchen
+        weniger Treibstoff. Die Steigrate wird dadurch erheblich
+        gesteigert. Bei vollem Startgewicht beträgt die Reise-
+        geschwindigkeit 370 KTAS bei FL430; die Reichweite beträgt
+        2500 nautische Meilen.
 
-	Die neuen Triebwerke haben keine Schubumkehr; diese wird auch
-	nicht gebraucht, da der Leerlaufschub nur bei 178 N liegt, im
-	Gegensatz zu 1780 N bei den alten Triebwerken.
+        Die neuen Triebwerke haben keine Schubumkehr; diese wird auch
+        nicht gebraucht, da der Leerlaufschub nur bei 178 N liegt, im
+        Gegensatz zu 1780 N bei den alten Triebwerken.
       </long-description>
     </de>
-    <variant-of>Citation-II</variant-of>
+
     <model>
-      <variant type="int">1</variant>
+      <variant type="int">1</variant> <!-- transmitted over multiplayer -->
     </model>
   </sim>
   <autopilot>

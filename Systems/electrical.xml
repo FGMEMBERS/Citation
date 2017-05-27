@@ -369,12 +369,18 @@
     <type>gain</type>
     <input>
       <condition>
-	<not>
-	  <equals>
-	    <property>controls/fuel/tank/boost-pump-switch</property>
-	    <value>0</value>
-	  </equals>
-	</not>
+        <and>
+	  <not>
+	    <equals>
+	      <property>controls/fuel/tank/boost-pump-switch</property>
+	      <value>0</value>
+	    </equals>
+	  </not>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -389,12 +395,18 @@
     <type>gain</type>
     <input>
       <condition>
-	<not>
-	  <equals>
-	    <property>controls/fuel/tank[1]/boost-pump-switch</property>
-	    <value>0</value>
-	  </equals>
-	</not>
+        <and>
+	  <not>
+	    <equals>
+	      <property>controls/fuel/tank[1]/boost-pump-switch</property>
+	      <value>0</value>
+	    </equals>
+	  </not>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <value>1</value>
     </input>

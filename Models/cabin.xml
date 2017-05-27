@@ -28,7 +28,7 @@
 
   <!-- cockpit shadows -->
   <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
     <object-name>Cabin</object-name>
     <object-name>Cabin.AftComp.Door</object-name>
     <object-name>Cabin.Cupholders</object-name>
@@ -640,6 +640,15 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cabin-lights</tooltip-id>
+        <label>Cabin lights: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/lighting/cabin-lights-norm</property>
+      </binding>
+    </hovered>
   </animation>
   <animation>
     <type>pick</type>
@@ -672,6 +681,15 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cabin-lights</tooltip-id>
+        <label>Cabin lights: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/lighting/cabin-lights-norm</property>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>

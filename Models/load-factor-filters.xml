@@ -15,7 +15,7 @@ GNU General Public License for more details.
 -->
 <PropertyList>
 
-  <filter>
+  <filter n="10000">
     <name>Maximum positive load factor depending on flap position</name>
     <debug>false</debug>
     <type>gain</type>
@@ -32,7 +32,7 @@ GNU General Public License for more details.
     <output>/limits/max-positive-g</output>
   </filter>
 
-  <filter>
+  <filter n="10001">
     <name>Maximum negative load factor depending on flap position</name>
     <debug>false</debug>
     <type>gain</type>
@@ -49,41 +49,75 @@ GNU General Public License for more details.
     <output>/limits/max-negative-g</output>
   </filter>
 
-  <filter>
+
+
+<!--
+
+  Instead of calculating the initial weight to gear compression ratio
+  I've calculated them once using this formula:
+
+    weight-on-wheels = 0.5 * compression_norm(t) * (w_0 / c_0)
+
+  where compression_norm(t) is derived from /gear/gear[1]/compression-norm
+  and w_0 = initialWeight          = 13909.19628906249 lbs
+  and c_0 = initialGearCompression = 0.2607718557119369
+
+  Now w_0 / c_0 = 53307.28336965086
+
+-->
+
+  <filter n="10100">
+    <name>calculate weight on wheels</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <product>
+          <div>
+            <sum>
+              <property>gear/gear[1]/compression-norm</property>
+              <property>gear/gear[2]/compression-norm</property>
+            </sum>
+            <value>2</value>
+          </div>
+          <value>53307.28336965086</value>
+        </product>
+      </expression>
+    </input>
+    <output>/sim/systems/wingflexer/weight-on-wheels</output>
+  </filter>
+
+  <filter n="10101">
     <name>Lift force on the wings for wingflexer</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
       <expression>
-	<difference>
+        <difference>
 	  <product>
 	    <property>yasim/gross-weight-lbs</property>
-	    <property>accelerations/n-z-cg-fps_sec</property>
+	    <property>accelerations/pilot-g</property>
 	  </product>
-	  <!--div>
-	    <property>yasim/gross-weight-lbs</property>
-	    <property>accelerations/ned/down-accel-fps_sec</property>
-	  </div-->
-	</difference>
+          <property>sim/systems/wingflexer/weight-on-wheels</property>
+        </difference>
       </expression>
     </input>
     <output>/yasim/fbz-aero-lbs</output>
   </filter>
 
-  <filter>
-    <name>Convert wing deflection z-m to z-deg</name>
+  <filter n="10102">
+    <name>convert Newton to pound</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
       <expression>
-	<tan> <!-- tan alpha = a / b -->
-	  <div>
-	    <property>sim/systems/wingflexer/z-m</property>
-	    <value>7</value> <!-- wing length in meter -->
-	  </div>
-	</tan>
+        <product>
+          <property>/fdm/yasim/forces/f0-aero-z-lift</property>
+          <value>0.273205311997</value>
+        </product>
       </expression>
     </input>
-    <output>/sim/systems/wingflexer/z-deg</output>
+    <output>/yasim/lift-lbs</output>
   </filter>
+
 </PropertyList>

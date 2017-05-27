@@ -9,7 +9,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>ALT</object-name>
     <object-name>ALT.face</object-name>
     <object-name>ALT.knob</object-name>
@@ -248,6 +248,17 @@
         <wrap>false</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>ALT-knob</tooltip-id>
+        <!--<label>Altimeter setting: %.2f inHg - %.2f hPa</label>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <property>instrumentation/altimeter/setting-hpa</property>-->
+        <label>Altimeter setting: %.2f inHg</label>
+        <property>instrumentation/altimeter/setting-inhg</property>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>

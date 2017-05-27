@@ -5,11 +5,11 @@
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>Btn1.1</object-name>
     <object-name>Btn1.2</object-name>
     <object-name>Btn1.3</object-name>

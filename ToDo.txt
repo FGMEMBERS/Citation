@@ -28,6 +28,16 @@ generic:
              up, it stays at current value until ignition is switched on again. Should
              spool down instead! While at it, starter-disengage should be hung into
              that as well!
+* XML        Get rid of the startup sound! Really annoying!
+             > While I am at it, does anyone know the specifics behind the sound being
+             > played while loading the sim? That is another real annoying bit of bad
+             > effects. It is especially annoying when trying to use some presets
+             > parameters such as flaps or starter and having to listen to the flaps
+             > deploy sound while the sim loads. Is there a work around to eliminate
+             > it? If not where/what in the source is the suspected trouble spot?
+             This is caused by <mode>in-transit</mode> sounds iirc, and can be easily
+             mitigated in the sound config by adding a condition check on some /sim/signals/
+             property, or on /sim/startup/splash-alpha=0
 
 autopilot:
 * XML/Nasal: When "Pitch-Trim" circuit-breaker is pulled

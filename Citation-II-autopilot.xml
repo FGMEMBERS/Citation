@@ -63,7 +63,7 @@
 			<value>dg-heading-hold</value>
 		</enable>
 		<input>
-			<prop>/autopilot/internal/fdm-heading-bug-error-deg</prop>
+                  <prop>/autopilot/internal/fdm-heading-bug-error-deg</prop>
 		</input>
 		<reference>
 			<value>0.0</value>
@@ -538,8 +538,8 @@
 		</config>
 	</pid-controller>
 	<!-- Glideslope hold. -->
-	
-		
+
+
 	<pid-controller>
 		<name>Glideslope Hold</name>
 		<debug>false</debug>

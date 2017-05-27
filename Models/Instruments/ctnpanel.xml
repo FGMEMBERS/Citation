@@ -10,7 +10,7 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>ACfail.on</object-name>
     <object-name>Ctn.panel</object-name>
     <object-name>Lfuel.lo</object-name>
@@ -99,11 +99,10 @@
     <type>select</type>
     <object-name>lboost.on</object-name>
     <condition>
-      <property>controls/fuel/tank[0]/boost-pump</property>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20</value>
-      </greater-than>
+      <equals>
+        <property>controls/fuel/tank[0]/boost-pump</property>
+        <value>1</value>
+      </equals>
     </condition>
   </animation>
 
@@ -111,11 +110,10 @@
     <type>select</type>
     <object-name>rboost.on</object-name>
     <condition>
-      <property>controls/fuel/tank[1]/boost-pump</property>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>20</value>
-      </greater-than>
+      <equals>
+        <property>controls/fuel/tank[1]/boost-pump</property>
+        <value>1</value>
+      </equals>
     </condition>
   </animation>
 

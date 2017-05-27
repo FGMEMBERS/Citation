@@ -160,7 +160,17 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left-1</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-bus-left-1</tooltip-id>
+        <label>Circuit breakers Left bus 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left-1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
+
   <animation>
     <type>translate</type>
     <object-name>cb.LHBus.2</object-name>
@@ -183,7 +193,17 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left-2</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-bus-left-2</tooltip-id>
+        <label>Circuit breakers Left bus 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left-2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
+
   <animation>
     <type>translate</type>
     <object-name>cb.LHBus.3</object-name>
@@ -206,7 +226,17 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left-3</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-bus-left-3</tooltip-id>
+        <label>Circuit breakers Left bus 3: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left-3</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
+
 
   <animation>
     <type>translate</type>
@@ -230,6 +260,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-light-panel-left</tooltip-id>
+        <label>Circuit breakers Lights panel left: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -254,6 +293,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-light-panel-center</tooltip-id>
+        <label>Circuit breakers Lights panel center: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -278,6 +326,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-light-beacon</tooltip-id>
+        <label>Circuit breakers Lights beacon: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -302,6 +359,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-light-strobe</tooltip-id>
+        <label>Circuit breakers Lights strobe: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -326,6 +392,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-light-winginsp</tooltip-id>
+        <label>Circuit breakers Lights wing-inspection: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -350,6 +425,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-speedbrakes</tooltip-id>
+        <label>Circuit breakers Speedbrakes: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -398,6 +482,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-gearctl</tooltip-id>
+        <label>Circuit breakers Gear control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -422,6 +515,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-flap-ctl</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-flapctl</tooltip-id>
+        <label>Circuit breakers Flap control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-flap-ctl</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -446,6 +548,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-flap-motor</tooltip-id>
+        <label>Circuit breakers Flap motors: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -494,6 +605,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-start-left</tooltip-id>
+        <label>Circuit breakers Starter left: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
 <!--
@@ -524,7 +644,17 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-right-1</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-bus-right-1</tooltip-id>
+        <label>Circuit breakers Bus right 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right-1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
+
   <animation>
     <type>translate</type>
     <object-name>cb.RHBus.2</object-name>
@@ -547,7 +677,17 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-right-2</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-bus-right-2</tooltip-id>
+        <label>Circuit breakers Bus right 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right-2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
+
   <animation>
     <type>translate</type>
     <object-name>cb.RHBus.3</object-name>
@@ -570,7 +710,17 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-right-3</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-bus-right-3</tooltip-id>
+        <label>Circuit breakers Bus right 3: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right-3</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
+
 
   <animation>
     <type>translate</type>
@@ -594,6 +744,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-lights-panel-right</tooltip-id>
+        <label>Circuit breakers Lights panel right: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -618,6 +777,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-lights-nav</tooltip-id>
+        <label>Circuit breakers Lights navigation: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
   <animation>
@@ -666,8 +834,17 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-starter-right</tooltip-id>
+        <label>Circuit breakers Starter right: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
-  
+
   <animation>
     <type>translate</type>
     <object-name>cb.GroundProx</object-name>
@@ -690,6 +867,15 @@ C/B's on the right panel need:
         <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-ground-prox</tooltip-id>
+        <label>Circuit breakers Ground proximity warning system: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
 </PropertyList>
