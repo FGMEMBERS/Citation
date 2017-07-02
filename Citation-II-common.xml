@@ -32,6 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <flight-model>yasim</flight-model>
 
     <aircraft-version>3.2.1</aircraft-version>
+    <minimum-fg-version>2017.3.0</minimum-fg-version>
     <status>production</status>
     <rating>
       <FDM type="int">5</FDM>
