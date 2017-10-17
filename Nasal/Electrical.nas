@@ -334,6 +334,11 @@ lh_bus = func(bv) {
     return load;
 }
 
+var com1 = props.globals.initNode ("instrumentation/comm[0]/power-btn", 0, "BOOL");
+var com2 = props.globals.initNode ("instrumentation/comm[1]/power-btn", 0, "BOOL");
+var nav1 = props.globals.initNode ("instrumentation/nav[0]/power-btn", 0, "BOOL");
+var nav2 = props.globals.initNode ("instrumentation/nav[1]/power-btn", 0, "BOOL");
+
 av_bus = func(bv) {
     var load = 0.0;
     var srvc = 0.0;
@@ -343,6 +348,15 @@ av_bus = func(bv) {
         load += avbus_load[i] * srvc;
         avbus_output[i].setValue(bv * srvc);
     }
+    # If the comm/nav devices are serviceable (power button on) and have electricity, enable them.  Their "power-btn" property controls whether they actually do anything.
+    com1.setBoolValue (getprop ("instrumentation/comm[0]/serviceable")
+                  and (getprop ("systems/electrical/outputs/comm[0]") > 22));
+    com2.setBoolValue (getprop ("instrumentation/comm[1]/serviceable")
+                  and (getprop ("systems/electrical/outputs/comm[1]") > 22));
+    nav1.setBoolValue (getprop ("instrumentation/nav[0]/serviceable")
+                  and (getprop ("systems/electrical/outputs/nav[0]") > 22));
+    nav2.setBoolValue (getprop ("instrumentation/nav[1]/serviceable")
+                  and (getprop ("systems/electrical/outputs/nav[1]") > 22));
     return load;
 }
 

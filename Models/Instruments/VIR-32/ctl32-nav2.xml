@@ -65,10 +65,7 @@ Syd Adams
         <object-name>stby.005</object-name>
         <object-name>mem.annun</object-name>
         <condition>
-            <greater-than>
-                <property>systems/electrical/outputs/nav[1]</property>
-                <value>1</value>
-            </greater-than>
+          <property>instrumentation/nav[1]/power-btn</property>
         </condition>
     </animation>
 
