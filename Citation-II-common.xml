@@ -28,10 +28,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
   <sim>
-    <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues</author>
+    <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>3.2.2</aircraft-version>
+    <aircraft-version>3.3.0</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
