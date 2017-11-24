@@ -202,7 +202,7 @@
       <object-name>LH.starter.active</object-name>
       <object-name>LH.ign.active</object-name>
       <condition>
-	<property>controls/engines/engine/starter</property>
+        <property>controls/engines/engine[0]/starter</property>
       </condition>
     </animation>
 
@@ -211,7 +211,7 @@
       <object-name>RH.starter.active</object-name>
       <object-name>RH.ign.active</object-name>
       <condition>
-	<property>controls/engines/engine[1]/starter</property>
+        <property>controls/engines/engine[1]/starter</property>
       </condition>
     </animation>
 
@@ -266,7 +266,7 @@
         <object-name>rboost.sw</object-name>
         <property>controls/fuel/tank[1]/boost-pump-switch</property>
         <factor>15</factor>
-	<center>
+        <center>
             <x-m>0.005</x-m>
             <y-m>-0.059</y-m>
             <z-m>-0.002</z-m>
@@ -382,11 +382,11 @@
         <object-name>volt.knob</object-name>
         <property>controls/electric/voltage-sel</property>
         <factor>30</factor>
-	<center>
-	    <x-m>0.01023</x-m>
+        <center>
+            <x-m>0.01023</x-m>
             <y-m>-0.04251</y-m>
             <z-m>0.07432</z-m>
-	</center>
+        </center>
         <axis>
             <x>-1</x>
             <y>0</y>
@@ -424,14 +424,14 @@
       <factor>8.1818</factor>
       <offset-deg>-57</offset-deg>
       <center>
-	<x-m>0.00053</x-m>
-	<y-m>-0.00164</y-m>
-	<z-m>0.07761</z-m>
+        <x-m>0.00053</x-m>
+        <y-m>-0.00164</y-m>
+        <z-m>0.07761</z-m>
       </center>
       <axis>
-	<x>-1</x>
-	<y>0</y>
-	<z>0</z>
+        <x>-1</x>
+        <y>0</y>
+        <z>0</z>
       </axis>
     </animation>
 
@@ -453,11 +453,11 @@
         <object-name>test.knob</object-name>
         <property>controls/electric/system-test</property>
         <factor>36</factor>
-	<center>
-	    <x-m>0.01023</x-m>
+        <center>
+            <x-m>0.01023</x-m>
             <y-m>-0.06491</y-m>
             <z-m>0.03725</z-m>
-	</center>
+        </center>
         <axis>
             <x>-1</x>
             <y>0</y>
@@ -501,11 +501,11 @@
         <object-name>fuel.knob</object-name>
         <property>controls/electric/fuel-sel</property>
         <factor>60</factor>
-	<center>
-	    <x-m>0.01023</x-m>
+        <center>
+            <x-m>0.01023</x-m>
             <y-m>-0.07044</y-m>
             <z-m>-0.06660</z-m>
-	</center>
+        </center>
         <axis>
             <x>-1</x>
             <y>0</y>
@@ -698,105 +698,106 @@
     </hovered>
 </animation>
 
-<animation>
-    <type>pick</type>
-    <object-name>LH.starter</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-     <binding>
-       <condition>
-	 <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
-       </condition>
-       <command>property-assign</command>
-       <property>controls/engines/engine[0]/starter</property>
-       <value>1</value>
-     </binding>
-     <!--mod-up>
-       <binding>
-         <command>property-assign</command>
-         <property>controls/engines/engine[0]/starter</property>
-         <value>0</value>
-       </binding>
-     </mod-up-->
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>lstarter</tooltip-id>
-        <label>Left hand starter: %s</label>
-        <mapping>on-off</mapping>
-        <property>controls/engines/engine[0]/starter</property>
-      </binding>
-    </hovered>
-</animation>
 
-<animation>
-    <type>pick</type>
-    <object-name>RH.starter</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
-     <binding>
-       <condition>
-	 <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
-       </condition>
-       <command>property-assign</command>
-       <property>controls/engines/engine[1]/starter</property>
-       <value>1</value>
-     </binding>
-     <!--mod-up>
-       <binding>
-         <command>property-assign</command>
-         <property>controls/engines/engine[1]/starter</property>
-         <value>0</value>
-       </binding>
-     </mod-up-->
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>rstarter</tooltip-id>
-        <label>Right hand starter: %s</label>
-        <mapping>on-off</mapping>
-        <property>controls/engines/engine[1]/starter</property>
-      </binding>
-    </hovered>
-</animation>
+    <animation>
+        <type>pick</type>
+        <object-name>LH.starter</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>sim/sound/click</property>
+            </binding>
+            <binding>
+                <condition>
+                    <and>
+                        <property>systems/electrical/left-bus</property>
+                        <not><property>engines/engine[0]/started</property></not>
+                        <not><property>controls/electric/engine[0]/starter-btn</property></not>
+                    </and>
+                </condition>
+                <command>property-toggle</command>
+                <property>controls/electric/engine[0]/starter-btn</property>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>lstarter</tooltip-id>
+                <label>Left hand starter: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/electric/engine[0]/starter-btn</property>
+            </binding>
+        </hovered>
+    </animation>
 
-<animation>
-  <type>pick</type>
-  <object-name>Starter.off</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/engines/engine/starter</property>
-      <value>0</value>
-    </binding>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/engines/engine[1]/starter</property>
-      <value>0</value>
-    </binding>
-  </action>
-  <hovered>
-    <binding>
-      <command>set-tooltip</command>
-      <tooltip-id>starter-disengage</tooltip-id>
-      <label>Starter disengage</label>
-    </binding>
-  </hovered>
-</animation>
+    <animation>
+        <type>pick</type>
+        <object-name>RH.starter</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>sim/sound/click</property>
+            </binding>
+            <binding>
+                <condition>
+                    <and>
+                        <property>systems/electrical/right-bus</property>
+                        <not><property>engines/engine[1]/started</property></not>
+                        <not><property>controls/electric/engine[1]/starter-btn</property></not>
+                    </and>
+                </condition>
+                <command>property-toggle</command>
+                <property>controls/electric/engine[1]/starter-btn</property>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rstarter</tooltip-id>
+                <label>Right hand starter: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/electric/engine[1]/starter-btn</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Starter.off</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>sim/sound/click</property>
+            </binding>
+            <binding>
+                <condition>
+                    <property>controls/electric/engine[0]/starter-btn</property>
+                </condition>
+                <command>property-toggle</command>
+                <property>controls/electric/engine[0]/starter-btn</property>
+            </binding>
+            <binding>
+                <condition>
+                    <property>controls/electric/engine[1]/starter-btn</property>
+                </condition>
+                <command>property-toggle</command>
+                <property>controls/electric/engine[1]/starter-btn</property>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>starter-disengage</tooltip-id>
+                <label>Starter disengage</label>
+            </binding>
+        </hovered>
+    </animation>
 
 <!-- Lighting -->
 

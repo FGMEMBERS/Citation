@@ -196,13 +196,17 @@
         <inputs>
           <from-flag>/instrumentation/hsi[0]/inputs/from-flag</from-flag>
           <gs-needle-deflection>/instrumentation/hsi[0]/inputs/gs-needle-deflection</gs-needle-deflection>
+          <hsi-gs-deflection>/instrumentation/hsi[0]/inputs/hsi-gs-deflection</hsi-gs-deflection>
           <has-gs>/instrumentation/hsi[0]/inputs/has-gs</has-gs>
           <heading-deg>/instrumentation/hsi[0]/inputs/heading-deg</heading-deg>
+          <heading-filtered-deg>/instrumentation/hsi[0]/inputs/heading-filtered-deg</heading-filtered-deg>
           <heading-needle-deflection>/instrumentation/hsi[0]/inputs/heading-needle-deflection</heading-needle-deflection>
+          <hsi-loc-deflection>/instrumentation/hsi[0]/inputs/hsi-loc-deflection</hsi-loc-deflection>
           <in-range>/instrumentation/hsi[0]/inputs/in-range</in-range>
           <nav-distance>/instrumentation/hsi[0]/inputs/nav-distance</nav-distance>
           <radials>
             <selected-deg>/instrumentation/hsi[0]/inputs/radials/selected-deg</selected-deg>
+            <selected-filtered-deg>/instrumentation/hsi[0]/inputs/radials/selected-filtered-deg</selected-filtered-deg>
           </radials>
           <to-flag>/instrumentation/hsi[0]/inputs/to-flag</to-flag>
         </inputs>
@@ -221,13 +225,17 @@
         <inputs>
           <from-flag>/instrumentation/hsi[1]/inputs/from-flag</from-flag>
           <gs-needle-deflection>/instrumentation/hsi[1]/inputs/gs-needle-deflection</gs-needle-deflection>
+          <hsi-gs-deflection>/instrumentation/hsi[1]/inputs/hsi-gs-deflection</hsi-gs-deflection>
           <has-gs>/instrumentation/hsi[1]/inputs/has-gs</has-gs>
           <heading-deg>/instrumentation/hsi[1]/inputs/heading-deg</heading-deg>
+          <heading-filtered-deg>/instrumentation/hsi[1]/inputs/heading-filtered-deg</heading-filtered-deg>
           <heading-needle-deflection>/instrumentation/hsi[1]/inputs/heading-needle-deflection</heading-needle-deflection>
+          <hsi-loc-deflection>/instrumentation/hsi[1]/inputs/hsi-loc-deflection</hsi-loc-deflection>
           <in-range>/instrumentation/hsi[1]/inputs/in-range</in-range>
           <nav-distance>/instrumentation/hsi[1]/inputs/nav-distance</nav-distance>
           <radials>
             <selected-deg>/instrumentation/hsi[1]/inputs/radials/selected-deg</selected-deg>
+            <selected-filtered-deg>/instrumentation/hsi[1]/inputs/radials/selected-filtered-deg</selected-filtered-deg>
           </radials>
           <to-flag>/instrumentation/hsi[1]/inputs/to-flag</to-flag>
         </inputs>

@@ -94,7 +94,7 @@
       <condition>
 	<and>
           <property>controls/lighting/panel-lights-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
           <greater-than>
             <property>systems/electrical/outputs/bus/right</property>
             <value>20</value>
@@ -116,7 +116,7 @@
     <input>
       <condition>
 	<and>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
+	  <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
           <property>controls/lighting/map-lights</property>
           <greater-than>
             <property>systems/electrical/outputs/bus/right</property>

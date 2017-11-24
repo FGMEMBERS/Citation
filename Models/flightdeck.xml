@@ -1733,11 +1733,11 @@
     <object-name>HSI.navbrg</object-name>
     <object-name>HSI.crsknob</object-name>
     <object-name>HSI.hdgknob</object-name>
-    <object-name>Plane.137</object-name>
-    <object-name>fromflag</object-name>
-    <object-name>gs.needle</object-name>
-    <object-name>navflag</object-name>
-    <object-name>toflag</object-name>
+    <object-name>HSI.Plane.137</object-name>
+    <object-name>HSI.fromflag</object-name>
+    <object-name>HSI.gsneedle</object-name>
+    <object-name>HSI.navflag</object-name>
+    <object-name>HSI.toflag</object-name>
     <object-name>compassrose</object-name>
     <object-name>magcompass.sight</object-name>
     <object-name>OAT.face</object-name>

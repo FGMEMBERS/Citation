@@ -63,7 +63,10 @@ Syd Adams
         <object-name>stby.006</object-name>
         <object-name>mem.annun</object-name>
         <condition>
-          <property>instrumentation/comm[0]/power-btn</property>
+          <greater-than>
+            <property>systems/electrical/outputs/comm</property>
+            <value>1</value>
+          </greater-than>
         </condition>
     </animation>
 
@@ -75,7 +78,7 @@ Syd Adams
              electricity.  So we toggle serviceable instead, and Nasal
              updates power-btn in a loop depending on serviceable and
              the voltage on the bus. -->
-        <property>instrumentation/comm/serviceable</property>
+        <property>instrumentation/comm/power-btn</property> <!-- serviceable -->
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>1.0</ind><dep>30</dep></entry>
@@ -95,7 +98,7 @@ Syd Adams
     <animation>
         <type>rotate</type>
         <object-name>CTL-22.vol</object-name>
-        <property>instrumentation/comm/volume</property>
+        <property>instrumentation/comm/volume-def</property>
         <factor>300</factor>
         <center>
             <x-m>0.0</x-m>
@@ -290,12 +293,15 @@ Syd Adams
             <button>0</button>
             <repeatable>false</repeatable>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-swap</command>
-                <property>instrumentation/comm/frequencies/selected-mhz</property>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-swap</command>
+              <property>instrumentation/comm/frequencies/selected-mhz</property>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
             </binding>
         </action>
         <hovered>
@@ -315,7 +321,7 @@ Syd Adams
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>instrumentation/comm/serviceable</property>
+                <property>instrumentation/comm/power-btn</property> <!-- serviceable -->
             </binding>
         </action>
         <hovered>
@@ -323,7 +329,7 @@ Syd Adams
             <command>set-tooltip</command>
             <tooltip-id>comm1-power</tooltip-id>
             <label>Comm1 power: %s</label>
-            <property>instrumentation/comm/serviceable</property>
+            <property>instrumentation/comm/power-btn</property> <!-- serviceable -->
             <mapping>on-off</mapping>
           </binding>
         </hovered>
@@ -338,7 +344,7 @@ Syd Adams
             <interval-sec>0.1</interval-sec>
             <binding>
                 <command>property-adjust</command>
-                <property>instrumentation/comm/volume</property>
+                <property>instrumentation/comm/volume-def</property>
                 <step>-0.05</step>
                 <min>0</min>
                 <max>1</max>
@@ -349,7 +355,7 @@ Syd Adams
             <command>set-tooltip</command>
             <tooltip-id>comm1-vol</tooltip-id>
             <label>Comm1 volume: %d%%</label>
-            <property>instrumentation/comm/volume</property>
+            <property>instrumentation/comm/volume-def</property>
             <mapping>percent</mapping>
           </binding>
         </hovered>
@@ -364,7 +370,7 @@ Syd Adams
             <interval-sec>0.1</interval-sec>
             <binding>
                 <command>property-adjust</command>
-                <property>instrumentation/comm/volume</property>
+                <property>instrumentation/comm/volume-def</property>
                 <step>0.05</step>
                 <min>0</min>
                 <max>1</max>
@@ -379,7 +385,7 @@ Syd Adams
             <button>4</button>
             <binding>
                 <command>property-adjust</command>
-                <property>instrumentation/comm/volume</property>
+                <property>instrumentation/comm/volume-def</property>
                 <step>-0.05</step>
                 <min>0</min>
                 <max>1</max>
@@ -394,7 +400,7 @@ Syd Adams
             <button>3</button>
             <binding>
                 <command>property-adjust</command>
-                <property>instrumentation/comm/volume</property>
+                <property>instrumentation/comm/volume-def</property>
                 <step>0.05</step>
                 <min>0</min>
                 <max>1</max>
@@ -410,15 +416,18 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>-0.025</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>-0.025</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
             </binding>
         </action>
         <hovered>
@@ -439,15 +448,18 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>0.025</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>0.025</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
             </binding>
         </action>
     </animation>
@@ -460,16 +472,19 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>-0.025</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
-            </binding>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>-0.025</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
+              </binding>
         </action>
     </animation>
 
@@ -481,15 +496,18 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>0.025</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>0.025</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
             </binding>
         </action>
     </animation>
@@ -502,15 +520,18 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>-1.0</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>-1.0</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
             </binding>
         </action>
         <hovered>
@@ -531,15 +552,18 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>1.0</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>1.0</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
             </binding>
         </action>
     </animation>
@@ -552,15 +576,18 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>-1.0</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>-1.0</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
             </binding>
         </action>
     </animation>
@@ -573,15 +600,18 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
-                <condition>
-                  <property>instrumentation/comm[0]/power-btn</property>
-                </condition>
-                <command>property-adjust</command>
-                <property>instrumentation/comm/frequencies/standby-mhz</property>
-                <step>1.0</step>
-                <min>118.000</min>
-                <max>135.975</max>
-                <wrap>true</wrap>
+              <condition>
+                <greater-than>
+                  <property>systems/electrical/outputs/comm</property>
+                  <value>1</value>
+                </greater-than>
+              </condition>
+              <command>property-adjust</command>
+              <property>instrumentation/comm/frequencies/standby-mhz</property>
+              <step>1.0</step>
+              <min>118.000</min>
+              <max>135.975</max>
+              <wrap>true</wrap>
             </binding>
         </action>
     </animation>

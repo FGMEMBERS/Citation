@@ -29,6 +29,8 @@
   <animation>
     <type>rotate</type>
     <object-name>RMI.compass</object-name>
+    <object-name>RMI.single_needle</object-name>
+    <object-name>RMI.double_needle</object-name>
     <property>orientation/heading-magnetic-deg</property>
     <axis>
       <x>1.0</x>
@@ -140,7 +142,7 @@
           dest_node.alias (source_node);
           }
           elsif (selected_input == "VOR") {
-          var source_node = props.globals.getNode ("/instrumentation/nav[0]/in-range");
+          var source_node = props.globals.getNode ("/instrumentation/nav[1]/in-range");
           dest_node.alias (source_node);
           }
         </script>
@@ -159,6 +161,7 @@
   <animation>
     <type>rotate</type>
     <object-name>RMI.double_needle</object-name>
+
     <property>instrumentation/rmi/double-needle/position-deg</property>
     <axis>
       <x>-1.0</x>

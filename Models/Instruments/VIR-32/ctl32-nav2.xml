@@ -65,14 +65,14 @@ Syd Adams
         <object-name>stby.005</object-name>
         <object-name>mem.annun</object-name>
         <condition>
-          <property>instrumentation/nav[1]/power-btn</property>
+          <property>systems/electrical/outputs/nav[1]</property>
         </condition>
     </animation>
 
     <animation>
         <type>rotate</type>
         <object-name>CTL-32.pwr</object-name>
-        <property>instrumentation/nav[1]/serviceable</property>
+        <property>instrumentation/nav[1]/power-btn</property> <!-- serviceable -->
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>1.0</ind><dep>30</dep></entry>
@@ -259,6 +259,12 @@ Syd Adams
             <button>0</button>
             <repeatable>false</repeatable>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-swap</command>
                 <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
@@ -281,7 +287,7 @@ Syd Adams
             <repeatable>false</repeatable>
             <binding>
                 <command>property-toggle</command>
-                <property>instrumentation/nav[1]/serviceable</property>
+                <property>instrumentation/nav[1]/power-btn</property> <!-- serviceable -->
             </binding>
         </action>
         <hovered>
@@ -289,7 +295,7 @@ Syd Adams
             <command>set-tooltip</command>
             <tooltip-id>nav2-power</tooltip-id>
             <label>NAV2 power: %s</label>
-            <property>instrumentation/nav[1]/serviceable</property>
+            <property>instrumentation/nav[1]/power-btn</property> <!-- serviceable -->
             <mapping>on-off</mapping>
           </binding>
         </hovered>
@@ -380,6 +386,12 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>-0.050</step>
@@ -406,6 +418,12 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>0.050</step>
@@ -422,6 +440,12 @@ Syd Adams
         <action>
             <button>4</button>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>-0.050</step>
@@ -438,6 +462,12 @@ Syd Adams
         <action>
             <button>3</button>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>0.050</step>
@@ -456,6 +486,12 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>-1.0</step>
@@ -482,6 +518,12 @@ Syd Adams
             <repeatable>true</repeatable>
             <interval-sec>0.2</interval-sec>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>1.0</step>
@@ -498,6 +540,12 @@ Syd Adams
         <action>
             <button>4</button>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>-1.0</step>
@@ -514,6 +562,12 @@ Syd Adams
         <action>
             <button>3</button>
             <binding>
+                <condition>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav[1]</property>
+                        <value>1</value>
+                    </greater-than>
+                </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/nav[1]/frequencies/standby-mhz</property>
                 <step>1.0</step>

@@ -23,10 +23,13 @@
 		<type>select</type>
 		<object-name>DH.lamp</object-name>
 		<condition>
-			<less-than>
-				<property>position/altitude-agl-ft</property>
-				<property>instrumentation/altimeter/decision-height</property>
-			</less-than>
+			<and>
+				<property>systems/electrical/ac-volts</property>
+				<less-than>
+					<property>position/altitude-agl-ft</property>
+					<property>instrumentation/altimeter/decision-height</property>
+				</less-than>
+			</and>
 			</condition>
 		</animation>
 
@@ -35,7 +38,7 @@
 		<object-name>RALT.flag</object-name>
 		<condition>
 			<less-than>
-				<property>systems/electrical/outputs/bus/right</property>
+				<property>systems/electrical/ac-volts</property>
 				<value>1</value>
 			</less-than>
 		</condition>
@@ -60,12 +63,12 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RALT.needle</object-name>
-		<property>position/altitude-agl-ft</property>
+		<property>instrumentation/radar-altimeter/radar-altitude-ft</property>
 		<interpolation>
-			<entry><ind>-20</ind><dep>-7.5</dep></entry>
-			<entry><ind>0.0</ind><dep>0</dep></entry>
-			<entry><ind>500</ind><dep>180.0</dep></entry>
-			<entry><ind>2500</ind><dep>290.0</dep></entry>
+			<entry><ind>-25.0</ind><dep>-9.0</dep></entry>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>500.0</ind><dep>180.0</dep></entry>
+			<entry><ind>2500.0</ind><dep>290.0</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>

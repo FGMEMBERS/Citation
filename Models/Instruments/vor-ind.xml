@@ -1,6 +1,6 @@
 <PropertyList>
 
-<path>vor-ind.ac</path>
+  <path>vor-ind.ac</path>
 
   <effect>
     <condition>
@@ -39,7 +39,7 @@
   <animation>
     <type>rotate</type>
     <object-name>vor.needle</object-name>
-    <property>instrumentation/nav/heading-needle-deflection</property>
+    <property>instrumentation/nav/vor-loc-deflection</property>
     <interpolation>
       <entry><ind>-10.0</ind><dep>-39</dep></entry>
       <entry><ind>10.0</ind><dep>39</dep></entry>
@@ -59,7 +59,7 @@
   <animation>
     <type>rotate</type>
     <object-name>gs.needle</object-name>
-    <property>instrumentation/nav/gs-needle-deflection</property>
+    <property>instrumentation/nav/vor-gs-deflection</property>
     <interpolation>
       <entry><ind>-2.5</ind><dep>-39</dep></entry>
       <entry><ind>2.5</ind><dep>39</dep></entry>

@@ -13,91 +13,193 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
+
+<!-- RMI: filter for mechanical needles and point right without signal -->
+
 <PropertyList>
 
   <filter>
-    <name>RMI: single-stemmed needle: copy ADF bearing to position</name>
+    <name>RMI: single-stemmed needle: select source with filter</name>
     <debug>false</debug>
-    <type>gain</type>
-    <enable>
+    <type>noise-spike</type>
+    <max-rate-of-change>60</max-rate-of-change>
+
+    <input>
+      <condition>
+        <not>
+          <property>instrumentation/rmi/single-needle/in-range</property>
+        </not>
+      </condition>
+      <expression>
+        <sum>
+          <property>orientation/heading-magnetic-deg</property>
+          <value>90.0</value>
+        </sum>
+      </expression>
+    </input>
+
+    <input>
       <condition>
         <equals>
           <property>instrumentation/rmi/single-needle/selected-input</property>
           <value>ADF</value>
         </equals>
       </condition>
-    </enable>
-    <input>/instrumentation/adf/indicated-bearing-deg</input>
-    <output>/instrumentation/rmi/single-needle/position-deg</output>
-  </filter>
+      <expression>
+        <floor>
+          <sum>
+            <property>instrumentation/adf/indicated-bearing-deg</property>
+            <property>orientation/heading-magnetic-deg</property>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
 
-  <filter>
-    <name>RMI: single-stemmed needle: compute position from VOR bearing and heading</name>
-    <debug>false</debug>
-    <type>gain</type>
-    <enable>
+    <input>
       <condition>
         <equals>
           <property>instrumentation/rmi/single-needle/selected-input</property>
           <value>VOR</value>
         </equals>
       </condition>
-    </enable>
-    <input>
-      <property>instrumentation/nav[0]/heading-deg</property>
+      <expression>
+        <sum>
+          <floor>
+            <sum>
+              <property>instrumentation/nav[0]/heading-deg</property>
+              <value>0.5</value>
+            </sum>
+          </floor>
+          <property>orientation/heading-magnetic-deg</property>
+        </sum>
+      </expression>
       <offset>
         <property>orientation/heading-deg</property>
         <scale>-1.0</scale>
       </offset>
     </input>
-    <output>/instrumentation/rmi/single-needle/position-deg</output>
+
     <period>
-      <min>0</min>
-      <max>360</max>
+      <min>-180</min>
+      <max>180</max>
     </period>
+
+    <output>instrumentation/rmi/single-needle/position-deg</output>
   </filter>
 
   <filter>
-    <name>RMI: double-stemmed needle: copy ADF bearing to position</name>
+    <name>RMI: double-stemmed needle: select source with filter</name>
     <debug>false</debug>
-    <type>gain</type>
-    <enable>
+    <type>noise-spike</type>
+    <max-rate-of-change>60</max-rate-of-change>
+
+    <input>
+      <condition>
+        <not>
+          <property>instrumentation/rmi/double-needle/in-range</property>
+        </not>
+      </condition>
+      <expression>
+        <sum>
+          <property>orientation/heading-magnetic-deg</property>
+          <value>90.0</value>
+        </sum>
+      </expression>
+    </input>
+
+    <input>
       <condition>
         <equals>
           <property>instrumentation/rmi/double-needle/selected-input</property>
           <value>ADF</value>
         </equals>
       </condition>
-    </enable>
-    <input>/instrumentation/adf/indicated-bearing-deg</input>
-    <output>/instrumentation/rmi/double-needle/position-deg</output>
-  </filter>
+      <expression>
+        <floor>
+          <sum>
+            <property>instrumentation/adf/indicated-bearing-deg</property>
+            <property>orientation/heading-magnetic-deg</property>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
 
-  <filter>
-    <name>RMI: double-stemmed needle: compute position from VOR bearing and heading</name>
-    <debug>false</debug>
-    <type>gain</type>
-    <enable>
+    <input>
       <condition>
         <equals>
           <property>instrumentation/rmi/double-needle/selected-input</property>
           <value>VOR</value>
         </equals>
       </condition>
-    </enable>
-    <input>
-      <property>instrumentation/nav[1]/heading-deg</property>
+      <expression>
+        <sum>
+          <floor>
+            <sum>
+              <property>instrumentation/nav[1]/heading-deg</property>
+              <value>0.5</value>
+            </sum>
+          </floor>
+          <property>orientation/heading-magnetic-deg</property>
+        </sum>
+      </expression>
       <offset>
         <property>orientation/heading-deg</property>
         <scale>-1.0</scale>
       </offset>
     </input>
-    <output>/instrumentation/rmi/double-needle/position-deg</output>
+
     <period>
-      <min>0</min>
-      <max>360</max>
+      <min>-180</min>
+      <max>180</max>
     </period>
+
+    <output>instrumentation/rmi/double-needle/position-deg</output>
   </filter>
+
+  <!-- Radar Altimeter: filter for mechanical needle -->
+
+  <filter>
+    <name>ralt filter</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <max-rate-of-change>500</max-rate-of-change>
+    <input>
+      <condition>
+        <and>
+          <greater-than>
+            <property>systems/electrical/ac-volts</property>
+            <value>100</value>
+          </greater-than>
+          <lower-than>
+            <property>position/altitude-agl-ft</property>
+            <value>2500</value>
+          </lower-than>
+        </and>
+      </condition>
+      <property>position/altitude-agl-ft</property>
+    </input>
+    <input>
+      <condition>
+        <and>
+          <greater-than>
+            <property>systems/electrical/ac-volts</property>
+            <value>100</value>
+          </greater-than>
+          <greater-than>
+            <property>position/altitude-agl-ft</property>
+            <value>2500</value>
+          </greater-than>
+        </and>
+      </condition>
+      <value>2500.00</value>
+    </input>
+    <input><value>0.0</value></input>
+    <output>instrumentation/radar-altimeter/radar-altitude-ft</output>
+  </filter>
+
+  <!-- Filter for CDU -->
 
   <filter>
     <name>Turn the CDU on and off with the avionics switch</name>
@@ -113,7 +215,7 @@ GNU General Public License for more details.
       <value>1</value>
     </input>
     <input>0</input>
-    <output>/instrumentation/cdu/serviceable</output>
+    <output>instrumentation/cdu/serviceable</output>
   </filter>
 
   <filter>
@@ -133,7 +235,360 @@ GNU General Public License for more details.
       <value>1</value>
     </input>
     <input>0</input>
-    <output>/instrumentation/mk-viii/serviceable</output>
+    <output>instrumentation/mk-viii/serviceable</output>
+  </filter>
+
+  <!-- VOR: deflection filter for mechanical needles -->
+
+  <filter>
+    <name>VOR0 localizer lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.5</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[0]/in-range</property>
+      </condition>
+      <property>instrumentation/nav[0]/heading-needle-deflection</property>
+    </input>
+    <input><value>0.0</value></input>
+    <min>-10.0</min>
+    <max>10.0</max>
+    <output>instrumentation/nav[0]/vor-loc-deflection</output>
+  </filter>
+
+  <filter>
+    <name>VOR0 glideslope lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.5</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[0]/gs-in-range</property>
+      </condition>
+      <property>instrumentation/nav[0]/gs-needle-deflection</property>
+    </input>
+    <input><value>0.0</value></input>
+    <min>-2.5</min>
+    <max>2.5</max>
+    <output>instrumentation/nav[0]/vor-gs-deflection</output>
+  </filter>
+
+  <filter>
+    <name>VOR1 localizer lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.5</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[1]/in-range</property>
+      </condition>
+      <property>instrumentation/nav[1]/heading-needle-deflection</property>
+    </input>
+    <input><value>0.0</value></input>
+    <min>-10.0</min>
+    <max>10.0</max>
+    <output>instrumentation/nav[1]/vor-loc-deflection</output>
+  </filter>
+
+  <filter>
+    <name>VOR1 glideslope lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.5</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[1]/gs-in-range</property>
+      </condition>
+      <property>instrumentation/nav[1]/gs-needle-deflection</property>
+    </input>
+    <min>-2.5</min>
+    <max>2.5</max>
+    <input><value>0.0</value></input>
+    <output>instrumentation/nav[1]/vor-gs-deflection</output>
+  </filter>
+
+  <!-- AI: filter for mechanical needles -->
+
+  <filter>
+    <name>AI0 localizer lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[0]/in-range</property>
+      </condition>
+      <property>instrumentation/nav[0]/heading-needle-deflection</property>
+    </input>
+    <input><value>0.0</value></input>
+    <min>-5.0</min>
+    <max>5.0</max>
+    <output>instrumentation/nav[0]/ai-loc-deflection</output>
+  </filter>
+
+  <filter>
+    <name>AI0 glideslope lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[0]/gs-in-range</property>
+      </condition>
+      <property>instrumentation/nav[0]/gs-needle-deflection</property>
+    </input>
+    <input><value>0.0</value></input>
+    <min>-2.0</min>
+    <max>2.0</max>
+    <output>instrumentation/nav[0]/ai-gs-deflection</output>
+  </filter>
+
+  <filter>
+    <name>AI1 localizer lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[1]/in-range</property>
+      </condition>
+      <property>instrumentation/nav[1]/heading-needle-deflection</property>
+    </input>
+    <input><value>0.0</value></input>
+    <min>-5.0</min>
+    <max>5.0</max>
+    <output>instrumentation/nav[1]/ai-loc-deflection</output>
+  </filter>
+
+  <filter>
+    <name>AI1 glideslope lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>
+      <condition>
+        <property>instrumentation/nav[1]/gs-in-range</property>
+      </condition>
+      <property>instrumentation/nav[1]/gs-needle-deflection</property>
+    </input>
+    <input><value>0.0</value></input>
+    <min>-2.0</min>
+    <max>2.0</max>
+    <output>instrumentation/nav[1]/ai-gs-deflection</output>
+  </filter>
+
+  <!-- HSI: filter for mechanical needles -->
+
+  <filter>
+    <name>HSI0 localizer lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>instrumentation/hsi[0]/inputs/ai-loc-deflection</input>
+    <output>instrumentation/hsi[0]/inputs/hsi-loc-deflection</output>
+  </filter>
+
+  <filter>
+    <name>HSI0 glideslope lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>instrumentation/hsi[0]/inputs/ai-gs-deflection</input>
+    <output>instrumentation/hsi[0]/inputs/hsi-gs-deflection</output>
+  </filter>
+
+  <filter>
+    <name>HSI0 select lowpass</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <max-rate-of-change>90</max-rate-of-change>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <input>instrumentation/hsi[0]/inputs/radials/selected-deg</input>
+    <output>instrumentation/hsi[0]/inputs/radials/selected-filtered-deg</output>
+  </filter>
+
+  <filter>
+    <name>HSI0 heading lowpass</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <max-rate-of-change>90</max-rate-of-change>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <input>
+      <condition>
+        <property>instrumentation/hsi[0]/inputs/in-range</property>
+      </condition>
+      <expression>
+        <floor>
+          <sum>
+            <property>instrumentation/hsi[0]/inputs/heading-deg</property>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <input>
+      <expression>
+        <floor>
+          <sum>
+            <property>orientation/heading-magnetic-deg</property>
+            <value>90.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <output>instrumentation/hsi[0]/inputs/heading-filtered-deg</output>
+  </filter>
+
+  <filter>
+    <name>HSI1 localizer lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>instrumentation/hsi[1]/inputs/ai-loc-deflection</input>
+    <output>instrumentation/hsi[1]/inputs/hsi-loc-deflection</output>
+  </filter>
+
+  <filter>
+    <name>HSI1 glideslope lowpass</name>
+    <debug>false</debug>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>instrumentation/hsi[1]/inputs/ai-gs-deflection</input>
+    <output>instrumentation/hsi[1]/inputs/hsi-gs-deflection</output>
+  </filter>
+
+  <filter>
+    <name>HSI1 select lowpass</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <max-rate-of-change>90</max-rate-of-change>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <input>instrumentation/hsi[1]/inputs/radials/selected-deg</input>
+    <output>instrumentation/hsi[1]/inputs/radials/selected-filtered-deg</output>
+  </filter>
+
+  <filter>
+    <name>HSI1 heading lowpass</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <max-rate-of-change>90</max-rate-of-change>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <input>
+      <condition>
+        <property>instrumentation/hsi[1]/inputs/in-range</property>
+      </condition>
+      <expression>
+        <floor>
+          <sum>
+            <property>instrumentation/hsi[1]/inputs/heading-deg</property>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <input>
+      <expression>
+        <floor>
+          <sum>
+            <property>orientation/heading-magnetic-deg</property>
+            <value>90.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <output>instrumentation/hsi[1]/inputs/heading-filtered-deg</output>
+  </filter>
+
+  <!-- Comm-Radios: rebuild the behavior of audio-btn without touching the volume -->
+
+  <filter>
+    <name>COMM0 volume adjusting</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <equals>
+          <property>instrumentation/audiopanel/comm1</property>
+          <value>1</value>
+        </equals>
+      </condition>
+      <value>0.0</value>
+    </input>
+    <input>
+      <property>instrumentation/comm[0]/volume-def</property>
+    </input>
+    <output>instrumentation/comm[0]/volume</output>
+  </filter>
+
+  <filter>
+    <name>COMM1 volume adjusting</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <equals>
+          <property>instrumentation/audiopanel/comm2</property>
+          <value>1</value>
+        </equals>
+      </condition>
+      <value>0.0</value>
+    </input>
+    <input>
+      <property>instrumentation/comm[1]/volume-def</property>
+    </input>
+    <output>instrumentation/comm[1]/volume</output>
+  </filter>
+
+  <!-- altimeter: correct rounded digits and avoid wrong precision -->
+
+  <filter>
+    <name>InHg adjusting</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <floor>
+          <sum>
+            <product>
+              <property>instrumentation/altimeter/setting-inhg</property>
+              <value>100.0</value>
+            </product>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <output>instrumentation/altimeter/setting-inhg-display</output>
+  </filter>
+
+  <filter>
+    <name>hPa adjusting</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <floor>
+          <sum>
+            <property>instrumentation/altimeter/setting-hpa</property>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <output>instrumentation/altimeter/setting-hpa-display</output>
   </filter>
 
 </PropertyList>

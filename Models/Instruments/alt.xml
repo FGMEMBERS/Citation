@@ -52,7 +52,6 @@
     </condition>
   </animation>
 
-
   <animation>
     <type>rotate</type>
     <object-name>ALT.needle</object-name>
@@ -122,9 +121,9 @@
   <animation>
     <type>textranslate</type>
     <object-name>inhg01</object-name>
-    <property>instrumentation/altimeter/setting-inhg</property>
-    <factor>0.01</factor>
-    <step>10</step>
+    <property>instrumentation/altimeter/setting-inhg-display</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
     <axis>
       <x>0</x>
       <y>1</y>
@@ -135,46 +134,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>inhg02</object-name>
-    <property>instrumentation/altimeter/setting-inhg</property>
-    <factor>0.1</factor>
-    <step>1</step>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>inhg03</object-name>
-    <property>instrumentation/altimeter/setting-inhg</property>
-    <factor>1.0</factor>
-    <step>0.1</step>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>inhg04</object-name>
-    <property>instrumentation/altimeter/setting-inhg</property>
-    <factor>10.0</factor>
-    <step>0.01</step>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>kpa01</object-name>
-    <property>instrumentation/altimeter/setting-kpa</property>
+    <property>instrumentation/altimeter/setting-inhg-display</property>
     <factor>0.001</factor>
     <step>100</step>
     <axis>
@@ -186,8 +146,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kpa02</object-name>
-    <property>instrumentation/altimeter/setting-kpa</property>
+    <object-name>inhg03</object-name>
+    <property>instrumentation/altimeter/setting-inhg-display</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -199,8 +159,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kpa03</object-name>
-    <property>instrumentation/altimeter/setting-kpa</property>
+    <object-name>inhg04</object-name>
+    <property>instrumentation/altimeter/setting-inhg-display</property>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -212,10 +172,49 @@
 
   <animation>
     <type>textranslate</type>
+    <object-name>kpa01</object-name>
+    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>kpa02</object-name>
+    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>kpa03</object-name>
+    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
     <object-name>kpa04</object-name>
-    <property>instrumentation/altimeter/setting-kpa</property>
-    <factor>1.0</factor>
-    <step>0.1</step>
+    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <factor>0.1</factor>
+    <step>1</step>
     <axis>
       <x>0</x>
       <y>1</y>

@@ -205,7 +205,7 @@
 	<inherits-from>Effects/lightmap</inherits-from>
 	<parameters>
 		<texture n="1">
-			<image>Aircraft/Instruments-3d/cdu/boeing_lightmap.png</image>
+			<image>Models/Instruments/cdu/boeing_lightmap.png</image>
 		</texture>
 		<condition><use>/instrumentation/cdu/serviceable</use></condition>
 		<factor><use>/controls/lighting/instrument-lights-norm</use></factor>
@@ -283,7 +283,7 @@
 </effect-->
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -304,7 +304,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.043</y-m>
@@ -325,7 +325,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.045</y-m>
@@ -346,7 +346,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.049</y-m>
@@ -367,7 +367,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -388,7 +388,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -409,7 +409,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.045</y-m>
@@ -430,7 +430,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.049</y-m>
@@ -451,7 +451,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.045</y-m>
@@ -472,7 +472,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.049</y-m>
@@ -493,7 +493,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -514,7 +514,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -535,7 +535,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.045</y-m>
@@ -556,7 +556,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.049</y-m>
@@ -577,7 +577,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.045</y-m>
@@ -598,7 +598,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.049</y-m>
@@ -619,7 +619,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -640,7 +640,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -661,7 +661,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.045</y-m>
@@ -682,7 +682,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.049</y-m>
@@ -703,7 +703,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.045</y-m>
@@ -724,7 +724,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.049</y-m>
@@ -745,7 +745,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -766,7 +766,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -787,7 +787,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.045</y-m>
@@ -808,7 +808,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.049</y-m>
@@ -829,7 +829,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.045</y-m>
@@ -850,7 +850,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.049</y-m>
@@ -871,7 +871,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -892,7 +892,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -913,7 +913,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.045</y-m>
@@ -934,7 +934,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.049</y-m>
@@ -955,7 +955,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.045</y-m>
@@ -976,7 +976,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m>-0.049</y-m>
@@ -997,7 +997,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -1018,7 +1018,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>
@@ -1039,7 +1039,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.045</y-m>
@@ -1060,7 +1060,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.049</y-m>
@@ -1081,7 +1081,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Instruments-3d/cdu/display-text-value.xml</path>
+	<path>Models/Instruments/cdu/display-text-value.xml</path>
 	<offsets>
 		<x-m> 0.004</x-m>
 		<y-m> 0.000</y-m>

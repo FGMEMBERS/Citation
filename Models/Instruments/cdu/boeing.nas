@@ -601,7 +601,7 @@ var cdu = func{
 			title = "THRUST LIM";
 			line1lt = "SEL";
 			line1ct = "OAT";
-			line1c = sprintf("%2.0f", getprop("/environment/temperature-degc"))~" °C";
+			line1c = sprintf("%2.0f", getprop("/environment/temperature-degc"))~" Â°C";
 			line1rt = "TO 1 N1";
 			line2l = "<TO";
 			line2r = "CLB>";
@@ -616,7 +616,9 @@ var cdu = func{
 		if (display == "TO_REF") {
 			title = "TAKEOFF REF";
 			line1lt = "FLAP/ACCEL HT";
-			line1l = getprop("/instrumentation/fmc/to-flap");
+			if (getprop("/instrumentation/fmc/to-flap") != nil){
+				line1l = sprintf("%3.0f", getprop("/instrumentation/fmc/to-flap"));
+			}
 			line1rt = "REF V1";
 			if (getprop("/instrumentation/fmc/vspeeds/V1") != nil){
 				line1r = sprintf("%3.0f", getprop("/instrumentation/fmc/vspeeds/V1"));

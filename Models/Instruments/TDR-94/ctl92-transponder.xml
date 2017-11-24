@@ -183,9 +183,9 @@ Syd Adams
             <button>0</button>
             <repeatable>false</repeatable>
             <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/transponder/inputs/ident-btn</property>
-        </binding>
+                <command>property-toggle</command>
+                <property>instrumentation/transponder/inputs/ident-btn</property>
+            </binding>
         </action>
         <hovered>
           <binding>
@@ -281,6 +281,18 @@ Syd Adams
     <object-name>CTL-92.knob</object-name>
     <action>
       <binding>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>systems/electrical/outputs/transponder</property>
+                    <value>1</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/transponder/inputs/knob-mode</property>
+                    <value>0</value>
+                </greater-than>
+            </and>
+        </condition>
         <command>nasal</command>
         <script><![CDATA[
           var loDigit = getprop('instrumentation/transponder/inputs/digit[2]') or 2;
@@ -314,6 +326,18 @@ Syd Adams
     <object-name>CTL-92.knob1</object-name>
     <action>
       <binding>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>systems/electrical/outputs/transponder</property>
+                    <value>1</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/transponder/inputs/knob-mode</property>
+                    <value>0</value>
+                </greater-than>
+            </and>
+        </condition>
         <command>nasal</command>
         <script><![CDATA[
           var loDigit = getprop('instrumentation/transponder/inputs/digit[0]') or 0;

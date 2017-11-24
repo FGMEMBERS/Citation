@@ -96,7 +96,7 @@ var Alternator = {
         m.meter.setDoubleValue(0);
         m.gen_output =  props.globals.getNode("engines/engine["~num~"]/amp-v",1);
         m.gen_output.setDoubleValue(0);
-        m.meter.setDoubleValue(0);
+#        m.meter.setDoubleValue(0);
         m.rpm_source =  props.globals.getNode(src,1);
         m.rpm_threshold = thr;
         m.ideal_volts = vlt;
@@ -105,6 +105,7 @@ var Alternator = {
     },
 
     apply_load : func(load) {
+        var out = 0;
         var cur_volt=me.gen_output.getValue();
         var cur_amp=me.meter.getValue();
         if(cur_volt >1){
@@ -121,8 +122,8 @@ var Alternator = {
         var out = 0;
         if(me.switch.getBoolValue()){
             var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
-            if ( factor > 1.0 )factor = 1.0;
-            var out = (me.ideal_volts * factor);
+            if ( factor > 1.0 ) factor = 1.0;
+            out = (me.ideal_volts * factor);
         }
         me.gen_output.setValue(out);
         return out;
@@ -132,11 +133,10 @@ var Alternator = {
         var ampout =0;
         if(me.switch.getBoolValue()){
             var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
-            if ( factor > 1.0 ) {
-                factor = 1.0;
-            }
+            if ( factor > 1.0 ) factor = 1.0;
             ampout = me.ideal_amps * factor;
         }
+        me.meter.setValue(ampout);
         return ampout;
     }
 };
@@ -144,8 +144,8 @@ var Alternator = {
 #####################################################
 
 var battery = Battery.new("controls/electric/battery-bus-switch",24,30,34,1.0,7.0);
-var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","/engines/engine[0]/turbine",20.0,28.0,60.0);
-var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","/engines/engine[1]/turbine",20.0,28.0,60.0);
+var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","engines/engine[0]/turbine",20.0,28.0,60.0);
+var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","engines/engine[1]/turbine",20.0,28.0,60.0);
 
 setlistener("/sim/signals/fdm-initialized", func {
     init_switches();
@@ -170,6 +170,12 @@ var init_switches = func{
     append(lights_input,props.globals.initNode("controls/lighting/landing-light[1]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[1]",0,"DOUBLE"));
     append(lights_load,1);
+    append(lights_input,props.globals.initNode("controls/lighting/recog-light[0]",0,"BOOL"));
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-light[0]",0,"DOUBLE"));
+    append(lights_load,1);
+    append(lights_input,props.globals.initNode("controls/lighting/recog-light[1]",0,"BOOL"));
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-light[1]",0,"DOUBLE"));
+    append(lights_load,1);
     append(lights_input,props.globals.initNode("controls/lighting/nav-lights",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/nav-lights",0,"DOUBLE"));
     append(lights_load,1);
@@ -181,9 +187,6 @@ var init_switches = func{
     append(lights_load,1);
     append(lights_input,props.globals.initNode("controls/lighting/wing-lights",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/wing-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/recog-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-lights",0,"DOUBLE"));
     append(lights_load,1);
     append(lights_input,props.globals.initNode("controls/lighting/logo-lights",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/logo-lights",0,"DOUBLE"));
@@ -198,21 +201,11 @@ var init_switches = func{
     append(lights_output,props.globals.initNode("systems/electrical/outputs/strobe",0,"DOUBLE"));
     append(lights_load,1);
 
-    append(rbus_input,props.globals.initNode("controls/electric/wiper-switch",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/wiper",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[0]/fuel-pump",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[0]",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[1]/fuel-pump",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[1]",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[1]/starter",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/starter[1]",0,"DOUBLE"));
-    append(rbus_load,1);
-
+    append(lbus_input,props.globals.initNode("controls/fuel/tank[0]/boost-pump",0,"BOOL"));
+    append(lbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[0]",0,"DOUBLE"));
+    append(lbus_load,1);
     append(lbus_input,props.globals.initNode("controls/engines/engine[0]/starter",0,"BOOL"));
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/starter",0,"DOUBLE"));
+    append(lbus_output,props.globals.initNode("systems/electrical/outputs/starter[0]",0,"DOUBLE"));
     append(lbus_load,1);
     append(lbus_input,props.globals.initNode("instrumentation/turn-coordinator/serviceable",1,"BOOL"));
     append(lbus_output,props.globals.initNode("systems/electrical/outputs/turn-coordinator",0,"DOUBLE"));
@@ -220,6 +213,16 @@ var init_switches = func{
     append(lbus_input,props.globals.initNode("instrumentation/DG/serviceable",1,"BOOL"));
     append(lbus_output,props.globals.initNode("systems/electrical/outputs/DG",0,"DOUBLE"));
     append(lbus_load,1);
+
+    append(rbus_input,props.globals.initNode("controls/fuel/tank[1]/boost-pump",0,"BOOL"));
+    append(rbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[1]",0,"DOUBLE"));
+    append(rbus_load,1);
+    append(rbus_input,props.globals.initNode("controls/engines/engine[1]/starter",0,"BOOL"));
+    append(rbus_output,props.globals.initNode("systems/electrical/outputs/starter[1]",0,"DOUBLE"));
+    append(rbus_load,1);
+    append(rbus_input,props.globals.initNode("controls/electric/wiper-switch",0,"BOOL"));
+    append(rbus_output,props.globals.initNode("systems/electrical/outputs/wiper",0,"DOUBLE"));
+    append(rbus_load,1);
 
     append(avbus_input,props.globals.initNode("instrumentation/adf/func-knob",1,"INT"));
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/adf",0,"DOUBLE"));
@@ -230,17 +233,20 @@ var init_switches = func{
     append(avbus_input,props.globals.initNode("instrumentation/kt-70/inputs/serviceable",1,"BOOL"));
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/comm/serviceable",1,"BOOL"));
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/comm",0,"DOUBLE"));
+    append(avbus_input,props.globals.initNode("instrumentation/comm[0]/power-btn",1,"BOOL"));
+    append(avbus_output,props.globals.initNode("systems/electrical/outputs/comm[0]",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/comm[1]/serviceable",1,"BOOL"));
+    append(avbus_input,props.globals.initNode("instrumentation/comm[1]/power-btn",1,"BOOL"));
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/comm[1]",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/nav/serviceable",1,"BOOL"));
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav",0,"DOUBLE"));
+    append(avbus_input,props.globals.initNode("instrumentation/nav[0]/power-btn",1,"BOOL"));
+    append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav[0]",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/nav[1]/serviceable",1,"BOOL"));
+    append(avbus_input,props.globals.initNode("instrumentation/nav[1]/power-btn",1,"BOOL"));
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"));
+    append(avbus_load,1);
+    append(avbus_input,props.globals.initNode("instrumentation/transponder/inputs/knob-mode",1,"INT"));
+    append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
     append(avbus_load,1);
 }
 
@@ -302,9 +308,10 @@ update_virtual_bus = func( dt ) {
         setprop ("controls/flight/speedbrake", 0);
     }
 
-    if(rbus_volts > 5 and lbus_volts>5) xtie=1;
+    if(rbus_volts > 5 and lbus_volts > 5) xtie=1;
     XTie.setValue(xtie);
-    if(rbus_volts > 5 or  lbus_volts>5) right_load += lighting(24);
+
+    if(rbus_volts > 5 or lbus_volts > 5) right_load += lighting(lbus_volts);
     ammeter = 0.0;
 
     return left_load + right_load;
@@ -312,66 +319,69 @@ update_virtual_bus = func( dt ) {
 
 rh_bus = func(bv) {
     var load = 0.0;
-    var srvc = 0.0;
     for(var i=0; i<size(rbus_input); i+=1) {
-        var srvc = rbus_input[i].getValue();
-        load += rbus_load[i] * srvc;
-        rbus_output[i].setValue(bv * srvc);
+        if (rbus_input[i].getValue()) {
+            load += rbus_load[i];
+            rbus_output[i].setValue(bv);
+        } else {
+            rbus_output[i].setValue(0.0);
+        }
     }
     return load;
 }
 
 lh_bus = func(bv) {
     var load = 0.0;
-    var srvc = 0.0;
     for(var i=0; i<size(lbus_input); i+=1) {
-        var srvc = lbus_input[i].getValue();
-        load += lbus_load[i] * srvc;
-        lbus_output[i].setValue(bv * srvc);
-    }
+        if (lbus_input[i].getValue()) {
+            load += lbus_load[i];
+            lbus_output[i].setValue(bv);
+        } else {
+            lbus_output[i].setValue(0.0);
+        }    }
 
     setprop("systems/electrical/outputs/flaps",bv);
     return load;
 }
 
-var com1 = props.globals.initNode ("instrumentation/comm[0]/power-btn", 0, "BOOL");
-var com2 = props.globals.initNode ("instrumentation/comm[1]/power-btn", 0, "BOOL");
-var nav1 = props.globals.initNode ("instrumentation/nav[0]/power-btn", 0, "BOOL");
-var nav2 = props.globals.initNode ("instrumentation/nav[1]/power-btn", 0, "BOOL");
+# Initialize property nodes outside of the timer loop:
+var com1 = props.globals.initNode ("instrumentation/comm[0]/serviceable", 0, "BOOL");
+var com2 = props.globals.initNode ("instrumentation/comm[1]/serviceable", 0, "BOOL");
+var nav1 = props.globals.initNode ("instrumentation/nav[0]/serviceable",  0, "BOOL");
+var nav2 = props.globals.initNode ("instrumentation/nav[1]/serviceable",  0, "BOOL");
 
 av_bus = func(bv) {
     var load = 0.0;
-    var srvc = 0.0;
+
+    # If the comm/nav devices are turned on (power button on) and is serviceable (have electricity), enable them.
+    # Their "power-btn" property controls whether they actually do anything.
+    com1.setBoolValue (getprop ("instrumentation/comm[0]/power-btn") and (getprop ("systems/electrical/outputs/comm[0]") > 22));
+    com2.setBoolValue (getprop ("instrumentation/comm[1]/power-btn") and (getprop ("systems/electrical/outputs/comm[1]") > 22));
+#    nav1.setBoolValue (getprop ("instrumentation/nav[0]/power-btn")  and (getprop ("systems/electrical/outputs/nav[0]")  > 22));
+#    nav2.setBoolValue (getprop ("instrumentation/nav[1]/power-btn")  and (getprop ("systems/electrical/outputs/nav[1]")  > 22));
 
     for(var i=0; i<size(avbus_input); i+=1) {
-        var srvc = avbus_input[i].getValue();
-        load += avbus_load[i] * srvc;
-        avbus_output[i].setValue(bv * srvc);
+        if (avbus_input[i].getValue()) {
+            load += avbus_load[i];
+            avbus_output[i].setValue(bv);
+        } else {
+            avbus_output[i].setValue(0.0);
+        }
     }
-    # If the comm/nav devices are serviceable (power button on) and have electricity, enable them.  Their "power-btn" property controls whether they actually do anything.
-    com1.setBoolValue (getprop ("instrumentation/comm[0]/serviceable")
-                  and (getprop ("systems/electrical/outputs/comm[0]") > 22));
-    com2.setBoolValue (getprop ("instrumentation/comm[1]/serviceable")
-                  and (getprop ("systems/electrical/outputs/comm[1]") > 22));
-    nav1.setBoolValue (getprop ("instrumentation/nav[0]/serviceable")
-                  and (getprop ("systems/electrical/outputs/nav[0]") > 22));
-    nav2.setBoolValue (getprop ("instrumentation/nav[1]/serviceable")
-                  and (getprop ("systems/electrical/outputs/nav[1]") > 22));
     return load;
 }
 
 lighting = func(bv) {
     var load = 0.0;
-    var srvc = 0.0;
-
     for(var i=0; i<size(lights_input); i+=1) {
-        var srvc = lights_input[i].getValue();
-        load += lights_load[i] * srvc;
-        lights_output[i].setValue(bv * srvc);
+        if (lights_input[i].getValue()) {
+            load += lights_load[i];
+            lights_output[i].setValue(bv);
+        } else {
+            lights_output[i].setValue(0.0);
+        }
     }
-
-return load;
-
+    return load;
 }
 
 update_electrical = func {

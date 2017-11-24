@@ -1975,10 +1975,10 @@ refs 4
 9 0.278747886419 0.047325406224
 kids 0
 OBJECT poly
-name "Plane.137"
+name "HSI.Plane.137"
 loc 0 0 -0
 data 9
-Plane.137
+HSI.Plane.137
 texture "hsi.png"
 texrep 1.000000 1.000000
 crease 30.000001
@@ -2139,10 +2139,10 @@ refs 4
 33 0.599309563637 0.051705896854
 kids 0
 OBJECT poly
-name "fromflag"
+name "HSI.fromflag"
 loc 0 0 -0
 data 8
-fromflag
+HSI.fromflag
 texture "hsi.png"
 texrep 1.000000 1.000000
 crease 30.000001
@@ -2159,10 +2159,10 @@ refs 3
 1 0.24343110621 0.044568572193
 kids 0
 OBJECT poly
-name "gs.needle"
+name "HSI.gsneedle"
 loc 0 0 -0
 data 9
-gs.needle
+HSI.gsneedle
 texture "hsi.png"
 texrep 1.000000 1.000000
 crease 30.000001
@@ -2179,10 +2179,10 @@ refs 3
 1 0.673118531704 0.040662322193
 kids 0
 OBJECT poly
-name "navflag"
+name "HSI.navflag"
 loc 0 0 -0
 data 7
-navflag
+HSI.navflag
 texture "hsi.png"
 texrep 1.000000 1.000000
 crease 30.000001
@@ -2201,10 +2201,10 @@ refs 4
 1 0.593752026558 0.051506526768
 kids 0
 OBJECT poly
-name "toflag"
+name "HSI.toflag"
 loc 0 0 -0
 data 6
-toflag
+HSI.toflag
 texture "hsi.png"
 texrep 1.000000 1.000000
 crease 30.000001

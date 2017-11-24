@@ -35,87 +35,85 @@ var JetEngine = {
         m.ignition = props.globals.initNode("controls/engines/engine["~eng_num~"]/ignition",0,"BOOL");
         m.fuel_out = props.globals.initNode("engines/engine["~eng_num~"]/out-of-fuel",0,"BOOL");
         m.starter = props.globals.initNode("controls/engines/engine["~eng_num~"]/starter",0,"BOOL");
-        m.fuel_pph=m.eng.initNode("fuel-flow_pph",0,"DOUBLE");
-        m.fuel_gph=m.eng.initNode("fuel-flow-gph");
-        m.fuel_pump_boost =
-            props.globals.initNode ("controls/fuel/tank["~eng_num~"]/boost-pump",
-                                    0,
-                                    "BOOL");
+        m.starter_btn = props.globals.initNode("controls/electric/engine["~eng_num~"]/starter-btn",0,"BOOL");
+        m.fuel_pph = m.eng.initNode("fuel-flow_pph",0,"DOUBLE");
+        m.fuel_gph = m.eng.initNode("fuel-flow-gph");
+        m.fuel_pump_boost = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
         m.hpump=props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0,"DOUBLE");
 
         m.Lfuel = setlistener(m.fuel_out, func m.shutdown(m.fuel_out.getValue()),0,0);
     return m;
     },
+
 #### update ####
     update : func{
         var thr = me.throttle.getValue();
-        if(me.running.getBoolValue ()){
-            # If the engine is running, simply copy n1 and n2 to fan and turbine.
+
+# If the engine is running, simply copy n1 and n2 to fan and turbine.
+        if(me.running.getBoolValue ()) {
+            if(me.starter.getBoolValue()) me.starter_btn.setBoolValue (0);
             me.fan.setValue(me.n1.getValue());
             me.turbine.setValue(me.n2.getValue());
-            if(getprop("controls/engines/grnd_idle"))thr *=0.92;
+            if(getprop("controls/engines/grnd_idle")) thr *= 0.92;
             me.throttle_lever.setValue(thr);
-        }else{
-            # Engine not running.  Decide whether to start it or not.
+        } else {
             me.throttle_lever.setValue(0);
-            if(me.starter.getBoolValue() # and it has electricity:
-               and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
-                    or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
-            {
-                if(me.cycle_up == 0)me.cycle_up=1;
+            var n1 = me.n1.getValue();
+            var n2 = me.n2.getValue();
+            var turbine = me.turbine.getValue();
+            var fan = me.fan.getValue ();
+            var scnds = 15;
+
+# Engine not running. With starter spool up
+            if(me.starter.getBoolValue()) {
+                turbine += getprop ("sim/time/delta-sec") * n2 / scnds;
+
+                if (turbine < n2) me.turbine.setValue (turbine);
+                else me.turbine.setValue (n2);
+
+                if (turbine > 20) {
+                    if (me.ignition.getValue () and me.fuel_pump_boost.getValue ()) {
+                        fan += getprop ("sim/time/delta-sec") * n1 / scnds;
+                        me.fan.setValue (fan);
+                        if (fan >= n1) { # declare victory
+                            me.running.setBoolValue (1);
+                            me.starter_btn.setBoolValue (0);
+                        }
+                    }
+                    else {
+                        if(fan > 0.0) {
+                            fan -= getprop("sim/time/delta-sec") * 2;
+                            if (fan < 0.0) fan = 0.0;
+                            me.fan.setValue(fan);
+                        }
+                    }
+                }
             }
-            if(me.cycle_up>0){
-                me.spool_up (15); # it will take this many seconds to spool up.
-            }else{
+
+# Engine not running. Without starter spool down
+            else {
                 # not running and not cycling up therefore we must be shutting down.
-                var tmprpm = me.fan.getValue();
-                if(tmprpm > 0.0){
-                    tmprpm -= getprop("sim/time/delta-sec") * 2;
-                    if (tmprpm <= 0.0) { tmprpm = 0.0; }
-                    me.fan.setValue(tmprpm);
-                    me.turbine.setValue(tmprpm);
+                if(turbine > 0.0) {
+                    turbine -= getprop("sim/time/delta-sec") * 2;
+                    if (turbine < 0.0) turbine = 0.0;
+                    me.turbine.setValue(turbine);
+                }
+                if(fan > 0.0) {
+                    fan -= getprop("sim/time/delta-sec") * 2;
+                    if (fan < 0.0) fan = 0.0;
+                    me.fan.setValue(fan);
                 }
             }
         }
 
         me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
-        var hpsi =me.fan.getValue();
-        if(hpsi>60)hpsi = 60;
+        var hpsi = me.fan.getValue();
+        if(hpsi > 60) hpsi = 60;
         me.hpump.setValue(hpsi);
     },
 
-    spool_up : func(scnds) {
-        # We spool the turbine up.  If the turbine reaches a threshold and
-        # ignition and the fuel boost pump are both ON, we then spool the fan
-        # up.
-        var n1 = me.n1.getValue();
-        var n2 = me.n2.getValue();
-        var turbine = me.turbine.getValue()
-            + getprop ("sim/time/delta-sec") * n2 / scnds;
-        if (turbine < n2) { me.turbine.setValue (turbine); }
-        else { me.turbine.setValue (n2); }
-
-        if (turbine > 20
-            and me.ignition.getValue ()
-            and me.fuel_pump_boost.getValue () # and it has electricity:
-            and (getprop ("/systems/electrical/outputs/bus/left") > 20.0
-                 or getprop ("/systems/electrical/outputs/bus/right") > 20.0))
-        {
-            var fan = me.fan.getValue ()
-                + getprop ("sim/time/delta-sec") * n1 / scnds;
-            me.fan.setValue (fan);
-            if (fan >= n1) { # declare victory
-                me.cycle_up = 0;
-                me.starter.setBoolValue (0);
-                me.running.setBoolValue (1);
-            }
-        }
-    },
-
     shutdown : func(b){
-        if (!b) {
-            me.running.setBoolValue (b);
-        }
+        if (!b) me.running.setBoolValue (b);
     }
 
 };
@@ -156,9 +154,10 @@ var resetControls = func() {
 
 setlistener("/sim/signals/fdm-initialized", func {
 
-  setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
+#  setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
   switch_rmi("single-needle", 0);
-
+#  setprop ("/instrumentation/rmi/double-needle/selected-input", "VOR");
+  switch_rmi("double-needle", 1);
 
   if (getprop("/consumables/fuel/fuel_overlay") == 1) {
     # if we initialising a state overlay, then use pre-programmed fuel levels
@@ -326,8 +325,8 @@ var Startup = func{
     setprop("controls/engines/engine[1]/ignition",1);
     setprop("controls/fuel/tank[0]/boost-pump-switch",1);
     setprop("controls/fuel/tank[1]/boost-pump-switch",1);
-    setprop("controls/engines/engine[0]/starter",1);
-    setprop("controls/engines/engine[1]/starter",1);
+    setprop("controls/electric/engine[0]/starter-btn",1);
+    setprop("controls/electric/engine[1]/starter-btn",1);
     setprop("controls/engines/throttle_idle",1);
 }
 

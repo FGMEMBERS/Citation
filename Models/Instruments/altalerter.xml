@@ -92,6 +92,12 @@
     <factor>1</factor>
     <action>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/ac-volts</property>
+            <value>90</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>autopilot/settings/target-altitude-ft</property>
         <factor>100</factor>

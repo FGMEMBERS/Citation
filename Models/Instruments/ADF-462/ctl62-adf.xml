@@ -290,6 +290,12 @@ Syd Adams
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-swap</command>
         <property>instrumentation/adf/frequencies/selected-khz</property>
         <property>instrumentation/adf/frequencies/standby-khz</property>
@@ -317,17 +323,6 @@ Syd Adams
         <min>0</min>
         <max>3</max>
         <wrap>0</wrap>
-      </binding>
-      <binding>
-        <condition>
-          <greater-than>
-            <property>instrumentation/adf/func-knob</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
-        <command>property-assign</command>
-        <property>instrumentation/adf/ident-audible</property>
-        <value>1</value>
       </binding>
       <binding>
         <condition>
@@ -400,17 +395,6 @@ Syd Adams
       </binding>
       <binding>
         <condition>
-          <greater-than>
-            <property>instrumentation/adf/func-knob</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
-        <command>property-assign</command>
-        <property>instrumentation/adf/ident-audible</property>
-        <value>1</value>
-      </binding>
-      <binding>
-        <condition>
           <equals>
             <property>instrumentation/adf/func-knob</property>
             <value>0</value>
@@ -466,10 +450,10 @@ Syd Adams
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf/volume-norm</property>
-        <step>-0.05</step>
+        <step>0.050</step>
         <min>0</min>
-        <max>1</max>
-        <wrap>0</wrap>
+        <max>1.0</max>
+        <wrap>false</wrap>
       </binding>
     </action>
     <hovered>
@@ -478,6 +462,7 @@ Syd Adams
         <tooltip-id>adf-volume</tooltip-id>
         <label>ADF volume: %d%%</label>
         <property>instrumentation/adf/volume-norm</property>
+        <mapping>percent</mapping>
       </binding>
     </hovered>
   </animation>
@@ -486,50 +471,18 @@ Syd Adams
     <type>pick</type>
     <object-name>CTL-62.vol</object-name>
     <action>
-      <button>0</button>
+      <button>1</button>
       <repeatable>true</repeatable>
       <interval-sec>0.1</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf/volume-norm</property>
-        <step>0.05</step>
+        <step>-0.050</step>
         <min>0</min>
-        <max>1</max>
-        <wrap>0</wrap>
+        <max>1.0</max>
+        <wrap>false</wrap>
       </binding>
     </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-volume</tooltip-id>
-        <label>ADF volume: %d%%</label>
-        <property>instrumentation/adf/volume-norm</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.vol</object-name>
-    <action>
-      <button>4</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf/volume-norm</property>
-        <step>-0.05</step>
-        <min>0</min>
-        <max>1</max>
-        <wrap>0</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-volume</tooltip-id>
-        <label>ADF volume: %d%%</label>
-        <property>instrumentation/adf/volume-norm</property>
-      </binding>
-    </hovered>
   </animation>
 
   <animation>
@@ -540,20 +493,28 @@ Syd Adams
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf/volume-norm</property>
-        <step>0.05</step>
+        <step>0.050</step>
         <min>0</min>
-        <max>1</max>
-        <wrap>0</wrap>
+        <max>1.0</max>
+        <wrap>false</wrap>
       </binding>
     </action>
-    <hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>CTL-62.vol</object-name>
+    <action>
+      <button>4</button>
       <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-volume</tooltip-id>
-        <label>ADF volume: %d%%</label>
+        <command>property-adjust</command>
         <property>instrumentation/adf/volume-norm</property>
+        <step>-0.050</step>
+        <min>0</min>
+        <max>1.0</max>
+        <wrap>false</wrap>
       </binding>
-    </hovered>
+    </action>
   </animation>
 
   <animation>
@@ -564,6 +525,12 @@ Syd Adams
       <repeatable>true</repeatable>
       <interval-sec>0.2</interval-sec>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>-1</step>
@@ -590,6 +557,12 @@ Syd Adams
       <repeatable>true</repeatable>
       <interval-sec>0.2</interval-sec>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>1</step>
@@ -614,6 +587,12 @@ Syd Adams
     <action>
       <button>4</button>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>-1</step>
@@ -638,6 +617,12 @@ Syd Adams
     <action>
       <button>3</button>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>1</step>
@@ -664,6 +649,12 @@ Syd Adams
       <repeatable>true</repeatable>
       <interval-sec>0.2</interval-sec>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>-10</step>
@@ -690,6 +681,12 @@ Syd Adams
       <repeatable>true</repeatable>
       <interval-sec>0.2</interval-sec>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>10</step>
@@ -716,6 +713,12 @@ Syd Adams
       <repeatable>true</repeatable>
       <interval-sec>0.2</interval-sec>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>-10</step>
@@ -742,6 +745,12 @@ Syd Adams
       <repeatable>true</repeatable>
       <interval-sec>0.2</interval-sec>
       <binding>
+        <condition>
+          <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>1</value>
+          </greater-than>
+        </condition>
         <command>property-adjust</command>
         <property>instrumentation/adf/frequencies/standby-khz</property>
         <step>10</step>

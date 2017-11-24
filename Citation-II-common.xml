@@ -664,25 +664,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>Systems/instrumentation.xml</path>
       <mk-viii>                           <!-- http://wiki.flightgear.org/index.php/GPWS -->
         <serviceable>true</serviceable>   <!-- EGPWS_ENABLE -->
-	<configuration-module>
-	  <category-1>   1 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
-	  <category-8>   3 </category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
-	</configuration-module>
-	<inputs>                          <!-- Module I/O -->
-	  <arinc429>
-	    <decision-height-ncd> false </decision-height-ncd>
-	    <decision-height> 200 </decision-height>
-	  </arinc429>
-	</inputs>
-	<speaker>                         <!-- Speaker Configuration -->
-	  <volume> 0.4 </volume>          <!-- Volume at reference distance -->
-	</speaker>
-	<voice>
-	  <file-prefix type="string">Sounds/mk-viii/</file-prefix>
+        <configuration-module>
+          <category-1>   1 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+          <category-8>   3 </category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
+        </configuration-module>
+        <inputs>                          <!-- Module I/O -->
+          <arinc429>
+            <decision-height-ncd> false </decision-height-ncd>
+            <decision-height> 200 </decision-height>
+          </arinc429>
+        </inputs>
+        <speaker>                         <!-- Speaker Configuration -->
+          <volume> 0.4 </volume>          <!-- Volume at reference distance -->
+        </speaker>
+        <voice>
+          <file-prefix type="string">Sounds/mk-viii/</file-prefix>
                                          <!-- sound file path and prefix -->
-	</voice>
+        </voice>
       </mk-viii>
     </instrumentation>
+
 
     <multiplay>
       <generic>
@@ -691,8 +692,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <int type="int" n="2" alias="/systems/electrical/outputs/nav-lights"/>
         <int type="int" n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
         <int type="int" n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
-        <int type="int" n="5" alias="/controls/lighting/recog-lights-left"/>
-        <int type="int" n="6" alias="/controls/lighting/recog-lights-right"/>
+        <int type="int" n="5" alias="/controls/lighting/recog-light[0]"/>
+        <int type="int" n="6" alias="/controls/lighting/recog-light[1]"/>
         <float type="float" n="0" alias="/controls/cabin-door/position-norm"/>
         <float type="float" n="1" alias="/sim/model/registration/red"/>
         <float type="float" n="2" alias="/sim/model/registration/green"/>
@@ -745,8 +746,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <signal><type>int</type><property type="string">/systems/electrical/outputs/nav-lights</property></signal>
         <signal><type>int</type><property type="string">/systems/electrical/outputs/landing-light[0]</property></signal>
         <signal><type>int</type><property type="string">/systems/electrical/outputs/landing-light[1]</property></signal>
-        <signal><type>int</type><property type="string">/controls/lighting/recog-lights-left</property></signal>
-        <signal><type>int</type><property type="string">/controls/lighting/recog-lights-right</property></signal>
+        <signal><type>int</type><property type="string">/controls/lighting/recog-light[0]</property></signal>
+        <signal><type>int</type><property type="string">/controls/lighting/recog-light[1]</property></signal>
         <signal><type>float</type><property type="string">/controls/cabin-door/position-norm</property></signal>
         <signal><type>float</type><property type="string">/surface-positions/reverser-norm</property></signal>
         <signal><type>float</type><property type="string">/surface-positions/reverser-norm[1]</property></signal>
@@ -812,14 +813,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <magnetos>3</magnetos>
       </engine>
     </engines>
-    <!--fuel>
+    <fuel>
       <tank n="0">
         <boost-pump-switch type="int">0</boost-pump-switch>
       </tank>
       <tank n="1">
         <boost-pump-switch type="int">0</boost-pump-switch>
       </tank>
-    </fuel-->
+    </fuel>
     <flight>
       <speedbrake-switch type="bool">0</speedbrake-switch>
     </flight>
@@ -829,6 +830,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <battery-bus-switch type="int">0</battery-bus-switch>
       <voltage-sel type="int">0</voltage-sel>
       <system-test type="int">10</system-test>
+      <engine n="0">
+        <starter-btn type="bool">false</starter-btn>
+      </engine>
+      <engine n="1">
+        <starter-btn type="bool">false</starter-btn>
+      </engine>
       <fuel-sel type="int">0</fuel-sel>
       <fuel>
 	<tank n="0">
@@ -857,13 +864,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	  <cb-light-panel-flood type="bool">1</cb-light-panel-flood>
         </bus-emer>
         <bus-left>
+	  <cb-light-landing-left type="bool">1</cb-light-landing-left> <!-- has no model, it's located in J-Box -->
+	  <cb-light-recog-left type="bool">1</cb-light-recog-left> <!-- has no model, it's located in J-Box -->
           <cb-light-panel-left type="bool">1</cb-light-panel-left>
 	  <cb-light-panel-center type="bool">1</cb-light-panel-center>
+	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
 	  <cb-light-beacon type="bool">1</cb-light-beacon>
-	  <cb-light-landing-left type="bool">1</cb-light-landing-left> <!-- has no model, it's located in J-Box -->
 	  <cb-light-strobe type="bool">1</cb-light-strobe>
-	  <cb-light-recog-left type="bool">1</cb-light-recog-left> <!-- has no model, it's located in J-Box -->
 	  <cb-light-winginsp type="bool">1</cb-light-winginsp>
+	  <cb-light-nav type="bool">1</cb-light-nav>
 	  <cb-light-cabin-ind type="bool">1</cb-light-cabin-ind> <!-- has no model, it's located in J-Box -->
 	  <cb-speedbrakes type="bool">1</cb-speedbrakes>
 	  <cb-pitch-trim type="bool">1</cb-pitch-trim>
@@ -871,15 +880,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	  <cb-flap-ctl type="bool">1</cb-flap-ctl>
 	  <cb-flap-motor type="bool">1</cb-flap-motor>
 	  <cb-thrust-reverser-left type="bool">1</cb-thrust-reverser-left>
+	  <cb-thrust-reverser-right type="bool">1</cb-thrust-reverser-right>
 	  <cb-start-left type="bool">1</cb-start-left>
         </bus-left>
         <bus-right>
-	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
-	  <cb-light-nav type="bool">1</cb-light-nav>
+	  <cb-light-cabin-read type="bool">1</cb-light-cabin-read> <!-- has no model, it's located elsewhere -->
 	  <cb-light-landing-right type="bool">1</cb-light-landing-right> <!-- has no model, it's located in J-Box -->
 	  <cb-light-recog-right type="bool">1</cb-light-recog-right> <!-- has no model, it's located in J-Box -->
-	  <cb-light-cabin-read type="bool">1</cb-light-cabin-read> <!-- has no model, it's located elsewhere -->
-	  <cb-thrust-reverser-right type="bool">1</cb-thrust-reverser-right>
 	  <cb-start-right type="bool">1</cb-start-right>
 	  <cb-ground-prox type="bool">1</cb-ground-prox>
         </bus-right>
@@ -904,6 +911,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <flightdeck-average-ambient-light-environment type="double">0.0</flightdeck-average-ambient-light-environment>
       <flightdeck-average-instrument-emission type="double">0.0</flightdeck-average-instrument-emission>
       <panel-average-lighting type="double">0.0</panel-average-lighting>
+      <landing-light-switch n="0" type="bool">0</landing-light-switch>
+      <landing-light-switch n="1" type="bool">0</landing-light-switch>
+      <nav-lights-switch type="bool">0</nav-lights-switch>
+      <recog-lights-switch type="bool">0</recog-lights-switch>
+      <strobe-switch type="bool">0</strobe-switch>
+      <beacon-switch type="bool">0</beacon-switch>
+      <!-- cabin-lights-norm type=""></cabin-lights-norm -->
     </lighting>
     <baggage-door-front-left n="0">
       <command type="bool">0</command>
@@ -948,12 +962,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   <engines>
     <engine n="0">
-      <rpm>1000</rpm>
-      <reverser-position type="double">0.000000</reverser-position>
+      <reverser-position type="double">0.0</reverser-position>
     </engine>
     <engine n="1">
-      <rpm>1000</rpm>
-      <reverser-position type="double">0.000000</reverser-position>
+      <reverser-position type="double">0.0</reverser-position>
     </engine>
   </engines>
 
@@ -968,6 +980,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </frequencies>
       <switch-position n="0" type="int">0</switch-position>
       <switch-position n="1" type="int">0</switch-position>
+      <volume type="double">1.0</volume>
     </dme>
     <inst-vertical-speed-indicator>
       <serviceable type="bool">1</serviceable>
@@ -987,7 +1000,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </fmc>
     <rmi>
       <single-needle>
-        <selected-input type="string">ADF</selected-input>
+        <selected-input type="string">VOR</selected-input>
         <position-deg type="double"/>
         <!-- computed by a filter, see Models/Instruments/instrument-filters.xml -->
       </single-needle>
@@ -1004,6 +1017,41 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <selected-nav type="int">1</selected-nav> <!-- copilot's HSI initially uses NAV2 -->
       <volts type="double">0</volts>
     </hsi>
+    <adf n="0">
+        <volume-norm type="double">1.0</volume-norm>
+        <func-knob type="int">1</func-knob>
+        <mode type="string">ant</mode>
+        <ident-audible type="bool">false</ident-audible>
+    </adf>
+    <comm n="0">
+        <volume-def type="double">1.0</volume-def>
+    </comm>
+    <comm n="1">
+        <volume-def type="double">1.0</volume-def>
+    </comm>
+    <nav n="0">
+        <volume type="double">1.0</volume>
+    </nav>
+    <nav n="1">
+        <volume type="double">1.0</volume>
+    </nav>
+    <audiopanel>
+        <volume-master type="float">1.0</volume-master>
+        <marker type="int" archive="y">0</marker>
+        <comm1 type="int" archive="y">0</comm1>
+        <comm2 type="int" archive="y">0</comm2>
+        <warn type="int" archive="y">1</warn>
+        <adf1 type="int" archive="y">1</adf1>
+        <adf2 type="int" archive="y">1</adf2>
+        <dme1 type="int" archive="y">1</dme1>
+        <dme2 type="int" archive="y">1</dme2>
+        <nav1 type="int" archive="y">1</nav1>
+        <nav2 type="int" archive="y">1</nav2>
+        <resv0 type="int" archive="y">1</resv0>
+        <resv1 type="int" archive="y">1</resv1>
+        <resv2 type="int" archive="y">1</resv2>
+        <mute type="int" archive="y">1</mute>
+    </audiopanel>
   </instrumentation>
 
   <autopilot>
@@ -1027,19 +1075,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   <nasal>
     <cdu>
-      <file>Aircraft/Instruments-3d/cdu/boeing.nas</file>
+      <file>Models/Instruments/cdu/boeing.nas</file>
     </cdu>
     <citation>
       <file>Nasal/Electrical.nas</file>
       <file>Nasal/citation2.nas</file>
       <file>Aircraft/Generic/limits.nas</file>
       <file>Nasal/rain.nas</file>
+      <file>Nasal/audiopanel.nas</file>
     </citation>
     <saveState>
       <file>Nasal/save-state.nas</file>
     </saveState>
     <m877>
-      <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
+      <file>Models/Instruments/M877/M877.nas</file>
     </m877>
     <tyresmoke>
       <file>Nasal/tyresmoke.nas</file>
@@ -1095,9 +1144,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <binding>
 	  <condition>
 	    <and>
-	      <property>controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</property>
+	      <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-right</property>
 	      <greater-than>
-		<property>systems/electrical/outputs/bus/right</property>
+		<property>systems/electrical/outputs/bus/left</property>
 		<value>20</value>
 	      </greater-than>
 	    </and>

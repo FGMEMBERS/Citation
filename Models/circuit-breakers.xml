@@ -51,7 +51,7 @@ C/B's on the right panel need:
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0.2</z>
+      <z>-0.2</z>
     </axis>
   </animation>
   <animation>
@@ -237,7 +237,6 @@ C/B's on the right panel need:
     </hovered>
   </animation>
 
-
   <animation>
     <type>translate</type>
     <object-name>cb.Light.LHPanel</object-name>
@@ -299,6 +298,39 @@ C/B's on the right panel need:
         <tooltip-id>circuitbreakers-light-panel-center</tooltip-id>
         <label>Circuit breakers Lights panel center: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.RHPanel</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.RHPanel</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-lights-panel-right</tooltip-id>
+        <label>Circuit breakers Lights panel right: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -398,6 +430,39 @@ C/B's on the right panel need:
         <tooltip-id>circuitbreakers-light-winginsp</tooltip-id>
         <label>Circuit breakers Lights wing-inspection: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.Light.NAV</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-nav</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.Light.NAV</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-nav</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>circuitbreakers-lights-nav</tooltip-id>
+        <label>Circuit breakers Lights navigation: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-nav</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -585,6 +650,30 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
+    <object-name>cb.ThrustReverser.RH</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <!--animation>
+    <type>pick</type>
+    <object-name>cb.ThrustReverser.RH</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-right</property>
+      </binding>
+    </action>
+  </animation-->
+
+  <animation>
+    <type>translate</type>
     <object-name>cb.Start.LH</object-name>
     <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
     <factor>-0.004</factor>
@@ -608,7 +697,7 @@ C/B's on the right panel need:
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-start-left</tooltip-id>
+        <tooltip-id>circuitbreakers-starter-left</tooltip-id>
         <label>Circuit breakers Starter left: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
         <mapping>close-open</mapping>
@@ -631,7 +720,7 @@ C/B's on the right panel need:
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0.2</z>
+      <z>-0.2</z>
     </axis>
   </animation>
   <animation>
@@ -664,7 +753,7 @@ C/B's on the right panel need:
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0.2</z>
+      <z>-0.2</z>
     </axis>
   </animation>
   <animation>
@@ -697,7 +786,7 @@ C/B's on the right panel need:
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0.2</z>
+      <z>-0.2</z>
     </axis>
   </animation>
   <animation>
@@ -721,97 +810,6 @@ C/B's on the right panel need:
     </hovered>
   </animation>
 
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.Light.RHPanel</object-name>
-    <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>cb.Light.RHPanel</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-lights-panel-right</tooltip-id>
-        <label>Circuit breakers Lights panel right: %s</label>
-        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
-        <mapping>close-open</mapping>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.Light.NAV</object-name>
-    <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>cb.Light.NAV</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-lights-nav</tooltip-id>
-        <label>Circuit breakers Lights navigation: %s</label>
-        <property>controls/electric/circuit-breakers/bus-right/cb-light-nav</property>
-        <mapping>close-open</mapping>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.ThrustReverser.RH</object-name>
-    <property>controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <!--animation>
-    <type>pick</type>
-    <object-name>cb.ThrustReverser.RH</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right/cb-thrust-reverser-right</property>
-      </binding>
-    </action>
-  </animation-->
-
   <animation>
     <type>translate</type>
     <object-name>cb.Start.RH</object-name>
@@ -821,7 +819,7 @@ C/B's on the right panel need:
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0.2</z>
+      <z>-0.2</z>
     </axis>
   </animation>
   <animation>
@@ -854,7 +852,7 @@ C/B's on the right panel need:
     <axis>
       <x>0</x>
       <y>1</y>
-      <z>0.2</z>
+      <z>-0.2</z>
     </axis>
   </animation>
   <animation>

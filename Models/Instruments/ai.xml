@@ -33,14 +33,9 @@
         <type>select</type>
         <object-name>gs.flag</object-name>
         <condition>
-			<or>
-				<not>
-					<property>instrumentation/nav/has-gs</property>
-				</not>
-				<not>
-					<property>instrumentation/nav/in-range</property>
-				</not>
-			</or>
+            <not>
+                <property>instrumentation/nav/gs-in-range</property>
+            </not>
         </condition>
         <property>orientation/roll-deg</property>
     </animation>
@@ -49,10 +44,10 @@
         <type>select</type>
         <object-name>loc.flag</object-name>
         <condition>
-			<not>
-				<property>instrumentation/nav/in-range</property>
-			</not>
-		</condition>
+            <not>
+                <property>instrumentation/nav/in-range</property>
+            </not>
+        </condition>
         <property>orientation/roll-deg</property>
     </animation>
 
@@ -60,7 +55,7 @@
         <type>rotate</type>
         <object-name>AIball</object-name>
         <object-name>AI.ring</object-name>
-		  <property>orientation/roll-deg</property>
+        <property>orientation/roll-deg</property>
         <center>
             <x-m>-0.041</x-m>
             <y-m>0</y-m>
@@ -93,11 +88,11 @@
         <type>rotate</type>
         <object-name>AI.slipball</object-name>
         <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
-			<interpolation>
-         	   <entry><ind>-1</ind><dep>-8</dep></entry>
-       	     <entry><ind>0</ind><dep>0</dep></entry>
-          	  <entry><ind>1</ind><dep>8</dep></entry>
-     	   </interpolation>
+        <interpolation>
+        <entry><ind>-1</ind><dep>-8</dep></entry>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>8</dep></entry>
+        </interpolation>
         <center>
             <x-m>0</x-m>
             <y-m>0</y-m>
@@ -113,11 +108,11 @@
     <animation>
         <type>translate</type>
         <object-name>LOC.needle</object-name>
-        <property>instrumentation/nav/heading-needle-deflection</property>
-			<interpolation>
-            <entry><ind>-5</ind><dep>-0.0124</dep></entry>
+        <property>instrumentation/nav/ai-loc-deflection</property>
+        <interpolation>
+            <entry><ind>-5.0</ind><dep>-0.0124</dep></entry>
             <entry><ind>0.0</ind><dep>0</dep></entry>
-            <entry><ind>5</ind><dep>0.0124</dep></entry>
+            <entry><ind>5.0</ind><dep>0.0124</dep></entry>
         </interpolation>
         <axis>
             <x>0</x>
@@ -129,8 +124,8 @@
     <animation>
         <type>translate</type>
         <object-name>AI.gsneedle</object-name>
-        <property>instrumentation/nav/gs-needle-deflection</property>
-			<interpolation>
+        <property>instrumentation/nav/ai-gs-deflection</property>
+        <interpolation>
             <entry><ind>-2.0</ind><dep>-0.0155</dep></entry>
             <entry><ind>0.0</ind><dep>0.0</dep></entry>
             <entry><ind>2.0</ind><dep>0.0155</dep></entry>
@@ -146,7 +141,7 @@
         <type>translate</type>
         <object-name>turn.needle</object-name>
         <property>instrumentation/turn-indicator/indicated-turn-rate</property>
-			<interpolation>
+        <interpolation>
             <entry><ind>-2</ind><dep>-0.007</dep></entry>
             <entry><ind>0.0</ind><dep>0</dep></entry>
             <entry><ind>2</ind><dep>0.007</dep></entry>
@@ -162,11 +157,11 @@
         <type>translate</type>
         <object-name>aoa.needle</object-name>
         <property>orientation/alpha-deg</property>
-			<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>5.60</ind><dep>0.004</dep></entry><!-- 0.4-->
-			<entry><ind>8.4</ind><dep>0.0166</dep></entry><!-- 0.6 - optimal appr-->
-			<entry><ind>11.2</ind><dep>0.0292</dep></entry><!-- 0.8-->
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>5.60</ind><dep>0.004</dep></entry><!-- 0.4-->
+            <entry><ind>8.4</ind><dep>0.0166</dep></entry><!-- 0.6 - optimal appr-->
+            <entry><ind>11.2</ind><dep>0.0292</dep></entry><!-- 0.8-->
             <entry><ind>14</ind><dep>0.0334</dep></entry>
         </interpolation>
         <axis>

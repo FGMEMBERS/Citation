@@ -82,6 +82,11 @@
     <prop>/systems/electrical/outputs/instr-ignition-switch</prop>
     <prop>/systems/electrical/outputs/adf</prop>
     <prop>/systems/electrical/outputs/dme</prop>
+    <prop>/systems/electrical/outputs/comm[0]</prop>
+    <prop>/systems/electrical/outputs/comm[1]</prop>
+    <prop>/systems/electrical/outputs/nav[0]</prop>
+    <prop>/systems/electrical/outputs/nav[1]</prop>
+    <prop>/systems/electrical/outputs/transponder</prop>
   </output>
 
   <output>
@@ -106,6 +111,11 @@
   </output>
 
   <output>
+    <name>Nav Light Power</name>
+    <prop>/systems/electrical/outputs/nav-lights</prop>
+  </output>
+
+  <output>
     <name>Flaps Power</name>
     <prop>/systems/electrical/outputs/flaps</prop>
   </output>
@@ -127,7 +137,7 @@
 
   <output>
     <name>Strobe Lights Power</name>
-    <prop>/systems/electrical/outputs/strobe-lights</prop>
+    <prop>/systems/electrical/outputs/strobe</prop>
   </output>
 
   <output>
@@ -143,11 +153,6 @@
   <output>
     <name>GPS Power</name>
     <prop>/systems/electrical/outputs/gps</prop>
-  </output>
-
-  <output>
-    <name>Nav Radio Power</name>
-    <prop>/systems/electrical/outputs/nav</prop>
   </output>
 
   <!-- connect in power sources -->
@@ -261,6 +266,14 @@
 
   <connector>
     <input>Bus Bar</input>
+    <output>Nav Light Power</output>
+    <switch>
+      <prop>/controls/switches/nav-lights</prop>
+    </switch>
+  </connector>
+
+  <connector>
+    <input>Bus Bar</input>
     <output>Flaps Power</output>
     <switch>
       <prop>/controls/circuit-breakers/flaps</prop>
@@ -320,14 +333,6 @@
     <output>GPS Power</output>
     <switch>
       <prop>/controls/circuit-breakers/gps</prop>
-    </switch>
-  </connector>
-
-  <connector>
-    <input>Bus Bar</input>
-    <output>Nav Radio Power</output>
-    <switch>
-      <prop>/controls/circuit-breakers/nav</prop>
     </switch>
   </connector>
 
