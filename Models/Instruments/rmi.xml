@@ -59,12 +59,12 @@
           var dest_node = props.globals.getNode ("/instrumentation/rmi/single-needle/in-range", 1);
           dest_node.unalias ();
           if (selected_input == "ADF") {
-          var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
-          dest_node.alias (source_node);
+            var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
+            dest_node.alias (source_node);
           }
           elsif (selected_input == "VOR") {
-          var source_node = props.globals.getNode ("/instrumentation/nav[0]/in-range");
-          dest_node.alias (source_node);
+            var source_node = props.globals.getNode ("/instrumentation/nav[0]/in-range");
+            dest_node.alias (source_node);
           }
         </script>
       </binding>
@@ -138,12 +138,12 @@
           var dest_node = props.globals.getNode ("/instrumentation/rmi/double-needle/in-range", 1);
           dest_node.unalias ();
           if (selected_input == "ADF") {
-          var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
-          dest_node.alias (source_node);
+            var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
+            dest_node.alias (source_node);
           }
           elsif (selected_input == "VOR") {
-          var source_node = props.globals.getNode ("/instrumentation/nav[1]/in-range");
-          dest_node.alias (source_node);
+            var source_node = props.globals.getNode ("/instrumentation/nav[1]/in-range");
+            dest_node.alias (source_node);
           }
         </script>
       </binding>

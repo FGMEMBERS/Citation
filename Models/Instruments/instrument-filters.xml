@@ -158,44 +158,48 @@ GNU General Public License for more details.
     <output>instrumentation/rmi/double-needle/position-deg</output>
   </filter>
 
-  <!-- Radar Altimeter: filter for mechanical needle -->
+  <!--Radar Altimeter: filter for mechanical needle -->
 
   <filter>
-    <name>ralt filter</name>
+    <name>ralt filter below 500</name>
     <debug>false</debug>
     <type>noise-spike</type>
-    <max-rate-of-change>500</max-rate-of-change>
+    <max-rate-of-change>1000</max-rate-of-change>
+
     <input>
       <condition>
-        <and>
-          <greater-than>
-            <property>systems/electrical/ac-volts</property>
-            <value>100</value>
-          </greater-than>
-          <lower-than>
-            <property>position/altitude-agl-ft</property>
-            <value>2500</value>
-          </lower-than>
-        </and>
+        <less-than>
+          <property>systems/electrical/ac-volts</property>
+          <value>1</value>
+        </less-than>
       </condition>
+      <value>0.0</value>
+    </input>
+
+    <input>
+      <condition>
+        <less-than>
+          <property>position/altitude-agl-ft</property>
+          <value>-25.0</value>
+        </less-than>
+      </condition>
+      <value>-25.0</value>
+    </input>
+
+    <input>
+      <condition>
+        <greater-than>
+          <property>position/altitude-agl-ft</property>
+          <value>2500.0</value>
+        </greater-than>
+      </condition>
+      <value>2500.0</value>
+    </input>
+
+    <input>
       <property>position/altitude-agl-ft</property>
     </input>
-    <input>
-      <condition>
-        <and>
-          <greater-than>
-            <property>systems/electrical/ac-volts</property>
-            <value>100</value>
-          </greater-than>
-          <greater-than>
-            <property>position/altitude-agl-ft</property>
-            <value>2500</value>
-          </greater-than>
-        </and>
-      </condition>
-      <value>2500.00</value>
-    </input>
-    <input><value>0.0</value></input>
+
     <output>instrumentation/radar-altimeter/radar-altitude-ft</output>
   </filter>
 
@@ -215,7 +219,7 @@ GNU General Public License for more details.
       <value>1</value>
     </input>
     <input>0</input>
-    <output>instrumentation/cdu/serviceable</output>
+    <output>/instrumentation/cdu/serviceable</output>
   </filter>
 
   <filter>
@@ -235,13 +239,13 @@ GNU General Public License for more details.
       <value>1</value>
     </input>
     <input>0</input>
-    <output>instrumentation/mk-viii/serviceable</output>
+    <output>/instrumentation/mk-viii/serviceable</output>
   </filter>
 
   <!-- VOR: deflection filter for mechanical needles -->
 
   <filter>
-    <name>VOR0 localizer lowpass</name>
+    <name>VOR0 localizor lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.5</filter-time>
@@ -275,7 +279,7 @@ GNU General Public License for more details.
   </filter>
 
   <filter>
-    <name>VOR1 localizer lowpass</name>
+    <name>VOR1 localizor lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.5</filter-time>
@@ -311,7 +315,7 @@ GNU General Public License for more details.
   <!-- AI: filter for mechanical needles -->
 
   <filter>
-    <name>AI0 localizer lowpass</name>
+    <name>AI0 localizor lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>
@@ -345,7 +349,7 @@ GNU General Public License for more details.
   </filter>
 
   <filter>
-    <name>AI1 localizer lowpass</name>
+    <name>AI1 localizor lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>
@@ -381,7 +385,7 @@ GNU General Public License for more details.
   <!-- HSI: filter for mechanical needles -->
 
   <filter>
-    <name>HSI0 localizer lowpass</name>
+    <name>HSI0 localizor lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>
@@ -447,7 +451,7 @@ GNU General Public License for more details.
   </filter>
 
   <filter>
-    <name>HSI1 localizer lowpass</name>
+    <name>HSI1 localizor lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>
@@ -589,6 +593,200 @@ GNU General Public License for more details.
       </expression>
     </input>
     <output>instrumentation/altimeter/setting-hpa-display</output>
+  </filter>
+
+  <!-- Engine Display -->
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[0]/fan</property>
+    </input>
+    <input>20.0</input>
+    <output>engines/engine[0]/fan-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[1]/fan</property>
+    </input>
+    <input>20.0</input>
+    <output>engines/engine[1]/fan-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[0]/itt-norm</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[0]/itt-norm-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[1]/itt-norm</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[1]/itt-norm-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>consumables/fuel/tank[0]/level-lbs</property>
+    </input>
+    <input>0.0</input>
+    <output>consumables/fuel/tank[0]/level-lbs-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>consumables/fuel/tank[1]/level-lbs</property>
+    </input>
+    <input>0.0</input>
+    <output>consumables/fuel/tank[1]/level-lbs-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[0]/fuel-flow_pph</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[0]/fuel-flow_pph-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[1]/fuel-flow_pph</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[1]/fuel-flow_pph-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[0]/oilt-norm</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[0]/oilt-norm-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[1]/oilt-norm</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[1]/oilt-norm-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[0]/oilp-norm</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[0]/oilp-norm-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>1</filter-time>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>engines/engine[1]/oilp-norm</property>
+    </input>
+    <input>0.0</input>
+    <output>engines/engine[1]/oilp-norm-display</output>
   </filter>
 
 </PropertyList>

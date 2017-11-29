@@ -155,14 +155,16 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 var init_switches = func{
 
+    var AVswitch=props.globals.initNode("controls/electric/avionics-switch",0,"BOOL");
+
     setprop("controls/lighting/engines-norm",0.8);
-    props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
-    props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
-    props.globals.initNode("controls/electric/external-power",0,"BOOL");
     setprop("controls/lighting/efis-norm",0.8);
     setprop("controls/lighting/panel-norm",0.0);
     setprop("controls/lighting/instruments-norm",0.0);
     setprop("controls/lighting/instrument-lights-norm",0.5);
+    props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
+    props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
+    props.globals.initNode("controls/electric/external-power",0,"BOOL");
 
     append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
@@ -224,28 +226,25 @@ var init_switches = func{
     append(rbus_output,props.globals.initNode("systems/electrical/outputs/wiper",0,"DOUBLE"));
     append(rbus_load,1);
 
-    append(avbus_input,props.globals.initNode("instrumentation/adf/func-knob",1,"INT"));
+    append(avbus_input,AVswitch);
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/adf",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/dme/switch-position[1]",0,"INT"));
+    append(avbus_input,AVswitch);
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/dme",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/kt-70/inputs/serviceable",1,"BOOL"));
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/comm[0]/power-btn",1,"BOOL"));
+    append(avbus_input,AVswitch);
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/comm[0]",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/comm[1]/power-btn",1,"BOOL"));
+    append(avbus_input,AVswitch);
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/comm[1]",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/nav[0]/power-btn",1,"BOOL"));
+    append(avbus_input,AVswitch);
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav[0]",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/nav[1]/power-btn",1,"BOOL"));
+    append(avbus_input,AVswitch);
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"));
     append(avbus_load,1);
-    append(avbus_input,props.globals.initNode("instrumentation/transponder/inputs/knob-mode",1,"INT"));
+    append(avbus_input,AVswitch);
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
     append(avbus_load,1);
 }
@@ -338,27 +337,14 @@ lh_bus = func(bv) {
             lbus_output[i].setValue(bv);
         } else {
             lbus_output[i].setValue(0.0);
-        }    }
-
+        }
+    }
     setprop("systems/electrical/outputs/flaps",bv);
     return load;
 }
 
-# Initialize property nodes outside of the timer loop:
-var com1 = props.globals.initNode ("instrumentation/comm[0]/serviceable", 0, "BOOL");
-var com2 = props.globals.initNode ("instrumentation/comm[1]/serviceable", 0, "BOOL");
-var nav1 = props.globals.initNode ("instrumentation/nav[0]/serviceable",  0, "BOOL");
-var nav2 = props.globals.initNode ("instrumentation/nav[1]/serviceable",  0, "BOOL");
-
 av_bus = func(bv) {
     var load = 0.0;
-
-    # If the comm/nav devices are turned on (power button on) and is serviceable (have electricity), enable them.
-    # Their "power-btn" property controls whether they actually do anything.
-    com1.setBoolValue (getprop ("instrumentation/comm[0]/power-btn") and (getprop ("systems/electrical/outputs/comm[0]") > 22));
-    com2.setBoolValue (getprop ("instrumentation/comm[1]/power-btn") and (getprop ("systems/electrical/outputs/comm[1]") > 22));
-#    nav1.setBoolValue (getprop ("instrumentation/nav[0]/power-btn")  and (getprop ("systems/electrical/outputs/nav[0]")  > 22));
-#    nav2.setBoolValue (getprop ("instrumentation/nav[1]/power-btn")  and (getprop ("systems/electrical/outputs/nav[1]")  > 22));
 
     for(var i=0; i<size(avbus_input); i+=1) {
         if (avbus_input[i].getValue()) {

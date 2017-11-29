@@ -1316,6 +1316,27 @@
   </animation>
 
   <animation>
+    <type>spin</type>
+    <object-name>FrtWheel</object-name>
+    <expression>
+        <product>
+            <property>gear/gear[0]/rollspeed-ms</property>
+            <value>77.22065</value>
+        </product>
+    </expression>
+    <center>
+      <x-m>1.759525</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.7969205</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
     <type>rotate</type>
     <object-name>FLdamper</object-name>
     <property>gear/gear[0]/compression-norm</property>
@@ -1430,6 +1451,27 @@
   </animation>
 
   <animation>
+    <type>spin</type>
+    <object-name>LHwheel</object-name>
+    <expression>
+        <product>
+            <property>gear/gear[1]/rollspeed-ms</property>
+            <value>63.21378</value>
+        </product>
+    </expression>
+    <center>
+      <x-m>7.20184495</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.7825945</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
     <type>rotate</type>
     <object-name>LUdamper</object-name>
     <property>gear/gear[1]/compression-norm</property>
@@ -1539,6 +1581,27 @@
       <x>0</x>
       <y>0</y>
       <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>RHwheel</object-name>
+    <expression>
+        <product>
+            <property>gear/gear[2]/rollspeed-ms</property>
+            <value>63.21378</value>
+        </product>
+    </expression>
+    <center>
+      <x-m>7.20184495</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.7825945</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
     </axis>
   </animation>
 

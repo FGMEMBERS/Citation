@@ -6,13 +6,13 @@ Syd Adams
 
 <PropertyList>
 
-    <path>ctl92.ac</path>
+  <path>ctl92.ac</path>
 
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
     <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
@@ -37,166 +37,167 @@ Syd Adams
     <object-name>xmt.annun.001</object-name>
   </effect>
 
-    <animation>
-        <type>select</type>
-        <object-name>C92freq.001</object-name>
-        <object-name>C92freq.002</object-name>
-        <object-name>C92freq.003</object-name>
-        <object-name>C92freq.004</object-name>
-        <object-name>C92mem.annun</object-name>
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/transponder</property>
-                    <value>1</value>
-                </greater-than>
-                <greater-than>
-                    <property>instrumentation/transponder/inputs/knob-mode</property>
-                    <value>0</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>C92mem.annun</object-name>
-        <condition>
-            <property>instrumentation/tdr-94/mem-selected</property>
-        </condition>
-    </animation>
-
-
-    <animation>
-        <type>knob</type>
-        <object-name>CTL-92.pwr</object-name>
-
-        <action>
-            <binding>
-                <command>property-cycle</command>
-                <property>instrumentation/transponder/inputs/knob-mode</property>
-                <wrap>0</wrap> <!-- don't wrap at the ends -->
-
-                <value>0</value>
-                <value>1</value>
-                <value>4</value> <!-- ON -->
-                <value>5</value> <!-- altitude -->
-
-            </binding>
-        </action>
-
+  <animation>
+    <type>select</type>
+    <object-name>C92freq.001</object-name>
+    <object-name>C92freq.002</object-name>
+    <object-name>C92freq.003</object-name>
+    <object-name>C92freq.004</object-name>
+    <object-name>C92mem.annun</object-name>
+    <condition>
+      <and>
+        <property>systems/electrical/outputs/transponder</property>
         <property>instrumentation/transponder/inputs/knob-mode</property>
-        <interpolation>
-            <entry><ind>0</ind><dep>0.0</dep></entry><!--OFF-->
-            <entry><ind>1</ind><dep>30.0</dep></entry><!--STBY-->
+      </and>
+    </condition>
+  </animation>
 
-            <!-- these two should never happen any more -->
-            <entry><ind>2</ind><dep>30.0</dep></entry><!--TEST-->
-            <entry><ind>3</ind><dep>30.0</dep></entry><!--GRND-->
+  <animation>
+    <type>select</type>
+    <object-name>C92mem.annun</object-name>
+    <condition>
+      <and>
+        <property>systems/electrical/outputs/transponder</property>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <property>instrumentation/transponder/mem-selected</property>
+      </and>
+    </condition>
+  </animation>
 
-			<entry><ind>4</ind><dep>60.0</dep></entry><!--ON-->
-			<entry><ind>5</ind><dep>90.0</dep></entry><!--ALT-->
-        </interpolation>
-        <center>
-            <x-m>0.0</x-m>
-            <y-m>-0.014</y-m>
-            <z-m>-0.018</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <hovered>
-          <binding>
-            <command>set-tooltip</command>
-            <tooltip-id>transponder-mode</tooltip-id>
-            <label>Transponder mode: %s</label>
+  <animation>
+    <type>knob</type>
+    <object-name>CTL-92.pwr</object-name>
+
+    <action>
+      <binding>
+        <command>property-cycle</command>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <wrap>0</wrap> <!-- don't wrap at the ends -->
+
+        <value>0</value>
+        <value>1</value>
+        <value>4</value> <!-- ON -->
+        <value>5</value> <!-- altitude -->
+      </binding>
+    </action>
+
+    <property>instrumentation/transponder/inputs/knob-mode</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0.0</dep></entry><!--OFF-->
+      <entry><ind>1</ind><dep>30.0</dep></entry><!--STBY-->
+
+      <!-- these two should never happen any more -->
+      <entry><ind>2</ind><dep>30.0</dep></entry><!--TEST-->
+      <entry><ind>3</ind><dep>30.0</dep></entry><!--GRND-->
+      <entry><ind>4</ind><dep>60.0</dep></entry><!--ON-->
+      <entry><ind>5</ind><dep>90.0</dep></entry><!--ALT-->
+    </interpolation>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>-0.014</y-m>
+      <z-m>-0.018</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-mode</tooltip-id>
+        <label>Transponder mode: %s</label>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['Off', 'Stand by', 'Test', 'Ground', 'On', 'Alt'];
+          return modes[arg[0]];
+        </script>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.001</object-name>
+    <property>instrumentation/transponder/inputs/digit[3]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.002</object-name>
+    <property>instrumentation/transponder/inputs/digit[2]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.003</object-name>
+    <property>instrumentation/transponder/inputs/digit[1]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.004</object-name>
+    <property>instrumentation/transponder/inputs/digit[0]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--    OSG hotspots    -->
+
+  <animation>
+    <type>pick</type>
+    <object-name>atc.ident</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <and>
+            <property>systems/electrical/outputs/transponder</property>
             <property>instrumentation/transponder/inputs/knob-mode</property>
-            <mapping>nasal</mapping>
-            <script>
-              var modes = ['Off', 'Stand by', 'Test', 'Ground', 'On', 'Alt'];
-              return modes[arg[0]];
-            </script>
-          </binding>
-        </hovered>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>C92freq.001</object-name>
-        <property>instrumentation/transponder/inputs/digit[3]</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>C92freq.002</object-name>
-        <property>instrumentation/transponder/inputs/digit[2]</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>C92freq.003</object-name>
-        <property>instrumentation/transponder/inputs/digit[1]</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>C92freq.004</object-name>
-        <property>instrumentation/transponder/inputs/digit[0]</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-<!--    OSG hotspots    -->
-
-    <animation>
-        <type>pick</type>
-        <object-name>atc.ident</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>instrumentation/transponder/inputs/ident-btn</property>
-            </binding>
-        </action>
-        <hovered>
-          <binding>
-            <command>set-tooltip</command>
-            <tooltip-id>transponder-ident</tooltip-id>
-            <label>Transponder ident: %s</label>
-            <property>instrumentation/transponder/inputs/ident-btn</property>
-            <mapping>on-off</mapping>
-          </binding>
-        </hovered>
-    </animation>
+          </and>
+        </condition>
+        <command>property-toggle</command>
+        <property>instrumentation/transponder/inputs/ident-btn</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-ident</tooltip-id>
+        <label>Transponder ident: %s</label>
+        <property>instrumentation/transponder/inputs/ident-btn</property>
+        <mapping>on-off</mapping>
+      </binding>
+    </hovered>
+  </animation>
 
   <animation>
     <type>pick</type>
@@ -205,6 +206,12 @@ Syd Adams
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
+        <condition>
+          <and>
+            <property>systems/electrical/outputs/transponder</property>
+            <property>instrumentation/transponder/inputs/knob-mode</property>
+          </and>
+        </condition>
         <command>property-assign</command>
         <property>instrumentation/transponder/id-code</property>
         <value>1200</value>
@@ -226,8 +233,14 @@ Syd Adams
     <action>
       <repeatable>false</repeatable>
       <binding>
+        <condition>
+          <and>
+            <property>systems/electrical/outputs/transponder</property>
+            <property>instrumentation/transponder/inputs/knob-mode</property>
+          </and>
+        </condition>
         <command>property-toggle</command>
-        <property>instrumentation/tdr-94/mem-selected</property>
+        <property>instrumentation/transponder/mem-selected</property>
       </binding>
     </action>
     <hovered>
@@ -235,7 +248,7 @@ Syd Adams
         <command>set-tooltip</command>
         <tooltip-id>transponder-mem-toggle</tooltip-id>
         <label>Transponder mem: %s</label>
-        <property>instrumentation/tdr-94/mem-selected</property>
+        <property>instrumentation/transponder/mem-selected</property>
         <mapping>on-off</mapping>
       </binding>
     </hovered>
@@ -248,11 +261,23 @@ Syd Adams
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
+        <condition>
+          <and>
+            <property>systems/electrical/outputs/transponder</property>
+            <property>instrumentation/transponder/inputs/knob-mode</property>
+          </and>
+        </condition>
         <command>property-assign</command>
-        <property>instrumentation/tdr-94/saved-mode</property>
+        <property>instrumentation/transponder/saved-mode</property>
         <property>instrumentation/transponder/inputs/knob-mode</property>
       </binding>
       <binding>
+        <condition>
+          <and>
+            <property>systems/electrical/outputs/transponder</property>
+            <property>instrumentation/transponder/inputs/knob-mode</property>
+          </and>
+        </condition>
         <command>property-assign</command>
         <property>instrumentation/transponder/inputs/knob-mode</property>
         <value>2</value> <!-- test mode -->
@@ -261,9 +286,15 @@ Syd Adams
       <mod-up>
         <!-- restore previous mode on button release -->
         <binding>
+          <condition>
+            <and>
+              <property>systems/electrical/outputs/transponder</property>
+              <property>instrumentation/transponder/inputs/knob-mode</property>
+            </and>
+          </condition>
           <command>property-assign</command>
           <property>instrumentation/transponder/inputs/knob-mode</property>
-          <property>instrumentation/tdr-94/saved-mode</property>
+          <property>instrumentation/transponder/saved-mode</property>
         </binding>
       </mod-up>
     </action>
@@ -282,32 +313,26 @@ Syd Adams
     <action>
       <binding>
         <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/transponder</property>
-                    <value>1</value>
-                </greater-than>
-                <greater-than>
-                    <property>instrumentation/transponder/inputs/knob-mode</property>
-                    <value>0</value>
-                </greater-than>
-            </and>
+          <and>
+            <property>systems/electrical/outputs/transponder</property>
+            <property>instrumentation/transponder/inputs/knob-mode</property>
+          </and>
         </condition>
         <command>nasal</command>
         <script><![CDATA[
-          var loDigit = getprop('instrumentation/transponder/inputs/digit[2]') or 2;
-          var hiDigit = getprop('instrumentation/transponder/inputs/digit[3]') or 1;
+        var loDigit = getprop('instrumentation/transponder/inputs/digit[2]') or 2;
+        var hiDigit = getprop('instrumentation/transponder/inputs/digit[3]') or 1;
 
-          var offset = int(cmdarg().getNode('offset').getValue());
-          var incr = (offset > 0);
+        var offset = int(cmdarg().getNode('offset').getValue());
+        var incr = (offset > 0);
 
-          if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
+        if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
           hiDigit = math.mod(hiDigit + offset, 8);
-          }
+        }
 
-          loDigit = math.mod(loDigit + offset, 8);
-          setprop('instrumentation/transponder/inputs/digit[2]', loDigit);
-          setprop('instrumentation/transponder/inputs/digit[3]', hiDigit);
+        loDigit = math.mod(loDigit + offset, 8);
+        setprop('instrumentation/transponder/inputs/digit[2]', loDigit);
+        setprop('instrumentation/transponder/inputs/digit[3]', hiDigit);
         ]]></script>
       </binding>
     </action>
@@ -327,32 +352,26 @@ Syd Adams
     <action>
       <binding>
         <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/transponder</property>
-                    <value>1</value>
-                </greater-than>
-                <greater-than>
-                    <property>instrumentation/transponder/inputs/knob-mode</property>
-                    <value>0</value>
-                </greater-than>
-            </and>
+          <and>
+            <property>systems/electrical/outputs/transponder</property>
+            <property>instrumentation/transponder/inputs/knob-mode</property>
+          </and>
         </condition>
         <command>nasal</command>
         <script><![CDATA[
-          var loDigit = getprop('instrumentation/transponder/inputs/digit[0]') or 0;
-          var hiDigit = getprop('instrumentation/transponder/inputs/digit[1]') or 0;
+        var loDigit = getprop('instrumentation/transponder/inputs/digit[0]') or 0;
+        var hiDigit = getprop('instrumentation/transponder/inputs/digit[1]') or 0;
 
-          var offset = int(cmdarg().getNode('offset').getValue());
-          var incr = (offset > 0);
+        var offset = int(cmdarg().getNode('offset').getValue());
+        var incr = (offset > 0);
 
-          if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
+        if ((incr and loDigit == 7) or (!incr and loDigit == 0)) {
           hiDigit = math.mod(hiDigit + offset, 8);
-          }
+        }
 
-          loDigit = math.mod(loDigit + offset, 8);
-          setprop('instrumentation/transponder/inputs/digit[0]', loDigit);
-          setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
+        loDigit = math.mod(loDigit + offset, 8);
+        setprop('instrumentation/transponder/inputs/digit[0]', loDigit);
+        setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
         ]]></script>
       </binding>
     </action>
@@ -365,6 +384,5 @@ Syd Adams
       </binding>
     </hovered>
   </animation>
-
 
 </PropertyList>

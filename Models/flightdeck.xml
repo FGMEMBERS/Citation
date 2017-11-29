@@ -739,7 +739,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>Fan01</object-name>
-    <property>engines/engine/fan</property>
+    <property>engines/engine/fan-display</property>
     <interpolation>
       <entry><ind>20.0</ind><dep>0</dep></entry>
       <entry><ind>90.0</ind><dep>0.2178</dep></entry>
@@ -755,11 +755,11 @@
   <animation>
     <type>textranslate</type>
     <object-name>Fan02</object-name>
-    <property>engines/engine[1]/fan</property>
+    <property>engines/engine[1]/fan-display</property>
     <interpolation>
       <entry><ind>20.0</ind><dep>0</dep></entry>
       <entry><ind>90.0</ind><dep>0.2178</dep></entry>
-      <entry><ind>110.0</ind><dep>0.3555	</dep></entry>
+      <entry><ind>110.0</ind><dep>0.3555</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -1089,7 +1089,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>ITT01</object-name>
-    <property>engines/engine/itt-norm</property>
+    <property>engines/engine/itt-norm-display</property>
     <factor>0.27</factor>
     <axis>
       <x>0</x>
@@ -1101,7 +1101,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>ITT02</object-name>
-    <property>engines/engine[1]/itt-norm</property>
+    <property>engines/engine[1]/itt-norm-display</property>
     <factor>0.27</factor>
     <axis>
       <x>0</x>
@@ -1113,7 +1113,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>FQty01</object-name>
-    <property>consumables/fuel/tank[0]/level-lbs</property>
+    <property>consumables/fuel/tank[0]/level-lbs-display</property>
     <factor>0.000118</factor>
     <axis>
       <x>0</x>
@@ -1125,7 +1125,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>FQty02</object-name>
-    <property>consumables/fuel/tank[1]/level-lbs</property>
+    <property>consumables/fuel/tank[1]/level-lbs-display</property>
     <factor>0.000118</factor>
     <axis>
       <x>0</x>
@@ -1137,7 +1137,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>FFlow01</object-name>
-    <property>engines/engine/fuel-flow_pph</property>
+    <property>engines/engine/fuel-flow_pph-display</property>
     <interpolation>
       <entry><ind>0.0</ind><dep>0</dep></entry>
       <entry><ind>2000</ind><dep>0.3538</dep></entry>
@@ -1152,7 +1152,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>FFlow02</object-name>
-    <property>engines/engine[1]/fuel-flow_pph</property>
+    <property>engines/engine[1]/fuel-flow_pph-display</property>
     <interpolation>
       <entry><ind>0.0</ind><dep>0</dep></entry>
       <entry><ind>2000</ind><dep>0.3538</dep></entry>
@@ -1167,7 +1167,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>OilT01</object-name>
-    <property>engines/engine[0]/oilt-norm</property>
+    <property>engines/engine[0]/oilt-norm-display</property>
     <factor>0.28</factor>
     <axis>
       <x>0</x>
@@ -1179,7 +1179,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>OilT02</object-name>
-    <property>engines/engine[1]/oilt-norm</property>
+    <property>engines/engine[1]/oilt-norm-display</property>
     <factor>0.28</factor>
     <axis>
       <x>0</x>
@@ -1191,7 +1191,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>OilP01</object-name>
-    <property>engines/engine[0]/oilp-norm</property>
+    <property>engines/engine[0]/oilp-norm-display</property>
     <factor>-0.27</factor>
     <axis>
       <x>0</x>
@@ -1203,7 +1203,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>OilP02</object-name>
-    <property>engines/engine[1]/oilp-norm</property>
+    <property>engines/engine[1]/oilp-norm-display</property>
     <factor>-0.27</factor>
     <axis>
       <x>0</x>
