@@ -14,8 +14,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 -->
 
-<!-- RMI: filter for mechanical needles and point right without signal -->
-
 <PropertyList>
 
   <filter>
@@ -158,10 +156,8 @@ GNU General Public License for more details.
     <output>instrumentation/rmi/double-needle/position-deg</output>
   </filter>
 
-  <!--Radar Altimeter: filter for mechanical needle -->
-
   <filter>
-    <name>ralt filter below 500</name>
+    <name>Radar altimeter: filter for mechanical needle</name>
     <debug>false</debug>
     <type>noise-spike</type>
     <max-rate-of-change>1000</max-rate-of-change>
@@ -219,7 +215,7 @@ GNU General Public License for more details.
       <value>1</value>
     </input>
     <input>0</input>
-    <output>/instrumentation/cdu/serviceable</output>
+    <output>instrumentation/cdu/serviceable</output>
   </filter>
 
   <filter>
@@ -239,13 +235,13 @@ GNU General Public License for more details.
       <value>1</value>
     </input>
     <input>0</input>
-    <output>/instrumentation/mk-viii/serviceable</output>
+    <output>instrumentation/mk-viii/serviceable</output>
   </filter>
 
   <!-- VOR: deflection filter for mechanical needles -->
 
   <filter>
-    <name>VOR0 localizor lowpass</name>
+    <name>VOR0 localizer lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.5</filter-time>
@@ -279,7 +275,7 @@ GNU General Public License for more details.
   </filter>
 
   <filter>
-    <name>VOR1 localizor lowpass</name>
+    <name>VOR1 localizer lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.5</filter-time>
@@ -315,7 +311,7 @@ GNU General Public License for more details.
   <!-- AI: filter for mechanical needles -->
 
   <filter>
-    <name>AI0 localizor lowpass</name>
+    <name>AI0 localizer lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>
@@ -349,7 +345,7 @@ GNU General Public License for more details.
   </filter>
 
   <filter>
-    <name>AI1 localizor lowpass</name>
+    <name>AI1 localizer lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>
@@ -385,7 +381,7 @@ GNU General Public License for more details.
   <!-- HSI: filter for mechanical needles -->
 
   <filter>
-    <name>HSI0 localizor lowpass</name>
+    <name>HSI0 localizer lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>
@@ -451,7 +447,7 @@ GNU General Public License for more details.
   </filter>
 
   <filter>
-    <name>HSI1 localizor lowpass</name>
+    <name>HSI1 localizer lowpass</name>
     <debug>false</debug>
     <type>exponential</type>
     <filter-time>0.2</filter-time>

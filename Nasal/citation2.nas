@@ -28,7 +28,7 @@ var JetEngine = {
         m.n1 = m.eng.getNode("n1",1);
         m.n2 = m.eng.getNode("n2",1);
         m.fan = m.eng.initNode("fan",0,"DOUBLE");
-        m.cycle_up = 0;
+        m.autostart_in_progress = 0;
         m.turbine = m.eng.initNode("turbine",0,"DOUBLE");
         m.throttle_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-lever",0,"DOUBLE");
         m.throttle = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle",0,"DOUBLE");
@@ -38,7 +38,9 @@ var JetEngine = {
         m.starter_btn = props.globals.initNode("controls/electric/engine["~eng_num~"]/starter-btn",0,"BOOL");
         m.fuel_pph = m.eng.initNode("fuel-flow_pph",0,"DOUBLE");
         m.fuel_gph = m.eng.initNode("fuel-flow-gph");
-        m.fuel_pump_boost = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
+        m.boost_pump = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
+        m.boost_pump_switch = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump-switch",0,"BOOL");
+        m.generator = props.globals.initNode ("controls/electric/engine[" ~ eng_num ~ "]/generator", 0, "BOOL");
         m.hpump=props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0,"DOUBLE");
 
         m.Lfuel = setlistener(m.fuel_out, func m.shutdown(m.fuel_out.getValue()),0,0);
@@ -72,12 +74,17 @@ var JetEngine = {
                 else me.turbine.setValue (n2);
 
                 if (turbine > 20) {
-                    if (me.ignition.getValue () and me.fuel_pump_boost.getValue ()) {
+                    if (me.ignition.getValue () and me.boost_pump.getValue ()) {
                         fan += getprop ("sim/time/delta-sec") * n1 / scnds;
                         me.fan.setValue (fan);
                         if (fan >= n1) { # declare victory
                             me.running.setBoolValue (1);
                             me.starter_btn.setBoolValue (0);
+                            if (me.autostart_in_progress) {
+                                me.generator.setBoolValue (1);
+                                me.boost_pump_switch.setBoolValue (0);
+                                me.autostart_in_progress = 0;
+                            }
                         }
                     }
                     else {
@@ -114,8 +121,14 @@ var JetEngine = {
 
     shutdown : func(b){
         if (!b) me.running.setBoolValue (b);
-    }
+    },
 
+    autostart : func () {
+        me.autostart_in_progress = 1;
+        me.boost_pump_switch.setBoolValue (1);
+        me.ignition.setBoolValue (1);
+        me.starter_btn.setBoolValue (1);
+    }
 };
 
 
@@ -312,22 +325,16 @@ setlistener("sim/model/autostart", func(strt){
 },0,0);
 
 var Startup = func{
-    setprop("controls/electric/engine[0]/generator",1);
-    setprop("controls/electric/engine[1]/generator",1);
     setprop("controls/electric/avionics-switch",1);
     setprop("controls/electric/battery-bus-switch",1);
     setprop("controls/electric/inverter-switch",1);
-    setprop("controls/lighting/instrument-lights",1);
-    setprop("controls/lighting/nav-lights",1);
-    setprop("controls/lighting/beacon",1);
-    setprop("controls/lighting/strobe",1);
-    setprop("controls/engines/engine[0]/ignition",1);
-    setprop("controls/engines/engine[1]/ignition",1);
-    setprop("controls/fuel/tank[0]/boost-pump-switch",1);
-    setprop("controls/fuel/tank[1]/boost-pump-switch",1);
-    setprop("controls/electric/engine[0]/starter-btn",1);
-    setprop("controls/electric/engine[1]/starter-btn",1);
+    setprop("controls/lighting/panel-lights-switch",1);
+    setprop("controls/lighting/nav-lights-switch",1);
+    setprop("controls/lighting/beacon-switch",1);
+    setprop("controls/lighting/strobe-switch",1);
     setprop("controls/engines/throttle_idle",1);
+    LHeng.autostart ();
+    RHeng.autostart ();
 }
 
 var Shutdown = func{
@@ -335,10 +342,10 @@ var Shutdown = func{
     setprop("controls/electric/engine[1]/generator",0);
     setprop("controls/electric/avionics-switch",0);
     setprop("controls/electric/battery-bus-switch",0);
-    setprop("controls/lighting/instrument-lights",1);
-    setprop("controls/lighting/nav-lights",0);
-    setprop("controls/lighting/beacon",0);
-    setprop("controls/lighting/strobe",0);
+    setprop("controls/lighting/panel-lights-switch",1);
+    setprop("controls/lighting/nav-lights-switch",0);
+    setprop("controls/lighting/beacon-switch",0);
+    setprop("controls/lighting/strobe-switch",0);
     setprop("controls/engines/engine[0]/ignition",0);
     setprop("controls/engines/engine[1]/ignition",0);
     setprop("controls/fuel/tank[0]/boost-pump-switch",0);
