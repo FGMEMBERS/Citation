@@ -10,7 +10,7 @@
    <normalmap-dds type="int"> 0 </normalmap-dds>
    <normalmap-tiling type="float"> 1.0 </normalmap-tiling>
    <texture n="2">
-     <image>Models/Effects/normalmap.png</image>
+     <image>Aircraft/Citation/Models/Effects/normalmap.png</image>
    </texture>
 
 <!-- Light Map -->

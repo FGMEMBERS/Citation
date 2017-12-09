@@ -4,7 +4,7 @@
 
   <nasal>
     <load>
-      var livery_update = aircraft.livery_update.new("Models/Liveries", 10);
+      var livery_update = aircraft.livery_update.new("Aircraft/Citation/Models/Liveries", 10);
     </load>
 
     <unload>
@@ -90,7 +90,7 @@
 
   <!-- Chrome parts, compatible with Rembrandt -->
   <effect>
-    <inherits-from>Models/Effects/citationII-chrome</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome</inherits-from>
     <object-name>RHwing.heater.001</object-name>
     <object-name>RHwing.heater.002</object-name>
     <object-name>LHwing.heater.001</object-name>
@@ -122,7 +122,7 @@
 
   <!-- REFLECTION, NormalMap -->
   <effect>
-    <inherits-from>Models/Effects/citation_reflect</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/citation_reflect</inherits-from>
     <object-name>LEngine</object-name>
     <object-name>REngine</object-name>
     <object-name>LHwing.001</object-name>
@@ -187,7 +187,7 @@
 
   <!-- ALS cockpit glass effect (reflection cube, rain, frost, fog) -->
   <effect>
-    <inherits-from>Models/Effects/glass/glass</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/glass/glass</inherits-from>
     <parameters>
       <texture n="3">
         <type>cubemap</type>
@@ -211,7 +211,7 @@
   <!-- ALS Thrust/Flame Effect - in this case more like exhaust effect :o) -->
   <model>
     <name>flamer</name>
-    <path>Models/Effects/flamel.xml</path>
+    <path>Aircraft/Citation/Models/Effects/flamel.xml</path>
     <offsets>
       <x-m>10.2</x-m>
       <y-m>-1.3</y-m>
@@ -221,7 +221,7 @@
   </model>
   <model>
     <name>flamel</name>
-    <path>Models/Effects/flamer.xml</path>
+    <path>Aircraft/Citation/Models/Effects/flamer.xml</path>
     <offsets>
       <x-m>10.2</x-m>
       <y-m>1.3</y-m>
@@ -232,7 +232,7 @@
 
   <model>
     <name>cabin</name>
-    <path>Models/cabin.xml</path>
+    <path>Aircraft/Citation/Models/cabin.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -243,7 +243,7 @@
 
   <model>
     <name>flightdeck</name>
-    <path>Models/flightdeck.xml</path>
+    <path>Aircraft/Citation/Models/flightdeck.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -254,7 +254,7 @@
 
   <model>
     <name>Lights</name>
-    <path>Models/Lights/Lights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/Lights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -265,7 +265,7 @@
 
   <!-- contrails copied from the Citation Bravo -->
   <model>
-    <path>Models/Effects/contrail1.xml</path>
+    <path>Aircraft/Citation/Models/Effects/contrail1.xml</path>
     <offsets>
       <x-m>20.0</x-m>
       <y-m>-1.337</y-m>
@@ -276,7 +276,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/Effects/contrail2.xml</path>
+    <path>Aircraft/Citation/Models/Effects/contrail2.xml</path>
     <offsets>
       <x-m>20.0</x-m>
       <y-m>1.337</y-m>
@@ -480,7 +480,7 @@
 
   <model>
     <name>Pax0</name>
-    <path>Models/Human/pax0.xml</path>
+    <path>Aircraft/Citation/Models/Human/pax0.xml</path>
     <offsets>
       <x-m>7.22</x-m>
       <y-m>0.3</y-m>
@@ -504,7 +504,7 @@
 
   <model>
     <name>Pax1</name>
-    <path>Models/Human/pax1.xml</path>
+    <path>Aircraft/Citation/Models/Human/pax1.xml</path>
     <offsets>
       <x-m>5.85</x-m>
       <y-m>0.3</y-m>
@@ -529,7 +529,7 @@
 
   <model>
     <name>Pax2</name>
-    <path>Models/Human/pax2.xml</path>
+    <path>Aircraft/Citation/Models/Human/pax2.xml</path>
     <offsets>
       <x-m>5.33</x-m>
       <y-m>0.3</y-m>
@@ -553,7 +553,7 @@
 
   <model>
     <name>Pax3</name>
-    <path>Models/Human/pax3.xml</path>
+    <path>Aircraft/Citation/Models/Human/pax3.xml</path>
     <offsets>
       <x-m>3.97</x-m>
       <y-m>0.3</y-m>
@@ -578,7 +578,7 @@
 
   <model>
     <name>Pax4</name>
-    <path>Models/Human/pax4.xml</path>
+    <path>Aircraft/Citation/Models/Human/pax4.xml</path>
     <offsets>
       <x-m>7.22</x-m>
       <y-m>-0.3</y-m>
@@ -602,7 +602,7 @@
 
   <model>
     <name>Pax5</name>
-    <path>Models/Human/pax5.xml</path>
+    <path>Aircraft/Citation/Models/Human/pax5.xml</path>
     <offsets>
       <x-m>5.85</x-m>
       <y-m>-0.3</y-m>
@@ -627,7 +627,7 @@
 
   <model>
     <name>Pax6</name>
-    <path>Models/Human/pax6.xml</path>
+    <path>Aircraft/Citation/Models/Human/pax6.xml</path>
     <offsets>
       <x-m>5.33</x-m>
       <y-m>-0.3</y-m>

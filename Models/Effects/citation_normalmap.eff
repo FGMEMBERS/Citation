@@ -33,7 +33,7 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
     <inherits-from>Effects/model-combined</inherits-from>
     <parameters>
       <texture n="2">
-        <image>Models/Effects/normalmap.png</image>
+        <image>Aircraft/Citation/Models/Effects/normalmap.png</image>
         <filter>linear-mipmap-linear</filter>
         <wrap-s>repeat</wrap-s>
         <wrap-t>repeat</wrap-t>
@@ -51,7 +51,7 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
 		<normalmap-dds type="int">0</normalmap-dds>
 		<normalmap-tiling type="float">1.0</normalmap-tiling>
 		<texture n="2">
-			<image>Models/Effects/normalmap.png</image>
+			<image>Aircraft/Citation/Models/Effects/normalmap.png</image>
 		</texture>
 	</parameters>
 
