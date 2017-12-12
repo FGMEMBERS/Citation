@@ -12,7 +12,7 @@
     </animation>
 
     <effect>
-      <inherits-from>Models/Effects/thrust-flamel</inherits-from>
+      <inherits-from>Aircraft/Citation/Models/Effects/thrust-flamel</inherits-from>
       <object-name>Bounding_box</object-name>
     </effect>
 

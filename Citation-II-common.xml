@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>3.3.2</aircraft-version>
+    <aircraft-version>3.3.3</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -442,19 +442,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <path>Systems/systems.xml</path>
 
       <property-rule n="100">
-        <path>Models/Instruments/instrument-filters.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/instrument-filters.xml</path>
       </property-rule>
       <property-rule n="101">
-        <path>Models/load-factor-filters.xml</path>
+        <path>Aircraft/Citation/Models/load-factor-filters.xml</path>
       </property-rule>
       <property-rule n="102">
-        <path>Models/Lights/average-ambient-light-filters.xml</path>
+        <path>Aircraft/Citation/Models/Lights/average-ambient-light-filters.xml</path>
       </property-rule>
       <property-rule n="103">
 	<path>Systems/electrical.xml</path>
       </property-rule>
       <property-rule n="104">
-	<path>Models/Effects/flame-filter.xml</path>
+	<path>Aircraft/Citation/Models/Effects/flame-filter.xml</path>
       </property-rule>
     </systems>
 
@@ -1075,7 +1075,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   <nasal>
     <cdu>
-      <file>Models/Instruments/cdu/boeing.nas</file>
+      <file>Aircraft/Citation/Models/Instruments/cdu/boeing.nas</file>
     </cdu>
     <citation>
       <file>Nasal/Electrical.nas</file>
@@ -1088,7 +1088,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <file>Nasal/save-state.nas</file>
     </saveState>
     <m877>
-      <file>Models/Instruments/M877/M877.nas</file>
+      <file>Aircraft/Citation/Models/Instruments/M877/M877.nas</file>
     </m877>
     <tyresmoke>
       <file>Nasal/tyresmoke.nas</file>

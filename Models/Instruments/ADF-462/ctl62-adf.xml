@@ -20,7 +20,7 @@ Syd Adams
         <value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>ADFfreq.001</object-name>
     <object-name>ADFfreq.002</object-name>
     <object-name>ADFfreq.003</object-name>

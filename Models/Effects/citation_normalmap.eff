@@ -29,7 +29,7 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
 -->
 
 <!--PropertyList>
-    <name>Models/Effects/bumpspec</name>
+    <name>Aircraft/Citation/Models/Effects/bumpspec</name>
     <inherits-from>Effects/model-combined</inherits-from>
     <parameters>
       <texture n="2">
@@ -43,7 +43,7 @@ in Aircraft/A320/Models/Effects/a320_bumpspec.eff ( or whatever, private to the 
 </PropertyList-->
 
 <PropertyList>
-	<name>Models/Effects/citation_normalmap</name>
+	<name>Aircraft/Citation/Models/Effects/citation_normalmap</name>
 	<inherits-from>Effects/model-combined</inherits-from>
 	<parameters>
 	<!-- Normal Map -->

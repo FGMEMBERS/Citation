@@ -43,7 +43,7 @@
    </reflection-correction>
    <reflection-dynamic type="int"> 1 </reflection-dynamic>
    <texture n="4">
-     <image>Models/Effects/greymap.png</image>
+     <image>Aircraft/Citation/Models/Effects/greymap.png</image>
    </texture>
 
    <texture n="5">

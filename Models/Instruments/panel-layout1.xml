@@ -1,7 +1,7 @@
 <PropertyList>
 
     <model>
-        <path>Models/Instruments/electricpanel.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/electricpanel.xml</path>
         <offsets>
             <x-m>0.002</x-m>
             <y-m>-0.561</y-m>
@@ -10,7 +10,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/lightingpanel.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/lightingpanel.xml</path>
         <offsets>
             <x-m>0.002</x-m>
             <y-m>-0.316</y-m>
@@ -19,7 +19,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/ctnpanel.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/ctnpanel.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.081</y-m>
@@ -28,7 +28,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/VHF-22/ctl22-com1.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com1.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.046</y-m>
@@ -37,7 +37,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/VHF-22/ctl22-com2.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com2.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.107</y-m>
@@ -46,7 +46,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/VIR-32/ctl32-nav1.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav1.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.046</y-m>
@@ -55,7 +55,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/VIR-32/ctl32-nav2.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav2.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.107</y-m>
@@ -64,7 +64,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/TDR-94/ctl92-transponder.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/TDR-94/ctl92-transponder.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.214</y-m>
@@ -73,7 +73,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/ADF-462/ctl62-adf.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/ADF-462/ctl62-adf.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.122</y-m>
@@ -82,7 +82,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/asi.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/asi.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.417</y-m>
@@ -91,7 +91,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/asi.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/asi.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.204</y-m>
@@ -100,7 +100,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/alt.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/alt.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.210</y-m>
@@ -109,7 +109,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/alt.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/alt.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.422</y-m>
@@ -118,7 +118,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/rmi.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.418</y-m>
@@ -127,7 +127,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/rmi.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.206</y-m>
@@ -136,7 +136,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/vsi.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/vsi.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.213</y-m>
@@ -145,7 +145,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/vsi.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/vsi.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.422</y-m>
@@ -154,7 +154,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/ralt.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/ralt.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.210</y-m>
@@ -163,7 +163,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/ralt.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/ralt.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.422</y-m>
@@ -172,7 +172,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/ai.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/ai.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.312</y-m>
@@ -181,7 +181,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/ai.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/ai.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.312</y-m>
@@ -190,7 +190,7 @@
     </model>
 
     <model>
-      <path>Models/Instruments/hsi.xml</path>
+      <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
       <overlay>
         <volts>/instrumentation/hsi[0]/volts</volts>
         <inputs>
@@ -219,7 +219,7 @@
     </model>
 
     <model>
-      <path>Models/Instruments/hsi.xml</path>
+      <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
       <overlay>
         <volts>/instrumentation/hsi[1]/volts</volts>
         <inputs>
@@ -248,7 +248,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/dme40.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/dme40.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.213</y-m>
@@ -257,7 +257,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/dme40.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/dme40.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.207</y-m>
@@ -266,7 +266,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/aoa.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/aoa.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>-0.498</y-m>
@@ -275,7 +275,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/aoa.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/aoa.xml</path>
         <offsets>
             <x-m>0.0</x-m>
             <y-m>0.498</y-m>
@@ -284,7 +284,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/M877/m877.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/M877/m877.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.498</y-m>
@@ -293,7 +293,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/M877/m877.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/M877/m877.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.498</y-m>
@@ -302,7 +302,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/marker.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/marker.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.312</y-m>
@@ -311,7 +311,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/marker.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/marker.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.312</y-m>
@@ -321,7 +321,7 @@
 
     <model>
         <!-- Pilot's autopilot panel -->
-        <path>Models/Instruments/FD-mode-ctl.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
         <overlay>
           <hsi-number>0</hsi-number>
           <selected-nav>/instrumentation/hsi[0]/selected-nav</selected-nav>
@@ -335,7 +335,7 @@
 
     <model>
         <!-- Copilot's autopilot panel -->
-        <path>Models/Instruments/FD-mode-ctl.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
         <overlay>
           <hsi-number>1</hsi-number>
           <selected-nav>/instrumentation/hsi[1]/selected-nav</selected-nav>
@@ -348,7 +348,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/vor-ind.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/vor-ind.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.417</y-m>
@@ -357,7 +357,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/altalerter.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/altalerter.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.048</y-m>
@@ -366,7 +366,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/audiopnl.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/audiopnl.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.542</y-m>
@@ -375,7 +375,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/audiopnl.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/audiopnl.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.542</y-m>
@@ -384,7 +384,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/oat.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/oat.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.557</y-m>
@@ -393,7 +393,7 @@
     </model>
 
     <model>
-        <path>Models/Instruments/oat.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/oat.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.557</y-m>

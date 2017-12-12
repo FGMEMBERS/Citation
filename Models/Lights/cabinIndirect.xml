@@ -2,7 +2,7 @@
 
 <PropertyList>
 
- <path>Models/Lights/cabinIndirect.ac</path>
+ <path>Aircraft/Citation/Models/Lights/cabinIndirect.ac</path>
 
      <animation>
         <type>select</type>

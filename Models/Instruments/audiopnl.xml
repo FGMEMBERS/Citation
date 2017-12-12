@@ -9,7 +9,7 @@
                 <value>3.4.999</value>
             </greater-than>
         </condition>
-        <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+        <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
         <object-name>AudioPnl</object-name>
         <object-name>AudioPnl.volume</object-name>
         <object-name>AudioPnl.knob1</object-name>

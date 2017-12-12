@@ -13,7 +13,7 @@
 
   <!-- Chrome Effect for interior parts -->
   <effect>
-    <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
     <object-name>RfrshmntCntr.handles</object-name>
@@ -28,7 +28,7 @@
 
   <!-- cockpit shadows -->
   <effect>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
     <object-name>Cabin</object-name>
     <object-name>Cabin.AftComp.Door</object-name>
     <object-name>Cabin.Cupholders</object-name>

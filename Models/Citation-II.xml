@@ -85,7 +85,7 @@
     <object-name>Aft.BaggageDoor</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
-    <texture>Models/Liveries/Lv1.png</texture>
+    <texture>Aircraft/Citation/Models/Liveries/Lv1.png</texture>
   </animation>
 
   <!-- Chrome parts, compatible with Rembrandt -->

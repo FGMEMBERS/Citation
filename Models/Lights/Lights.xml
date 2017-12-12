@@ -4,7 +4,7 @@
   -->
   <model>
     <name>LandingLights</name>
-    <path>Models/Lights/landingLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/landingLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -19,7 +19,7 @@
       </not>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Left</name>
-    <path>Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
+    <path>Aircraft/Citation/Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
       <x-m>6.98244</x-m>
       <y-m>-2.81033</y-m>
@@ -40,7 +40,7 @@
       </not>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Right</name>
-    <path>Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
+    <path>Aircraft/Citation/Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
       <x-m>6.98244</x-m>
       <y-m>2.81033</y-m>
@@ -56,7 +56,7 @@
 
   <model>
     <name>StrobeLights</name>
-    <path>Models/Lights/strobeLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/strobeLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -66,7 +66,7 @@
 
   <model>
     <name>NavLights</name>
-    <path>Models/Lights/navLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/navLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -76,7 +76,7 @@
 
   <model>
     <name>RecogLights</name>
-    <path>Models/Lights/recogLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/recogLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -86,7 +86,7 @@
 
   <model>
     <name>BeaconLight</name>
-    <path>Models/Lights/beaconLight.xml</path>
+    <path>Aircraft/Citation/Models/Lights/beaconLight.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -96,7 +96,7 @@
 
   <model>
     <name>WingInspLights</name>
-    <path>Models/Lights/WingInspLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/WingInspLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -109,7 +109,7 @@
   -->
   <model>
     <name>EngInstrLight</name>
-    <path>Models/Lights/EngInstrLight.xml</path>
+    <path>Aircraft/Citation/Models/Lights/EngInstrLight.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -119,7 +119,7 @@
 
   <model>
     <name>FloodLight</name>
-    <path>Models/Lights/FloodLight.xml</path>
+    <path>Aircraft/Citation/Models/Lights/FloodLight.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -129,7 +129,7 @@
 
   <model>
     <name>CenterPanelLightLeft</name>
-    <path>Models/Lights/CenterPanel.xml</path>
+    <path>Aircraft/Citation/Models/Lights/CenterPanel.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -139,7 +139,7 @@
 
   <model>
     <name>LeftPanelLight</name>
-    <path>Models/Lights/LeftPanel.xml</path>
+    <path>Aircraft/Citation/Models/Lights/LeftPanel.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -149,7 +149,7 @@
 
   <model>
     <name>RightPanelLight</name>
-    <path>Models/Lights/RightPanel.xml</path>
+    <path>Aircraft/Citation/Models/Lights/RightPanel.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -159,7 +159,7 @@
 
   <model>
     <name>RightPanelLight</name>
-    <path>Models/Lights/MapLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/MapLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -169,7 +169,7 @@
 
   <model>
     <name>cabinIndirectLights</name>
-    <path>Models/Lights/cabinIndirect.xml</path>
+    <path>Aircraft/Citation/Models/Lights/cabinIndirect.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -179,7 +179,7 @@
 
   <model>
     <name>cabinRefrCntrLight</name>
-    <path>Models/Lights/cabinRefrCntr.xml</path>
+    <path>Aircraft/Citation/Models/Lights/cabinRefrCntr.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -189,7 +189,7 @@
 
   <model>
     <name>cabinMapLights</name>
-    <path>Models/Lights/cabinMapLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/cabinMapLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
