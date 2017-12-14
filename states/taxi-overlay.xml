@@ -47,11 +47,10 @@
 
       <engines>
         <engine n="0">
-          <ignition type="bool">1</ignition>
-        </engine>
+          <ignition-sw type="bool">1</ignition-sw>        </engine>
 
         <engine n="1">
-          <ignition type="bool">1</ignition>
+          <ignition-sw type="bool">1</ignition-sw>
         </engine>
       </engines>
 

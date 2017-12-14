@@ -10,10 +10,14 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</property>
+		<property>controls/electric/circuit-breakers/bus-emer/cb-light-flood</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
+                </greater-than>
+                <greater-than>
+                    <property>systems/electrical/outputs/bus/emer</property>
+                    <value>20</value>
                 </greater-than>
             </and>
         </condition>

@@ -17,7 +17,7 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-right/cb-light-cabin-read</property>
+		<property>controls/electric/circuit-breakers/bus-right/cb-light-cabin</property>
 		<greater-than>
 		  <property>controls/lighting/cabin-lights-norm</property>
 		  <value>0.35</value>

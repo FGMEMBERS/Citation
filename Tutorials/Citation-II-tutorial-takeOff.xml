@@ -585,11 +585,11 @@ GNU General Public License for more details.
     <condition>
       <and>
         <greater-than>
-          <property>controls/engines/engine[0]/throttle</property>
+          <property>controls/engines/engine[0]/throttle-lever</property>
           <value>0.99</value>
         </greater-than>
         <greater-than>
-          <property>controls/engines/engine[1]/throttle</property>
+          <property>controls/engines/engine[1]/throttle-lever</property>
           <value>0.99</value>
         </greater-than>
       </and>

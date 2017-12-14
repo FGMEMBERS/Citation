@@ -20,8 +20,8 @@
 <airplane mass="8060">
 
   <approach speed="86" aoa="15" fuel="0.2">
-    <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="0.3"/>
-    <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="0.3"/>
+    <control-setting axis="/controls/engines/engine[0]/throttle-real" value="0.475"/> <!-- 0.3 -->
+    <control-setting axis="/controls/engines/engine[1]/throttle-real" value="0.475"/> <!-- 0.3 -->
     <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
     <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="1"/>
@@ -34,8 +34,8 @@
 
   <cruise speed="331" alt="36000" fuel="0.87"> <!-- 162 indicated -->
     <control-setting axis="/controls/flight/elevator-trim" value="0.0"/>
-    <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="1.0"/>
-    <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/throttle-real" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[1]/throttle-real" value="1.0"/>
     <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
     <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="0.0"/>
@@ -153,7 +153,7 @@
        at 104%, sea level and 0 knots. -->
   <jet x="-9.19" y="1.37"  z="0.76" mass="519" thrust="2635.6" tsfc="0.562" egt="973.15"
        n1-idle="45" n1-max="107.2" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
-    <control-input axis="/controls/engines/engine[0]/throttle-lever" control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[0]/throttle-real" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[0]/reverser" control="REVERSE_THRUST"/>
     <control-output control="REVERSE_THRUST" prop="/surface-positions/reverser-norm"/>
     <control-speed control="REVERSE_THRUST" transition-time="1.5"/>
@@ -162,7 +162,7 @@
 
   <jet x="-9.19" y="-1.37"  z="0.76" mass="519" thrust="2635.6" tsfc="0.562" egt="973.15"
        n1-idle="45" n1-max="107.2" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
-    <control-input axis="/controls/engines/engine[1]/throttle-lever" control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[1]/throttle-real" control="THROTTLE"/>
     <control-input axis="/controls/engines/engine[1]/reverser" control="REVERSE_THRUST"/>
     <control-output control="REVERSE_THRUST" prop="/surface-positions/reverser-norm[1]"/>
     <control-speed control="REVERSE_THRUST" transition-time="1.5"/>

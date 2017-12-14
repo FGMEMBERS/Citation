@@ -8,11 +8,11 @@
 	  <type>cubemap</type>
 	  <images>
 		 <positive-x>Aircraft/Citation/Models/Effects/interior-shadow/cabin-back.png</positive-x>
-		 <negative-x>Aircraft/Citation/Models/Effects/interior-shadow/cabin-front.png</negative-x>
-		 <positive-y>Aircraft/Citation/Models/Effects/interior-shadow/cabin-right.png</positive-y>
-		 <negative-y>Aircraft/Citation/Models/Effects/interior-shadow/cabin-left.png</negative-y>
-		 <positive-z>Aircraft/Citation/Models/Effects/interior-shadow/cabin-up.png</positive-z>
-		 <negative-z>Aircraft/Citation/Models/Effects/interior-shadow/cabin-down.png</negative-z>
+		 <negative-x>Aircraft/CitationModels/Effects/interior-shadow/cabin-front.png</negative-x>
+		 <positive-y>Aircraft/CitationModels/Effects/interior-shadow/cabin-right.png</positive-y>
+		 <negative-y>Aircraft/CitationModels/Effects/interior-shadow/cabin-left.png</negative-y>
+		 <positive-z>Aircraft/CitationModels/Effects/interior-shadow/cabin-up.png</positive-z>
+		 <negative-z>Aircraft/CitationModels/Effects/interior-shadow/cabin-down.png</negative-z>
 	  </images>
 	</texture>
 	<opacity-cube-center type="vec3d" n="0"> 5.57595 0 0.59244 </opacity-cube-center>

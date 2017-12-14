@@ -11,7 +11,7 @@
         <condition>
             <and>
 		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
+		<property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
 		<property>controls/lighting/map-lights</property>
 		<greater-than>
                     <property>sim/rendering/shaders/lights</property>

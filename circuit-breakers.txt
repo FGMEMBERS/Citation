@@ -1,6 +1,6 @@
 already installed circuit breakers:
 
-prop: controls/electric/circuit-breakers/bus-[emer|left|right]/cb-*
+prop: controls/electric/circuit-breakers/bus-[hot|emer|iso-left|iso-right|left|right]/cb-*
 
 bus-emer[1] (without model)
 bus-emer/cb-light-panel-el (instrument-lights)

@@ -48,60 +48,75 @@ GNU General Public License for more details.
   </item>
 
   <item>
-    <name>Left ignition</name>
-    <value>ON</value>
-    <condition>
-      <equals>
-        <property>controls/engines/engine[0]/ignition</property>
-        <value>1</value>
-      </equals>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/engines/engine[0]/ignition</property>
-      <value>1</value>
-    </binding>
-  </item>
-  <item>
-    <name>Left fuel pump</name>
-    <value>ON</value>
-    <condition>
-      <equals>
-        <property>controls/fuel/tank[0]/boost-pump</property>
-        <value>1</value>
-      </equals>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/fuel/tank[0]/boost-pump</property>
-      <value>1</value>
-    </binding>
-  </item>
-  <item>
     <name>Left engine starter</name>
     <value>START</value>
     <condition>
       <equals>
-        <property>controls/engines/engine[0]/starter</property>
+        <property>controls/electric/engine[0]/starter-btn</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/engines/engine[0]/starter</property>
+      <property>controls/electric/engine[0]/starter-btn</property>
       <value>1</value>
     </binding>
   </item>
+
+  <item>
+    <name>Left cutoff</name>
+    <value>UNLOCK</value>
+    <condition>
+      <equals>
+        <property>controls/engines/engine[0]/cutoff-lock</property>
+        <value>0</value>
+      </equals>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine[0]/cutoff-lock</property>
+      <value>0</value>
+    </binding>
+  </item>
+
   <item>
     <name>Left engine: n2</name>
-    <value>&gt; 20%</value>
+    <value>&gt; 8%</value>
     <condition>
       <greater-than-equals>
         <property>engines/engine[0]/turbine</property>
-        <value>20</value>
+        <value>8</value>
       </greater-than-equals>
     </condition>
   </item>
+
+  <item>
+    <name>Left throttle</name>
+    <value>IDLE</value>
+    <condition>
+      <equals>
+        <property>controls/engines/engine[0]/throttle</property>
+        <value>0.25</value>
+      </equals>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine[0]/throttle</property>
+      <value>0.25</value>
+    </binding>
+  </item>
+
+  <item>
+    <name>Left engine</name>
+    <value>STARTED</value>
+    <condition>
+      <greater-than-equals>
+        <property>engines/engine[0]/started</property>
+        <value>1</value>
+      </greater-than-equals>
+    </condition>
+  </item>
+
   <item>
     <name>Left engine generator</name>
     <value>ON</value>
@@ -119,60 +134,75 @@ GNU General Public License for more details.
   </item>
 
   <item>
-    <name>Right ignition</name>
-    <value>ON</value>
-    <condition>
-      <equals>
-        <property>controls/engines/engine[1]/ignition</property>
-        <value>1</value>
-      </equals>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/engines/engine[1]/ignition</property>
-      <value>1</value>
-    </binding>
-  </item>
-  <item>
-    <name>Right fuel pump</name>
-    <value>ON</value>
-    <condition>
-      <equals>
-        <property>controls/fuel/tank[1]/boost-pump</property>
-        <value>1</value>
-      </equals>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/fuel/tank[1]/boost-pump</property>
-      <value>1</value>
-    </binding>
-  </item>
-  <item>
     <name>Right engine starter</name>
     <value>START</value>
     <condition>
       <equals>
-        <property>controls/engines/engine[1]/starter</property>
+        <property>controls/electric/engine[1]/starter-btn</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/engines/engine[1]/starter</property>
+      <property>controls/electric/engine[1]/starter-btn</property>
       <value>1</value>
     </binding>
   </item>
+
+  <item>
+    <name>Right cutoff</name>
+    <value>UNLOCK</value>
+    <condition>
+      <equals>
+        <property>controls/engines/engine[1]/cutoff-lock</property>
+        <value>0</value>
+      </equals>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine[1]/cutoff-lock</property>
+      <value>0</value>
+    </binding>
+  </item>
+
   <item>
     <name>Right engine: n2</name>
-    <value>&gt; 20%</value>
+    <value>&gt; 8%</value>
     <condition>
       <greater-than-equals>
         <property>engines/engine[1]/turbine</property>
-        <value>20</value>
+        <value>8</value>
       </greater-than-equals>
     </condition>
   </item>
+
+  <item>
+    <name>Right throttle</name>
+    <value>IDLE</value>
+    <condition>
+      <equals>
+        <property>controls/engines/engine[1]/throttle</property>
+        <value>0.25</value>
+      </equals>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine[1]/throttle</property>
+      <value>0.25</value>
+    </binding>
+  </item>
+
+  <item>
+    <name>Right engine</name>
+    <value>STARTED</value>
+    <condition>
+      <greater-than-equals>
+        <property>engines/engine[1]/started</property>
+        <value>1</value>
+      </greater-than-equals>
+    </condition>
+  </item>
+
   <item>
     <name>Right engine generator</name>
     <value>ON</value>
@@ -205,55 +235,4 @@ GNU General Public License for more details.
     </binding>
   </item>
 
-  <item>
-    <name>Left engine: n1</name>
-    <value>&gt; 44%</value>
-    <condition>
-      <greater-than-equals>
-        <property>engines/engine[0]/fan</property>
-        <value>44</value>
-      </greater-than-equals>
-    </condition>
-  </item>
-  <item>
-    <name>Left fuel pump</name>
-    <value>OFF</value>
-    <condition>
-      <equals>
-        <property>controls/fuel/tank[0]/boost-pump</property>
-        <value>0</value>
-      </equals>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/fuel/tank[0]/boost-pump</property>
-      <value>0</value>
-    </binding>
-  </item>
-
-  <item>
-    <name>Right engine: n1</name>
-    <value>&gt; 44%</value>
-    <condition>
-      <greater-than-equals>
-        <property>engines/engine[1]/fan</property>
-        <value>44</value>
-      </greater-than-equals>
-    </condition>
-  </item>
-  <item>
-    <name>Right fuel pump</name>
-    <value>OFF</value>
-    <condition>
-      <equals>
-        <property>controls/fuel/tank[1]/boost-pump</property>
-        <value>0</value>
-      </equals>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/fuel/tank[1]/boost-pump</property>
-      <value>0</value>
-    </binding>
-  </item>
 </PropertyList>

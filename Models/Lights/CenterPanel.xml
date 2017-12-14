@@ -10,10 +10,14 @@
         <condition>
 	  <and>
 	    <property>sim/rendering/rembrandt/enabled</property>
-	    <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+	    <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-center</property>
             <greater-than>
               <property>controls/lighting/center-panel-light-emission</property>
               <value>0.01</value>
+            </greater-than>
+            <greater-than>
+              <property>systems/electrical/outputs/bus/right</property>
+              <value>20</value>
             </greater-than>
 	  </and>
         </condition>

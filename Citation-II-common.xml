@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>3.3.3</aircraft-version>
+    <aircraft-version>3.4.0</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -423,6 +423,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     property-rule[102] = Models/Lights/average-ambient-light-filters.xml
     property-rule[103] = Systems/electrical.xml
     property-rule[104] = Models/Effects/flame-filter.xml
+    property-rule[105] = Models/system-filters.xml
 
     The configs below, without an index, overwrite existing rules and
     are being indexed, as they come unless they come with an index.
@@ -455,6 +456,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </property-rule>
       <property-rule n="104">
 	<path>Aircraft/Citation/Models/Effects/flame-filter.xml</path>
+      </property-rule>
+      <property-rule n="105">
+	<path>Aircraft/Citation/Models/system-filter.xml</path>
       </property-rule>
     </systems>
 
@@ -798,19 +802,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <!-- aircraft specific loading -->
 
   <controls>
-    <human-models type="bool">1</human-models>
+    <human-models type="bool">true</human-models>
     <fuelSet type="bool">false</fuelSet>
     <gear>
-      <brake-parking type="bool">1</brake-parking>
+      <brake-parking type="bool">true</brake-parking>
       <brake-left type="double">0.0</brake-left>
       <brake-right type="double">0.0</brake-right>
+      <antiskid-sw type="bool">true</antiskid-sw>
+      <antiskid-test type="double">0.0</antiskid-test>
     </gear>
     <engines>
       <engine n="0">
         <magnetos>3</magnetos>
+        <reverser-lever type="double">0</reverser-lever>
+        <cutoff-lock type="bool">1</cutoff-lock>
+        <ignition-sw type="bool">0</ignition-sw>
+        <ignition-auto type="bool">0</ignition-auto>
+        <ignition type="bool">0</ignition>
       </engine>
       <engine n="1">
         <magnetos>3</magnetos>
+        <reverser-lever type="double">0</reverser-lever>
+        <cutoff-lock type="bool">1</cutoff-lock>
+        <ignition-sw type="bool">0</ignition-sw>
+        <ignition-auto type="bool">0</ignition-auto>
+        <ignition type="bool">0</ignition>
       </engine>
     </engines>
     <fuel>
@@ -825,9 +841,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <speedbrake-switch type="bool">0</speedbrake-switch>
     </flight>
     <electric>
-      <avionics-switch type="bool">0</avionics-switch>
-      <battery-switch type="bool">0</battery-switch>
+      <avionics-switch type="bool">false</avionics-switch>
+      <battery-switch type="bool">false</battery-switch>
       <battery-bus-switch type="int">0</battery-bus-switch>
+      <maingear-switch type="bool">true</maingear-switch>
       <voltage-sel type="int">0</voltage-sel>
       <system-test type="int">10</system-test>
       <engine n="0">
@@ -846,49 +863,217 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	</tank>
       </fuel>
       <circuit-breakers>
-	<bus-emer type="bool" n="1">1</bus-emer> <!-- has no model, it's located in J-Box -->
-	<bus-left-1 type="bool">1</bus-left-1>
-	<bus-left-2 type="bool">1</bus-left-2>
-	<bus-left-3 type="bool">1</bus-left-3>
-	<bus-right-1 type="bool">1</bus-right-1>
-	<bus-right-2 type="bool">1</bus-right-2>
-	<bus-right-3 type="bool">1</bus-right-3>
-	<bus-battery-hot>
-	  <cb-clock-left type="bool">1</cb-clock-left>
-	  <cb-clock-right type="bool">1</cb-clock-right>
-	</bus-battery-hot>
-        <bus-emer n="0">
-	  <cb-light-emer type="bool">1</cb-light-emer>
-	  <cb-light-panel-el type="bool">1</cb-light-panel-el>
-	  <cb-light-panel-enginstr type="bool">1</cb-light-panel-enginstr>
-	  <cb-light-panel-flood type="bool">1</cb-light-panel-flood>
+        <bus-battery-hot>
+          <cb-light-comp type="bool">1</cb-light-comp>
+          <cb-light-enginst type="bool">1</cb-light-enginst>
+          <cb-ignition type="bool">1</cb-ignition>
+          <cb-emer-power type="bool">1</cb-emer-power>
+        </bus-battery-hot>
+        <bus-battery>
+          <cb-batt-voltage type="bool">1</cb-batt-voltage>
+        </bus-battery>
+        <bus-emer>
+          <cb-dc-nav2 type="bool">1</cb-dc-nav2>
+          <cb-dc-comm1 type="bool">1</cb-dc-comm1>
+          <cb-dc-dg2 type="bool">1</cb-dc-dg2>
+          <cb-light-flood type="bool">1</cb-light-flood>
         </bus-emer>
+<!-- circuit-breakers on left isolated bus located in J-Box -->
+        <bus-left-iso>
+          <cb-gen-ammeter-left type="bool">1</cb-gen-ammeter-left>
+          <cb-gen-sense-left type="bool">1</cb-gen-sense-left>
+          <cb-light-start-left type="bool">1</cb-light-start-left>
+          <cb-gen-voltage-left type="bool">1</cb-gen-voltage-left>
+        </bus-left-iso>
+<!-- circuit-breakers on right isolation bus located in J-Box -->
+        <bus-right-iso>
+          <cb-gen-ammeter-right type="bool">1</cb-gen-ammeter-right>
+          <cb-gen-sense-right type="bool">1</cb-gen-sense-right>
+          <cb-light-start-right type="bool">1</cb-light-start-right>
+          <cb-gen-voltage-right type="bool">1</cb-gen-voltage-right>
+        </bus-right-iso>
+<!-- circuit-breakers on left main bus located on left CB panel -->
+        <cb-bus-left-1 type="bool">1</cb-bus-left-1>
+        <cb-bus-left-2 type="bool">1</cb-bus-left-2>
+        <cb-bus-left-3 type="bool">1</cb-bus-left-3>
         <bus-left>
-	  <cb-light-landing-left type="bool">1</cb-light-landing-left> <!-- has no model, it's located in J-Box -->
-	  <cb-light-recog-left type="bool">1</cb-light-recog-left> <!-- has no model, it's located in J-Box -->
+          <cb-bus-left-starter type="bool">1</cb-bus-left-starter>
+          <cb-bus-left-inverter type="bool">1</cb-bus-left-inverter>
+          <cb-bus-left-x-over type="bool">1</cb-bus-left-x-over>
+
+          <cb-engine-fan-left type="bool">1</cb-engine-fan-left>
+          <cb-engine-itt-left type="bool">1</cb-engine-itt-left>
+          <cb-engine-turbine-left type="bool">1</cb-engine-turbine-left>
+          <cb-engine-fuelflow-left type="bool">1</cb-engine-fuelflow-left>
+          <cb-engine-qty-left type="bool">1</cb-engine-qty-left>
+          <cb-engine-oilt-left type="bool">1</cb-engine-oilt-left>
+          <cb-engine-oilp-left type="bool">1</cb-engine-oilp-left>
+
+          <cb-engine-ign-right type="bool">1</cb-engine-ign-right>
+          <cb-engine-boost-right type="bool">1</cb-engine-boost-right>
+          <cb-engine-shutoff-left type="bool">1</cb-engine-shutoff-left>
+          <cb-engine-fire-left type="bool">1</cb-engine-fire-left>
+
+          <cb-env-normalp type="bool">1</cb-env-normalp>
+          <cb-env-fan type="bool">1</cb-env-fan>
+          <cb-env-temp type="bool">1</cb-env-temp>
+
+          <cb-inst-gyro-standby type="bool">1</cb-inst-gyro-standby>
+          <cb-inst-oat type="bool">1</cb-inst-oat>
+          <cb-inst-clock-left type="bool">1</cb-inst-clock-left>
+
+          <cb-anti-ice-pitot-left type="bool">1</cb-anti-ice-pitot-left>
+          <cb-anti-ice-aoa type="bool">1</cb-anti-ice-aoa>
+          <cb-anti-ice-engine-left type="bool">1</cb-anti-ice-engine-left>
+          <cb-anti-ice-bleedair-ws-temp type="bool">1</cb-anti-ice-bleedair-ws-temp>
+          <cb-anti-ice-bleedair-ws type="bool">1</cb-anti-ice-bleedair-ws>
+
+          <cb-warn-batt type="bool">1</cb-warn-batt>
+          <cb-warn-gear type="bool">1</cb-warn-gear>
+          <cb-warn-lts1 type="bool">1</cb-warn-lts1>
+
+          <cb-sys-skid-ctrl type="bool">1</cb-sys-skid-ctrl>
+          <cb-sys-thrustrev-left type="bool">1</cb-sys-thrustrev-left>
+          <cb-sys-flap-motor type="bool">1</cb-sys-flap-motor>
+          <cb-sys-flap-ctrl type="bool">1</cb-sys-flap-ctrl>
+          <cb-sys-aoa type="bool">1</cb-sys-aoa>
+          <cb-sys-gear-ctrl type="bool">1</cb-sys-gear-ctrl>
+          <cb-sys-engine-sync type="bool">1</cb-sys-engine-sync>
+          <cb-sys-pitch-trim type="bool">1</cb-sys-pitch-trim>
+          <cb-sys-nose-wheel-rpm type="bool">1</cb-sys-nose-wheel-rpm>
+          <cb-sys-speed-brake type="bool">1</cb-sys-speed-brake>
+
           <cb-light-panel-left type="bool">1</cb-light-panel-left>
-	  <cb-light-panel-center type="bool">1</cb-light-panel-center>
-	  <cb-light-panel-right type="bool">1</cb-light-panel-right>
-	  <cb-light-beacon type="bool">1</cb-light-beacon>
-	  <cb-light-strobe type="bool">1</cb-light-strobe>
-	  <cb-light-winginsp type="bool">1</cb-light-winginsp>
-	  <cb-light-nav type="bool">1</cb-light-nav>
-	  <cb-light-cabin-ind type="bool">1</cb-light-cabin-ind> <!-- has no model, it's located in J-Box -->
-	  <cb-speedbrakes type="bool">1</cb-speedbrakes>
-	  <cb-pitch-trim type="bool">1</cb-pitch-trim>
-	  <cb-gear-ctl type="bool">1</cb-gear-ctl>
-	  <cb-flap-ctl type="bool">1</cb-flap-ctl>
-	  <cb-flap-motor type="bool">1</cb-flap-motor>
-	  <cb-thrust-reverser-left type="bool">1</cb-thrust-reverser-left>
-	  <cb-thrust-reverser-right type="bool">1</cb-thrust-reverser-right>
-	  <cb-start-left type="bool">1</cb-start-left>
+          <cb-light-strobe type="bool">1</cb-light-strobe>
+          <cb-light-panel-el type="bool">1</cb-light-panel-el>
+          <cb-light-winginsp type="bool">1</cb-light-winginsp>
+          <cb-light-beacon type="bool">1</cb-light-beacon>
+          <cb-light-nav type="bool">1</cb-light-nav>
+
+          <cb-rec-flight type="bool">1</cb-rec-flight>
+          <cb-rec-voice type="bool">1</cb-rec-voice>
+
+<!-- circuit-breakers on left main bus cross over to right CB panel -->
+          <cb-dc-comm2 type="bool">1</cb-dc-comm2>
+          <cb-dc-nav1 type="bool">1</cb-dc-nav1>
+          <cb-dc-dme1 type="bool">1</cb-dc-dme1>
+          <cb-dc-xpdr1 type="bool">1</cb-dc-xpdr1>
+          <cb-dc-adf1 type="bool">1</cb-dc-adf1>
+          <cb-dc-audio1 type="bool">1</cb-dc-audio1>
+          <cb-dc-phone type="bool">1</cb-dc-phone>
+
+          <cb-dc-ap type="bool">1</cb-dc-ap>
+          <cb-dc-efis-disp type="bool">1</cb-dc-efis-disp>
+          <cb-dc-efis-efis type="bool">1</cb-dc-efis-efis>
+          <cb-dc-efis-adi type="bool">1</cb-dc-efis-adi>
+          <cb-dc-efis-hsi type="bool">1</cb-dc-efis-hsi>
+          <cb-dc-voice-adv type="bool">1</cb-dc-voice-adv>
+          <cb-dc-radalt type="bool">1</cb-dc-radalt>
+          <cb-dc-fd1 type="bool">1</cb-dc-fd1>
+          <cb-dc-rmi1 type="bool">1</cb-dc-rmi1>
+          <cb-dc-dg1 type="bool">1</cb-dc-dg1>
+
+<!-- circuit-breakers on left main bus located in J-Box -->
+          <cb-bus-sense-left type="bool">1</cb-bus-sense-left>
+          <cb-engine-boost-left type="bool">1</cb-engine-boost-left>
+          <cb-annun-genoff-left type="bool">1</cb-annun-genoff-left>
+          <cb-light-landing-left type="bool">1</cb-light-landing-left>
+          <cb-light-recog-left type="bool">1</cb-light-recog-left>
+          <cb-light-advisory type="bool">1</cb-light-advisory>
+          <cb-light-indirect type="bool">1</cb-light-indirect>
+          <cb-entertainment type="bool">1</cb-entertainment>
         </bus-left>
+
+<!-- circuit-breakers on right main bus located on right CB panel -->
+        <cb-bus-right-1 type="bool">1</cb-bus-right-1>
+        <cb-bus-right-2 type="bool">1</cb-bus-right-2>
+        <cb-bus-right-3 type="bool">1</cb-bus-right-3>
         <bus-right>
-	  <cb-light-cabin-read type="bool">1</cb-light-cabin-read> <!-- has no model, it's located elsewhere -->
-	  <cb-light-landing-right type="bool">1</cb-light-landing-right> <!-- has no model, it's located in J-Box -->
-	  <cb-light-recog-right type="bool">1</cb-light-recog-right> <!-- has no model, it's located in J-Box -->
-	  <cb-start-right type="bool">1</cb-start-right>
-	  <cb-ground-prox type="bool">1</cb-ground-prox>
+          <cb-bus-right-starter type="bool">1</cb-bus-right-starter>
+          <cb-bus-right-inverter type="bool">1</cb-bus-right-inverter>
+          <cb-bus-right-x-over type="bool">1</cb-bus-right-x-over>
+
+          <cb-engine-fan-right type="bool">1</cb-engine-fan-right>
+          <cb-engine-itt-right type="bool">1</cb-engine-itt-right>
+          <cb-engine-turbine-right type="bool">1</cb-engine-turbine-right>
+          <cb-engine-fuelflow-right type="bool">1</cb-engine-fuelflow-right>
+          <cb-engine-qty-right type="bool">1</cb-engine-qty-right>
+          <cb-engine-oilt-right type="bool">1</cb-engine-oilt-right>
+          <cb-engine-oilp-right type="bool">1</cb-engine-oilp-right>
+
+          <cb-dc-dme2 type="bool">1</cb-dc-dme2>
+          <cb-dc-xpdr2 type="bool">1</cb-dc-xpdr2>
+          <cb-dc-adf2 type="bool">1</cb-dc-adf2>
+          <cb-dc-audio2 type="bool">1</cb-dc-audio2>
+          <cb-dc-warn type="bool">1</cb-dc-warn>
+          <cb-dc-comm3 type="bool">1</cb-dc-comm3>
+          <cb-dc-nav-area type="bool">1</cb-dc-nav-area>
+          <cb-dc-gpws type="bool">1</cb-dc-gpws>
+          <cb-dc-tas-htr type="bool">1</cb-dc-tas-htr>
+          <cb-dc-nav-vlf type="bool">1</cb-dc-nav-vlf>
+          <cb-dc-nav-db type="bool">1</cb-dc-nav-db>
+          <cb-dc-fms type="bool">1</cb-dc-fms>
+
+          <cb-dc-radar type="bool">1</cb-dc-radar>
+          <cb-dc-fd2 type="bool">1</cb-dc-fd2>
+          <cb-dc-rmi2 type="bool">1</cb-dc-rmi2>
+
+          <cb-ac-ap type="bool">1</cb-ac-ap>
+          <cb-ac-fd1 type="bool">1</cb-ac-fd1>
+          <cb-ac-air-data type="bool">1</cb-ac-air-data>
+          <cb-ac-vgyro1 type="bool">1</cb-ac-vgyro1>
+          <cb-ac-radar type="bool">1</cb-ac-radar>
+
+          <cb-ac-fd2 type="bool">1</cb-ac-fd2>
+          <cb-ac-vgyro2 type="bool">1</cb-ac-vgyro2>
+
+          <cb-ac-nav1 type="bool">1</cb-ac-nav1>
+          <cb-ac-rmi-adf1 type="bool">1</cb-ac-rmi-adf1>
+          <cb-ac-hsi1 type="bool">1</cb-ac-hsi1>
+          <cb-ac-adi1 type="bool">1</cb-ac-adi1>
+          <cb-ac-gpws type="bool">1</cb-ac-gpws>
+
+          <cb-ac-nav2 type="bool">1</cb-ac-nav2>
+          <cb-ac-rmi-adf2 type="bool">1</cb-ac-rmi-adf2>
+          <cb-ac-hsi2 type="bool">1</cb-ac-hsi2>
+          <cb-ac-adi2 type="bool">1</cb-ac-adi2>
+          <cb-ac-efis type="bool">1</cb-ac-efis>
+
+<!-- circuit-breakers on right main bus cross over to left CB panel -->
+
+          <cb-engine-ign-left type="bool">1</cb-engine-ign-left>
+          <cb-engine-boost-left type="bool">1</cb-engine-boost-left>
+          <cb-engine-shutoff-right type="bool">1</cb-engine-shutoff-right>
+          <cb-engine-fire-right type="bool">1</cb-engine-fire-right>
+
+          <cb-env-emerp type="bool">1</cb-env-emerp>
+
+          <cb-inst-ralt type="bool">1</cb-inst-ralt>
+          <cb-inst-flt-hr type="bool">1</cb-inst-flt-hr>
+          <cb-inst-clock-right type="bool">1</cb-inst-clock-right>
+
+          <cb-anti-ice-pitot-right type="bool">1</cb-anti-ice-pitot-right>
+          <cb-anti-ice-engine-right type="bool">1</cb-anti-ice-engine-right>
+          <cb-anti-ice-surface type="bool">1</cb-anti-ice-surface>
+          <cb-anti-ice-alcohol type="bool">1</cb-anti-ice-alcohol>
+
+          <cb-warn-lts2 type="bool">1</cb-warn-lts2>
+          <cb-warn-speed type="bool">1</cb-warn-speed>
+
+          <cb-sys-equip-cool type="bool">1</cb-sys-equip-cool>
+          <cb-sys-thrustrev-right type="bool">1</cb-sys-thrustrev-right>
+
+          <cb-light-panel-center type="bool">1</cb-light-panel-center>
+          <cb-light-panel-right type="bool">1</cb-light-panel-right>
+
+<!-- circuit-breakers on right main bus located in J-Box -->
+          <cb-bus-sense-right type="bool">1</cb-bus-sense-right>
+          <cb-engine-boost-right type="bool">1</cb-engine-boost-right>
+          <cb-annun-genoff-right type="bool">1</cb-annun-genoff-right>
+          <cb-light-landing-right type="bool">1</cb-light-landing-right>
+          <cb-light-recog-right type="bool">1</cb-light-recog-right>
+          <cb-light-cabin type="bool">1</cb-light-cabin>
+          <cb-light-toilet type="bool">1</cb-light-toilet>
         </bus-right>
       </circuit-breakers>
     </electric>
@@ -959,15 +1144,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <slide-position-m type="double">0</slide-position-m>
     </table>
   </controls>
-
-  <engines>
-    <engine n="0">
-      <reverser-position type="double">0.0</reverser-position>
-    </engine>
-    <engine n="1">
-      <reverser-position type="double">0.0</reverser-position>
-    </engine>
-  </engines>
 
   <instrumentation>
     <cdu>
@@ -1097,14 +1273,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
   <input>
     <keyboard>
-      <!-- <key n="115">
+      <!--key n="115">
         <name>s</name>
         <desc>toggle autostart</desc>
         <binding>
           <command>property-toggle</command>
           <property>sim/model/autostart</property>
         </binding>
-      </key> -->
+      </key-->
       <key n="12">
         <name>Ctrl-L</name>
         <desc>Toggle landing lights</desc>
@@ -1129,28 +1305,46 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <name>Delete</name>
         <desc>Toggle Reversers</desc>
         <binding>
-	  <condition>
-	    <and>
-	      <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</property>
-	      <greater-than>
-		<property>systems/electrical/outputs/bus/left</property>
-		<value>20</value>
-	      </greater-than>
-	    </and>
-	  </condition>
+          <condition>
+            <and>
+              <property>controls/electric/maingear-switch</property>
+              <less-than>
+                <property>controls/engines/engine[0]/throttle-lever</property>
+                <value>0.28</value>
+              </less-than>
+              <greater-than>
+                <property>controls/engines/engine[0]/throttle-lever</property>
+                <value>0.24</value>
+              </greater-than>
+              <property>controls/electric/circuit-breakers/bus-left/cb-sys-thrustrev-left</property>
+              <greater-than>
+                <property>systems/electrical/outputs/bus/left</property>
+                <value>20</value>
+              </greater-than>
+            </and>
+          </condition>
           <command>property-toggle</command>
           <property>controls/engines/engine[0]/reverser</property>
         </binding>
         <binding>
-	  <condition>
-	    <and>
-	      <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-right</property>
-	      <greater-than>
-		<property>systems/electrical/outputs/bus/left</property>
-		<value>20</value>
-	      </greater-than>
-	    </and>
-	  </condition>
+          <condition>
+            <and>
+              <property>controls/electric/maingear-switch</property>
+              <less-than>
+                <property>controls/engines/engine[1]/throttle-lever</property>
+                <value>0.28</value>
+              </less-than>
+              <greater-than>
+                <property>controls/engines/engine[1]/throttle-lever</property>
+                <value>0.24</value>
+              </greater-than>
+              <property>controls/electric/circuit-breakers/bus-right/cb-sys-thrustrev-right</property>
+              <greater-than>
+                <property>systems/electrical/outputs/bus/right</property>
+                <value>20</value>
+              </greater-than>
+            </and>
+          </condition>
           <command>property-toggle</command>
           <property>controls/engines/engine[1]/reverser</property>
         </binding>
@@ -1216,6 +1410,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<binding>
           <command>property-toggle</command>
           <property>controls/lighting/map-lights</property>
+        </binding>
+      </key>
+      <key n="363">
+        <name>End</name>
+        <desc>unlock cutoff-locks</desc>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/engines/engine[0]/cutoff-lock</property>
+          <value>false</value>
+        </binding>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/engines/engine[1]/cutoff-lock</property>
+          <value>0</value>
         </binding>
       </key>
     </keyboard>

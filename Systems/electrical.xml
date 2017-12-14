@@ -31,7 +31,7 @@
 	    <value>0</value>
 	  </equals>
 	</not>
-	<property>controls/electric/circuit-breakers/bus-emer[1]</property>
+	<property>controls/electric/circuit-breakers/bus-battery-hot/cb-emer-power</property>
       </condition>
       <property>systems/electrical/outputs/bus/battery-hot</property>
     </input>
@@ -45,11 +45,10 @@
     <input>
       <condition>
 	<and>
-	  <property>controls/electric/engine/generator</property>
 	  <or>
-	    <property>controls/electric/circuit-breakers/bus-left-1</property>
-	    <property>controls/electric/circuit-breakers/bus-left-2</property>
-	    <property>controls/electric/circuit-breakers/bus-left-3</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
 	  </or>
 	  <greater-than>
 	    <property>systems/electrical/outputs/suppliers/alternator</property>
@@ -62,21 +61,34 @@
     <input>
       <condition>
 	<and>
+	  <or>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
+	  </or>
+	  <greater-than>
+	    <property>systems/electrical/outputs/suppliers/alternator[1]</property>
+	    <property>systems/electrical/outputs/bus/battery</property>
+	  </greater-than>
+	</and>
+      </condition>
+      <property>systems/electrical/outputs/suppliers/alternator[1]</property>
+    </input>
+    <input>
+      <condition>
+	<and>
 	  <greater-than>
 	    <property>controls/electric/battery-bus-switch</property>
 	    <value>0.5</value>
 	  </greater-than>
 	  <or>
-	    <property>controls/electric/circuit-breakers/bus-left-1</property>
-	    <property>controls/electric/circuit-breakers/bus-left-2</property>
-	    <property>controls/electric/circuit-breakers/bus-left-3</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
 	  </or>
 	</and>
       </condition>
-      <property>systems/electrical/outputs/bus/battery</property>
-    </input>
-    <input>
-      <value>0</value>
+      <property>systems/electrical/outputs/suppliers/battery</property>
     </input>
     <output>
       <property>systems/electrical/outputs/bus/left</property>
@@ -88,11 +100,26 @@
     <input>
       <condition>
 	<and>
-	  <property>controls/electric/engine[1]/generator</property>
 	  <or>
-	    <property>controls/electric/circuit-breakers/bus-right-1</property>
-	    <property>controls/electric/circuit-breakers/bus-right-2</property>
-	    <property>controls/electric/circuit-breakers/bus-right-3</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
+	  </or>
+	  <greater-than>
+	    <property>systems/electrical/outputs/suppliers/alternator</property>
+	    <property>systems/electrical/outputs/bus/battery</property>
+	  </greater-than>
+	</and>
+      </condition>
+      <property>systems/electrical/outputs/suppliers/alternator</property>
+    </input>
+    <input>
+      <condition>
+	<and>
+	  <or>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
 	  </or>
 	  <greater-than>
 	    <property>systems/electrical/outputs/suppliers/alternator[1]</property>
@@ -110,16 +137,13 @@
 	    <value>0.5</value>
 	  </greater-than>
 	  <or>
-	    <property>controls/electric/circuit-breakers/bus-right-1</property>
-	    <property>controls/electric/circuit-breakers/bus-right-2</property>
-	    <property>controls/electric/circuit-breakers/bus-right-3</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
+	    <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
 	  </or>
 	</and>
       </condition>
-      <property>systems/electrical/outputs/bus/battery</property>
-    </input>
-    <input>
-      <value>0</value>
+      <property>systems/electrical/outputs/suppliers/battery</property>
     </input>
     <output>
       <property>systems/electrical/outputs/bus/right</property>
@@ -135,13 +159,10 @@
 	    <property>systems/electrical/outputs/bus/right</property>
 	    <value>1</value>
 	  </greater-than>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
+	  <property>controls/electric/circuit-breakers/bus-right/cb-ac-gpws</property>
 	</and>
       </condition>
       <property>systems/electrical/outputs/bus/right</property>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>/systems/electrical/outputs/mk-viii</property>
@@ -169,9 +190,6 @@
 	</and>
       </condition>
       <value>1</value>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/lighting/beacon</property>
@@ -216,9 +234,6 @@
       </condition>
       <value>1</value>
     </input>
-    <input>
-      <value>0</value>
-    </input>
     <output>
       <property>controls/lighting/landing-light[1]</property>
       <property>sim/rendering/als-secondary-lights/use-alt-landing-light</property>
@@ -240,9 +255,6 @@
       </condition>
       <value>1</value>
     </input>
-    <input>
-      <value>0</value>
-    </input>
     <output>
       <property>controls/lighting/strobe</property>
     </output>
@@ -262,9 +274,6 @@
 	</and>
       </condition>
       <value>1</value>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/lighting/nav-lights</property>
@@ -286,13 +295,11 @@
       </condition>
       <value>1</value>
     </input>
-    <input>
-      <value>0</value>
-    </input>
     <output>
       <property>controls/lighting/recog-light[0]</property>
     </output>
   </filter>
+
   <filter>
     <type>gain</type>
     <input>
@@ -307,9 +314,6 @@
 	</and>
       </condition>
       <value>1</value>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/lighting/recog-light[1]</property>
@@ -354,14 +358,11 @@
       </condition>
       <property>engines/engine[1]/amp-v</property>
     </input>
-    <input>
-      <value>0</value>
-    </input>
     <output>
       <property>controls/electric/voltage-display</property>
     </output>
-    <min>7</min>
-    <max>45</max>
+    <min>10</min>
+    <max>40</max>
   </filter>
 
   <!-- simplified to enable manual engine start for the moment -->
@@ -369,23 +370,23 @@
     <type>gain</type>
     <input>
       <condition>
-        <and>
-	  <not>
-	    <equals>
-	      <property>controls/fuel/tank/boost-pump-switch</property>
-	      <value>0</value>
-	    </equals>
-	  </not>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <or>
+          <and>
+            <not>
+              <equals>
+                <property>controls/fuel/tank/boost-pump-switch</property>
+                <value>0</value>
+              </equals>
+            </not>
+            <greater-than>
+              <property>systems/electrical/outputs/bus/left</property>
+              <value>20</value>
+            </greater-than>
+          </and>
+          <property>controls/electric/engine[0]/starter-btn</property>
+        </or>
       </condition>
       <value>1</value>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/fuel/tank/boost-pump</property>
@@ -395,23 +396,23 @@
     <type>gain</type>
     <input>
       <condition>
-        <and>
-	  <not>
-	    <equals>
-	      <property>controls/fuel/tank[1]/boost-pump-switch</property>
-	      <value>0</value>
-	    </equals>
-	  </not>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <or>
+          <and>
+            <not>
+              <equals>
+                <property>controls/fuel/tank[1]/boost-pump-switch</property>
+                <value>0</value>
+              </equals>
+            </not>
+            <greater-than>
+              <property>systems/electrical/outputs/bus/right</property>
+              <value>20</value>
+            </greater-than>
+          </and>
+          <property>controls/electric/engine[1]/starter-btn</property>
+        </or>
       </condition>
       <value>1</value>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/fuel/tank[1]/boost-pump</property>
@@ -424,10 +425,10 @@
       <condition>
         <or>
           <less-than>
-            <property>systems/electrical/left-bus</property>
+            <property>systems/electrical/outputs/bus/left</property>
             <value>20</value>
           </less-than>
-          <not><property>controls/electric/circuit-breakers/bus-left/cb-start-left</property></not>
+          <not><property>controls/electric/circuit-breakers/bus-left/cb-bus-left-starter</property></not>
         </or>
       </condition>
       <value>0</value>
@@ -446,17 +447,14 @@
       <condition>
         <and>
           <greater-than>
-            <property>systems/electrical/left-bus</property>
+            <property>systems/electrical/outputs/bus/left</property>
             <value>20</value>
           </greater-than>
-          <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
+          <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-starter</property>
           <property>controls/electric/engine[0]/starter-btn</property>
         </and>
       </condition>
       <value>1</value>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/engines/engine[0]/starter</property>
@@ -469,10 +467,10 @@
       <condition>
         <or>
           <less-than>
-            <property>systems/electrical/right-bus</property>
+            <property>systems/electrical/outputs/bus/right</property>
             <value>20</value>
           </less-than>
-          <not><property>controls/electric/circuit-breakers/bus-right/cb-start-right</property></not>
+          <not><property>controls/electric/circuit-breakers/bus-right/cb-bus-right-starter</property></not>
         </or>
       </condition>
       <value>0</value>
@@ -491,17 +489,14 @@
       <condition>
         <and>
           <greater-than>
-            <property>systems/electrical/right-bus</property>
+            <property>systems/electrical/outputs/bus/right</property>
             <value>20</value>
           </greater-than>
-          <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
+          <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-starter</property>
           <property>controls/electric/engine[1]/starter-btn</property>
         </and>
       </condition>
       <value>1</value>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/engines/engine[1]/starter</property>
@@ -518,16 +513,29 @@
     <type>gain</type>
     <input>
       <condition>
-	<property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/bus/left</property>
-	  <value>20</value>
-	</greater-than>
+        <greater-than>
+          <property>gear/gear[1]/compression-norm</property>
+          <value>0.1</value>
+        </greater-than>
+      </condition>
+      <value>1</value>
+    </input>
+    <output>
+      <property>controls/electric/maingear-switch</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <condition>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake</property>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
       </condition>
       <property>controls/flight/speedbrake-switch</property>
-    </input>
-    <input>
-      <value>0</value>
     </input>
     <output>
       <property>controls/flight/speedbrake</property>

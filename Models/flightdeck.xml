@@ -18,75 +18,43 @@
     <object-name>MapLights</object-name>
     <object-name>MapLights.inside</object-name>
     <object-name>MapLights.Bulb</object-name>
+    <object-name>CutOffLock01</object-name>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <object-name>CutOffLock02</object-name>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink02</object-name>
   </effect>
 
   <!-- cockpit shadows -->
   <effect>
     <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>antiskid.sw</object-name>
     <object-name>Ashtray</object-name>
     <object-name>AuxGear.Panel</object-name>
     <object-name>AuxGearLever</object-name>
+    <object-name>cab.altitude</object-name>
+    <object-name>cab.rate-of-change</object-name>
     <object-name>Cupholder</object-name>
-    <object-name>Cylinder.002</object-name>
-    <object-name>Cylinder.003</object-name>
-    <object-name>Cylinder.004</object-name>
-    <object-name>Cylinder.005</object-name>
+    <object-name>CutOffLock01</object-name>
+    <object-name>CutOffLock02</object-name>
     <object-name>DirtMats</object-name>
     <object-name>EBrake</object-name>
     <object-name>ElevTrim.IndicHousing</object-name>
     <object-name>ElevTrim.Indicator</object-name>
     <object-name>ElevTrim.Wheel</object-name>
+    <object-name>Emer.TRstowLH</object-name>
+    <object-name>Emer.TRstowLH.001</object-name>
     <object-name>EmerDump</object-name>
-    <object-name>EngCenterbezel.004</object-name>
-    <object-name>FD.AirCond.outlet</object-name>
-    <object-name>FD.AirConditioning</object-name>
-    <object-name>FFlow01</object-name>
-    <object-name>FFlow02</object-name>
-    <object-name>FQty01</object-name>
-    <object-name>FQty02</object-name>
+    <object-name>EngCenterBezel</object-name>
+    <object-name>EngCenterGauge</object-name>
+    <object-name>EngCenterHole</object-name>
+    <object-name>env.ballance.knob</object-name>
+    <object-name>env.source.knob</object-name>
+    <object-name>env.temp.knob</object-name>
+    <object-name>env.temp.sw</object-name>
     <object-name>Fan01</object-name>
     <object-name>Fan02</object-name>
-    <object-name>Fire.ctrl</object-name>
-    <object-name>Flap.Indicator</object-name>
-    <object-name>FlapLever</object-name>
-    <object-name>Gear.unlocked</object-name>
-    <object-name>GearCtrl</object-name>
-    <object-name>GearLever</object-name>
-    <object-name>ITT01</object-name>
-    <object-name>ITT02</object-name>
-    <object-name>LH.Lamp</object-name>
-    <object-name>LHpedal</object-name>
-    <object-name>MapLights</object-name>
-    <object-name>MapLights.Bulb</object-name>
-    <object-name>MapLights.inside</object-name>
-    <object-name>OilP01</object-name>
-    <object-name>OilP02</object-name>
-    <object-name>OilT01</object-name>
-    <object-name>OilT02</object-name>
-    <object-name>Panel</object-name>
-    <object-name>Pbrake.lever</object-name>
-    <object-name>RH.lamp</object-name>
-    <object-name>RHpedal</object-name>
-    <object-name>Rvsr.arm</object-name>
-    <object-name>Rvsr.deploy</object-name>
-    <object-name>Rvsr.unlock</object-name>
-    <object-name>Seats.pilots</object-name>
-    <object-name>Seats.pilots.armrests</object-name>
-    <object-name>Seats.pilots.base</object-name>
-    <object-name>Seats.pilots.cover</object-name>
-    <object-name>Seats.pilots.headrest</object-name>
-    <object-name>ThrLever01</object-name>
-    <object-name>ThrLever02</object-name>
-    <object-name>Trb1warn</object-name>
-    <object-name>Trb2warn</object-name>
-    <object-name>Yoke</object-name>
-    <object-name>Yoke1</object-name>
-    <object-name>Yoke2</object-name>
-    <object-name>antiskid.sw</object-name>
-    <object-name>env.knob</object-name>
-    <object-name>env.knob.001</object-name>
-    <object-name>env.knob.002</object-name>
-    <object-name>env.sw</object-name>
     <object-name>fan101</object-name>
     <object-name>fan102</object-name>
     <object-name>fan103</object-name>
@@ -99,18 +67,60 @@
     <object-name>fan204</object-name>
     <object-name>fan205</object-name>
     <object-name>fan206</object-name>
+    <object-name>FD.AirCond.outlet</object-name>
+    <object-name>FD.AirConditioning</object-name>
+    <object-name>FFlow01</object-name>
+    <object-name>FFlow02</object-name>
+    <object-name>Fire.ctrl</object-name>
+    <object-name>Flap.indicator</object-name>
+    <object-name>FlapLever</object-name>
     <object-name>flightdeck</object-name>
     <object-name>flightdeck.Floor</object-name>
     <object-name>flightdeck.feetRoom</object-name>
-    <object-name>gauge2.001</object-name>
+    <object-name>FQty01</object-name>
+    <object-name>FQty02</object-name>
+    <object-name>Gear.unlocked</object-name>
+    <object-name>GearCtrl</object-name>
+    <object-name>GearLever</object-name>
     <object-name>glareshield</object-name>
     <object-name>horn.silence</object-name>
+    <object-name>ITT01</object-name>
+    <object-name>ITT02</object-name>
+    <object-name>LH.Lamp</object-name>
+    <object-name>LHpedal</object-name>
+    <object-name>MapLights</object-name>
+    <object-name>MapLights.Bulb</object-name>
+    <object-name>MapLights.inside</object-name>
     <object-name>nose.lamp</object-name>
+    <object-name>OilP01</object-name>
+    <object-name>OilP02</object-name>
+    <object-name>OilT01</object-name>
+    <object-name>OilT02</object-name>
+    <object-name>Panel</object-name>
     <object-name>panel.001</object-name>
+    <object-name>Pbrake.lever</object-name>
     <object-name>plaquette</object-name>
+    <object-name>RH.lamp</object-name>
+    <object-name>RHpedal</object-name>
+    <object-name>Rvsr.arm</object-name>
+    <object-name>Rvsr.deploy</object-name>
+    <object-name>Rvsr.unlock</object-name>
+    <object-name>Seats.pilots</object-name>
+    <object-name>Seats.pilots.armrests</object-name>
+    <object-name>Seats.pilots.base</object-name>
+    <object-name>Seats.pilots.cover</object-name>
+    <object-name>Seats.pilots.headrest</object-name>
     <object-name>slot</object-name>
-    <object-name>speedBrake.swSafety</object-name>
     <object-name>speedBrake.switch</object-name>
+    <object-name>speedBrake.swSafety</object-name>
+    <object-name>ThrLever01</object-name>
+    <object-name>ThrLever02</object-name>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <object-name>ThrRevLink02</object-name>
+    <object-name>Trb1warn</object-name>
+    <object-name>Trb2warn</object-name>
     <object-name>trbn101</object-name>
     <object-name>trbn102</object-name>
     <object-name>trbn103</object-name>
@@ -123,6 +133,9 @@
     <object-name>trbn204</object-name>
     <object-name>trbn205</object-name>
     <object-name>trbn206</object-name>
+    <object-name>Yoke</object-name>
+    <object-name>Yoke1</object-name>
+    <object-name>Yoke2</object-name>
     <object-name>pilot</object-name>
     <object-name>copilot</object-name>
   </effect>
@@ -186,6 +199,20 @@
       <pitch-deg>-90.0</pitch-deg>
     </offsets>
   </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <object-name>ThrRevLink02</object-name>
+    <condition>
+      <equals>
+        <property>sim/model/variant</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
 
   <animation>
     <name>Eng0-N1-99</name>
@@ -424,53 +451,141 @@
   <animation>
     <type>rotate</type>
     <object-name>ThrLever01</object-name>
-    <property>controls/engines/engine[0]/throttle</property>
-    <factor>54</factor>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <object-name>CutOffLock01</object-name>
+    <property>controls/engines/engine[0]/throttle-lever</property>
+    <factor>45</factor>
     <center>
-      <x-m>2.652</x-m>
+      <x-m>2.6466</x-m>
       <y-m>0.0</y-m>
-      <z-m>0.271</z-m>
+      <z-m>0.2538</z-m>
     </center>
     <axis>
       <x>0.0</x>
       <y>-1.0</y>
       <z>0.0</z>
     </axis>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>throttle0</tooltip-id>
-        <label>Throttle: %3d%%</label>
-        <mapping>percent</mapping>
-        <property>controls/engines/engine[0]/throttle</property>
-      </binding>
-    </hovered>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <property>controls/engines/engine[0]/reverser-lever</property>
+    <factor>115</factor>
+    <center>
+      <x-m>2.76046</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.35258</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ThrRevLink01</object-name>
+    <property>controls/engines/engine[0]/reverser-lever</property>
+    <factor>100</factor>
+    <center>
+      <x-m>2.77084</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.36129</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>CutOffLock01</object-name>
+    <property>controls/engines/engine[0]/cutoff-lock</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0.014</dep></entry>
+      <entry><ind>1</ind><dep>0.000</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0.76604</x>
+      <y>0.0</y>
+      <z>0.64279</z>
+    </axis>
   </animation>
 
   <animation>
     <type>rotate</type>
     <object-name>ThrLever02</object-name>
-    <property>controls/engines/engine[1]/throttle</property>
-    <factor>54</factor>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink02</object-name>
+    <object-name>CutOffLock02</object-name>
+    <property>controls/engines/engine[1]/throttle-lever</property>
+    <factor>45</factor>
     <center>
-      <x-m>2.652</x-m>
+      <x-m>2.6466</x-m>
       <y-m>0.0</y-m>
-      <z-m>0.271</z-m>
+      <z-m>0.2538</z-m>
     </center>
     <axis>
       <x>0.0</x>
       <y>-1.0</y>
       <z>0.0</z>
     </axis>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>throttle1</tooltip-id>
-        <label>Throttle: %3d%%</label>
-        <mapping>percent</mapping>
-        <property>controls/engines/engine[1]/throttle</property>
-      </binding>
-    </hovered>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink02</object-name>
+    <property>controls/engines/engine[1]/reverser-lever</property>
+    <factor>115</factor>
+    <center>
+      <x-m>2.76046</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.35258</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>ThrRevLink02</object-name>
+    <property>controls/engines/engine[1]/reverser-lever</property>
+    <factor>100</factor>
+    <center>
+      <x-m>2.77084</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.36129</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>CutOffLock02</object-name>
+    <property>controls/engines/engine[1]/cutoff-lock</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0.014</dep></entry>
+      <entry><ind>1</ind><dep>0.000</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0.76604</x>
+      <y>0.0</y>
+      <z>0.64279</z>
+    </axis>
   </animation>
 
   <animation>
@@ -598,14 +713,30 @@
     <type>select</type>
     <object-name>Eng0-N1-99</object-name>
     <object-name>Eng0-N1-100</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20.0</value>
+        </greater-than>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fan-left</property>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
     <object-name>Eng0-N2-99</object-name>
     <object-name>Eng0-N2-100</object-name>
     <object-name>Trb1warn</object-name>
     <condition>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20.0</value>
-      </greater-than>
+      <and>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20.0</value>
+        </greater-than>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-turbine-left</property>
+      </and>
     </condition>
   </animation>
 
@@ -613,14 +744,30 @@
     <type>select</type>
     <object-name>Eng1-N1-99</object-name>
     <object-name>Eng1-N1-100</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20.0</value>
+        </greater-than>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fan-right</property>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
     <object-name>Eng1-N2-99</object-name>
     <object-name>Eng1-N2-100</object-name>
     <object-name>Trb2warn</object-name>
     <condition>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>20.0</value>
-      </greater-than>
+      <and>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/right</property>
+          <value>20.0</value>
+        </greater-than>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-turbine-right</property>
+      </and>
     </condition>
   </animation>
 
@@ -672,10 +819,13 @@
     <type>select</type>
     <object-name>Eng0-N2-99</object-name>
     <condition>
-      <less-than>
-        <property>engines/engine/turbine</property>
-        <value>100.000</value>
-      </less-than>
+      <and>
+        <less-than>
+          <property>engines/engine/turbine</property>
+          <value>100.000</value>
+        </less-than>
+        <not><property>controls/engines/engine[0]/turbine/state</property></not>
+      </and>
     </condition>
   </animation>
 
@@ -683,10 +833,13 @@
     <type>select</type>
     <object-name>Eng0-N2-100</object-name>
     <condition>
-      <greater-than>
-        <property>engines/engine/turbine</property>
-        <value>99.999</value>
-      </greater-than>
+      <and>
+        <greater-than>
+          <property>engines/engine[0]/turbine</property>
+          <value>99.999</value>
+        </greater-than>
+        <not><property>controls/engines/engine[0]/turbine/state</property></not>
+      </and>
     </condition>
   </animation>
 
@@ -694,10 +847,13 @@
     <type>select</type>
     <object-name>Eng1-N2-99</object-name>
     <condition>
-      <less-than>
-        <property>engines/engine[1]/turbine</property>
-        <value>100.000</value>
-      </less-than>
+      <and>
+        <less-than>
+          <property>engines/engine[1]/turbine</property>
+          <value>100.000</value>
+        </less-than>
+        <not><property>controls/engines/engine[1]/turbine/state</property></not>
+      </and>
     </condition>
   </animation>
 
@@ -705,10 +861,13 @@
     <type>select</type>
     <object-name>Eng1-N2-100</object-name>
     <condition>
-      <greater-than>
-        <property>engines/engine[1]/turbine</property>
-        <value>99.999</value>
-      </greater-than>
+      <and>
+        <greater-than>
+          <property>engines/engine[1]/turbine</property>
+          <value>99.999</value>
+        </greater-than>
+        <not><property>controls/engines/engine[1]/turbine/state</property></not>
+      </and>
     </condition>
   </animation>
 
@@ -739,11 +898,11 @@
   <animation>
     <type>textranslate</type>
     <object-name>Fan01</object-name>
-    <property>engines/engine/fan-display</property>
+    <property>engines/engine[0]/fan-display</property>
     <interpolation>
       <entry><ind>20.0</ind><dep>0</dep></entry>
-      <entry><ind>90.0</ind><dep>0.2178</dep></entry>
-      <entry><ind>110.0</ind><dep>0.3555</dep></entry>
+      <entry><ind>90.0</ind><dep>0.171689</dep></entry>
+      <entry><ind>110.0</ind><dep>0.277344</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -758,8 +917,8 @@
     <property>engines/engine[1]/fan-display</property>
     <interpolation>
       <entry><ind>20.0</ind><dep>0</dep></entry>
-      <entry><ind>90.0</ind><dep>0.2178</dep></entry>
-      <entry><ind>110.0</ind><dep>0.3555</dep></entry>
+      <entry><ind>90.0</ind><dep>0.171689</dep></entry>
+      <entry><ind>110.0</ind><dep>0.277344</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -1090,7 +1249,13 @@
     <type>textranslate</type>
     <object-name>ITT01</object-name>
     <property>engines/engine/itt-norm-display</property>
-    <factor>0.27</factor>
+    <interpolation>
+      <entry><ind>-60</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>150</ind><dep>0</dep></entry>
+      <entry><ind>500</ind><dep>0.098032</dep></entry>
+      <entry><ind>800</ind><dep>0.34375</dep></entry>
+    </interpolation>
     <axis>
       <x>0</x>
       <y>-1</y>
@@ -1102,31 +1267,13 @@
     <type>textranslate</type>
     <object-name>ITT02</object-name>
     <property>engines/engine[1]/itt-norm-display</property>
-    <factor>0.27</factor>
-    <axis>
-      <x>0</x>
-      <y>-1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>FQty01</object-name>
-    <property>consumables/fuel/tank[0]/level-lbs-display</property>
-    <factor>0.000118</factor>
-    <axis>
-      <x>0</x>
-      <y>-1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>FQty02</object-name>
-    <property>consumables/fuel/tank[1]/level-lbs-display</property>
-    <factor>0.000118</factor>
+    <interpolation>
+      <entry><ind>-60</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>150</ind><dep>0</dep></entry>
+      <entry><ind>500</ind><dep>0.098032</dep></entry>
+      <entry><ind>800</ind><dep>0.34375</dep></entry>
+    </interpolation>
     <axis>
       <x>0</x>
       <y>-1</y>
@@ -1137,10 +1284,11 @@
   <animation>
     <type>textranslate</type>
     <object-name>FFlow01</object-name>
-    <property>engines/engine/fuel-flow_pph-display</property>
+    <property>engines/engine[0]/fuel-flow_pph-display</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>2000</ind><dep>0.3538</dep></entry>
+      <entry><ind>-600</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>2000</ind><dep>0.171875</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -1154,8 +1302,41 @@
     <object-name>FFlow02</object-name>
     <property>engines/engine[1]/fuel-flow_pph-display</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>2000</ind><dep>0.3538</dep></entry>
+      <entry><ind>-600</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>2000</ind><dep>0.171875</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>FQty01</object-name>
+    <property>consumables/fuel/tank[0]/level-lbs-display</property>
+    <interpolation>
+      <entry><ind>-400</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>3000</ind><dep>0.34375</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>FQty02</object-name>
+    <property>consumables/fuel/tank[1]/level-lbs-display</property>
+    <interpolation>
+      <entry><ind>-400</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>3000</ind><dep>0.34375</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -1168,7 +1349,11 @@
     <type>textranslate</type>
     <object-name>OilT01</object-name>
     <property>engines/engine[0]/oilt-norm-display</property>
-    <factor>0.28</factor>
+    <interpolation>
+      <entry><ind>-1.0</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0.171875</dep></entry>
+    </interpolation>
     <axis>
       <x>0</x>
       <y>-1</y>
@@ -1180,7 +1365,11 @@
     <type>textranslate</type>
     <object-name>OilT02</object-name>
     <property>engines/engine[1]/oilt-norm-display</property>
-    <factor>0.28</factor>
+    <interpolation>
+      <entry><ind>-1.0</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0.171875</dep></entry>
+    </interpolation>
     <axis>
       <x>0</x>
       <y>-1</y>
@@ -1192,10 +1381,14 @@
     <type>textranslate</type>
     <object-name>OilP01</object-name>
     <property>engines/engine[0]/oilp-norm-display</property>
-    <factor>-0.27</factor>
+    <interpolation>
+      <entry><ind>-1.0</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0.171875</dep></entry>
+    </interpolation>
     <axis>
       <x>0</x>
-      <y>1</y>
+      <y>-1</y>
       <z>0</z>
     </axis>
   </animation>
@@ -1204,15 +1397,163 @@
     <type>textranslate</type>
     <object-name>OilP02</object-name>
     <property>engines/engine[1]/oilp-norm-display</property>
-    <factor>-0.27</factor>
+    <interpolation>
+      <entry><ind>-1.0</ind><dep>-0.05078</dep></entry>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0.171875</dep></entry>
+    </interpolation>
     <axis>
       <x>0</x>
-      <y>1</y>
+      <y>-1</y>
       <z>0</z>
     </axis>
   </animation>
 
   <!-- hotspots-->
+
+  <animation>
+    <type>knob</type>
+    <object-name>ThrLever01</object-name>
+    <factor>45</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[0]/throttle</property>
+        <factor>0.01</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>throttle0</tooltip-id>
+        <label>Left Throttle: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/engines/engine[0]/throttle-real</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>ThrRevLever01</object-name>
+    <factor>115</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[0]/throttle</property>
+        <factor>0.01</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>reverser0</tooltip-id>
+        <label>Left Reverse Throttle: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/engines/engine[0]/throttle-real</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>CutOffLock01</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine[0]/cutoff-lock</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cutuff0</tooltip-id>
+        <label>Left Cutoff Lock: %s</label>
+        <mapping>nasal</mapping>
+        <script>(arg[0] == 0) ? "Unlocked" : "Locked"</script>
+        <property>controls/engines/engine[0]/cutoff-lock</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>ThrLever02</object-name>
+    <factor>45</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[1]/throttle</property>
+        <factor>0.01</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>throttle1</tooltip-id>
+        <label>Right Throttle: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/engines/engine[1]/throttle-real</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>ThrRevLever02</object-name>
+    <factor>115</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[1]/throttle</property>
+        <factor>0.01</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>reverser1</tooltip-id>
+        <label>Right Reverse Throttle: %3d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/engines/engine[1]/throttle-real</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>CutOffLock02</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine[1]/cutoff-lock</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cutuff1</tooltip-id>
+        <label>Right Cutoff Lock: %s</label>
+        <mapping>nasal</mapping>
+        <script>(arg[0] == 0) ? "Unlocked" : "Locked"</script>
+        <property>controls/engines/engine[1]/cutoff-lock</property>
+      </binding>
+    </hovered>
+  </animation>
 
   <animation>
     <type>pick</type>
@@ -1238,27 +1579,12 @@
   <animation>
     <type>pick</type>
     <object-name>GearLever</object-name>
-    <condition>
-      <and>
-        <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/bus/left</property>
-	  <value>20</value>
-	</greater-than>
-      </and>
-    </condition>
     <action>
       <button>0</button>
       <binding>
         <command>nasal</command>
         <script>controls.gearDown(1)</script>
       </binding>
-      <mod-up>
-        <binding>
-          <command>nasal</command>
-          <script>controls.gearDown(0)</script>
-        </binding>
-      </mod-up>
     </action>
     <hovered>
       <binding>
@@ -1274,27 +1600,12 @@
   <animation>
     <type>pick</type>
     <object-name>GearLever</object-name>
-    <condition>
-      <and>
-        <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/bus/left</property>
-	  <value>20</value>
-	</greater-than>
-      </and>
-    </condition>
     <action>
       <button>1</button>
       <binding>
         <command>nasal</command>
         <script>controls.gearDown(-1)</script>
       </binding>
-      <mod-up>
-        <binding>
-          <command>nasal</command>
-          <script>controls.gearDown(0)</script>
-        </binding>
-      </mod-up>
     </action>
   </animation>
 
@@ -1315,6 +1626,7 @@
       <z>0</z>
     </axis>
   </animation>
+
   <animation>
     <type>pick</type>
     <object-name>speedBrake.switch</object-name>
@@ -1336,6 +1648,44 @@
     </hovered>
   </animation>
 
+  <animation>
+    <type>rotate</type>
+    <object-name>antiskid.sw</object-name>
+    <property>controls/gear/antiskid-sw</property>
+    <offset-deg>0</offset-deg>
+    <factor>30</factor>
+    <center>
+      <x-m>2.48264</x-m>
+      <y-m>-0.11680</y-m>
+      <z-m>0.36722</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>antiskid.sw</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/gear/antiskid-sw</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>antiskid</tooltip-id>
+        <label>Antiskid: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/gear/antiskid-sw</property>
+      </binding>
+    </hovered>
+  </animation>
 
   <animation>
     <type>rotate</type>
@@ -1592,7 +1942,8 @@
     <object-name>xmnt.annun</object-name>
     <object-name>CTL-32</object-name>
     <object-name>CTL-32.toggle</object-name>
-    <object-name>EngCenterbezel.004</object-name>
+    <object-name>EngCenterBezel</object-name>
+    <object-name>EngCenterHole</object-name>
     <object-name>Flap.indicator</object-name>
     <object-name>FlapLever</object-name>
     <object-name>Pbrake.lever</object-name>
@@ -1622,7 +1973,13 @@
     <object-name>Cylinder.002</object-name>
     <object-name>Cylinder.005</object-name>
     <object-name>ThrLever01</object-name>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <object-name>CutOffLock01</object-name>
     <object-name>ThrLever02</object-name>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink02</object-name>
+    <object-name>CutOffLock02</object-name>
     <object-name>env.knob</object-name>
     <object-name>env.knob.001</object-name>
     <object-name>env.knob.002</object-name>
@@ -1672,7 +2029,7 @@
   <!-- Implement emis animation even for Rembrandt rendering! -->
   <animation>
     <type>material</type>
-    <object-name>gauge2.001</object-name>
+    <object-name>EngCenterGauge</object-name>
     <object-name>Fan01</object-name>
     <object-name>Fan02</object-name>
     <object-name>ITT01</object-name>

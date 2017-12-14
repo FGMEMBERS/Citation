@@ -166,7 +166,7 @@
     <animation>
         <type>rotate</type>
         <object-name>lign.sw</object-name>
-        <property>controls/engines/engine/ignition</property>
+        <property>controls/engines/engine[0]/ignition-sw</property>
         <factor>15</factor>
         <center>
             <x-m>0.005</x-m>
@@ -183,7 +183,7 @@
     <animation>
         <type>rotate</type>
         <object-name>rign.sw</object-name>
-        <property>controls/engines/engine[1]/ignition</property>
+        <property>controls/engines/engine[1]/ignition-sw</property>
         <factor>15</factor>
         <center>
             <x-m>0.005</x-m>
@@ -200,7 +200,6 @@
     <animation>
       <type>select</type>
       <object-name>LH.starter.active</object-name>
-      <object-name>LH.ign.active</object-name>
       <condition>
         <property>controls/engines/engine[0]/starter</property>
       </condition>
@@ -208,10 +207,25 @@
 
     <animation>
       <type>select</type>
+      <object-name>LH.ign.active</object-name>
+      <condition>
+        <property>controls/engines/engine[0]/ignition</property>
+      </condition>
+    </animation>
+
+    <animation>
+      <type>select</type>
       <object-name>RH.starter.active</object-name>
-      <object-name>RH.ign.active</object-name>
       <condition>
         <property>controls/engines/engine[1]/starter</property>
+      </condition>
+    </animation>
+
+    <animation>
+      <type>select</type>
+      <object-name>RH.ign.active</object-name>
+      <condition>
+        <property>controls/engines/engine[1]/ignition</property>
       </condition>
     </animation>
 
@@ -421,8 +435,8 @@
       <type>rotate</type>
       <object-name>volts.needle</object-name>
       <property>controls/electric/voltage-display</property>
-      <factor>8.1818</factor>
-      <offset-deg>-57</offset-deg>
+      <factor>8.15</factor>
+      <offset-deg>-55</offset-deg>
       <center>
         <x-m>0.00053</x-m>
         <y-m>-0.00164</y-m>
@@ -654,7 +668,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/engines/engine[0]/ignition</property>
+            <property>controls/engines/engine[0]/ignition-sw</property>
         </binding>
         <binding>
             <command>property-toggle</command>
@@ -667,7 +681,7 @@
         <tooltip-id>lign-switch</tooltip-id>
         <label>Left hand ignition: %s</label>
         <mapping>on-off</mapping>
-        <property>controls/engines/engine[0]/ignition</property>
+        <property>controls/engines/engine[0]/ignition-sw</property>
       </binding>
     </hovered>
 </animation>
@@ -680,7 +694,7 @@
         <repeatable>false</repeatable>
         <binding>
             <command>property-toggle</command>
-            <property>controls/engines/engine[1]/ignition</property>
+            <property>controls/engines/engine[1]/ignition-sw</property>
         </binding>
         <binding>
             <command>property-toggle</command>
@@ -693,7 +707,7 @@
         <tooltip-id>rign-switch</tooltip-id>
         <label>Right hand ignition: %s</label>
         <mapping>on-off</mapping>
-        <property>controls/engines/engine[1]/ignition</property>
+        <property>controls/engines/engine[1]/ignition-sw</property>
       </binding>
     </hovered>
 </animation>

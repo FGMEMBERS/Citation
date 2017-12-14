@@ -153,13 +153,13 @@ GNU General Public License for more details.
     <value>OFF</value>
     <condition>
       <equals>
-        <property>controls/lighting/landing-light[0]</property>
+        <property>controls/lighting/landing-light-switch[0]</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/lighting/landing-light[0]</property>
+      <property>controls/lighting/landing-light-switch[0]</property>
       <value>0</value>
     </binding>
   </item>
@@ -168,13 +168,13 @@ GNU General Public License for more details.
     <value>OFF</value>
     <condition>
       <equals>
-        <property>controls/lighting/landing-light[1]</property>
+        <property>controls/lighting/landing-light-switch[1]</property>
         <value>0</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/lighting/landing-light[1]</property>
+      <property>controls/lighting/landing-light-switch[1]</property>
       <value>0</value>
     </binding>
   </item>

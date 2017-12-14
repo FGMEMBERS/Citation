@@ -40,33 +40,31 @@
         <fuel-sel type="int">0</fuel-sel>
         <engine>
           <generator type="bool">true</generator>
+          <starter-btn type="bool">false</starter-btn>
         </engine>
         <engine n="1">
           <generator type="bool">true</generator>
+          <starter-btn type="bool">false</starter-btn>
         </engine>
       </electric>
 
       <engines>
         <engine n="0">
-          <starter type="bool">false</starter>
           <fuel-pump type="bool">false</fuel-pump>
-          <cutoff type="bool">false</cutoff>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>
-          <ignition type="bool">1</ignition>
+          <ignition-sw type="bool">1</ignition-sw>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle-lever type="double">0.25</throttle-lever>
         </engine>
 
         <engine n="1">
-          <starter type="bool">false</starter>
           <fuel-pump type="bool">false</fuel-pump>
-          <cutoff type="bool">true</cutoff>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>
-          <ignition type="bool">1</ignition>
+          <ignition-sw type="bool">1</ignition-sw>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle-lever type="double">0.25</throttle-lever>
         </engine>
       </engines>
 

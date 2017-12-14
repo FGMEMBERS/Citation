@@ -2,28 +2,28 @@
 
 <PropertyList>
 
- <path>sphereBeaconLight.ac</path>
+  <path>sphereBeaconLight.ac</path>
 
-     <animation>
+    <animation>
         <type>select</type>
         <object-name>sphereBeaconLight</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
-		<property>controls/lighting/beacon</property>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
+                <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
+                <property>controls/lighting/beacon</property>
                 <greater-than>
                     <property>systems/electrical/outputs/bus/left</property>
                     <value>20</value>
                 </greater-than>
-		<greater-than>
-		  <property>sim/multiplay/generic/int[1]</property>
-		  <value>20</value>
-		</greater-than>
+                <greater-than>
+                    <property>sim/multiplay/generic/int[1]</property>
+                    <value>20</value>
+                </greater-than>
             </and>
         </condition>
     </animation>

@@ -7,8 +7,8 @@
 <airplane mass="8060">
 
   <approach speed="86" aoa="15" fuel="0.2">
-    <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="0.3"/>
-    <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="0.3"/>
+    <control-setting axis="/controls/engines/engine[0]/throttle-real" value="0.475"/> <!-- 0.3 -->
+    <control-setting axis="/controls/engines/engine[1]/throttle-real" value="0.475"/> <!-- 0.3 -->
     <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
     <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="1"/>
@@ -21,8 +21,8 @@
 
   <cruise speed="370" alt="43000" fuel="0.87"> <!-- 162 indicated -->
     <control-setting axis="/controls/flight/elevator-trim" value="0.0"/>
-    <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="1.0"/>
-    <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/throttle-real" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[1]/throttle-real" value="1.0"/>
     <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
     <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="0.0"/>
@@ -138,13 +138,13 @@
   -->
   <jet x="-9.19" y="1.37"  z="0.76" mass="535" thrust="2963.39" tsfc="0.470" egt="973.15"
        n1-idle="45" n1-max="107" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
-    <control-input axis="/controls/engines/engine[0]/throttle-lever" control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[0]/throttle-real" control="THROTTLE"/>
     <actionpt x="-10.5" y="1.37" z="0.76"/>
   </jet>
 
   <jet x="-9.19" y="-1.37"  z="0.76" mass="535" thrust="2963.39" tsfc="0.470" egt="973.15"
        n1-idle="45" n1-max="107" n2-idle="49.0" n2-max="99.8" spool-time="2.5" epr="2.7">
-    <control-input axis="/controls/engines/engine[1]/throttle-lever" control="THROTTLE"/>
+    <control-input axis="/controls/engines/engine[1]/throttle-real" control="THROTTLE"/>
     <actionpt x="-10.5" y="-1.37" z="0.76"/>
   </jet>
 

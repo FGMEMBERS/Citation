@@ -33,6 +33,11 @@ aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch
 var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
 aircraft.light.new("controls/lighting/beacon-state", [1.0, 1.0], beacon_switch);
 
+var turb0warn = props.globals.getNode("controls/engines/engine[0]/turbine/warn", 1);
+aircraft.light.new("controls/engines/engine[0]/turbine", [0.5, 0.5], turb0warn);
+var turb1warn = props.globals.getNode("controls/engines/engine[1]/turbine/warn", 1);
+aircraft.light.new("controls/engines/engine[1]/turbine", [0.5, 0.5], turb1warn);
+
 ####################################################
 
 var Battery = {
@@ -91,12 +96,11 @@ var Alternator = {
     new : func (num,switch,src,thr,vlt,amp){
         m = { parents : [Alternator] };
         m.switch =  props.globals.getNode(switch,1);
-#        m.switch.setBoolValue(0);
+        m.running = props.globals.getNode("engines/engine["~num~"]/started",1);
         m.meter =  props.globals.getNode("systems/electrical/gen-load["~num~"]",1);
         m.meter.setDoubleValue(0);
         m.gen_output =  props.globals.getNode("engines/engine["~num~"]/amp-v",1);
         m.gen_output.setDoubleValue(0);
-#        m.meter.setDoubleValue(0);
         m.rpm_source =  props.globals.getNode(src,1);
         m.rpm_threshold = thr;
         m.ideal_volts = vlt;
@@ -120,7 +124,7 @@ var Alternator = {
 
     get_output_volts : func {
         var out = 0;
-        if(me.switch.getBoolValue()){
+        if(me.switch.getBoolValue() and me.running.getBoolValue()){
             var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
             if ( factor > 1.0 ) factor = 1.0;
             out = (me.ideal_volts * factor);
@@ -131,7 +135,7 @@ var Alternator = {
 
     get_output_amps : func {
         var ampout =0;
-        if(me.switch.getBoolValue()){
+        if(me.switch.getBoolValue() and me.running.getBoolValue()){
             var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
             if ( factor > 1.0 ) factor = 1.0;
             ampout = me.ideal_amps * factor;
@@ -143,9 +147,9 @@ var Alternator = {
 
 #####################################################
 
-var battery = Battery.new("controls/electric/battery-bus-switch",24,30,34,1.0,7.0);
-var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","engines/engine[0]/turbine",20.0,28.0,60.0);
-var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","engines/engine[1]/turbine",20.0,28.0,60.0);
+var battery = Battery.new("controls/electric/battery-bus-switch",24,1,40,1.0,7.0);
+var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","engines/engine[0]/turbine",40.0,28.0,400.0);
+var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","engines/engine[1]/turbine",40.0,28.0,400.0);
 
 setlistener("/sim/signals/fdm-initialized", func {
     init_switches();

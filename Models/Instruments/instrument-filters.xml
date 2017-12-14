@@ -159,8 +159,8 @@ GNU General Public License for more details.
   <filter>
     <name>Radar altimeter: filter for mechanical needle</name>
     <debug>false</debug>
-    <type>noise-spike</type>
-    <max-rate-of-change>1000</max-rate-of-change>
+    <type>exponential</type>
+    <filter-time>.2</filter-time>
 
     <input>
       <condition>
@@ -169,7 +169,7 @@ GNU General Public License for more details.
           <value>1</value>
         </less-than>
       </condition>
-      <value>0.0</value>
+      <property>instrumentation/radar-altimeter/radar-altitude-ft</property>
     </input>
 
     <input>
@@ -189,7 +189,7 @@ GNU General Public License for more details.
           <value>2500.0</value>
         </greater-than>
       </condition>
-      <value>2500.0</value>
+      <value>3150.0</value>
     </input>
 
     <input>
@@ -224,13 +224,13 @@ GNU General Public License for more details.
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <greater-than>
-	    <property>systems/electrical/right-bus</property>
-	    <value>1.0</value>
-	  </greater-than>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
-	</and>
+        <and>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>1.0</value>
+          </greater-than>
+          <property>controls/electric/circuit-breakers/bus-right/cb-ac-gpws</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -595,13 +595,22 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.4</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
+        <or>
+          <and>
+            <property>controls/electric/circuit-breakers/bus-left/cb-engine-fan-left</property>
+            <greater-than>
+              <property>systems/electrical/outputs/bus/left</property>
+              <value>20</value>
+            </greater-than>
+          </and>
+          <greater-than>
+            <property>engines/engine[0]/fan</property>
+            <value>50</value>
+          </greater-than>
+        </or>
       </condition>
       <property>engines/engine[0]/fan</property>
     </input>
@@ -611,13 +620,22 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.4</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
+        <or>
+          <and>
+            <property>controls/electric/circuit-breakers/bus-right/cb-engine-fan-right</property>
+            <greater-than>
+              <property>systems/electrical/outputs/bus/right</property>
+              <value>20</value>
+            </greater-than>
+          </and>
+          <greater-than>
+            <property>engines/engine[1]/fan</property>
+            <value>50</value>
+          </greater-than>
+        </or>
       </condition>
       <property>engines/engine[1]/fan</property>
     </input>
@@ -627,162 +645,234 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.4</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-left/cb-engine-itt-left</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
-      <property>engines/engine[0]/itt-norm</property>
+      <expression>
+        <product>
+          <property>engines/engine[0]/itt-norm</property>
+          <value>700</value>
+        </product>
+      </expression>
     </input>
-    <input>0.0</input>
+    <input>-60</input>
     <output>engines/engine[0]/itt-norm-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.4</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-right/cb-engine-itt-right</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
-      <property>engines/engine[1]/itt-norm</property>
+      <expression>
+        <product>
+          <property>engines/engine[1]/itt-norm</property>
+          <value>700</value>
+        </product>
+      </expression>
     </input>
-    <input>0.0</input>
+    <input>-60</input>
     <output>engines/engine[1]/itt-norm-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.2</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
-      </condition>
-      <property>consumables/fuel/tank[0]/level-lbs</property>
-    </input>
-    <input>0.0</input>
-    <output>consumables/fuel/tank[0]/level-lbs-display</output>
-  </filter>
-
-  <filter>
-    <type>exponential</type>
-    <filter-time>1</filter-time>
-    <input>
-      <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
-      </condition>
-      <property>consumables/fuel/tank[1]/level-lbs</property>
-    </input>
-    <input>0.0</input>
-    <output>consumables/fuel/tank[1]/level-lbs-display</output>
-  </filter>
-
-  <filter>
-    <type>exponential</type>
-    <filter-time>1</filter-time>
-    <input>
-      <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-left/cb-engine-fuelflow-left</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <property>engines/engine[0]/fuel-flow_pph</property>
     </input>
-    <input>0.0</input>
+    <input>-600.0</input>
     <output>engines/engine[0]/fuel-flow_pph-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.2</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-right/cb-engine-fuelflow-right</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <property>engines/engine[1]/fuel-flow_pph</property>
     </input>
-    <input>0.0</input>
+    <input>-600.0</input>
     <output>engines/engine[1]/fuel-flow_pph-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.4</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-left/cb-engine-qty-left</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+        </and>
+      </condition>
+      <property>consumables/fuel/tank[0]/level-lbs</property>
+    </input>
+    <input>-400.0</input>
+    <output>consumables/fuel/tank[0]/level-lbs-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>0.4</filter-time>
+    <input>
+      <condition>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-right/cb-engine-qty-right</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+        </and>
+      </condition>
+      <property>consumables/fuel/tank[1]/level-lbs</property>
+    </input>
+    <input>-400.0</input>
+    <output>consumables/fuel/tank[1]/level-lbs-display</output>
+  </filter>
+
+  <filter>
+    <type>exponential</type>
+    <filter-time>0.2</filter-time>
+    <input>
+      <condition>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilt-left</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <property>engines/engine[0]/oilt-norm</property>
     </input>
-    <input>0.0</input>
+    <input>-1</input>
     <output>engines/engine[0]/oilt-norm-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.2</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilt-right</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <property>engines/engine[1]/oilt-norm</property>
     </input>
-    <input>0.0</input>
+    <input>-1</input>
     <output>engines/engine[1]/oilt-norm-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.2</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilp-left</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <property>engines/engine[0]/oilp-norm</property>
     </input>
-    <input>0.0</input>
+    <input>-1</input>
     <output>engines/engine[0]/oilp-norm-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>1</filter-time>
+    <filter-time>0.2</filter-time>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
+        <and>
+          <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilp-right</property>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+        </and>
       </condition>
       <property>engines/engine[1]/oilp-norm</property>
     </input>
-    <input>0.0</input>
+    <input>-1</input>
     <output>engines/engine[1]/oilp-norm-display</output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <name>left turbine warning</name>
+    <input>
+      <condition>
+        <greater-than>
+          <property>engines/engine[0]/turbine</property>
+          <value>96</value>
+        </greater-than>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>0</input>
+    <output>controls/engines/engine[0]/turbine/warn</output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <name>right turbine warning</name>
+    <input>
+      <condition>
+        <greater-than>
+          <property>engines/engine[1]/turbine</property>
+          <value>96</value>
+        </greater-than>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>0</input>
+    <output>controls/engines/engine[1]/turbine/warn</output>
   </filter>
 
 </PropertyList>

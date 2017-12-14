@@ -10,7 +10,7 @@ C/B's on the left panel need:
 C/B's on the right panel need:
   <factor>0.004</factor>
   <offset-m>-0.004</offset-m>
-  -->
+-->
 
 <!--
 ########################
@@ -20,32 +20,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.ELPanel</object-name>
-    <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>cb.Light.ELPanel</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</property>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.Light.Flood</object-name>
-    <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</property>
+    <object-name>cb.dc.nav2</object-name>
+    <property>controls/electric/circuit-breakers/bus-emer/cb-dc-nav2</property>
     <factor>0.004</factor>
     <offset-m>-0.004</offset-m>
     <axis>
@@ -56,18 +32,123 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.Flood</object-name>
+    <object-name>cb.dc.nav2</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-flood</property>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-dc-nav2</property>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-nav2</tooltip-id>
+        <label>DC Navigation 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-dc-nav2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
   </animation>
 
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.comm1</object-name>
+    <property>controls/electric/circuit-breakers/bus-emer/cb-dc-comm1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.comm1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-dc-comm1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-comm1</tooltip-id>
+        <label>DC Communication 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-dc-comm1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
 
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.dg2</object-name>
+    <property>controls/electric/circuit-breakers/bus-emer/cb-dc-dg2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.dg2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-dc-dg2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-dg2</tooltip-id>
+        <label>DC Directional Gyro 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-dc-dg2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
 
+  <animation>
+    <type>translate</type>
+    <object-name>cb.light.flood</object-name>
+    <property>controls/electric/circuit-breakers/bus-emer/cb-light-flood</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.light.flood</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-light-flood</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-light-flood</tooltip-id>
+        <label>Cockpit Flood Lights: %s</label>
+        <property>controls/electric/circuit-breakers/bus-emer/cb-light-flood</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
 
 <!--
 ###########################
@@ -75,9 +156,9 @@ C/B's on the right panel need:
 ###########################
   -->
 
-  <animation>
+  <!--animation>
     <type>translate</type>
-    <object-name>cb.Clock.LH</object-name>
+    <object-name>cb.inst.clock.LH</object-name>
     <property>controls/electric/circuit-breakers/bus-battery-hot/cb-clock-left</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
@@ -86,10 +167,10 @@ C/B's on the right panel need:
       <y>1</y>
       <z>0.2</z>
     </axis>
-  </animation>
+  </animation-->
   <!--animation>
     <type>pick</type>
-    <object-name>cb.Clock.LH</object-name>
+    <object-name>cb.inst.clock.LH</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -99,9 +180,9 @@ C/B's on the right panel need:
     </action>
   </animation-->
 
-  <animation>
+  <!--animation>
     <type>translate</type>
-    <object-name>cb.Clock.RH</object-name>
+    <object-name>cb.inst.clock.RH</object-name>
     <property>controls/electric/circuit-breakers/bus-battery-hot/cb-clock-right</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
@@ -110,10 +191,10 @@ C/B's on the right panel need:
       <y>1</y>
       <z>0.2</z>
     </axis>
-  </animation>
+  </animation-->
   <!--animation>
     <type>pick</type>
-    <object-name>cb.Clock.RH</object-name>
+    <object-name>cb.inst.clock.RH</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -123,15 +204,6 @@ C/B's on the right panel need:
     </action>
   </animation-->
 
-
-<!--
-#######################
-####  BATTERY BUS  ####
-#######################
-  -->
-
-
-
 <!--
 ########################
 ####    LEFT BUS    ####
@@ -140,8 +212,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.LHBus.1</object-name>
-    <property>controls/electric/circuit-breakers/bus-left-1</property>
+    <object-name>cb.bus.left.1</object-name>
+    <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
@@ -152,20 +224,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.LHBus.1</object-name>
+    <object-name>cb.bus.left.1</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left-1</property>
+        <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-bus-left-1</tooltip-id>
-        <label>Circuit breakers Left bus 1: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left-1</property>
+        <tooltip-id>cb-bus-left-1</tooltip-id>
+        <label>Left Bus #1: %s</label>
+        <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -173,8 +245,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.LHBus.2</object-name>
-    <property>controls/electric/circuit-breakers/bus-left-2</property>
+    <object-name>cb.bus.left.2</object-name>
+    <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
@@ -185,20 +257,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.LHBus.2</object-name>
+    <object-name>cb.bus.left.2</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left-2</property>
+        <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-bus-left-2</tooltip-id>
-        <label>Circuit breakers Left bus 2: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left-2</property>
+        <tooltip-id>cb-bus-left-2</tooltip-id>
+        <label>Left Bus #2: %s</label>
+        <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -206,8 +278,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.LHBus.3</object-name>
-    <property>controls/electric/circuit-breakers/bus-left-3</property>
+    <object-name>cb.bus.left.3</object-name>
+    <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
@@ -218,20 +290,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.LHBus.3</object-name>
+    <object-name>cb.bus.left.3</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left-3</property>
+        <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-bus-left-3</tooltip-id>
-        <label>Circuit breakers Left bus 3: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left-3</property>
+        <tooltip-id>cb-bus-left-3</tooltip-id>
+        <label>Left Bus #3: %s</label>
+        <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -239,7 +311,1277 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.LHPanel</object-name>
+    <object-name>cb.bus.left.starter</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-starter</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.left.starter</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-starter</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-left-starter</tooltip-id>
+        <label>Left Starter: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-starter</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.left.inverter</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-inverter</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.left.inverter</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-inverter</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-left-inverter</tooltip-id>
+        <label>AC Inverter 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-inverter</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.left.x-over</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-x-over</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.left.x-over</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-x-over</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-left-x-over</tooltip-id>
+        <label>Left Crossover: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-x-over</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- engine indicator -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.fan.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-fan-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.fan.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fan-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-fan-left</tooltip-id>
+        <label>Left Engine Fan Speed: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fan-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.itt.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-itt-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.itt.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-itt-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-itt-left</tooltip-id>
+        <label>Left Inter-Turbine Temp.: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-itt-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.turbine.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-turbine-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.turbine.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-turbine-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-turbine-left</tooltip-id>
+        <label>Left Turbine: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-turbine-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.fuelflow.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-fuelflow-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.fuelflow.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fuelflow-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-fuelflow-left</tooltip-id>
+        <label>Left Fuel Flow: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fuelflow-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.qty.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-qty-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.qty.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-qty-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-qty-left</tooltip-id>
+        <label>Left Fuel Quantity: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-qty-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.oilt.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilt-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.oilt.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilt-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-oilt-left</tooltip-id>
+        <label>Left Oil Temp.: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilt-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.oilp.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilp-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.oilp.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilp-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-oilp-left</tooltip-id>
+        <label>Left Oil Pressure: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilp-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- engine -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.ign.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-ign-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.ign.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-ign-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-ign-right</tooltip-id>
+        <label>Right Ignition: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-ign-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.boost.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-boost-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.boost.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-boost-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-boost-right</tooltip-id>
+        <label>Right Fuel Boost Pump: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-boost-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.shutoff.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-shutoff-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.shutoff.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-shutoff-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-shutoff-left</tooltip-id>
+        <label>Left Firewall Shutoff: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-shutoff-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.fire.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-engine-fire-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.fire.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fire-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-fire-left</tooltip-id>
+        <label>Left Fire Detection: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fire-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- environment -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.env.normalp</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-env-normalp</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.env.normalp</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-env-normalp</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-env-normalp</tooltip-id>
+        <label>Normal Pressurization System: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-env-normalp</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.env.fan</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-env-fan</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.env.fan</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-env-fan</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-env-fan</tooltip-id>
+        <label>Cabin Fan: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-env-fan</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.env.temp</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-env-temp</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.env.temp</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-env-temp</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-env-temp</tooltip-id>
+        <label>Cabin Temperature Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-env-temp</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- instruments -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.inst.gyro_standby</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-inst-gyro-standby</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.inst.gyro_standby</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-inst-gyro-standby</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-inst-gyro-standby</tooltip-id>
+        <label>Standby Gyro: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-inst-gyro-standby</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.inst.oat</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-inst-oat</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.inst.oat</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-inst-oat</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-inst-oat</tooltip-id>
+        <label>Outside Air Temperature: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-inst-oat</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.inst.clock.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-inst-clock-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.inst.clock.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-inst-clock-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-inst-clock-left</tooltip-id>
+        <label>Left Digital Clock: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-inst-clock-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- anti-ice -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.pitot.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-pitot-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.pitot.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-pitot-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-pitot-left</tooltip-id>
+        <label>Left Pitot/Static Heater: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-pitot-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.aoa</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-aoa</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.aoa</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-aoa</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-aoa</tooltip-id>
+        <label>AOA System Heater: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-aoa</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.engine.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-engine-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.engine.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-engine-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-engine-left</tooltip-id>
+        <label>Left Engine Anti-Ice: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-engine-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.bleedair.ws.temp</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws-temp</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.bleedair.ws.temp</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws-temp</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-bleedair-ws-temp</tooltip-id>
+        <label>Windshield Bleed Air Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws-temp</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.bleedair.ws</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.bleedair.ws</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-bleedair-ws</tooltip-id>
+        <label>Windshield Bleed Air Power: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- warnings -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.warn.batt</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-warn-batt</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.warn.batt</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-warn-batt</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-warn-batt</tooltip-id>
+        <label>Battery Overtemp System: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-warn-batt</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.warn.gear</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-warn-gear</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.warn.gear</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-warn-gear</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-warn-gear</tooltip-id>
+        <label>Landing Gear Warning: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-warn-gear</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.warn.lts1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-warn-lts1</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.warn.lts1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-warn-lts1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-warn-lts1</tooltip-id>
+        <label>Warning Lights 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-warn-lts1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- systems -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.skid_ctrl</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-skid-ctrl</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.skid_ctrl</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-skid-ctrl</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-skid-ctrl</tooltip-id>
+        <label>Anti-Skid Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-skid-ctrl</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.thrustrev.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-thrustrev-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.thrustrev.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-thrustrev-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-thrustrev-left</tooltip-id>
+        <label>Left Thrust Reverser Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-thrustrev-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.flap_motor</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-flap-motor</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.flap_motor</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-flap-motor</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-flap-motor</tooltip-id>
+        <label>Flap Motors: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-flap-motor</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.flap_ctrl</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-flap-ctrl</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.flap_ctrl</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-flap-ctrl</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-flap-ctrl</tooltip-id>
+        <label>Flap Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-flap-ctrl</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.aoa</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-aoa</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.aoa</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-aoa</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-aoa</tooltip-id>
+        <label>AOA System Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-aoa</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.gear_ctrl</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-gear-ctrl</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.gear_ctrl</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-gear-ctrl</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-gear-ctrl</tooltip-id>
+        <label>Landing Gear Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-gear-ctrl</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.engine_sync</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-engine-sync</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.engine_sync</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-engine-sync</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-engine-sync</tooltip-id>
+        <label>Engine Synchronization System: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-engine-sync</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.pitch_trim</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-pitch-trim</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.pitch_trim</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-pitch-trim</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-pitch-trim</tooltip-id>
+        <label>Pitch Trim Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-pitch-trim</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.nose_wheel_rpm</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-nose-wheel-rpm</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.nose_wheel_rpm</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-nose-wheel-rpm</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-nose-wheel-rpm</tooltip-id>
+        <label>Nose Wheel Spinup System: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-nose-wheel-rpm</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.speed_brake</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.speed_brake</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-speed-brake</tooltip-id>
+        <label>Speed Brake Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- lights -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.light.panel.left</object-name>
     <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
@@ -251,7 +1593,7 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.LHPanel</object-name>
+    <object-name>cb.light.panel.left</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -262,8 +1604,8 @@ C/B's on the right panel need:
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-light-panel-left</tooltip-id>
-        <label>Circuit breakers Lights panel left: %s</label>
+        <tooltip-id>cb-light-panel-left</tooltip-id>
+        <label>Left Panel Lights: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
         <mapping>close-open</mapping>
       </binding>
@@ -272,8 +1614,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.CenterPanel</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+    <object-name>cb.light.panel.el</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-el</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
@@ -284,20 +1626,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.CenterPanel</object-name>
+    <object-name>cb.light.panel.el</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-el</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-light-panel-center</tooltip-id>
-        <label>Circuit breakers Lights panel center: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+        <tooltip-id>cb-light-panel-el</tooltip-id>
+        <label>Electroluminescent Panel Lights: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-el</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -305,40 +1647,7 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.RHPanel</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>cb.Light.RHPanel</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-lights-panel-right</tooltip-id>
-        <label>Circuit breakers Lights panel right: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-right</property>
-        <mapping>close-open</mapping>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.Light.Beacon</object-name>
+    <object-name>cb.light.beacon</object-name>
     <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
@@ -350,7 +1659,7 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.Beacon</object-name>
+    <object-name>cb.light.beacon</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -361,8 +1670,8 @@ C/B's on the right panel need:
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-light-beacon</tooltip-id>
-        <label>Circuit breakers Lights beacon: %s</label>
+        <tooltip-id>cb-light-beacon</tooltip-id>
+        <label>Rotating Beacon: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
         <mapping>close-open</mapping>
       </binding>
@@ -371,7 +1680,7 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.Strobe</object-name>
+    <object-name>cb.light.strobe</object-name>
     <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
@@ -383,7 +1692,7 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.Strobe</object-name>
+    <object-name>cb.light.strobe</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -394,8 +1703,8 @@ C/B's on the right panel need:
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-light-strobe</tooltip-id>
-        <label>Circuit breakers Lights strobe: %s</label>
+        <tooltip-id>cb-light-strobe</tooltip-id>
+        <label>Anti-Collision Light: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
         <mapping>close-open</mapping>
       </binding>
@@ -404,7 +1713,7 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.WingInsp</object-name>
+    <object-name>cb.light.winginsp</object-name>
     <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
@@ -416,7 +1725,7 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.WingInsp</object-name>
+    <object-name>cb.light.winginsp</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -427,8 +1736,8 @@ C/B's on the right panel need:
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-light-winginsp</tooltip-id>
-        <label>Circuit breakers Lights wing-inspection: %s</label>
+        <tooltip-id>cb-light-winginsp</tooltip-id>
+        <label>Wing Inspection Light: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
         <mapping>close-open</mapping>
       </binding>
@@ -437,7 +1746,7 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Light.NAV</object-name>
+    <object-name>cb.light.nav</object-name>
     <property>controls/electric/circuit-breakers/bus-left/cb-light-nav</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
@@ -449,7 +1758,7 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Light.NAV</object-name>
+    <object-name>cb.light.nav</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -460,8 +1769,8 @@ C/B's on the right panel need:
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-lights-nav</tooltip-id>
-        <label>Circuit breakers Lights navigation: %s</label>
+        <tooltip-id>cb-light-nav</tooltip-id>
+        <label>Wing Navigation Light: %s</label>
         <property>controls/electric/circuit-breakers/bus-left/cb-light-nav</property>
         <mapping>close-open</mapping>
       </binding>
@@ -470,8 +1779,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.SpeedBrake</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
+    <object-name>cb.rec.flight</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-rec-flight</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
@@ -482,20 +1791,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.SpeedBrake</object-name>
+    <object-name>cb.rec.flight</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-rec-flight</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-speedbrakes</tooltip-id>
-        <label>Circuit breakers Speedbrakes: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left/cb-speedbrakes</property>
+        <tooltip-id>cb-rec-flight</tooltip-id>
+        <label>Flight Data Recorder: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-rec-flight</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -503,32 +1812,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.PitchTrim</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-pitch-trim</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <!--animation>
-    <type>pick</type>
-    <object-name>cb.PitchTrim</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-pitch-trim</property>
-      </binding>
-    </action>
-  </animation-->
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.GearCtrl</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
+    <object-name>cb.rec.voice</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-rec-voice</property>
     <factor>-0.004</factor>
     <offset-m>0.004</offset-m>
     <axis>
@@ -539,182 +1824,35 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.GearCtrl</object-name>
+    <object-name>cb.rec.voice</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-rec-voice</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-gearctl</tooltip-id>
-        <label>Circuit breakers Gear control: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left/cb-gear-ctl</property>
-        <mapping>close-open</mapping>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.FlapCtrl</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-flap-ctl</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>cb.FlapCtrl</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-flap-ctl</property>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-flapctl</tooltip-id>
-        <label>Circuit breakers Flap control: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left/cb-flap-ctl</property>
-        <mapping>close-open</mapping>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.FlapMotor</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>cb.FlapMotor</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-flap-motor</tooltip-id>
-        <label>Circuit breakers Flap motors: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left/cb-flap-motor</property>
-        <mapping>close-open</mapping>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.ThrustReverser.LH</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <!--animation>
-    <type>pick</type>
-    <object-name>cb.ThrustReverser.LH</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-left</property>
-      </binding>
-    </action>
-  </animation-->
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.ThrustReverser.RH</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-right</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <!--animation>
-    <type>pick</type>
-    <object-name>cb.ThrustReverser.RH</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-thrust-reverser-right</property>
-      </binding>
-    </action>
-  </animation-->
-
-  <animation>
-    <type>translate</type>
-    <object-name>cb.Start.LH</object-name>
-    <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
-    <factor>-0.004</factor>
-    <offset-m>0.004</offset-m>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0.2</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>cb.Start.LH</object-name>
-    <action>
-      <button>0</button>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-starter-left</tooltip-id>
-        <label>Circuit breakers Starter left: %s</label>
-        <property>controls/electric/circuit-breakers/bus-left/cb-start-left</property>
+        <tooltip-id>cb-rec-voice</tooltip-id>
+        <label>Cockpit Voice Recorder: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-rec-voice</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
   </animation>
 
 <!--
-########################
-####    RIGHT BUS   ####
-########################
-  -->
+###############################
+####    LEFT BUS X-OVER    ####
+###############################
+-->
 
   <animation>
     <type>translate</type>
-    <object-name>cb.RHBus.1</object-name>
-    <property>controls/electric/circuit-breakers/bus-right-1</property>
+    <object-name>cb.dc.comm2</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-comm2</property>
     <factor>0.004</factor>
     <offset-m>-0.004</offset-m>
     <axis>
@@ -725,20 +1863,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.RHBus.1</object-name>
+    <object-name>cb.dc.comm2</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right-1</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-comm2</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-bus-right-1</tooltip-id>
-        <label>Circuit breakers Bus right 1: %s</label>
-        <property>controls/electric/circuit-breakers/bus-right-1</property>
+        <tooltip-id>cb-dc-comm2</tooltip-id>
+        <label>Communication 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-comm2</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -746,8 +1884,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.RHBus.2</object-name>
-    <property>controls/electric/circuit-breakers/bus-right-2</property>
+    <object-name>cb.dc.nav1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-nav1</property>
     <factor>0.004</factor>
     <offset-m>-0.004</offset-m>
     <axis>
@@ -758,20 +1896,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.RHBus.2</object-name>
+    <object-name>cb.dc.nav1</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right-2</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-nav1</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-bus-right-2</tooltip-id>
-        <label>Circuit breakers Bus right 2: %s</label>
-        <property>controls/electric/circuit-breakers/bus-right-2</property>
+        <tooltip-id>cb-dc-nav1</tooltip-id>
+        <label>Navigation 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-nav1</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -779,8 +1917,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.RHBus.3</object-name>
-    <property>controls/electric/circuit-breakers/bus-right-3</property>
+    <object-name>cb.dc.dme1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-dme1</property>
     <factor>0.004</factor>
     <offset-m>-0.004</offset-m>
     <axis>
@@ -791,20 +1929,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.RHBus.3</object-name>
+    <object-name>cb.dc.dme1</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right-3</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-dme1</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-bus-right-3</tooltip-id>
-        <label>Circuit breakers Bus right 3: %s</label>
-        <property>controls/electric/circuit-breakers/bus-right-3</property>
+        <tooltip-id>cb-dc-dme1</tooltip-id>
+        <label>Distance Measuring Equipment 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-dme1</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -812,8 +1950,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.Start.RH</object-name>
-    <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
+    <object-name>cb.dc.xpdr1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-xpdr1</property>
     <factor>0.004</factor>
     <offset-m>-0.004</offset-m>
     <axis>
@@ -824,20 +1962,20 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.Start.RH</object-name>
+    <object-name>cb.dc.xpdr1</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-xpdr1</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-starter-right</tooltip-id>
-        <label>Circuit breakers Starter right: %s</label>
-        <property>controls/electric/circuit-breakers/bus-right/cb-start-right</property>
+        <tooltip-id>cb-dc-xpdr1</tooltip-id>
+        <label>Transponder 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-xpdr1</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>
@@ -845,8 +1983,8 @@ C/B's on the right panel need:
 
   <animation>
     <type>translate</type>
-    <object-name>cb.GroundProx</object-name>
-    <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
+    <object-name>cb.dc.adf1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-adf1</property>
     <factor>0.004</factor>
     <offset-m>-0.004</offset-m>
     <axis>
@@ -857,20 +1995,2513 @@ C/B's on the right panel need:
   </animation>
   <animation>
     <type>pick</type>
-    <object-name>cb.GroundProx</object-name>
+    <object-name>cb.dc.adf1</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-        <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-adf1</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>circuitbreakers-ground-prox</tooltip-id>
-        <label>Circuit breakers Ground proximity warning system: %s</label>
-        <property>controls/electric/circuit-breakers/bus-right/cb-ground-prox</property>
+        <tooltip-id>cb-dc-adf1</tooltip-id>
+        <label>Automatic Direction Finder 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-adf1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.audio1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-audio1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.audio1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-audio1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-audio1</tooltip-id>
+        <label>Audio Control 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-audio1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.phone</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-phone</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.phone</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-phone</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-phone</tooltip-id>
+        <label>Flitefone: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-phone</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.ap</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-ap</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.ap</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-ap</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-ap</tooltip-id>
+        <label>Autopilot Servo: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-ap</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.efis.disp</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-disp</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.efis.disp</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-disp</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-efis-disp</tooltip-id>
+        <label>EFIS Display: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-disp</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.efis.efis</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-efis</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.efis.efis</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-efis</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-efis-efis</tooltip-id>
+        <label>EFIS: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-efis</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.efis.adi</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-adi</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.efis.adi</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-adi</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-efis-adi</tooltip-id>
+        <label>Attitude Director Indication 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-adi</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.efis.hsi</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-hsi</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.efis.hsi</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-hsi</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-efis-hsi</tooltip-id>
+        <label>EHSI 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-efis-hsi</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.voice_adv</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-voice-adv</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.voice_adv</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-voice-adv</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-voice-adv</tooltip-id>
+        <label>Cockpit Voice Advisory: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-voice-adv</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.radalt</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-radalt</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.radalt</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-radalt</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-radalt</tooltip-id>
+        <label>Radio Altimeter: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-radalt</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.fd1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-fd1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.fd1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-fd1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-fd1</tooltip-id>
+        <label>Flight Director 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-fd1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.rmi1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-rmi1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.rmi1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-rmi1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-rmi1</tooltip-id>
+        <label>Radio Magnetic Indicator 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-rmi1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.dg1</object-name>
+    <property>controls/electric/circuit-breakers/bus-left/cb-dc-dg1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.dg1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-dg1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-dg1</tooltip-id>
+        <label>Directional Gyro 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-left/cb-dc-dg1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!--
+#########################
+####    RIGHT BUS    ####
+#########################
+-->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.right.1</object-name>
+    <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.right.1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-right-1</tooltip-id>
+        <label>Right Bus #1: %s</label>
+        <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.right.2</object-name>
+    <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.right.2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-right-2</tooltip-id>
+        <label>Right Bus #2: %s</label>
+        <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.right.3</object-name>
+    <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.right.3</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-right-3</tooltip-id>
+        <label>Right Bus #3: %s</label>
+        <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.right.starter</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-starter</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.right.starter</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-starter</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-right-starter</tooltip-id>
+        <label>Right Starter: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-starter</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.right.inverter</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-inverter</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.right.inverter</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-inverter</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-right-inverter</tooltip-id>
+        <label>AC Inverter 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-inverter</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.bus.right.x-over</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-x-over</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.bus.right.x-over</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-x-over</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-bus-right-x-over</tooltip-id>
+        <label>Right Crossover: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-x-over</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- engine indicator -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.fan.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-fan-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.fan.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fan-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-fan-right</tooltip-id>
+        <label>Right Engine Fan Speed: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fan-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.itt.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-itt-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.itt.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-itt-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-itt-right</tooltip-id>
+        <label>Right Inter-Turbine Temp.: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-itt-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.turbine.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-turbine-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.turbine.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-turbine-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-turbine-right</tooltip-id>
+        <label>Right Turbine: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-turbine-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.fuelflow.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-fuelflow-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.fuelflow.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fuelflow-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-fuelflow-right</tooltip-id>
+        <label>Right Fuel Flow: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fuelflow-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.qty.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-qty-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.qty.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-qty-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-qty-right</tooltip-id>
+        <label>Right Fuel Quantity: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-qty-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.oilt.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilt-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.oilt.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilt-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-oilt-right</tooltip-id>
+        <label>Right Oil Temp.: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilt-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.oilp.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilp-right</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.oilp.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilp-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-oilp-right</tooltip-id>
+        <label>Right Oil Pressure: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilp-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- DC Flight Instrument Avionics -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.dme2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-dme2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.dme2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-dme2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-dme2</tooltip-id>
+        <label>Distance Measuring Equipment 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-dme2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.xpdr2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-xpdr2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.xpdr2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-xpdr2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-xpdr2</tooltip-id>
+        <label>Transponder 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-xpdr2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.adf2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-adf2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.adf2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-adf2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-adf2</tooltip-id>
+        <label>Automatic Direction Finder 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-adf2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.audio2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-audio2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.audio2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-audio2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-audio2</tooltip-id>
+        <label>Audio Control 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-audio2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.warn</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-warn</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.warn</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-warn</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-warn</tooltip-id>
+        <label>Autopilot Warning: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-warn</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.comm3</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-comm3</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.comm3</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-comm3</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-comm3</tooltip-id>
+        <label>Communication 3: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-comm3</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.nav.area</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-area</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.nav.area</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-area</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-nav-area</tooltip-id>
+        <label>Area Navigation: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-area</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.gpws</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-gpws</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.gpws</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-gpws</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-gpws</tooltip-id>
+        <label>Ground Proximity Warning: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-gpws</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.tas_htr</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-tas-htr</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.tas_htr</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-tas-htr</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-tas-htr</tooltip-id>
+        <label>True Air Speed Heater: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-tas-htr</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.nav.vlf</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-vlf</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.nav.vlf</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-vlf</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-nav-vlf</tooltip-id>
+        <label>VLF Navigation: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-vlf</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.nav.db</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-db</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.nav.db</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-db</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-nav-db</tooltip-id>
+        <label>Nav Data Bank: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-nav-db</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.fms</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-fms</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.fms</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-fms</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-fms</tooltip-id>
+        <label>Flight Management Systems: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-fms</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.radar</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-radar</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.radar</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-radar</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-radar</tooltip-id>
+        <label>Weather Radar: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-radar</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.fd2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-fd2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.fd2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-fd2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-fd2</tooltip-id>
+        <label>Flight Director 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-fd2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.dc.rmi2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-dc-rmi2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.dc.rmi2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-rmi2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-dc-rmi2</tooltip-id>
+        <label>Radio Magnetic Indicator 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-dc-rmi2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!-- AC Flight Instrument Avionics -->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.ap</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-ap</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.ap</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-ap</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-ap</tooltip-id>
+        <label>Autopilot Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-ap</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.fd1</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-fd1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.fd1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-fd1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-fd1</tooltip-id>
+        <label>Flight Director 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-fd1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.air_data</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-air-data</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.air_data</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-air-data</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-air-data</tooltip-id>
+        <label>Sperry True Airspeed System: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-air-data</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.vgyro1</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-vgyro1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.vgyro1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-vgyro1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-vgyro1</tooltip-id>
+        <label>Vertical Gyro 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-vgyro1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.radar</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-radar</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.radar</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-radar</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-radar</tooltip-id>
+        <label>Weather Radar: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-radar</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.fd2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-fd2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.fd2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-fd2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-fd2</tooltip-id>
+        <label>Flight Director 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-fd2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.vgyro2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-vgyro2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.vgyro2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-vgyro2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-vgyro2</tooltip-id>
+        <label>Vertical Gyro 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-vgyro2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.nav1</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-nav1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.nav1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-nav1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-nav1</tooltip-id>
+        <label>Navigation 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-nav1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.rmi_adf1</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.rmi_adf1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-rmi-adf1</tooltip-id>
+        <label>Radio Magnetic Indicator/Automatic Direction Finder 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.hsi1</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-hsi1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.hsi1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-hsi1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-hsi1</tooltip-id>
+        <label>Horizontal Situation Indicator 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-hsi1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.adi1</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-adi1</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.adi1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-adi1</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-adi1</tooltip-id>
+        <label>Attitude Director Indicator 1: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-adi1</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.gpws</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-gpws</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.gpws</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-gpws</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-gpws</tooltip-id>
+        <label>Ground Proximity Warning: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-gpws</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.nav2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-nav2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.nav2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-nav2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-nav2</tooltip-id>
+        <label>Navigation 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-nav2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.rmi_adf2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.rmi_adf2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-rmi-adf2</tooltip-id>
+        <label>RMI/ADF 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.hsi2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-hsi2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.hsi2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-hsi2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-hsi2</tooltip-id>
+        <label>Horizontal Situation Indicator 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-hsi2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.adi2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-adi2</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.adi2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-adi2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-adi2</tooltip-id>
+        <label>Attitude Director Indicator 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-adi2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.ac.efis</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-ac-efis</property>
+    <factor>0.004</factor>
+    <offset-m>-0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>-0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.ac.efis</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-efis</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-ac-efis</tooltip-id>
+        <label>Electronic Flight Instrumentation System: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-ac-efis</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+<!--
+################################
+####    RIGHT BUS X-OVER    ####
+################################
+-->
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.ign.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-ign-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.ign.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-ign-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-ign-left</tooltip-id>
+        <label>Left Engine Ignition: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-ign-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.boost.left</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-boost-left</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.boost.left</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-boost-left</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-boost-left</tooltip-id>
+        <label>Left Fuel Boost Pump: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-boost-left</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.shutoff.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-shutoff-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.shutoff.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-shutoff-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-shutoff-right</tooltip-id>
+        <label>Right Engine Firewall Shutoff: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-shutoff-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.engine.fire.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-engine-fire-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.engine.fire.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fire-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-engine-fire-right</tooltip-id>
+        <label>Right Engine Fire Detection: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fire-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.env.emerp</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-env-emerp</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.env.emerp</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-env-emerp</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-env-emerp</tooltip-id>
+        <label>Emergency Pressurization System: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-env-emerp</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.inst.ralt</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-inst-ralt</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.inst.ralt</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-inst-ralt</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-inst-ralt</tooltip-id>
+        <label>Right Altimeter Vibrator: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-inst-ralt</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.inst.flt_hr</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-inst-flt-hr</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.inst.flt_hr</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-inst-flt-hr</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-inst-flt-hr</tooltip-id>
+        <label>Flight Hour Meter: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-inst-flt-hr</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.inst.clock.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-inst-clock-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.inst.clock.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-inst-clock-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-inst-clock-right</tooltip-id>
+        <label>Right Digital Clock: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-inst-clock-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.pitot.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-pitot-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.pitot.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-pitot-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-pitot-right</tooltip-id>
+        <label>Right Pitot/Static Heater: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-pitot-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.engine.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-engine-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.engine.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-engine-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-engine-right</tooltip-id>
+        <label>Right Engine Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-engine-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.surface</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-surface</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.surface</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-surface</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-surface</tooltip-id>
+        <label>Surface Deice Boots: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-surface</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.anti-ice.alcohol</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-alcohol</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.anti-ice.alcohol</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-alcohol</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-anti-ice-alcohol</tooltip-id>
+        <label>Winshield Alcohol Pump: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-anti-ice-alcohol</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.warn.lts2</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-warn-lts2</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.warn.lts2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-warn-lts2</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-warn-lts2</tooltip-id>
+        <label>Warning Lights 2: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-warn-lts2</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.warn.speed</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-warn-speed</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.warn.speed</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-warn-speed</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-warn-speed</tooltip-id>
+        <label>Overspeed Warning: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-warn-speed</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.equip_cool</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-sys-equip-cool</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.equip_cool</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-sys-equip-cool</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-equip-cool</tooltip-id>
+        <label>Equipment Cooling: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-sys-equip-cool</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.sys.thrustrev.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-sys-thrustrev-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.sys.thrustrev.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-sys-thrustrev-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-sys-thrustrev-right</tooltip-id>
+        <label>Right Thrust Reverser Control: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-sys-thrustrev-right</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.light.panel.center</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-center</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.light.panel.center</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-center</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-light-panel-center</tooltip-id>
+        <label>Center Panel Lights: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-center</property>
+        <mapping>close-open</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>cb.light.panel.right</object-name>
+    <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
+    <factor>-0.004</factor>
+    <offset-m>0.004</offset-m>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0.2</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>cb.light.panel.right</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>cb-light-panel-right</tooltip-id>
+        <label>Right Panel Lights: %s</label>
+        <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
         <mapping>close-open</mapping>
       </binding>
     </hovered>

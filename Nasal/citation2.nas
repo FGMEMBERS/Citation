@@ -24,15 +24,23 @@ var JetEngine = {
         m.eng = props.globals.getNode("engines/engine["~eng_num~"]",1);
         m.running = m.eng.initNode("started",0,"BOOL");
         # NOT the running property from YASim, which is always true and therefore useless.
-        m.itt=m.eng.getNode("itt-norm");
+        m.itt = m.eng.getNode("itt-norm");
         m.n1 = m.eng.getNode("n1",1);
         m.n2 = m.eng.getNode("n2",1);
         m.fan = m.eng.initNode("fan",0,"DOUBLE");
         m.autostart_in_progress = 0;
+        m.generator = props.globals.initNode("controls/electric/engine["~eng_num~"]/generator",0,"BOOL");
         m.turbine = m.eng.initNode("turbine",0,"DOUBLE");
-        m.throttle_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-lever",0,"DOUBLE");
         m.throttle = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle",0,"DOUBLE");
+        m.throttle_real = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-real",0,"DOUBLE");
+        m.throttle_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-lever",0,"DOUBLE");
+        m.reverser = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser",0,"DOUBLE");
+        m.reverser_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser-lever",0,"DOUBLE");
+        m.cutoff = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff",0,"BOOL");
+        m.cutoff_lock = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff-lock",0,"BOOL");
+        m.cutoff_arm = 0;
         m.ignition = props.globals.initNode("controls/engines/engine["~eng_num~"]/ignition",0,"BOOL");
+        m.ignition_auto = props.globals.initNode("controls/engines/engine["~eng_num~"]/ignition-auto",0,"BOOL");
         m.fuel_out = props.globals.initNode("engines/engine["~eng_num~"]/out-of-fuel",0,"BOOL");
         m.starter = props.globals.initNode("controls/engines/engine["~eng_num~"]/starter",0,"BOOL");
         m.starter_btn = props.globals.initNode("controls/electric/engine["~eng_num~"]/starter-btn",0,"BOOL");
@@ -41,9 +49,10 @@ var JetEngine = {
         m.boost_pump = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
         m.boost_pump_switch = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump-switch",0,"BOOL");
         m.generator = props.globals.initNode ("controls/electric/engine[" ~ eng_num ~ "]/generator", 0, "BOOL");
-        m.hpump=props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0,"DOUBLE");
-
+        m.hpump = props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0,"DOUBLE");
+        m.hpump_f = props.globals.initNode("engines/engine["~eng_num~"]/oilp-norm",0,"DOUBLE");
         m.Lfuel = setlistener(m.fuel_out, func m.shutdown(m.fuel_out.getValue()),0,0);
+        m.Cut = setlistener(m.cutoff, func m.shutdown(m.cutoff.getValue()),0,0);
     return m;
     },
 
@@ -51,20 +60,97 @@ var JetEngine = {
     update : func{
         var thr = me.throttle.getValue();
 
+# if reverser active
+        if (getprop("/surface-positions/reverser-norm") != nil and me.reverser.getBoolValue()) {
+
+            if (getprop("/surface-positions/reverser-norm") < 1.0) {
+                thr = 0.0;
+            }
+
+            me.throttle.setValue(thr);
+            me.throttle_lever.setValue(0.25);
+            me.reverser_lever.setValue((thr * 0.9) + 0.1);
+            if (me.running.getBoolValue()) {
+                me.throttle_real.setValue(thr);
+            }
+            else {
+                me.throttle_real.setValue(0.0);
+            }
+        }
+
+# no reverser
+        else {
+            var thr_real = (thr - 0.25) * 100 / 75;
+            if (thr_real < 0) thr_real = 0;
+
+            me.reverser_lever.setValue((0.0));
+            if (getprop("/surface-positions/reverser-norm") != nil and getprop("/surface-positions/reverser-norm") > 0.0) {
+                me.throttle.setValue(0.25);
+                thr = 0.25;
+                thr_real = 0.0;
+            }
+            else {
+                if (thr > 0.0 and thr < 0.10) {
+                    if (me.cutoff_lock.getBoolValue()) {
+                        thr = 0.0;
+                    }
+                    else {
+                        me.cutoff_arm = 1;
+                    }
+                }
+
+                if (thr < 0.25 and thr > 0.15) {
+                    if (me.cutoff_lock.getBoolValue()) {
+                        thr = 0.25;
+                    }
+                    else {
+                        me.cutoff_arm = 1;
+                    }
+                }
+
+                if (me.cutoff_arm) {
+                    if (thr > 0.24 or thr < 0.01) {
+                        me.cutoff_lock.setBoolValue(1);
+                        me.cutoff_arm = 0;
+                    }
+                }
+
+                if (thr > 0.12) {
+                    me.cutoff.setBoolValue(0);
+                }
+                else {
+                    me.cutoff.setBoolValue(1);
+                }
+            }
+
+            me.throttle.setValue(thr);
+            me.throttle_lever.setValue(thr);
+            me.reverser_lever.setValue(0.0);
+            if (me.running.getBoolValue()) {
+                me.throttle_real.setValue(thr_real);
+            }
+            else {
+                me.throttle_real.setValue(0.0);
+            }
+        }
+
 # If the engine is running, simply copy n1 and n2 to fan and turbine.
         if(me.running.getBoolValue ()) {
-            if(me.starter.getBoolValue()) me.starter_btn.setBoolValue (0);
             me.fan.setValue(me.n1.getValue());
             me.turbine.setValue(me.n2.getValue());
             if(getprop("controls/engines/grnd_idle")) thr *= 0.92;
-            me.throttle_lever.setValue(thr);
         } else {
-            me.throttle_lever.setValue(0);
             var n1 = me.n1.getValue();
             var n2 = me.n2.getValue();
             var turbine = me.turbine.getValue();
             var fan = me.fan.getValue ();
             var scnds = 15;
+
+            if (turbine > 20 and fan < 5) {
+                me.starter_btn.setBoolValue (0);
+                me.boost_pump.setBoolValue (0);
+                me.ignition_auto.setBoolValue (0);
+            }
 
 # Engine not running. With starter spool up
             if(me.starter.getBoolValue()) {
@@ -73,16 +159,20 @@ var JetEngine = {
                 if (turbine < n2) me.turbine.setValue (turbine);
                 else me.turbine.setValue (n2);
 
-                if (turbine > 20) {
-                    if (me.ignition.getValue () and me.boost_pump.getValue ()) {
+                if (turbine > 9) {
+# ing and boost will be automaticly turned on
+                    if (!me.cutoff.getBoolValue()) { me.ignition_auto.setBoolValue(1); }
+
+                    if (me.ignition.getValue() and me.boost_pump.getValue()) {
                         fan += getprop ("sim/time/delta-sec") * n1 / scnds;
                         me.fan.setValue (fan);
                         if (fan >= n1) { # declare victory
                             me.running.setBoolValue (1);
                             me.starter_btn.setBoolValue (0);
+                            me.boost_pump.setBoolValue (0);
+                            me.ignition_auto.setBoolValue (0);
                             if (me.autostart_in_progress) {
-                                me.generator.setBoolValue (1);
-                                me.boost_pump_switch.setBoolValue (0);
+                                me.generator.setBoolValue(1);
                                 me.autostart_in_progress = 0;
                             }
                         }
@@ -100,6 +190,7 @@ var JetEngine = {
 # Engine not running. Without starter spool down
             else {
                 # not running and not cycling up therefore we must be shutting down.
+                me.ignition_auto.setBoolValue(0);
                 if(turbine > 0.0) {
                     turbine -= getprop("sim/time/delta-sec") * 2;
                     if (turbine < 0.0) turbine = 0.0;
@@ -114,19 +205,23 @@ var JetEngine = {
         }
 
         me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
-        var hpsi = me.fan.getValue();
-        if(hpsi > 60) hpsi = 60;
+
+#        var hpsi = me.fan.getValue();
+#        if(hpsi > 60) hpsi = 60;
+
+        var hpsi = me.fan.getValue() / 12 * 15;
+        if(hpsi > 80) hpsi = 80;
+        hpsi = hpsi + (me.hpump_f.getValue() * 5);
         me.hpump.setValue(hpsi);
     },
 
     shutdown : func(b){
-        if (!b) me.running.setBoolValue (b);
+        if (b) me.running.setBoolValue (!b);
     },
 
     autostart : func () {
         me.autostart_in_progress = 1;
-        me.boost_pump_switch.setBoolValue (1);
-        me.ignition.setBoolValue (1);
+        me.throttle.setValue (0.25);
         me.starter_btn.setBoolValue (1);
     }
 };
@@ -137,16 +232,13 @@ var JetEngine = {
 var LHeng= JetEngine.new(0);
 var RHeng= JetEngine.new(1);
 
-setlistener ("/controls/engines/engine[0]/ignition", func (ignition) {
-    LHeng.shutdown (ignition.getBoolValue ());
-});
-
-setlistener ("/controls/engines/engine[1]/ignition", func (ignition) {
-    RHeng.shutdown (ignition.getBoolValue ());
-});
-
-
-
+#setlistener ("/controls/engines/engine[0]/cutoff", func (cutoff) {
+#    LHeng.shutdown (cutoff.getBoolValue ());
+#});
+#
+#setlistener ("/controls/engines/engine[1]/cutoff", func (cutoff) {
+#    RHeng.shutdown (cutoff.getBoolValue ());
+#});
 
 var resetTrim = func(){
   setprop("/controls/flight/elevator-trim", 0);
@@ -346,27 +438,29 @@ var Shutdown = func{
     setprop("controls/lighting/nav-lights-switch",0);
     setprop("controls/lighting/beacon-switch",0);
     setprop("controls/lighting/strobe-switch",0);
-    setprop("controls/engines/engine[0]/ignition",0);
-    setprop("controls/engines/engine[1]/ignition",0);
-    setprop("controls/fuel/tank[0]/boost-pump-switch",0);
-    setprop("controls/fuel/tank[1]/boost-pump-switch",0);
-    setprop("engines/engine[0]/running",0);
-    setprop("engines/engine[1]/running",0);
+    setprop("controls/engines/engine[0]/throttle",0);
+    setprop("controls/engines/engine[1]/throttle",0);
 }
 
 controls.gearDown = func(v) {
-    if (v < 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
-        if(!getprop("gear/gear[1]/wow")) {
-          setprop("/controls/gear/gear-down", 0);
+    if (
+        getprop("systems/electrical/outputs/bus/left") > 20
+        and getprop("controls/electric/circuit-breakers/bus-left/cb-sys-gear-ctrl")
+        and !getprop("controls/electric/maingear-switch")
+    ) {
+        if (v < 0) {
+            setprop("/controls/gear/gear-down", 0);
         }
-    } elsif (v > 0 and getprop("controls/electric/circuit-breakers/bus-left/cb-gear-ctl")) {
-       setprop("/controls/gear/gear-down", 1);
+        elsif (v > 0) {
+            setprop("/controls/gear/gear-down", 1);
+            setprop("/controls/gear/antiskid-test", getprop("sim/time/elapsed-sec"));
+        }
     }
 }
 
 controls.flapsDown = func(v) {
     var flap_pos=getprop("controls/flight/flaps") or 0;
-    if (getprop("systems/electrical/outputs/bus/left") > 20 and getprop("controls/electric/circuit-breakers/bus-left/cb-flap-ctl") and getprop("controls/electric/circuit-breakers/bus-left/cb-flap-motor")) {
+    if (getprop("systems/electrical/outputs/bus/left") > 20 and getprop("controls/electric/circuit-breakers/bus-left/cb-sys-flap-ctrl") and getprop("controls/electric/circuit-breakers/bus-left/cb-sys-flap-motor")) {
         flap_pos += v*0.125;
     }
     setprop("controls/flight/flaps",flap_pos);

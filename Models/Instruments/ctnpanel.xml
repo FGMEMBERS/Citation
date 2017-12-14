@@ -11,85 +11,228 @@
       </greater-than>
     </condition>
     <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>ACfail.on</object-name>
     <object-name>Ctn.panel</object-name>
-    <object-name>Lfuel.lo</object-name>
-    <object-name>Lgen.off</object-name>
-    <object-name>Rfuel.lo</object-name>
-    <object-name>Rgen.off</object-name>
-    <object-name>door.ajar</object-name>
-    <object-name>lFpsi.on</object-name>
-    <object-name>lHpsi.on</object-name>
-    <object-name>lOpsi.on</object-name>
-    <object-name>lboost.on</object-name>
-    <object-name>rFpsi.on</object-name>
-    <object-name>rHpsi.on</object-name>
-    <object-name>rOpsi.on</object-name>
-    <object-name>rboost.on</object-name>
-    <object-name>spdbrake.on</object-name>
+    <object-name>ACFail</object-name>
+    <object-name>ACMEjectorOn</object-name>
+    <object-name>AirDuctOverHeat</object-name>
+    <object-name>AntiSkidInop</object-name>
+    <object-name>BattOverHeat</object-name>
+    <object-name>BleedAirGndHi</object-name>
+    <object-name>CabAlt10000Ft</object-name>
+    <object-name>DoorNotLocked</object-name>
+    <object-name>EmerPressOn</object-name>
+    <object-name>EngIceFailL</object-name>
+    <object-name>EngIceFailR</object-name>
+    <object-name>FuelBoostOnL</object-name>
+    <object-name>FuelBoostOnR</object-name>
+    <object-name>FuelFilterBypass</object-name>
+    <object-name>FuelLevelLoL</object-name>
+    <object-name>FuelLevelLoR</object-name>
+    <object-name>FuelPressLoL</object-name>
+    <object-name>FuelPressLoR</object-name>
+    <object-name>FWShutoffL</object-name>
+    <object-name>FWShutoffR</object-name>
+    <object-name>GenOffL</object-name>
+    <object-name>GenOffR</object-name>
+    <object-name>HydLevelLo</object-name>
+    <object-name>HydPressLoL</object-name>
+    <object-name>HydPressLoR</object-name>
+    <object-name>HydPressOn</object-name>
+    <object-name>OilPressLoL</object-name>
+    <object-name>OilPressLoR</object-name>
+    <object-name>PrecoolFailL</object-name>
+    <object-name>PrecoolFailR</object-name>
+    <object-name>PSHtrOff</object-name>
+    <object-name>PwrBrkPressLo</object-name>
+    <object-name>SpeedBreakExtended</object-name>
+    <object-name>SurfDeice</object-name>
+    <object-name>WSAirOverHeat</object-name>
   </effect>
 
   <animation>
     <type>select</type>
-    <object-name>spdbrake.on</object-name>
+    <object-name>HydPressOn</object-name>
     <condition>
-      <property>controls/flight/speedbrake</property>
+      <or>
+        <and>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>18</value>
+          </greater-than>
+          <property>controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake</property>
+          <greater-than>
+            <property>surface-positions/speedbrake-pos-norm</property>
+            <value>0</value>
+          </greater-than>
+          <less-than>
+            <property>surface-positions/speedbrake-pos-norm</property>
+            <value>1</value>
+          </less-than>
+        </and>
+        <and>
+          <greater-than>
+            <property>gear/gear[0]/position-norm</property>
+            <value>0</value>
+          </greater-than>
+          <less-than>
+            <property>gear/gear[0]/position-norm</property>
+            <value>1</value>
+          </less-than>
+        </and>
+        <and>
+            <greater-than>
+              <property>gear/gear[1]/position-norm</property>
+              <value>0</value>
+            </greater-than>
+            <less-than>
+              <property>gear/gear[1]/position-norm</property>
+              <value>1</value>
+            </less-than>
+        </and>
+        <and>
+            <greater-than>
+              <property>gear/gear[2]/position-norm</property>
+              <value>0</value>
+            </greater-than>
+            <less-than>
+              <property>gear/gear[2]/position-norm</property>
+              <value>1</value>
+            </less-than>
+        </and>
+        <and>
+            <greater-than>
+              <property>surface-positions/reverser-norm</property>
+              <value>0</value>
+            </greater-than>
+            <less-than>
+              <property>surface-positions/reverser-norm</property>
+              <value>1</value>
+            </less-than>
+        </and>
+      </or>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>Lgen.off</object-name>
+    <object-name>SpeedBreakExtended</object-name>
     <condition>
-      <not>
-        <property>controls/electric/engine[0]/generator</property>
-      </not>
       <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20</value>
+        <property>surface-positions/speedbrake-pos-norm</property>
+        <value>0.99</value>
       </greater-than>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>Rgen.off</object-name>
+    <object-name>GenOffL</object-name>
     <condition>
-      <not>
-        <property>controls/electric/engine[1]/generator</property>
-      </not>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20</value>
-      </greater-than>
+      <and>
+        <or>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/battery</property>
+            <value>20</value>
+          </greater-than>
+        </or>
+        <or>
+          <not><property>engines/engine[0]/started</property></not>
+          <not><property>controls/electric/engine[0]/generator</property></not>
+        </or>
+      </and>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>ACfail.on</object-name>
+    <object-name>GenOffR</object-name>
     <condition>
-      <less-than>
-        <property>systems/electrical/ac-volts</property>
-        <value>15</value>
-      </less-than>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20</value>
-      </greater-than>
+      <and>
+        <or>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/battery</property>
+            <value>20</value>
+          </greater-than>
+        </or>
+        <or>
+          <not><property>engines/engine[1]/started</property></not>
+          <not><property>controls/electric/engine[1]/generator</property></not>
+        </or>
+      </and>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>door.ajar</object-name>
+    <object-name>ACFail</object-name>
+    <condition>
+      <and>
+        <or>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/battery</property>
+            <value>20</value>
+          </greater-than>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/left</property>
+            <value>20</value>
+          </greater-than>
+          <greater-than>
+            <property>systems/electrical/outputs/bus/right</property>
+            <value>20</value>
+          </greater-than>
+        </or>
+        <or>
+        <and>
+          <property>controls/electric/inverter-switch</property>
+          <or>
+            <less-than>
+              <property>systems/electrical/outputs/bus/left</property>
+              <value>20</value>
+            </less-than>
+            <not><property>controls/electric/circuit-breakers/bus-left/cb-bus-left-inverter</property></not>
+          </or>
+        </and>
+        <and>
+          <not><property>controls/electric/inverter-switch</property></not>
+          <or>
+            <less-than>
+              <property>systems/electrical/outputs/bus/right</property>
+              <value>20</value>
+            </less-than>
+            <not><property>controls/electric/circuit-breakers/bus-right/cb-bus-right-inverter</property></not>
+          </or>
+        </and>
+        </or>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>DoorNotLocked</object-name>
     <condition>
       <greater-than>
         <property>controls/cabin-door/position-norm</property>
         <value>0</value>
       </greater-than>
       <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
+        <property>systems/electrical/outputs/bus/battery</property>
         <value>20</value>
       </greater-than>
     </condition>
@@ -97,7 +240,7 @@
 
   <animation>
     <type>select</type>
-    <object-name>lboost.on</object-name>
+    <object-name>FuelBoostOnL</object-name>
     <condition>
       <equals>
         <property>controls/fuel/tank[0]/boost-pump</property>
@@ -108,7 +251,7 @@
 
   <animation>
     <type>select</type>
-    <object-name>rboost.on</object-name>
+    <object-name>FuelBoostOnR</object-name>
     <condition>
       <equals>
         <property>controls/fuel/tank[1]/boost-pump</property>
@@ -119,37 +262,55 @@
 
   <animation>
     <type>select</type>
-    <object-name>lHpsi.on</object-name>
+    <object-name>AntiSkidInop</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
+        <property>controls/electric/circuit-breakers/bus-left/cb-sys-skid-ctrl</property>
+        <not><property>controls/gear/antiskid</property></not>
+      </and>
+    </condition>
+  </animation>
+
+<!-- TODO: should react on hydraulic system -->
+  <animation>
+    <type>select</type>
+    <object-name>HydPressLoL</object-name>
     <condition>
       <less-than>
         <property>engines/engine/turbine</property>
         <value>10</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
+        <property>systems/electrical/outputs/bus/battery</property>
         <value>20</value>
       </greater-than>
     </condition>
   </animation>
 
+<!-- TODO: should react on hydraulic system -->
   <animation>
     <type>select</type>
-    <object-name>rHpsi.on</object-name>
+    <object-name>HydPressLoR</object-name>
     <condition>
       <less-than>
         <property>engines/engine[1]/turbine</property>
         <value>10</value>
       </less-than>
       <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
+        <property>systems/electrical/outputs/bus/battery</property>
         <value>20</value>
       </greater-than>
     </condition>
   </animation>
 
+<!-- TODO: should react on oil system -->
   <animation>
     <type>select</type>
-    <object-name>lOpsi.on</object-name>
+    <object-name>OilPressLoL</object-name>
     <condition>
       <less-than>
         <property>engines/engine/turbine</property>
@@ -162,9 +323,10 @@
     </condition>
   </animation>
 
+<!-- TODO: should react on oil system -->
   <animation>
     <type>select</type>
-    <object-name>rOpsi.on</object-name>
+    <object-name>OilPressLoR</object-name>
     <condition>
       <less-than>
         <property>engines/engine[1]/turbine</property>
@@ -179,14 +341,14 @@
 
   <animation>
     <type>select</type>
-    <object-name>lFpsi.on</object-name>
+    <object-name>FuelPressLoL</object-name>
     <condition>
       <less-than>
         <property>engines/engine/turbine</property>
         <value>10</value>
       </less-than>
       <not>
-	<property>controls/fuel/tank[0]/boost-pump</property>
+        <property>controls/fuel/tank[0]/boost-pump</property>
       </not>
       <greater-than>
         <property>systems/electrical/outputs/bus/left</property>
@@ -197,14 +359,14 @@
 
   <animation>
     <type>select</type>
-    <object-name>rFpsi.on</object-name>
+    <object-name>FuelPressLoR</object-name>
     <condition>
       <less-than>
         <property>engines/engine[1]/turbine</property>
         <value>10</value>
       </less-than>
       <not>
-	<property>controls/fuel/tank[1]/boost-pump</property>
+        <property>controls/fuel/tank[1]/boost-pump</property>
       </not>
       <greater-than>
         <property>systems/electrical/outputs/bus/left</property>
@@ -215,7 +377,7 @@
 
   <animation>
     <type>select</type>
-    <object-name>Lfuel.lo</object-name>
+    <object-name>FuelLevelLoL</object-name>
     <condition>
       <less-than>
         <property>consumables/fuel/tank/level-lbs</property>
@@ -230,7 +392,7 @@
 
   <animation>
     <type>select</type>
-    <object-name>Rfuel.lo</object-name>
+    <object-name>FuelLevelLoR</object-name>
     <condition>
       <less-than>
         <property>consumables/fuel/tank[1]/level-lbs</property>
@@ -239,6 +401,207 @@
       <greater-than>
         <property>systems/electrical/outputs/bus/left</property>
         <value>20</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+<!-- TODO: build up meaningfull contitions to activate this annuntiators -->
+
+  <animation>
+    <type>select</type>
+    <object-name>ACMEjectorOn</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>AirDuctOverHeat</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+
+  <animation>
+    <type>select</type>
+    <object-name>BattOverHeat</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>BleedAirGndHi</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>CabAlt10000Ft</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>EmerPressOn</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>EngIceFailL</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>EngIceFailR</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FuelFilterBypass</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FWShutoffL</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FWShutoffR</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>HydLevelLo</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>PrecoolFailL</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>PrecoolFailR</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>PSHtrOff</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>PwrBrkPressLo</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>SurfDeice</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>WSAirOverHeat</object-name>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/outputs/bus/left</property>
+        <value>100</value>
       </greater-than>
     </condition>
   </animation>
