@@ -53,6 +53,8 @@ var JetEngine = {
         m.hpump_f = props.globals.initNode("engines/engine["~eng_num~"]/oilp-norm",0,"DOUBLE");
         m.Lfuel = setlistener(m.fuel_out, func m.shutdown(m.fuel_out.getValue()),0,0);
         m.Cut = setlistener(m.cutoff, func m.shutdown(m.cutoff.getValue()),0,0);
+        m.timer = props.globals.initNode ("engines/engine["~eng_num~"]/running-time-s", 1, "DOUBLE");
+        m.hobbs_timer = aircraft.timer.new (m.timer);
     return m;
     },
 
@@ -168,6 +170,7 @@ var JetEngine = {
                         me.fan.setValue (fan);
                         if (fan >= n1) { # declare victory
                             me.running.setBoolValue (1);
+                            me.hobbs_timer.start ();
                             me.starter_btn.setBoolValue (0);
                             me.boost_pump.setBoolValue (0);
                             me.ignition_auto.setBoolValue (0);
@@ -216,7 +219,7 @@ var JetEngine = {
     },
 
     shutdown : func(b){
-        if (b) me.running.setBoolValue (!b);
+        if (b) { me.running.setBoolValue (!b); me.hobbs_timer.stop (); }
     },
 
     autostart : func () {
@@ -482,6 +485,27 @@ var switch_rmi = func(needle, nav_number) {
   }
 }
 
+
+var hobbs_meter = {
+    d0: props.globals.initNode ("instrumentation/hobbs-meter/digits0", 1, "INT"),
+    d1: props.globals.initNode ("instrumentation/hobbs-meter/digits1", 1, "INT"),
+    d2: props.globals.initNode ("instrumentation/hobbs-meter/digits2", 1, "INT"),
+    d3: props.globals.initNode ("instrumentation/hobbs-meter/digits3", 1, "INT"),
+    d4: props.globals.initNode ("instrumentation/hobbs-meter/digits4", 1, "INT"),
+    e0: props.globals.initNode ("engines/engine[0]/running-time-s", 1, "DOUBLE"),
+    e1: props.globals.initNode ("engines/engine[1]/running-time-s", 1, "DOUBLE"),
+    update: func () {
+        var left = me.e0.getValue () or 0.0;
+        var right = me.e1.getValue () or 0.0;
+        var h = (left > right ? left : right) / 360.0; # tenths of hour, initially
+        me.d0.setValue (math.mod (int (h), 10)); h = h / 10;
+        me.d1.setValue (math.mod (int (h), 10)); h = h / 10;
+        me.d2.setValue (math.mod (int (h), 10)); h = h / 10;
+        me.d3.setValue (math.mod (int (h), 10)); h = h / 10;
+        me.d4.setValue (math.mod (int (h), 10)); h = h / 10;
+    },
+};
+
 var update_systems = func() {
     LHeng.update();
     RHeng.update();
@@ -525,6 +549,8 @@ var update_systems = func() {
     # ugly hack! See Citation-II-common.xml line 711
     setprop("/consumables/fuel/fuel-gal_us-0", getprop("consumables/fuel/tank[0]/level-gal_us"));
     setprop("/consumables/fuel/fuel-gal_us-1", getprop("consumables/fuel/tank[1]/level-gal_us"));
+
+    hobbs_meter.update ();
 
     settimer(update_systems,0);
 }

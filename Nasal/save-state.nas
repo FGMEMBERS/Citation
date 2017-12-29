@@ -5,6 +5,8 @@ var citation_save_general = [
   "/controls/save-state/radios",
   "/controls/save-state/models",
   "/controls/save-state/circuitBreakers",
+  "/engines/engine[0]/running-time-s",
+  "/engines/engine[1]/running-time-s",
   "/sim/aircraft-class",
   "/sim/aircraft-operator",
   "/sim/dimensions/parkpos-offset-m",
