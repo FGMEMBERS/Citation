@@ -243,7 +243,8 @@ var JetEngine = {
 
     autostart : func () {
         me.autostart_in_progress = 1;
-        me.throttle.setValue (0.0);
+        me.cutoff_lock.setBoolValue (0);
+        me.throttle.setValue (0.21);
         me.starter_btn.setBoolValue (1);
     }
 };
