@@ -47,10 +47,14 @@
 
       <engines>
         <engine n="0">
-          <ignition-sw type="bool">1</ignition-sw>        </engine>
-
+          <ignition-sw type="bool">0</ignition-sw>
+          <reverser type="bool">false</reverser>
+          <throttle-lever type="double">0.0</throttle-lever>
+        </engine>
         <engine n="1">
-          <ignition-sw type="bool">1</ignition-sw>
+          <ignition-sw type="bool">0</ignition-sw>
+          <reverser type="bool">false</reverser>
+          <throttle-lever type="double">0.0</throttle-lever>
         </engine>
       </engines>
 

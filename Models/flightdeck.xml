@@ -456,6 +456,11 @@
     <object-name>CutOffLock01</object-name>
     <property>controls/engines/engine[0]/throttle-lever</property>
     <factor>45</factor>
+    <interpolation>
+      <entry><ind>-0.2</ind><dep>0</dep></entry>
+      <entry><ind>0.0</ind><dep>10</dep></entry>
+      <entry><ind>1.0</ind><dep>45</dep></entry>
+    </interpolation>
     <center>
       <x-m>2.6466</x-m>
       <y-m>0.0</y-m>
@@ -525,7 +530,11 @@
     <object-name>ThrRevLink02</object-name>
     <object-name>CutOffLock02</object-name>
     <property>controls/engines/engine[1]/throttle-lever</property>
-    <factor>45</factor>
+    <interpolation>
+      <entry><ind>-0.2</ind><dep>0</dep></entry>
+      <entry><ind>0.0</ind><dep>10</dep></entry>
+      <entry><ind>1.0</ind><dep>45</dep></entry>
+    </interpolation>
     <center>
       <x-m>2.6466</x-m>
       <y-m>0.0</y-m>
@@ -1419,9 +1428,10 @@
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/throttle</property>
+        <property>controls/engines/engine[0]/throttle-lever</property>
         <factor>0.01</factor>
-        <min>0</min>
-        <max>1</max>
+        <min>-0.2</min>
+        <max>1.0</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -1492,8 +1502,8 @@
         <command>property-adjust</command>
         <property>controls/engines/engine[1]/throttle</property>
         <factor>0.01</factor>
-        <min>0</min>
-        <max>1</max>
+        <min>-0.2</min>
+        <max>1.0</max>
         <wrap>false</wrap>
       </binding>
     </action>

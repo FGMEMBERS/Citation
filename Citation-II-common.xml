@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>3.4.2</aircraft-version>
+    <aircraft-version>3.5.1</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -814,7 +814,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <engines>
       <engine n="0">
         <magnetos>3</magnetos>
-        <reverser-lever type="double">0</reverser-lever>
+        <throttle-lever type="double">-0.2</throttle-lever>
+        <reverser-lever type="double">0.0</reverser-lever>
         <cutoff-lock type="bool">1</cutoff-lock>
         <ignition-sw type="bool">0</ignition-sw>
         <ignition-auto type="bool">0</ignition-auto>
@@ -822,7 +823,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </engine>
       <engine n="1">
         <magnetos>3</magnetos>
-        <reverser-lever type="double">0</reverser-lever>
+        <throttle-lever type="double">-0.2</throttle-lever>
+        <reverser-lever type="double">0.0</reverser-lever>
         <cutoff-lock type="bool">1</cutoff-lock>
         <ignition-sw type="bool">0</ignition-sw>
         <ignition-auto type="bool">0</ignition-auto>
@@ -1307,15 +1309,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <binding>
           <condition>
             <and>
+              <or>
+                <property>engines/engine[0]/started</property>
+                <property>engines/engine[1]/started</property>
+              </or>
               <property>controls/electric/maingear-switch</property>
               <less-than>
-                <property>controls/engines/engine[0]/throttle-lever</property>
-                <value>0.28</value>
+                <property>controls/engines/engine[0]/throttle</property>
+                <value>0.1</value>
               </less-than>
-              <greater-than>
-                <property>controls/engines/engine[0]/throttle-lever</property>
-                <value>0.24</value>
-              </greater-than>
+              <less-than>
+                <property>controls/engines/engine[1]/throttle</property>
+                <value>0.1</value>
+              </less-than>
+
               <property>controls/electric/circuit-breakers/bus-left/cb-sys-thrustrev-left</property>
               <greater-than>
                 <property>systems/electrical/outputs/bus/left</property>
@@ -1329,15 +1336,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <binding>
           <condition>
             <and>
+              <or>
+                <property>engines/engine[0]/started</property>
+                <property>engines/engine[1]/started</property>
+              </or>
               <property>controls/electric/maingear-switch</property>
               <less-than>
-                <property>controls/engines/engine[1]/throttle-lever</property>
-                <value>0.28</value>
+                <property>controls/engines/engine[0]/throttle</property>
+                <value>0.1</value>
               </less-than>
-              <greater-than>
-                <property>controls/engines/engine[1]/throttle-lever</property>
-                <value>0.24</value>
-              </greater-than>
+              <less-than>
+                <property>controls/engines/engine[1]/throttle</property>
+                <value>0.1</value>
+              </less-than>
               <property>controls/electric/circuit-breakers/bus-right/cb-sys-thrustrev-right</property>
               <greater-than>
                 <property>systems/electrical/outputs/bus/right</property>
@@ -1412,9 +1423,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
           <property>controls/lighting/map-lights</property>
         </binding>
       </key>
-      <key n="363">
-        <name>End</name>
-        <desc>unlock cutoff-locks</desc>
+      <key n="15">
+        <name>Ctrl-o</name>
+        <desc>release throttle detent</desc>
         <binding>
           <command>property-assign</command>
           <property>controls/engines/engine[0]/cutoff-lock</property>
@@ -1423,7 +1434,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <binding>
           <command>property-assign</command>
           <property>controls/engines/engine[1]/cutoff-lock</property>
-          <value>0</value>
+          <value>false</value>
         </binding>
       </key>
     </keyboard>

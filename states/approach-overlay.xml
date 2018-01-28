@@ -72,14 +72,12 @@
       <engines>
         <engine n="0">
           <ignition-sw type="bool">true</ignition-sw>
-          <throttle-lever type="double">0.4634475805</throttle-lever>
-          <!--throttle-lever type="double">0.3293094756</throttle-lever-->
+          <throttle-lever type="double">0.3293094756</throttle-lever>
         </engine>
 
         <engine n="1">
           <ignition-sw type="bool">true</ignition-sw>
-          <throttle-lever type="double">0.4634475805</throttle-lever>
-          <!--throttle-lever type="double">0.3293094756</throttle-lever-->
+          <throttle-lever type="double">0.3293094756</throttle-lever>
         </engine>
       </engines>
 
@@ -114,8 +112,8 @@
         <left-panel-norm type="double">0.2</left-panel-norm>
         <center-panel-norm type="double">0.2</center-panel-norm>
         <right-panel-norm type="double">0.2</right-panel-norm>
-      </lighting>    </controls>
-
+      </lighting>
+    </controls>
 
     <engines>
       <engine>

@@ -55,7 +55,7 @@
           <WEP type="bool">false</WEP>
           <ignition-sw type="bool">1</ignition-sw>
           <reverser type="bool">false</reverser>
-          <throttle-lever type="double">0.25</throttle-lever>
+          <throttle-lever type="double">0.0</throttle-lever>
         </engine>
 
         <engine n="1">
@@ -64,7 +64,7 @@
           <WEP type="bool">false</WEP>
           <ignition-sw type="bool">1</ignition-sw>
           <reverser type="bool">false</reverser>
-          <throttle-lever type="double">0.25</throttle-lever>
+          <throttle-lever type="double">0.0</throttle-lever>
         </engine>
       </engines>
 

@@ -68,12 +68,12 @@
       <engines>
         <engine n="0">
           <ignition-sw type="bool">false</ignition-sw>
-          <throttle-lever type="double">1</throttle-lever>
+          <throttle-lever type="double">1.0</throttle-lever>
         </engine>
 
         <engine n="1">
           <ignition-sw type="bool">false</ignition-sw>
-          <throttle-lever type="double">1</throttle-lever>
+          <throttle-lever type="double">1.0</throttle-lever>
         </engine>
       </engines>
 

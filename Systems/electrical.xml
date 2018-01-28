@@ -515,7 +515,7 @@
       <condition>
         <greater-than>
           <property>gear/gear[1]/compression-norm</property>
-          <value>0.1</value>
+          <value>0.01</value>
         </greater-than>
       </condition>
       <value>1</value>

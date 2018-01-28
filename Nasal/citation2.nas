@@ -1,5 +1,5 @@
 aircraft.livery.init("Models/Liveries");
-var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
+var cabin_door = aircraft.door.new("controls/cabin-door", 2);
 var baggage_door_front_left = aircraft.door.new("controls/baggage-door-front-left",2);
 var baggage_door_front_right = aircraft.door.new("controls/baggage-door-front-right",2);
 var baggage_door_aft = aircraft.door.new("controls/baggage-door-aft",2);
@@ -61,80 +61,99 @@ var JetEngine = {
 #### update ####
     update : func{
         var thr = me.throttle.getValue();
+        var real = me.throttle_real.getValue();
+        var lever = me.throttle_lever.getValue();
 
-# if reverser active
-        if (getprop("/surface-positions/reverser-norm") != nil and me.reverser.getBoolValue()) {
-
-            if (getprop("/surface-positions/reverser-norm") < 1.0) {
-                thr = 0.0;
+# cut-off position
+        if (lever < 0.0) {
+            if (thr != 0.01) {
+                lever += (thr - 0.01);
+                thr = 0.01;
+                if (lever < -0.2) lever = -0.2;
             }
+            real = 0.0;
+        }
 
-            me.throttle.setValue(thr);
-            me.throttle_lever.setValue(0.25);
-            me.reverser_lever.setValue((thr * 0.9) + 0.1);
-            if (me.running.getBoolValue()) {
-                me.throttle_real.setValue(thr);
+        if (lever > -0.2 and lever < 0.0) {
+            if (me.cutoff_lock.getBoolValue()) {
+                if (lever < -0.1) lever = -0.2;
+                else lever = 0.0;
             }
             else {
-                me.throttle_real.setValue(0.0);
+                me.cutoff_arm = 1;
             }
         }
 
-# no reverser
+        if (me.cutoff_arm) {
+            if (lever > -0.005 or lever < -0.195) {
+                me.cutoff_lock.setBoolValue(1);
+                me.cutoff_arm = 0;
+            }
+        }
         else {
-            var thr_real = (thr - 0.25) * 100 / 75;
-            if (thr_real < 0) thr_real = 0;
-
-            me.reverser_lever.setValue((0.0));
-            if (getprop("/surface-positions/reverser-norm") != nil and getprop("/surface-positions/reverser-norm") > 0.0) {
-                me.throttle.setValue(0.25);
-                thr = 0.25;
-                thr_real = 0.0;
+             if (me.cutoff.getBoolValue()) {
+                if (lever > -0.195) { lever = -0.2; }
             }
             else {
-                if (thr > 0.0 and thr < 0.10) {
-                    if (me.cutoff_lock.getBoolValue()) {
-                        thr = 0.0;
+                if (lever < -0.005) { lever = 0.0; }
+            }
+        }
+
+        if (lever > -0.1) {
+            me.cutoff.setBoolValue(0);
+        }
+        else {
+            me.cutoff.setBoolValue(1);
+        }
+
+        if (lever >= 0.0) {
+            if (me.running.getBoolValue()) {
+# if reverser moving
+                if (getprop("/surface-positions/reverser-norm") != nil and
+                    getprop("/surface-positions/reverser-norm") > 0.0 and
+                    getprop("/surface-positions/reverser-norm") < 1.0
+                )
+                {
+                    thr = 0.0;
+                    lever = 0.0;
+                }
+
+# reverser deployed
+                if (me.reverser.getBoolValue()) {
+                    lever = 0.0;
+                    real = thr * 0.92;
+                    me.reverser_lever.setValue(real + 0.08);
+                }
+
+# reverser stowed
+                else {
+                    if (!me.cutoff_lock.getBoolValue() and thr < 0.005) {
+                        lever = -0.01;
+                        thr = 0.01;
+                        real = 0.0;
                     }
                     else {
-                        me.cutoff_arm = 1;
+                        lever = thr;
+                        real = thr;
                     }
+                    me.reverser_lever.setValue(0.0);
                 }
-
-                if (thr < 0.25 and thr > 0.15) {
-                    if (me.cutoff_lock.getBoolValue()) {
-                        thr = 0.25;
-                    }
-                    else {
-                        me.cutoff_arm = 1;
-                    }
-                }
-
-                if (me.cutoff_arm) {
-                    if (thr > 0.24 or thr < 0.01) {
-                        me.cutoff_lock.setBoolValue(1);
-                        me.cutoff_arm = 0;
-                    }
-                }
-
-                if (thr > 0.12) {
-                    me.cutoff.setBoolValue(0);
+            }
+            else {
+                if (!me.cutoff_lock.getBoolValue() and thr < 0.005) {
+                    lever = -0.01;
+                    thr = 0.01;
                 }
                 else {
-                    me.cutoff.setBoolValue(1);
+                    lever = thr;
                 }
-            }
-
-            me.throttle.setValue(thr);
-            me.throttle_lever.setValue(thr);
-            me.reverser_lever.setValue(0.0);
-            if (me.running.getBoolValue()) {
-                me.throttle_real.setValue(thr_real);
-            }
-            else {
-                me.throttle_real.setValue(0.0);
+                real = 0.0;
             }
         }
+
+        me.throttle.setValue(thr);
+        me.throttle_real.setValue(real);
+        me.throttle_lever.setValue(lever);
 
 # If the engine is running, simply copy n1 and n2 to fan and turbine.
         if(me.running.getBoolValue ()) {
@@ -224,7 +243,7 @@ var JetEngine = {
 
     autostart : func () {
         me.autostart_in_progress = 1;
-        me.throttle.setValue (0.25);
+        me.throttle.setValue (0.0);
         me.starter_btn.setBoolValue (1);
     }
 };
@@ -484,7 +503,6 @@ var switch_rmi = func(needle, nav_number) {
     dest_node.alias (source_node);
   }
 }
-
 
 var hobbs_meter = {
     d0: props.globals.initNode ("instrumentation/hobbs-meter/digits0", 1, "INT"),
