@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>3.5.3</aircraft-version>
+    <aircraft-version>4.0.0</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -48,7 +48,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <!-- <aircraft-class> can be: ga (general aviation), cargo (cargo), gate (commercial passenger traffic), mil-fighter (military fighter), mil-cargo (military transport)
     see: http://wiki.flightgear.org/Interactive_traffic#A_technical_perspective -->
     <aircraft-class type="string">ga</aircraft-class>
-    <aircraft-operator type="string"></aircraft-operator>
+    <aircraft-operator type="string"/>
 
     <tags> <!-- See: http://wiki.flightgear.org/Catalog_metadata#Supported_Tags -->
       <tag>1970s</tag> <!-- certified 1978 -->
@@ -690,14 +690,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
     <multiplay>
+      <protocol-version type="int">2</protocol-version>
       <generic>
-        <int type="int" n="0" alias="/systems/electrical/outputs/strobe"/>
-        <int type="int" n="1" alias="/systems/electrical/outputs/beacon"/>
-        <int type="int" n="2" alias="/systems/electrical/outputs/nav-lights"/>
-        <int type="int" n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
-        <int type="int" n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
-        <int type="int" n="5" alias="/controls/lighting/recog-light[0]"/>
-        <int type="int" n="6" alias="/controls/lighting/recog-light[1]"/>
+        <bool type="bool" n="0" alias="/controls/human-models"/>
+        <short type="int" n="0" alias="/systems/electrical/outputs/strobe"/>
+        <short type="int" n="1" alias="/systems/electrical/outputs/beacon"/>
+        <short type="int" n="2" alias="/systems/electrical/outputs/nav-lights"/>
+        <short type="int" n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
+        <short type="int" n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
+        <short type="int" n="5" alias="/controls/lighting/recog-light[0]"/>
+        <short type="int" n="6" alias="/controls/lighting/recog-light[1]"/>
         <float type="float" n="0" alias="/controls/cabin-door/position-norm"/>
         <float type="float" n="1" alias="/sim/model/registration/red"/>
         <float type="float" n="2" alias="/sim/model/registration/green"/>
@@ -709,6 +711,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <float type="float" n="8" alias="/controls/baggage-door-aft/position-norm"/>
         <float type="float" n="9" alias="/sim/weight[1]/weight-lb"/>
         <float type="float" n="10" alias="/sim/weight[2]/weight-lb"/>
+        <float type="float" n="11" alias="/gear/gear[0]/rollspeed-ms"/>
+        <float type="float" n="12" alias="/gear/gear[1]/rollspeed-ms"/>
+        <float type="float" n="13" alias="/gear/gear[2]/rollspeed-ms"/>
+        <float type="float" n="14" alias="/gear/gear[0]/compression-m"/>
+        <float type="float" n="15" alias="/gear/gear[1]/compression-m"/>
+        <float type="float" n="16" alias="/gear/gear[2]/compression-m"/>
         <string type="string" n="0" alias="/sim/multiplay/callsign"/>
         <string type="string" n="1" alias="/sim/aircraft-version"/>
         <string type="string" n="2" alias="/sim/description"/> <!-- "Citation II" or "Sierra Super II" -->

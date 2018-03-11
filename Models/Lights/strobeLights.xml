@@ -17,7 +17,7 @@
                   <value>2.0</value>
                 </greater-than>
 		<greater-than>
-		  <property>sim/multiplay/generic/int</property>
+		  <property>systems/electrical/outputs/strobe</property>
 		  <value>20</value>
 		</greater-than>
             </and>

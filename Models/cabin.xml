@@ -78,7 +78,7 @@
     <type>rotate</type>
     <object-name>Cabin.door1</object-name>
     <object-name>Door.handle</object-name>
-    <property>sim/multiplay/generic/float</property>
+    <property>controls/cabin-door/position-norm</property>
     <factor>120</factor>
     <axis>
       <x1-m>4.100</x1-m>
@@ -96,7 +96,7 @@
     <object-name>Ladder.rRope</object-name>
     <condition>
       <greater-than>
-        <property>sim/multiplay/generic/float</property>
+        <property>controls/cabin-door/position-norm</property>
         <value>0.9</value>
       </greater-than>
     </condition>
@@ -106,7 +106,7 @@
     <type>rotate</type>
     <object-name>Ladder</object-name>
     <object-name>Ladder.rubbermats</object-name>
-    <property>sim/multiplay/generic/float</property>
+    <property>controls/cabin-door/position-norm</property>
     <interpolation>
       <entry><ind>0.0</ind><dep> 140</dep></entry>
       <entry><ind>0.1</ind><dep> 140</dep></entry>

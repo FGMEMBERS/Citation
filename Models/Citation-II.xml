@@ -3,9 +3,44 @@
   <path>Citation-II.ac</path>
 
   <nasal>
-    <load>
+    <load><![CDATA[
+      var r = cmdarg(); # the remote aircraft
       var livery_update = aircraft.livery_update.new("Aircraft/Citation/Models/Liveries", 10);
-    </load>
+
+      var table = [[ "controls/human-models",                           "bool[0]" ],
+                   [ "systems/electrical/outputs/strobe",               "short[0]" ],
+                   [ "systems/electrical/outputs/beacon",               "short[1]" ],
+                   [ "systems/electrical/outputs/nav-lights",           "short[2]" ],
+                   [ "systems/electrical/outputs/landing-light[0]",     "short[3]" ],
+                   [ "systems/electrical/outputs/landing-light[1]",     "short[4]" ],
+                   [ "controls/lighting/recog-light[0]",                "short[5]" ],
+                   [ "controls/lighting/recog-light[1]",                "short[6]" ],
+                   [ "controls/cabin-door/position-norm",               "float[0]" ],
+                   [ "sim/model/registration/red",                      "float[1]" ],
+                   [ "sim/model/registration/green",                    "float[2]" ],
+                   [ "sim/model/registration/blue",                     "float[3]" ],
+                   [ "surface-positions/reverser-norm[0]",              "float[4]" ],
+                   [ "surface-positions/reverser-norm[1]",              "float[5]" ],
+                   [ "controls/baggage-door-front-left/position-norm",  "float[6]" ],
+                   [ "controls/baggage-door-front-right/position-norm", "float[7]" ],
+                   [ "controls/baggage-door-aft/position-norm",         "float[8]" ],
+                   [ "sim/weight[1]/weight-lb",                         "float[9]" ],
+                   [ "sim/weight[2]/weight-lb",                         "float[10]" ],
+                   [ "gear/gear[0]/rollspeed-ms",                       "float[11]" ],
+                   [ "gear/gear[1]/rollspeed-ms",                       "float[12]" ],
+                   [ "gear/gear[2]/rollspeed-ms",                       "float[13]" ],
+                   [ "gear/gear[0]/compression-m",                      "float[14]" ],
+                   [ "gear/gear[1]/compression-m",                      "float[15]" ],
+                   [ "gear/gear[2]/compression-m",                      "float[16]" ]];
+
+      # There are two bugs related to controls/human-models: (1) bool[0] seems not to be transmitted
+      # even though it is correctly set in the sending aircraft, and (2) even if forced to true in
+      # the receiving fgfs, fgfs still does not display the humans.  The two other properties
+      # controlling the humans, weight[1..2]/weight-lb, are transmitted properly.
+      foreach (var row; table) {
+        r.getNode (row[0], 1).alias (r.getNode ("sim/multiplay/generic/" ~ row[1]));
+      }
+    ]]></load>
 
     <unload>
       livery_update.stop();
@@ -439,34 +474,8 @@
     <object-name>nav.white.light.blend</object-name>
     <condition>
       <equals>
-        <property>sim/rendering/shaders/skydome</property>
+        <property>/sim/rendering/shaders/skydome</property>
         <value>0</value>
-      </equals>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>nav.red.light</object-name>
-    <object-name>nav.green.light</object-name>
-    <object-name>nav.white.light</object-name>
-    <condition>
-      <equals>
-        <property>sim/rendering/shaders/skydome</property>
-        <value>2</value>
-      </equals>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>nav-red-light</object-name>
-    <object-name>nav-green-light</object-name>
-    <object-name>nav-white-light</object-name>
-    <condition>
-      <equals>
-        <property>sim/rendering/shaders/skydome</property>
-        <value>1</value>
       </equals>
     </condition>
   </animation>
@@ -692,16 +701,16 @@
       <and>
 	<property>controls/human-models</property>
         <not-equals>
-          <property>sim/current-view/name</property>
+          <property>/sim/current-view/name</property>
           <value>Copilot</value>
         </not-equals>
         <not-equals>
-          <property>sim/current-view/name</property>
+          <property>/sim/current-view/name</property>
           <value>Center Console</value>
         </not-equals>
         <greater-than>
-          <property>sim/multiplay/generic/float[9]</property>
-          <value>200lbs</value>
+          <property>sim/weight[1]/weight-lb</property>
+          <value>200</value>
         </greater-than>
       </and>
     </condition>
@@ -724,7 +733,7 @@
       <and>
 	<property>controls/human-models</property>
         <greater-than>
-	  <property>sim/multiplay/generic/float[10]</property>
+	  <property>sim/weight[2]/weight-lb</property>
           <value>170</value>
         </greater-than>
       </and>
@@ -749,7 +758,7 @@
       <and>
 	<property>controls/human-models</property>
         <greater-than>
-	  <property>sim/multiplay/generic/float[10]</property>
+	  <property>sim/weight[2]/weight-lb</property>
           <value>850</value>
         </greater-than>
       </and>
@@ -773,7 +782,7 @@
       <and>
 	<property>controls/human-models</property>
         <greater-than>
-	  <property>sim/multiplay/generic/float[10]</property>
+	  <property>sim/weight[2]/weight-lb</property>
           <value>510</value>
         </greater-than>
       </and>
@@ -798,7 +807,7 @@
       <and>
 	<property>controls/human-models</property>
         <greater-than>
-	  <property>sim/multiplay/generic/float[10]</property>
+	  <property>sim/weight[2]/weight-lb</property>
           <value>1190</value>
         </greater-than>
       </and>
@@ -822,7 +831,7 @@
       <and>
 	<property>controls/human-models</property>
         <greater-than>
-	  <property>sim/multiplay/generic/float[10]</property>
+	  <property>sim/weight[2]/weight-lb</property>
           <value>340</value>
         </greater-than>
       </and>
@@ -847,7 +856,7 @@
       <and>
 	<property>controls/human-models</property>
         <greater-than>
-	  <property>sim/multiplay/generic/float[10]</property>
+	  <property>sim/weight[2]/weight-lb</property>
           <value>1020</value>
         </greater-than>
       </and>
@@ -871,7 +880,7 @@
       <and>
 	<property>controls/human-models</property>
         <greater-than>
-	  <property>sim/multiplay/generic/float[10]</property>
+	  <property>sim/weight[2]/weight-lb</property>
           <value>680</value>
         </greater-than>
       </and>
@@ -1264,7 +1273,7 @@
     <object-name>door.handle</object-name>
     <object-name>door.glass</object-name>
     <object-name>door.glass.inside</object-name>
-    <property>sim/multiplay/generic/float</property>
+    <property>controls/cabin-door/position-norm</property>
     <factor>120</factor>
     <axis>
       <x1-m>4.100</x1-m>
@@ -1534,7 +1543,7 @@
     <object-name>engine.left.rev.link.up.long</object-name>
     <object-name>engine.left.rev.up.door</object-name>
     <object-name>engine.left.rev.up.joint</object-name>
-    <property>sim/multiplay/generic/float[4]</property>
+    <property>surface-positions/reverser-norm</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.30053</x-m>
@@ -1618,7 +1627,7 @@
     <object-name>engine.left.rev.link.down.long</object-name>
     <object-name>engine.left.rev.down.door</object-name>
     <object-name>engine.left.rev.down.joint</object-name>
-    <property>sim/multiplay/generic/float[4]</property>
+    <property>surface-positions/reverser-norm</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.29774</x-m>
@@ -1702,7 +1711,7 @@
     <object-name>engine.right.rev.link.up.long</object-name>
     <object-name>engine.right.rev.up.door</object-name>
     <object-name>engine.right.rev.up.joint</object-name>
-    <property>sim/multiplay/generic/float[4]</property>
+    <property>surface-positions/reverser-norm</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.30053</x-m>
@@ -1786,7 +1795,7 @@
     <object-name>engine.right.rev.link.down.long</object-name>
     <object-name>engine.right.rev.down.door</object-name>
     <object-name>engine.right.rev.down.joint</object-name>
-    <property>sim/multiplay/generic/float[4]</property>
+    <property>surface-positions/reverser-norm</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.29774</x-m>
@@ -2005,7 +2014,7 @@
       <binding>
         <condition>
           <not>
-            <property>sim/current-view/internal</property>
+            <property>/sim/current-view/internal</property>
           </not>
         </condition>
         <command>nasal</command>
@@ -2016,7 +2025,7 @@
   <animation>
     <type>rotate</type>
     <object-name>baggage.door.left</object-name>
-    <property>sim/multiplay/generic/float[6]</property>
+    <property>controls/baggage-door-front-left/position-norm</property>
     <factor>-90</factor>
     <center>
       <x-m>1.50592</x-m>
@@ -2038,7 +2047,7 @@
       <binding>
         <condition>
           <not>
-            <property>sim/current-view/internal</property>
+            <property>/sim/current-view/internal</property>
           </not>
         </condition>
         <command>nasal</command>
@@ -2049,7 +2058,7 @@
   <animation>
     <type>rotate</type>
     <object-name>baggage.door.right</object-name>
-    <property>sim/multiplay/generic/float[7]</property>
+    <property>controls/baggage-door-front-right/position-norm</property>
     <factor>90</factor>
     <center>
       <x-m>1.50592</x-m>
@@ -2071,7 +2080,7 @@
       <binding>
         <condition>
           <not>
-            <property>sim/current-view/internal</property>
+            <property>/sim/current-view/internal</property>
           </not>
         </condition>
         <command>nasal</command>
@@ -2082,7 +2091,7 @@
   <animation>
     <type>rotate</type>
     <object-name>baggage.door.aft</object-name>
-    <property>sim/multiplay/generic/float[8]</property>
+    <property>controls/baggage-door-aft/position-norm</property>
     <factor>100</factor>
     <center>
       <x-m>9.91858</x-m>
@@ -3200,7 +3209,7 @@
     <object-name>nav-green-light</object-name>
     <object-name>nav-white-light</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[2]</property>
+      <property>systems/electrical/outputs/nav-lights</property>
     </condition>
   </animation>
 
@@ -3210,7 +3219,7 @@
     <object-name>nav.green.off</object-name>
     <object-name>nav.white.off</object-name>
     <condition>
-        <not><property>sim/multiplay/generic/int[2]</property></not>
+        <not><property>systems/electrical/outputs/nav-lights</property></not>
     </condition>
   </animation>
 <!--
@@ -3294,7 +3303,7 @@
     <object-name>beacon.on</object-name>
     <object-name>beacon.light</object-name>
     <condition>
-        <property>sim/multiplay/generic/int[1]</property>
+        <property>systems/electrical/outputs/beacon</property>
     </condition>
   </animation>
 
@@ -3302,7 +3311,7 @@
     <type>select</type>
     <object-name>beacon.off</object-name>
     <condition>
-        <not><property>sim/multiplay/generic/int[1]</property></not>
+        <not><property>systems/electrical/outputs/beacon</property></not>
     </condition>
   </animation>
 
@@ -3335,7 +3344,7 @@
     <type>select</type>
     <object-name>strobe.left.light</object-name>
     <condition>
-      <property>sim/multiplay/generic/int</property>
+      <property>systems/electrical/outputs/strobe</property>
     </condition>
   </animation>
 
@@ -3368,7 +3377,7 @@
     <type>select</type>
     <object-name>strobe.right.light</object-name>
     <condition>
-      <property>sim/multiplay/generic/int</property>
+      <property>systems/electrical/outputs/strobe</property>
     </condition>
   </animation>
 
@@ -3401,7 +3410,7 @@
     <type>select</type>
     <object-name>recog.left.light</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/outputs/recog-light[0]</property>
     </condition>
   </animation>
 
@@ -3409,7 +3418,7 @@
     <type>select</type>
     <object-name>recog.right.light</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[6]</property>
+      <property>systems/electrical/outputs/recog-light[1]</property>
     </condition>
   </animation>
 
@@ -3418,7 +3427,7 @@
     <object-name>landing.left.light</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[3]</property>
+        <property>systems/electrical/outputs/landing-light[0]</property>
         <greater-than>
           <property>gear/gear/position-norm</property>
           <value>0.85</value>
@@ -3432,7 +3441,7 @@
     <object-name>landing.right.light</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[4]</property>
+        <property>systems/electrical/outputs/landing-light[1]</property>
         <greater-than>
           <property>gear/gear/position-norm</property>
           <value>0.50</value>

@@ -21,7 +21,7 @@
                     <value>20</value>
                 </greater-than>
                 <greater-than>
-                    <property>sim/multiplay/generic/int[1]</property>
+                    <property>systems/electrical/outputs/beacon</property>
                     <value>20</value>
                 </greater-than>
             </and>

@@ -15,7 +15,7 @@
   <model>
     <condition>
       <not>
-        <property>sim/rendering/shaders/skydome</property>
+        <property>/sim/rendering/shaders/skydome</property>
       </not>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Left</name>
@@ -28,7 +28,7 @@
       <heading-deg>-4</heading-deg>
     </offsets>
     <overlay>
-      <landing-light>sim/multiplay/generic/int[3]</landing-light>
+      <landing-light>systems/electrical/outputs/landing-light[0]</landing-light>
       <bus-volts>systems/electrical/outputs/bus/left</bus-volts>
     </overlay>
   </model>
@@ -36,7 +36,7 @@
   <model>
     <condition>
       <not>
-        <property>sim/rendering/shaders/skydome</property>
+        <property>/sim/rendering/shaders/skydome</property>
       </not>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Right</name>
@@ -49,7 +49,7 @@
       <heading-deg>4</heading-deg>
     </offsets>
     <overlay>
-      <landing-light>sim/multiplay/generic/int[4]</landing-light>
+      <landing-light>systems/electrical/outputs/landing-light[1]</landing-light>
       <bus-volts>systems/electrical/outputs/bus/right</bus-volts>
     </overlay>
   </model>
