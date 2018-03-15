@@ -7,8 +7,7 @@
       var r = cmdarg(); # the remote aircraft
       var livery_update = aircraft.livery_update.new("Aircraft/Citation/Models/Liveries", 10);
 
-      var table = [[ "controls/human-models",                           "bool[0]" ],
-                   [ "systems/electrical/outputs/strobe",               "short[0]" ],
+      var table = [[ "systems/electrical/outputs/strobe",               "short[0]" ],
                    [ "systems/electrical/outputs/beacon",               "short[1]" ],
                    [ "systems/electrical/outputs/nav-lights",           "short[2]" ],
                    [ "systems/electrical/outputs/landing-light[0]",     "short[3]" ],
@@ -33,13 +32,13 @@
                    [ "gear/gear[1]/compression-m",                      "float[15]" ],
                    [ "gear/gear[2]/compression-m",                      "float[16]" ]];
 
-      # There are two bugs related to controls/human-models: (1) bool[0] seems not to be transmitted
-      # even though it is correctly set in the sending aircraft, and (2) even if forced to true in
-      # the receiving fgfs, fgfs still does not display the humans.  The two other properties
-      # controlling the humans, weight[1..2]/weight-lb, are transmitted properly.
       foreach (var row; table) {
         r.getNode (row[0], 1).alias (r.getNode ("sim/multiplay/generic/" ~ row[1]));
       }
+      # Graft the properties for the humans onto the property tree of the remote Citation.
+      io.read_properties ("Aircraft/Citation/Models/Human/humans.xml", r.getNode ("sim/model"));
+      # Bug: sim/multiplay/generic/bool[0] is not transmitted properly, so force it to true.
+      r.getNode ("controls/human-models").setBoolValue (1);
     ]]></load>
 
     <unload>
@@ -254,9 +253,6 @@
     <object-name>LH.lSpdBrk.rod</object-name>
     <object-name>RH.lSpdBrk.rod</object-name>
   </effect>
-
-
-
 
   <!-- REFLECTION, NormalMap -->
   <effect>

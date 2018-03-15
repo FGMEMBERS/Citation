@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.0.0</aircraft-version>
+    <aircraft-version>4.0.1</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -121,7 +121,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <state n="3" include="states/cruise-overlay.xml" />
     <state n="4" include="states/approach-overlay.xml" />
 
-    <model>
+    <model include="Models/Human/humans.xml">
       <path>Aircraft/Citation/Models/Citation-II.xml</path>
       <autostart type="bool">0</autostart>
       <livery>
@@ -136,122 +136,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <refl_correction type="string">-0.1</refl_correction>
         <amb_correction type="string">0.10</amb_correction>
       </rendering>
-
-      <!-- Settings for human models -->
-      <crew>
-        <pilot n="0">
-          <pose include="Models/Human/pose-pilot.xml"/>
-          <character>0</character>
-	  <gender>1</gender>
-	  <hair>1</hair>
-          <outfit>2</outfit>
-          <equipment>0</equipment>
-          <eyewear>1</eyewear>
-          <headgear>1</headgear>
-	  <enabled type="bool">1</enabled>
-        </pilot>
-        <pilot n="1">
-          <pose include="Models/Human/pose-copilot.xml"/>
-          <character>0</character>
-	  <gender>0</gender>
-	  <hair>1</hair>
-          <outfit>2</outfit>
-          <equipment>0</equipment>
-          <eyewear>1</eyewear>
-          <headgear>1</headgear>
-	  <enabled type="bool">1</enabled>
-        </pilot>
-      </crew>
-      <pax>
-        <pax n="0">
-          <pose include="Models/Human/pose-pax0.xml"/>
-          <character>0</character>
-	  <gender>1</gender>
-	  <hair>1</hair>
-          <outfit>0</outfit>
-          <equipment>0</equipment>
-          <eyewear>0</eyewear>
-          <headgear>0</headgear>
-	  <enabled type="bool">1</enabled>
-        </pax>
-        <pax n="1">
-          <pose include="Models/Human/pose-pax1.xml"/>
-          <character>0</character>
-	  <gender>0</gender>
-	  <hair>1</hair>
-          <outfit>2</outfit>
-          <equipment>0</equipment>
-          <eyewear>0</eyewear>
-          <headgear>0</headgear>
-	  <enabled type="bool">1</enabled>
-        </pax>
-        <pax n="2">
-          <pose include="Models/Human/pose-pax2.xml"/>
-          <character>0</character>
-	  <gender>0</gender>
-	  <hair>1</hair>
-          <outfit>2</outfit>
-          <equipment>0</equipment>
-          <eyewear>0</eyewear>
-          <headgear>0</headgear>
-	  <enabled type="bool">1</enabled>
-        </pax>
-        <pax n="3">
-          <pose include="Models/Human/pose-pax3.xml"/>
-          <character>0</character>
-	  <gender>1</gender>
-	  <hair>1</hair>
-          <outfit>0</outfit>
-          <equipment>0</equipment>
-          <eyewear>0</eyewear>
-          <headgear>0</headgear>
-	  <enabled type="bool">1</enabled>
-        </pax>
-        <pax n="4">
-          <pose include="Models/Human/pose-pax4.xml"/>
-          <character>0</character>
-	  <gender>0</gender>
-	  <hair>1</hair>
-          <outfit>2</outfit>
-          <equipment>0</equipment>
-          <eyewear>0</eyewear>
-          <headgear>0</headgear>
-	  <enabled type="bool">1</enabled>
-        </pax>
-        <pax n="5">
-          <pose include="Models/Human/pose-pax5.xml"/>
-          <character>0</character>
-	  <gender>1</gender>
-	  <hair>1</hair>
-          <outfit>0</outfit>
-          <equipment>0</equipment>
-          <eyewear>0</eyewear>
-          <headgear>0</headgear>
-	  <enabled type="bool">1</enabled>
-        </pax>
-        <pax n="6">
-          <pose include="Models/Human/pose-pax6.xml"/>
-          <character>0</character>
-	  <gender>0</gender>
-	  <hair>1</hair>
-          <outfit>0</outfit>
-          <equipment>0</equipment>
-          <eyewear>0</eyewear>
-          <headgear>0</headgear>
-	  <enabled type="bool">1</enabled>
-        </pax>
-      </pax>
-
-      <!-- Human models persistent menu choice -->
-      <occupants type="bool">true</occupants>
-
-      <!-- An exit for the walker -->
-      <map>
-        <default_exit>
-          <x-offset-m type="float">5.8</x-offset-m>
-          <y-offset-m type="float">-1.4</y-offset-m>
-        </default_exit>
-      </map>
     </model>
 
     <!-- Walker settings -->
@@ -717,9 +601,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <float type="float" n="14" alias="/gear/gear[0]/compression-m"/>
         <float type="float" n="15" alias="/gear/gear[1]/compression-m"/>
         <float type="float" n="16" alias="/gear/gear[2]/compression-m"/>
-        <string type="string" n="0" alias="/sim/multiplay/callsign"/>
-        <string type="string" n="1" alias="/sim/aircraft-version"/>
-        <string type="string" n="2" alias="/sim/description"/> <!-- "Citation II" or "Sierra Super II" -->
       </generic>
       <sim>
         <model>
