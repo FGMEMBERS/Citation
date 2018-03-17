@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.0.1</aircraft-version>
+    <aircraft-version>4.0.2</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -602,32 +602,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <float type="float" n="15" alias="/gear/gear[1]/compression-m"/>
         <float type="float" n="16" alias="/gear/gear[2]/compression-m"/>
       </generic>
-      <sim>
-        <model>
-          <crew>
-            <pilot n="0">
-              <pose include="Models/Human/pose-pilot.xml"/>
-              <character>0</character>
-	      <gender>1</gender>
-	      <hair>1</hair>
-              <outfit>2</outfit>
-              <equipment>0</equipment>
-              <eyewear>1</eyewear>
-              <headgear>1</headgear>
-	    </pilot>
-            <pilot n="1">
-              <pose include="Models/Human/pose-copilot.xml"/>
-              <character>0</character>
-	      <gender>0</gender>
-	      <hair>1</hair>
-              <outfit>2</outfit>
-              <equipment>0</equipment>
-              <eyewear>1</eyewear>
-              <headgear>1</headgear>
-            </pilot>
-          </crew>
-        </model>
-      </sim>
     </multiplay>
 
     <flight-recorder>
