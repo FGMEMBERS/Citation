@@ -271,9 +271,9 @@ var resetTrim = func(){
 }
 
 var resetControls = func() {
-  setprop("/controls/flight/elevator-trim", 0);
-  setprop("/controls/flight/rudder-trim", 0);
-  setprop("/controls/flight/aileron-trim", 0);
+  setprop("/controls/flight/elevator", 0);
+  setprop("/controls/flight/rudder", 0);
+  setprop("/controls/flight/aileron", 0);
   #print("All flight controls reset to 0...");
 }
 

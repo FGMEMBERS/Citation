@@ -249,7 +249,10 @@ var init_switches = func{
     append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"));
     append(avbus_load,1);
     append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder",0,"DOUBLE"));
+    append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder[0]",0,"DOUBLE"));
+    append(avbus_load,1);
+    append(avbus_input,AVswitch);
+    append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder[1]",0,"DOUBLE"));
     append(avbus_load,1);
 }
 

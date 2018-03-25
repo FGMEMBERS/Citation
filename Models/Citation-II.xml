@@ -316,9 +316,6 @@
     <object-name>recog.left.glass</object-name>
     <object-name>recog.right.glass</object-name>
 
-    <object-name>nav.red.light</object-name>
-    <object-name>nav.green.light</object-name>
-    <object-name>nav.white.light</object-name>
     <object-name>nav.red.light.blend</object-name>
     <object-name>nav.green.light.blend</object-name>
     <object-name>nav.white.light.blend</object-name>

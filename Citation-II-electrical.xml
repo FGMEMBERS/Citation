@@ -86,7 +86,8 @@
     <prop>/systems/electrical/outputs/comm[1]</prop>
     <prop>/systems/electrical/outputs/nav[0]</prop>
     <prop>/systems/electrical/outputs/nav[1]</prop>
-    <prop>/systems/electrical/outputs/transponder</prop>
+    <prop>/systems/electrical/outputs/transponder[0]</prop>
+    <prop>/systems/electrical/outputs/transponder[1]</prop>
   </output>
 
   <output>

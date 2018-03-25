@@ -1931,27 +1931,7 @@
     <object-name>Btn3.3</object-name>
     <object-name>Knob.1</object-name>
     <object-name>Knob.2</object-name>
-    <object-name>C62act.btn</object-name>
-    <object-name>C62sto.btn</object-name>
-    <object-name>C62test.btn</object-name>
-    <object-name>CTL-62</object-name>
-    <object-name>CTL-62.toggle</object-name>
-    <object-name>xmt.annun</object-name>
     <object-name>M877</object-name>
-    <object-name>CTL-92</object-name>
-    <object-name>CTL-92.toggle</object-name>
-    <object-name>atc.ident</object-name>
-    <object-name>atc.pre</object-name>
-    <object-name>atc.test</object-name>
-    <object-name>xmt.annun.001</object-name>
-    <object-name>CTL-22</object-name>
-    <object-name>CTL-22.toggle</object-name>
-    <object-name>act.btn</object-name>
-    <object-name>sto.btn</object-name>
-    <object-name>test.btn</object-name>
-    <object-name>xmnt.annun</object-name>
-    <object-name>CTL-32</object-name>
-    <object-name>CTL-32.toggle</object-name>
     <object-name>EngCenterBezel</object-name>
     <object-name>EngCenterHole</object-name>
     <object-name>Flap.indicator</object-name>
@@ -2130,24 +2110,10 @@
     <object-name>vor.needle</object-name>
     <object-name>VSI.face</object-name>
     <object-name>VSI.needle</object-name>
-    <object-name>CTL-62.freq</object-name>
-    <object-name>CTL-62.freq1</object-name>
-    <object-name>CTL-62.pwr</object-name>
-    <object-name>CTL-62.vol</object-name>
     <object-name>M877.002</object-name>
     <object-name>M877.display</object-name>
     <object-name>CTL.btn</object-name>
     <object-name>SEL.btn</object-name>
-    <object-name>CTL-92.pwr</object-name>
-    <object-name>CTL-92.vol</object-name>
-    <object-name>CTL-92.knob</object-name>
-    <object-name>CTL-92.knob1</object-name>
-    <object-name>CTL-22.pwr</object-name>
-    <object-name>CTL-22.vol</object-name>
-    <object-name>freq.knob</object-name>
-    <object-name>freq1.knob</object-name>
-    <object-name>CTL-32.pwr</object-name>
-    <object-name>CTL-32.vol</object-name>
     <object-name>volts.needle</object-name>
     <object-name>lAmps.needle</object-name>
     <object-name>rAmps.needle</object-name>
