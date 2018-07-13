@@ -19,7 +19,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation/Models/Instruments/ctnpanel.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/annunpanel.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.081</y-m>

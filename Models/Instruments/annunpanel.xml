@@ -1,13 +1,13 @@
-<?xml version = '1.0' encoding = 'UTF-8' ?>
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <PropertyList>
 
-  <path>ctnpanel.ac</path>
+  <path>annunpanel.ac</path>
 
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
     <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
@@ -80,34 +80,34 @@
           </less-than>
         </and>
         <and>
-            <greater-than>
-              <property>gear/gear[1]/position-norm</property>
-              <value>0</value>
-            </greater-than>
-            <less-than>
-              <property>gear/gear[1]/position-norm</property>
-              <value>1</value>
-            </less-than>
+          <greater-than>
+            <property>gear/gear[1]/position-norm</property>
+            <value>0</value>
+          </greater-than>
+          <less-than>
+            <property>gear/gear[1]/position-norm</property>
+            <value>1</value>
+          </less-than>
         </and>
         <and>
-            <greater-than>
-              <property>gear/gear[2]/position-norm</property>
-              <value>0</value>
-            </greater-than>
-            <less-than>
-              <property>gear/gear[2]/position-norm</property>
-              <value>1</value>
-            </less-than>
+          <greater-than>
+            <property>gear/gear[2]/position-norm</property>
+            <value>0</value>
+          </greater-than>
+          <less-than>
+            <property>gear/gear[2]/position-norm</property>
+            <value>1</value>
+          </less-than>
         </and>
         <and>
-            <greater-than>
-              <property>surface-positions/reverser-norm</property>
-              <value>0</value>
-            </greater-than>
-            <less-than>
-              <property>surface-positions/reverser-norm</property>
-              <value>1</value>
-            </less-than>
+          <greater-than>
+            <property>surface-positions/reverser-norm</property>
+            <value>0</value>
+          </greater-than>
+          <less-than>
+            <property>surface-positions/reverser-norm</property>
+            <value>1</value>
+          </less-than>
         </and>
       </or>
     </condition>
@@ -198,26 +198,26 @@
           </greater-than>
         </or>
         <or>
-        <and>
-          <property>controls/electric/inverter-switch</property>
-          <or>
-            <less-than>
-              <property>systems/electrical/outputs/bus/left</property>
-              <value>20</value>
-            </less-than>
-            <not><property>controls/electric/circuit-breakers/bus-left/cb-bus-left-inverter</property></not>
-          </or>
-        </and>
-        <and>
-          <not><property>controls/electric/inverter-switch</property></not>
-          <or>
-            <less-than>
-              <property>systems/electrical/outputs/bus/right</property>
-              <value>20</value>
-            </less-than>
-            <not><property>controls/electric/circuit-breakers/bus-right/cb-bus-right-inverter</property></not>
-          </or>
-        </and>
+          <and>
+            <property>controls/electric/inverter-switch</property>
+            <or>
+              <less-than>
+                <property>systems/electrical/outputs/bus/left</property>
+                <value>20</value>
+              </less-than>
+              <not><property>controls/electric/circuit-breakers/bus-left/cb-bus-left-inverter</property></not>
+            </or>
+          </and>
+          <and>
+            <not><property>controls/electric/inverter-switch</property></not>
+            <or>
+              <less-than>
+                <property>systems/electrical/outputs/bus/right</property>
+                <value>20</value>
+              </less-than>
+              <not><property>controls/electric/circuit-breakers/bus-right/cb-bus-right-inverter</property></not>
+            </or>
+          </and>
         </or>
       </and>
     </condition>
@@ -275,7 +275,7 @@
     </condition>
   </animation>
 
-<!-- TODO: should react on hydraulic system -->
+  <!-- TODO: should react on hydraulic system -->
   <animation>
     <type>select</type>
     <object-name>HydPressLoL</object-name>
@@ -291,7 +291,7 @@
     </condition>
   </animation>
 
-<!-- TODO: should react on hydraulic system -->
+  <!-- TODO: should react on hydraulic system -->
   <animation>
     <type>select</type>
     <object-name>HydPressLoR</object-name>
@@ -307,7 +307,7 @@
     </condition>
   </animation>
 
-<!-- TODO: should react on oil system -->
+  <!-- TODO: should react on oil system -->
   <animation>
     <type>select</type>
     <object-name>OilPressLoL</object-name>
@@ -323,7 +323,7 @@
     </condition>
   </animation>
 
-<!-- TODO: should react on oil system -->
+  <!-- TODO: should react on oil system -->
   <animation>
     <type>select</type>
     <object-name>OilPressLoR</object-name>
@@ -405,7 +405,7 @@
     </condition>
   </animation>
 
-<!-- TODO: build up meaningfull contitions to activate this annuntiators -->
+  <!-- TODO: build up meaningfull contitions to activate this annuntiators -->
 
   <animation>
     <type>select</type>
