@@ -321,7 +321,7 @@
 
     <model>
         <!-- Pilot's autopilot panel -->
-        <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/FDpanel.xml</path>
         <overlay>
           <hsi-number>0</hsi-number>
           <selected-nav>/instrumentation/hsi[0]/selected-nav</selected-nav>
@@ -335,7 +335,7 @@
 
     <model>
         <!-- Copilot's autopilot panel -->
-        <path>Aircraft/Citation/Models/Instruments/FD-mode-ctl.xml</path>
+        <path>Aircraft/Citation/Models/Instruments/FDpanel.xml</path>
         <overlay>
           <hsi-number>1</hsi-number>
           <selected-nav>/instrumentation/hsi[1]/selected-nav</selected-nav>

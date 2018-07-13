@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.5</aircraft-version>
+    <aircraft-version>4.1.6</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -970,6 +970,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <!-- cabin-lights-norm type=""></cabin-lights-norm -->
       <altitude-alerter-dim type="double">1.0</altitude-alerter-dim>
       <dme-dim type="double">1.0</dme-dim>
+      <fdpanel-dim type="double">1.0</fdpanel-dim>
     </lighting>
     <baggage-door-front-left n="0">
       <command type="bool">0</command>
