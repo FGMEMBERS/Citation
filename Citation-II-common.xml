@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.6</aircraft-version>
+    <aircraft-version>4.1.7</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -336,13 +336,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <path>Aircraft/Citation/Models/Lights/average-ambient-light-filters.xml</path>
       </property-rule>
       <property-rule n="103">
-	<path>Systems/electrical.xml</path>
+        <path>Systems/electrical.xml</path>
       </property-rule>
       <property-rule n="104">
-	<path>Aircraft/Citation/Models/Effects/flame-filter.xml</path>
+        <path>Aircraft/Citation/Models/Effects/flame-filter.xml</path>
       </property-rule>
       <property-rule n="105">
-	<path>Aircraft/Citation/Models/system-filter.xml</path>
+        <path>Aircraft/Citation/Models/system-filter.xml</path>
+      </property-rule>
+      <property-rule n="106">
+        <path>Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com1-filters.xml</path>
+      </property-rule>
+      <property-rule n="107">
+        <path>Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com2-filters.xml</path>
+      </property-rule>
+      <property-rule n="108">
+        <path>Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav1-filters.xml</path>
+      </property-rule>
+      <property-rule n="109">
+        <path>Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav2-filters.xml</path>
+      </property-rule>
+      <property-rule n="110">
+        <path>Aircraft/Citation/Models/Instruments/ADF-462/ctl62-adf-filters.xml</path>
       </property-rule>
     </systems>
 

@@ -28,57 +28,81 @@
     </model>
 
     <model>
+        <name>ctl22-com1</name>
         <path>Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com1.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.046</y-m>
             <z-m>0.187</z-m>
         </offsets>
+        <overlay>
+            <texture>ctl22_grey.png</texture>
+        </overlay>
     </model>
 
     <model>
+        <name>ctl22-com2</name>
         <path>Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com2.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.107</y-m>
             <z-m>0.187</z-m>
         </offsets>
+        <overlay>
+            <texture>ctl22_grey.png</texture>
+        </overlay>
     </model>
 
     <model>
+        <name>ctl32-nav1</name>
         <path>Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav1.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.046</y-m>
             <z-m>0.120</z-m>
         </offsets>
+        <overlay>
+            <texture>ctl32_grey.png</texture>
+        </overlay>
     </model>
 
     <model>
+        <name>ctl32-nav2</name>
         <path>Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav2.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.107</y-m>
             <z-m>0.120</z-m>
         </offsets>
+        <overlay>
+            <texture>ctl32_grey.png</texture>
+        </overlay>
     </model>
 
     <model>
+        <name>ctl92-transponder</name>
         <path>Aircraft/Citation/Models/Instruments/TDR-94/ctl92-transponder.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.214</y-m>
             <z-m>0.079</z-m>
         </offsets>
+        <overlay>
+            <texture>ctl92_grey.png</texture>
+        </overlay>
     </model>
 
     <model>
+        <name>ctl62-adf</name>
         <path>Aircraft/Citation/Models/Instruments/ADF-462/ctl62-adf.xml</path>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.122</y-m>
             <z-m>0.266</z-m>
         </offsets>
+        <overlay>
+            <texture>ctl62_grey.png</texture>
+        </overlay>
     </model>
 
     <model>

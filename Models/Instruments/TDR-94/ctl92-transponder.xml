@@ -1,4 +1,4 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <!-- Collins CTL-92 Control for Collins TDR-94 transponder
 2.375"W x 2.625"H
 Syd Adams
@@ -12,76 +12,6 @@ Sascha Reißner
 <PropertyList>
 
     <path>ctl92.ac</path>
-
-    <effect>
-        <condition>
-            <greater-than>
-                <property>sim/version/flightgear</property>
-                <value>3.4.999</value>
-            </greater-than>
-        </condition>
-        <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-        <object-name>ctl92.bezel</object-name>
-        <object-name>ctl92.metal</object-name>
-        <object-name>ctl92.pwr</object-name>
-        <object-name>ctl92.tune.outer</object-name>
-        <object-name>ctl92.tune.inner</object-name>
-        <object-name>ctl92.toggle</object-name>
-        <object-name>ctl92.cap</object-name>
-        <object-name>ctl92.btn.pre</object-name>
-        <object-name>ctl92.btn.ident</object-name>
-        <object-name>ctl92.btn.test</object-name>
-    </effect>
-
-<!-- Panel Lights (only with Rembrandt disabled) -->
-    <animation>
-        <type>material</type>
-        <condition>
-            <not>
-                <property>sim/rendering/rembrandt/enabled</property>
-            </not>
-        </condition>
-        <object-name>ctl92.bezel</object-name>
-        <object-name>ctl92.metal</object-name>
-        <object-name>ctl92.toggle</object-name>
-        <object-name>ctl92.cap</object-name>
-        <emission>
-            <red>0.9</red>
-            <green>0.6</green>
-            <blue>0.4</blue>
-            <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
-        </emission>
-    </animation>
-
-<!-- Instrument Lights -->
-<!-- Implement emis animation even for Rembrandt rendering! -->
-    <animation>
-        <condition>
-            <and>
-                <property>systems/electrical/outputs/transponder[0]</property>
-                <property>instrumentation/ctl92/power-knob</property>
-            </and>
-        </condition>
-        <type>material</type>
-        <object-name>ctl92.pwr</object-name>
-        <object-name>ctl92.tune.outer</object-name>
-        <object-name>ctl92.tune.inner</object-name>
-        <object-name>ctl92.toggle.lit</object-name>
-        <object-name>ctl92.btn.ident</object-name>
-        <object-name>ctl92.btn.pre</object-name>
-        <object-name>ctl92.btn.test</object-name>
-        <emission>
-            <red>1</red>
-            <green>0.5</green>
-            <blue>0.3</blue>
-            <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
-        </emission>
-    </animation>
-
-    <effect>
-        <inherits-from>Effects/model-transparent</inherits-from>
-        <object-name>ctl92.glass</object-name>
-    </effect>
 
     <animation>
         <type>select</type>
@@ -140,8 +70,7 @@ Sascha Reißner
         </condition>
     </animation>
 
-  <!--    Test   -->
-
+<!--   Test   -->
     <animation>
         <type>select</type>
         <object-name>ctl92.diag</object-name>
@@ -176,8 +105,7 @@ Sascha Reißner
         </condition>
     </animation>
 
-<!-- unused parts in comm -->
-
+<!--   unused parts   -->
     <animation>
         <type>select</type>
         <object-name>ctl92.freq.001</object-name>
@@ -205,7 +133,7 @@ Sascha Reißner
         <type>knob</type>
         <object-name>ctl92.pwr</object-name>
         <property>instrumentation/ctl92/power-knob</property>
-        <factor>15.25</factor>
+        <factor>30.5</factor>
         <center>
             <x-m>0.002</x-m>
             <y-m>-0.01375</y-m>
@@ -413,8 +341,7 @@ the centers are:
     </axis>
 -->
 
-  <!--    Active Frequency   -->
-
+<!--   First Squak   -->
     <animation>
         <type>textranslate</type>
         <object-name>ctl92.freq.002</object-name>
@@ -467,8 +394,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    Preselected Frequency     -->
-
+<!--   Second Squak   -->
     <animation>
         <condition>
             <equals>
@@ -545,8 +471,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    OSG hotspots    -->
-
+<!--   OSG hotspots   -->
     <animation>
         <type>knob</type>
         <object-name>ctl92.toggle</object-name>
@@ -1184,5 +1109,75 @@ the centers are:
             </binding>
         </hovered>
     </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+    <animation>
+        <type>material</type>
+        <condition>
+            <not>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
+        <object-name>ctl92.bezel</object-name>
+        <object-name>ctl92.metal</object-name>
+        <object-name>ctl92.toggle</object-name>
+        <object-name>ctl92.cap</object-name>
+        <emission>
+            <red>0.9</red>
+            <green>0.6</green>
+            <blue>0.4</blue>
+            <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+        </emission>
+    </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+    <animation>
+        <condition>
+            <and>
+                <property>systems/electrical/outputs/transponder[0]</property>
+                <property>instrumentation/ctl92/power-knob</property>
+            </and>
+        </condition>
+        <type>material</type>
+        <object-name>ctl92.pwr</object-name>
+        <object-name>ctl92.tune.outer</object-name>
+        <object-name>ctl92.tune.inner</object-name>
+        <object-name>ctl92.toggle.lit</object-name>
+        <object-name>ctl92.btn.ident</object-name>
+        <object-name>ctl92.btn.pre</object-name>
+        <object-name>ctl92.btn.test</object-name>
+        <emission>
+            <red>0.8</red>
+            <green>0.8</green>
+            <blue>0.7</blue>
+            <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+        </emission>
+    </animation>
+
+    <effect>
+        <condition>
+            <greater-than>
+                <property>sim/version/flightgear</property>
+                <value>3.4.999</value>
+            </greater-than>
+        </condition>
+        <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+        <object-name>ctl92.bezel</object-name>
+        <object-name>ctl92.metal</object-name>
+        <object-name>ctl92.pwr</object-name>
+        <object-name>ctl92.tune.outer</object-name>
+        <object-name>ctl92.tune.inner</object-name>
+        <object-name>ctl92.toggle</object-name>
+        <object-name>ctl92.cap</object-name>
+        <object-name>ctl92.btn.pre</object-name>
+        <object-name>ctl92.btn.ident</object-name>
+        <object-name>ctl92.btn.test</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>ctl92.glass</object-name>
+    </effect>
 
 </PropertyList>

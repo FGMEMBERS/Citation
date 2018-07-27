@@ -1,4 +1,4 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <!-- Collins CTL-32 Control for Collins VIR-32 receiver
 Active and preset displayed +
 6 frequency memory storage
@@ -18,76 +18,6 @@ Sascha Reißner
 <PropertyList>
 
     <path>ctl32.ac</path>
-
-    <effect>
-        <condition>
-            <greater-than>
-                <property>sim/version/flightgear</property>
-                <value>3.4.999</value>
-            </greater-than>
-        </condition>
-        <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-        <object-name>ctl32.bezel</object-name>
-        <object-name>ctl32.metal</object-name>
-        <object-name>ctl32.pwr</object-name>
-        <object-name>ctl32.vol</object-name>
-        <object-name>ctl32.tune.outer</object-name>
-        <object-name>ctl32.tune.inner</object-name>
-        <object-name>ctl32.toggle</object-name>
-        <object-name>ctl32.btn.act</object-name>
-        <object-name>ctl32.btn.sto</object-name>
-        <object-name>ctl32.btn.test</object-name>
-    </effect>
-
-<!-- Panel Lights (only with Rembrandt disabled) -->
-    <animation>
-        <type>material</type>
-        <condition>
-            <not>
-                <property>sim/rendering/rembrandt/enabled</property>
-            </not>
-        </condition>
-        <object-name>ctl32.bezel</object-name>
-        <object-name>ctl32.metal</object-name>
-        <object-name>ctl32.toggle</object-name>
-        <emission>
-            <red>0.9</red>
-            <green>0.6</green>
-            <blue>0.4</blue>
-            <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
-        </emission>
-    </animation>
-
-<!-- Instrument Lights -->
-<!-- Implement emis animation even for Rembrandt rendering! -->
-    <animation>
-        <condition>
-            <and>
-                <property>systems/electrical/outputs/nav[0]</property>
-                <property>instrumentation/nav[0]/power-btn</property>
-            </and>
-        </condition>
-        <type>material</type>
-        <object-name>ctl32.pwr</object-name>
-        <object-name>ctl32.vol</object-name>
-        <object-name>ctl32.tune.outer</object-name>
-        <object-name>ctl32.tune.inner</object-name>
-        <object-name>ctl32.toggle.lit</object-name>
-        <object-name>ctl32.btn.act</object-name>
-        <object-name>ctl32.btn.sto</object-name>
-        <object-name>ctl32.btn.test</object-name>
-        <emission>
-            <red>1</red>
-            <green>0.5</green>
-            <blue>0.3</blue>
-            <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
-        </emission>
-    </animation>
-
-    <effect>
-        <inherits-from>Effects/model-transparent</inherits-from>
-        <object-name>ctl32.glass</object-name>
-    </effect>
 
     <animation>
         <type>select</type>
@@ -143,8 +73,7 @@ Sascha Reißner
         </condition>
     </animation>
 
-  <!--    Memory Channel   -->
-
+<!--   Memory Channel   -->
     <animation>
         <type>select</type>
         <object-name>ctl32.mem</object-name>
@@ -330,7 +259,7 @@ Sascha Reißner
         </condition>
     </animation>
 
-<!-- unused parts in comm -->
+<!--   unused parts   -->
     <animation>
         <type>select</type>
         <object-name>ctl32.freq.dec2</object-name>
@@ -413,8 +342,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    Active Frequency   -->
-
+<!--   Active Frequency   -->
     <animation>
         <type>textranslate</type>
         <object-name>ctl32.freq.001</object-name>
@@ -525,8 +453,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    Preselected Frequency     -->
-
+<!--   Preselected Frequency   -->
     <animation>
         <type>textranslate</type>
         <object-name>ctl32.stby.001</object-name>
@@ -622,8 +549,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    OSG hotspots    -->
-
+<!--   OSG hotspots   -->
     <animation>
         <type>pick</type>
         <object-name>ctl32.toggle</object-name>
@@ -1636,5 +1562,74 @@ the centers are:
         </hovered>
     </animation>
 
-</PropertyList>
+<!-- Panel Lights (only with Rembrandt disabled) -->
+    <animation>
+        <type>material</type>
+        <condition>
+            <not>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
+        <object-name>ctl32.bezel</object-name>
+        <object-name>ctl32.metal</object-name>
+        <object-name>ctl32.toggle</object-name>
+        <emission>
+            <red>0.9</red>
+            <green>0.6</green>
+            <blue>0.4</blue>
+            <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+        </emission>
+    </animation>
 
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+    <animation>
+        <condition>
+            <and>
+                <property>systems/electrical/outputs/nav[0]</property>
+                <property>instrumentation/nav[0]/power-btn</property>
+            </and>
+        </condition>
+        <type>material</type>
+        <object-name>ctl32.pwr</object-name>
+        <object-name>ctl32.vol</object-name>
+        <object-name>ctl32.tune.outer</object-name>
+        <object-name>ctl32.tune.inner</object-name>
+        <object-name>ctl32.toggle.lit</object-name>
+        <object-name>ctl32.btn.act</object-name>
+        <object-name>ctl32.btn.sto</object-name>
+        <object-name>ctl32.btn.test</object-name>
+        <emission>
+            <red>0.8</red>
+            <green>0.8</green>
+            <blue>0.7</blue>
+            <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+        </emission>
+    </animation>
+
+    <effect>
+        <condition>
+            <greater-than>
+                <property>sim/version/flightgear</property>
+                <value>3.4.999</value>
+            </greater-than>
+        </condition>
+        <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+        <object-name>ctl32.bezel</object-name>
+        <object-name>ctl32.metal</object-name>
+        <object-name>ctl32.pwr</object-name>
+        <object-name>ctl32.vol</object-name>
+        <object-name>ctl32.tune.outer</object-name>
+        <object-name>ctl32.tune.inner</object-name>
+        <object-name>ctl32.toggle</object-name>
+        <object-name>ctl32.btn.act</object-name>
+        <object-name>ctl32.btn.sto</object-name>
+        <object-name>ctl32.btn.test</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>ctl32.glass</object-name>
+    </effect>
+
+</PropertyList>

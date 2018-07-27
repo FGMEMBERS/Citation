@@ -1,9 +1,9 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <!-- Collins CTL-22 Control for Collins VHF-22 tranceiver
 Active and preset displayed +
 6 frequency memory storage
 2.375"W x 2.625"H
-Freq. range 118.000 - 135.975 (normal) @ 25 kHz spacing
+Freq. range 118.000 - 136.975 (normal) @ 25 kHz spacing
 Syd Adams
 
 Update:
@@ -17,76 +17,6 @@ Sascha Reißner
 <PropertyList>
 
     <path>ctl22.ac</path>
-
-    <effect>
-        <condition>
-            <greater-than>
-                <property>sim/version/flightgear</property>
-                <value>3.4.999</value>
-            </greater-than>
-        </condition>
-        <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-        <object-name>ctl22.bezel</object-name>
-        <object-name>ctl22.metal</object-name>
-        <object-name>ctl22.pwr</object-name>
-        <object-name>ctl22.vol</object-name>
-        <object-name>ctl22.tune.outer</object-name>
-        <object-name>ctl22.tune.inner</object-name>
-        <object-name>ctl22.toggle</object-name>
-        <object-name>ctl22.btn.act</object-name>
-        <object-name>ctl22.btn.sto</object-name>
-        <object-name>ctl22.btn.test</object-name>
-    </effect>
-
-<!-- Panel Lights (only with Rembrandt disabled) -->
-    <animation>
-        <type>material</type>
-        <condition>
-            <not>
-                <property>sim/rendering/rembrandt/enabled</property>
-            </not>
-        </condition>
-        <object-name>ctl22.bezel</object-name>
-        <object-name>ctl22.metal</object-name>
-        <object-name>ctl22.toggle</object-name>
-        <emission>
-            <red>0.9</red>
-            <green>0.6</green>
-            <blue>0.4</blue>
-            <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
-        </emission>
-    </animation>
-
-<!-- Instrument Lights -->
-<!-- Implement emis animation even for Rembrandt rendering! -->
-    <animation>
-        <condition>
-            <and>
-                <property>systems/electrical/outputs/comm[0]</property>
-                <property>instrumentation/comm[0]/power-btn</property>
-            </and>
-        </condition>
-        <type>material</type>
-        <object-name>ctl22.pwr</object-name>
-        <object-name>ctl22.vol</object-name>
-        <object-name>ctl22.tune.outer</object-name>
-        <object-name>ctl22.tune.inner</object-name>
-        <object-name>ctl22.toggle.lit</object-name>
-        <object-name>ctl22.btn.act</object-name>
-        <object-name>ctl22.btn.sto</object-name>
-        <object-name>ctl22.btn.test</object-name>
-        <emission>
-            <red>1</red>
-            <green>0.5</green>
-            <blue>0.3</blue>
-            <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
-        </emission>
-    </animation>
-
-    <effect>
-        <inherits-from>Effects/model-transparent</inherits-from>
-        <object-name>ctl22.glass</object-name>
-    </effect>
 
     <animation>
         <type>select</type>
@@ -142,8 +72,7 @@ Sascha Reißner
         </condition>
     </animation>
 
-  <!--    Memory Channel   -->
-
+<!--   Memory Channel   -->
     <animation>
         <type>select</type>
         <object-name>ctl22.mem</object-name>
@@ -337,7 +266,7 @@ Sascha Reißner
         </condition>
     </animation>
 
-<!-- unused parts in comm -->
+<!--   unused parts   -->
     <animation>
         <type>select</type>
         <object-name>ctl22.freq.dec2</object-name>
@@ -419,8 +348,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    Active Frequency   -->
-
+<!--   Active Frequency   -->
     <animation>
         <type>textranslate</type>
         <object-name>ctl22.freq.001</object-name>
@@ -531,8 +459,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    Preselected Frequency     -->
-
+<!--   Preselected Frequency   -->
     <animation>
         <type>textranslate</type>
         <object-name>ctl22.stby.001</object-name>
@@ -628,8 +555,7 @@ the centers are:
         </axis>
     </animation>
 
-  <!--    OSG hotspots    -->
-
+<!--   OSG hotspots   -->
     <animation>
         <type>pick</type>
         <object-name>ctl22.toggle</object-name>
@@ -1037,7 +963,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1055,7 +981,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1111,7 +1037,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>-0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1129,7 +1055,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>-0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1154,7 +1080,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1172,7 +1098,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1197,7 +1123,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>-0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1215,7 +1141,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>-0.025</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1240,7 +1166,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1258,7 +1184,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1314,7 +1240,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>-1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1332,7 +1258,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>-1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1357,7 +1283,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1375,7 +1301,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1400,7 +1326,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
                 <step>-1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
             <binding>
@@ -1418,7 +1344,7 @@ the centers are:
                 <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
                 <step>-1.0</step>
                 <min>117.995</min>
-                <max>135.995</max>
+                <max>136.995</max>
                 <wrap>true</wrap>
             </binding>
         </action>
@@ -1641,5 +1567,81 @@ the centers are:
             </binding>
         </hovered>
     </animation>
+
+    <animation>
+        <type>material</type>
+        <texture alias="../../texture" />
+        <object-name>ctl22.bezel</object-name>
+    </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+    <animation>
+        <type>material</type>
+        <condition>
+            <not>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
+        <object-name>ctl22.bezel</object-name>
+        <object-name>ctl22.metal</object-name>
+        <object-name>ctl22.toggle</object-name>
+        <emission>
+            <red>0.9</red>
+            <green>0.6</green>
+            <blue>0.4</blue>
+            <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+        </emission>
+    </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+    <animation>
+        <type>material</type>
+        <condition>
+            <and>
+                <property>systems/electrical/outputs/comm[0]</property>
+                <property>instrumentation/comm[0]/power-btn</property>
+            </and>
+        </condition>
+        <object-name>ctl22.pwr</object-name>
+        <object-name>ctl22.vol</object-name>
+        <object-name>ctl22.tune.outer</object-name>
+        <object-name>ctl22.tune.inner</object-name>
+        <object-name>ctl22.toggle.lit</object-name>
+        <object-name>ctl22.btn.act</object-name>
+        <object-name>ctl22.btn.sto</object-name>
+        <object-name>ctl22.btn.test</object-name>
+        <emission>
+            <red>0.8</red>
+            <green>0.8</green>
+            <blue>0.7</blue>
+            <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+        </emission>
+    </animation>
+
+    <effect>
+        <condition>
+            <greater-than>
+                <property>sim/version/flightgear</property>
+                <value>3.4.999</value>
+            </greater-than>
+        </condition>
+        <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+        <object-name>ctl22.bezel</object-name>
+        <object-name>ctl22.metal</object-name>
+        <object-name>ctl22.pwr</object-name>
+        <object-name>ctl22.vol</object-name>
+        <object-name>ctl22.tune.outer</object-name>
+        <object-name>ctl22.tune.inner</object-name>
+        <object-name>ctl22.toggle</object-name>
+        <object-name>ctl22.btn.act</object-name>
+        <object-name>ctl22.btn.sto</object-name>
+        <object-name>ctl22.btn.test</object-name>
+    </effect>
+
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>ctl22.glass</object-name>
+    </effect>
 
 </PropertyList>
