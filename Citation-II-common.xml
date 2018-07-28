@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.7</aircraft-version>
+    <aircraft-version>4.1.8</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -590,6 +590,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <multiplay>
       <protocol-version type="int">2</protocol-version>
+      <fallback-model-index type="int">103</fallback-model-index>
       <generic>
         <bool type="bool" n="0" alias="/controls/human-models"/>
         <short type="int" n="0" alias="/systems/electrical/outputs/strobe"/>
