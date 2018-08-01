@@ -2,6 +2,52 @@
 
     <path>aoa.ac</path>
 
+    <animation>
+        <type>rotate</type>
+        <object-name>aoa.needle</object-name>
+        <property>orientation/alpha-deg</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>14</ind><dep>225</dep></entry>
+        </interpolation>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>-0</z>
+        </axis>
+    </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+    <animation>
+        <type>material</type>
+        <condition>
+            <not>
+                <property>sim/rendering/rembrandt/enabled</property>
+            </not>
+        </condition>
+        <object-name>aoa.bezel</object-name>
+        <emission>
+            <red>1.0</red>
+            <green>0.8</green>
+            <blue>0.6</blue>
+            <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+        </emission>
+    </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+    <animation>
+        <type>material</type>
+        <object-name>aoa.face</object-name>
+        <object-name>aoa.needle</object-name>
+        <emission>
+            <red>1.0</red>
+            <green>0.8</green>
+            <blue>0.6</blue>
+            <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+        </emission>
+    </animation>
+
     <effect>
         <condition>
             <greater-than>
@@ -10,24 +56,14 @@
             </greater-than>
         </condition>
         <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-        <object-name>AOA</object-name>
-        <object-name>AOA.face</object-name>
-        <object-name>AOA.needle</object-name>
+        <object-name>aoa.bezel</object-name>
+        <object-name>aoa.face</object-name>
+        <object-name>aoa.needle</object-name>
     </effect>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>AOA.needle</object-name>
-        <property>orientation/alpha-deg</property>
-        <interpolation>
-            <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>14</ind><dep>226.5</dep></entry>
-        </interpolation>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>-0</z>
-        </axis>
-    </animation>
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>aoa.glass</object-name>
+    </effect>
 
 </PropertyList>

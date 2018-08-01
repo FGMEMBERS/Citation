@@ -2,59 +2,58 @@
 
   <path>alt.ac</path>
 
-  <effect>
-    <condition>
-      <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
-      </greater-than>
-    </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>ALT</object-name>
-    <object-name>ALT.face</object-name>
-    <object-name>ALT.knob</object-name>
-    <object-name>ALT.needle</object-name>
-    <object-name>ALTneg</object-name>
-    <object-name>Alt10</object-name>
-    <object-name>Alt100</object-name>
-    <object-name>Alt1000</object-name>
-    <object-name>Alt10000</object-name>
-    <object-name>Cylinder</object-name>
-    <object-name>inhg01</object-name>
-    <object-name>inhg02</object-name>
-    <object-name>inhg03</object-name>
-    <object-name>inhg04</object-name>
-    <object-name>kpa01</object-name>
-    <object-name>kpa02</object-name>
-    <object-name>kpa03</object-name>
-    <object-name>kpa04</object-name>
-  </effect>
-
   <animation>
-    <type>select</type>
-    <object-name>ALTneg</object-name>
-    <condition>
-      <less-than>
-        <property>instrumentation/altimeter/indicated-altitude-ft</property>
-        <value>0</value>
-      </less-than>
-    </condition>
+    <type>translate</type>
+    <object-name>alt.10000.low</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <interpolation>
+      <entry><ind>10000.0</ind><dep>-0.012</dep></entry>
+      <entry><ind>9990.0</ind><dep>0.000</dep></entry>
+      <entry><ind>0.0</ind><dep>0.000</dep></entry>
+      <entry><ind>-10.0</ind><dep>0.012</dep></entry>
+    </interpolation>
+    <axis>
+       <x>0</x>
+       <y>0</y>
+       <z>1</z>
+    </axis>
   </animation>
 
   <animation>
-    <type>select</type>
-    <object-name>Alt10000</object-name>
-    <condition>
-      <greater-than>
-        <property>instrumentation/altimeter/indicated-altitude-ft</property>
-        <value>9999.999</value>
-      </greater-than>
-    </condition>
+    <type>translate</type>
+    <object-name>alt.1000.low</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <interpolation>
+      <entry><ind>1000.0</ind><dep>-0.012</dep></entry>
+      <entry><ind>990.0</ind><dep>0.000</dep></entry>
+      <entry><ind>0.0</ind><dep>0.000</dep></entry>
+      <entry><ind>-10.0</ind><dep>0.012</dep></entry>
+    </interpolation>
+    <axis>
+       <x>0</x>
+       <y>0</y>
+       <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>alt.neg</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-0.012</dep></entry>
+      <entry><ind>-10.0</ind><dep>0.000</dep></entry>
+    </interpolation>
+    <axis>
+       <x>0</x>
+       <y>0</y>
+       <z>1</z>
+    </axis>
   </animation>
 
   <animation>
     <type>rotate</type>
-    <object-name>ALT.needle</object-name>
+    <object-name>alt.needle</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.36</factor>
     <axis>
@@ -66,7 +65,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>Alt10</object-name>
+    <object-name>alt.10</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.01</factor>
     <axis>
@@ -78,7 +77,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>Alt100</object-name>
+    <object-name>alt.100</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.001</factor>
     <step>100</step>
@@ -92,7 +91,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>Alt1000</object-name>
+    <object-name>alt.1000</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.0001</factor>
     <step>1000</step>
@@ -106,7 +105,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>Alt10000</object-name>
+    <object-name>alt.10000</object-name>
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.00001</factor>
     <step>10000</step>
@@ -119,8 +118,28 @@
   </animation>
 
   <animation>
+    <type>rotate</type>
+    <object-name>alt.invalid</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>-10.0</ind><dep>90</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.001300</x-m>
+      <y-m>0.021000</y-m>
+      <z-m>0.010325</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
     <type>textranslate</type>
-    <object-name>inhg01</object-name>
+    <object-name>alt.inhg01</object-name>
     <property>instrumentation/altimeter/setting-inhg-display</property>
     <factor>0.0001</factor>
     <step>1000</step>
@@ -133,7 +152,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>inhg02</object-name>
+    <object-name>alt.inhg02</object-name>
     <property>instrumentation/altimeter/setting-inhg-display</property>
     <factor>0.001</factor>
     <step>100</step>
@@ -146,7 +165,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>inhg03</object-name>
+    <object-name>alt.inhg03</object-name>
     <property>instrumentation/altimeter/setting-inhg-display</property>
     <factor>0.01</factor>
     <step>10</step>
@@ -159,7 +178,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>inhg04</object-name>
+    <object-name>alt.inhg04</object-name>
     <property>instrumentation/altimeter/setting-inhg-display</property>
     <factor>0.1</factor>
     <step>1</step>
@@ -172,7 +191,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kpa01</object-name>
+    <object-name>alt.hpa01</object-name>
     <property>instrumentation/altimeter/setting-hpa-display</property>
     <factor>0.0001</factor>
     <step>1000</step>
@@ -185,7 +204,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kpa02</object-name>
+    <object-name>alt.hpa02</object-name>
     <property>instrumentation/altimeter/setting-hpa-display</property>
     <factor>0.001</factor>
     <step>100</step>
@@ -198,7 +217,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kpa03</object-name>
+    <object-name>alt.hpa03</object-name>
     <property>instrumentation/altimeter/setting-hpa-display</property>
     <factor>0.01</factor>
     <step>10</step>
@@ -211,7 +230,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kpa04</object-name>
+    <object-name>alt.hpa04</object-name>
     <property>instrumentation/altimeter/setting-hpa-display</property>
     <factor>0.1</factor>
     <step>1</step>
@@ -220,15 +239,37 @@
       <y>1</y>
       <z>0</z>
     </axis>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>alt.dh</object-name>
+    <condition>
+      <less-than>
+        <property>instrumentation/altimeter/indicated-altitude-ft</property>
+        <value>100000</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>alt.dh.lit</object-name>
+    <condition>
+      <greater-than>
+        <property>instrumentation/altimeter/indicated-altitude-ft</property>
+        <value>100000</value>
+      </greater-than>
+    </condition>
   </animation>
 
   <animation>
     <type>knob</type>
-    <object-name>ALT.knob</object-name>
+    <object-name>alt.knob</object-name>
     <center>
-      <x-m>0</x-m>
-      <y-m>-0.0276005</y-m>
-      <z-m>-0.0279795</z-m>
+      <x-m>0.000</x-m>
+      <y-m>-0.028</y-m>
+      <z-m>-0.028</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -236,7 +277,7 @@
       <z>0</z>
     </axis>
     <property>instrumentation/altimeter/setting-inhg</property>
-    <factor>100</factor>
+    <factor>500</factor>
     <action>
       <binding>
         <command>property-adjust</command>
@@ -259,5 +300,91 @@
       </binding>
     </hovered>
   </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>alt.bezel</object-name>
+    <object-name>alt.knob</object-name>
+    <object-name>alt.dh</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>alt.face</object-name>
+    <object-name>alt.needle</object-name>
+    <object-name>alt.invalid</object-name>
+    <object-name>alt.10</object-name>
+    <object-name>alt.100</object-name>
+    <object-name>alt.1000</object-name>
+    <object-name>alt.1000.low</object-name>
+    <object-name>alt.10000</object-name>
+    <object-name>alt.10000.low</object-name>
+    <object-name>alt.neg</object-name>
+    <object-name>alt.inhg01</object-name>
+    <object-name>alt.inhg02</object-name>
+    <object-name>alt.inhg03</object-name>
+    <object-name>alt.inhg04</object-name>
+    <object-name>alt.hpa01</object-name>
+    <object-name>alt.hpa02</object-name>
+    <object-name>alt.hpa03</object-name>
+    <object-name>alt.hpa04</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>alt.bezel</object-name>
+    <object-name>alt.face</object-name>
+    <object-name>alt.knob</object-name>
+    <object-name>alt.dh</object-name>
+    <object-name>alt.dh.lit</object-name>
+    <object-name>alt.needle</object-name>
+    <object-name>alt.invalid</object-name>
+    <object-name>alt.10</object-name>
+    <object-name>alt.100</object-name>
+    <object-name>alt.1000</object-name>
+    <object-name>alt.1000.low</object-name>
+    <object-name>alt.10000</object-name>
+    <object-name>alt.10000.low</object-name>
+    <object-name>alt.neg</object-name>
+    <object-name>alt.inhg01</object-name>
+    <object-name>alt.inhg02</object-name>
+    <object-name>alt.inhg03</object-name>
+    <object-name>alt.inhg04</object-name>
+    <object-name>alt.hpa01</object-name>
+    <object-name>alt.hpa02</object-name>
+    <object-name>alt.hpa03</object-name>
+    <object-name>alt.hpa04</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>alt.glass</object-name>
+  </effect>
 
 </PropertyList>

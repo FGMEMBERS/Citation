@@ -10,7 +10,7 @@ name "Btn1.1"
 loc 0 0 -0
 data 6
 Btn1.1
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -262,7 +262,7 @@ name "Btn1.2"
 loc 0 0 -0
 data 6
 Btn1.2
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -514,7 +514,7 @@ name "Btn1.3"
 loc 0 0 -0
 data 6
 Btn1.3
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -766,7 +766,7 @@ name "Btn1.4"
 loc 0 0 -0
 data 6
 Btn1.4
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -1018,7 +1018,7 @@ name "Btn2.1"
 loc 0 0 -0
 data 6
 Btn2.1
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 8
@@ -1079,7 +1079,7 @@ name "Btn2.2"
 loc 0 0 -0
 data 6
 Btn2.2
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 8
@@ -1140,7 +1140,7 @@ name "Btn2.3"
 loc 0 0 -0
 data 6
 Btn2.3
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 8
@@ -1201,7 +1201,7 @@ name "Btn2.4"
 loc 0 0 -0
 data 6
 Btn2.4
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 8
@@ -1262,7 +1262,7 @@ name "Btn2.5"
 loc 0 0 -0
 data 6
 Btn2.5
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 8
@@ -1323,7 +1323,7 @@ name "Btn3.1"
 loc 0 0 -0
 data 6
 Btn3.1
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -1575,7 +1575,7 @@ name "Btn3.2"
 loc 0 0 -0
 data 6
 Btn3.2
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -1827,7 +1827,7 @@ name "Btn3.3"
 loc 0 0 -0
 data 6
 Btn3.3
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -2079,7 +2079,7 @@ name "ColoRadar"
 loc 0 0 -0
 data 9
 ColoRadar
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 16
@@ -2190,7 +2190,7 @@ name "ColoRadar.screen"
 loc 0 0 -0
 data 16
 ColoRadar.screen
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 30.000001
 numvert 4
@@ -2212,7 +2212,7 @@ name "Knob.1"
 loc 0 0 -0
 data 6
 Knob.1
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33
@@ -2464,7 +2464,7 @@ name "Knob.2"
 loc 0 0 -0
 data 6
 Knob.2
-texture "radar.png"
+texture "wxradar.png"
 texrep 1.000000 1.000000
 crease 60.000002
 numvert 33

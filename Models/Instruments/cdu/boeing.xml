@@ -115,7 +115,7 @@
       <red>0.45</red>
       <green>0.3</green>
       <blue>0.2</blue>
-      <factor-prop>controls/lighting/panel-norm</factor-prop>
+      <factor-prop>controls/lighting/flightdeck-average-ambient-light-center-console</factor-prop>
     </emission>
   </animation>
 
@@ -197,7 +197,7 @@
       <red>0.45</red>
       <green>0.3</green>
       <blue>0.2</blue>
-      <factor>1</factor>
+      <factor-prop>controls/lighting/panel-norm</factor-prop>
     </emission>
   </animation>
 

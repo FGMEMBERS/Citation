@@ -1,8 +1,8 @@
 AC3Db
-MATERIAL "interior" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.200 0.200 0.200  shi 16 trans 0.000
+MATERIAL "interior" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 MATERIAL "lights" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 1.000 1.000 1.000  spec 0.000 0.000 0.000  shi 0 trans 0.000
 MATERIAL "Black" rgb 0.000 0.000 0.000  amb 0.000 0.000 0.000  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 0 trans 0.000
-MATERIAL "glass.red" rgb 0.150 0.000 0.000  amb 0.150 0.000 0.000  emis 0.000 0.000 0.000  spec 0.150 0.000 0.000  shi 96 trans 0.850
+MATERIAL "glass.red" rgb 0.100 0.000 0.000  amb 0.100 0.000 0.000  emis 0.000 0.000 0.000  spec 0.100 0.000 0.000  shi 96 trans 0.850
 OBJECT world
 name "altalerter.ac"
 kids 9

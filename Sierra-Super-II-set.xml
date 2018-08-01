@@ -74,6 +74,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <model>
       <variant type="int">1</variant> <!-- transmitted over multiplayer -->
+      <fallback-model-index type="int">104</fallback-model-index>
     </model>
   </sim>
   <autopilot>

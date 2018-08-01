@@ -2,43 +2,6 @@
 
   <path>FDpanel.ac</path>
 
-  <effect>
-    <condition>
-      <greater-than>
-        <property>sim/version/flightgear</property>
-        <value>3.4.999</value>
-      </greater-than>
-    </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>FD.bezel</object-name>
-    <object-name>FD.knob</object-name>
-    <object-name>FD.off</object-name>
-    <object-name>FD.off.lit</object-name>
-    <object-name>FD.hdg</object-name>
-    <object-name>FD.hdg.lit</object-name>
-    <object-name>FD.nav</object-name>
-    <object-name>FD.nav.lit</object-name>
-    <object-name>FD.apr</object-name>
-    <object-name>FD.apr.lit</object-name>
-    <object-name>FD.bc</object-name>
-    <object-name>FD.bc.lit</object-name>
-    <object-name>FD.navsel</object-name>
-    <object-name>FD.navsel1.lit</object-name>
-    <object-name>FD.navsel2.lit</object-name>
-    <object-name>FD.alt</object-name>
-    <object-name>FD.alt.lit</object-name>
-    <object-name>FD.altsel</object-name>
-    <object-name>FD.altsel.cap</object-name>
-    <object-name>FD.altsel.hld</object-name>
-    <object-name>FD.vnav</object-name>
-    <object-name>FD.vnav.lit</object-name>
-    <object-name>FD.vs</object-name>
-    <object-name>FD.vs.lit</object-name>
-    <object-name>FD.ias</object-name>
-    <object-name>FD.ias.cap</object-name>
-    <object-name>FD.ias.hld</object-name>
-  </effect>
-
   <animation>
     <type>select</type>
     <object-name>FD.off.lit</object-name>
@@ -601,5 +564,42 @@
       <factor-prop>controls/lighting/fdpanel-dim</factor-prop>
     </emission>
   </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>FD.bezel</object-name>
+    <object-name>FD.knob</object-name>
+    <object-name>FD.off</object-name>
+    <object-name>FD.off.lit</object-name>
+    <object-name>FD.hdg</object-name>
+    <object-name>FD.hdg.lit</object-name>
+    <object-name>FD.nav</object-name>
+    <object-name>FD.nav.lit</object-name>
+    <object-name>FD.apr</object-name>
+    <object-name>FD.apr.lit</object-name>
+    <object-name>FD.bc</object-name>
+    <object-name>FD.bc.lit</object-name>
+    <object-name>FD.navsel</object-name>
+    <object-name>FD.navsel1.lit</object-name>
+    <object-name>FD.navsel2.lit</object-name>
+    <object-name>FD.alt</object-name>
+    <object-name>FD.alt.lit</object-name>
+    <object-name>FD.altsel</object-name>
+    <object-name>FD.altsel.cap</object-name>
+    <object-name>FD.altsel.hld</object-name>
+    <object-name>FD.vnav</object-name>
+    <object-name>FD.vnav.lit</object-name>
+    <object-name>FD.vs</object-name>
+    <object-name>FD.vs.lit</object-name>
+    <object-name>FD.ias</object-name>
+    <object-name>FD.ias.cap</object-name>
+    <object-name>FD.ias.hld</object-name>
+  </effect>
 
 </PropertyList>

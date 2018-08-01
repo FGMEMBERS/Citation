@@ -5,8 +5,8 @@
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
     <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
@@ -56,7 +56,6 @@
     </condition>
   </animation>
 
-
   <animation>
     <type>select</type>
     <object-name>HSI.navflag</object-name>
@@ -95,21 +94,11 @@
     <object-name>HSI.crsdeflection</object-name>
     <object-name>HSI.toflag</object-name>
     <object-name>HSI.fromflag</object-name>
-    <property>orientation/heading-magnetic-deg</property>
+    <object-name>HSI.hdgbug</object-name>
+    <property alias="../../heading-deg"/>
     <axis>
       <x>1.0</x>
-      <y>0</y>
-      <z>0.0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
-    <object-name>HSI.navbrg</object-name>
-    <property>orientation/heading-deg</property>
-    <axis>
-      <x>1.0</x>
-      <y>0</y>
+      <y>0.0</y>
       <z>0.0</z>
     </axis>
   </animation>
@@ -123,7 +112,7 @@
     <property alias="../../inputs/radials/selected-filtered-deg"/>
     <axis>
       <x>-1.0</x>
-      <y>0</y>
+      <y>0.0</y>
       <z>0.0</z>
     </axis>
   </animation>
@@ -131,11 +120,10 @@
   <animation>
     <type>translate</type>
     <object-name>HSI.crsdeflection</object-name>
-    <property alias="../../inputs/hsi-loc-deflection"/>
+    <property alias="../../hsi-loc-deflection"/>
     <interpolation>
-      <entry><ind>-5.0</ind><dep>-0.0117</dep></entry>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>5.0</ind><dep>0.0117</dep></entry>
+      <entry><ind>-1.0</ind><dep>-0.0117</dep></entry>
+      <entry><ind>1.0</ind><dep>0.0117</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -147,7 +135,7 @@
   <animation>
     <type>rotate</type>
     <object-name>HSI.hdgbug</object-name>
-    <property>autopilot/internal/heading-bug-error-deg</property>
+    <property>autopilot/settings/heading-bug-deg</property>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -158,7 +146,7 @@
   <animation>
     <type>rotate</type>
     <object-name>HSI.navbrg</object-name>
-    <property alias="../../inputs/heading-filtered-deg"/>
+    <property alias="../../bearing-deg"/>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -169,11 +157,11 @@
   <animation>
     <type>translate</type>
     <object-name>HSI.gsneedle</object-name>
-    <property alias="../../inputs/hsi-gs-deflection"/>
+    <property alias="../../hsi-gs-deflection"/>
     <interpolation>
-      <entry><ind>-2.0</ind><dep>-0.0133</dep></entry>
+      <entry><ind>-1.0</ind><dep>-0.0133</dep></entry>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
-      <entry><ind>2.0</ind><dep>0.0133</dep></entry>
+      <entry><ind>1.0</ind><dep>0.0133</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>

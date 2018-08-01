@@ -1,6 +1,6 @@
 AC3Db
-MATERIAL "lights" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 1.000 1.000 1.000  spec 0.000 0.000 0.000  shi 64 trans 0.000
-MATERIAL "interior" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.200 0.200 0.200  shi 16 trans 0.000
+MATERIAL "lights" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 1.000 1.000 1.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
+MATERIAL "interior" rgb 1.000 1.000 1.000  amb 1.000 1.000 1.000  emis 0.000 0.000 0.000  spec 0.300 0.300 0.300  shi 32 trans 0.000
 OBJECT world
 name "annonpanel.ac"
 kids 36

@@ -1,24 +1,11 @@
-<?xml version="1.0"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <PropertyList>
 
   <path>vsi.ac</path>
 
-  <effect>
-    <condition>
-      <greater-than>
-        <property>sim/version/flightgear</property>
-        <value>3.4.999</value>
-      </greater-than>
-    </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>ASI320</object-name>
-    <object-name>VSI.face</object-name>
-    <object-name>VSI.needle</object-name>
-  </effect>
-
   <animation>
     <type>rotate</type>
-    <object-name>VSI.needle</object-name>
+    <object-name>vsi.needle</object-name>
     <property>autopilot/internal/vert-speed-fpm</property>
     <interpolation>
       <entry><ind>-6000.0</ind><dep>-170.0</dep></entry>
@@ -34,8 +21,57 @@
     <axis>
       <x>-1</x>
       <y>0</y>
-      <z>-0</z>
+      <z>0</z>
     </axis>
   </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>vsi.bezel</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>vsi.face</object-name>
+    <object-name>vsi.needle</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>vsi.bezel</object-name>
+    <object-name>vsi.face</object-name>
+    <object-name>vsi.needle</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vsi.glass</object-name>
+  </effect>
 
 </PropertyList>

@@ -18,14 +18,14 @@
             <property>sim/sound/Ovolume</property>
         </volume>
         <pitch>
-            <property>engines/engine/fan</property>
+            <property>engines/engine[0]/fan</property>
             <offset>0</offset>
             <factor>0.01</factor>
         </pitch>
         <position>
-            <x>10</x>
-            <y>1.3</y>
-            <z>1</z>
+            <x>10.30</x>
+            <y>-1.29</y>
+            <z>0.78</z>
         </position>
         <reference-dist>10.0</reference-dist>
         <max-dist>2000.0</max-dist>
@@ -50,30 +50,30 @@
             <factor>0.01</factor>
         </pitch>
         <position>
-            <x>10</x>
-            <y>-1.3</y>
-            <z>1</z>
+            <x>10.30</x>
+            <y>1.29</y>
+            <z>0.78</z>
         </position>
         <reference-dist>10.0</reference-dist>
         <max-dist>2000.0</max-dist>
     </engine>
 
     <engine>
-        <name>reverser</name>
+        <name>left reverser</name>
         <path>Sounds/exhaust_loop.wav</path>
         <condition>
             <greater-than>
-                <property>surface-positions/reverser-norm</property>
+                <property>surface-positions/reverser-norm[0]</property>
                 <value>0</value>
             </greater-than>
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>surface-positions/reverser-norm</property>
+            <property>surface-positions/reverser-norm[0]</property>
             <factor>0.5</factor>
         </volume>
         <volume>
-            <property>engines/engine/turbine</property>
+            <property>engines/engine[0]/turbine</property>
             <factor>0.01</factor>
         </volume>
         <volume>
@@ -83,9 +83,42 @@
             <offset>1.6</offset>
         </pitch>
         <position>
-            <x>12</x>
-            <y>0</y>
-            <z>1</z>
+            <x>10.60</x>
+            <y>-1.29</y>
+            <z>0.77</z>
+        </position>
+        <reference-dist>100.0</reference-dist>
+        <max-dist>1000.0</max-dist>
+    </engine>
+
+    <engine>
+        <name>right reverser</name>
+        <path>Sounds/exhaust_loop.wav</path>
+        <condition>
+            <greater-than>
+                <property>surface-positions/reverser-norm[1]</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        <mode>looped</mode>
+        <volume>
+            <property>surface-positions/reverser-norm[1]</property>
+            <factor>0.5</factor>
+        </volume>
+        <volume>
+            <property>engines/engine[1]/turbine</property>
+            <factor>0.01</factor>
+        </volume>
+        <volume>
+            <property>sim/sound/Ovolume</property>
+        </volume>
+        <pitch>
+            <offset>1.6</offset>
+        </pitch>
+        <position>
+            <x>10.60</x>
+            <y>1.29</y>
+            <z>0.77</z>
         </position>
         <reference-dist>100.0</reference-dist>
         <max-dist>1000.0</max-dist>
@@ -109,9 +142,9 @@
             <max>0.5</max>
         </volume>
         <position>
-            <x>5</x>
-            <y>0</y>
-            <z>-2</z>
+            <x>4.48</x>
+            <y>0.00</y>
+            <z>-1.00</z>
         </position>
         <reference-dist>10.0</reference-dist>
         <max-dist>50.0</max-dist>
@@ -130,7 +163,7 @@
         <position>
             <x>7</x>
             <y>0</y>
-            <z>-1</z>
+            <z>0</z>
         </position>
         <reference-dist>2.0</reference-dist>
         <max-dist>10.0</max-dist>
@@ -153,32 +186,53 @@
         </condition>
         <mode>once</mode>
         <position>
-            <x>5</x>
+            <x>7</x>
             <y>0</y>
-            <z>-1</z>
+            <z>0</z>
         </position>
         <reference-dist>2.0</reference-dist>
         <max-dist>10.0</max-dist>
     </gear>
 
-    <gear>
+<!--prepare for new gearcontol -->
+    <!--gear> 
         <name>gear-horn</name>
         <type>avionics</type>
-        <path>Sounds/gear-hrn.wav</path>
+        <path>Aircraft/Citation/Sounds/gear-warn.wav</path>
         <condition>
-            <property>instrumentation/alerts/gear-horn</property>
+            <property>controls/gear/warn-horn</property>
+            <not><property>controls/gear/warn-silence</property></not>
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>instrumentation/alerts/gear-horn</property>
+            <property>controls/gear/warn-horn</property>
             <factor>0.7</factor>
         </volume>
         <position>
-            <x>2.5</x>
-            <y>0</y>
-            <z>0</z>
+            <x>2.90</x>
+            <y>0.00</y>
+            <z>1.20</z>
         </position>
-    </gear>
+    </gear-->
+
+    <speed>
+        <name>overspeed-horn</name>
+        <type>avionics</type>
+        <path>Aircraft/Citation/Sounds/speed-warn.wav</path>
+        <condition>
+            <property>controls/electric/overspeed-horn</property>
+        </condition>
+        <mode>looped</mode>
+        <volume>
+            <property>controls/electric/overspeed-horn</property>
+            <factor>0.7</factor>
+        </volume>
+        <position>
+            <x>2.90</x>
+            <y>0.00</y>
+            <z>1.20</z>
+        </position>
+    </speed>
 
     <squeal>
         <name>squeal</name>
@@ -198,14 +252,13 @@
             <property>sim/sound/Ovolume</property>
         </volume>
         <position>
-            <x>3</x>
-            <y>0</y>
-            <z>-2</z>
+            <x>4.48</x>
+            <y>0.00</y>
+            <z>-1.00</z>
         </position>
         <reference-dist>10.0</reference-dist>
         <max-dist>1000.0</max-dist>
     </squeal>
-
 
     <flap>
         <name>flaps</name>
@@ -217,9 +270,9 @@
             <factor>0.5</factor>
         </volume>
         <position>
-            <x>7</x>
-            <y>0</y>
-            <z>-1</z>
+            <x>8.10</x>
+            <y>0.00</y>
+            <z>-0.05</z>
         </position>
         <reference-dist>2.0</reference-dist>
         <max-dist>10.0</max-dist>
@@ -238,9 +291,9 @@
             <offset>1.5</offset>
         </pitch>
         <position>
-            <x>7</x>
-            <y>0</y>
-            <z>-1</z>
+            <x>7.70</x>
+            <y>0.00</y>
+            <z>0.10</z>
         </position>
         <reference-dist>2.0</reference-dist>
         <max-dist>10.0</max-dist>
@@ -254,8 +307,8 @@
         <volume>
             <property>velocities/airspeed-kt</property>
             <factor>0.002</factor>
-            <min>0.0</min>
-            <max>0.15</max>
+            <min>0.00</min>
+            <max>0.05</max>
         </volume>
         <pitch>
             <property>velocities/airspeed-kt</property>
@@ -263,11 +316,11 @@
             <offset>1.25</offset>
         </pitch>
         <position>
-            <x>2</x>
-            <y>0</y>
-            <z>0</z>
+            <x>2.90</x>
+            <y>0.00</y>
+            <z>1.20</z>
         </position>
-        <reference-dist>1</reference-dist>
+        <reference-dist>0.1</reference-dist>
         <max-dist>5.0</max-dist>
     </wind>
 

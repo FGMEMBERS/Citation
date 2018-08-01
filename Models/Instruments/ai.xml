@@ -108,7 +108,7 @@
     <animation>
         <type>translate</type>
         <object-name>LOC.needle</object-name>
-        <property>instrumentation/nav/ai-loc-deflection</property>
+        <property>instrumentation/nav/localizer-deflection</property>
         <interpolation>
             <entry><ind>-5.0</ind><dep>-0.0124</dep></entry>
             <entry><ind>0.0</ind><dep>0</dep></entry>
@@ -124,7 +124,7 @@
     <animation>
         <type>translate</type>
         <object-name>AI.gsneedle</object-name>
-        <property>instrumentation/nav/ai-gs-deflection</property>
+        <property>instrumentation/nav/glideslope-deflection</property>
         <interpolation>
             <entry><ind>-2.0</ind><dep>-0.0155</dep></entry>
             <entry><ind>0.0</ind><dep>0.0</dep></entry>

@@ -28,9 +28,7 @@
                    [ "gear/gear[0]/rollspeed-ms",                       "float[11]" ],
                    [ "gear/gear[1]/rollspeed-ms",                       "float[12]" ],
                    [ "gear/gear[2]/rollspeed-ms",                       "float[13]" ],
-                   [ "gear/gear[0]/compression-m",                      "float[14]" ],
-                   [ "gear/gear[1]/compression-m",                      "float[15]" ],
-                   [ "gear/gear[2]/compression-m",                      "float[16]" ]];
+      ];
 
       foreach (var row; table) {
         r.getNode (row[0], 1).alias (r.getNode ("sim/multiplay/generic/" ~ row[1]));
@@ -228,8 +226,10 @@
     <object-name>wing.right.heater.root</object-name>
     <object-name>wing.right.heater.center</object-name>
 
-    <object-name>recog.left</object-name>
-    <object-name>recog.right</object-name>
+    <object-name>recog.left.inside1</object-name>
+    <object-name>recog.left.inside2</object-name>
+    <object-name>recog.right.inside1</object-name>
+    <object-name>recog.right.inside2</object-name>
 
     <object-name>door.handle</object-name>
     <object-name>pitot.tubes</object-name>
@@ -238,12 +238,12 @@
     <object-name>gear.nose.piston</object-name>
     <object-name>gear.nose.strut</object-name>
 
-    <object-name>gear.left.light</object-name>
+    <object-name>gear.left.light.inside</object-name>
     <object-name>gear.left.piston</object-name>
     <object-name>gear.left.strut</object-name>
     <object-name>gear.left.uplock</object-name>
 
-    <object-name>gear.right.light</object-name>
+    <object-name>gear.right.light.inside</object-name>
     <object-name>gear.right.piston</object-name>
     <object-name>gear.right.strut</object-name>
     <object-name>gear.right.uplock</object-name>
@@ -315,17 +315,27 @@
     <object-name>window.glass</object-name>
     <object-name>recog.left.glass</object-name>
     <object-name>recog.right.glass</object-name>
+    <object-name>gear.left.light.glass</object-name>
+    <object-name>gear.right.light.glass</object-name>
 
-    <object-name>nav.red.light.blend</object-name>
-    <object-name>nav.green.light.blend</object-name>
-    <object-name>nav.white.light.blend</object-name>
+    <object-name>nav.red.light</object-name>
+    <object-name>nav.red.light.corona</object-name>
+    <object-name>nav.green.light</object-name>
+    <object-name>nav.green.light.corona</object-name>
+    <object-name>nav.white.light</object-name>
+    <object-name>nav.white.light.corona</object-name>
     <object-name>beacon.light</object-name>
-    <object-name>recog.left.light</object-name>
-    <object-name>recog.right.light</object-name>
+    <object-name>beacon.light.corona</object-name>
+    <object-name>recog.left.corona</object-name>
+    <object-name>recog.left.dazzle</object-name>
+    <object-name>recog.right.corona</object-name>
+    <object-name>recog.right.dazzle</object-name>
     <object-name>strobe.left.light</object-name>
     <object-name>strobe.right.light</object-name>
-    <object-name>landing.left.light</object-name>
-    <object-name>landing.right.light</object-name>
+    <object-name>landing.left.corona</object-name>
+    <object-name>landing.left.dazzle</object-name>
+    <object-name>landing.right.corona</object-name>
+    <object-name>landing.right.dazzle</object-name>
   </effect>
 
   <!-- ALS cockpit glass effect (reflection cube, rain, frost, fog) -->
@@ -462,9 +472,12 @@
 
   <animation>
     <type>select</type>
-    <object-name>nav.red.light.blend</object-name>
-    <object-name>nav.green.light.blend</object-name>
-    <object-name>nav.white.light.blend</object-name>
+    <object-name>nav.red.light</object-name>
+    <object-name>nav.red.light.corona</object-name>
+    <object-name>nav.green.light</object-name>
+    <object-name>nav.green.light.corona</object-name>
+    <object-name>nav.white.light</object-name>
+    <object-name>nav.white.light.corona</object-name>
     <condition>
       <equals>
         <property>/sim/rendering/shaders/skydome</property>
@@ -514,13 +527,9 @@
     <object-name>nav.green.on</object-name>
     <object-name>nav.green.off</object-name>
     <object-name>nav-green-light</object-name>
-    <object-name>nav.green.light.blend</object-name>
+    <object-name>nav.green.light</object-name>
+    <object-name>nav.green.light.corona</object-name>
     <object-name>recog.right</object-name>
-    <object-name>recog.right.blend</object-name>
-    <object-name>recog.right.glass</object-name>
-    <object-name>recog.right.light</object-name>
-    <object-name>strobe.right.light</object-name>
-    <object-name>landing.right.light</object-name>
 
     <axis>
       <x1-m>6.58084</x1-m>
@@ -541,12 +550,10 @@
     <object-name>nav.green.on</object-name>
     <object-name>nav.green.off</object-name>
     <object-name>nav-green-light</object-name>
-    <object-name>nav.green.light.blend</object-name>
+    <object-name>nav.green.light</object-name>
+    <object-name>nav.green.light.corona</object-name>
     <object-name>recog.right</object-name>
-    <object-name>recog.right.blend</object-name>
-    <object-name>recog.right.glass</object-name>
-    <object-name>recog.right.light</object-name>
-    <object-name>strobe.right.light</object-name>
+
     <axis>
       <x1-m>6.70880</x1-m>
       <y1-m>4.45147</y1-m>
@@ -601,13 +608,9 @@
     <object-name>nav.red.on</object-name>
     <object-name>nav.red.off</object-name>
     <object-name>nav-red-light</object-name>
-    <object-name>nav.red.light.blend</object-name>
+    <object-name>nav.red.light</object-name>
+    <object-name>nav.red.light.corona</object-name>
     <object-name>recog.left</object-name>
-    <object-name>recog.left.blend</object-name>
-    <object-name>recog.left.glass</object-name>
-    <object-name>recog.left.light</object-name>
-    <object-name>strobe.left.light</object-name>
-    <object-name>landing.left.light</object-name>
     <axis>
       <x1-m>6.58084</x1-m>
       <y1-m>-1.58536</y1-m>
@@ -628,12 +631,9 @@
     <object-name>nav.red.on</object-name>
     <object-name>nav.red.off</object-name>
     <object-name>nav-red-light</object-name>
-    <object-name>nav.red.light.blend</object-name>
+    <object-name>nav.red.light</object-name>
+    <object-name>nav.red.light.corona</object-name>
     <object-name>recog.left</object-name>
-    <object-name>recog.left.blend</object-name>
-    <object-name>recog.left.glass</object-name>
-    <object-name>recog.left.light</object-name>
-    <object-name>strobe.left.light</object-name>
     <axis>
       <x1-m>6.70880</x1-m>
       <y1-m>-4.45147</y1-m>
@@ -903,6 +903,7 @@
     <object-name>beacon.on</object-name>
     <object-name>beacon.off</object-name>
     <object-name>beacon.light</object-name>
+    <object-name>beacon.light.corona</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <factor>22</factor>
     <axis>
@@ -1296,9 +1297,10 @@
   <animation>
     <type>select</type>
     <object-name>engine.left.fan.slow</object-name>
+    <object-name>engine.left.turbine.slow</object-name>
     <condition>
       <less-than>
-        <property>engines/engine/fan</property>
+        <property>engines/engine/fan-spin</property>
         <value>20</value>
       </less-than>
     </condition>
@@ -1306,14 +1308,15 @@
   <animation>
     <type>select</type>
     <object-name>engine.left.fan.medium</object-name>
+    <object-name>engine.left.turbine.medium</object-name>
     <condition>
       <and>
         <greater-than>
-          <property>engines/engine/fan</property>
+          <property>engines/engine/fan-spin</property>
           <value>20</value>
         </greater-than>
         <less-than>
-          <property>engines/engine/fan</property>
+          <property>engines/engine/fan-spin</property>
           <value>40</value>
         </less-than>
       </and>
@@ -1322,46 +1325,10 @@
   <animation>
     <type>select</type>
     <object-name>engine.left.fan.fast</object-name>
-    <condition>
-      <greater-than>
-        <property>engines/engine/fan</property>
-        <value>40</value>
-      </greater-than>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>engine.left.turbine.slow</object-name>
-    <condition>
-      <less-than>
-        <property>engines/engine/fan</property>
-        <value>20</value>
-      </less-than>
-    </condition>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>engine.left.turbine.medium</object-name>
-    <condition>
-      <and>
-        <greater-than>
-          <property>engines/engine/fan</property>
-          <value>20</value>
-        </greater-than>
-        <less-than>
-          <property>engines/engine/fan</property>
-          <value>40</value>
-        </less-than>
-      </and>
-    </condition>
-  </animation>
-  <animation>
-    <type>select</type>
     <object-name>engine.left.turbine.fast</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine/fan</property>
+        <property>engines/engine/fan-spin</property>
         <value>40</value>
       </greater-than>
     </condition>
@@ -1370,9 +1337,10 @@
   <animation>
     <type>select</type>
     <object-name>engine.right.fan.slow</object-name>
+    <object-name>engine.right.turbine.slow</object-name>
     <condition>
       <less-than>
-        <property>engines/engine[1]/fan</property>
+        <property>engines/engine[1]/fan-spin</property>
         <value>20</value>
       </less-than>
     </condition>
@@ -1380,14 +1348,15 @@
   <animation>
     <type>select</type>
     <object-name>engine.right.fan.medium</object-name>
+    <object-name>engine.right.turbine.medium</object-name>
     <condition>
       <and>
         <greater-than>
-          <property>engines/engine[1]/fan</property>
+          <property>engines/engine[1]/fan-spin</property>
           <value>20</value>
         </greater-than>
         <less-than>
-          <property>engines/engine[1]/fan</property>
+          <property>engines/engine[1]/fan-spin</property>
           <value>40</value>
         </less-than>
       </and>
@@ -1396,46 +1365,10 @@
   <animation>
     <type>select</type>
     <object-name>engine.right.fan.fast</object-name>
-    <condition>
-      <greater-than>
-        <property>engines/engine[1]/fan</property>
-        <value>40</value>
-      </greater-than>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>engine.right.turbine.slow</object-name>
-    <condition>
-      <less-than>
-        <property>engines/engine[1]/fan</property>
-        <value>20</value>
-      </less-than>
-    </condition>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>engine.right.turbine.medium</object-name>
-    <condition>
-      <and>
-        <greater-than>
-          <property>engines/engine[1]/fan</property>
-          <value>20</value>
-        </greater-than>
-        <less-than>
-          <property>engines/engine[1]/fan</property>
-          <value>40</value>
-        </less-than>
-      </and>
-    </condition>
-  </animation>
-  <animation>
-    <type>select</type>
     <object-name>engine.right.turbine.fast</object-name>
     <condition>
       <greater-than>
-        <property>engines/engine[1]/fan</property>
+        <property>engines/engine[1]/fan-spin</property>
         <value>40</value>
       </greater-than>
     </condition>
@@ -1446,34 +1379,15 @@
     <object-name>engine.left.fan.slow</object-name>
     <object-name>engine.left.fan.medium</object-name>
     <object-name>engine.left.fan.fast</object-name>
-    <property>engines/engine/fan</property>
-    <factor>10</factor>
+    <object-name>engine.left.turbine.slow</object-name>
+    <object-name>engine.left.turbine.medium</object-name>
+    <object-name>engine.left.turbine.fast</object-name>
+    <property>engines/engine/fan-spin</property>
+    <factor>159</factor>
     <center>
       <x-m>8.32034</x-m>
       <y-m>-1.28875</y-m>
       <z-m>0.84913</z-m>
-    </center>
-    <axis>
-      <x1-m>8.32034</x1-m>
-      <y1-m>-1.28875</y1-m>
-      <z1-m>0.84913</z1-m>
-      <x2-m>10.04429</x2-m>
-      <y2-m>-1.28875</y2-m>
-      <z2-m>0.78893</z2-m>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>spin</type>
-    <object-name>engine.left.turbine.slow</object-name>
-    <object-name>engine.left.turbine.medium</object-name>
-    <object-name>engine.left.turbine.fast</object-name>
-    <property>engines/engine/fan</property>
-    <factor>10</factor>
-    <center>
-      <x-m>10.04429</x-m>
-      <y-m>-1.28875</y-m>
-      <z-m>0.78893</z-m>
     </center>
     <axis>
       <x1-m>8.32034</x1-m>
@@ -1490,34 +1404,15 @@
     <object-name>engine.right.fan.slow</object-name>
     <object-name>engine.right.fan.medium</object-name>
     <object-name>engine.right.fan.fast</object-name>
-    <property>engines/engine[1]/fan</property>
-    <factor>10</factor>
+    <object-name>engine.right.turbine.slow</object-name>
+    <object-name>engine.right.turbine.medium</object-name>
+    <object-name>engine.right.turbine.fast</object-name>
+    <property>engines/engine[1]/fan-spin</property>
+    <factor>159</factor>
     <center>
       <x-m>8.32034</x-m>
       <y-m>1.28875</y-m>
       <z-m>0.84913</z-m>
-    </center>
-    <axis>
-      <x1-m>8.32034</x1-m>
-      <y1-m>1.28875</y1-m>
-      <z1-m>0.84913</z1-m>
-      <x2-m>10.04429</x2-m>
-      <y2-m>1.28875</y2-m>
-      <z2-m>0.78893</z2-m>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>spin</type>
-    <object-name>engine.right.turbine.slow</object-name>
-    <object-name>engine.right.turbine.medium</object-name>
-    <object-name>engine.right.turbine.fast</object-name>
-    <property>engines/engine[1]/fan</property>
-    <factor>10</factor>
-    <center>
-      <x-m>10.04429</x-m>
-      <y-m>1.28875</y-m>
-      <z-m>0.78893</z-m>
     </center>
     <axis>
       <x1-m>8.32034</x1-m>
@@ -1536,7 +1431,7 @@
     <object-name>engine.left.rev.link.up.long</object-name>
     <object-name>engine.left.rev.up.door</object-name>
     <object-name>engine.left.rev.up.joint</object-name>
-    <property>surface-positions/reverser-norm</property>
+    <property>surface-positions/reverser-norm[0]</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.30053</x-m>
@@ -1620,7 +1515,7 @@
     <object-name>engine.left.rev.link.down.long</object-name>
     <object-name>engine.left.rev.down.door</object-name>
     <object-name>engine.left.rev.down.joint</object-name>
-    <property>surface-positions/reverser-norm</property>
+    <property>surface-positions/reverser-norm[0]</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.29774</x-m>
@@ -1704,7 +1599,7 @@
     <object-name>engine.right.rev.link.up.long</object-name>
     <object-name>engine.right.rev.up.door</object-name>
     <object-name>engine.right.rev.up.joint</object-name>
-    <property>surface-positions/reverser-norm</property>
+    <property>surface-positions/reverser-norm[1]</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.30053</x-m>
@@ -1788,7 +1683,7 @@
     <object-name>engine.right.rev.link.down.long</object-name>
     <object-name>engine.right.rev.down.door</object-name>
     <object-name>engine.right.rev.down.joint</object-name>
-    <property>surface-positions/reverser-norm</property>
+    <property>surface-positions/reverser-norm[1]</property>
     <factor>128.25</factor>
     <center>
       <x-m>10.29774</x-m>
@@ -2166,7 +2061,8 @@
     <object-name>gear.nose.fitting.lock</object-name>
     <object-name>gear.nose.torquelink.down</object-name>
     <object-name>gear.nose.wheel</object-name>
-    <property>gear/gear[0]/compression-m</property>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>0.2</factor>
     <axis>
       <x>1</x>
       <y>0</y>
@@ -2631,7 +2527,8 @@
     <object-name>gear.left.fitting</object-name>
     <object-name>gear.left.wheel</object-name>
     <object-name>gear.left.torquelink.down</object-name>
-    <property>gear/gear[1]/compression-m</property>
+    <property>gear/gear[1]/compression-norm</property>
+    <factor>0.2</factor>
     <axis>
       <x>0</x>
       <y>-1</y>
@@ -2642,9 +2539,8 @@
   <animation>
     <type>locked-track</type>
     <object-name>gear.left.door</object-name>
-    <object-name>gear.left.light</object-name>
     <object-name>gear.left.door.rod</object-name>
-    <object-name>landing.left.light</object-name>
+    <object-name>gear.left.light</object-name>
     <center>
       <x-m>7.2325</x-m>
       <y-m>-2.69</y-m>
@@ -2925,7 +2821,8 @@
     <object-name>gear.right.fitting</object-name>
     <object-name>gear.right.wheel</object-name>
     <object-name>gear.right.torquelink.down</object-name>
-    <property>gear/gear[2]/compression-m</property>
+    <property>gear/gear[2]/compression-norm</property>
+    <factor>0.2</factor>
     <axis>
       <x>0</x>
       <y>1</y>
@@ -2936,9 +2833,8 @@
   <animation>
     <type>locked-track</type>
     <object-name>gear.right.door</object-name>
-    <object-name>gear.right.light</object-name>
     <object-name>gear.right.door.rod</object-name>
-    <object-name>landing.right.light</object-name>
+    <object-name>gear.right.light</object-name>
     <center>
       <x-m>7.2325</x-m>
       <y-m>2.69</y-m>
@@ -3182,21 +3078,20 @@
     </target-center>
   </animation>
 
-  <!-- Lights -->
+<!-- nav lights -->
 
   <animation>
     <type>select</type>
     <object-name>nav.red.on</object-name>
     <object-name>nav.green.on</object-name>
     <object-name>nav.white.on</object-name>
-<!--
+
     <object-name>nav.red.light</object-name>
+    <object-name>nav.red.light.corona</object-name>
     <object-name>nav.green.light</object-name>
+    <object-name>nav.green.light.corona</object-name>
     <object-name>nav.white.light</object-name>
--->
-    <object-name>nav.red.light.blend</object-name>
-    <object-name>nav.green.light.blend</object-name>
-    <object-name>nav.white.light.blend</object-name>
+    <object-name>nav.white.light.corona</object-name>
 
     <object-name>nav-red-light</object-name>
     <object-name>nav-green-light</object-name>
@@ -3215,131 +3110,337 @@
         <not><property>systems/electrical/outputs/nav-lights</property></not>
     </condition>
   </animation>
-<!--
-  <animation>
-    <type>translate</type>
-    <object-name>nav.red.light</object-name>
-    <offset-m>10.402045</offset-m>
-    <axis>
-      <x>0.660447</x>
-      <y>-0.749853</y>
-      <z>0.039127</z>
-    </axis>
-  </animation>
 
-  <animation>
-    <type>billboard</type>
-    <object-name>nav.red.light</object-name>
-  </animation>
+<!-- nav red light -->
 
-  <animation>
-    <type>dist-scale</type>
-    <object-name>nav.red.light</object-name>
-    <factor>0.01</factor>
-    <offset>1.0</offset>
-    <min>1.0</min>
-    <max>100.0</max>
-  </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>nav.red.light</object-name>
+        <offset-m>10.401161</offset-m>
+        <axis>
+            <x>0.661465</x>
+            <y>-0.748955</y>
+            <z>0.039130</z>
+        </axis>
+    </animation>
 
-  <animation>
-    <type>translate</type>
-    <object-name>nav.green.light</object-name>
-    <offset-m>10.402045</offset-m>
-    <axis>
-      <x>0.660447</x>
-      <y>0.749853</y>
-      <z>0.039127</z>
-    </axis>
-  </animation>
+    <animation>
+        <type>billboard</type>
+        <object-name>nav.red.light</object-name>
+    </animation>
 
-  <animation>
-    <type>billboard</type>
-    <object-name>nav.green.light</object-name>
-  </animation>
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav.red.light</object-name>
+        <factor>0.005</factor>
+        <min>1</min>
+        <max>10.0</max>
+    </animation>
 
-  <animation>
-    <type>dist-scale</type>
-    <object-name>nav.green.light</object-name>
-    <factor>0.01</factor>
-    <offset>1.0</offset>
-    <min>1.0</min>
-    <max>100.0</max>
-  </animation>
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav-red-light</object-name>
+        <factor>0.005</factor>
+        <min>1.0</min>
+        <max>10.0</max>
+        <center>
+            <x-m>6.88</x-m>
+            <y-m>-7.79</y-m>
+            <z-m>0.407</z-m>
+        </center>
+    </animation>
 
-  <animation>
-    <type>translate</type>
-    <object-name>nav.white.light</object-name>
-    <offset-m>13.770988</offset-m>
-    <axis>
-      <x>0.998476</x>
-      <y>0.0</y>
-      <z>0.055188</z>
-    </axis>
-  </animation>
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav.red.light.corona</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>10</max>
+        <center>
+            <x-m>6.88</x-m>
+            <y-m>-7.79</y-m>
+            <z-m>0.407</z-m>
+        </center>
+    </animation>
 
-  <animation>
-    <type>billboard</type>
-    <object-name>nav.white.light</object-name>
-  </animation>
+    <animation>
+        <type>flash</type>
+        <object-name>nav.red.light.corona</object-name>
+        <offset>0</offset>
+        <factor>5.5</factor>
+        <power>2</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.3</min>
+        <max>1.0</max>
+        <center>
+            <x-m>6.88</x-m>
+            <y-m>-7.79</y-m>
+            <z-m>0.407</z-m>
+        </center>
+        <axis>
+            <x>-0.573576</x>
+            <y>-0.819152</y>
+            <z>0</z>
+        </axis>
+    </animation>
 
-  <animation>
-    <type>dist-scale</type>
-    <object-name>nav.white.light</object-name>
-    <factor>0.01</factor>
-    <offset>1.0</offset>
-    <min>1.0</min>
-    <max>100.0</max>
-  </animation>
--->
-  <animation>
-    <type>select</type>
-    <object-name>beacon.on</object-name>
-    <object-name>beacon.light</object-name>
-    <condition>
-        <property>systems/electrical/outputs/beacon</property>
-    </condition>
-  </animation>
+<!-- nav green light -->
 
-  <animation>
-    <type>select</type>
-    <object-name>beacon.off</object-name>
-    <condition>
-        <not><property>systems/electrical/outputs/beacon</property></not>
-    </condition>
-  </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>nav.green.light</object-name>
+        <offset-m>10.401161</offset-m>
+        <axis>
+            <x>0.661465</x>
+            <y>0.748955</y>
+            <z>0.039130</z>
+        </axis>
+    </animation>
 
-  <animation>
-    <type>translate</type>
-    <object-name>beacon.light</object-name>
-    <offset-m>14.279</offset-m>
-    <axis>
-      <x>0.96749</x>
-      <y>0.0</y>
-      <z>0.25291</z>
-    </axis>
-  </animation>
+    <animation>
+        <type>billboard</type>
+        <object-name>nav.green.light</object-name>
+    </animation>
 
-  <animation>
-    <type>billboard</type>
-    <object-name>beacon.light</object-name>
-  </animation>
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav.green.light</object-name>
+        <factor>0.005</factor>
+        <min>1</min>
+        <max>10</max>
+    </animation>
 
-  <animation>
-    <type>dist-scale</type>
-    <object-name>beacon.light</object-name>
-    <factor>0.01</factor>
-    <offset>1.0</offset>
-    <min>1.0</min>
-    <max>100.0</max>
-  </animation>
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav-green-light</object-name>
+        <factor>0.005</factor>
+        <min>1.0</min>
+        <max>10.0</max>
+        <center>
+            <x-m>6.88</x-m>
+            <y-m>7.79</y-m>
+            <z-m>0.407</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav.green.light.corona</object-name>
+        <factor>0.01</factor>
+        <min>1.0</min>
+        <max>10.0</max>
+        <center>
+            <x-m>6.88</x-m>
+            <y-m>7.79</y-m>
+            <z-m>0.407</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>nav.green.light.corona</object-name>
+        <offset>0</offset>
+        <factor>5.5</factor>
+        <power>2</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.3</min>
+        <max>1.0</max>
+        <center>
+            <x-m>6.88</x-m>
+            <y-m>7.79</y-m>
+            <z-m>0.407</z-m>
+        </center>
+        <axis>
+            <x>-0.573576</x>
+            <y>0.819152</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- nav white light -->
+
+    <animation>
+        <type>translate</type>
+        <object-name>nav.white.light</object-name>
+        <offset-m>13.741</offset-m>
+        <axis>
+          <x>0.998469</x>
+          <y>0.0</y>
+          <z>0.055309</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>billboard</type>
+        <object-name>nav.white.light</object-name>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav.white.light</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>10</max>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav-white-light</object-name>
+        <factor>0.005</factor>
+        <min>1.0</min>
+        <max>10.0</max>
+        <center>
+            <x-m>13.72</x-m>
+            <y-m>0.00</y-m>
+            <z-m>0.76</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>nav.white.light.corona</object-name>
+        <factor>0.01</factor>
+        <min>1.0</min>
+        <max>10.0</max>
+        <center>
+            <x-m>13.72</x-m>
+            <y-m>0.00</y-m>
+            <z-m>0.76</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>nav.white.light.corona</object-name>
+        <offset>0</offset>
+        <factor>6</factor>
+        <power>2</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.3</min>
+        <max>1.0</max>
+        <center>
+            <x-m>13.72</x-m>
+            <y-m>0.00</y-m>
+            <z-m>0.76</z-m>
+        </center>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- beacon light -->
+
+    <animation>
+        <type>select</type>
+        <object-name>beacon.on</object-name>
+        <object-name>beacon.light</object-name>
+        <object-name>beacon.light.corona</object-name>
+        <condition>
+            <property>systems/electrical/outputs/beacon</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>beacon.off</object-name>
+        <condition>
+            <not><property>systems/electrical/outputs/beacon</property></not>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>beacon.light</object-name>
+        <offset-m>14.279</offset-m>
+        <axis>
+            <x>0.96749</x>
+            <y>0.0</y>
+            <z>0.25291</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>billboard</type>
+        <object-name>beacon.light</object-name>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>beacon.light</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>10</max>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>beacon.light.corona</object-name>
+        <expression>
+            <product>
+                <property>sim/time/elapsed-sec</property>
+                <value>180</value>
+            </product>
+        </expression>
+        <center>
+            <x-m>13.85</x-m>
+            <y-m>0.00</y-m>
+            <z-m>3.60</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>beacon.light.corona</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>10.0</max>
+        <center>
+            <x-m>13.85</x-m>
+            <y-m>0.00</y-m>
+            <z-m>3.60</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>beacon.light.corona</object-name>
+        <offset>0</offset>
+        <factor>1</factor>
+        <power>3</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.1</min>
+        <max>4.0</max>
+        <center>
+            <x-m>13.85</x-m>
+            <y-m>0.00</y-m>
+            <z-m>3.60</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- strobe lights -->
 
   <animation>
     <type>select</type>
     <object-name>strobe.left.light</object-name>
+    <object-name>strobe.right.light</object-name>
     <condition>
       <property>systems/electrical/outputs/strobe</property>
     </condition>
   </animation>
+
+<!-- strobe left light -->
 
   <animation>
     <type>translate</type>
@@ -3360,19 +3461,12 @@
   <animation>
     <type>dist-scale</type>
     <object-name>strobe.left.light</object-name>
-    <factor>0.01</factor>
-    <offset>1.0</offset>
-    <min>1.0</min>
-    <max>500.0</max>
+    <factor>0.02</factor>
+    <min>2.0</min>
+    <max>20.0</max>
   </animation>
 
-  <animation>
-    <type>select</type>
-    <object-name>strobe.right.light</object-name>
-    <condition>
-      <property>systems/electrical/outputs/strobe</property>
-    </condition>
-  </animation>
+<!-- strobe right light -->
 
   <animation>
     <type>translate</type>
@@ -3393,65 +3487,486 @@
   <animation>
     <type>dist-scale</type>
     <object-name>strobe.right.light</object-name>
-    <factor>0.01</factor>
-    <offset>1.0</offset>
-    <min>1.0</min>
-    <max>500.0</max>
+    <factor>0.02</factor>
+    <min>2.5</min>
+    <max>25.0</max>
   </animation>
 
-  <animation>
-    <type>select</type>
-    <object-name>recog.left.light</object-name>
-    <condition>
-      <property>systems/electrical/outputs/recog-light[0]</property>
-    </condition>
-  </animation>
+<!-- recog left light -->
 
-  <animation>
-    <type>select</type>
-    <object-name>recog.right.light</object-name>
-    <condition>
-      <property>systems/electrical/outputs/recog-light[1]</property>
-    </condition>
-  </animation>
+    <animation>
+        <type>select</type>
+        <condition>
+            <property>systems/electrical/outputs/recog-light[0]</property>
+        </condition>
+        <object-name>recog.left.corona</object-name>
+        <object-name>recog.left.dazzle</object-name>
+    </animation>
 
-  <animation>
-    <type>select</type>
-    <object-name>landing.left.light</object-name>
-    <condition>
-      <and>
-        <property>systems/electrical/outputs/landing-light[0]</property>
-        <greater-than>
-          <property>gear/gear/position-norm</property>
-          <value>0.85</value>
-        </greater-than>
-      </and>
-    </condition>
-  </animation>
+    <animation>
+        <type>material</type>
+        <condition>
+            <property>systems/electrical/outputs/recog-light[0]</property>
+        </condition>
+        <object-name>recog.left.inside1</object-name>
+        <object-name>recog.left.inside2</object-name>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
 
-  <animation>
-    <type>select</type>
-    <object-name>landing.right.light</object-name>
-    <condition>
-      <and>
-        <property>systems/electrical/outputs/landing-light[1]</property>
-        <greater-than>
-          <property>gear/gear/position-norm</property>
-          <value>0.50</value>
-        </greater-than>
-      </and>
-    </condition>
-  </animation>
+    <animation>
+        <type>dist-scale</type>
+        <object-name>recog.left.corona</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>-7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+    </animation>
 
-  <!-- tyre smoke -->
+    <animation>
+        <type>flash</type>
+        <object-name>recog.left.corona</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>2</power>
+        <two-sides type="bool">false</two-sides>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>-7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>recog.left.dazzle</object-name>
+        <expression>
+            <sum>
+                <property>sim/current-view/heading-offset-deg</property>
+                <property>sim/current-view/pitch-offset-deg</property>
+            </sum>
+        </expression>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>-7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>recog.left.dazzle</object-name>
+        <factor>0.001</factor>
+        <min>1</min>
+        <max>1500.0</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>-7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>recog.left.dazzle</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>12</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>2.0</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>-7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- recog right light -->
+
+    <animation>
+        <type>select</type>
+        <condition>
+            <property>systems/electrical/outputs/recog-light[1]</property>
+        </condition>
+        <object-name>recog.right.corona</object-name>
+        <object-name>recog.right.dazzle</object-name>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <condition>
+            <property>systems/electrical/outputs/recog-light[1]</property>
+        </condition>
+        <object-name>recog.right.inside1</object-name>
+        <object-name>recog.right.inside2</object-name>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>recog.right.corona</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>recog.right.corona</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>2</power>
+        <two-sides type="bool">false</two-sides>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>recog.right.dazzle</object-name>
+        <expression>
+            <sum>
+                <property>sim/current-view/heading-offset-deg</property>
+                <property>sim/current-view/pitch-offset-deg</property>
+            </sum>
+        </expression>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>recog.right.dazzle</object-name>
+        <factor>0.001</factor>
+        <min>1</min>
+        <max>1500.0</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>recog.right.dazzle</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>12</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>2.0</max>
+        <center>
+            <x-m>6.70</x-m>
+            <y-m>7.4650</y-m>
+            <z-m>0.3925</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- landing left light -->
+
+    <animation>
+        <type>select</type>
+        <object-name>landing.left.corona</object-name>
+        <object-name>landing.left.dazzle</object-name>
+        <condition>
+            <and>
+                <property>systems/electrical/outputs/landing-light[0]</property>
+                <greater-than>
+                    <property>gear/gear/position-norm</property>
+                    <value>0.85</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <condition>
+            <property>controls/lighting/landing-light[0]</property>
+        </condition>
+        <object-name>gear.left.light.inside</object-name>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>landing.left.corona</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>-2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>landing.left.corona</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>2</power>
+        <two-sides type="bool">false</two-sides>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>-2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>landing.left.dazzle</object-name>
+        <expression>
+            <sum>
+                <property>sim/current-view/heading-offset-deg</property>
+                <property>sim/current-view/pitch-offset-deg</property>
+            </sum>
+        </expression>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>-2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>landing.left.dazzle</object-name>
+        <factor>0.001</factor>
+        <min>1</min>
+        <max>1500.0</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>-2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>landing.left.dazzle</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>12</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>2.0</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>-2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- landing right light -->
+
+    <animation>
+        <type>select</type>
+        <object-name>landing.right.corona</object-name>
+        <object-name>landing.right.dazzle</object-name>
+        <condition>
+            <and>
+                <property>systems/electrical/outputs/landing-light[1]</property>
+                <greater-than>
+                    <property>gear/gear/position-norm</property>
+                    <value>0.85</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <condition>
+            <property>controls/lighting/landing-light[1]</property>
+        </condition>
+        <object-name>gear.right.light.inside</object-name>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>landing.right.corona</object-name>
+        <factor>0.01</factor>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>landing.right.corona</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>2</power>
+        <two-sides type="bool">false</two-sides>
+        <min>1</min>
+        <max>2</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>landing.right.dazzle</object-name>
+        <expression>
+            <sum>
+                <property>sim/current-view/heading-offset-deg</property>
+                <property>sim/current-view/pitch-offset-deg</property>
+            </sum>
+        </expression>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>landing.right.dazzle</object-name>
+        <factor>0.001</factor>
+        <min>1</min>
+        <max>1500.0</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>landing.right.dazzle</object-name>
+        <offset>0</offset>
+        <factor>2</factor>
+        <power>12</power>
+        <two-sides type="bool">false</two-sides>
+        <min>0.5</min>
+        <max>2.0</max>
+        <center>
+            <x-m>7.015</x-m>
+            <y-m>2.40</y-m>
+            <z-m>-0.01</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<!-- tyre smoke -->
 
   <model>
     <path>Aircraft/Generic/Effects/tyre-smoke-nose.xml</path>
     <name>tyre-smoke-n</name>
     <offsets>
-      <x-m>1.80754</x-m>
-      <y-m>0</y-m>
-      <z-m>-0.97609</z-m>
+      <x-m>1.76</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.925</z-m>
     </offsets>
   </model>
 
@@ -3459,9 +3974,9 @@
     <path>Aircraft/Generic/Effects/tyre-smoke-port.xml</path>
     <name>tyre-smoke-p</name>
     <offsets>
-      <x-m>7.26050</x-m>
-      <y-m>-2.81377</y-m>
-      <z-m>-1.00147</z-m>
+      <x-m>7.20</x-m>
+      <y-m>-2.68</y-m>
+      <z-m>-0.925</z-m>
     </offsets>
   </model>
 
@@ -3469,9 +3984,9 @@
     <path>Aircraft/Generic/Effects/tyre-smoke-stbd.xml</path>
     <name>tyre-smoke-s</name>
     <offsets>
-      <x-m>7.26049</x-m>
-      <y-m>2.81377</y-m>
-      <z-m>-1.00147</z-m>
+      <x-m>7.20</x-m>
+      <y-m>2.68</y-m>
+      <z-m>-0.925</z-m>
     </offsets>
   </model>
 

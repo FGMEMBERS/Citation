@@ -5,17 +5,36 @@
   <!-- No need to filter the Flood Lights! They are on emergency bus and have no toggle-switch. -->
 
   <filter>
+    <name>calculate average ambient light on flightdeck : flood-light</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/emer</property>
+          <value>20</value>
+        </greater-than>
+      </condition>
+      <property>controls/lighting/flood-light-norm</property>
+    </input>
+    <input>
+      <value>0.0</value>
+    </input>
+    <output>controls/lighting/flood-light-emission</output>
+  </filter>
+
+  <filter>
     <name>calculate average ambient light on flightdeck : instrument-light</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
       <condition>
         <property>controls/lighting/panel-lights-switch</property>
-	<property>controls/electric/circuit-breakers/bus-left/cb-light-panel-el</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/bus/left</property>
-	  <value>20</value>
-	</greater-than>
+        <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-el</property>
+        <greater-than>
+          <property>systems/electrical/outputs/bus/left</property>
+          <value>20</value>
+        </greater-than>
       </condition>
       <property>controls/lighting/instrument-lights-norm</property>
     </input>
@@ -168,7 +187,7 @@
 	    <product>
 	      <sum>
                 <property>controls/lighting/map-lights-emission</property>
-	        <property>controls/lighting/flood-light-norm</property>
+	        <property>controls/lighting/flood-light-emission</property>
 	      </sum>
 	      <value>1.2</value>
 	    </product>
@@ -217,7 +236,7 @@
             <property>controls/lighting/right-panel-light-emission</property>
 	    <property>controls/lighting/map-lights-emission</property>
 	    <product>
-	      <property>controls/lighting/flood-light-norm</property>
+	      <property>controls/lighting/flood-light-emission</property>
 	      <value>1.2</value>
 	    </product>
 	  </sum>
@@ -235,6 +254,11 @@
     <debug>false</debug>
     <type>gain</type>
     <input>
+      <condition>
+        <not>
+          <property>sim/rendering/rembrandt/enabled</property>
+        </not>
+      </condition>
       <expression>
 	<sum>
 	  <product>
@@ -253,6 +277,9 @@
           </div>
 	</sum>
       </expression>
+    </input>
+    <input>
+        <property>controls/lighting/instrument-lights-emission</property>
     </input>
     <output>controls/lighting/flightdeck-average-instrument-emission</output>
   </filter>

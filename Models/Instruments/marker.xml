@@ -1,44 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <PropertyList>
 
-<path>markers.ac</path>
+  <path>marker.ac</path>
 
+  <animation>
+    <type>select</type>
+    <object-name>marker.outer</object-name>
+    <condition>
+      <property>instrumentation/marker-beacon/outer</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>marker.middle</object-name>
+    <condition>
+      <property>instrumentation/marker-beacon/middle</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>marker.inner</object-name>
+    <condition>
+      <property>instrumentation/marker-beacon/inner</property>
+    </condition>
+  </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>marker.panel</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+<!-- Lightmap
+  <effect>
+    <condition>
+      <property>controls/lighting/panel-lights-switch</property>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/lm-marker</inherits-from>
+    <object-name>marker.panel</object-name>
+  </effect>
+-->
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
     <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>Imrkr</object-name>
-    <object-name>Marker.pnl</object-name>
-    <object-name>Mmrkr</object-name>
-    <object-name>Mrkr.off</object-name>
-    <object-name>Omrkr</object-name>
+    <object-name>marker.panel</object-name>
   </effect>
 
-    <animation>
-        <type>select</type>
-        <object-name>Omrkr</object-name>
-        <condition>
-            <property>instrumentation/marker-beacon/outer</property>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>Mmrkr</object-name>
-        <condition>
-            <property>instrumentation/marker-beacon/middle</property>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>Imrkr</object-name>
-        <condition>
-            <property>instrumentation/marker-beacon/inner</property>
-        </condition>
-    </animation>
-
 </PropertyList>
+

@@ -3,8 +3,8 @@
 <PropertyList>
  <name>Effects/citation_reflect</name>
  <inherits-from>Effects/model-combined-deferred</inherits-from>
- <parameters>
 
+ <parameters>
 <!-- Normal Map -->
    <normalmap-enabled type="int"> 1 </normalmap-enabled>
    <normalmap-dds type="int"> 0 </normalmap-dds>
@@ -41,11 +41,10 @@
    <reflection-correction type="float">
      <use>sim/model/livery/reflection-correction</use>
    </reflection-correction>
-   <reflection-dynamic type="int"> 1 </reflection-dynamic>
+   <reflection-dynamic type="int">1</reflection-dynamic>
    <texture n="4">
      <image>Aircraft/Citation/Models/Effects/greymap.png</image>
    </texture>
-
    <texture n="5">
      <type>cubemap</type>
      <images>
@@ -57,18 +56,17 @@
         <negative-z>Aircraft/Generic/Effects/fgfs-sky2/5.png</negative-z>
      </images>
    </texture>
-
-   <reflection-fresnel type="float"> 0.05 </reflection-fresnel>
-   <reflection-rainbow type="float"> 0.01 </reflection-rainbow>
-   <reflection-noise type="float"> 0.0 </reflection-noise>
+   <reflection-fresnel type="float">0.05</reflection-fresnel>
+   <reflection-rainbow type="float">0.01</reflection-rainbow>
+   <reflection-noise type="float">0.1</reflection-noise>
 
 <!--Ambient correction -->
    <ambient-correction type="float">
      <use>sim/model/livery/ambient-correction</use>
    </ambient-correction>
-   <dirt-enabled type="int"> 0 </dirt-enabled>
-   <dirt-color type="vec3d"> 0.0 0.0 0.0 </dirt-color>
-   <dirt-factor type="float"> 0.0 </dirt-factor>
+   <dirt-enabled type="int">0</dirt-enabled>
+   <dirt-color type="vec3d">0.0 0.0 0.0</dirt-color>
+   <dirt-factor type="float">0.0</dirt-factor>
 
  </parameters>
 

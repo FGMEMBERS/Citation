@@ -20,25 +20,47 @@
                     <property>systems/electrical/outputs/bus/left</property>
                     <value>20</value>
                 </greater-than>
-                <greater-than>
-                    <property>systems/electrical/outputs/beacon</property>
-                    <value>20</value>
-                </greater-than>
             </and>
         </condition>
     </animation>
 
+    <animation>
+        <type>rotate</type>
+        <object-name>sphereBeaconLight</object-name>
+        <expression>
+            <product>
+                <property>sim/time/elapsed-sec</property>
+                <value>180</value>
+            </product>
+        </expression>
+        <center>
+            <x-m>13.85</x-m>
+            <y-m>0.00</y-m>
+            <z-m>3.60</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
 	<animation>
 		<type>light</type>
-		<light-type>point</light-type>
+		<light-type>spot</light-type>
 		<name>BeaconLight.light</name>
 		<object-name>sphereBeaconLight</object-name>
 		<nopreview/>
 		<position>
 			<x>13.85</x>
-			<y>0</y>
-			<z>3.6</z>
+			<y>0.00</y>
+			<z>3.60</z>
 		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</direction>
 		<ambient>
 			<r>0.6</r>
 			<g>0</g>
@@ -58,12 +80,14 @@
 			<a>0.6</a>
 		</specular>
 		<attenuation>
-			<c>6.0</c>
-			<l>1</l>
-			<q>1</q>
+			<c>1.0</c>
+			<l>1.0</l>
+			<q>1.0</q>
 		</attenuation>
-		<near-m>0.1</near-m>
-		<far-m>25</far-m>
+		<exponent>1</exponent>
+		<cutoff>120</cutoff>
+		<near-m>0.001</near-m>
+		<far-m>10.000</far-m>
 	</animation>
 
 </PropertyList>

@@ -7,23 +7,6 @@ Citation magnetic compass
 
   <path>magcompass.ac</path>
 
-  <effect>
-    <condition>
-      <greater-than>
-        <property>sim/version/flightgear</property>
-        <value>3.4.999</value>
-      </greater-than>
-    </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>magcompass.housing</object-name>
-    <object-name>magcompass.holding</object-name>
-    <object-name>magcompass.rose</object-name>
-    <object-name>magcompass.sight</object-name>
-    <object-name>magcompass.white</object-name>
-    <object-name>magcompass.red1</object-name>
-    <object-name>magcompass.red2</object-name>
-  </effect>
-
   <animation>
     <type>rotate</type>
     <object-name>magcompass.rose</object-name>
@@ -57,7 +40,6 @@ Citation magnetic compass
       <red>1.0</red>
       <green>0.8</green>
       <blue>0.6</blue>
-      <!--factor-prop>controls/lighting/panel-average-lighting</factor-prop-->
       <factor-prop>controls/lighting/flightdeck-average-ambient-light-environment</factor-prop>
     </emission>
   </animation>
@@ -75,6 +57,23 @@ Citation magnetic compass
       <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
     </emission>
   </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>magcompass.housing</object-name>
+    <object-name>magcompass.holding</object-name>
+    <object-name>magcompass.rose</object-name>
+    <object-name>magcompass.sight</object-name>
+    <object-name>magcompass.white</object-name>
+    <object-name>magcompass.red1</object-name>
+    <object-name>magcompass.red2</object-name>
+  </effect>
 
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>

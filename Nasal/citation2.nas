@@ -29,13 +29,14 @@ var JetEngine = {
         m.n2 = m.eng.getNode("n2",1);
         m.fan = m.eng.initNode("fan",0,"DOUBLE");
         m.autostart_in_progress = 0;
-        m.generator = props.globals.initNode("controls/electric/engine["~eng_num~"]/generator",0,"BOOL");
+        m.generator = props.globals.initNode("controls/electric/engine["~eng_num~"]/generator",0,"INT");
         m.turbine = m.eng.initNode("turbine",0,"DOUBLE");
         m.throttle = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle",0,"DOUBLE");
         m.throttle_real = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-real",0,"DOUBLE");
         m.throttle_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-lever",0,"DOUBLE");
         m.reverser = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser",0,"DOUBLE");
         m.reverser_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser-lever",0,"DOUBLE");
+        m.reverser_pos = props.globals.initNode("surface-positions/reverser-norm["~eng_num~"]",0,"DOUBLE");
         m.cutoff = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff",0,"BOOL");
         m.cutoff_lock = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff-lock",0,"BOOL");
         m.cutoff_arm = 0;
@@ -48,7 +49,6 @@ var JetEngine = {
         m.fuel_gph = m.eng.initNode("fuel-flow-gph");
         m.boost_pump = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
         m.boost_pump_switch = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump-switch",0,"BOOL");
-        m.generator = props.globals.initNode ("controls/electric/engine[" ~ eng_num ~ "]/generator", 0, "BOOL");
         m.hpump = props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0,"DOUBLE");
         m.hpump_f = props.globals.initNode("engines/engine["~eng_num~"]/oilp-norm",0,"DOUBLE");
         m.Lfuel = setlistener(m.fuel_out, func m.shutdown(m.fuel_out.getValue()),0,0);
@@ -109,9 +109,9 @@ var JetEngine = {
         if (lever >= 0.0) {
             if (me.running.getBoolValue()) {
 # if reverser moving
-                if (getprop("/surface-positions/reverser-norm") != nil and
-                    getprop("/surface-positions/reverser-norm") > 0.0 and
-                    getprop("/surface-positions/reverser-norm") < 1.0
+                if (me.reverser_pos.getValue() != nil and
+                    me.reverser_pos.getValue() > 0.0 and
+                    me.reverser_pos.getValue() < 1.0
                 )
                 {
                     thr = 0.0;
@@ -194,7 +194,7 @@ var JetEngine = {
                             me.boost_pump.setBoolValue (0);
                             me.ignition_auto.setBoolValue (0);
                             if (me.autostart_in_progress) {
-                                me.generator.setBoolValue(1);
+                                me.generator.setIntValue(1);
                                 me.autostart_in_progress = 0;
                             }
                         }

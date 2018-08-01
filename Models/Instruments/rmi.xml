@@ -1,46 +1,31 @@
-<?xml version="1.0"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <PropertyList>
 
   <path>rmi.ac</path>
 
-  <effect>
+  <animation>
+    <type>select</type>
+    <object-name>RMI.flag</object-name>
     <condition>
-      <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
-      </greater-than>
+      <less-than>
+        <property>systems/electrical/outputs/bus/right</property>
+        <value>18</value>
+      </less-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>RMI.DoubleArrow.Radio</object-name>
-    <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
-    <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
-    <object-name>RMI.SingleArrow.Radio</object-name>
-    <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
-    <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
-    <object-name>RMI.bezel</object-name>
-    <object-name>RMI.compass</object-name>
-    <object-name>RMI.double_needle</object-name>
-    <object-name>RMI.face</object-name>
-    <object-name>RMI.left_button</object-name>
-    <object-name>RMI.right_button</object-name>
-    <object-name>RMI.single_needle</object-name>
-  </effect>
+  </animation>
 
   <animation>
     <type>rotate</type>
     <object-name>RMI.compass</object-name>
-    <object-name>RMI.single_needle</object-name>
-    <object-name>RMI.double_needle</object-name>
-    <property>orientation/heading-magnetic-deg</property>
+    <property>instrumentation/rmi/heading-deg</property>
     <axis>
       <x>1.0</x>
-      <y>0</y>
+      <y>0.0</y>
       <z>0.0</z>
     </axis>
   </animation>
 
-  <!-- Left button and single-stemmed needle -->
-
+<!-- Left button and single-stemmed needle -->
   <animation>
     <type>pick</type>
     <object-name>RMI.left_button</object-name>
@@ -51,6 +36,11 @@
         <property>instrumentation/rmi/single-needle/selected-input</property>
         <value>ADF</value>
         <value>VOR</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/rmi/single-needle/receive</property>
+        <value>0.0</value>
       </binding>
       <binding>
         <command>nasal</command>
@@ -100,6 +90,7 @@
       </equals>
     </condition>
   </animation>
+
   <animation>
     <type>select</type>
     <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
@@ -110,16 +101,8 @@
       </equals>
     </condition>
   </animation>
-  <animation>
-    <type>select</type>
-    <object-name>RMI.SingleArrow.RadioContactIndicator</object-name>
-    <condition>
-      <property>instrumentation/rmi/single-needle/in-range</property>
-    </condition>
-  </animation>
 
-  <!-- Right button and double-stemmed needle -->
-
+<!-- Right button and double-stemmed needle -->
   <animation>
     <type>pick</type>
     <object-name>RMI.right_button</object-name>
@@ -130,6 +113,11 @@
         <property>instrumentation/rmi/double-needle/selected-input</property>
         <value>ADF</value>
         <value>VOR</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/rmi/double-needle/receive</property>
+        <value>0.0</value>
       </binding>
       <binding>
         <command>nasal</command>
@@ -161,7 +149,6 @@
   <animation>
     <type>rotate</type>
     <object-name>RMI.double_needle</object-name>
-
     <property>instrumentation/rmi/double-needle/position-deg</property>
     <axis>
       <x>-1.0</x>
@@ -180,6 +167,7 @@
       </equals>
     </condition>
   </animation>
+
   <animation>
     <type>select</type>
     <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
@@ -190,12 +178,72 @@
       </equals>
     </condition>
   </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
   <animation>
-    <type>select</type>
-    <object-name>RMI.DoubleArrow.RadioContactIndicator</object-name>
+    <type>material</type>
     <condition>
-      <property>instrumentation/rmi/double-needle/in-range</property>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
     </condition>
+    <object-name>RMI.bezel</object-name>
+    <object-name>RMI.left_button</object-name>
+    <object-name>RMI.right_button</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
   </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
+    <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
+    <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
+    <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
+    <object-name>RMI.compass</object-name>
+    <object-name>RMI.face</object-name>
+    <object-name>RMI.flag</object-name>
+    <object-name>RMI.single_needle</object-name>
+    <object-name>RMI.double_needle</object-name>
+    <emission>
+      <red>1</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
+    <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
+    <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
+    <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
+    <object-name>RMI.bezel</object-name>
+    <object-name>RMI.compass</object-name>
+    <object-name>RMI.face</object-name>
+    <object-name>RMI.flag</object-name>
+    <object-name>RMI.left_button</object-name>
+    <object-name>RMI.right_button</object-name>
+    <object-name>RMI.double_needle</object-name>
+    <object-name>RMI.single_needle</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>RMI.glass</object-name>
+  </effect>
 
 </PropertyList>

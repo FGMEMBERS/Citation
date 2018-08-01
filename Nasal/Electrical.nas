@@ -163,9 +163,7 @@ var init_switches = func{
 
     setprop("controls/lighting/engines-norm",0.8);
     setprop("controls/lighting/efis-norm",0.8);
-    setprop("controls/lighting/panel-norm",0.0);
     setprop("controls/lighting/instruments-norm",0.0);
-    setprop("controls/lighting/instrument-lights-norm",0.5);
     props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
     props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
     props.globals.initNode("controls/electric/external-power",0,"BOOL");
@@ -200,7 +198,7 @@ var init_switches = func{
     append(lights_input,props.globals.initNode("controls/lighting/taxi-light",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/taxi-light",0,"DOUBLE"));
     append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/beacon-state/state",0,"BOOL"));
+    append(lights_input,props.globals.initNode("controls/lighting/beacon",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/beacon",0,"DOUBLE"));
     append(lights_load,1);
     append(lights_input,props.globals.initNode("controls/lighting/strobe-state/state",0,"BOOL"));

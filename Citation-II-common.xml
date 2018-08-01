@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.8</aircraft-version>
+    <aircraft-version>4.1.9</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -566,19 +566,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <instrumentation>
       <path>Systems/instrumentation.xml</path>
       <mk-viii>                           <!-- http://wiki.flightgear.org/index.php/GPWS -->
-        <serviceable>true</serviceable>   <!-- EGPWS_ENABLE -->
+        <serviceable type="bool">true</serviceable>   <!-- EGPWS_ENABLE -->
         <configuration-module>
-          <category-1>   1 </category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
-          <category-8>   3 </category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
+          <category-1 type="int">1</category-1>  <!-- AIRCRAFT_MODE_TYPE_SELECT -->
+          <category-8 type="int">4</category-8>  <!-- RADIO_ALTITUDE_INPUT_SELECT -->
         </configuration-module>
         <inputs>                          <!-- Module I/O -->
           <arinc429>
-            <decision-height-ncd> false </decision-height-ncd>
-            <decision-height> 200 </decision-height>
+            <decision-height-ncd type="bool">false</decision-height-ncd>
+            <decision-height type="int">200</decision-height>
           </arinc429>
         </inputs>
         <speaker>                         <!-- Speaker Configuration -->
-          <volume> 0.4 </volume>          <!-- Volume at reference distance -->
+          <volume type="double">0.4</volume>          <!-- Volume at reference distance -->
         </speaker>
         <voice>
           <file-prefix type="string">Sounds/mk-viii/</file-prefix>
@@ -587,10 +587,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </mk-viii>
     </instrumentation>
 
-
     <multiplay>
       <protocol-version type="int">2</protocol-version>
-      <fallback-model-index type="int">103</fallback-model-index>
       <generic>
         <bool type="bool" n="0" alias="/controls/human-models"/>
         <short type="int" n="0" alias="/systems/electrical/outputs/strobe"/>
@@ -604,7 +602,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <float type="float" n="1" alias="/sim/model/registration/red"/>
         <float type="float" n="2" alias="/sim/model/registration/green"/>
         <float type="float" n="3" alias="/sim/model/registration/blue"/>
-        <float type="float" n="4" alias="/surface-positions/reverser-norm"/>
+        <float type="float" n="4" alias="/surface-positions/reverser-norm[0]"/>
         <float type="float" n="5" alias="/surface-positions/reverser-norm[1]"/>
         <float type="float" n="6" alias="/controls/baggage-door-front-left/position-norm"/>
         <float type="float" n="7" alias="/controls/baggage-door-front-right/position-norm"/>
@@ -614,9 +612,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <float type="float" n="11" alias="/gear/gear[0]/rollspeed-ms"/>
         <float type="float" n="12" alias="/gear/gear[1]/rollspeed-ms"/>
         <float type="float" n="13" alias="/gear/gear[2]/rollspeed-ms"/>
-        <float type="float" n="14" alias="/gear/gear[0]/compression-m"/>
-        <float type="float" n="15" alias="/gear/gear[1]/compression-m"/>
-        <float type="float" n="16" alias="/gear/gear[2]/compression-m"/>
       </generic>
     </multiplay>
 
@@ -632,7 +627,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <signal><type>int</type><property type="string">/controls/lighting/recog-light[0]</property></signal>
         <signal><type>int</type><property type="string">/controls/lighting/recog-light[1]</property></signal>
         <signal><type>float</type><property type="string">/controls/cabin-door/position-norm</property></signal>
-        <signal><type>float</type><property type="string">/surface-positions/reverser-norm</property></signal>
+        <signal><type>float</type><property type="string">/surface-positions/reverser-norm[0]</property></signal>
         <signal><type>float</type><property type="string">/surface-positions/reverser-norm[1]</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-front-left/position-norm</property></signal>
         <signal><type>float</type><property type="string">/controls/baggage-door-front-right/position-norm</property></signal>
@@ -686,9 +681,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <gear>
       <brake-parking type="bool">true</brake-parking>
       <brake-left type="double">0.0</brake-left>
+      <brake-left-real type="double">0.0</brake-left-real>
       <brake-right type="double">0.0</brake-right>
+      <brake-right-real type="double">0.0</brake-right-real>
       <antiskid-sw type="bool">true</antiskid-sw>
       <antiskid-test type="double">0.0</antiskid-test>
+      <skid-ballance type="double">0.0</skid-ballance>
+      <warn-horn type="bool">false</warn-horn>
+      <warn-silence type="bool">false</warn-silence>
     </gear>
     <engines>
       <engine n="0">
@@ -1029,6 +1029,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </table>
   </controls>
 
+  <engines>
+    <engine n="0">
+      <fan-spin type="double">0.0</fan-spin>
+    </engine>
+    <engine n="1">
+      <fan-spin type="double">0.0</fan-spin>
+    </engine>
+  </engines>
+
   <instrumentation>
     <cdu>
       <input type="string"/>
@@ -1059,6 +1068,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </vspeeds>
     </fmc>
     <rmi>
+      <heading-deg type="double"/>
       <single-needle>
         <selected-input type="string">VOR</selected-input>
         <position-deg type="double"/>
@@ -1071,10 +1081,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </rmi>
     <hsi n="0">
       <selected-nav type="int">0</selected-nav> <!-- pilot's HSI initially uses NAV1 -->
+      <heading-deg type="double">0.0</heading-deg>
+      <bearing-deg type="double">0.0</bearing-deg>
+      <hsi-gs-deflection type="double">0.0</hsi-gs-deflection>
+      <hsi-loc-deflection type="double">0.0</hsi-loc-deflection>
       <volts type="double">0</volts>
     </hsi>
     <hsi n="1">
       <selected-nav type="int">1</selected-nav> <!-- copilot's HSI initially uses NAV2 -->
+      <heading-deg type="double">0.0</heading-deg>
+      <bearing-deg type="double">0.0</bearing-deg>
+      <hsi-gs-deflection type="double">0.0</hsi-gs-deflection>
+      <hsi-loc-deflection type="double">0.0</hsi-loc-deflection>
       <volts type="double">0</volts>
     </hsi>
     <adf n="0">
@@ -1094,8 +1112,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <mem n="1" type="double">0.0</mem>
         <mem n="2" type="double">0.0</mem>
         <mem n="3" type="double">0.0</mem>
-        <mem n="4" type="double">0.0</mem>
-        <mem n="5" type="double">0.0</mem>
     </ctl62>
     <comm n="0">
         <volume-def type="double">1.0</volume-def>
@@ -1191,6 +1207,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <resv2 type="int" archive="y">1</resv2>
         <mute type="int" archive="y">1</mute>
     </audiopanel>
+    <heading-indicator>
+        <flux-serviceable type="bool">true</flux-serviceable>
+    </heading-indicator>
   </instrumentation>
 
   <autopilot>
@@ -1417,7 +1436,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <max-gear-extension-speed type="double">262</max-gear-extension-speed>
     <max-negative-g type="double">-1.52</max-negative-g> <!-- 0.0 if flaps down -->
     <max-positive-g type="double">3.8</max-positive-g> <!-- 2.0 if flaps down -->
-    <vne type="double">263</vne> <!-- indicated airspeed in knots -->
+    <vmo type="double">262</vmo> <!-- velocity maximum operation -->
+    <mmo type="double">0.705</mmo> <!-- mach maximum operation -->
   </limits>
 
   <systems>
@@ -1425,7 +1445,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <outputs>
 	<suppliers>
 	  <battery type="double">24</battery>
-	  <alternator n="0" alias="/engines/engine/amp-v" />
+	  <alternator n="0" alias="/engines/engine[0]/amp-v" />
 	  <alternator n="1" alias="/engines/engine[1]/amp-v" />
 	  <external type="double">0</external>
 	</suppliers>

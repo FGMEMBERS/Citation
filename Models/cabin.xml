@@ -26,7 +26,7 @@
     <object-name>Cabin.MapLights.Bulb</object-name>
   </effect>
 
-  <!-- cockpit shadows -->
+  <!-- cabin shadows -->
   <effect>
     <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
     <object-name>Cabin</object-name>

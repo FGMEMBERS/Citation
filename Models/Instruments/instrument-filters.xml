@@ -16,141 +16,243 @@ GNU General Public License for more details.
 
 <PropertyList>
 
-  <filter>
-    <name>RMI: single-stemmed needle: select source with filter</name>
-    <debug>false</debug>
-    <type>noise-spike</type>
-    <max-rate-of-change>60</max-rate-of-change>
+    <filter>
+        <name>RMI heading</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>60</max-rate-of-change>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/nav</property>
+                    <value>20</value>
+                </greater-than>
+            </condition>
+            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+        </input>
+        <input>instrumentation/rmi/heading-deg</input>
+        <output>instrumentation/rmi/heading-deg</output>
+    </filter>
 
-    <input>
-      <condition>
-        <not>
-          <property>instrumentation/rmi/single-needle/in-range</property>
-        </not>
-      </condition>
-      <expression>
-        <sum>
-          <property>orientation/heading-magnetic-deg</property>
-          <value>90.0</value>
-        </sum>
-      </expression>
-    </input>
+    <filter>
+        <name>RMI: single-stemmed needle last receive</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/bus/right</property>
+                    <value>20</value>
+                </greater-than>
+                <property>instrumentation/rmi/single-needle/in-range</property>
+            </condition>
+            <expression>
+                <sum>
+                    <property>sim/time/elapsed-sec</property>
+                    <value>1.5</value>
+                </sum>
+            </expression>
+        </input>
+        <input>instrumentation/rmi/single-needle/receive</input>
+        <output>instrumentation/rmi/single-needle/receive</output>
+    </filter>
 
-    <input>
-      <condition>
-        <equals>
-          <property>instrumentation/rmi/single-needle/selected-input</property>
-          <value>ADF</value>
-        </equals>
-      </condition>
-      <expression>
-        <floor>
-          <sum>
-            <property>instrumentation/adf/indicated-bearing-deg</property>
-            <property>orientation/heading-magnetic-deg</property>
-            <value>0.5</value>
-          </sum>
-        </floor>
-      </expression>
-    </input>
+    <filter>
+        <name>RMI: single-stemmed needle: select source with filter</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>60</max-rate-of-change>
 
-    <input>
-      <condition>
-        <equals>
-          <property>instrumentation/rmi/single-needle/selected-input</property>
-          <value>VOR</value>
-        </equals>
-      </condition>
-      <expression>
-          <floor>
-            <sum>
-              <property>instrumentation/nav[0]/heading-deg</property>
-              <property>orientation/heading-magnetic-deg</property>
-              <value>0.5</value>
-            </sum>
-          </floor>
-      </expression>
-      <offset>
-        <property>orientation/heading-deg</property>
-        <scale>-1.0</scale>
-      </offset>
-    </input>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav</property>
+                        <value>20</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>sim/time/elapsed-sec</property>
+                        <property>instrumentation/rmi/single-needle/receive</property>
+                    </greater-than>
+                </and>
+            </condition>
+            <value>90.0</value>
+        </input>
 
-    <period>
-      <min>-180</min>
-      <max>180</max>
-    </period>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav</property>
+                        <value>20</value>
+                    </greater-than>
+                    <equals>
+                        <property>instrumentation/rmi/single-needle/selected-input</property>
+                        <value>ADF</value>
+                    </equals>
+                    <property>instrumentation/rmi/single-needle/in-range</property>
+                </and>
+            </condition>
+            <expression>
+                <floor>
+                    <sum>
+                        <property>instrumentation/adf/indicated-bearing-deg</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
 
-    <output>instrumentation/rmi/single-needle/position-deg</output>
-  </filter>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav</property>
+                        <value>20</value>
+                    </greater-than>
+                    <equals>
+                        <property>instrumentation/rmi/single-needle/selected-input</property>
+                        <value>VOR</value>
+                    </equals>
+                    <property>instrumentation/rmi/single-needle/in-range</property>
+                </and>
+            </condition>
+            <expression>
+                <floor>
+                    <sum>
+                        <dif>
+                            <value>360</value>
+                            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+                        </dif>
+                        <property>instrumentation/nav[0]/heading-deg</property>
+                        <property>instrumentation/heading-indicator/offset-deg</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
 
-  <filter>
-    <name>RMI: double-stemmed needle: select source with filter</name>
-    <debug>false</debug>
-    <type>noise-spike</type>
-    <max-rate-of-change>60</max-rate-of-change>
+        <input>instrumentation/rmi/single-needle/position-deg</input>
 
-    <input>
-      <condition>
-        <not>
-          <property>instrumentation/rmi/double-needle/in-range</property>
-        </not>
-      </condition>
-      <expression>
-        <sum>
-          <property>orientation/heading-magnetic-deg</property>
-          <value>90.0</value>
-        </sum>
-      </expression>
-    </input>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
 
-    <input>
-      <condition>
-        <equals>
-          <property>instrumentation/rmi/double-needle/selected-input</property>
-          <value>ADF</value>
-        </equals>
-      </condition>
-      <expression>
-        <floor>
-          <sum>
-            <property>instrumentation/adf/indicated-bearing-deg</property>
-            <property>orientation/heading-magnetic-deg</property>
-            <value>0.5</value>
-          </sum>
-        </floor>
-      </expression>
-    </input>
+        <output>instrumentation/rmi/single-needle/position-deg</output>
+    </filter>
 
-    <input>
-      <condition>
-        <equals>
-          <property>instrumentation/rmi/double-needle/selected-input</property>
-          <value>VOR</value>
-        </equals>
-      </condition>
-      <expression>
-          <floor>
-            <sum>
-              <property>instrumentation/nav[1]/heading-deg</property>
-              <property>orientation/heading-magnetic-deg</property>
-              <value>0.5</value>
-            </sum>
-          </floor>
-      </expression>
-      <offset>
-        <property>orientation/heading-deg</property>
-        <scale>-1.0</scale>
-      </offset>
-    </input>
+    <filter>
+        <name>RMI: double-stemmed needle last receive</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/bus/right</property>
+                    <value>20</value>
+                </greater-than>
+                <property>instrumentation/rmi/double-needle/in-range</property>
+            </condition>
+            <expression>
+                <sum>
+                    <property>sim/time/elapsed-sec</property>
+                    <value>1.5</value>
+                </sum>
+            </expression>
+        </input>
+        <input>instrumentation/rmi/double-needle/receive</input>
+        <output>instrumentation/rmi/double-needle/receive</output>
+    </filter>
 
-    <period>
-      <min>-180</min>
-      <max>180</max>
-    </period>
+    <filter>
+        <name>RMI: double-stemmed needle: select source with filter</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>60</max-rate-of-change>
 
-    <output>instrumentation/rmi/double-needle/position-deg</output>
-  </filter>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav</property>
+                        <value>20</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>sim/time/elapsed-sec</property>
+                        <property>instrumentation/rmi/double-needle/receive</property>
+                    </greater-than>
+                </and>
+            </condition>
+            <value>90.0</value>
+        </input>
+
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav</property>
+                        <value>20</value>
+                    </greater-than>
+                    <equals>
+                        <property>instrumentation/rmi/double-needle/selected-input</property>
+                        <value>ADF</value>
+                    </equals>
+                    <property>instrumentation/rmi/double-needle/in-range</property>
+                </and>
+            </condition>
+            <expression>
+                <floor>
+                    <sum>
+                        <property>instrumentation/adf/indicated-bearing-deg</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
+
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/nav</property>
+                        <value>20</value>
+                    </greater-than>
+                    <equals>
+                        <property>instrumentation/rmi/double-needle/selected-input</property>
+                        <value>VOR</value>
+                    </equals>
+                    <property>instrumentation/rmi/double-needle/in-range</property>
+                </and>
+            </condition>
+            <expression>
+                <floor>
+                    <sum>
+                        <dif>
+                            <value>360</value>
+                            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+                        </dif>
+                        <property>instrumentation/nav[1]/heading-deg</property>
+                        <property>instrumentation/heading-indicator/offset-deg</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
+
+        <input>instrumentation/rmi/double-needle/position-deg</input>
+
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+
+        <output>instrumentation/rmi/double-needle/position-deg</output>
+    </filter>
 
   <filter>
     <name>Radar altimeter: filter for mechanical needle</name>
@@ -234,75 +336,177 @@ GNU General Public License for more details.
     <output>instrumentation/mk-viii/serviceable</output>
   </filter>
 
-  <!-- VOR: deflection filter for mechanical needles -->
+<!-- NAV0: maximum curse deflections -->
 
-  <filter>
-    <name>VOR0 localizer lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.5</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[0]/in-range</property>
-      </condition>
-      <property>instrumentation/nav[0]/heading-needle-deflection</property>
-    </input>
-    <input><value>0.0</value></input>
-    <min>-10.0</min>
-    <max>10.0</max>
-    <output>instrumentation/nav[0]/vor-loc-deflection</output>
-  </filter>
+    <filter>
+        <name>NAV0 curse deflection max 4.0 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/in-range</property>
+            </condition>
+            <property>instrumentation/nav[0]/heading-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-4.0</min>
+        <max>4.0</max>
+        <output>instrumentation/nav[0]/heading-needle-deflection-40</output>
+    </filter>
 
-  <filter>
-    <name>VOR0 glideslope lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.5</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[0]/gs-in-range</property>
-      </condition>
-      <property>instrumentation/nav[0]/gs-needle-deflection</property>
-    </input>
-    <input><value>0.0</value></input>
-    <min>-2.5</min>
-    <max>2.5</max>
-    <output>instrumentation/nav[0]/vor-gs-deflection</output>
-  </filter>
+    <filter>
+        <name>NAV0 curse deflection max 1.6 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/in-range</property>
+            </condition>
+            <property>instrumentation/nav[0]/heading-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-1.6</min>
+        <max>1.6</max>
+        <output>instrumentation/nav[0]/heading-needle-deflection-16</output>
+    </filter>
 
-  <filter>
-    <name>VOR1 localizer lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.5</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[1]/in-range</property>
-      </condition>
-      <property>instrumentation/nav[1]/heading-needle-deflection</property>
-    </input>
-    <input><value>0.0</value></input>
-    <min>-10.0</min>
-    <max>10.0</max>
-    <output>instrumentation/nav[1]/vor-loc-deflection</output>
-  </filter>
+<!-- NAV0: deflection filter for mechanical needles -->
 
-  <filter>
-    <name>VOR1 glideslope lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.5</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[1]/gs-in-range</property>
-      </condition>
-      <property>instrumentation/nav[1]/gs-needle-deflection</property>
-    </input>
-    <min>-2.5</min>
-    <max>2.5</max>
-    <input><value>0.0</value></input>
-    <output>instrumentation/nav[1]/vor-gs-deflection</output>
-  </filter>
+    <filter>
+        <name>NAV0 curse deflection for VOR lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.5</filter-time>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/in-range</property>
+                <not><property>instrumentation/nav[0]/frequencies/is-localizer-frequency</property></not>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/nav[0]/heading-needle-deflection</property>
+                    <value>10.0</value>
+                </div>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/in-range</property>
+                <property>instrumentation/nav[0]/frequencies/is-localizer-frequency</property>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/nav[0]/heading-needle-deflection-40</property>
+                    <value>4.0</value>
+                </div>
+            </expression>
+        </input>
+        <input><value>0.0</value></input>
+        <output>instrumentation/nav[0]/vor-loc-deflection</output>
+    </filter>
+
+    <filter>
+        <name>NAV0 glideslope lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.5</filter-time>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/gs-in-range</property>
+            </condition>
+            <property>instrumentation/nav[0]/gs-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-4.0</min>
+        <max>4.0</max>
+        <output>instrumentation/nav[0]/vor-gs-deflection</output>
+    </filter>
+
+<!-- NAV1: maximum curse deflections -->
+
+    <filter>
+        <name>NAV1 curse deflection max 4.0 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/in-range</property>
+            </condition>
+            <property>instrumentation/nav[1]/heading-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-4.0</min>
+        <max>4.0</max>
+        <output>instrumentation/nav[1]/heading-needle-deflection-40</output>
+    </filter>
+
+    <filter>
+        <name>NAV1 curse deflection max 1.6 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/in-range</property>
+            </condition>
+            <property>instrumentation/nav[1]/heading-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-1.6</min>
+        <max>1.6</max>
+        <output>instrumentation/nav[1]/heading-needle-deflection-16</output>
+    </filter>
+
+<!-- NAV1: deflection filter for mechanical needles -->
+
+    <filter>
+        <name>NAV1 curse deflection for VOR lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.5</filter-time>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/in-range</property>
+                <not><property>instrumentation/nav[1]/frequencies/is-localizer-frequency</property></not>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/nav[1]/heading-needle-deflection</property>
+                    <value>10.0</value>
+                </div>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/in-range</property>
+                <property>instrumentation/nav[1]/frequencies/is-localizer-frequency</property>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/nav[1]/heading-needle-deflection-40</property>
+                    <value>4.0</value>
+                </div>
+            </expression>
+        </input>
+        <input><value>0.0</value></input>
+        <output>instrumentation/nav[1]/vor-loc-deflection</output>
+    </filter>
+
+    <filter>
+        <name>NAV1 glideslope lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.5</filter-time>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/gs-in-range</property>
+            </condition>
+            <property>instrumentation/nav[1]/gs-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-4.0</min>
+        <max>4.0</max>
+        <output>instrumentation/nav[1]/vor-gs-deflection</output>
+    </filter>
 
   <!-- AI: filter for mechanical needles -->
 
@@ -374,135 +578,303 @@ GNU General Public License for more details.
     <output>instrumentation/nav[1]/ai-gs-deflection</output>
   </filter>
 
-  <!-- HSI: filter for mechanical needles -->
+<!-- HSI0: filter for mechanical needles and electrical supported parts-->
 
-  <filter>
-    <name>HSI0 localizer lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>instrumentation/hsi[0]/inputs/ai-loc-deflection</input>
-    <output>instrumentation/hsi[0]/inputs/hsi-loc-deflection</output>
-  </filter>
+    <filter>
+        <name>HSI0 heading</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>90</max-rate-of-change>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>instrumentation/hsi[0]/volts</property>
+                    <value>20.0</value>
+                </greater-than>
+            </condition>
+            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+        </input>
+        <input>instrumentation/hsi[0]/heading-deg</input>
+        <output>instrumentation/hsi[0]/heading-deg</output>
+    </filter>
 
-  <filter>
-    <name>HSI0 glideslope lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>instrumentation/hsi[0]/inputs/ai-gs-deflection</input>
-    <output>instrumentation/hsi[0]/inputs/hsi-gs-deflection</output>
-  </filter>
-
-  <filter>
-    <name>HSI0 select lowpass</name>
-    <debug>false</debug>
-    <type>noise-spike</type>
-    <max-rate-of-change>90</max-rate-of-change>
-    <period>
-      <min>-180</min>
-      <max>180</max>
-    </period>
-    <input>instrumentation/hsi[0]/inputs/radials/selected-deg</input>
-    <output>instrumentation/hsi[0]/inputs/radials/selected-filtered-deg</output>
-  </filter>
-
-  <filter>
-    <name>HSI0 heading lowpass</name>
-    <debug>false</debug>
-    <type>noise-spike</type>
-    <max-rate-of-change>90</max-rate-of-change>
-    <period>
-      <min>-180</min>
-      <max>180</max>
-    </period>
-    <input>
-      <condition>
-        <property>instrumentation/hsi[0]/inputs/in-range</property>
-      </condition>
-      <expression>
-        <floor>
-          <sum>
-            <property>instrumentation/hsi[0]/inputs/heading-deg</property>
-            <value>0.5</value>
-          </sum>
-        </floor>
-      </expression>
-    </input>
-    <input>
-      <expression>
-          <sum>
-            <property>orientation/heading-deg</property>
+    <filter>
+        <name>HSI0 bearing</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>90</max-rate-of-change>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[0]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>instrumentation/hsi[0]/inputs/in-range</property>
+                </and>
+            </condition>
+            <expression>
+                <floor>
+                    <sum>
+                        <dif>
+                            <value>360</value>
+                            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+                        </dif>
+                        <property>instrumentation/hsi[0]/inputs/heading-deg</property>
+                        <property>instrumentation/heading-indicator/offset-deg</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>instrumentation/hsi[0]/volts</property>
+                    <value>20.0</value>
+                </greater-than>
+            </condition>
             <value>90.0</value>
-          </sum>
-      </expression>
-    </input>
-    <output>instrumentation/hsi[0]/inputs/heading-filtered-deg</output>
-  </filter>
+        </input>
+        <input>instrumentation/hsi[0]/bearing-deg</input>
+        <output>instrumentation/hsi[0]/bearing-deg</output>
+    </filter>
 
-  <filter>
-    <name>HSI1 localizer lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>instrumentation/hsi[1]/inputs/ai-loc-deflection</input>
-    <output>instrumentation/hsi[1]/inputs/hsi-loc-deflection</output>
-  </filter>
+    <filter>
+        <name>HSI0 radial needle</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>90</max-rate-of-change>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+        <input>instrumentation/hsi[0]/inputs/radials/selected-deg</input>
+        <output>instrumentation/hsi[0]/inputs/radials/selected-filtered-deg</output>
+    </filter>
 
-  <filter>
-    <name>HSI1 glideslope lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>instrumentation/hsi[1]/inputs/ai-gs-deflection</input>
-    <output>instrumentation/hsi[1]/inputs/hsi-gs-deflection</output>
-  </filter>
+    <filter>
+        <name>HSI0 curse deflection lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.2</filter-time>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[0]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <not><property>instrumentation/hsi[0]/inputs/frequencies/is-localizer-frequency</property></not>
+                </and>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/hsi[0]/inputs/heading-needle-deflection-40</property>
+                    <value>4.0</value>
+                </div>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[0]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>instrumentation/hsi[0]/inputs/frequencies/is-localizer-frequency</property>
+                </and>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/hsi[0]/inputs/heading-needle-deflection-16</property>
+                    <value>1.6</value>
+                </div>
+            </expression>
+        </input>
+        <input><value>0.0</value></input>
+        <output>instrumentation/hsi[0]/hsi-loc-deflection</output>
+    </filter>
 
-  <filter>
-    <name>HSI1 select lowpass</name>
-    <debug>false</debug>
-    <type>noise-spike</type>
-    <max-rate-of-change>90</max-rate-of-change>
-    <period>
-      <min>-180</min>
-      <max>180</max>
-    </period>
-    <input>instrumentation/hsi[1]/inputs/radials/selected-deg</input>
-    <output>instrumentation/hsi[1]/inputs/radials/selected-filtered-deg</output>
-  </filter>
+    <filter>
+        <name>HSI0 glideslope lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.2</filter-time>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[0]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>instrumentation/hsi[0]/inputs/gs-in-range</property>
+                </and>
+            </condition>
+            <property>instrumentation/hsi[0]/inputs/gs-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-1.0</min>
+        <max>1.0</max>
+        <output>instrumentation/hsi[0]/hsi-gs-deflection</output>
+    </filter>
 
-  <filter>
-    <name>HSI1 heading lowpass</name>
-    <debug>false</debug>
-    <type>noise-spike</type>
-    <max-rate-of-change>90</max-rate-of-change>
-    <period>
-      <min>-180</min>
-      <max>180</max>
-    </period>
-    <input>
-      <condition>
-        <property>instrumentation/hsi[1]/inputs/in-range</property>
-      </condition>
-      <expression>
-        <floor>
-          <sum>
-            <property>instrumentation/hsi[1]/inputs/heading-deg</property>
-            <value>0.5</value>
-          </sum>
-        </floor>
-      </expression>
-    </input>
-    <input>
-      <expression>
-          <sum>
-            <property>orientation/heading-deg</property>
+<!-- HSI1: filter for mechanical needles and electrical supported parts-->
+
+    <filter>
+        <name>HSI1 heading</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>90</max-rate-of-change>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>instrumentation/hsi[1]/volts</property>
+                    <value>20.0</value>
+                </greater-than>
+            </condition>
+            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+        </input>
+        <input>instrumentation/hsi[1]/heading-deg</input>
+        <output>instrumentation/hsi[1]/heading-deg</output>
+    </filter>
+
+    <filter>
+        <name>HSI1 bearing</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>90</max-rate-of-change>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[1]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>instrumentation/hsi[1]/inputs/in-range</property>
+                </and>
+            </condition>
+            <expression>
+                <floor>
+                    <sum>
+                        <dif>
+                            <value>360</value>
+                            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+                        </dif>
+                        <property>instrumentation/hsi[1]/inputs/heading-deg</property>
+                        <property>instrumentation/heading-indicator/offset-deg</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>instrumentation/hsi[1]/volts</property>
+                    <value>20.0</value>
+                </greater-than>
+            </condition>
             <value>90.0</value>
-          </sum>
-      </expression>
-    </input>
-    <output>instrumentation/hsi[1]/inputs/heading-filtered-deg</output>
-  </filter>
+        </input>
+        <input>instrumentation/hsi[1]/bearing-deg</input>
+        <output>instrumentation/hsi[1]/bearing-deg</output>
+    </filter>
+
+    <filter>
+        <name>HSI1 radial needle</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>90</max-rate-of-change>
+        <period>
+            <min>-180</min>
+            <max>180</max>
+        </period>
+        <input>instrumentation/hsi[1]/inputs/radials/selected-deg</input>
+        <output>instrumentation/hsi[1]/inputs/radials/selected-filtered-deg</output>
+    </filter>
+
+    <filter>
+        <name>HSI1 curse deflection lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.2</filter-time>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[1]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <not><property>instrumentation/hsi[1]/inputs/frequencies/is-localizer-frequency</property></not>
+                </and>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/hsi[1]/inputs/heading-needle-deflection-40</property>
+                    <value>4.0</value>
+                </div>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[1]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>instrumentation/hsi[1]/inputs/frequencies/is-localizer-frequency</property>
+                </and>
+            </condition>
+            <expression>
+                <div>
+                    <property>instrumentation/hsi[1]/inputs/heading-needle-deflection-16</property>
+                    <value>1.6</value>
+                </div>
+            </expression>
+        </input>
+        <input><value>0.0</value></input>
+        <output>instrumentation/hsi[1]/hsi-loc-deflection</output>
+    </filter>
+
+    <filter>
+        <name>HSI1 glideslope lowpass</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.2</filter-time>
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/hsi[1]/volts</property>
+                        <value>20.0</value>
+                    </greater-than>
+                    <property>instrumentation/hsi[1]/inputs/gs-in-range</property>
+                </and>
+            </condition>
+            <property>instrumentation/hsi[1]/inputs/gs-needle-deflection</property>
+        </input>
+        <input><value>0.0</value></input>
+        <min>-1.0</min>
+        <max>1.0</max>
+        <output>instrumentation/hsi[1]/hsi-gs-deflection</output>
+    </filter>
 
   <!-- Comm-Radios: rebuild the behavior of audio-btn without touching the volume -->
 
@@ -543,6 +915,34 @@ GNU General Public License for more details.
     </input>
     <output>instrumentation/comm[1]/volume</output>
   </filter>
+
+  <!-- DME: minutes -->
+
+    <filter>
+        <name>dme minutes</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>instrumentation/dme/indicated-time-min</property>
+                    <value>99.9</value>
+                </greater-than>
+            </condition>
+            <value>99</value>
+        </input>
+        <input>
+            <expression>
+                <floor>
+                    <sum>
+                        <property>instrumentation/dme/indicated-time-min</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
+        <output>instrumentation/dme/indicated-time-min-display</output>
+    </filter>
 
   <!-- altimeter: correct rounded digits and avoid wrong precision -->
 
@@ -587,7 +987,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.4</filter-time>
+    <filter-time>0.04</filter-time>
     <input>
       <condition>
         <or>
@@ -599,20 +999,47 @@ GNU General Public License for more details.
             </greater-than>
           </and>
           <greater-than>
-            <property>engines/engine[0]/fan</property>
-            <value>50</value>
+            <property>engines/engine[0]/fan-spin</property>
+            <value>49.999</value>
           </greater-than>
         </or>
       </condition>
-      <property>engines/engine[0]/fan</property>
+      <expression>
+        <abs>
+          <property>engines/engine[0]/fan-spin</property>
+        </abs>
+      </expression>
     </input>
-    <input>20.0</input>
+    <input>
+      <condition>
+        <and>
+          <less-than>
+            <property>engines/engine[0]/fan-spin</property>
+            <value>50.000</value>
+          </less-than>
+          <greater-than>
+            <property>engines/engine[0]/fan-spin</property>
+            <value>17.999</value>
+          </greater-than>
+        </and>
+      </condition>
+      <expression>
+        <product>
+          <dif>
+            <property>engines/engine[0]/fan-spin</property>
+            <value>18</value>
+          </dif>
+          <value>1.5625</value>
+        </product>
+      </expression>
+    </input>
+    <input>0.0</input>
     <output>engines/engine[0]/fan-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.4</filter-time>
+    <filter-time>0.04</filter-time>
     <input>
       <condition>
         <or>
@@ -624,20 +1051,47 @@ GNU General Public License for more details.
             </greater-than>
           </and>
           <greater-than>
-            <property>engines/engine[1]/fan</property>
-            <value>50</value>
+            <property>engines/engine[1]/fan-spin</property>
+            <value>49.999</value>
           </greater-than>
         </or>
       </condition>
-      <property>engines/engine[1]/fan</property>
+      <expression>
+        <abs>
+          <property>engines/engine[1]/fan-spin</property>
+        </abs>
+      </expression>
     </input>
-    <input>20.0</input>
+    <input>
+      <condition>
+        <and>
+          <less-than>
+            <property>engines/engine[1]/fan-spin</property>
+            <value>50.000</value>
+          </less-than>
+          <greater-than>
+            <property>engines/engine[1]/fan-spin</property>
+            <value>17.999</value>
+          </greater-than>
+        </and>
+      </condition>
+      <expression>
+        <product>
+          <dif>
+            <property>engines/engine[1]/fan-spin</property>
+            <value>18</value>
+          </dif>
+          <value>1.5625</value>
+        </product>
+      </expression>
+    </input>
+    <input>0.0</input>
     <output>engines/engine[1]/fan-display</output>
   </filter>
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.4</filter-time>
+    <filter-time>0.04</filter-time>
     <input>
       <condition>
         <and>
@@ -661,7 +1115,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.4</filter-time>
+    <filter-time>0.04</filter-time>
     <input>
       <condition>
         <and>
@@ -685,7 +1139,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.2</filter-time>
+    <filter-time>0.02</filter-time>
     <input>
       <condition>
         <and>
@@ -704,7 +1158,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.2</filter-time>
+    <filter-time>0.02</filter-time>
     <input>
       <condition>
         <and>
@@ -723,7 +1177,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.4</filter-time>
+    <filter-time>0.04</filter-time>
     <input>
       <condition>
         <and>
@@ -742,7 +1196,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.4</filter-time>
+    <filter-time>0.04</filter-time>
     <input>
       <condition>
         <and>
@@ -761,7 +1215,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.2</filter-time>
+    <filter-time>0.02</filter-time>
     <input>
       <condition>
         <and>
@@ -780,7 +1234,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.2</filter-time>
+    <filter-time>0.02</filter-time>
     <input>
       <condition>
         <and>
@@ -799,7 +1253,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.2</filter-time>
+    <filter-time>0.02</filter-time>
     <input>
       <condition>
         <and>
@@ -818,7 +1272,7 @@ GNU General Public License for more details.
 
   <filter>
     <type>exponential</type>
-    <filter-time>0.2</filter-time>
+    <filter-time>0.02</filter-time>
     <input>
       <condition>
         <and>

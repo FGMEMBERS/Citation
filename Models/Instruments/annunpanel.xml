@@ -3,52 +3,6 @@
 
   <path>annunpanel.ac</path>
 
-  <effect>
-    <condition>
-      <greater-than>
-        <property>sim/version/flightgear</property>
-        <value>3.4.999</value>
-      </greater-than>
-    </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>Ctn.panel</object-name>
-    <object-name>ACFail</object-name>
-    <object-name>ACMEjectorOn</object-name>
-    <object-name>AirDuctOverHeat</object-name>
-    <object-name>AntiSkidInop</object-name>
-    <object-name>BattOverHeat</object-name>
-    <object-name>BleedAirGndHi</object-name>
-    <object-name>CabAlt10000Ft</object-name>
-    <object-name>DoorNotLocked</object-name>
-    <object-name>EmerPressOn</object-name>
-    <object-name>EngIceFailL</object-name>
-    <object-name>EngIceFailR</object-name>
-    <object-name>FuelBoostOnL</object-name>
-    <object-name>FuelBoostOnR</object-name>
-    <object-name>FuelFilterBypass</object-name>
-    <object-name>FuelLevelLoL</object-name>
-    <object-name>FuelLevelLoR</object-name>
-    <object-name>FuelPressLoL</object-name>
-    <object-name>FuelPressLoR</object-name>
-    <object-name>FWShutoffL</object-name>
-    <object-name>FWShutoffR</object-name>
-    <object-name>GenOffL</object-name>
-    <object-name>GenOffR</object-name>
-    <object-name>HydLevelLo</object-name>
-    <object-name>HydPressLoL</object-name>
-    <object-name>HydPressLoR</object-name>
-    <object-name>HydPressOn</object-name>
-    <object-name>OilPressLoL</object-name>
-    <object-name>OilPressLoR</object-name>
-    <object-name>PrecoolFailL</object-name>
-    <object-name>PrecoolFailR</object-name>
-    <object-name>PSHtrOff</object-name>
-    <object-name>PwrBrkPressLo</object-name>
-    <object-name>SpeedBreakExtended</object-name>
-    <object-name>SurfDeice</object-name>
-    <object-name>WSAirOverHeat</object-name>
-  </effect>
-
   <animation>
     <type>select</type>
     <object-name>HydPressOn</object-name>
@@ -605,5 +559,51 @@
       </greater-than>
     </condition>
   </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>Ctn.panel</object-name>
+    <object-name>ACFail</object-name>
+    <object-name>ACMEjectorOn</object-name>
+    <object-name>AirDuctOverHeat</object-name>
+    <object-name>AntiSkidInop</object-name>
+    <object-name>BattOverHeat</object-name>
+    <object-name>BleedAirGndHi</object-name>
+    <object-name>CabAlt10000Ft</object-name>
+    <object-name>DoorNotLocked</object-name>
+    <object-name>EmerPressOn</object-name>
+    <object-name>EngIceFailL</object-name>
+    <object-name>EngIceFailR</object-name>
+    <object-name>FuelBoostOnL</object-name>
+    <object-name>FuelBoostOnR</object-name>
+    <object-name>FuelFilterBypass</object-name>
+    <object-name>FuelLevelLoL</object-name>
+    <object-name>FuelLevelLoR</object-name>
+    <object-name>FuelPressLoL</object-name>
+    <object-name>FuelPressLoR</object-name>
+    <object-name>FWShutoffL</object-name>
+    <object-name>FWShutoffR</object-name>
+    <object-name>GenOffL</object-name>
+    <object-name>GenOffR</object-name>
+    <object-name>HydLevelLo</object-name>
+    <object-name>HydPressLoL</object-name>
+    <object-name>HydPressLoR</object-name>
+    <object-name>HydPressOn</object-name>
+    <object-name>OilPressLoL</object-name>
+    <object-name>OilPressLoR</object-name>
+    <object-name>PrecoolFailL</object-name>
+    <object-name>PrecoolFailR</object-name>
+    <object-name>PSHtrOff</object-name>
+    <object-name>PwrBrkPressLo</object-name>
+    <object-name>SpeedBreakExtended</object-name>
+    <object-name>SurfDeice</object-name>
+    <object-name>WSAirOverHeat</object-name>
+  </effect>
 
 </PropertyList>

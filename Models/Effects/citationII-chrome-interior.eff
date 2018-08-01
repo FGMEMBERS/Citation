@@ -8,19 +8,19 @@
     <reflection-dynamic type="int">1</reflection-dynamic>
     <reflect_map-enabled type="int">1</reflect_map-enabled>
     <reflection-correction type="float">1.0</reflection-correction>
-      <texture n="50">
+      <texture n="5">
         <type>cubemap</type>
         <images>
-          <positive-x>Aircraft/Citation/Models/Effects/CitationII/2.png</positive-x>
-          <negative-x>Aircraft/Citation/Models/Effects/CitationII/3.png</negative-x>
-          <positive-y>Aircraft/Citation/Models/Effects/CitationII/4.png</positive-y>
-          <negative-y>Aircraft/Citation/Models/Effects/CitationII/1.png</negative-y>
+          <positive-x>Aircraft/Citation/Models/Effects/CitationII/1.png</positive-x>
+          <negative-x>Aircraft/Citation/Models/Effects/CitationII/4.png</negative-x>
+          <positive-y>Aircraft/Citation/Models/Effects/CitationII/3.png</positive-y>
+          <negative-y>Aircraft/Citation/Models/Effects/CitationII/2.png</negative-y>
           <positive-z>Aircraft/Citation/Models/Effects/CitationII/6.png</positive-z>
           <negative-z>Aircraft/Citation/Models/Effects/CitationII/5.png</negative-z>
         </images>
       </texture>
-    <reflection-fresnel type="float"> 0.05 </reflection-fresnel>
-    <reflection-rainbow type="float"> 0.01 </reflection-rainbow>
-    <reflection-noise type="float"> 0.0 </reflection-noise>
+    <reflection-fresnel type="float">0.00</reflection-fresnel>
+    <reflection-rainbow type="float">0.01</reflection-rainbow>
+    <reflection-noise type="float">0.00</reflection-noise>
   </parameters>
 </PropertyList>
