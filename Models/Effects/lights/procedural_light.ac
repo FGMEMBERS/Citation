@@ -1,15 +1,15 @@
 AC3Db
-MATERIAL "DefaultWhite" rgb 1.0 1.0 1.0  amb 1.0 1.0 1.0  emis 0.0 0.0 0.0  spec 0.0 0.0 0.0  shi 1 trans 0.0
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 1 trans 1
 OBJECT world
 name "procedural_light.ac"
 kids 1
 OBJECT poly
 name "procedural_light"
 numvert 4
-0.0 -1.0 -1.0
-0.0 1.0 -1.0
-0.0 -1.0 1.0
-0.0 1.0 1.0
+0 -1 -1
+0  1 -1
+0 -1  1
+0  1  1
 numsurf 1
 SURF 0X20
 mat 0
