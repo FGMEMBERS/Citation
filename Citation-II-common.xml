@@ -1436,6 +1436,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <max-gear-extension-speed type="double">262</max-gear-extension-speed>
     <max-negative-g type="double">-1.52</max-negative-g> <!-- 0.0 if flaps down -->
     <max-positive-g type="double">3.8</max-positive-g> <!-- 2.0 if flaps down -->
+    <vne type="double">263</vne> <!-- indicated airspeed in knots -->
     <vmo type="double">262</vmo> <!-- velocity maximum operation -->
     <mmo type="double">0.705</mmo> <!-- mach maximum operation -->
   </limits>
