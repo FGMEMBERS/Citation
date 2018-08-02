@@ -1,653 +1,818 @@
-<?xml version = '1.0' encoding = 'UTF-8' ?>
+<?xml version='1.0' encoding='UTF-8'?>
 <PropertyList>
 
-<path>elpanel.ac</path>
+  <path>electricpanel.ac</path>
 
-  <effect>
+<!-- first row -->
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.batt.sw</object-name>
+    <property>controls/electric/battery-bus-switch</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.00220</y-m>
+      <z-m>0.03690</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.gen.left.sw</object-name>
+    <property>controls/electric/engine[0]/generator-sw</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>-0.02570</y-m>
+      <z-m>0.03690</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.gen.right.sw</object-name>
+    <property>controls/electric/engine[1]/generator-sw</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.03020</y-m>
+      <z-m>0.03690</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.inv.sw</object-name>
+    <property>controls/electric/inverter-switch</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.06370</y-m>
+      <z-m>0.03690</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.avionics.sw</object-name>
+    <property>controls/electric/avionics-switch</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.08590</y-m>
+      <z-m>0.03690</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+<!-- second row -->
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.ign.left.sw</object-name>
+    <property>controls/engines/engine[0]/ignition-sw</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.05810</y-m>
+      <z-m>-0.00220</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.ign.left.led</object-name>
     <condition>
-      <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
-      </greater-than>
+      <not><property>controls/engines/engine[0]/ignition</property></not>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>LH.ign.active</object-name>
-    <object-name>LH.starter</object-name>
-    <object-name>LH.starter.active</object-name>
-    <object-name>RH.ign.active</object-name>
-    <object-name>RH.starter</object-name>
-    <object-name>RH.starter.active</object-name>
-    <object-name>Starter.off</object-name>
-    <object-name>avn.sw</object-name>
-    <object-name>batt.sw</object-name>
-    <object-name>dcvolts</object-name>
-    <object-name>electric.panel</object-name>
-    <object-name>fuel.knob</object-name>
-    <object-name>inv.sw</object-name>
-    <object-name>lAmps.needle</object-name>
-    <object-name>lboost.sw</object-name>
-    <object-name>ldcamps</object-name>
-    <object-name>lgen.sw</object-name>
-    <object-name>lign.sw</object-name>
-    <object-name>lign.sw.001</object-name>
-    <object-name>lign.sw.002</object-name>
-    <object-name>lign.sw.003</object-name>
-    <object-name>nav.sw</object-name>
-    <object-name>rAmps.needle</object-name>
-    <object-name>rboost.sw</object-name>
-    <object-name>rdcamps</object-name>
-    <object-name>recog.sw</object-name>
-    <object-name>rgen.sw</object-name>
-    <object-name>rign.sw</object-name>
-    <object-name>rign.sw.001</object-name>
-    <object-name>rign.sw.002</object-name>
-    <object-name>rign.sw.003</object-name>
-    <object-name>rign.sw.004</object-name>
-    <object-name>rign.sw.005</object-name>
-    <object-name>rign.sw.006</object-name>
-    <object-name>strobe.sw</object-name>
-    <object-name>test.knob</object-name>
-    <object-name>volt.knob</object-name>
-    <object-name>volts.needle</object-name>
-    <object-name>wing.sw</object-name>
-  </effect>
+  </animation>
 
-<!-- 1 BATT
-     0 OFF
-    -1 EMER -->
-    <animation>
-        <type>knob</type>
-        <object-name>batt.sw</object-name>
-        <property>controls/electric/battery-bus-switch</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.002</y-m>
-            <z-m>0.037</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/electric/battery-bus-switch</property>
-                <factor>1</factor>
-                <min>-1</min>
-                <max>1</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>battery-bus-switch</tooltip-id>
-                <label>Battery bus: %s</label>
-                <mapping>nasal</mapping>
-                <script>
-                    var modes = ['OFF', 'BATT', 'EMER'];
-                    return modes[arg[0]];
-                </script>
-                <property>controls/electric/battery-bus-switch</property>
-            </binding>
-        </hovered>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>elec.ign.left.led.act</object-name>
+    <condition>
+      <property>controls/engines/engine[0]/ignition</property>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>lgen.sw</object-name>
-        <property>controls/electric/engine/generator</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>-0.026</y-m>
-            <z-m>0.037</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.ign.right.sw</object-name>
+    <property>controls/engines/engine[1]/ignition-sw</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.08050</y-m>
+      <z-m>-0.00220</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>rgen.sw</object-name>
-        <property>controls/electric/engine[1]/generator</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.030</y-m>
-            <z-m>0.037</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>elec.ign.right.led</object-name>
+    <condition>
+      <not><property>controls/engines/engine[1]/ignition</property></not>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>avn.sw</object-name>
-        <property>controls/electric/avionics-switch</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.086</y-m>
-            <z-m>0.037</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>elec.ign.right.led.act</object-name>
+    <condition>
+      <property>controls/engines/engine[1]/ignition</property>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>inv.sw</object-name>
-        <property>controls/electric/inverter-switch</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.086</y-m>
-            <z-m>0.037</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>elec.starter.left</object-name>
+    <condition>
+      <not><property>controls/engines/engine[0]/starter</property></not>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>lign.sw</object-name>
-        <property>controls/engines/engine[0]/ignition-sw</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.058</y-m>
-            <z-m>-0.002</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>elec.starter.left.act</object-name>
+    <condition>
+      <property>controls/engines/engine[0]/starter</property>
+    </condition>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>rign.sw</object-name>
-        <property>controls/engines/engine[1]/ignition-sw</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.081</y-m>
-            <z-m>-0.002</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>select</type>
+    <object-name>elec.starter.right</object-name>
+    <condition>
+      <not><property>controls/engines/engine[1]/starter</property></not>
+    </condition>
+  </animation>
 
-    <animation>
-      <type>select</type>
-      <object-name>LH.starter.active</object-name>
-      <condition>
+  <animation>
+    <type>select</type>
+    <object-name>elec.starter.right.act</object-name>
+    <condition>
+      <property>controls/engines/engine[1]/starter</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.starter.off</object-name>
+    <condition>
+      <not>
+        <or>
+          <property>controls/engines/engine[0]/starter</property>
+          <property>controls/engines/engine[1]/starter</property>
+        </or>
+      </not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.starter.off.act</object-name>
+    <condition>
+      <or>
         <property>controls/engines/engine[0]/starter</property>
-      </condition>
-    </animation>
-
-    <animation>
-      <type>select</type>
-      <object-name>LH.ign.active</object-name>
-      <condition>
-        <property>controls/engines/engine[0]/ignition</property>
-      </condition>
-    </animation>
-
-    <animation>
-      <type>select</type>
-      <object-name>RH.starter.active</object-name>
-      <condition>
         <property>controls/engines/engine[1]/starter</property>
-      </condition>
-    </animation>
+      </or>
+    </condition>
+  </animation>
 
-    <animation>
-      <type>select</type>
-      <object-name>RH.ign.active</object-name>
-      <condition>
-        <property>controls/engines/engine[1]/ignition</property>
-      </condition>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.fuel.left.sw</object-name>
+    <property>controls/fuel/tank[0]/boost-pump-switch</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>-0.07610</y-m>
+      <z-m>-0.00220</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-<!-- -1 NORM
-      0 OFF
-      1 ON -->
-    <animation>
-        <type>knob</type>
-        <object-name>lboost.sw</object-name>
-        <property>controls/fuel/tank/boost-pump-switch</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>-0.076</y-m>
-            <z-m>-0.002</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/fuel/tank/boost-pump-switch</property>
-                <factor>1</factor>
-                <min>-1</min>
-                <max>1</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>boost-pump-left</tooltip-id>
-                <label>Left fuel boost pump: %s</label>
-                <mapping>nasal</mapping>
-                <script>
-                    var modes = ['OFF', 'ON', 'NORM'];
-                    return modes[arg[0]];
-                </script>
-                <property>controls/fuel/tank/boost-pump-switch</property>
-            </binding>
-        </hovered>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.fuel.right.sw</object-name>
+    <property>controls/fuel/tank[1]/boost-pump-switch</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>-0.05920</y-m>
+      <z-m>-0.00220</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-<!-- -1 NORM
-      0 OFF
-      1 ON -->
-    <animation>
-        <type>knob</type>
-        <object-name>rboost.sw</object-name>
-        <property>controls/fuel/tank[1]/boost-pump-switch</property>
-        <factor>15</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>-0.059</y-m>
-            <z-m>-0.002</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/fuel/tank[1]/boost-pump-switch</property>
-                <factor>1</factor>
-                <min>-1</min>
-                <max>1</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>boost-pump-right</tooltip-id>
-                <label>Right fuel boost pump: %s</label>
-                <mapping>nasal</mapping>
-                <script>
-                    var modes = ['OFF', 'ON', 'NORM'];
-                    return modes[arg[0]];
-                </script>
-                <property>controls/fuel/tank[1]/boost-pump-switch</property>
-            </binding>
-        </hovered>
-    </animation>
+<!-- Anti Ice Switches-->
 
-<!-- Light Switches-->
+<!-- Light and Gyro Switches -->
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.gyro.vert.sw</object-name>
+    <property>controls/electric/gyro-vert-sw</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>-0.03690</y-m>
+      <z-m>-0.07490</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>recog.sw</object-name>
-        <property>controls/lighting/recog-lights-switch</property>
-        <factor>30</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.022</y-m>
-            <z-m>-0.075</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.gyro.mode.sw</object-name>
+    <property>controls/electric/gyro-mode-sw</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>-0.01730</y-m>
+      <z-m>-0.07490</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>strobe.sw</object-name>
-        <property>controls/lighting/strobe-switch</property>
-        <factor>30</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.041</y-m>
-            <z-m>-0.075</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.gyro.set.sw</object-name>
+    <property>controls/electric/gyro-set-sw</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.00220</y-m>
+      <z-m>-0.07490</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>nav.sw</object-name>
-        <property>controls/lighting/nav-lights-switch</property>
-        <factor>30</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.061</y-m>
-            <z-m>-0.075</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.recog.sw</object-name>
+    <property>controls/lighting/recog-lights-switch</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.02180</y-m>
+      <z-m>-0.07490</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>wing.sw</object-name>
-        <property>controls/lighting/wing-lights</property>
-        <factor>30</factor>
-        <center>
-            <x-m>0.005</x-m>
-            <y-m>0.081</y-m>
-            <z-m>-0.075</z-m>
-        </center>
-        <axis>
-            <x>0.0</x>
-            <y>-1.0</y>
-            <z>0.0</z>
-        </axis>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.strobe.sw</object-name>
+    <property>controls/lighting/strobe-switch</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.04140</y-m>
+      <z-m>-0.07490</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.nav.sw</object-name>
+    <property>controls/lighting/nav-lights-switch</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.06090</y-m>
+      <z-m>-0.07490</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
 
-    <!--
-    -1 LH GEN
-     0 BATT
-     1 RH GEN
-    -->
-    <animation>
-        <type>knob</type>
-        <object-name>volt.knob</object-name>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.wing.sw</object-name>
+    <property>controls/lighting/wing-lights</property>
+    <factor>40</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.08050</y-m>
+      <z-m>-0.07490</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+<!-- -1 LH GEN / 0 BATT / 1 RH GEN -->
+  <animation>
+    <type>knob</type>
+    <object-name>elec.volt.knob</object-name>
+    <property>controls/electric/voltage-sel</property>
+    <factor>30</factor>
+    <center>
+      <x-m>0.0045</x-m>
+      <y-m>-0.04250</y-m>
+      <z-m>0.07390</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
         <property>controls/electric/voltage-sel</property>
-        <factor>30</factor>
-        <center>
-            <x-m>0.01023</x-m>
-            <y-m>-0.04251</y-m>
-            <z-m>0.07432</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/electric/voltage-sel</property>
-                <factor>1</factor>
-                <min>-1</min>
-                <max>1</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-              <command>set-tooltip</command>
-              <tooltip-id>voltage-sel</tooltip-id>
-              <label>Voltage selector: %s</label>
-              <mapping>nasal</mapping>
-              <script>
-                var modes = ['Battery', 'Right hand generator', 'Left hand generator'];
-                return modes[arg[0]];
-              </script>
-              <property>controls/electric/voltage-sel</property>
-            </binding>
-        </hovered>
-    </animation>
+        <factor>1</factor>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>voltage-sel</tooltip-id>
+        <label>Voltage selector: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['Battery', 'Right hand generator', 'Left hand generator'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/voltage-sel</property>
+      </binding>
+    </hovered>
+  </animation>
 
-    <animation>
-      <type>rotate</type>
-      <object-name>volts.needle</object-name>
-      <property>controls/electric/voltage-display</property>
-      <factor>8.15</factor>
-      <offset-deg>-55</offset-deg>
-      <center>
-        <x-m>0.00053</x-m>
-        <y-m>-0.00164</y-m>
-        <z-m>0.07761</z-m>
-      </center>
-      <axis>
-        <x>-1</x>
-        <y>0</y>
-        <z>0</z>
-      </axis>
-    </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.volt.needle</object-name>
+    <property>controls/electric/voltage-display</property>
+    <factor>8.0</factor>
+    <offset-deg>-80</offset-deg>
+    <center>
+      <x-m>0.00200</x-m>
+      <y-m>-0.00160</y-m>
+      <z-m>0.07690</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
 
-    <!--
-    1 OFF
-    2 ANNU
-    3 SPARE
-    4 OVERSPEED
-    5 W/S TEMP
-    6 THRU REV
-    7 SPARE
-    8 BATT TEMP
-    9 LDG GEAR
-   10 OFF
-    -->
+<!--
+1 OFF / 2 ANNU / 3 SPARE / 4 OVERSPEED / 5 W/S TEMP
+6 THRU REV / 7 SPARE / 8 BATT TEMP / 9 LDG GEAR / 10 OFF
+-->
 
-    <animation>
-        <type>knob</type>
-        <object-name>test.knob</object-name>
+  <animation>
+    <type>knob</type>
+    <object-name>elec.test.knob</object-name>
+    <property>controls/electric/system-test</property>
+    <factor>36</factor>
+    <center>
+      <x-m>0.00450</x-m>
+      <y-m>-0.06490</y-m>
+      <z-m>0.03680</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
         <property>controls/electric/system-test</property>
-        <factor>36</factor>
-        <center>
-            <x-m>0.01023</x-m>
-            <y-m>-0.06491</y-m>
-            <z-m>0.03725</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/electric/system-test</property>
-                <factor>1</factor>
-                <min>1</min>
-                <max>10</max>
-                <wrap>false</wrap>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-              <command>set-tooltip</command>
-              <tooltip-id>electric-systems-test</tooltip-id>
-              <label>Electric systems test: %s (non-functional)</label>
-              <mapping>nasal</mapping>
-              <script>
-                var modes = ['', 'OFF', 'Landing gear', 'Battery temp', 'Spare', 'Thrust reversers', 'W/S temp', 'Overspeed', 'Spare', 'Annu', 'OFF'];
-                return modes[arg[0]];
-              </script>
-              <property>controls/electric/system-test</property>
-            </binding>
-        </hovered>
-    </animation>
+        <factor>1</factor>
+        <min>0</min>
+        <max>10</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>electric-systems-test</tooltip-id>
+        <label>Electric systems test: %s (non-functional)</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'OFF', 'Landing gear', 'Battery temp', 'Spare', 'Thrust reversers', 'W/S temp', 'Overspeed', 'Spare', 'Annu'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/system-test</property>
+      </binding>
+    </hovered>
+  </animation>
 
+  <animation>
+    <type>select</type>
+    <object-name>elec.test.led</object-name>
+    <condition>
+      <not><property>controls/electric/system-test</property></not>
+    </condition>
+  </animation>
 
-    <!--
-    -2 LH Eng
-    -1 LH tank
-     0 OFF
-     1 RH tank
-     2 RH Eng
-    -->
-    <animation>
-        <type>knob</type>
-        <object-name>fuel.knob</object-name>
+  <animation>
+    <type>select</type>
+    <object-name>elec.test.led.act</object-name>
+    <condition>
+      <property>controls/electric/system-test</property>
+    </condition>
+  </animation>
+
+<!-- -2 LH Eng / -1 LH tank / 0 OFF / 1 RH tank / 2 RH Eng -->
+  <animation>
+    <type>knob</type>
+    <object-name>elec.fuel.knob</object-name>
+    <property>controls/electric/fuel-sel</property>
+    <factor>60</factor>
+    <center>
+      <x-m>0.00450</x-m>
+      <y-m>-0.07040</y-m>
+      <z-m>-0.06690</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
         <property>controls/electric/fuel-sel</property>
-        <factor>60</factor>
-        <center>
-            <x-m>0.01023</x-m>
-            <y-m>-0.07044</y-m>
-            <z-m>-0.06660</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <action>
-            <binding>
-                <command>property-adjust</command>
-                <property>controls/electric/fuel-sel</property>
-                <factor>1</factor>
-                <min>-2.5</min>
-                <max>2.5</max>
-                <wrap>true</wrap>
-            </binding>
-        </action>
-        <hovered>
-          <binding>
-            <command>set-tooltip</command>
-            <tooltip-id>fuel-sel</tooltip-id>
-            <label>Fuel flow selector: %s (non-functional)</label>
-            <mapping>nasal</mapping>
-            <script>
-              var modes = ['OFF', 'Right hand tank', 'Right hand engine', 'Left hand engine', 'Left hand tank'];
-              return modes[arg[0]];
-            </script>
-            <property>controls/electric/fuel-sel</property>
-          </binding>
-        </hovered>
-    </animation>
+        <factor>1</factor>
+        <min>-2.5</min>
+        <max>2.5</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>fuel-sel</tooltip-id>
+        <label>Fuel flow selector: %s (non-functional)</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'Right hand tank', 'Right hand engine', 'Left hand engine', 'Left hand tank'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/fuel-sel</property>
+      </binding>
+    </hovered>
+  </animation>
 
 <!-- hotspots -->
 
-<animation>
+<!-- 1 BATT / 0 OFF / -1 EMER -->
+  <animation>
     <type>pick</type>
-    <object-name>lgen.sw</object-name>
+    <object-name>elec.batt.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/electric/engine[0]/generator</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <less-than>
+            <property>controls/electric/battery-bus-switch</property>
+            <value>1</value>
+          </less-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/electric/battery-bus-switch</property>
+        <step>1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>battery-bus-switch</tooltip-id>
+        <label>Battery bus: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'BATT', 'EMER'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/battery-bus-switch</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.batt.sw</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <greater-than>
+            <property>controls/electric/battery-bus-switch</property>
+            <value>-1</value>
+          </greater-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/electric/battery-bus-switch</property>
+        <step>-1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.gen.left.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <less-than>
+            <property>controls/electric/engine[0]/generator-sw</property>
+            <value>1</value>
+          </less-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/electric/engine[0]/generator-sw</property>
+        <step>1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>lgen</tooltip-id>
         <label>Left hand generator: %s</label>
-        <mapping>on-off</mapping>
-        <property>controls/electric/engine[0]/generator</property>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'ON', 'Reset'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/engine[0]/generator-sw</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>rgen.sw</object-name>
+    <object-name>elec.gen.left.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <greater-than>
+            <property>controls/electric/engine[0]/generator-sw</property>
+            <value>-1</value>
+          </greater-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/electric/engine[0]/generator-sw</property>
+        <step>-1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+      <mod-up>
+        <button>1</button>
         <binding>
-            <command>property-toggle</command>
-            <property>controls/electric/engine[1]/generator</property>
+          <condition>
+            <less-than>
+              <property>controls/electric/engine[0]/generator-sw</property>
+              <value>0</value>
+            </less-than>
+          </condition>
+          <command>property-toggle</command>
+          <property>sim/sound/click</property>
         </binding>
         <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
+          <command>property-assign</command>
+          <property>controls/electric/engine[0]/generator-sw</property>
+          <value>0</value>
         </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.gen.right.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <less-than>
+            <property>controls/electric/engine[1]/generator-sw</property>
+            <value>1</value>
+          </less-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/electric/engine[1]/generator-sw</property>
+        <step>1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>rgen</tooltip-id>
         <label>Right hand generator: %s</label>
-        <mapping>on-off</mapping>
-        <property>controls/electric/engine[1]/generator</property>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'ON', 'Reset'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/engine[1]/generator-sw</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>inv.sw</object-name>
+    <object-name>elec.gen.right.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <greater-than>
+            <property>controls/electric/engine[1]/generator-sw</property>
+            <value>-1</value>
+          </greater-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/electric/engine[1]/generator-sw</property>
+        <step>-1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+      <mod-up>
+        <button>1</button>
         <binding>
-            <command>property-toggle</command>
-            <property>controls/electric/inverter-switch</property>
+          <condition>
+            <less-than>
+              <property>controls/electric/engine[1]/generator-sw</property>
+              <value>0</value>
+            </less-than>
+          </condition>
+          <command>property-toggle</command>
+          <property>sim/sound/click</property>
         </binding>
         <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
+          <command>property-assign</command>
+          <property>controls/electric/engine[1]/generator-sw</property>
+          <value>0</value>
         </binding>
-      </action>
-      <hovered>
-        <binding>
-          <command>set-tooltip</command>
-          <tooltip-id>inv.sel</tooltip-id>
-          <label>Inverter select: %s</label>
-          <mapping>nasal</mapping>
-          <script>
-            var modes = ['Inverter 2', 'Inverter 1'];
-            return modes[arg[0]];
-          </script>
-          <property>controls/electric/inverter-switch</property>
-        </binding>
-      </hovered>
-</animation>
+      </mod-up>
+    </action>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>avn.sw</object-name>
+    <object-name>elec.inv.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/electric/avionics-switch</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/inverter-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>inv.sel</tooltip-id>
+        <label>Inverter select: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['Inverter 2', 'Inverter 1'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/inverter-switch</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.avionics.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/avionics-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -658,22 +823,22 @@
         <property>controls/electric/avionics-switch</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>lign.sw</object-name>
+    <object-name>elec.ign.left.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/engines/engine[0]/ignition-sw</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine[0]/ignition-sw</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -684,22 +849,22 @@
         <property>controls/engines/engine[0]/ignition-sw</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>rign.sw</object-name>
+    <object-name>elec.ign.right.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/engines/engine[1]/ignition-sw</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine[1]/ignition-sw</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -710,125 +875,439 @@
         <property>controls/engines/engine[1]/ignition-sw</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-
-    <animation>
-        <type>pick</type>
-        <object-name>LH.starter</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>sim/sound/click</property>
-            </binding>
-            <binding>
-                <condition>
-                    <and>
-                        <property>systems/electrical/left-bus</property>
-                        <not><property>engines/engine[0]/started</property></not>
-                        <not><property>controls/electric/engine[0]/starter-btn</property></not>
-                    </and>
-                </condition>
-                <command>property-toggle</command>
-                <property>controls/electric/engine[0]/starter-btn</property>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>lstarter</tooltip-id>
-                <label>Left hand starter: %s</label>
-                <mapping>on-off</mapping>
-                <property>controls/electric/engine[0]/starter-btn</property>
-            </binding>
-        </hovered>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>RH.starter</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>sim/sound/click</property>
-            </binding>
-            <binding>
-                <condition>
-                    <and>
-                        <property>systems/electrical/right-bus</property>
-                        <not><property>engines/engine[1]/started</property></not>
-                        <not><property>controls/electric/engine[1]/starter-btn</property></not>
-                    </and>
-                </condition>
-                <command>property-toggle</command>
-                <property>controls/electric/engine[1]/starter-btn</property>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>rstarter</tooltip-id>
-                <label>Right hand starter: %s</label>
-                <mapping>on-off</mapping>
-                <property>controls/electric/engine[1]/starter-btn</property>
-            </binding>
-        </hovered>
-    </animation>
-
-    <animation>
-        <type>pick</type>
-        <object-name>Starter.off</object-name>
-        <action>
-            <button>0</button>
-            <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>sim/sound/click</property>
-            </binding>
-            <binding>
-                <condition>
-                    <property>controls/electric/engine[0]/starter-btn</property>
-                </condition>
-                <command>property-toggle</command>
-                <property>controls/electric/engine[0]/starter-btn</property>
-            </binding>
-            <binding>
-                <condition>
-                    <property>controls/electric/engine[1]/starter-btn</property>
-                </condition>
-                <command>property-toggle</command>
-                <property>controls/electric/engine[1]/starter-btn</property>
-            </binding>
-        </action>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>starter-disengage</tooltip-id>
-                <label>Starter disengage</label>
-            </binding>
-        </hovered>
-    </animation>
-
-<!-- Lighting -->
-
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>recog.sw</object-name>
+    <object-name>elec.starter.left</object-name>
     <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <property>systems/electrical/left-bus</property>
+            <not><property>engines/engine[0]/started</property></not>
+            <not><property>controls/electric/engine[0]/starter-btn</property></not>
+          </and>
+        </condition>
+        <command>property-toggle</command>
+        <property>controls/electric/engine[0]/starter-btn</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lstarter</tooltip-id>
+        <label>Left hand starter: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/electric/engine[0]/starter-btn</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.starter.right</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <property>systems/electrical/right-bus</property>
+            <not><property>engines/engine[1]/started</property></not>
+            <not><property>controls/electric/engine[1]/starter-btn</property></not>
+          </and>
+        </condition>
+        <command>property-toggle</command>
+        <property>controls/electric/engine[1]/starter-btn</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>rstarter</tooltip-id>
+        <label>Right hand starter: %s</label>
+        <mapping>on-off</mapping>
+        <property>controls/electric/engine[1]/starter-btn</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.starter.off.act</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <condition>
+          <property>controls/electric/engine[0]/starter-btn</property>
+        </condition>
+        <command>property-toggle</command>
+        <property>controls/electric/engine[0]/starter-btn</property>
+      </binding>
+      <binding>
+        <condition>
+          <property>controls/electric/engine[1]/starter-btn</property>
+        </condition>
+        <command>property-toggle</command>
+        <property>controls/electric/engine[1]/starter-btn</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>starter-disengage</tooltip-id>
+        <label>Starter disengage</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.fuel.left.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <less-than>
+            <property>controls/fuel/tank[0]/boost-pump-switch</property>
+            <value>1</value>
+          </less-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/fuel/tank[0]/boost-pump-switch</property>
+        <step>1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>boost-pump-left</tooltip-id>
+        <label>Left fuel boost pump: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'ON', 'NORM'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/fuel/tank[0]/boost-pump-switch</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.fuel.left.sw</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <greater-than>
+            <property>controls/fuel/tank[0]/boost-pump-switch</property>
+            <value>-1</value>
+          </greater-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/fuel/tank[0]/boost-pump-switch</property>
+        <step>-1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.fuel.right.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <less-than>
+            <property>controls/fuel/tank[1]/boost-pump-switch</property>
+            <value>1</value>
+          </less-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/fuel/tank[1]/boost-pump-switch</property>
+        <step>1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>boost-pump-right</tooltip-id>
+        <label>Right fuel boost pump: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'ON', 'NORM'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/fuel/tank[1]/boost-pump-switch</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.fuel.right.sw</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <greater-than>
+            <property>controls/fuel/tank[1]/boost-pump-switch</property>
+            <value>-1</value>
+          </greater-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/fuel/tank[1]/boost-pump-switch</property>
+        <step>-1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+<!-- Anti Ice Switches-->
+  <animation>
+    <type>select</type>
+    <object-name>elec.antiice.pitot.sw</object-name>
+    <condition>
+      <property>sim/time/elapsed-sec</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.antiice.bleed.sw</object-name>
+    <condition>
+      <property>sim/time/elapsed-sec</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.antiice.alcohol.sw</object-name>
+    <condition>
+      <property>sim/time/elapsed-sec</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.antiice.eng.left.sw</object-name>
+    <condition>
+      <property>sim/time/elapsed-sec</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.antiice.eng.right.sw</object-name>
+    <condition>
+      <property>sim/time/elapsed-sec</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>elec.antiice.surface.sw</object-name>
+    <condition>
+      <property>sim/time/elapsed-sec</property>
+    </condition>
+  </animation>
+
+<!-- Light and Gyro Switches -->
+  <animation>
+    <type>pick</type>
+    <object-name>elec.gyro.vert.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/gyro-vert-sw</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>elec.gyro.vert.sw</tooltip-id>
+        <label>Gyro vertical: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['Normal', 'Hi'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/gyro-vert-sw</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.gyro.mode.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/gyro-mode-sw</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>elec.gyro.mode.sw</tooltip-id>
+        <label>Gyro Mode: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['Automatic', 'Manual'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/gyro-mode-sw</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.gyro.set.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/gyro-set-sw</property>
+        <value>1</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <mod-up>
         <button>0</button>
-        <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/recog-lights-switch</property>
+          <command>property-assign</command>
+          <property>controls/electric/gyro-set-sw</property>
+          <value>0</value>
         </binding>
         <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
+          <command>property-toggle</command>
+          <property>sim/sound/click</property>
         </binding>
+      </mod-up>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>elec-gyro-set-sw</tooltip-id>
+        <label>Gyro %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['Setting', 'set to left', 'set to right'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/electric/gyro-set-sw</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.gyro.set.sw</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/electric/gyro-set-sw</property>
+        <value>-1</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <mod-up>
+        <button>1</button>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/electric/gyro-set-sw</property>
+          <value>0</value>
+        </binding>
+        <binding>
+          <command>property-toggle</command>
+          <property>sim/sound/click</property>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.recog.sw</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/recog-lights-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -839,22 +1318,22 @@
         <property>controls/lighting/recog-lights-switch</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>strobe.sw</object-name>
+    <object-name>elec.strobe.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/strobe-switch</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/strobe-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -865,22 +1344,22 @@
         <property>controls/lighting/strobe-switch</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>nav.sw</object-name>
+    <object-name>elec.nav.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/nav-lights-switch</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/nav-lights-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -891,22 +1370,22 @@
         <property>controls/lighting/nav-lights-switch</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
 
-<animation>
+  <animation>
     <type>pick</type>
-    <object-name>wing.sw</object-name>
+    <object-name>elec.wing.sw</object-name>
     <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-toggle</command>
-            <property>controls/lighting/wing-lights</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
-            <property>sim/sound/click</property>
-        </binding>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/lighting/wing-lights</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -917,6 +1396,153 @@
         <property>controls/lighting/wing-lights</property>
       </binding>
     </hovered>
-</animation>
+  </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>elec.panel</object-name>
+    <object-name>elec.volt.knob</object-name>
+    <object-name>elec.test.knob</object-name>
+    <object-name>elec.fuel.knob</object-name>
+    <object-name>elec.batt.sw</object-name>
+    <object-name>elec.gen.left.sw</object-name>
+    <object-name>elec.gen.right.sw</object-name>
+    <object-name>elec.inv.sw</object-name>
+    <object-name>elec.avionics.sw</object-name>
+    <object-name>elec.ign.left.sw</object-name>
+    <object-name>elec.ign.right.sw</object-name>
+    <object-name>elec.starter.left</object-name>
+    <object-name>elec.starter.right</object-name>
+    <object-name>elec.starter.off</object-name>
+    <object-name>elec.starter.off</object-name>
+    <object-name>elec.fuel.left.sw</object-name>
+    <object-name>elec.fuel.right.sw</object-name>
+    <object-name>elec.antiice.pitot.sw</object-name>
+    <object-name>elec.antiice.bleed.sw</object-name>
+    <object-name>elec.antiice.alcohol.sw</object-name>
+    <object-name>elec.antiice.eng.left.sw</object-name>
+    <object-name>elec.antiice.eng.right.sw</object-name>
+    <object-name>elec.antiice.surface.sw</object-name>
+    <object-name>elec.gyro.vert.sw</object-name>
+    <object-name>elec.gyro.mode.sw</object-name>
+    <object-name>elec.gyro.set.sw</object-name>
+    <object-name>elec.recog.sw</object-name>
+    <object-name>elec.strobe.sw</object-name>
+    <object-name>elec.nav.sw</object-name>
+    <object-name>elec.wing.sw</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+<!-- green lights off
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>elec.ign.left.led</object-name>
+    <object-name>elec.ign.right.led</object-name>
+    <emission>
+      <red>0.0</red>
+      <green>0.3</green>
+      <blue>0.0</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+ -->
+<!-- red lights off
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>elec.test.led</object-name>
+    <emission>
+      <red>0.3</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+ -->
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>elec.volt.gauge</object-name>
+    <object-name>elec.volt.needle</object-name>
+    <object-name>elec.amp.left.gauge</object-name>
+    <object-name>elec.amp.left.needle</object-name>
+    <object-name>elec.amp.right.gauge</object-name>
+    <object-name>elec.amp.right.needle</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>elec.glass</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>elec.panel</object-name>
+    <object-name>elec.volt.knob</object-name>
+    <object-name>elec.test.knob</object-name>
+    <object-name>elec.test.led</object-name>
+    <object-name>elec.fuel.knob</object-name>
+    <object-name>elec.batt.sw</object-name>
+    <object-name>elec.gen.left.sw</object-name>
+    <object-name>elec.gen.right.sw</object-name>
+    <object-name>elec.inv.sw</object-name>
+    <object-name>elec.avionics.sw</object-name>
+    <object-name>elec.ign.left.sw</object-name>
+    <object-name>elec.ign.left.led</object-name>
+    <object-name>elec.ign.right.sw</object-name>
+    <object-name>elec.ign.right.led</object-name>
+    <object-name>elec.starter.left</object-name>
+    <object-name>elec.starter.right</object-name>
+    <object-name>elec.starter.off</object-name>
+    <object-name>elec.starter.off</object-name>
+    <object-name>elec.fuel.left.sw</object-name>
+    <object-name>elec.fuel.right.sw</object-name>
+    <object-name>elec.antiice.pitot.sw</object-name>
+    <object-name>elec.antiice.bleed.sw</object-name>
+    <object-name>elec.antiice.alcohol.sw</object-name>
+    <object-name>elec.antiice.eng.left.sw</object-name>
+    <object-name>elec.antiice.eng.right.sw</object-name>
+    <object-name>elec.antiice.surface.sw</object-name>
+    <object-name>elec.gyro.vert.sw</object-name>
+    <object-name>elec.gyro.mode.sw</object-name>
+    <object-name>elec.gyro.set.sw</object-name>
+    <object-name>elec.recog.sw</object-name>
+    <object-name>elec.strobe.sw</object-name>
+    <object-name>elec.nav.sw</object-name>
+    <object-name>elec.wing.sw</object-name>
+  </effect>
 
 </PropertyList>
