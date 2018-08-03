@@ -99,7 +99,10 @@
         </or>
         <or>
           <not><property>engines/engine[0]/started</property></not>
-          <not><property>controls/electric/engine[0]/generator</property></not>
+          <less-than>
+            <property>controls/electric/engine[0]/generator-sw</property>
+            <value>1</value>
+          </less-than>
         </or>
       </and>
     </condition>
@@ -126,7 +129,10 @@
         </or>
         <or>
           <not><property>engines/engine[1]/started</property></not>
-          <not><property>controls/electric/engine[1]/generator</property></not>
+          <less-than>
+            <property>controls/electric/engine[1]/generator-sw</property>
+            <value>1</value>
+          </less-than>
         </or>
       </and>
     </condition>

@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.10</aircraft-version>
+    <aircraft-version>4.1.11</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -727,12 +727,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <battery-bus-switch type="int">0</battery-bus-switch>
       <maingear-switch type="bool">true</maingear-switch>
       <voltage-sel type="int">0</voltage-sel>
-      <system-test type="int">10</system-test>
+      <system-test type="int">0</system-test>
+      <gyro-vert-sw type="bool">0</gyro-vert-sw>
+      <gyro-mode-sw type="bool">0</gyro-mode-sw>
+      <gyro-set-sw type="int">0</gyro-set-sw>
+      <overspeed-horn type="bool">false</overspeed-horn>
       <engine n="0">
         <starter-btn type="bool">false</starter-btn>
+        <generator-sw type="int">0</generator-sw>
       </engine>
       <engine n="1">
         <starter-btn type="bool">false</starter-btn>
+        <generator-sw type="int">0</generator-sw>
       </engine>
       <fuel-sel type="int">0</fuel-sel>
       <fuel>

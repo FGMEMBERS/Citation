@@ -1,52 +1,64 @@
 <PropertyList>
 
-<path>ralt.ac</path>
-
-  <effect>
-    <condition>
-      <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
-      </greater-than>
-    </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>DH.bug</object-name>
-    <object-name>DH.lamp</object-name>
-    <object-name>RALT.face</object-name>
-    <object-name>RALT.flag</object-name>
-    <object-name>RALT.knob</object-name>
-    <object-name>RALT.needle</object-name>
-    <object-name>RALT315</object-name>
-  </effect>
+	<path>ralt.ac</path>
 
 	<animation>
 		<type>select</type>
-		<object-name>DH.lamp</object-name>
+		<object-name>ralt.dh.off</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>systems/electrical/ac-volts</property>
+					<value>100.0</value>
+				</less-than>
+				<greater-than>
+					<property>position/altitude-agl-ft</property>
+					<property>instrumentation/altimeter/decision-height</property>
+				</greater-than>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ralt.dh.on</object-name>
 		<condition>
 			<and>
-				<property>systems/electrical/ac-volts</property>
+				<greater-than>
+					<property>systems/electrical/ac-volts</property>
+					<value>100.0</value>
+				</greater-than>
 				<less-than>
 					<property>position/altitude-agl-ft</property>
 					<property>instrumentation/altimeter/decision-height</property>
 				</less-than>
 			</and>
-			</condition>
-		</animation>
-
-	<animation>
-		<type>select</type>
-		<object-name>RALT.flag</object-name>
-		<condition>
-			<less-than>
-				<property>systems/electrical/ac-volts</property>
-				<value>1</value>
-			</less-than>
 		</condition>
 	</animation>
 
 	<animation>
 		<type>rotate</type>
-		<object-name>DH.bug</object-name>
+		<object-name>ralt.flag</object-name>
+		<property>systems/electrical/ac-volts</property>
+		<interpolation>
+			<entry><ind>100</ind><dep>0</dep></entry>
+			<entry><ind>101</ind><dep>30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0.0025</x-m>
+			<y-m>0.0240</y-m>
+			<z-m>0.0240</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>ralt.bug</object-name>
 		<property>instrumentation/altimeter/decision-height</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>0</dep></entry>
@@ -62,7 +74,7 @@
 
 	<animation>
 		<type>rotate</type>
-		<object-name>RALT.needle</object-name>
+		<object-name>ralt.needle</object-name>
 		<property>instrumentation/radar-altimeter/radar-altitude-ft</property>
 		<interpolation>
 			<entry><ind>-25.0</ind><dep>-9.0</dep></entry>
@@ -78,34 +90,20 @@
 		</axis>
 	</animation>
 
-<!-- hotspots-->
+<!-- hotspots -->
 
 	<animation>
 		<type>pick</type>
-		<object-name>RALT.knob</object-name>
+		<object-name>ralt.knob</object-name>
 		<action>
 			<button>0</button>
-				<repeatable>true</repeatable>
-				<interval-sec>0.2</interval-sec>
-			 <binding>
-				<condition>
-					<less-than>
-						<property>instrumentation/altimeter/decision-height</property>
-						<value>500</value>
-					</less-than>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/altimeter/decision-height</property>
-				<step>10</step>
-				<min>0</min>
-				<max>1000</max>
-				<wrap>false</wrap>
-			</binding>
-			 <binding>
+			<repeatable>true</repeatable>
+			<interval-sec>0.2</interval-sec>
+			<binding>
 				<condition>
 					<greater-than>
 						<property>instrumentation/altimeter/decision-height</property>
-						<value>490</value>
+						<value>495</value>
 					</greater-than>
 				</condition>
 				<command>property-adjust</command>
@@ -115,29 +113,31 @@
 				<max>1000</max>
 				<wrap>false</wrap>
 			</binding>
+			<binding>
+				<condition>
+					<less-than>
+						<property>instrumentation/altimeter/decision-height</property>
+						<value>495</value>
+					</less-than>
+				</condition>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/decision-height</property>
+				<step>10</step>
+				<min>0</min>
+				<max>1000</max>
+				<wrap>false</wrap>
+			</binding>
 		</action>
-                <hovered>
-                  <binding>
-                    <command>set-tooltip</command>
-                    <tooltip-id>RAlt</tooltip-id>
-                    <label>Radio altitude: %d ft</label>
-                    <property>instrumentation/altimeter/decision-height</property>
-                  </binding>
-                </hovered>
-	</animation>
 
-	<animation>
-		<type>pick</type>
-		<object-name>RALT.knob</object-name>
 		<action>
 			<button>1</button>
-				<repeatable>true</repeatable>
-				<interval-sec>0.2</interval-sec>
-			 <binding>
+			<repeatable>true</repeatable>
+			<interval-sec>0.2</interval-sec>
+			<binding>
 				<condition>
 					<less-than>
 						<property>instrumentation/altimeter/decision-height</property>
-						<value>500</value>
+						<value>505</value>
 					</less-than>
 				</condition>
 				<command>property-adjust</command>
@@ -147,11 +147,11 @@
 				<max>1000</max>
 				<wrap>false</wrap>
 			</binding>
-			 <binding>
+			<binding>
 				<condition>
 					<greater-than>
 						<property>instrumentation/altimeter/decision-height</property>
-						<value>490</value>
+						<value>505</value>
 					</greater-than>
 				</condition>
 				<command>property-adjust</command>
@@ -162,40 +162,14 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
-                <hovered>
-                  <binding>
-                    <command>set-tooltip</command>
-                    <tooltip-id>RAlt</tooltip-id>
-                    <label>Radio altitude: %d ft</label>
-                    <property>instrumentation/altimeter/decision-height</property>
-                  </binding>
-                </hovered>
-	</animation>
 
-	<animation>
-		<type>pick</type>
-		<object-name>RALT.knob</object-name>
 		<action>
 			<button>3</button>
-			 <binding>
-				<condition>
-					<less-than>
-						<property>instrumentation/altimeter/decision-height</property>
-						<value>500</value>
-					</less-than>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/altimeter/decision-height</property>
-				<step>10</step>
-				<min>0</min>
-				<max>1000</max>
-				<wrap>false</wrap>
-			</binding>
-			 <binding>
+			<binding>
 				<condition>
 					<greater-than>
 						<property>instrumentation/altimeter/decision-height</property>
-						<value>490</value>
+						<value>495</value>
 					</greater-than>
 				</condition>
 				<command>property-adjust</command>
@@ -205,27 +179,29 @@
 				<max>1000</max>
 				<wrap>false</wrap>
 			</binding>
-		</action>
-                <hovered>
-                  <binding>
-                    <command>set-tooltip</command>
-                    <tooltip-id>RAlt</tooltip-id>
-                    <label>Radio altitude: %d ft</label>
-                    <property>instrumentation/altimeter/decision-height</property>
-                  </binding>
-                </hovered>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>RALT.knob</object-name>
-		<action>
-			<button>4</button>
-			 <binding>
+			<binding>
 				<condition>
 					<less-than>
 						<property>instrumentation/altimeter/decision-height</property>
-						<value>500</value>
+						<value>495</value>
+					</less-than>
+				</condition>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/decision-height</property>
+				<step>10</step>
+				<min>0</min>
+				<max>1000</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+
+		<action>
+			<button>4</button>
+			<binding>
+				<condition>
+					<less-than>
+						<property>instrumentation/altimeter/decision-height</property>
+						<value>505</value>
 					</less-than>
 				</condition>
 				<command>property-adjust</command>
@@ -235,11 +211,11 @@
 				<max>1000</max>
 				<wrap>false</wrap>
 			</binding>
-			 <binding>
+			<binding>
 				<condition>
 					<greater-than>
 						<property>instrumentation/altimeter/decision-height</property>
-						<value>490</value>
+						<value>505</value>
 					</greater-than>
 				</condition>
 				<command>property-adjust</command>
@@ -250,14 +226,74 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
-                <hovered>
-                  <binding>
-                    <command>set-tooltip</command>
-                    <tooltip-id>RAlt</tooltip-id>
-                    <label>Radio altitude: %d ft</label>
-                    <property>instrumentation/altimeter/decision-height</property>
-                  </binding>
-                </hovered>
+
+		<hovered>
+			<binding>
+				<command>set-tooltip</command>
+				<tooltip-id>RAlt</tooltip-id>
+				<label>Radio altitude: %d ft</label>
+				<property>instrumentation/altimeter/decision-height</property>
+			</binding>
+		</hovered>
 	</animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+	<animation>
+		<type>material</type>
+		<condition>
+			<not>
+				<property>sim/rendering/rembrandt/enabled</property>
+			</not>
+		</condition>
+		<object-name>ralt.bezel</object-name>
+		<object-name>ralt.dh.off</object-name>
+		<object-name>ralt.knob</object-name>
+		<object-name>ralt.test</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.8</green>
+			<blue>0.6</blue>
+			<factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+		</emission>
+	</animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+	<animation>
+		<type>material</type>
+		<object-name>ralt.bug</object-name>
+		<object-name>ralt.face</object-name>
+		<object-name>ralt.flag</object-name>
+		<object-name>ralt.needle</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.8</green>
+			<blue>0.6</blue>
+			<factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+		</emission>
+	</animation>
+
+	<effect>
+		<condition>
+			<greater-than>
+				<property>sim/version/flightgear</property>
+				<value>3.4.999</value>
+			</greater-than>
+		</condition>
+		<inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+		<object-name>ralt.bezel</object-name>
+		<object-name>ralt.bug</object-name>
+		<object-name>ralt.dh.off</object-name>
+		<object-name>ralt.face</object-name>
+		<object-name>ralt.flag</object-name>
+		<object-name>ralt.knob</object-name>
+		<object-name>ralt.needle</object-name>
+		<object-name>ralt.test</object-name>
+	</effect>
+
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>ralt.glass</object-name>
+	</effect>
 
 </PropertyList>
