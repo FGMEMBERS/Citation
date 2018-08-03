@@ -24,7 +24,7 @@
   <animation>
     <type>rotate</type>
     <object-name>elec.gen.left.sw</object-name>
-    <property>controls/electric/engine[0]/generator-sw</property>
+    <property>controls/electric/engine[0]/generator</property>
     <factor>20</factor>
     <center>
       <x-m>0.00225</x-m>
@@ -41,7 +41,7 @@
   <animation>
     <type>rotate</type>
     <object-name>elec.gen.right.sw</object-name>
-    <property>controls/electric/engine[1]/generator-sw</property>
+    <property>controls/electric/engine[1]/generator</property>
     <factor>20</factor>
     <center>
       <x-m>0.00225</x-m>
@@ -608,7 +608,7 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/electric/engine[0]/generator-sw</property>
+            <property>controls/electric/engine[0]/generator</property>
             <value>1</value>
           </less-than>
         </condition>
@@ -617,7 +617,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[0]/generator-sw</property>
+        <property>controls/electric/engine[0]/generator</property>
         <step>1</step>
         <min>-1</min>
         <max>1</max>
@@ -634,7 +634,7 @@
           var modes = ['OFF', 'ON', 'Reset'];
           return modes[arg[0]];
         </script>
-        <property>controls/electric/engine[0]/generator-sw</property>
+        <property>controls/electric/engine[0]/generator</property>
       </binding>
     </hovered>
   </animation>
@@ -648,7 +648,7 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/electric/engine[0]/generator-sw</property>
+            <property>controls/electric/engine[0]/generator</property>
             <value>-1</value>
           </greater-than>
         </condition>
@@ -657,7 +657,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[0]/generator-sw</property>
+        <property>controls/electric/engine[0]/generator</property>
         <step>-1</step>
         <min>-1</min>
         <max>1</max>
@@ -668,7 +668,7 @@
         <binding>
           <condition>
             <less-than>
-              <property>controls/electric/engine[0]/generator-sw</property>
+              <property>controls/electric/engine[0]/generator</property>
               <value>0</value>
             </less-than>
           </condition>
@@ -677,7 +677,7 @@
         </binding>
         <binding>
           <command>property-assign</command>
-          <property>controls/electric/engine[0]/generator-sw</property>
+          <property>controls/electric/engine[0]/generator</property>
           <value>0</value>
         </binding>
       </mod-up>
@@ -693,7 +693,7 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/electric/engine[1]/generator-sw</property>
+            <property>controls/electric/engine[1]/generator</property>
             <value>1</value>
           </less-than>
         </condition>
@@ -702,7 +702,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[1]/generator-sw</property>
+        <property>controls/electric/engine[1]/generator</property>
         <step>1</step>
         <min>-1</min>
         <max>1</max>
@@ -719,7 +719,7 @@
           var modes = ['OFF', 'ON', 'Reset'];
           return modes[arg[0]];
         </script>
-        <property>controls/electric/engine[1]/generator-sw</property>
+        <property>controls/electric/engine[1]/generator</property>
       </binding>
     </hovered>
   </animation>
@@ -733,7 +733,7 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/electric/engine[1]/generator-sw</property>
+            <property>controls/electric/engine[1]/generator</property>
             <value>-1</value>
           </greater-than>
         </condition>
@@ -742,7 +742,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[1]/generator-sw</property>
+        <property>controls/electric/engine[1]/generator</property>
         <step>-1</step>
         <min>-1</min>
         <max>1</max>
@@ -753,7 +753,7 @@
         <binding>
           <condition>
             <less-than>
-              <property>controls/electric/engine[1]/generator-sw</property>
+              <property>controls/electric/engine[1]/generator</property>
               <value>0</value>
             </less-than>
           </condition>
@@ -762,7 +762,7 @@
         </binding>
         <binding>
           <command>property-assign</command>
-          <property>controls/electric/engine[1]/generator-sw</property>
+          <property>controls/electric/engine[1]/generator</property>
           <value>0</value>
         </binding>
       </mod-up>
