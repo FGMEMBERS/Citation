@@ -4,60 +4,41 @@ Author : Syd Adams
 Autopilot Controller
 -->
 <PropertyList>
-  <path>AP-control.ac</path>
 
-  <effect>
+  <path>APpanel.ac</path>
+
+  <animation>
+    <type>select</type>
+    <object-name>ap.on.btn</object-name>
+    <condition>
+      <property>autopilot/locks/passive-mode</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>ap.yd.btn</object-name>
+    <condition>
+      <not><property>autopilot/locks/yaw-damper</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>ap.low.btn</object-name>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>autopilot/settings/bank-limit</property>
+        <value>20</value>
       </greater-than>
     </condition>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>AP-on</object-name>
-    <object-name>APcontrol</object-name>
-    <object-name>AP-on.btn</object-name>
-    <object-name>Low-on</object-name>
-    <object-name>Lowbank.btn</object-name>
-    <object-name>Pitch.wheel</object-name>
-    <object-name>Roll.trim</object-name>
-    <object-name>YD-on</object-name>
-    <object-name>YD-on.btn</object-name>
-  </effect>
-
-  <animation>
-    <type>select</type>
-    <object-name>AP-on</object-name>
-    <condition>
-      <not>
-        <property>autopilot/locks/passive-mode</property>
-      </not>
-    </condition>
   </animation>
 
-  <animation>
-    <type>select</type>
-    <object-name>YD-on</object-name>
-    <condition>
-      <property>autopilot/locks/yaw-damper</property>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>Low-on</object-name>
-    <condition>
-      <less-than>
-	<property>autopilot/settings/bank-limit</property>
-	<value>20</value>
-      </less-than>
-    </condition>
-  </animation>
-
-  <!-- hotspots-->
+<!-- hotspots -->
   <animation>
     <type>pick</type>
-    <object-name>AP-on.btn</object-name>
+    <object-name>ap.on.btn</object-name>
+    <object-name>ap.on.lit</object-name>
     <action>
       <button>0</button>
       <binding>
@@ -90,12 +71,13 @@ Autopilot Controller
 
   <animation>
     <type>pick</type>
-    <object-name>YD-on.btn</object-name>
+    <object-name>ap.yd.btn</object-name>
+    <object-name>ap.yd.lit</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-toggle</command>
-	<property>autopilot/locks/yaw-damper</property>
+        <property>autopilot/locks/yaw-damper</property>
       </binding>
     </action>
     <hovered>
@@ -111,7 +93,8 @@ Autopilot Controller
 
   <animation>
     <type>pick</type>
-    <object-name>Lowbank.btn</object-name>
+    <object-name>ap.low.btn</object-name>
+    <object-name>ap.low.lit</object-name>
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
@@ -141,7 +124,7 @@ Autopilot Controller
 
   <animation>
     <type>pick</type>
-    <object-name>Pitch.wheel</object-name>
+    <object-name>ap.pitch</object-name>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -216,7 +199,7 @@ Autopilot Controller
 
   <animation>
     <type>pick</type>
-    <object-name>Pitch.wheel</object-name>
+    <object-name>ap.pitch</object-name>
     <action>
       <button>1</button>
       <repeatable>true</repeatable>
@@ -265,7 +248,7 @@ Autopilot Controller
 
   <animation>
     <type>pick</type>
-    <object-name>Pitch.wheel</object-name>
+    <object-name>ap.pitch</object-name>
     <action>
       <button>3</button>
       <binding>
@@ -312,7 +295,7 @@ Autopilot Controller
 
   <animation>
     <type>pick</type>
-    <object-name>Pitch.wheel</object-name>
+    <object-name>ap.pitch</object-name>
     <action>
       <button>4</button>
       <binding>
@@ -356,5 +339,42 @@ Autopilot Controller
       </binding>
     </action>
   </animation>
+
+  <animation> <!-- Simulate ambient light from panel lights (center console) -->
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>ap.bezel</object-name>
+    <object-name>ap.pitch</object-name>
+    <object-name>ap.roll</object-name>
+    <object-name>ap.on.btn</object-name>
+    <object-name>ap.yd.btn</object-name>
+    <object-name>ap.low.btn</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-ambient-light-center-console</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>ap.bezel</object-name>
+    <object-name>ap.pitch</object-name>
+    <object-name>ap.roll</object-name>
+    <object-name>ap.on.btn</object-name>
+    <object-name>ap.yd.btn</object-name>
+    <object-name>ap.low.btn</object-name>
+  </effect>
 
 </PropertyList>

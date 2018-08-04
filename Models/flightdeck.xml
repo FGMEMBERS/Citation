@@ -191,7 +191,7 @@
   </model>
 
   <model>
-    <path>Aircraft/Citation/Models/Instruments/AP-control.xml</path>
+    <path>Aircraft/Citation/Models/Instruments/APpanel.xml</path>
     <offsets>
       <x-m>3.05</x-m>
       <y-m>0.006</y-m>
@@ -1830,56 +1830,8 @@
     <object-name>RH.lamp</object-name>
     <object-name>antiskid.sw</object-name>
     <object-name>horn.silence</object-name>
-    <object-name>lighting.panel</object-name>
-    <object-name>Beacon.sw</object-name>
-    <object-name>CenterPanelLight.knob</object-name>
-    <object-name>EL.knob</object-name>
-    <object-name>FloodLight.knob</object-name>
-    <object-name>LandingLightLeft.sw</object-name>
-    <object-name>LandingLightRight.sw</object-name>
-    <object-name>LeftPanelLight.knob</object-name>
-    <object-name>PanelLight.sw</object-name>
-    <object-name>PassSafetySeatBelt.sw</object-name>
-    <object-name>RightPanelLight.knob</object-name>
-    <object-name>StdbyGyroTest.sw</object-name>
-    <object-name>electric.panel</object-name>
-    <object-name>LH.starter</object-name>
-    <object-name>RH.starter</object-name>
-    <object-name>avn.sw</object-name>
-    <object-name>batt.sw</object-name>
-    <object-name>fuel.knob</object-name>
-    <object-name>inv.sw</object-name>
-    <object-name>lboost.sw</object-name>
-    <object-name>lgen.sw</object-name>
-    <object-name>lign.sw</object-name>
-    <object-name>LHGyro.SlaveLR.sw</object-name>
-    <object-name>LHGyro.SlaveMan.sw</object-name>
-    <object-name>nav.sw</object-name>
-    <object-name>rboost.sw</object-name>
-    <object-name>recog.sw</object-name>
-    <object-name>rgen.sw</object-name>
-    <object-name>rign.sw</object-name>
-    <object-name>AntiIce.PitotStatic.sw</object-name>
-    <object-name>Alcohol.sw</object-name>
-    <object-name>AntiIce.LEng.sw</object-name>
-    <object-name>AntiIce.REng.sw</object-name>
-    <object-name>AntiIce.Surface.sw</object-name>
-    <object-name>strobe.sw</object-name>
-    <object-name>test.knob</object-name>
-    <object-name>VoltageSel.knob</object-name>
-    <object-name>vertGyro.sw</object-name>
-    <object-name>wing.sw</object-name>
     <object-name>AI</object-name>
     <object-name>Cylinder.001</object-name>
-    <object-name>ALT</object-name>
-    <object-name>ALT.knob</object-name>
-    <object-name>AAlerter</object-name>
-    <object-name>Select.knob</object-name>
-    <object-name>Set.knob</object-name>
-    <object-name>dim.knob</object-name>
-    <object-name>AOA</object-name>
-    <object-name>ASI320</object-name>
-    <object-name>ASI320.knob</object-name>
     <object-name>AudioPnl</object-name>
     <object-name>AudioPnl.knob</object-name>
     <object-name>AudioPnl.knob1</object-name>
@@ -1899,23 +1851,7 @@
     <object-name>toggle.0012</object-name>
     <object-name>toggle.0013</object-name>
     <object-name>Ctn.panel</object-name>
-    <object-name>DME</object-name>
-    <object-name>DME40.dim</object-name>
-    <object-name>DME40.knob1</object-name>
-    <object-name>DME40.knob2</object-name>
-    <object-name>DME40.test</object-name>
-    <object-name>AP-FD</object-name>
-    <object-name>AP.knob</object-name>
     <object-name>HSI</object-name>
-    <object-name>Marker.pnl</object-name>
-    <object-name>OAT</object-name>
-    <object-name>RALT315</object-name>
-    <object-name>RALT.knob</object-name>
-    <object-name>RMI.bezel</object-name>
-    <object-name>RMI.left_button</object-name>
-    <object-name>RMI.right_button</object-name>
-    <object-name>VOR</object-name>
-    <object-name>ASI320</object-name>
     <object-name>ColoRadar</object-name>
     <object-name>Btn1.1</object-name>
     <object-name>Btn1.2</object-name>
@@ -1947,12 +1883,6 @@
 
   <animation> <!-- Simulate ambient light from panel lights (center console) -->
    <type>material</type>
-    <object-name>APcontrol</object-name>
-    <object-name>AP-on.btn</object-name>
-    <object-name>Lowbank.btn</object-name>
-    <object-name>Pitch.wheel</object-name>
-    <object-name>Roll.trim</object-name>
-    <object-name>YD-on.btn</object-name>
     <object-name>panel.001</object-name>
     <object-name>ElevTrim.IndicHousing</object-name>
     <object-name>ElevTrim.wheel</object-name>
@@ -2004,7 +1934,6 @@
     <object-name>DirtMats</object-name>
     <object-name>LHpedal</object-name>
     <object-name>RHpedal</object-name>
-    <object-name>magcompass</object-name>
     <object-name>cbPanel.Left</object-name>
     <object-name>cbPanel.Right</object-name>
     <emission>
@@ -2032,9 +1961,6 @@
     <object-name>OilT02</object-name>
     <object-name>OilP01</object-name>
     <object-name>OilP02</object-name>
-    <object-name>dcvolts</object-name>
-    <object-name>ldcamps</object-name>
-    <object-name>rdcamps</object-name>
     <object-name>AI.002</object-name>
     <object-name>AI.gsneedle</object-name>
     <object-name>AI.ring</object-name>
@@ -2049,29 +1975,6 @@
     <object-name>gs.flag</object-name>
     <object-name>loc.flag</object-name>
     <object-name>turn.needle</object-name>
-    <object-name>ALT.face</object-name>
-    <object-name>ALT.needle</object-name>
-    <object-name>Alt10</object-name>
-    <object-name>Alt100</object-name>
-    <object-name>Alt1000</object-name>
-    <object-name>Alt10000</object-name>
-    <object-name>ALTneg</object-name>
-    <object-name>inhg01</object-name>
-    <object-name>inhg02</object-name>
-    <object-name>inhg03</object-name>
-    <object-name>inhg04</object-name>
-    <object-name>kpa01</object-name>
-    <object-name>kpa02</object-name>
-    <object-name>kpa03</object-name>
-    <object-name>kpa04</object-name>
-    <object-name>AOA.face</object-name>
-    <object-name>AOA.needle</object-name>
-    <object-name>ASI320.face</object-name>
-    <object-name>ASI320.needle</object-name>
-    <object-name>ASI320.ovrspeed</object-name>
-    <object-name>index.marker</object-name>
-    <object-name>mach.subdial</object-name>
-    <object-name>Starter.off</object-name>
     <object-name>HSI.card</object-name>
     <object-name>HSI.crsdeflection</object-name>
     <object-name>HSI.crsneedle</object-name>
@@ -2085,38 +1988,10 @@
     <object-name>HSI.gsneedle</object-name>
     <object-name>HSI.navflag</object-name>
     <object-name>HSI.toflag</object-name>
-    <object-name>compassrose</object-name>
-    <object-name>magcompass.sight</object-name>
-    <object-name>OAT.face</object-name>
-    <object-name>OAT.needle</object-name>
-    <object-name>DH.bug</object-name>
-    <object-name>RALT.face</object-name>
-    <object-name>RALT.flag</object-name>
-    <object-name>RALT.needle</object-name>
-    <object-name>RMI.face</object-name>
-    <object-name>RMI.DoubleArrow.RadioContactIndicator</object-name>
-    <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
-    <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
-    <object-name>RMI.SingleArrow.RadioContactIndicator</object-name>
-    <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
-    <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
-    <object-name>RMI.single_needle</object-name>
-    <object-name>RMI.double_needle</object-name>
-    <object-name>RMI.compass</object-name>
-    <object-name>VOR.face</object-name>
-    <object-name>VOR.off</object-name>
-    <object-name>VOR.to-flag</object-name>
-    <object-name>gs.needle</object-name>
-    <object-name>vor.needle</object-name>
-    <object-name>VSI.face</object-name>
-    <object-name>VSI.needle</object-name>
     <object-name>M877.002</object-name>
     <object-name>M877.display</object-name>
     <object-name>CTL.btn</object-name>
     <object-name>SEL.btn</object-name>
-    <object-name>volts.needle</object-name>
-    <object-name>lAmps.needle</object-name>
-    <object-name>rAmps.needle</object-name>
     <emission>
       <red>1</red>
       <green>0.5</green>
