@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.12</aircraft-version>
+    <aircraft-version>4.1.13</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -699,6 +699,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <ignition-sw type="bool">0</ignition-sw>
         <ignition-auto type="bool">0</ignition-auto>
         <ignition type="bool">0</ignition>
+        <firecover type="bool">0</firecover>
+        <firecover-act type="double">0.0</firecover-act>
       </engine>
       <engine n="1">
         <magnetos>3</magnetos>
@@ -708,6 +710,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <ignition-sw type="bool">0</ignition-sw>
         <ignition-auto type="bool">0</ignition-auto>
         <ignition type="bool">0</ignition>
+        <firecover type="bool">0</firecover>
+        <firecover-act type="double">0.0</firecover-act>
       </engine>
     </engines>
     <fuel>
