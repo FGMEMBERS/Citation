@@ -801,8 +801,6 @@
         </condition>
         <object-name>panel.eng.bezel</object-name>
         <object-name>panel.eng.hole</object-name>
-        <object-name>panel.eng.trbn1led</object-name>
-        <object-name>panel.eng.trbn2led</object-name>
         <emission>
             <red>1.0</red>
             <green>0.8</green>

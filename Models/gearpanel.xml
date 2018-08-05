@@ -208,7 +208,6 @@
         </condition>
         <object-name>panel.gear</object-name>
         <object-name>panel.gear.lever</object-name>
-        <object-name>panel.gear.silence</object-name>
         <object-name>panel.gear.antiskid.sw</object-name>
         <object-name>panel.gear.antiskid.sw.socket</object-name>
         <emission>

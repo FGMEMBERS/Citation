@@ -153,8 +153,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <type>lookfrom</type>
       <internal type="bool">true</internal>
       <config>
-	<default-field-of-view-deg>70</default-field-of-view-deg>
-        <x-offset-m type="double">-0.3</x-offset-m>
+        <default-field-of-view-deg>70</default-field-of-view-deg>
+        <x-offset-m type="double">-0.31</x-offset-m>
         <y-offset-m type="double">1.05</y-offset-m>
         <z-offset-m type="double">3.3</z-offset-m>
         <pitch-offset-deg>-15</pitch-offset-deg>
@@ -247,11 +247,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <internal archive="y">true</internal>
       <type>lookfrom</type>
       <config>
-	<default-field-of-view-deg>70</default-field-of-view-deg>
+        <default-field-of-view-deg>70</default-field-of-view-deg>
         <from-model type="bool">true</from-model>
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
         <heading-offset-deg type="double">0</heading-offset-deg>
-        <x-offset-m archive="y" type="double">0.3</x-offset-m> <!--Right-->
+        <x-offset-m archive="y" type="double">0.31</x-offset-m> <!--Right-->
         <y-offset-m archive="y" type="double">1.05</y-offset-m> <!--Up-->
         <z-offset-m archive="y" type="double">3.3</z-offset-m> <!--Back-->
         <pitch-offset-deg>-15</pitch-offset-deg>
@@ -589,6 +589,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <multiplay>
       <protocol-version type="int">2</protocol-version>
+      <fallback-model-index type="int">103</fallback-model-index>
       <generic>
         <bool type="bool" n="0" alias="/controls/human-models"/>
         <short type="int" n="0" alias="/systems/electrical/outputs/strobe"/>
@@ -1305,14 +1306,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
               </or>
               <property>controls/electric/maingear-switch</property>
               <less-than>
-                <property>controls/engines/engine[0]/throttle</property>
+                <property>controls/engines/engine[0]/throttle-lever</property>
                 <value>0.1</value>
               </less-than>
-              <less-than>
-                <property>controls/engines/engine[1]/throttle</property>
-                <value>0.1</value>
-              </less-than>
-
+              <greater-than>
+                <property>controls/engines/engine[0]/throttle-lever</property>
+                <value>-0.01</value>
+              </greater-than>
               <property>controls/electric/circuit-breakers/bus-left/cb-sys-thrustrev-left</property>
               <greater-than>
                 <property>systems/electrical/outputs/bus/left</property>
@@ -1332,13 +1332,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
               </or>
               <property>controls/electric/maingear-switch</property>
               <less-than>
-                <property>controls/engines/engine[0]/throttle</property>
+                <property>controls/engines/engine[1]/throttle-lever</property>
                 <value>0.1</value>
               </less-than>
-              <less-than>
-                <property>controls/engines/engine[1]/throttle</property>
-                <value>0.1</value>
-              </less-than>
+              <greater-than>
+                <property>controls/engines/engine[1]/throttle-lever</property>
+                <value>-0.01</value>
+              </greater-than>
               <property>controls/electric/circuit-breakers/bus-right/cb-sys-thrustrev-right</property>
               <greater-than>
                 <property>systems/electrical/outputs/bus/right</property>

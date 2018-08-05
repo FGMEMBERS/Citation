@@ -37,7 +37,7 @@
   <!-- 0,0,0 ref point is at the nose -->
   <!-- -X is towards the rear, +Y is left, +Z is up --> 
 
-  <cockpit x="-2.75" y="0.38" z="0.91"/>
+  <cockpit x="-3.30" y="0.31" z="1.05"/>
 
   <!-- FUSELAGE -->
   <fuselage ax="0" ay="0" az="0.02" bx="-2.838" by="0" bz="0.514"
@@ -118,7 +118,7 @@
 
   <gear x="-7.20" y="2.68" z="-0.9266" compression=".2" retract-time="7"
         sfric="0.9" dfric="0.9">
-    <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+    <control-input axis="/controls/gear/brake-left-real" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-speed control="EXTEND" transition-time="6.2"/>
@@ -127,7 +127,7 @@
 
   <gear x="-7.20" y="-2.68" z="-0.9266" compression=".2" retract-time="7"
         sfric="0.9" dfric="0.9">
-    <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+    <control-input axis="/controls/gear/brake-right-real" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-speed control="EXTEND" transition-time="6"/>
