@@ -589,7 +589,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <multiplay>
       <protocol-version type="int">2</protocol-version>
-      <fallback-model-index type="int">103</fallback-model-index>
       <generic>
         <bool type="bool" n="0" alias="/controls/human-models"/>
         <short type="int" n="0" alias="/systems/electrical/outputs/strobe"/>
