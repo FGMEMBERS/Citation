@@ -28,8 +28,8 @@
       <heading-deg>-4</heading-deg>
     </offsets>
     <overlay>
-      <landing-light>systems/electrical/outputs/landing-light[0]</landing-light>
-      <bus-volts>systems/electrical/outputs/bus/left</bus-volts>
+      <landing-light>controls/electric/lighting/landing-light-switch[0]</landing-light>
+      <bus-volts>systems/electrical/outputs/main-left/light-landing-left</bus-volts>
     </overlay>
   </model>
 
@@ -49,8 +49,8 @@
       <heading-deg>4</heading-deg>
     </offsets>
     <overlay>
-      <landing-light>systems/electrical/outputs/landing-light[1]</landing-light>
-      <bus-volts>systems/electrical/outputs/bus/right</bus-volts>
+      <landing-light>controls/electric/lighting/landing-light-switch[1]</landing-light>
+      <bus-volts>systems/electrical/outputs/main-right/light-landing-right</bus-volts>
     </overlay>
   </model>
 

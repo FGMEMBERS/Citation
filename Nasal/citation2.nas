@@ -29,12 +29,13 @@ var JetEngine = {
         m.n2 = m.eng.getNode("n2",1);
         m.fan = m.eng.initNode("fan",0,"DOUBLE");
         m.autostart_in_progress = 0;
-        m.generator = props.globals.initNode("controls/electric/engine["~eng_num~"]/generator",0,"INT");
+        m.generator = props.globals.initNode("controls/electric/engine["~eng_num~"]/generator-ready",0,"BOOL");
         m.turbine = m.eng.initNode("turbine",0,"DOUBLE");
         m.throttle = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle",0,"DOUBLE");
         m.throttle_real = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-real",0,"DOUBLE");
         m.throttle_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-lever",0,"DOUBLE");
-        m.reverser = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser",0,"DOUBLE");
+        m.reverser = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser",0,"BOOL");
+        m.reverser_real = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser-real",0,"BOOL");
         m.reverser_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser-lever",0,"DOUBLE");
         m.reverser_pos = props.globals.initNode("surface-positions/reverser-norm["~eng_num~"]",0,"DOUBLE");
         m.cutoff = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff",0,"BOOL");
@@ -48,18 +49,31 @@ var JetEngine = {
         m.fuel_pph = m.eng.initNode("fuel-flow_pph",0,"DOUBLE");
         m.fuel_gph = m.eng.initNode("fuel-flow-gph");
         m.boost_pump = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
-        m.boost_pump_switch = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump-switch",0,"BOOL");
+        m.boost_pump_switch = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump-switch",-1,"INT");
         m.hpump = props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0,"DOUBLE");
         m.hpump_f = props.globals.initNode("engines/engine["~eng_num~"]/oilp-norm",0,"DOUBLE");
         m.Lfuel = setlistener(m.fuel_out, func m.shutdown(m.fuel_out.getValue()),0,0);
         m.Cut = setlistener(m.cutoff, func m.shutdown(m.cutoff.getValue()),0,0);
-        m.timer = props.globals.initNode ("engines/engine["~eng_num~"]/running-time-s", 1, "DOUBLE");
-        m.hobbs_timer = aircraft.timer.new (m.timer);
+        m.timer = 0;
+        m.hobbs_timer = aircraft.timer.new ("engines/engine["~eng_num~"]/running-time-s");
     return m;
     },
 
 #### update ####
     update : func{
+
+        if (me.running.getBoolValue() and getprop("systems/electrical/outputs/main-right-xover/inst-flt-hr")) {
+            if (!me.timer) {
+                me.hobbs_timer.start ();
+                me.timer = 1;
+            }
+        } else {
+            if (me.timer) {
+                me.hobbs_timer.stop ();
+                me.timer = 0;
+            }
+        }
+
         var thr = me.throttle.getValue();
         var real = me.throttle_real.getValue();
         var lever = me.throttle_lever.getValue();
@@ -107,7 +121,6 @@ var JetEngine = {
         }
 
         if (lever >= 0.0) {
-            if (me.running.getBoolValue()) {
 # if reverser moving
                 if (me.reverser_pos.getValue() != nil and
                     me.reverser_pos.getValue() > 0.0 and
@@ -116,6 +129,7 @@ var JetEngine = {
                 {
                     thr = 0.0;
                     lever = 0.0;
+                    real = 0.0;
                 }
 
 # reverser deployed
@@ -124,12 +138,11 @@ var JetEngine = {
                     real = thr * 0.92;
                     me.reverser_lever.setValue(real + 0.08);
                 }
-
 # reverser stowed
                 else {
                     if (!me.cutoff_lock.getBoolValue() and thr < 0.005) {
                         lever = -0.01;
-                        thr = 0.01;
+                        thr = 0.0;
                         real = 0.0;
                     }
                     else {
@@ -138,17 +151,6 @@ var JetEngine = {
                     }
                     me.reverser_lever.setValue(0.0);
                 }
-            }
-            else {
-                if (!me.cutoff_lock.getBoolValue() and thr < 0.005) {
-                    lever = -0.01;
-                    thr = 0.01;
-                }
-                else {
-                    lever = thr;
-                }
-                real = 0.0;
-            }
         }
 
         me.throttle.setValue(thr);
@@ -182,19 +184,18 @@ var JetEngine = {
 
                 if (turbine > 9) {
 # ing and boost will be automaticly turned on
-                    if (!me.cutoff.getBoolValue()) { me.ignition_auto.setBoolValue(1); }
+                    if (!me.ignition.getBoolValue() ) { me.ignition_auto.setBoolValue(1); }
 
-                    if (me.ignition.getValue() and me.boost_pump.getValue()) {
+                    if (me.ignition.getBoolValue() and me.boost_pump.getValue() and !me.cutoff.getBoolValue()) {
                         fan += getprop ("sim/time/delta-sec") * n1 / scnds;
                         me.fan.setValue (fan);
                         if (fan >= n1) { # declare victory
                             me.running.setBoolValue (1);
-                            me.hobbs_timer.start ();
                             me.starter_btn.setBoolValue (0);
                             me.boost_pump.setBoolValue (0);
                             me.ignition_auto.setBoolValue (0);
+                            me.generator.setBoolValue (1);
                             if (me.autostart_in_progress) {
-                                me.generator.setIntValue(1);
                                 me.autostart_in_progress = 0;
                             }
                         }
@@ -238,7 +239,10 @@ var JetEngine = {
     },
 
     shutdown : func(b){
-        if (b) { me.running.setBoolValue (!b); me.hobbs_timer.stop (); }
+        if (b) {
+            me.running.setBoolValue (!b);
+            me.generator.setBoolValue (0);
+        }
     },
 
     autostart : func () {
@@ -453,8 +457,8 @@ var Startup = func{
 }
 
 var Shutdown = func{
-    setprop("controls/electric/engine[0]/generator",0);
-    setprop("controls/electric/engine[1]/generator",0);
+    setprop("controls/electric/engine[0]/generator-ready",0);
+    setprop("controls/electric/engine[1]/generator-ready",0);
     setprop("controls/electric/avionics-switch",0);
     setprop("controls/electric/battery-bus-switch",0);
     setprop("controls/lighting/panel-lights-switch",1);
@@ -467,23 +471,22 @@ var Shutdown = func{
 
 controls.gearDown = func(v) {
     if (
-        getprop("systems/electrical/outputs/bus/left") > 20
-        and getprop("controls/electric/circuit-breakers/bus-left/cb-sys-gear-ctrl")
-        and !getprop("controls/electric/maingear-switch")
+        getprop("/systems/electrical/outputs/main-left/sys-gear-ctrl")
+        and !getprop("/controls/electric/maingear-switch")
     ) {
         if (v < 0) {
             setprop("/controls/gear/gear-down", 0);
         }
         elsif (v > 0) {
             setprop("/controls/gear/gear-down", 1);
-            setprop("/controls/gear/antiskid-test", getprop("sim/time/elapsed-sec"));
+            setprop("/controls/gear/antiskid-test", getprop("/sim/time/elapsed-sec"));
         }
     }
 }
 
 controls.flapsDown = func(v) {
     var flap_pos=getprop("controls/flight/flaps") or 0;
-    if (getprop("systems/electrical/outputs/bus/left") > 20 and getprop("controls/electric/circuit-breakers/bus-left/cb-sys-flap-ctrl") and getprop("controls/electric/circuit-breakers/bus-left/cb-sys-flap-motor")) {
+    if (getprop("systems/electrical/outputs/main-left/sys-flap-ctrl") and getprop("systems/electrical/outputs/main-left/sys-flap-motor")) {
         flap_pos += v*0.125;
     }
     setprop("controls/flight/flaps",flap_pos);
@@ -514,8 +517,8 @@ var hobbs_meter = {
     e0: props.globals.initNode ("engines/engine[0]/running-time-s", 1, "DOUBLE"),
     e1: props.globals.initNode ("engines/engine[1]/running-time-s", 1, "DOUBLE"),
     update: func () {
-        var left = me.e0.getValue () or 0.0;
-        var right = me.e1.getValue () or 0.0;
+        var left =  me.e0.getValue() or 0.0;
+        var right = me.e1.getValue() or 0.0;
         var h = (left > right ? left : right) / 360.0; # tenths of hour, initially
         me.d0.setValue (math.mod (int (h), 10)); h = h / 10;
         me.d1.setValue (math.mod (int (h), 10)); h = h / 10;

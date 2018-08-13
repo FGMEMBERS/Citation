@@ -44,10 +44,7 @@ GNU General Public License for more details.
         <type>gain</type>
         <input>
             <condition>
-                <greater-than>
-                    <property>systems/electrical/outputs/bus/right</property>
-                    <value>20</value>
-                </greater-than>
+                <property>systems/electrical/outputs/main-left-xover/dc-rmi1</property>
                 <property>instrumentation/rmi/single-needle/in-range</property>
             </condition>
             <expression>
@@ -152,10 +149,7 @@ GNU General Public License for more details.
         <type>gain</type>
         <input>
             <condition>
-                <greater-than>
-                    <property>systems/electrical/outputs/bus/right</property>
-                    <value>20</value>
-                </greater-than>
+                <property>systems/electrical/outputs/main-left-xover/dc-rmi1</property>
                 <property>instrumentation/rmi/double-needle/in-range</property>
             </condition>
             <expression>
@@ -262,10 +256,7 @@ GNU General Public License for more details.
 
     <input>
       <condition>
-        <less-than>
-          <property>systems/electrical/ac-volts</property>
-          <value>1</value>
-        </less-than>
+        <not><property>systems/electrical/outputs/main-left-xover/dc-radalt</property></not>
       </condition>
       <property>instrumentation/radar-altimeter/radar-altitude-ft</property>
     </input>
@@ -305,10 +296,7 @@ GNU General Public License for more details.
     <type>gain</type>
     <input>
       <condition>
-        <greater-than>
-          <property>systems/electrical/ac-volts</property>
-          <value>1.0</value>
-        </greater-than>
+        <property>systems/electrical/outputs/main-right/dc-fms</property>
       </condition>
       <value>1</value>
     </input>
@@ -322,13 +310,7 @@ GNU General Public License for more details.
     <type>gain</type>
     <input>
       <condition>
-        <and>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>1.0</value>
-          </greater-than>
-          <property>controls/electric/circuit-breakers/bus-right/cb-ac-gpws</property>
-        </and>
+        <property>systems/electrical/outputs/main-right/dc-gpws</property>
       </condition>
       <value>1</value>
     </input>
@@ -991,13 +973,7 @@ GNU General Public License for more details.
     <input>
       <condition>
         <or>
-          <and>
-            <property>controls/electric/circuit-breakers/bus-left/cb-engine-fan-left</property>
-            <greater-than>
-              <property>systems/electrical/outputs/bus/left</property>
-              <value>20</value>
-            </greater-than>
-          </and>
+          <property>systems/electrical/outputs/main-left/engine-fan-left</property>
           <greater-than>
             <property>engines/engine[0]/fan-spin</property>
             <value>49.999</value>
@@ -1043,13 +1019,7 @@ GNU General Public License for more details.
     <input>
       <condition>
         <or>
-          <and>
-            <property>controls/electric/circuit-breakers/bus-right/cb-engine-fan-right</property>
-            <greater-than>
-              <property>systems/electrical/outputs/bus/right</property>
-              <value>20</value>
-            </greater-than>
-          </and>
+          <property>systems/electrical/outputs/main-right/engine-fan-right</property>
           <greater-than>
             <property>engines/engine[1]/fan-spin</property>
             <value>49.999</value>
@@ -1094,13 +1064,7 @@ GNU General Public License for more details.
     <filter-time>0.04</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-left/cb-engine-itt-left</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-left/engine-itt-left</property>
       </condition>
       <expression>
         <product>
@@ -1118,13 +1082,7 @@ GNU General Public License for more details.
     <filter-time>0.04</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-right/cb-engine-itt-right</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-right/engine-itt-right</property>
       </condition>
       <expression>
         <product>
@@ -1142,13 +1100,7 @@ GNU General Public License for more details.
     <filter-time>0.02</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-left/cb-engine-fuelflow-left</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-left/engine-fuelflow-left</property>
       </condition>
       <property>engines/engine[0]/fuel-flow_pph</property>
     </input>
@@ -1161,13 +1113,7 @@ GNU General Public License for more details.
     <filter-time>0.02</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-right/cb-engine-fuelflow-right</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-right/engine-fuelflow-right</property>
       </condition>
       <property>engines/engine[1]/fuel-flow_pph</property>
     </input>
@@ -1180,13 +1126,7 @@ GNU General Public License for more details.
     <filter-time>0.04</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-left/cb-engine-qty-left</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-left/engine-qty-left</property>
       </condition>
       <property>consumables/fuel/tank[0]/level-lbs</property>
     </input>
@@ -1199,13 +1139,7 @@ GNU General Public License for more details.
     <filter-time>0.04</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-right/cb-engine-qty-right</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-right/engine-qty-right</property>
       </condition>
       <property>consumables/fuel/tank[1]/level-lbs</property>
     </input>
@@ -1218,13 +1152,7 @@ GNU General Public License for more details.
     <filter-time>0.02</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilt-left</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-left/engine-oilt-left</property>
       </condition>
       <property>engines/engine[0]/oilt-norm</property>
     </input>
@@ -1237,13 +1165,7 @@ GNU General Public License for more details.
     <filter-time>0.02</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilt-right</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-right/engine-oilt-right</property>
       </condition>
       <property>engines/engine[1]/oilt-norm</property>
     </input>
@@ -1256,13 +1178,7 @@ GNU General Public License for more details.
     <filter-time>0.02</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-left/cb-engine-oilp-left</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-left/engine-oilp-left</property>
       </condition>
       <property>engines/engine[0]/oilp-norm</property>
     </input>
@@ -1275,13 +1191,7 @@ GNU General Public License for more details.
     <filter-time>0.02</filter-time>
     <input>
       <condition>
-        <and>
-          <property>controls/electric/circuit-breakers/bus-right/cb-engine-oilp-right</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-        </and>
+        <property>systems/electrical/outputs/main-right/engine-oilp-right</property>
       </condition>
       <property>engines/engine[1]/oilp-norm</property>
     </input>

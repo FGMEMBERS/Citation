@@ -5,12 +5,29 @@
   <animation>
     <type>select</type>
     <object-name>FD.off.lit</object-name>
+    <object-name>FD.hdg.lit</object-name>
+    <object-name>FD.nav.lit</object-name>
+    <object-name>FD.apr.lit</object-name>
+    <object-name>FD.bc.lit</object-name>
+    <object-name>FD.navsel1.lit</object-name>
+    <object-name>FD.navsel2.lit</object-name>
+    <object-name>FD.alt.lit</object-name>
+    <object-name>FD.altsel.cap</object-name>
+    <object-name>FD.altsel.hld</object-name>
+    <object-name>FD.vnav.lit</object-name>
+    <object-name>FD.vs.lit</object-name>
+    <object-name>FD.ias.cap</object-name>
+    <object-name>FD.ias.hld</object-name>
+    <condition>
+      <property>systems/electrical/outputs/main-left-xover/dc-fd1</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.off.lit</object-name>
     <condition>
       <property>autopilot/locks/passive-mode</property>
-      <greater-than>
-        <property>systems/electrical/ac-volts</property>
-        <value>90</value>
-      </greater-than>
     </condition>
   </animation>
 
@@ -72,16 +89,10 @@
     <type>select</type>
     <object-name>FD.navsel1.lit</object-name>
     <condition>
-      <and>
-        <equals>
-          <property alias="../../../../../selected-nav"/>
-          <value>0</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/ac-volts</property>
-          <value>90</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property alias="../../../../selected-nav"/>
+        <value>0</value>
+      </equals>
     </condition>
   </animation>
 
@@ -89,16 +100,10 @@
     <type>select</type>
     <object-name>FD.navsel2.lit</object-name>
     <condition>
-      <and>
-        <equals>
-          <property alias="../../../../../selected-nav"/>
-          <value>1</value>
-        </equals>
-        <greater-than>
-          <property>systems/electrical/ac-volts</property>
-          <value>90</value>
-        </greater-than>
-      </and>
+      <equals>
+        <property alias="../../../../selected-nav"/>
+        <value>1</value>
+      </equals>
     </condition>
   </animation>
 

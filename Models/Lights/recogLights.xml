@@ -2,16 +2,16 @@
 
 <PropertyList>
 
- <path>lightConeRecogLights.ac</path>
+    <path>lightConeRecogLights.ac</path>
 
-     <animation>
+    <animation>
         <type>select</type>
         <object-name>RecogLightCone_L</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/recog-light[0]</property>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <property>systems/electrical/outputs/recog-light[0]</property>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
@@ -26,7 +26,7 @@
 		<object-name>RecogLightCone_L</object-name>
 		<nopreview/>
 		<condition>
-		<property>controls/lighting/recog-light[0]</property>
+			<property>systems/electrical/outputs/recog-light[0]</property>
 		</condition>
 		<position>
 			<x>6.7</x>
@@ -56,6 +56,13 @@
 			<b>0.4</b>
 			<a>0.7</a>
 		</specular>
+		<dim-factor>
+			<property>systems/electrical/outputs/recog-light[0]</property>
+			<factor>0.042</factor>
+			<offset>0</offset>
+			<min>0</min>
+			<max>1</max>
+		</dim-factor>
 		<attenuation>
 			<c>2.0</c>
 			<l>0.05</l>
@@ -72,9 +79,9 @@
         <object-name>RecogLightCone_R</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/lighting/recog-light[1]</property>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <property>systems/electrical/outputs/recog-light[1]</property>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
@@ -89,7 +96,7 @@
 		<object-name>RecogLightCone_R</object-name>
 		<nopreview/>
 		<condition>
-		<property>controls/lighting/recog-light[1]</property>
+			<property>systems/electrical/outputs/recog-light[1]</property>
 		</condition>
 		<position>
 			<x>6.7</x>
@@ -119,6 +126,13 @@
 			<b>0.4</b>
 			<a>0.7</a>
 		</specular>
+		<dim-factor>
+			<property>systems/electrical/outputs/recog-light[1]</property>
+			<factor>0.042</factor>
+			<offset>0</offset>
+			<min>0</min>
+			<max>1</max>
+		</dim-factor>
 		<attenuation>
 			<c>2.0</c>
 			<l>0.05</l>
@@ -130,4 +144,4 @@
 		<far-m>300</far-m>
 	</animation>
 
- </PropertyList>
+</PropertyList>

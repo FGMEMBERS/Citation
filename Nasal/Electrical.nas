@@ -1,91 +1,112 @@
 ####    jet engine electrical system    ####
-####    Syd Adams  -  modified from Curt's original electrical code ####
-var ammeter_ave = 0.0;
-var Lbus = props.globals.initNode("/systems/electrical/left-bus",0,"DOUBLE");
-var Rbus = props.globals.initNode("/systems/electrical/right-bus",0,"DOUBLE");
-var ACbus = props.globals.initNode("/systems/electrical/ac-volts",0,"DOUBLE");
-var Amps = props.globals.initNode("/systems/electrical/amps",0,"DOUBLE");
-var EXT  = props.globals.initNode("/controls/electric/external-power",0,"DOUBLE");
-var XTie  = props.globals.initNode("/systems/electrical/xtie",0,"BOOL");
-var inverter_switch = props.globals.initNode ("/controls/electric/inverter-switch", 1, "BOOL");
-
-var lbus_volts = 0.0;
-var rbus_volts = 0.0;
-
-var lbus_input=[];
-var lbus_output=[];
-var lbus_load=[];
-
-var rbus_input=[];
-var rbus_output=[];
-var rbus_load=[];
-
-var avbus_input=[];
-var avbus_output=[];
-var avbus_load=[];
-
-var lights_input=[];
-var lights_output=[];
-var lights_load=[];
 
 var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
 aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch);
-var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
-aircraft.light.new("controls/lighting/beacon-state", [1.0, 1.0], beacon_switch);
 
 var turb0warn = props.globals.getNode("controls/engines/engine[0]/turbine/warn", 1);
 aircraft.light.new("controls/engines/engine[0]/turbine", [0.5, 0.5], turb0warn);
 var turb1warn = props.globals.getNode("controls/engines/engine[1]/turbine/warn", 1);
 aircraft.light.new("controls/engines/engine[1]/turbine", [0.5, 0.5], turb1warn);
 
+### buses are supplied with voltage ###
+var bus_battery_hot      = props.globals.initNode("/systems/electrical/buses/battery-hot",0,"DOUBLE");
+var bus_battery          = props.globals.initNode("/systems/electrical/buses/battery",0,"DOUBLE");
+var bus_emer             = props.globals.initNode("/systems/electrical/buses/emer",0,"DOUBLE");
+var bus_isol_left        = props.globals.initNode("/systems/electrical/buses/isolated-left",0,"DOUBLE");
+var bus_main_left        = props.globals.initNode("/systems/electrical/buses/main-left",0,"DOUBLE");
+var bus_main_left_xover  = props.globals.initNode("/systems/electrical/buses/main-left-xover",0,"DOUBLE");
+var bus_isol_right       = props.globals.initNode("/systems/electrical/buses/isolated-right",0,"DOUBLE");
+var bus_main_right       = props.globals.initNode("/systems/electrical/buses/main-right",0,"DOUBLE");
+var bus_main_right_xover = props.globals.initNode("/systems/electrical/buses/main-right-xover",0,"DOUBLE");
+var bus_external         = props.globals.initNode("/systems/electrical/buses/external",0,"DOUBLE");
+var bus_ac_115v          = props.globals.initNode("/systems/electrical/buses/AC-115V",0,"DOUBLE");
+var bus_ac_26v           = props.globals.initNode("/systems/electrical/buses/AC-26V",0,"DOUBLE");
+
+### load are added from all users on the bus ###
+var load_battery_hot      = props.globals.initNode("/systems/electrical/load/battery-hot",0,"DOUBLE");
+var load_battery          = props.globals.initNode("/systems/electrical/load/battery",0,"DOUBLE");
+var load_emer             = props.globals.initNode("/systems/electrical/load/emer",0,"DOUBLE");
+var load_isol_left        = props.globals.initNode("/systems/electrical/load/isolated-left",0,"DOUBLE");
+var load_main_left        = props.globals.initNode("/systems/electrical/load/main-left",0,"DOUBLE");
+var load_main_left_xover  = props.globals.initNode("/systems/electrical/load/main-left_xover",0,"DOUBLE");
+var load_isol_right       = props.globals.initNode("/systems/electrical/load/isolated-right",0,"DOUBLE");
+var load_main_right       = props.globals.initNode("/systems/electrical/load/main-right",0,"DOUBLE");
+var load_main_right_xover = props.globals.initNode("/systems/electrical/load/main-right_xover",0,"DOUBLE");
+var load_external         = props.globals.initNode("/systems/electrical/load/external",0,"DOUBLE");
+var load_ac_115v          = props.globals.initNode("/systems/electrical/load/AC-115V",0,"DOUBLE");
+var load_ac_26v           = props.globals.initNode("/systems/electrical/load/AC-26V",0,"DOUBLE");
+
+### arrays for circuit-breakers
+var cbs_battery_hot=[];
+var cbs_battery=[];
+var cbs_emer=[];
+var cbs_isol_left=[];
+var cbs_main_left=[];
+var cbs_main_left_xover=[];
+var cbs_isol_right=[];
+var cbs_main_right=[];
+var cbs_main_right_xover=[];
+var cbs_ac_115v=[];
+var cbs_ac_26v=[];
+
+# Lights
+var lights_state=[];
+var lights_bus=[];
+var lights_input=[];
+var lights_output=[];
+var lights_power=[];
+
 ####################################################
 
 var Battery = {
-    new : func(swtch,vlt,amp,hr,chp,cha){
-    m = { parents : [Battery] };
-            m.switch = props.globals.getNode(swtch,1);
-#            m.switch.setBoolValue(0);
-            m.ideal_volts = vlt;
-            m.ideal_amps = amp;
-            m.amp_hours = hr;
-            m.charge_percent = chp;
-            m.charge_amps = cha;
-    return m;
+    new : func(num, vlt, amp, hr, chp, cha){
+        m = { parents : [Battery] };
+        m.voltage = props.globals.initNode("systems/electrical/supplier/battery["~num~"]/voltage",0,"DOUBLE");
+        m.load = props.globals.initNode("systems/electrical/supplier/battery["~num~"]/load",0,"DOUBLE");
+        m.amp_hours = props.globals.initNode("systems/electrical/supplier/battery["~num~"]/amp_hours",0,"DOUBLE");
+        m.percent = props.globals.initNode("systems/electrical/supplier/battery["~num~"]/percent",0,"DOUBLE");
+        m.charge = props.globals.initNode("systems/electrical/supplier/battery["~num~"]/charge",0,"DOUBLE");
+
+        m.voltage.setValue(0);
+        m.load.setValue(0);
+        m.amp_hours.setValue(hr);
+        m.percent.setValue(chp);
+        m.charge.setValue(cha);
+        m.ideal_volts = vlt;
+        m.ideal_amps = amp;
+        return m;
     },
 
-    apply_load : func(load,dt) {
-        if(me.switch.getValue()){
+    apply_load : func(load, dt) {
         var amphrs_used = load * dt / 3600.0;
-        var percent_used = amphrs_used / me.amp_hours;
-        me.charge_percent -= percent_used;
-        if ( me.charge_percent < 0.0 ) {
+        var percent_used = amphrs_used / me.amp_hours.getValue();
+        me.percent -= percent_used;
+        if ( me.charge.getValue() < 0.0 ) {
             me.charge_percent = 0.0;
         } elsif ( me.charge_percent > 1.0 ) {
-        me.charge_percent = 1.0;
+            me.charge_percent = 1.0;
         }
-        var output =me.amp_hours * me.charge_percent;
+        var output = me.amp_hours * me.percent.getValue();
+        me.load.setValue(output);
         return output;
-        }else return 0;
     },
 
     get_output_volts : func {
-        if(me.switch.getValue()){
-        var x = 1.0 - me.charge_percent;
+        var x = 1.0 - me.percent.getValue();
         var tmp = -(3.0 * x - 1.0);
-        var factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
-        var output =me.ideal_volts * factor;
+        var factor = (tmp * tmp * tmp * tmp * tmp + 32) / 32;
+        var output = me.ideal_volts * factor;
+        me.voltage.setValue(output);
         return output;
-        }else return 0;
     },
 
     get_output_amps : func {
-        if(me.switch.getValue()){
-        var x = 1.0 - me.charge_percent;
+        var x = 1.0 - me.percent.getValue();
         var tmp = -(3.0 * x - 1.0);
-        var factor = (tmp*tmp*tmp*tmp*tmp + 32) / 32;
+        var factor = (tmp * tmp * tmp * tmp * tmp + 32) / 32;
         var output = me.ideal_amps * factor;
+        me.load.setValue(output);
         return output;
-        }else return 0;
     }
 };
 
@@ -95,14 +116,14 @@ var Battery = {
 var Alternator = {
     new : func (num,switch,src,thr,vlt,amp){
         m = { parents : [Alternator] };
-        m.switch =  props.globals.getNode(switch,1);
+        m.switch = props.globals.getNode(switch,1);
         m.running = props.globals.getNode("engines/engine["~num~"]/started",1);
-        m.meter =  props.globals.getNode("systems/electrical/gen-load["~num~"]",1);
-        m.meter.setDoubleValue(0);
-        m.gen_output =  props.globals.getNode("engines/engine["~num~"]/amp-v",1);
-        m.gen_output.setDoubleValue(0);
-        m.rpm_source =  props.globals.getNode(src,1);
+        m.rpm_source = props.globals.getNode(src,1);
         m.rpm_threshold = thr;
+        m.voltage = props.globals.getNode("systems/electrical/supplier/generator["~num~"]/voltage",1);
+        m.voltage.setDoubleValue(0);
+        m.load = props.globals.getNode("systems/electrical/supplier/generator["~num~"]/load",1);
+        m.load.setDoubleValue(0);
         m.ideal_volts = vlt;
         m.ideal_amps = amp;
         return m;
@@ -110,16 +131,15 @@ var Alternator = {
 
     apply_load : func(load) {
         var out = 0;
-        var cur_volt=me.gen_output.getValue();
-        var cur_amp=me.meter.getValue();
-        if(cur_volt >1){
-            var factor=1/cur_volt;
-            gout = (load * factor);
-            if(gout>1)gout=1;
-        }else{
-            gout=0;
+        var cur_volt = me.voltage.getValue();
+        if(cur_volt > 1){
+            var factor = 1 / cur_volt;
+            out = (load * factor);
+            if(out > 1) out = 1;
+        } else {
+            gout = 0;
         }
-        me.meter.setValue(gout);
+        me.load.setValue(out);
     },
 
     get_output_volts : func {
@@ -129,254 +149,561 @@ var Alternator = {
             if ( factor > 1.0 ) factor = 1.0;
             out = (me.ideal_volts * factor);
         }
-        me.gen_output.setValue(out);
+        me.voltage.setValue(out);
         return out;
     },
 
     get_output_amps : func {
-        var ampout =0;
+        var ampout = 0;
         if(me.switch.getBoolValue() and me.running.getBoolValue()){
             var factor = me.rpm_source.getValue() / me.rpm_threshold or 0;
             if ( factor > 1.0 ) factor = 1.0;
             ampout = me.ideal_amps * factor;
         }
-        me.meter.setValue(ampout);
+        me.load.setValue(ampout);
         return ampout;
     }
 };
 
 #####################################################
 
-var battery = Battery.new("controls/electric/battery-bus-switch",24,1,40,1.0,7.0);
-var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","engines/engine[0]/turbine",40.0,28.0,400.0);
-var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","engines/engine[1]/turbine",40.0,28.0,400.0);
+# var external = External.new(switch,volt,amp);
+var External = {
+    new : func (switch,vlt,amp){
+        m = { parents : [External] };
+        m.switch = props.globals.initNode(switch,1);
+        m.voltage = props.globals.initNode("systems/electrical/supplier/external/voltage",1);
+        m.voltage.setDoubleValue(0);
+        m.load = props.globals.initNode("systems/electrical/supplier/external/load",1);
+        m.load.setDoubleValue(0);
+        m.volts = vlt;
+        m.amps = amp;
+        return m;
+    },
+
+    apply_load : func(load) {
+        me.load.setValue(load);
+    },
+
+    get_output_volts : func {
+        var out = 0;
+        if(me.switch.getBoolValue()){
+            out = me.volts;
+        }
+        me.voltage.setValue(out);
+        return out;
+    },
+
+    get_output_amps : func {
+        var ampout = 0;
+        if(me.switch.getBoolValue()){
+            ampout = me.amps;
+        }
+        me.load.setValue(ampout);
+        return ampout;
+    }
+};
+
+#####################################################
+
+var battery = Battery.new(0,24,80,40,1.0,7.0);
+var alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator-ready","engines/engine[0]/turbine",45.0,28.0,400.0);
+var alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator-ready","engines/engine[1]/turbine",45.0,28.0,400.0);
+var external = External.new("controls/electric/external-power",26.0,1200.0);
 
 setlistener("/sim/signals/fdm-initialized", func {
-    init_switches();
+    init_electrical();
     settimer(update_electrical,5);
     print("Electrical System ... ok");
 });
 
-var init_switches = func{
 
-    var AVswitch=props.globals.initNode("controls/electric/avionics-switch",0,"BOOL");
-
-    setprop("controls/lighting/engines-norm",0.8);
-    setprop("controls/lighting/efis-norm",0.8);
-    setprop("controls/lighting/instruments-norm",0.0);
-    props.globals.initNode("controls/electric/ammeter-switch",0,"BOOL");
-    props.globals.initNode("systems/electrical/serviceable",0,"BOOL");
-    props.globals.initNode("controls/electric/external-power",0,"BOOL");
-
-    append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/landing-light[1]",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[1]",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/recog-light[0]",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-light[0]",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/recog-light[1]",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-light[1]",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/nav-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/nav-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/cabin-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/cabin-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/map-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/map-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/wing-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/wing-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/logo-lights",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/logo-lights",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/taxi-light",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/taxi-light",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/beacon",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/beacon",0,"DOUBLE"));
-    append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/strobe-state/state",0,"BOOL"));
-    append(lights_output,props.globals.initNode("systems/electrical/outputs/strobe",0,"DOUBLE"));
-    append(lights_load,1);
-
-    append(lbus_input,props.globals.initNode("controls/fuel/tank[0]/boost-pump",0,"BOOL"));
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[0]",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,props.globals.initNode("controls/engines/engine[0]/starter",0,"BOOL"));
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/starter[0]",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,props.globals.initNode("instrumentation/turn-coordinator/serviceable",1,"BOOL"));
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/turn-coordinator",0,"DOUBLE"));
-    append(lbus_load,1);
-    append(lbus_input,props.globals.initNode("instrumentation/DG/serviceable",1,"BOOL"));
-    append(lbus_output,props.globals.initNode("systems/electrical/outputs/DG",0,"DOUBLE"));
-    append(lbus_load,1);
-
-    append(rbus_input,props.globals.initNode("controls/fuel/tank[1]/boost-pump",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/fuel-pump[1]",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/engines/engine[1]/starter",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/starter[1]",0,"DOUBLE"));
-    append(rbus_load,1);
-    append(rbus_input,props.globals.initNode("controls/electric/wiper-switch",0,"BOOL"));
-    append(rbus_output,props.globals.initNode("systems/electrical/outputs/wiper",0,"DOUBLE"));
-    append(rbus_load,1);
-
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/adf",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/dme",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/comm[0]",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/comm[1]",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav[0]",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/nav[1]",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder[0]",0,"DOUBLE"));
-    append(avbus_load,1);
-    append(avbus_input,AVswitch);
-    append(avbus_output,props.globals.initNode("systems/electrical/outputs/transponder[1]",0,"DOUBLE"));
-    append(avbus_load,1);
+var prop_alias = func (sorce, dest) {
+    var src_node = props.globals.getNode (sorce);
+    var dst_node = props.globals.getNode (dest);
+    dst_node.unalias ();
+    dst_node.alias (src_node);
 }
 
+var init_electrical = func{
 
-update_virtual_bus = func( dt ) {
-    var PWR = getprop("systems/electrical/serviceable");
-    var AV = getprop("controls/electric/avionics-switch");
+    append(cbs_battery_hot, "light-comp");
+    append(cbs_battery_hot, "light-emer");
+    append(cbs_battery_hot, "ignition");
+    append(cbs_battery_hot, "emer-power");
 
-    var xtie=0;
-    var left_load = 0.0;
-    var right_load = 0.0;
+    append(cbs_battery, "batt-voltage");
 
-    var battery_volts = battery.get_output_volts();
-    var alternator1_volts = alternator1.get_output_volts();
-    var alternator2_volts = alternator2.get_output_volts();
+    append(cbs_isol_left, "gen-ammeter-left");
+    append(cbs_isol_left, "gen-sense-left");
+    append(cbs_isol_left, "light-start-left");
+    append(cbs_isol_left, "gen-voltage-left");
 
-    # Feed the two DC buses either from alternator or from battery.
-    if (alternator1_volts > battery_volts) {
-       lbus_volts = alternator1_volts;
+    append(cbs_isol_right, "gen-ammeter-right");
+    append(cbs_isol_right, "gen-sense-right");
+    append(cbs_isol_right, "light-start-right");
+    append(cbs_isol_right, "gen-voltage-right");
+
+    append(cbs_main_left, "left-sense");
+    append(cbs_main_left, "fuel-boost-left");
+    append(cbs_main_left, "annun-genoff-left");
+    append(cbs_main_left, "light-landing-left");
+    append(cbs_main_left, "light-recog-left");
+    append(cbs_main_left, "light-advisory");
+    append(cbs_main_left, "light-indirect");
+    append(cbs_main_left, "entertainment");
+    append(cbs_main_left, "engine-fan-left");
+    append(cbs_main_left, "engine-turbine-left");
+    append(cbs_main_left, "light-panel-left");
+    append(cbs_main_left, "left-inverter");
+    append(cbs_main_left, "light-strobe");
+    append(cbs_main_left, "sys-aoa");
+    append(cbs_main_left, "anti-ice-aoa");
+    append(cbs_main_left, "warn-batt");
+    append(cbs_main_left, "env-fan");
+    append(cbs_main_left, "rec-voice");
+    append(cbs_main_left, "inst-clock-left");
+    append(cbs_main_left, "light-panel-el");
+    append(cbs_main_left, "anti-ice-engine-left");
+    append(cbs_main_left, "sys-engine-sync");
+    append(cbs_main_left, "engine-fire-left");
+    append(cbs_main_left, "engine-shutoff-left");
+    append(cbs_main_left, "sys-flap-ctrl");
+    append(cbs_main_left, "rec-flight");
+    append(cbs_main_left, "fuel-boost-right");
+    append(cbs_main_left, "engine-fuelflow-left");
+    append(cbs_main_left, "engine-qty-left");
+    append(cbs_main_left, "engine-ign-right");
+    append(cbs_main_left, "engine-itt-left");
+    append(cbs_main_left, "sys-gear-ctrl");
+    append(cbs_main_left, "warn-gear");
+    append(cbs_main_left, "left-starter");
+    append(cbs_main_left, "light-winginsp");
+    append(cbs_main_left, "sys-nose-wheel-rpm");
+    append(cbs_main_left, "inst-oat");
+    append(cbs_main_left, "engine-oilp-left");
+    append(cbs_main_left, "engine-oilt-left");
+    append(cbs_main_left, "sys-pitch-trim");
+    append(cbs_main_left, "anti-ice-pitot-left");
+    append(cbs_main_left, "sys-skid-ctrl");
+    append(cbs_main_left, "env-normalp");
+    append(cbs_main_left, "left-xover");
+    append(cbs_main_left, "light-beacon");
+    append(cbs_main_left, "sys-speed-brake");
+    append(cbs_main_left, "inst-gyro-standby");
+    append(cbs_main_left, "env-temp");
+    append(cbs_main_left, "sys-thrustrev-left");
+    append(cbs_main_left, "warn-lts1");
+    append(cbs_main_left, "anti-ice-bleedair-ws");
+    append(cbs_main_left, "anti-ice-bleedair-ws-temp");
+    append(cbs_main_left, "light-nav");
+    append(cbs_main_left, "sys-flap-motor");
+
+    append(cbs_main_left_xover, "dc-nav1");
+    append(cbs_main_left_xover, "dc-adf1");
+    append(cbs_main_left_xover, "dc-audio1");
+    append(cbs_main_left_xover, "dc-dme1");
+    append(cbs_main_left_xover, "dc-efis-adi");
+    append(cbs_main_left_xover, "dc-efis-disp");
+    append(cbs_main_left_xover, "dc-efis-efis");
+    append(cbs_main_left_xover, "dc-efis-hsi");
+    append(cbs_main_left_xover, "dc-fd1");
+    append(cbs_main_left_xover, "dc-radalt");
+    append(cbs_main_left_xover, "dc-rmi1");
+    append(cbs_main_left_xover, "dc-xpdr1");
+    append(cbs_main_left_xover, "dc-comm2");
+    append(cbs_main_left_xover, "dc-dg1");
+    append(cbs_main_left_xover, "dc-ap");
+    append(cbs_main_left_xover, "dc-phone");
+    append(cbs_main_left_xover, "dc-voice-adv");
+
+    append(cbs_main_right, "right-sense");
+    append(cbs_main_right, "fuel-boost-right");
+    append(cbs_main_right, "annun-genoff-right");
+    append(cbs_main_right, "light-landing-right");
+    append(cbs_main_right, "light-recog-right");
+    append(cbs_main_right, "light-cabin");
+    append(cbs_main_right, "light-toilet");
+    append(cbs_main_right, "engine-fan-right");
+    append(cbs_main_right, "engine-turbine-right");
+    append(cbs_main_right, "right-inverter");
+    append(cbs_main_right, "engine-fuelflow-right");
+    append(cbs_main_right, "engine-qty-right");
+    append(cbs_main_right, "engine-itt-right");
+    append(cbs_main_right, "right-xover");
+    append(cbs_main_right, "engine-oilp-right");
+    append(cbs_main_right, "engine-oilt-right");
+    append(cbs_main_right, "right-starter");
+    append(cbs_main_right, "dc-dme2");
+    append(cbs_main_right, "dc-xpdr2");
+    append(cbs_main_right, "dc-adf2");
+    append(cbs_main_right, "dc-comm3");
+    append(cbs_main_right, "dc-audio2");
+    append(cbs_main_right, "dc-warn");
+    append(cbs_main_right, "dc-nav-area");
+    append(cbs_main_right, "dc-gpws");
+    append(cbs_main_right, "dc-tas-htr");
+    append(cbs_main_right, "dc-nav-vlf");
+    append(cbs_main_right, "dc-nav-db");
+    append(cbs_main_right, "dc-fms");
+    append(cbs_main_right, "dc-radar");
+    append(cbs_main_right, "dc-fd2");
+    append(cbs_main_right, "dc-rmi2");
+
+    append(cbs_main_right_xover, "light-panel-center");
+    append(cbs_main_right_xover, "light-panel-right");
+    append(cbs_main_right_xover, "anti-ice-alcohol");
+    append(cbs_main_right_xover, "inst-ralt");
+    append(cbs_main_right_xover, "inst-clock-right");
+    append(cbs_main_right_xover, "env-emerp");
+    append(cbs_main_right_xover, "anti-ice-engine-right");
+    append(cbs_main_right_xover, "engine-fire-right");
+    append(cbs_main_right_xover, "engine-shutoff-right");
+    append(cbs_main_right_xover, "inst-flt-hr");
+    append(cbs_main_right_xover, "engine-ign-left");
+    append(cbs_main_right_xover, "warn-speed");
+    append(cbs_main_right_xover, "anti-ice-pitot-right");
+    append(cbs_main_right_xover, "anti-ice-surface");
+    append(cbs_main_right_xover, "sys-thrustrev-right");
+    append(cbs_main_right_xover, "warn-lts2");
+    append(cbs_main_right_xover, "fuel-boost-left");
+    append(cbs_main_right_xover, "sys-equip-cool");
+
+    append(cbs_ac_115v, "ac-ap");
+    append(cbs_ac_115v, "ac-fd1");
+    append(cbs_ac_115v, "ac-air-data");
+    append(cbs_ac_115v, "ac-vgyro1");
+    append(cbs_ac_115v, "ac-radar");
+    append(cbs_ac_115v, "ac-fd2");
+    append(cbs_ac_115v, "ac-vgyro2");
+
+    append(cbs_ac_26v, "ac-nav1");
+    append(cbs_ac_26v, "ac-rmi-adf1");
+    append(cbs_ac_26v, "ac-hsi1");
+    append(cbs_ac_26v, "ac-adi1");
+    append(cbs_ac_26v, "ac-gpws");
+    append(cbs_ac_26v, "ac-nav2");
+    append(cbs_ac_26v, "ac-rmi-adf2");
+    append(cbs_ac_26v, "ac-hsi2");
+    append(cbs_ac_26v, "ac-adi2");
+    append(cbs_ac_26v, "ac-efis");
+
+    append(cbs_emer, "dc-nav2");
+    append(cbs_emer, "dc-comm1");
+    append(cbs_emer, "dc-dg2");
+    append(cbs_emer, "light-flood");
+
+    append(lights_state,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
+    append(lights_bus,"main-left");
+    append(lights_input,"light-landing-left");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
+    append(lights_power,100.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/landing-light[1]",0,"BOOL"));
+    append(lights_bus,"main-right");
+    append(lights_input,"light-landing-right");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[1]",0,"DOUBLE"));
+    append(lights_power,100.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/recog-light[0]",0,"BOOL"));
+    append(lights_bus,"main-left");
+    append(lights_input,"light-recog-left");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-light[0]",0,"DOUBLE"));
+    append(lights_power,100.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/recog-light[1]",0,"BOOL"));
+    append(lights_bus,"main-right");
+    append(lights_input,"light-recog-right");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/recog-light[1]",0,"DOUBLE"));
+    append(lights_power,100.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/nav-lights",0,"BOOL"));
+    append(lights_bus,"main-left");
+    append(lights_input,"light-nav");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/nav-lights",0,"DOUBLE"));
+    append(lights_power,45.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/cabin-lights",0,"BOOL"));
+    append(lights_bus,"main-right");
+    append(lights_input,"light-cabin");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/cabin-lights",0,"DOUBLE"));
+    append(lights_power,120.0);
+
+#    append(lights_state,props.globals.initNode("controls/lighting/map-lights",0,"BOOL"));
+#    append(lights_bus,"main-right");
+#    append(lights_input,"light-cabin");
+#    append(lights_output,props.globals.initNode("systems/electrical/outputs/map-lights",0,"DOUBLE"));
+#    append(lights_power,120.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/wing-lights",0,"BOOL"));
+    append(lights_bus,"main-left");
+    append(lights_input,"light-winginsp");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/wing-lights",0,"DOUBLE"));
+    append(lights_power,40.0);
+
+#    append(lights_state,props.globals.initNode("controls/lighting/logo-lights",0,"BOOL"));
+#    append(lights_bus,"main-left");
+#    append(lights_input,"light-winginsp");
+#    append(lights_output,props.globals.initNode("systems/electrical/outputs/logo-lights",0,"DOUBLE"));
+#    append(lights_power,40.0);
+
+#    append(lights_state,props.globals.initNode("controls/lighting/taxi-lights",0,"BOOL"));
+#    append(lights_bus,"main-left");
+#    append(lights_input,"light-winginsp");
+#    append(lights_output,props.globals.initNode("systems/electrical/outputs/taxi-lights",0,"DOUBLE"));
+#    append(lights_power,40.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/beacon",0,"BOOL"));
+    append(lights_bus,"main-left");
+    append(lights_input,"light-beacon");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/beacon",0,"DOUBLE"));
+    append(lights_power,40.0);
+
+    append(lights_state,props.globals.initNode("controls/lighting/strobe-state/state",0,"BOOL"));
+    append(lights_bus,"main-left");
+    append(lights_input,"light-strobe");
+    append(lights_output,props.globals.initNode("systems/electrical/outputs/strobe",0,"DOUBLE"));
+    append(lights_power,100.0);
+
+}
+
+update_buses = func( dt ) {
+    var batt_switch = getprop("/controls/electric/battery-bus-switch");
+    var gen1_ready  = getprop("/controls/electric/engine[0]/generator-ready");
+    var gen1_switch = getprop("/controls/electric/engine[0]/generator-sw");
+    var gen1_start  = getprop("/controls/engines/engine[0]/starter");
+    var gen2_ready  = getprop("/controls/electric/engine[1]/generator-ready");
+    var gen2_switch = getprop("/controls/electric/engine[1]/generator-sw");
+    var gen2_start  = getprop("/controls/engines/engine[1]/starter");
+    var av_switch   = getprop("/controls/electric/avionics-switch");
+
+    var batt_hot         = battery.get_output_volts();
+    var batt             = 0.0;
+    var emer             = 0.0;
+    var isol_left        = alternator1.get_output_volts();
+    var main_left        = 0.0;
+    var main_left_xover  = 0.0;
+    var isol_right       = alternator2.get_output_volts();
+    var main_right       = 0.0;
+    var main_right_xover = 0.0;
+    var ext              = external.get_output_volts();
+    var ac_115v          = 0.0;
+    var ac_26v           = 0.0;
+    var batt_charge      = 0;
+
+    bus_isol_left.setValue(isol_left);
+    bus_isol_right.setValue(isol_right);
+
+
+    if (ext > batt_hot and ext < 31.0) {
+        batt_hot = ext;
     }
-    else { lbus_volts = battery_volts; }
-    if (alternator2_volts > battery_volts) {
-       rbus_volts = alternator2_volts;
+    bus_external.setValue(0.0);
+
+    if (gen1_ready and gen2_start and isol_left > batt_hot and ext < batt_hot) {
+        batt_hot = isol_left;
     }
-    else { rbus_volts = battery_volts; }
 
-    # If the electrical system is not serviceable, cut power.
-    lbus_volts *=PWR;
-    rbus_volts *=PWR;
+    if (gen2_ready and gen1_start and isol_right > batt_hot and ext < batt_hot) {
+        batt_hot = isol_right;
+    }
 
-    Lbus.setValue(lbus_volts);
-    left_load = lh_bus(lbus_volts);
-    Rbus.setValue(rbus_volts);
-    right_load = rh_bus(rbus_volts);
+    if (batt_hot > 17.0 and batt_switch) {
+        emer = batt_hot;
+        if (batt_switch > 0) {
+            batt = batt_hot;
+        }
+    }
 
-    # Feed the AC bus with the bus selected by the inverter switch iff the avionics switch is ON
-    var avbus = 0;
-    if(inverter_switch.getValue ()) {
-        avbus = AV*lbus_volts;
-        left_load += av_bus (avbus);
-        ACbus.setValue (avbus*4.1);
+    if (isol_left > batt and gen1_ready and gen1_switch > 0) {
+        batt = isol_left;
+    }
+
+    if (isol_right > batt and gen2_ready and gen2_switch > 0) {
+        batt = isol_right;
+    }
+
+    if (batt_switch > 0 and batt > batt_hot) {
+        batt_hot = batt;
+        emer = batt_hot;
+        ext = 0.0;
+    }
+
+    if (batt_hot > battery.get_output_volts()) {
+        batt_charge = 1;
+    }
+
+    bus_battery_hot.setValue(batt_hot);
+    bus_battery.setValue(batt);
+    bus_emer.setValue(emer);
+    bus_external.setValue(ext);
+
+    if (getprop("/controls/electric/circuit-breakers/cb-main-left-1") or
+        getprop("/controls/electric/circuit-breakers/cb-main-left-2") or
+        getprop("/controls/electric/circuit-breakers/cb-main-left-3"))
+    {
+        main_left = batt;
+    } else { main_left = 0.0; }
+
+    if (getprop("/controls/electric/circuit-breakers/main-left/cb-left-xover")) {
+        main_left_xover = main_left;
+    } else { main_left_xover = 0.0; }
+
+    bus_main_left.setValue(main_left);
+    bus_main_left_xover.setValue(main_left_xover);
+
+    if (getprop("/controls/electric/circuit-breakers/cb-main-right-1") or
+        getprop("/controls/electric/circuit-breakers/cb-main-right-2") or
+        getprop("/controls/electric/circuit-breakers/cb-main-right-3"))
+    {
+        main_right = batt;
+    } else { main_right = 0.0; }
+
+    if (getprop("/controls/electric/circuit-breakers/main-right/cb-right-xover")) {
+        main_right_xover = main_right;
+    } else { main_right_xover = 0.0; }
+
+    bus_main_right.setValue(main_right);
+    bus_main_right_xover.setValue(main_right_xover);
+
+### power distribution DC buses
+
+    for (var i = 0 ; i < size(cbs_battery_hot) ; i += 1) {
+        if (getprop("/controls/electric/circuit-breakers/battery-hot/cb-"~cbs_battery_hot[i])) {
+            setprop("/systems/electrical/outputs/battery-hot/"~cbs_battery_hot[i], batt_hot);
+        } else {
+            setprop("/systems/electrical/outputs/battery-hot/"~cbs_battery_hot[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_battery) ; i += 1) {
+        if (getprop("/controls/electric/circuit-breakers/battery/cb-"~cbs_battery[i])) {
+            setprop("/systems/electrical/outputs/battery/"~cbs_battery[i], batt);
+        } else {
+            setprop("/systems/electrical/outputs/battery/"~cbs_battery[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_emer) ; i += 1) {
+        var avionic = string.match(cbs_emer[i], "dc-*");
+        if (((avionic and av_switch) or !avionic) and getprop("/controls/electric/circuit-breakers/emer/cb-"~cbs_emer[i])) {
+            setprop("/systems/electrical/outputs/emer/"~cbs_emer[i], emer);
+        } else {
+            setprop("/systems/electrical/outputs/emer/"~cbs_emer[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_isol_left) ; i += 1) {
+        if (getprop("/controls/electric/circuit-breakers/isolated-left/cb-"~cbs_isol_left[i])) {
+            setprop("/systems/electrical/outputs/isolated-left/"~cbs_isol_left[i], isol_left);
+        } else {
+            setprop("/systems/electrical/outputs/isolated-left/"~cbs_isol_left[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_main_left) ; i += 1) {
+        var avionic = string.match(cbs_main_left[i], "dc-*");
+#        if (getprop("/controls/electric/circuit-breakers/main-left/cb-"~cbs_main_left[i])) {
+        if (((avionic and av_switch) or !avionic) and getprop("/controls/electric/circuit-breakers/main-left/cb-"~cbs_main_left[i])) {
+            setprop("/systems/electrical/outputs/main-left/"~cbs_main_left[i], main_left);
+        } else {
+            setprop("/systems/electrical/outputs/main-left/"~cbs_main_left[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_main_left_xover) ; i += 1) {
+        var avionic = string.match(cbs_main_left_xover[i], "dc-*");
+        if (((avionic and av_switch) or !avionic) and getprop("/controls/electric/circuit-breakers/main-left-xover/cb-"~cbs_main_left_xover[i])) {
+            setprop("/systems/electrical/outputs/main-left-xover/"~cbs_main_left_xover[i], main_left_xover);
+        } else {
+            setprop("/systems/electrical/outputs/main-left-xover/"~cbs_main_left_xover[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_isol_right) ; i += 1) {
+        if (getprop("/controls/electric/circuit-breakers/isolated-right/cb-"~cbs_isol_right[i])) {
+            setprop("/systems/electrical/outputs/isolated-right/"~cbs_isol_right[i], isol_right);
+        } else {
+            setprop("/systems/electrical/outputs/isolated-right/"~cbs_isol_right[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_main_right) ; i += 1) {
+        var avionic = string.match(cbs_main_right[i], "dc-*");
+        if (((avionic and av_switch) or !avionic) and getprop("/controls/electric/circuit-breakers/main-right/cb-"~cbs_main_right[i])) {
+            setprop("/systems/electrical/outputs/main-right/"~cbs_main_right[i], main_right);
+        } else {
+            setprop("/systems/electrical/outputs/main-right/"~cbs_main_right[i], 0.0);
+        }
+    }
+
+    for (var i = 0 ; i < size(cbs_main_right_xover) ; i += 1) {
+        var avionic = string.match(cbs_main_right_xover[i], "dc-*");
+        if (((avionic and av_switch) or !avionic) and getprop("/controls/electric/circuit-breakers/main-right-xover/cb-"~cbs_main_right_xover[i])) {
+            setprop("/systems/electrical/outputs/main-right-xover/"~cbs_main_right_xover[i], main_right_xover);
+        } else {
+            setprop("/systems/electrical/outputs/main-right-xover/"~cbs_main_right_xover[i], 0.0);
+        }
+    }
+
+### special for ignition lights
+    if (getprop("controls/engines/engine[0]/starter") and getprop("/controls/electric/circuit-breakers/isolated-left/cb-light-start-left")) {
+        setprop("systems/electrical/outputs/isolated-left/light-start-left", batt_hot);
+    }
+    if (getprop("controls/engines/engine[1]/starter") and getprop("/controls/electric/circuit-breakers/isolated-right/cb-light-start-right")) {
+        setprop("systems/electrical/outputs/isolated-right/light-start-right", batt_hot);
+    }
+
+### power distribution AC buses
+
+    if (getprop("/controls/electric/inverter-switch")) {
+        ac_115v = getprop("/systems/electrical/outputs/main-left/left-inverter") * 4.43;
+        ac_26v = getprop("/systems/electrical/outputs/main-left/left-inverter");
     }
     else {
-        avbus = AV*rbus_volts;
-        right_load += av_bus (avbus);
-        ACbus.setValue (avbus*4.1);
+        ac_115v = getprop("/systems/electrical/outputs/main-right/right-inverter") * 4.43;
+        ac_26v = getprop("/systems/electrical/outputs/main-right/right-inverter");
     }
 
-    # Apply load to alternators that are on
-    if (lbus_volts > battery_volts) {
-        alternator1.apply_load(left_load);
-    }
-    if (rbus_volts > battery_volts) {
-        alternator2.apply_load(right_load);
-    }
+    bus_ac_115v.setValue(ac_115v);
+    bus_ac_26v.setValue(ac_26v);
 
-    # If we've lost power on the left bus that powers them, the speedbrakes fail into the closed position.
-    if (lbus_volts < 5) {
-        setprop ("controls/flight/speedbrake", 0);
-    }
-
-    if(rbus_volts > 5 and lbus_volts > 5) xtie=1;
-    XTie.setValue(xtie);
-
-    if(rbus_volts > 5 or lbus_volts > 5) right_load += lighting(lbus_volts);
-    ammeter = 0.0;
-
-    return left_load + right_load;
-}
-
-rh_bus = func(bv) {
-    var load = 0.0;
-    for(var i=0; i<size(rbus_input); i+=1) {
-        if (rbus_input[i].getValue()) {
-            load += rbus_load[i];
-            rbus_output[i].setValue(bv);
+    for (var i = 0 ; i < size(cbs_ac_115v) ; i += 1) {
+        if (getprop("/controls/electric/circuit-breakers/AC-115V/cb-"~cbs_ac_115v[i])) {
+            setprop("/systems/electrical/outputs/AC-115V/"~cbs_ac_115v[i], ac_115v);
         } else {
-            rbus_output[i].setValue(0.0);
+            setprop("/systems/electrical/outputs/AC-115V/"~cbs_ac_115v[i], 0.0);
         }
     }
-    return load;
-}
 
-lh_bus = func(bv) {
-    var load = 0.0;
-    for(var i=0; i<size(lbus_input); i+=1) {
-        if (lbus_input[i].getValue()) {
-            load += lbus_load[i];
-            lbus_output[i].setValue(bv);
+    for (var i = 0 ; i < size(cbs_ac_26v) ; i += 1) {
+        if (getprop("/controls/electric/circuit-breakers/AC-26V/cb-"~cbs_ac_26v[i])) {
+            setprop("/systems/electrical/outputs/AC-26V/"~cbs_ac_26v[i], ac_26v);
         } else {
-            lbus_output[i].setValue(0.0);
+            setprop("/systems/electrical/outputs/AC-26V/"~cbs_ac_26v[i], 0.0);
         }
     }
-    setprop("systems/electrical/outputs/flaps",bv);
-    return load;
+
+    lighting();
+
+    return 0;
 }
 
-av_bus = func(bv) {
-    var load = 0.0;
-
-    for(var i=0; i<size(avbus_input); i+=1) {
-        if (avbus_input[i].getValue()) {
-            load += avbus_load[i];
-            avbus_output[i].setValue(bv);
-        } else {
-            avbus_output[i].setValue(0.0);
-        }
-    }
-    return load;
-}
-
-lighting = func(bv) {
-    var load = 0.0;
-    for(var i=0; i<size(lights_input); i+=1) {
-        if (lights_input[i].getValue()) {
-            load += lights_load[i];
-            lights_output[i].setValue(bv);
+lighting = func() {
+    for(var i = 0 ; i < size(lights_state) ; i += 1) {
+        if (lights_state[i].getValue()) {
+            var load = 0.0;
+            var input = getprop("systems/electrical/outputs/"~lights_bus[i]~"/"~lights_input[i]);
+            lights_output[i].setValue(input);
+            load = lights_power[i] / input;
         } else {
             lights_output[i].setValue(0.0);
         }
     }
-    return load;
 }
 
 update_electrical = func {
     var scnd = getprop("sim/time/delta-sec");
-    update_virtual_bus( scnd );
-settimer(update_electrical, 0);
+    update_buses( scnd );
+    settimer(update_electrical, 0);
 }

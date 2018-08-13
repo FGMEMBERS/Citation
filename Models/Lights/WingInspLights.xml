@@ -2,25 +2,20 @@
 
 <PropertyList>
 
- <path>conesWingInspLights.ac</path>
+    <path>conesWingInspLights.ac</path>
 
-   <animation>
-     <type>select</type>
-     <object-name>Left.WingInspLight.cone</object-name>
-     <object-name>Right.WingInspLight.cone</object-name>
-     <condition>
-       <and>
-         <property>sim/rendering/rembrandt/enabled</property>
-         <property>controls/lighting/wing-lights</property>
-	 <property>controls/electric/circuit-breakers/bus-left/cb-light-winginsp</property>
-         <greater-than>
-           <property>sim/rendering/shaders/lights</property>
-           <value>3.0</value>
-         </greater-than>
-         <greater-than>
-           <property>systems/electrical/outputs/bus/left</property>
-           <value>20</value>
-         </greater-than>
+    <animation>
+      <type>select</type>
+      <object-name>Left.WingInspLight.cone</object-name>
+      <object-name>Right.WingInspLight.cone</object-name>
+      <condition>
+        <and>
+          <property>sim/rendering/rembrandt/enabled</property>
+          <property>systems/electrical/outputs/wing-lights</property>
+          <greater-than>
+            <property>sim/rendering/shaders/lights</property>
+            <value>3.0</value>
+          </greater-than>
         </and>
       </condition>
     </animation>
@@ -31,9 +26,6 @@
 		<name>WingInspLights</name>
 		<object-name>Left.WingInspLight.cone</object-name>
 		<nopreview/>
-		<condition>
-			<property>controls/lighting/wing-lights</property>
-		</condition>
 		<position>
 			<x>5.15724</x>
 			<y>-0.72662</y>
@@ -62,6 +54,13 @@
 			<b>0.4</b>
 			<a>0.7</a>
 		</specular>
+		<dim-factor>
+			<property>systems/electrical/outputs/wing-lights</property>
+			<factor>0.042</factor>
+			<offset>0</offset>
+			<min>0</min>
+			<max>1</max>
+		</dim-factor>
 		<attenuation>
 			<c>0.5</c>
 			<l>0.01</l>
@@ -79,9 +78,6 @@
 		<name>WingInspLights</name>
 		<object-name>Right.WingInspLight.cone</object-name>
 		<nopreview/>
-		<condition>
-			<property>controls/lighting/wing-lights</property>
-		</condition>
 		<position>
 			<x>5.15724</x>
 			<y>0.72662</y>
@@ -110,6 +106,13 @@
 			<b>0.4</b>
 			<a>0.7</a>
 		</specular>
+		<dim-factor>
+			<property>systems/electrical/outputs/wing-lights</property>
+			<factor>0.042</factor>
+			<offset>0</offset>
+			<min>0</min>
+			<max>1</max>
+		</dim-factor>
 		<attenuation>
 			<c>0.5</c>
 			<l>0.01</l>
@@ -121,4 +124,4 @@
 		<far-m>50</far-m>
 	</animation>
 
- </PropertyList>
+</PropertyList>

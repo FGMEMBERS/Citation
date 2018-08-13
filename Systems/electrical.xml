@@ -3,169 +3,134 @@
 <PropertyList>
 
   <!-- Suppliers are defined in Citation-II-common.xml -->
-  <!-- power to buses -->
 
   <filter>
     <type>gain</type>
     <input>
-      <condition>
-	<greater-than>
-	  <property>controls/electric/battery-bus-switch</property>
-	  <value>0.5</value>
-	</greater-than>
-      </condition>
-      <property>systems/electrical/outputs/bus/battery-hot</property>
+      <property>systems/electrical/outputs/main-left-xover/dc-nav1</property>
     </input>
     <output>
-      <property>systems/electrical/outputs/bus/battery</property>
+      <property>systems/electrical/outputs/nav[0]</property>
     </output>
   </filter>
 
   <filter>
     <type>gain</type>
     <input>
-      <condition>
-	<not>
-	  <equals>
-	    <property>controls/electric/battery-bus-switch</property>
-	    <value>0</value>
-	  </equals>
-	</not>
-	<property>controls/electric/circuit-breakers/bus-battery-hot/cb-emer-power</property>
-      </condition>
-      <property>systems/electrical/outputs/bus/battery-hot</property>
+      <property>systems/electrical/outputs/main-left-xover/dc-adf1</property>
     </input>
     <output>
-      <property>systems/electrical/outputs/bus/emer</property>
+      <property>systems/electrical/outputs/adf[0]</property>
     </output>
   </filter>
 
   <filter>
     <type>gain</type>
     <input>
-      <condition>
-	<and>
-	  <or>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
-	  </or>
-	  <greater-than>
-	    <property>systems/electrical/outputs/suppliers/alternator</property>
-	    <property>systems/electrical/outputs/bus/battery</property>
-	  </greater-than>
-	</and>
-      </condition>
-      <property>systems/electrical/outputs/suppliers/alternator</property>
-    </input>
-    <input>
-      <condition>
-	<and>
-	  <or>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
-	  </or>
-	  <greater-than>
-	    <property>systems/electrical/outputs/suppliers/alternator[1]</property>
-	    <property>systems/electrical/outputs/bus/battery</property>
-	  </greater-than>
-	</and>
-      </condition>
-      <property>systems/electrical/outputs/suppliers/alternator[1]</property>
-    </input>
-    <input>
-      <condition>
-	<and>
-	  <greater-than>
-	    <property>controls/electric/battery-bus-switch</property>
-	    <value>0.5</value>
-	  </greater-than>
-	  <or>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-1</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-2</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-left-3</property>
-	  </or>
-	</and>
-      </condition>
-      <property>systems/electrical/outputs/suppliers/battery</property>
+      <property>systems/electrical/outputs/main-left-xover/dc-dme1</property>
     </input>
     <output>
-      <property>systems/electrical/outputs/bus/left</property>
+      <property>systems/electrical/outputs/dme[0]</property>
     </output>
   </filter>
 
   <filter>
     <type>gain</type>
     <input>
-      <condition>
-	<and>
-	  <or>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
-	  </or>
-	  <greater-than>
-	    <property>systems/electrical/outputs/suppliers/alternator</property>
-	    <property>systems/electrical/outputs/bus/battery</property>
-	  </greater-than>
-	</and>
-      </condition>
-      <property>systems/electrical/outputs/suppliers/alternator</property>
-    </input>
-    <input>
-      <condition>
-	<and>
-	  <or>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
-	  </or>
-	  <greater-than>
-	    <property>systems/electrical/outputs/suppliers/alternator[1]</property>
-	    <property>systems/electrical/outputs/bus/battery</property>
-	  </greater-than>
-	</and>
-      </condition>
-      <property>systems/electrical/outputs/suppliers/alternator[1]</property>
-    </input>
-    <input>
-      <condition>
-	<and>
-          <greater-than>
-	    <property>controls/electric/battery-bus-switch</property>
-	    <value>0.5</value>
-	  </greater-than>
-	  <or>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-1</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-2</property>
-	    <property>controls/electric/circuit-breakers/cb-bus-right-3</property>
-	  </or>
-	</and>
-      </condition>
-      <property>systems/electrical/outputs/suppliers/battery</property>
+      <property>systems/electrical/outputs/main-left-xover/dc-xpdr1</property>
     </input>
     <output>
-      <property>systems/electrical/outputs/bus/right</property>
+      <property>systems/electrical/outputs/transponder[0]</property>
     </output>
   </filter>
 
   <filter>
     <type>gain</type>
     <input>
-      <condition>
-	<and>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/right</property>
-	    <value>1</value>
-	  </greater-than>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-ac-gpws</property>
-	</and>
-      </condition>
-      <property>systems/electrical/outputs/bus/right</property>
+      <property>systems/electrical/outputs/main-left-xover/dc-comm2</property>
     </input>
     <output>
-      <property>/systems/electrical/outputs/mk-viii</property>
+      <property>systems/electrical/outputs/comm[1]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/main-left-xover/dc-dg1</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/DG[0]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/main-right/dc-dme2</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/dme[1]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/main-right/dc-xpdr2</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/transponder[1]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/main-right/dc-adf2</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/adf[1]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/main-right/dc-gpws</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/mk-viii[0]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/emer/dc-nav2</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/nav[1]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/emer/dc-comm1</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/comm[0]</property>
+    </output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>systems/electrical/outputs/emer/dc-dg2</property>
+    </input>
+    <output>
+      <property>systems/electrical/outputs/DG[1]</property>
     </output>
   </filter>
 
@@ -180,17 +145,14 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
-	  <property>controls/lighting/beacon-switch</property>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/left</property>
-	    <value>20</value>
-	  </greater-than>
-	</and>
+        <and>
+          <property>systems/electrical/outputs/main-left/light-beacon</property>
+          <property>controls/lighting/beacon-switch</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
+    <input>0</input>
     <output>
       <property>controls/lighting/beacon</property>
     </output>
@@ -200,14 +162,10 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/lighting/landing-light-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-left/cb-light-landing-left</property>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/left</property>
-	    <value>20</value>
-	  </greater-than>
-	</and>
+        <and>
+          <property>controls/lighting/landing-light-switch</property>
+          <property>systems/electrical/outputs/main-left/light-landing-left</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -219,18 +177,15 @@
       <property>sim/rendering/als-secondary-lights/use-landing-light</property>
     </output>
   </filter>
+
   <filter>
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/lighting/landing-light-switch[1]</property>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-light-landing-right</property>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/right</property>
-	    <value>20</value>
-	  </greater-than>
-	</and>
+        <and>
+          <property>controls/lighting/landing-light-switch[1]</property>
+          <property>systems/electrical/outputs/main-right/light-landing-right</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -244,14 +199,10 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/lighting/strobe-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-left/cb-light-strobe</property>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/left</property>
-	    <value>20</value>
-	  </greater-than>
-	</and>
+        <and>
+          <property>controls/lighting/strobe-switch</property>
+          <property>systems/electrical/outputs/main-left/light-strobe</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -264,14 +215,10 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/lighting/nav-lights-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-left/cb-light-nav</property>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/left</property>
-	    <value>20</value>
-	  </greater-than>
-	</and>
+        <and>
+          <property>controls/lighting/nav-lights-switch</property>
+          <property>systems/electrical/outputs/main-left/light-nav</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -284,14 +231,10 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/lighting/recog-lights-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-left/cb-light-recog-left</property>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/left</property>
-	    <value>20</value>
-	  </greater-than>
-	</and>
+        <and>
+          <property>controls/lighting/recog-lights-switch</property>
+          <property>systems/electrical/outputs/main-left/light-recog-left</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -304,14 +247,10 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/lighting/recog-lights-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-light-recog-right</property>
-	  <greater-than>
-	    <property>systems/electrical/outputs/bus/right</property>
-	    <value>20</value>
-	  </greater-than>
-	</and>
+        <and>
+          <property>controls/lighting/recog-lights-switch</property>
+          <property>systems/electrical/outputs/main-right/light-recog-right</property>
+        </and>
       </condition>
       <value>1</value>
     </input>
@@ -319,8 +258,6 @@
       <property>controls/lighting/recog-light[1]</property>
     </output>
   </filter>
-
-
 
 <!--
 ##########################
@@ -333,30 +270,30 @@
     <filter-time>0.5</filter-time>
     <input>
       <condition>
-	<equals>
-	  <property>controls/electric/voltage-sel</property>
-	  <value>0</value>
-	</equals>
+        <equals>
+          <property>controls/electric/voltage-sel</property>
+          <value>0</value>
+        </equals>
       </condition>
-      <property>systems/electrical/outputs/bus/battery</property>
+      <property>systems/electrical/outputs/battery/batt-voltage</property>
     </input>
     <input>
       <condition>
-	<equals>
-	  <property>controls/electric/voltage-sel</property>
-	  <value>-1</value>
-	</equals>
+        <equals>
+          <property>controls/electric/voltage-sel</property>
+          <value>-1</value>
+        </equals>
       </condition>
-      <property>engines/engine/amp-v</property>
+      <property>systems/electrical/outputs/isolated-left/gen-voltage-left</property>
     </input>
     <input>
       <condition>
-	<equals>
-	  <property>controls/electric/voltage-sel</property>
-	  <value>1</value>
-	</equals>
+        <equals>
+          <property>controls/electric/voltage-sel</property>
+          <value>1</value>
+        </equals>
       </condition>
-      <property>engines/engine[1]/amp-v</property>
+      <property>systems/electrical/outputs/isolated-right/gen-voltage-right</property>
     </input>
     <output>
       <property>controls/electric/voltage-display</property>
@@ -372,48 +309,55 @@
       <condition>
         <or>
           <and>
-            <not>
-              <equals>
-                <property>controls/fuel/tank/boost-pump-switch</property>
-                <value>0</value>
-              </equals>
-            </not>
-            <greater-than>
-              <property>systems/electrical/outputs/bus/left</property>
-              <value>20</value>
-            </greater-than>
+            <equals>
+              <property>controls/fuel/tank/boost-pump-switch</property>
+              <value>1</value>
+            </equals>
+            <property>systems/electrical/outputs/main-right-xover/fuel-boost-left</property>
           </and>
-          <property>controls/electric/engine[0]/starter-btn</property>
+          <and>
+            <equals>
+              <property>controls/fuel/tank/boost-pump-switch</property>
+              <value>-1</value>
+            </equals>
+            <property>systems/electrical/outputs/main-left/fuel-boost-left</property>
+            <property>controls/electric/engine[0]/starter-btn</property>
+          </and>
         </or>
       </condition>
       <value>1</value>
     </input>
+    <value>0</value>
     <output>
       <property>controls/fuel/tank/boost-pump</property>
     </output>
   </filter>
+
   <filter>
     <type>gain</type>
     <input>
       <condition>
         <or>
           <and>
-            <not>
-              <equals>
-                <property>controls/fuel/tank[1]/boost-pump-switch</property>
-                <value>0</value>
-              </equals>
-            </not>
-            <greater-than>
-              <property>systems/electrical/outputs/bus/right</property>
-              <value>20</value>
-            </greater-than>
+            <equals>
+              <property>controls/fuel/tank[1]/boost-pump-switch</property>
+              <value>1</value>
+            </equals>
+            <property>systems/electrical/outputs/main-left/fuel-boost-right</property>
           </and>
-          <property>controls/electric/engine[1]/starter-btn</property>
+          <and>
+            <equals>
+              <property>controls/fuel/tank[1]/boost-pump-switch</property>
+              <value>-1</value>
+            </equals>
+            <property>systems/electrical/outputs/main-right/fuel-boost-right</property>
+            <property>controls/electric/engine[1]/starter-btn</property>
+          </and>
         </or>
       </condition>
       <value>1</value>
     </input>
+    <value>0</value>
     <output>
       <property>controls/fuel/tank[1]/boost-pump</property>
     </output>
@@ -423,13 +367,7 @@
     <type>gain</type>
     <input>
       <condition>
-        <or>
-          <less-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </less-than>
-          <not><property>controls/electric/circuit-breakers/bus-left/cb-bus-left-starter</property></not>
-        </or>
+        <not><property>systems/electrical/outputs/main-left/left-starter</property></not>
       </condition>
       <value>0</value>
     </input>
@@ -446,11 +384,7 @@
     <input>
       <condition>
         <and>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-          <property>controls/electric/circuit-breakers/bus-left/cb-bus-left-starter</property>
+          <property>systems/electrical/outputs/main-left/left-starter</property>
           <property>controls/electric/engine[0]/starter-btn</property>
         </and>
       </condition>
@@ -465,13 +399,7 @@
     <type>gain</type>
     <input>
       <condition>
-        <or>
-          <less-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </less-than>
-          <not><property>controls/electric/circuit-breakers/bus-right/cb-bus-right-starter</property></not>
-        </or>
+        <not><property>systems/electrical/outputs/main-right/right-starter</property></not>
       </condition>
       <value>0</value>
     </input>
@@ -488,11 +416,7 @@
     <input>
       <condition>
         <and>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-          <property>controls/electric/circuit-breakers/bus-right/cb-bus-right-starter</property>
+          <property>systems/electrical/outputs/main-right/right-starter</property>
           <property>controls/electric/engine[1]/starter-btn</property>
         </and>
       </condition>
@@ -529,11 +453,7 @@
     <type>gain</type>
     <input>
       <condition>
-        <property>controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake</property>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
+        <property>systems/electrical/outputs/main-left/sys-speed-brake</property>
       </condition>
       <property>controls/flight/speedbrake-switch</property>
     </input>

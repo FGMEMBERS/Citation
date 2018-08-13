@@ -64,13 +64,10 @@
     <object-name>Eng0-N1-99</object-name>
     <object-name>Eng0-N1-100</object-name>
     <condition>
-      <and>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20.0</value>
-        </greater-than>
-        <property>controls/electric/circuit-breakers/bus-left/cb-engine-fan-left</property>
-      </and>
+      <greater-than>
+        <property>systems/electrical/outputs/main-left/engine-fan-left</property>
+        <value>20.0</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -80,13 +77,10 @@
     <object-name>Eng0-N2-100</object-name>
     <object-name>panel.eng.trbn1act</object-name>
     <condition>
-      <and>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20.0</value>
-        </greater-than>
-        <property>controls/electric/circuit-breakers/bus-left/cb-engine-turbine-left</property>
-      </and>
+      <greater-than>
+        <property>systems/electrical/outputs/main-left/engine-turbine-left</property>
+        <value>20.0</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -95,13 +89,10 @@
     <object-name>Eng1-N1-99</object-name>
     <object-name>Eng1-N1-100</object-name>
     <condition>
-      <and>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20.0</value>
-        </greater-than>
-        <property>controls/electric/circuit-breakers/bus-right/cb-engine-fan-right</property>
-      </and>
+      <greater-than>
+        <property>systems/electrical/outputs/main-right/engine-fan-right</property>
+        <value>20.0</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -111,13 +102,10 @@
     <object-name>Eng1-N2-100</object-name>
     <object-name>panel.eng.trbn2act</object-name>
     <condition>
-      <and>
-        <greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20.0</value>
-        </greater-than>
-        <property>controls/electric/circuit-breakers/bus-right/cb-engine-turbine-right</property>
-      </and>
+      <greater-than>
+        <property>systems/electrical/outputs/main-right/engine-turbine-right</property>
+        <value>20.0</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -231,10 +219,9 @@
           <value>96.000</value>
         </less-than>
         <less-than>
-          <property>systems/electrical/outputs/bus/left</property>
+          <property>systems/electrical/outputs/main-left/engine-turbine-left</property>
           <value>20.0</value>
         </less-than>
-        <not><property>controls/electric/circuit-breakers/bus-left/cb-engine-turbine-left</property></not>
       </or>
     </condition>
   </animation>
@@ -260,10 +247,9 @@
           <value>96.000</value>
         </less-than>
         <less-than>
-          <property>systems/electrical/outputs/bus/right</property>
+          <property>systems/electrical/outputs/main-right/engine-turbine-right</property>
           <value>20.0</value>
         </less-than>
-        <not><property>controls/electric/circuit-breakers/bus-right/cb-engine-turbine-right</property></not>
       </or>
     </condition>
   </animation>
@@ -801,6 +787,8 @@
         </condition>
         <object-name>panel.eng.bezel</object-name>
         <object-name>panel.eng.hole</object-name>
+        <object-name>panel.eng.trbn1led</object-name>
+        <object-name>panel.eng.trbn2led</object-name>
         <emission>
             <red>1.0</red>
             <green>0.8</green>

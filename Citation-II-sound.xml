@@ -200,6 +200,7 @@
         <path>Aircraft/Citation/Sounds/gear-warn.wav</path>
         <condition>
             <property>controls/gear/warn-horn</property>
+            <property>systems/electrical/outputs/main-left/warn-gear</property>
             <not><property>controls/gear/warn-silence</property></not>
         </condition>
         <mode>looped</mode>
@@ -220,6 +221,7 @@
         <path>Aircraft/Citation/Sounds/speed-warn.wav</path>
         <condition>
             <property>controls/electric/overspeed-horn</property>
+            <property>systems/electrical/outputs/main-right-xover/warn-speed</property>
         </condition>
         <mode>looped</mode>
         <volume>

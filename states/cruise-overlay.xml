@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-  <name type="string" n="1">cruise</name>
+  <name type="string" n="3">cruise</name>
 
   <description>
     You will start the sim on cruise level, FL 360 with autopilot
@@ -55,7 +55,7 @@
         <avionics-switch type="bool">true</avionics-switch>
         <battery-bus-switch type="int">1</battery-bus-switch>
         <voltage-sel type="int">0</voltage-sel>
-        <system-test type="int">10</system-test>
+        <system-test-sw type="int">0</system-test-sw>
         <fuel-sel type="int">0</fuel-sel>
         <engine>
           <generator type="bool">true</generator>

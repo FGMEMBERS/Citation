@@ -95,20 +95,9 @@
   <animation> <!-- Panel light -->
     <type>material</type>
     <condition>
-      <property>controls/lighting/panel-lights-switch</property>
       <not>
 	<property>sim/rendering/rembrandt/enabled</property>
       </not>
-      <or>
-	<greater-than>
-          <property>systems/electrical/outputs/bus/left</property>
-          <value>20</value>
-        </greater-than>
-	<greater-than>
-          <property>systems/electrical/outputs/bus/right</property>
-          <value>20</value>
-        </greater-than>
-      </or>
     </condition>
     <object-name>CDU</object-name>
     <emission>

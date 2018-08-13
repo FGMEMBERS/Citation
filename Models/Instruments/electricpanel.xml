@@ -24,7 +24,7 @@
   <animation>
     <type>rotate</type>
     <object-name>elec.gen.left.sw</object-name>
-    <property>controls/electric/engine[0]/generator</property>
+    <property>controls/electric/engine[0]/generator-sw</property>
     <factor>20</factor>
     <center>
       <x-m>0.00225</x-m>
@@ -41,7 +41,7 @@
   <animation>
     <type>rotate</type>
     <object-name>elec.gen.right.sw</object-name>
-    <property>controls/electric/engine[1]/generator</property>
+    <property>controls/electric/engine[1]/generator-sw</property>
     <factor>20</factor>
     <center>
       <x-m>0.00225</x-m>
@@ -111,7 +111,10 @@
     <type>select</type>
     <object-name>elec.ign.left.led</object-name>
     <condition>
-      <not><property>controls/engines/engine[0]/ignition</property></not>
+      <or>
+        <not><property>controls/engines/engine[0]/ignition</property></not>
+        <not><property>systems/electrical/outputs/isolated-left/light-start-left</property></not>
+      </or>
     </condition>
   </animation>
 
@@ -120,6 +123,7 @@
     <object-name>elec.ign.left.led.act</object-name>
     <condition>
       <property>controls/engines/engine[0]/ignition</property>
+      <property>systems/electrical/outputs/isolated-left/light-start-left</property>
     </condition>
   </animation>
 
@@ -144,7 +148,10 @@
     <type>select</type>
     <object-name>elec.ign.right.led</object-name>
     <condition>
-      <not><property>controls/engines/engine[1]/ignition</property></not>
+      <or>
+        <not><property>controls/engines/engine[1]/ignition</property></not>
+        <not><property>systems/electrical/outputs/isolated-right/light-start-right</property></not>
+      </or>
     </condition>
   </animation>
 
@@ -153,6 +160,7 @@
     <object-name>elec.ign.right.led.act</object-name>
     <condition>
       <property>controls/engines/engine[1]/ignition</property>
+      <property>systems/electrical/outputs/isolated-right/light-start-right</property>
     </condition>
   </animation>
 
@@ -401,7 +409,7 @@
         <label>Voltage selector: %s</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['Battery', 'Right hand generator', 'Left hand generator'];
+          var modes = ['Battery', 'Generator Right', 'Generator Left'];
           return modes[arg[0]];
         </script>
         <property>controls/electric/voltage-sel</property>
@@ -428,14 +436,14 @@
   </animation>
 
 <!--
-1 OFF / 2 ANNU / 3 SPARE / 4 OVERSPEED / 5 W/S TEMP
-6 THRU REV / 7 SPARE / 8 BATT TEMP / 9 LDG GEAR / 10 OFF
+0 OFF / 1 OFF / 2 LDG GEAR / 3 BATT TEMP / 4 SPARE
+5 THRU REV / 6 W/S TEMP / 7 OVERSPEED / 8 SPARE / 9 ANNU
 -->
 
   <animation>
     <type>knob</type>
     <object-name>elec.test.knob</object-name>
-    <property>controls/electric/system-test</property>
+    <property>controls/electric/system-test-sw</property>
     <factor>36</factor>
     <center>
       <x-m>0.00450</x-m>
@@ -450,7 +458,7 @@
     <action>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/system-test</property>
+        <property>controls/electric/system-test-sw</property>
         <factor>1</factor>
         <min>0</min>
         <max>10</max>
@@ -461,13 +469,13 @@
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>electric-systems-test</tooltip-id>
-        <label>Electric systems test: %s (non-functional)</label>
+        <label>Electric systems test: %s</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['OFF', 'OFF', 'Landing gear', 'Battery temp', 'Spare', 'Thrust reversers', 'W/S temp', 'Overspeed', 'Spare', 'Annu'];
+          var modes = ['OFF', 'OFF', 'Landing gear', 'Battery temp (non-functional)', 'Spare', 'Thrust reversers', 'W/S temp (non-functional)', 'Overspeed', 'Spare', 'Annunciators'];
           return modes[arg[0]];
         </script>
-        <property>controls/electric/system-test</property>
+        <property>controls/electric/system-test-sw</property>
       </binding>
     </hovered>
   </animation>
@@ -564,7 +572,7 @@
         <label>Battery bus: %s</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['OFF', 'BATT', 'EMER'];
+          var modes = ['OFF', 'BATTERY', 'EMERGENCY'];
           return modes[arg[0]];
         </script>
         <property>controls/electric/battery-bus-switch</property>
@@ -608,7 +616,7 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/electric/engine[0]/generator</property>
+            <property>controls/electric/engine[0]/generator-sw</property>
             <value>1</value>
           </less-than>
         </condition>
@@ -617,7 +625,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[0]/generator</property>
+        <property>controls/electric/engine[0]/generator-sw</property>
         <step>1</step>
         <min>-1</min>
         <max>1</max>
@@ -631,10 +639,10 @@
         <label>Left hand generator: %s</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['OFF', 'ON', 'Reset'];
+          var modes = ['OFF', 'ON', 'RESET'];
           return modes[arg[0]];
         </script>
-        <property>controls/electric/engine[0]/generator</property>
+        <property>controls/electric/engine[0]/generator-sw</property>
       </binding>
     </hovered>
   </animation>
@@ -648,7 +656,7 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/electric/engine[0]/generator</property>
+            <property>controls/electric/engine[0]/generator-sw</property>
             <value>-1</value>
           </greater-than>
         </condition>
@@ -657,7 +665,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[0]/generator</property>
+        <property>controls/electric/engine[0]/generator-sw</property>
         <step>-1</step>
         <min>-1</min>
         <max>1</max>
@@ -668,7 +676,7 @@
         <binding>
           <condition>
             <less-than>
-              <property>controls/electric/engine[0]/generator</property>
+              <property>controls/electric/engine[0]/generator-sw</property>
               <value>0</value>
             </less-than>
           </condition>
@@ -677,7 +685,7 @@
         </binding>
         <binding>
           <command>property-assign</command>
-          <property>controls/electric/engine[0]/generator</property>
+          <property>controls/electric/engine[0]/generator-sw</property>
           <value>0</value>
         </binding>
       </mod-up>
@@ -693,7 +701,7 @@
       <binding>
         <condition>
           <less-than>
-            <property>controls/electric/engine[1]/generator</property>
+            <property>controls/electric/engine[1]/generator-sw</property>
             <value>1</value>
           </less-than>
         </condition>
@@ -702,7 +710,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[1]/generator</property>
+        <property>controls/electric/engine[1]/generator-sw</property>
         <step>1</step>
         <min>-1</min>
         <max>1</max>
@@ -716,10 +724,10 @@
         <label>Right hand generator: %s</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['OFF', 'ON', 'Reset'];
+          var modes = ['OFF', 'ON', 'RESET'];
           return modes[arg[0]];
         </script>
-        <property>controls/electric/engine[1]/generator</property>
+        <property>controls/electric/engine[1]/generator-sw</property>
       </binding>
     </hovered>
   </animation>
@@ -733,7 +741,7 @@
       <binding>
         <condition>
           <greater-than>
-            <property>controls/electric/engine[1]/generator</property>
+            <property>controls/electric/engine[1]/generator-sw</property>
             <value>-1</value>
           </greater-than>
         </condition>
@@ -742,7 +750,7 @@
       </binding>
       <binding>
         <command>property-adjust</command>
-        <property>controls/electric/engine[1]/generator</property>
+        <property>controls/electric/engine[1]/generator-sw</property>
         <step>-1</step>
         <min>-1</min>
         <max>1</max>
@@ -753,7 +761,7 @@
         <binding>
           <condition>
             <less-than>
-              <property>controls/electric/engine[1]/generator</property>
+              <property>controls/electric/engine[1]/generator-sw</property>
               <value>0</value>
             </less-than>
           </condition>
@@ -762,7 +770,7 @@
         </binding>
         <binding>
           <command>property-assign</command>
-          <property>controls/electric/engine[1]/generator</property>
+          <property>controls/electric/engine[1]/generator-sw</property>
           <value>0</value>
         </binding>
       </mod-up>
@@ -845,7 +853,8 @@
         <command>set-tooltip</command>
         <tooltip-id>lign-switch</tooltip-id>
         <label>Left hand ignition: %s</label>
-        <mapping>on-off</mapping>
+        <mapping>nasal</mapping>
+        <script>(arg[0])?"ON":"NORMAL"</script>
         <property>controls/engines/engine[0]/ignition-sw</property>
       </binding>
     </hovered>
@@ -871,7 +880,8 @@
         <command>set-tooltip</command>
         <tooltip-id>rign-switch</tooltip-id>
         <label>Right hand ignition: %s</label>
-        <mapping>on-off</mapping>
+        <mapping>nasal</mapping>
+        <script>(arg[0])?"ON":"NORMAL"</script>
         <property>controls/engines/engine[1]/ignition-sw</property>
       </binding>
     </hovered>
@@ -890,7 +900,7 @@
       <binding>
         <condition>
           <and>
-            <property>systems/electrical/left-bus</property>
+            <property>systems/electrical/outputs/main-left/left-starter</property>
             <not><property>engines/engine[0]/started</property></not>
             <not><property>controls/electric/engine[0]/starter-btn</property></not>
           </and>
@@ -923,7 +933,7 @@
       <binding>
         <condition>
           <and>
-            <property>systems/electrical/right-bus</property>
+            <property>systems/electrical/outputs/main-right/right-starter</property>
             <not><property>engines/engine[1]/started</property></not>
             <not><property>controls/electric/engine[1]/starter-btn</property></not>
           </and>
@@ -1009,7 +1019,7 @@
         <label>Left fuel boost pump: %s</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['OFF', 'ON', 'NORM'];
+          var modes = ['OFF', 'ON', 'NORMAL'];
           return modes[arg[0]];
         </script>
         <property>controls/fuel/tank[0]/boost-pump-switch</property>
@@ -1076,7 +1086,7 @@
         <label>Right fuel boost pump: %s</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['OFF', 'ON', 'NORM'];
+          var modes = ['OFF', 'ON', 'NORMAL'];
           return modes[arg[0]];
         </script>
         <property>controls/fuel/tank[1]/boost-pump-switch</property>
@@ -1182,10 +1192,7 @@
         <tooltip-id>elec.gyro.vert.sw</tooltip-id>
         <label>Gyro vertical: %s</label>
         <mapping>nasal</mapping>
-        <script>
-          var modes = ['Normal', 'Hi'];
-          return modes[arg[0]];
-        </script>
+        <script>(arg[0])?'HI':'NORMAL'</script>
         <property>controls/electric/gyro-vert-sw</property>
       </binding>
     </hovered>
@@ -1212,10 +1219,7 @@
         <tooltip-id>elec.gyro.mode.sw</tooltip-id>
         <label>Gyro Mode: %s</label>
         <mapping>nasal</mapping>
-        <script>
-          var modes = ['Automatic', 'Manual'];
-          return modes[arg[0]];
-        </script>
+        <script>(arg[0])?'MANUAL':'AUTOMATIC'</script>
         <property>controls/electric/gyro-mode-sw</property>
       </binding>
     </hovered>

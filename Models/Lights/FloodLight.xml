@@ -9,15 +9,11 @@
         <object-name>IntLight.FloodLight.cone</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-emer/cb-light-flood</property>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <property>systems/electrical/outputs/emer/light-flood</property>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/outputs/bus/emer</property>
-                    <value>20</value>
                 </greater-than>
             </and>
         </condition>
@@ -58,7 +54,7 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-		<property>controls/lighting/flood-light-norm</property>
+		<property>controls/lighting/flood-light-emission</property>
 		<factor>1</factor>
 		<offset>0</offset>
 		<min>0</min>
@@ -74,4 +70,5 @@
 	<near-m>0.1</near-m>
 	<far-m>2</far-m>
     </animation>
- </PropertyList>
+
+</PropertyList>

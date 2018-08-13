@@ -8,18 +8,14 @@
         <type>select</type>
         <object-name>IntLight.CenterPanel.Cone</object-name>
         <condition>
-	  <and>
-	    <property>sim/rendering/rembrandt/enabled</property>
-	    <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-center</property>
+          <and>
+            <property>sim/rendering/rembrandt/enabled</property>
+            <property>systems/electrical/outputs/main-right-xover/light-panel-center</property>
             <greater-than>
               <property>controls/lighting/center-panel-light-emission</property>
               <value>0.01</value>
             </greater-than>
-            <greater-than>
-              <property>systems/electrical/outputs/bus/right</property>
-              <value>20</value>
-            </greater-than>
-	  </and>
+          </and>
         </condition>
     </animation>
 
@@ -74,4 +70,4 @@
 	<far-m>2</far-m>
     </animation>
 
- </PropertyList>
+</PropertyList>

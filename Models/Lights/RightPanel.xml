@@ -2,23 +2,19 @@
 
 <PropertyList>
 
- <path>coneRightPanel.ac</path>
+    <path>coneRightPanel.ac</path>
 
-     <animation>
+    <animation>
         <type>select</type>
         <object-name>IntLight.RightPanel.Cone</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
-		<property>controls/lighting/panel-lights-switch</property>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <property>systems/electrical/outputs/main-right-xover/light-panel-right</property>
+                <property>controls/lighting/panel-lights-switch</property>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
-                </greater-than>
-                <greater-than>
-                    <property>systems/electrical/outputs/bus/right</property>
-                    <value>20</value>
                 </greater-than>
             </and>
         </condition>
@@ -59,7 +55,7 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-		<property>controls/lighting/right-panel-norm</property>
+		<property>controls/lighting/right-panel-light-emission</property>
 		<factor>1</factor>
 		<offset>0</offset>
 		<min>0</min>
@@ -74,4 +70,5 @@
 	<near-m>0.001</near-m>
 	<far-m>2</far-m>
     </animation>
+
 </PropertyList>

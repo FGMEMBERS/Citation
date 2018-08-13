@@ -88,223 +88,215 @@ var citation_array_radios = [
 var citation_array_circuitBreakers = [
 
 # hot battery bus / located in J-Box #
-
-  "/controls/electric/circuit-breakers/bus-battery-hot/cb-light-comp",
-  "/controls/electric/circuit-breakers/bus-battery-hot/cb-light-enginst",
-  "/controls/electric/circuit-breakers/bus-battery-hot/cb-ignition",
-  "/controls/electric/circuit-breakers/bus-battery-hot/cb-emer-power",
-
-# emergency bus / on right CB panel #
-
-  "/controls/electric/circuit-breakers/bus-emer/cb-dc-nav2",
-  "/controls/electric/circuit-breakers/bus-emer/cb-dc-comm1",
-  "/controls/electric/circuit-breakers/bus-emer/cb-dc-dg2",
-  "/controls/electric/circuit-breakers/bus-emer/cb-light-flood",
+  "/controls/electric/circuit-breakers/battery-hot/cb-light-comp",
+  "/controls/electric/circuit-breakers/battery-hot/cb-light-emer",
+  "/controls/electric/circuit-breakers/battery-hot/cb-ignition",
+  "/controls/electric/circuit-breakers/battery-hot/cb-emer-power",
 
 # battery bus / located in J-Box #
+  "/controls/electric/circuit-breakers/battery/cb-batt-voltage",
 
-  "/controls/electric/circuit-breakers/bus-battery/cb-batt-voltage",
+# emergency bus / on right CB panel #
+  "/controls/electric/circuit-breakers/emer/cb-dc-nav2",
+  "/controls/electric/circuit-breakers/emer/cb-dc-comm1",
+  "/controls/electric/circuit-breakers/emer/cb-dc-dg2",
+  "/controls/electric/circuit-breakers/emer/cb-light-flood",
 
 # left isolated bus / located in J-Box  #
-
-  "/controls/electric/circuit-breakers/bus-left-iso/cb-gen-ammeter-left",
-  "/controls/electric/circuit-breakers/bus-left-iso/cb-gen-sense-left",
-  "/controls/electric/circuit-breakers/bus-left-iso/cb-light-start-left",
-  "/controls/electric/circuit-breakers/bus-left-iso/cb-gen-voltage-left",
-
-# right isolated bus / located in J-Box  #
-
-  "/controls/electric/circuit-breakers/bus-right-iso/cb-gen-ammeter-right",
-  "/controls/electric/circuit-breakers/bus-right-iso/cb-gen-sense-right",
-  "/controls/electric/circuit-breakers/bus-right-iso/cb-light-start-right",
-  "/controls/electric/circuit-breakers/bus-right-iso/cb-gen-voltage-right",
-
-# left main bus / located on left CB panel #
-
-  "/controls/electric/circuit-breakers/cb-bus-left-1",
-  "/controls/electric/circuit-breakers/cb-bus-left-2",
-  "/controls/electric/circuit-breakers/cb-bus-left-3",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-bus-left-starter",
-  "/controls/electric/circuit-breakers/bus-left/cb-bus-left-inverter",
-  "/controls/electric/circuit-breakers/bus-left/cb-bus-left-x-over",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-fan-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-itt-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-turbine-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-fuelflow-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-qty-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-oilt-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-oilp-left",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-ign-right",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-boost-right",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-shutoff-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-fire-left",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-skid-ctrl",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-thrustrev-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-flap-motor",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-flap-ctrl",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-aoa",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-gear-ctrl",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-engine-sync",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-pitch-trim",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-nose-wheel-rpm",
-  "/controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-anti-ice-pitot-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-anti-ice-aoa",
-  "/controls/electric/circuit-breakers/bus-left/cb-anti-ice-engine-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws-temp",
-  "/controls/electric/circuit-breakers/bus-left/cb-anti-ice-bleedair-ws",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-inst-gyro-standby",
-  "/controls/electric/circuit-breakers/bus-left/cb-inst-oat",
-  "/controls/electric/circuit-breakers/bus-left/cb-inst-clock-left",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-env-normalp",
-  "/controls/electric/circuit-breakers/bus-left/cb-env-fan",
-  "/controls/electric/circuit-breakers/bus-left/cb-env-temp",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-warn-batt",
-  "/controls/electric/circuit-breakers/bus-left/cb-warn-gear",
-  "/controls/electric/circuit-breakers/bus-left/cb-warn-lts1",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-light-panel-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-panel-el",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-beacon",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-strobe",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-winginsp",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-nav",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-rec-flight",
-  "/controls/electric/circuit-breakers/bus-left/cb-rec-voice",
-
-# CROSS OVER / left main bus / located on right CB panel #
-
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-comm2",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-nav1",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-dme1",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-xpdr1",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-adf1",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-audio1",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-phone",
-
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-ap",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-efis-disp",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-efis-efis",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-efis-adi",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-efis-hsi",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-voice-adv",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-radalt",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-fd1",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-rmi1",
-  "/controls/electric/circuit-breakers/bus-left/cb-dc-dg1",
+  "/controls/electric/circuit-breakers/isolated-left/cb-gen-ammeter-left",
+  "/controls/electric/circuit-breakers/isolated-left/cb-gen-sense-left",
+  "/controls/electric/circuit-breakers/isolated-left/cb-light-start-left",
+  "/controls/electric/circuit-breakers/isolated-left/cb-gen-voltage-left",
 
 # left main bus / located in J-Box #
+  "/controls/electric/circuit-breakers/main-left/cb-left-sense",
+  "/controls/electric/circuit-breakers/main-left/cb-fuel-boost-left",
+  "/controls/electric/circuit-breakers/main-left/cb-annun-genoff-left",
+  "/controls/electric/circuit-breakers/main-left/cb-light-landing-left",
+  "/controls/electric/circuit-breakers/main-left/cb-light-recog-left",
+  "/controls/electric/circuit-breakers/main-left/cb-light-advisory",
+  "/controls/electric/circuit-breakers/main-left/cb-light-indirect",
+  "/controls/electric/circuit-breakers/main-left/cb-entertainment",
 
-  "/controls/electric/circuit-breakers/bus-left/cb-bus-sense-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-engine-boost-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-annun-genoff-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-landing-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-recog-left",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-advisory",
-  "/controls/electric/circuit-breakers/bus-left/cb-light-indirect",
-  "/controls/electric/circuit-breakers/bus-left/cb-entertainment",
+# left main bus / located on left CB panel #
+  "/controls/electric/circuit-breakers/cb-main-left-1",
+  "/controls/electric/circuit-breakers/cb-main-left-2",
+  "/controls/electric/circuit-breakers/cb-main-left-3",
 
-# right main bus / located on right CB panel #
+  "/controls/electric/circuit-breakers/main-left/cb-left-starter",
+  "/controls/electric/circuit-breakers/main-left/cb-left-inverter",
+  "/controls/electric/circuit-breakers/main-left/cb-left-xover",
 
-  "/controls/electric/circuit-breakers/cb-bus-right-1",
-  "/controls/electric/circuit-breakers/cb-bus-right-2",
-  "/controls/electric/circuit-breakers/cb-bus-right-3",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-fan-left",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-itt-left",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-turbine-left",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-fuelflow-left",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-qty-left",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-oilt-left",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-oilp-left",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-bus-right-starter",
-  "/controls/electric/circuit-breakers/bus-right/cb-bus-right-inverter",
-  "/controls/electric/circuit-breakers/bus-right/cb-bus-right-x-over",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-ign-right",
+  "/controls/electric/circuit-breakers/main-left/cb-fuel-boost-right",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-shutoff-left",
+  "/controls/electric/circuit-breakers/main-left/cb-engine-fire-left",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-fan-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-itt-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-turbine-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-fuelflow-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-qty-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-oilt-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-oilp-right",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-skid-ctrl",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-thrustrev-left",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-flap-motor",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-flap-ctrl",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-aoa",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-gear-ctrl",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-engine-sync",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-pitch-trim",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-nose-wheel-rpm",
+  "/controls/electric/circuit-breakers/main-left/cb-sys-speed-brake",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-dme2",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-xpdr2",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-adf2",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-audio2",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-warn",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-comm3",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-nav-area",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-gpws",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-tas-htr",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-nav-vlf",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-nav-db",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-fms",
+  "/controls/electric/circuit-breakers/main-left/cb-anti-ice-pitot-left",
+  "/controls/electric/circuit-breakers/main-left/cb-anti-ice-aoa",
+  "/controls/electric/circuit-breakers/main-left/cb-anti-ice-engine-left",
+  "/controls/electric/circuit-breakers/main-left/cb-anti-ice-bleedair-ws-temp",
+  "/controls/electric/circuit-breakers/main-left/cb-anti-ice-bleedair-ws",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-radar",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-fd2",
-  "/controls/electric/circuit-breakers/bus-right/cb-dc-rmi2",
+  "/controls/electric/circuit-breakers/main-left/cb-inst-gyro-standby",
+  "/controls/electric/circuit-breakers/main-left/cb-inst-oat",
+  "/controls/electric/circuit-breakers/main-left/cb-inst-clock-left",
 
-# CROSS OVER / right main bus / located on left CB panel #
+  "/controls/electric/circuit-breakers/main-left/cb-env-normalp",
+  "/controls/electric/circuit-breakers/main-left/cb-env-fan",
+  "/controls/electric/circuit-breakers/main-left/cb-env-temp",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-ign-left",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-boost-left",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-shutoff-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-fire-right",
+  "/controls/electric/circuit-breakers/main-left/cb-warn-batt",
+  "/controls/electric/circuit-breakers/main-left/cb-warn-gear",
+  "/controls/electric/circuit-breakers/main-left/cb-warn-lts1",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-env-emerp",
+  "/controls/electric/circuit-breakers/main-left/cb-light-panel-left",
+  "/controls/electric/circuit-breakers/main-left/cb-light-panel-el",
+  "/controls/electric/circuit-breakers/main-left/cb-light-beacon",
+  "/controls/electric/circuit-breakers/main-left/cb-light-strobe",
+  "/controls/electric/circuit-breakers/main-left/cb-light-winginsp",
+  "/controls/electric/circuit-breakers/main-left/cb-light-nav",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-inst-ralt",
-  "/controls/electric/circuit-breakers/bus-right/cb-inst-flt-hr",
-  "/controls/electric/circuit-breakers/bus-right/cb-inst-clock-right",
+  "/controls/electric/circuit-breakers/main-left/cb-rec-flight",
+  "/controls/electric/circuit-breakers/main-left/cb-rec-voice",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-anti-ice-pitot-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-anti-ice-engine-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-anti-ice-surface",
-  "/controls/electric/circuit-breakers/bus-right/cb-anti-ice-alcohol",
+# left main x-over bus / located on right CB panel #
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-comm2",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-nav1",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-dme1",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-xpdr1",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-adf1",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-audio1",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-phone",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-warn-lts2",
-  "/controls/electric/circuit-breakers/bus-right/cb-warn-speed",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-ap",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-efis-disp",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-efis-efis",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-efis-adi",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-efis-hsi",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-voice-adv",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-radalt",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-fd1",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-rmi1",
+  "/controls/electric/circuit-breakers/main-left-xover/cb-dc-dg1",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-sys-equip-cool",
-  "/controls/electric/circuit-breakers/bus-right/cb-sys-thrustrev-right",
-
-  "/controls/electric/circuit-breakers/bus-right/cb-light-panel-center",
-  "/controls/electric/circuit-breakers/bus-right/cb-light-panel-right",
-
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-ap",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-fd1",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-air-data",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-vgyro1",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-radar",
-
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-fd2",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-vgyro2",
-
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-nav1",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf1",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-hsi1",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-adi1",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-gpws",
-
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-nav2",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-rmi-adf2",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-hsi2",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-adi2",
-  "/controls/electric/circuit-breakers/bus-right/cb-ac-efis",
+# right isolated bus / located in J-Box  #
+  "/controls/electric/circuit-breakers/isolated-right/cb-gen-ammeter-right",
+  "/controls/electric/circuit-breakers/isolated-right/cb-gen-sense-right",
+  "/controls/electric/circuit-breakers/isolated-right/cb-light-start-right",
+  "/controls/electric/circuit-breakers/isolated-right/cb-gen-voltage-right",
 
 # right main bus / located in J-Box #
+  "/controls/electric/circuit-breakers/main-right/cb-right-sense",
+  "/controls/electric/circuit-breakers/main-right/cb-fuel-boost-right",
+  "/controls/electric/circuit-breakers/main-right/cb-annun-genoff-right",
+  "/controls/electric/circuit-breakers/main-right/cb-light-landing-right",
+  "/controls/electric/circuit-breakers/main-right/cb-light-recog-right",
+  "/controls/electric/circuit-breakers/main-right/cb-light-cabin",
+  "/controls/electric/circuit-breakers/main-right/cb-light-toilet",
 
-  "/controls/electric/circuit-breakers/bus-right/cb-bus-sense-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-engine-boost-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-annun-genoff-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-light-landing-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-light-recog-right",
-  "/controls/electric/circuit-breakers/bus-right/cb-light-cabin",
-  "/controls/electric/circuit-breakers/bus-right/cb-light-toilet",
+# right main bus / located on right CB panel #
+  "/controls/electric/circuit-breakers/cb-main-right-1",
+  "/controls/electric/circuit-breakers/cb-main-right-2",
+  "/controls/electric/circuit-breakers/cb-main-right-3",
+
+  "/controls/electric/circuit-breakers/main-right/cb-right-starter",
+  "/controls/electric/circuit-breakers/main-right/cb-right-inverter",
+  "/controls/electric/circuit-breakers/main-right/cb-right-xover",
+
+  "/controls/electric/circuit-breakers/main-right/cb-engine-fan-right",
+  "/controls/electric/circuit-breakers/main-right/cb-engine-itt-right",
+  "/controls/electric/circuit-breakers/main-right/cb-engine-turbine-right",
+  "/controls/electric/circuit-breakers/main-right/cb-engine-fuelflow-right",
+  "/controls/electric/circuit-breakers/main-right/cb-engine-qty-right",
+  "/controls/electric/circuit-breakers/main-right/cb-engine-oilt-right",
+  "/controls/electric/circuit-breakers/main-right/cb-engine-oilp-right",
+
+  "/controls/electric/circuit-breakers/main-right/cb-dc-dme2",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-xpdr2",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-adf2",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-audio2",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-warn",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-comm3",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-nav-area",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-gpws",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-tas-htr",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-nav-vlf",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-nav-db",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-fms",
+
+  "/controls/electric/circuit-breakers/main-right/cb-dc-radar",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-fd2",
+  "/controls/electric/circuit-breakers/main-right/cb-dc-rmi2",
+
+# right main x-over bus / located on left CB panel #
+  "/controls/electric/circuit-breakers/main-right-xover/cb-engine-ign-left",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-fuel-boost-left",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-engine-shutoff-right",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-engine-fire-right",
+
+  "/controls/electric/circuit-breakers/main-right-xover/cb-env-emerp",
+
+  "/controls/electric/circuit-breakers/main-right-xover/cb-inst-ralt",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-inst-flt-hr",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-inst-clock-right",
+
+  "/controls/electric/circuit-breakers/main-right-xover/cb-anti-ice-pitot-right",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-anti-ice-engine-right",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-anti-ice-surface",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-anti-ice-alcohol",
+
+  "/controls/electric/circuit-breakers/main-right-xover/cb-warn-lts2",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-warn-speed",
+
+  "/controls/electric/circuit-breakers/main-right-xover/cb-sys-equip-cool",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-sys-thrustrev-right",
+
+  "/controls/electric/circuit-breakers/main-right-xover/cb-light-panel-center",
+  "/controls/electric/circuit-breakers/main-right-xover/cb-light-panel-right",
+
+
+# AC-115V bus / located on right CB panel #
+  "/controls/electric/circuit-breakers/AC-115V/cb-ac-ap",
+  "/controls/electric/circuit-breakers/AC-115V/cb-ac-fd1",
+  "/controls/electric/circuit-breakers/AC-115V/cb-ac-air-data",
+  "/controls/electric/circuit-breakers/AC-115V/cb-ac-vgyro1",
+  "/controls/electric/circuit-breakers/AC-115V/cb-ac-radar",
+
+  "/controls/electric/circuit-breakers/AC-115V/cb-ac-fd2",
+  "/controls/electric/circuit-breakers/AC-115V/cb-ac-vgyro2",
+
+# AC-26V bus / located on right CB panel #
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-nav1",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-rmi-adf1",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-hsi1",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-adi1",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-gpws",
+
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-nav2",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-rmi-adf2",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-hsi2",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-adi2",
+  "/controls/electric/circuit-breakers/AC-26V/cb-ac-efis",
 
 ];
 

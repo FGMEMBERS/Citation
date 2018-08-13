@@ -8,10 +8,7 @@
     <object-name>altalerter.digit10</object-name>
     <object-name>altalerter.digit1</object-name>
     <condition>
-      <greater-than>
-        <property>systems/electrical/ac-volts</property>
-        <value>90</value>
-      </greater-than>
+      <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
     </condition>
   </animation>
 
@@ -75,10 +72,7 @@
     <action>
       <binding>
         <condition>
-          <greater-than>
-            <property>systems/electrical/ac-volts</property>
-            <value>90</value>
-          </greater-than>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
         </condition>
         <command>property-adjust</command>
         <property>autopilot/settings/target-altitude-ft</property>

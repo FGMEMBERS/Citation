@@ -11,10 +11,7 @@
     <object-name>panel.gear.green.left</object-name>
     <object-name>panel.gear.green.right</object-name>
     <condition>
-      <greater-than>
-        <property>systems/electrical/ac-volts</property>
-        <value>90</value>
-      </greater-than>
+      <property>systems/electrical/outputs/main-left/sys-gear-ctrl</property>
     </condition>
   </animation>
 
@@ -22,10 +19,16 @@
     <type>select</type>
     <object-name>panel.gear.green.nose</object-name>
     <condition>
-      <equals>
-        <property>gear/gear[0]/position-norm</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <equals>
+          <property>gear/gear[0]/position-norm</property>
+          <value>1</value>
+        </equals>
+        <equals>
+          <property>controls/electric/system-test</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -33,10 +36,16 @@
     <type>select</type>
     <object-name>panel.gear.green.left</object-name>
     <condition>
-      <equals>
-        <property>gear/gear[1]/position-norm</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <equals>
+          <property>gear/gear[1]/position-norm</property>
+          <value>1</value>
+        </equals>
+        <equals>
+          <property>controls/electric/system-test</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -44,10 +53,16 @@
     <type>select</type>
     <object-name>panel.gear.green.right</object-name>
     <condition>
-      <equals>
-        <property>gear/gear[2]/position-norm</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <equals>
+          <property>gear/gear[2]/position-norm</property>
+          <value>1</value>
+        </equals>
+        <equals>
+          <property>controls/electric/system-test</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -55,16 +70,42 @@
     <type>select</type>
     <object-name>panel.gear.unlocked</object-name>
     <condition>
-      <and>
-        <less-than>
-          <property>gear/gear/position-norm</property>
-          <value>1</value>
-        </less-than>
-        <greater-than>
-          <property>gear/gear/position-norm</property>
-          <value>0</value>
-        </greater-than>
-      </and>
+      <or>
+        <and>
+          <less-than>
+            <property>gear/gear[0]/position-norm</property>
+            <value>1</value>
+          </less-than>
+          <greater-than>
+            <property>gear/gear[0]/position-norm</property>
+            <value>0</value>
+          </greater-than>
+        </and>
+        <and>
+          <less-than>
+            <property>gear/gear[1]/position-norm</property>
+            <value>1</value>
+          </less-than>
+          <greater-than>
+            <property>gear/gear[1]/position-norm</property>
+            <value>0</value>
+          </greater-than>
+        </and>
+        <and>
+          <less-than>
+            <property>gear/gear[2]/position-norm</property>
+            <value>1</value>
+          </less-than>
+          <greater-than>
+            <property>gear/gear[2]/position-norm</property>
+            <value>0</value>
+          </greater-than>
+        </and>
+        <equals>
+          <property>controls/electric/system-test</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
   </animation>
 
@@ -208,6 +249,7 @@
         </condition>
         <object-name>panel.gear</object-name>
         <object-name>panel.gear.lever</object-name>
+        <object-name>panel.gear.silence</object-name>
         <object-name>panel.gear.antiskid.sw</object-name>
         <object-name>panel.gear.antiskid.sw.socket</object-name>
         <emission>

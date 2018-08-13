@@ -30,10 +30,16 @@
         <type>select</type>
         <object-name>rev.left.arm</object-name>
         <condition>
-            <greater-than>
-                <property>surface-positions/reverser-norm[0]</property>
-                <value>0</value>
-            </greater-than>
+            <or>
+                <greater-than>
+                    <property>surface-positions/reverser-norm[0]</property>
+                    <value>0</value>
+                </greater-than>
+                <equals>
+                    <property>controls/electric/system-test</property>
+                    <value>5</value>
+                </equals>
+            </or>
         </condition>
     </animation>
 
@@ -41,10 +47,16 @@
         <type>select</type>
         <object-name>rev.left.unlock</object-name>
         <condition>
-            <greater-than>
-                <property>surface-positions/reverser-norm[0]</property>
-                <value>0.05</value>
-            </greater-than>
+            <or>
+                <greater-than>
+                    <property>surface-positions/reverser-norm[0]</property>
+                    <value>0.05</value>
+                </greater-than>
+                <equals>
+                    <property>controls/electric/system-test</property>
+                    <value>5</value>
+                </equals>
+            </or>
         </condition>
     </animation>
 
@@ -52,10 +64,16 @@
         <type>select</type>
         <object-name>rev.left.deploy</object-name>
         <condition>
-            <greater-than>
-                <property>surface-positions/reverser-norm[0]</property>
-                <value>0.95</value>
-            </greater-than>
+            <or>
+                <greater-than>
+                    <property>surface-positions/reverser-norm[0]</property>
+                    <value>0.95</value>
+                </greater-than>
+                <equals>
+                    <property>controls/electric/system-test</property>
+                    <value>5</value>
+                </equals>
+            </or>
         </condition>
     </animation>
 
@@ -63,10 +81,16 @@
         <type>select</type>
         <object-name>rev.right.arm</object-name>
         <condition>
-            <greater-than>
-                <property>surface-positions/reverser-norm[1]</property>
-                <value>0</value>
-            </greater-than>
+            <or>
+                <greater-than>
+                    <property>surface-positions/reverser-norm[1]</property>
+                    <value>0</value>
+                </greater-than>
+                <equals>
+                    <property>controls/electric/system-test</property>
+                    <value>5</value>
+                </equals>
+            </or>
         </condition>
     </animation>
 
@@ -74,10 +98,16 @@
         <type>select</type>
         <object-name>rev.right.unlock</object-name>
         <condition>
-            <greater-than>
-                <property>surface-positions/reverser-norm[1]</property>
-                <value>0.05</value>
-            </greater-than>
+            <or>
+                <greater-than>
+                    <property>surface-positions/reverser-norm[1]</property>
+                    <value>0.05</value>
+                </greater-than>
+                <equals>
+                    <property>controls/electric/system-test</property>
+                    <value>5</value>
+                </equals>
+            </or>
         </condition>
     </animation>
 
@@ -85,10 +115,16 @@
         <type>select</type>
         <object-name>rev.right.deploy</object-name>
         <condition>
-            <greater-than>
-                <property>surface-positions/reverser-norm[1]</property>
-                <value>0.95</value>
-            </greater-than>
+            <or>
+                <greater-than>
+                    <property>surface-positions/reverser-norm[1]</property>
+                    <value>0.95</value>
+                </greater-than>
+                <equals>
+                    <property>controls/electric/system-test</property>
+                    <value>5</value>
+                </equals>
+            </or>
         </condition>
     </animation>
 
@@ -171,11 +207,11 @@
             <z>0.0</z>
         </axis>
     </animation>
-<!--
+
     <animation>
         <type>rotate</type>
         <object-name>rev.left.emer-sw</object-name>
-        <property>controls/engines/engine[0]/rev-emer-sw</property>
+        <property>controls/engines/engine[0]/reverser-emer-sw</property>
         <factor>40</factor>
         <center>
             <x-m>0.00325</x-m>
@@ -192,7 +228,7 @@
     <animation>
         <type>rotate</type>
         <object-name>rev.right.emer-sw</object-name>
-        <property>controls/engines/engine[1]/rev-emer-sw</property>
+        <property>controls/engines/engine[1]/reverser-emer-sw</property>
         <factor>40</factor>
         <center>
             <x-m>0.00325</x-m>
@@ -205,7 +241,7 @@
             <z>0.0</z>
         </axis>
     </animation>
--->
+
 <!-- Hotspots -->
 <!--
     <animation>
@@ -316,6 +352,50 @@
         </hovered>
     </animation>
 
+    <animation>
+        <type>pick</type>
+        <object-name>rev.left.emer-sw</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/engines/engine[0]/reverser-emer-sw</property>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rev-emer-sw-left</tooltip-id>
+                <label>Left Reverser Switch: %s</label>
+                <mapping>nasal</mapping>
+                <script>(arg[0] == 0) ? "Normal" : "Emergency"</script>
+                <property>controls/engines/engine[0]/reverser-emer-sw</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>rev.right.emer-sw</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/engines/engine[1]/reverser-emer-sw</property>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rev-emer-sw-right</tooltip-id>
+                <label>Right Reverser Switch: %s</label>
+                <mapping>nasal</mapping>
+                <script>(arg[0] == 0) ? "Normal" : "Emergency"</script>
+                <property>controls/engines/engine[1]/reverser-emer-sw</property>
+            </binding>
+        </hovered>
+    </animation>
+
 <!-- Panel Lights (only with Rembrandt disabled) -->
     <animation>
         <type>material</type>
@@ -366,6 +446,9 @@
         <object-name>fire.bottle2.btn</object-name>
         <object-name>rev.panel</object-name>
         <object-name>rev.blind</object-name>
+        <object-name>rev.left.arm</object-name>
+        <object-name>rev.left.unlock</object-name>
+        <object-name>rev.left.deploy</object-name>
     </effect>
 
 <!-- Chrome Effect! -->

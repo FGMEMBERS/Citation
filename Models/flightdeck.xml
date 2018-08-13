@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8' ?>
+<?xml version="1.0" encoding="utf-8"?>
 <PropertyList>
 
   <path>flightdeck.ac</path>
@@ -81,9 +81,9 @@
   <model>
     <path>Aircraft/Citation/Models/Instruments/cdu/boeing.xml</path>
     <offsets>
-      <x-m>2.890</x-m>
-      <y-m>0.000</y-m>
-      <z-m>0.277</z-m>
+      <x-m>2.89</x-m>
+      <y-m>0.00</y-m>
+      <z-m>0.2773</z-m>
       <pitch-deg>-90.0</pitch-deg>
     </offsets>
     <overlay>
@@ -94,9 +94,9 @@
   <model>
     <path>Aircraft/Citation/Models/Instruments/APpanel.xml</path>
     <offsets>
-      <x-m>3.050</x-m>
-      <y-m>0.000</y-m>
-      <z-m>0.277</z-m>
+      <x-m>3.05</x-m>
+      <y-m>0.00</y-m>
+      <z-m>0.2773</z-m>
       <pitch-deg>-90.0</pitch-deg>
     </offsets>
   </model>
@@ -453,10 +453,11 @@
     <object-name>ThrLever01</object-name>
     <factor>45</factor>
     <action>
+      <repeatable>true</repeatable>
+      <interval-sec>0.05</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/throttle</property>
-        <property>controls/engines/engine[0]/throttle-lever</property>
         <factor>0.01</factor>
         <min>-0.2</min>
         <max>1.0</max>
@@ -475,28 +476,115 @@
   </animation>
 
   <animation>
-    <type>knob</type>
+    <type>pick</type>
     <object-name>ThrRevLever01</object-name>
-    <factor>115</factor>
     <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.05</interval-sec>
       <binding>
+        <condition>
+          <and>
+            <property>controls/engines/engine[0]/reverser</property>
+            <less-than>
+              <property>controls/engines/engine[0]/throttle</property>
+              <value>1.0</value>
+            </less-than>
+          </and>
+        </condition>
         <command>property-adjust</command>
         <property>controls/engines/engine[0]/throttle</property>
-        <factor>0.01</factor>
-        <min>0</min>
-        <max>1</max>
-        <wrap>false</wrap>
+        <step>0.01</step>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <not><property>controls/engines/engine[0]/reverser</property></not>
+            <less-than>
+              <property>controls/engines/engine[0]/throttle-lever</property>
+              <value>0.03</value>
+            </less-than>
+            <greater-than>
+              <property>controls/engines/engine[0]/throttle-lever</property>
+              <value>-0.01</value>
+            </greater-than>
+          </and>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[0]/reverser</property>
+        <value>1</value>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <not><property>controls/engines/engine[0]/reverser</property></not>
+            <greater-than>
+              <property>controls/engines/engine[0]/throttle</property>
+              <value>0.02</value>
+            </greater-than>
+          </and>
+        </condition>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[0]/throttle</property>
+        <step>-0.01</step>
       </binding>
     </action>
     <hovered>
       <binding>
+        <condition>
+          <property>controls/engines/engine[0]/reverser</property>
+        </condition>
         <command>set-tooltip</command>
         <tooltip-id>reverser0</tooltip-id>
         <label>Left Reverse Throttle: %3d%%</label>
         <mapping>percent</mapping>
         <property>controls/engines/engine[0]/throttle-real</property>
       </binding>
+      <binding>
+        <condition>
+          <not><property>controls/engines/engine[0]/reverser</property></not>
+        </condition>
+        <command>set-tooltip</command>
+        <tooltip-id>reverser0</tooltip-id>
+        <label>Left Reverse Throttle: Closed</label>
+      </binding>
     </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ThrRevLever01</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.05</interval-sec>
+      <binding>
+        <condition>
+          <property>controls/engines/engine[0]/reverser</property>
+          <less-than>
+            <property>controls/engines/engine[0]/throttle</property>
+            <value>0.005</value>
+          </less-than>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[0]/reverser</property>
+        <value>0</value>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <property>controls/engines/engine[0]/reverser</property>
+            <greater-than>
+              <property>controls/engines/engine[0]/throttle</property>
+              <value>0.005</value>
+            </greater-than>
+          </and>
+        </condition>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[0]/throttle</property>
+        <step>-0.01</step>
+      </binding>
+    </action>
   </animation>
 
   <animation>
@@ -526,6 +614,8 @@
     <object-name>ThrLever02</object-name>
     <factor>45</factor>
     <action>
+      <repeatable>true</repeatable>
+      <interval-sec>0.05</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>controls/engines/engine[1]/throttle</property>
@@ -547,28 +637,115 @@
   </animation>
 
   <animation>
-    <type>knob</type>
+    <type>pick</type>
     <object-name>ThrRevLever02</object-name>
-    <factor>115</factor>
     <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.05</interval-sec>
       <binding>
+        <condition>
+          <and>
+            <property>controls/engines/engine[1]/reverser</property>
+            <less-than>
+              <property>controls/engines/engine[1]/throttle</property>
+              <value>1.0</value>
+            </less-than>
+          </and>
+        </condition>
         <command>property-adjust</command>
         <property>controls/engines/engine[1]/throttle</property>
-        <factor>0.01</factor>
-        <min>0</min>
-        <max>1</max>
-        <wrap>false</wrap>
+        <step>0.01</step>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <not><property>controls/engines/engine[1]/reverser</property></not>
+            <less-than>
+              <property>controls/engines/engine[1]/throttle-lever</property>
+              <value>0.03</value>
+            </less-than>
+            <greater-than>
+              <property>controls/engines/engine[1]/throttle-lever</property>
+              <value>-0.01</value>
+            </greater-than>
+          </and>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[1]/reverser</property>
+        <value>1</value>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <not><property>controls/engines/engine[1]/reverser</property></not>
+            <greater-than>
+              <property>controls/engines/engine[1]/throttle</property>
+              <value>0.02</value>
+            </greater-than>
+          </and>
+        </condition>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[1]/throttle</property>
+        <step>-0.01</step>
       </binding>
     </action>
     <hovered>
       <binding>
+        <condition>
+          <property>controls/engines/engine[1]/reverser</property>
+        </condition>
         <command>set-tooltip</command>
         <tooltip-id>reverser1</tooltip-id>
         <label>Right Reverse Throttle: %3d%%</label>
         <mapping>percent</mapping>
         <property>controls/engines/engine[1]/throttle-real</property>
       </binding>
+      <binding>
+        <condition>
+          <not><property>controls/engines/engine[1]/reverser</property></not>
+        </condition>
+        <command>set-tooltip</command>
+        <tooltip-id>reverser1</tooltip-id>
+        <label>Right Reverse Throttle: Closed</label>
+      </binding>
     </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ThrRevLever02</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.05</interval-sec>
+      <binding>
+        <condition>
+          <property>controls/engines/engine[1]/reverser</property>
+          <less-than>
+            <property>controls/engines/engine[1]/throttle</property>
+            <value>0.005</value>
+          </less-than>
+        </condition>
+        <command>property-assign</command>
+        <property>controls/engines/engine[1]/reverser</property>
+        <value>0</value>
+      </binding>
+      <binding>
+        <condition>
+          <and>
+            <property>controls/engines/engine[1]/reverser</property>
+            <greater-than>
+              <property>controls/engines/engine[1]/throttle</property>
+              <value>0.005</value>
+            </greater-than>
+          </and>
+        </condition>
+        <command>property-adjust</command>
+        <property>controls/engines/engine[1]/throttle</property>
+        <step>-0.01</step>
+      </binding>
+    </action>
   </animation>
 
   <animation>
@@ -768,8 +945,7 @@
     </emission>
   </animation>
 
-
-  <!-- Panel Lights (only with Rembrandt disabled) -->
+<!-- Panel Lights (only with Rembrandt disabled) -->
   <animation>
     <type>material</type>
     <condition>
@@ -778,8 +954,7 @@
       </not>
     </condition>
     <object-name>Panel</object-name>
-    <object-name>AI</object-name>
-    <object-name>Cylinder.001</object-name>
+
     <object-name>AudioPnl</object-name>
     <object-name>AudioPnl.knob</object-name>
     <object-name>AudioPnl.knob1</object-name>
@@ -798,8 +973,11 @@
     <object-name>toggle.011</object-name>
     <object-name>toggle.0012</object-name>
     <object-name>toggle.0013</object-name>
-    <object-name>Ctn.panel</object-name>
+
+    <object-name>AI</object-name>
+
     <object-name>HSI</object-name>
+
     <object-name>ColoRadar</object-name>
     <object-name>Btn1.1</object-name>
     <object-name>Btn1.2</object-name>
@@ -815,10 +993,9 @@
     <object-name>Btn3.3</object-name>
     <object-name>Knob.1</object-name>
     <object-name>Knob.2</object-name>
+
     <object-name>M877</object-name>
-    <object-name>Flap.indicator</object-name>
-    <object-name>FlapLever</object-name>
-    <object-name>Pbrake.lever</object-name>
+
     <emission>
       <red>1.0</red>
       <green>0.8</green>
@@ -827,17 +1004,14 @@
     </emission>
   </animation>
 
-  <animation> <!-- Simulate ambient light from panel lights (center console) -->
+<!-- Simulate ambient light from panel lights (center console) -->
+  <animation>
    <type>material</type>
-    <object-name>panel.001</object-name>
-    <object-name>ElevTrim.IndicHousing</object-name>
-    <object-name>ElevTrim.wheel</object-name>
-    <object-name>ElevTrim.Indicator</object-name>
+    <object-name>Pbrake.lever</object-name>
     <object-name>Ebrake</object-name>
     <object-name>AuxGearLever</object-name>
     <object-name>AuxGear.Panel</object-name>
-    <object-name>Cylinder.002</object-name>
-    <object-name>Cylinder.005</object-name>
+    <object-name>Console</object-name>
     <object-name>ThrLever01</object-name>
     <object-name>ThrRevLever01</object-name>
     <object-name>ThrRevLink01</object-name>
@@ -846,12 +1020,20 @@
     <object-name>ThrRevLever02</object-name>
     <object-name>ThrRevLink02</object-name>
     <object-name>CutOffLock02</object-name>
-    <object-name>env.knob</object-name>
-    <object-name>env.knob.001</object-name>
-    <object-name>env.knob.002</object-name>
-    <object-name>env.sw</object-name>
+    <object-name>Flap.indicator</object-name>
+    <object-name>FlapLever</object-name>
+    <object-name>ElevTrim.IndicHousing</object-name>
+    <object-name>ElevTrim.Wheel</object-name>
+    <object-name>ElevTrim.Indicator</object-name>
     <object-name>speedBrake.switch</object-name>
     <object-name>speedBrake.swSafety</object-name>
+    <object-name>cab.altitude</object-name>
+    <object-name>cab.rate-of-change</object-name>
+    <object-name>EmerDump</object-name>
+    <object-name>env.ballance.knob</object-name>
+    <object-name>env.source.knob</object-name>
+    <object-name>env.temp.knob</object-name>
+    <object-name>env.temp.sw</object-name>
     <emission>
       <red>1.0</red>
       <green>0.8</green>
@@ -860,7 +1042,8 @@
     </emission>
   </animation>
 
-  <animation> <!-- Simulate ambient light from panel lights (environment) -->
+<!-- Simulate ambient light from panel lights (environment) -->
+  <animation>
     <type>material</type>
     <object-name>Yoke</object-name>
     <object-name>YokeLH</object-name>
@@ -883,7 +1066,7 @@
     <object-name>cbPanel.Left</object-name>
     <object-name>cbPanel.Right</object-name>
     <emission>
-      <red>1.0</red>
+      <red>1</red>
       <green>0.8</green>
       <blue>0.6</blue>
       <factor-prop>controls/lighting/flightdeck-average-ambient-light-environment</factor-prop>
@@ -894,7 +1077,7 @@
   <!-- Implement emis animation even for Rembrandt rendering! -->
   <animation>
     <type>material</type>
-    <object-name>EngCenterGauge</object-name>
+<!-- attitude indicator -->
     <object-name>AI.002</object-name>
     <object-name>AI.gsneedle</object-name>
     <object-name>AI.ring</object-name>
@@ -905,9 +1088,11 @@
     <object-name>Plane.109</object-name>
     <object-name>Plane.110</object-name>
     <object-name>Plane.111</object-name>
+    <object-name>aoa.needle</object-name>
     <object-name>gs.flag</object-name>
     <object-name>loc.flag</object-name>
     <object-name>turn.needle</object-name>
+<!-- HSI -->
     <object-name>HSI.card</object-name>
     <object-name>HSI.crsdeflection</object-name>
     <object-name>HSI.crsneedle</object-name>
@@ -921,12 +1106,14 @@
     <object-name>HSI.gsneedle</object-name>
     <object-name>HSI.navflag</object-name>
     <object-name>HSI.toflag</object-name>
+<!-- clock -->
     <object-name>M877.002</object-name>
     <object-name>M877.display</object-name>
     <object-name>CTL.btn</object-name>
     <object-name>SEL.btn</object-name>
+
     <emission>
-      <red>1</red>
+      <red>1.0</red>
       <green>0.8</green>
       <blue>0.6</blue>
       <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
@@ -954,12 +1141,12 @@
   <!-- cockpit shadows -->
   <effect>
     <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>antiskid.sw</object-name>
     <object-name>Ashtray</object-name>
     <object-name>AuxGear.Panel</object-name>
     <object-name>AuxGearLever</object-name>
     <object-name>cab.altitude</object-name>
     <object-name>cab.rate-of-change</object-name>
+    <object-name>Console</object-name>
     <object-name>Cupholder</object-name>
     <object-name>CutOffLock01</object-name>
     <object-name>CutOffLock02</object-name>
@@ -968,12 +1155,7 @@
     <object-name>ElevTrim.IndicHousing</object-name>
     <object-name>ElevTrim.Indicator</object-name>
     <object-name>ElevTrim.Wheel</object-name>
-    <object-name>Emer.TRstowLH</object-name>
-    <object-name>Emer.TRstowLH.001</object-name>
     <object-name>EmerDump</object-name>
-    <object-name>EngCenterBezel</object-name>
-    <object-name>EngCenterGauge</object-name>
-    <object-name>EngCenterHole</object-name>
     <object-name>env.ballance.knob</object-name>
     <object-name>env.source.knob</object-name>
     <object-name>env.temp.knob</object-name>
@@ -987,14 +1169,13 @@
     <object-name>flightdeck.feetRoom</object-name>
     <object-name>glareshield</object-name>
     <object-name>PedalLH</object-name>
+    <object-name>PedalRH</object-name>
     <object-name>MapLights</object-name>
     <object-name>MapLights.Bulb</object-name>
     <object-name>MapLights.inside</object-name>
     <object-name>Panel</object-name>
-    <object-name>panel.001</object-name>
     <object-name>Pbrake.lever</object-name>
     <object-name>plaquette</object-name>
-    <object-name>PedalRH</object-name>
     <object-name>Seats.pilots</object-name>
     <object-name>Seats.pilots.armrests</object-name>
     <object-name>Seats.pilots.base</object-name>
@@ -1013,6 +1194,7 @@
     <object-name>YokeRH</object-name>
     <object-name>pilot</object-name>
     <object-name>copilot</object-name>
+    <object-name>panel1</object-name>
   </effect>
 
     <!-- copy&paste template

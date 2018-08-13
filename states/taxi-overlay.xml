@@ -35,7 +35,7 @@
         <avionics-switch type="bool">true</avionics-switch>
         <battery-bus-switch type="int">1</battery-bus-switch>
         <voltage-sel type="int">0</voltage-sel>
-        <system-test type="int">10</system-test>
+        <system-test-sw type="int">0</system-test-sw>
         <fuel-sel type="int">0</fuel-sel>
         <engine n="0">
           <generator type="bool">true</generator>

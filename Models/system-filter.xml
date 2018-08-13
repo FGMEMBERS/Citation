@@ -22,12 +22,19 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <or>
-                    <property>controls/engines/engine[0]/ignition-sw</property>
-                    <property>controls/engines/engine[0]/ignition-auto</property>
+                    <and>
+                        <property>controls/engines/engine[0]/ignition-sw</property>
+                        <property>systems/electrical/outputs/main-right-xover/engine-ign-left</property>
+                    </and>
+                    <and>
+                        <property>controls/engines/engine[0]/ignition-auto</property>
+                        <property>systems/electrical/outputs/battery-hot/ignition</property>
+                    </and>
                 </or>
             </condition>
             <value>1</value>
         </input>
+        <input>0</input>
         <output>controls/engines/engine[0]/ignition</output>
     </filter>
 
@@ -38,12 +45,19 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <or>
-                    <property>controls/engines/engine[1]/ignition-sw</property>
-                    <property>controls/engines/engine[1]/ignition-auto</property>
+                    <and>
+                        <property>controls/engines/engine[1]/ignition-sw</property>
+                        <property>systems/electrical/outputs/main-left/engine-ign-right</property>
+                    </and>
+                    <and>
+                        <property>controls/engines/engine[1]/ignition-auto</property>
+                        <property>systems/electrical/outputs/battery-hot/ignition</property>
+                    </and>
                 </or>
             </condition>
             <value>1</value>
         </input>
+        <input>0</input>
         <output>controls/engines/engine[1]/ignition</output>
     </filter>
 
@@ -103,13 +117,10 @@ GNU General Public License for more details.
         <type>gain</type>
         <input>
             <condition>
-                <and>
-                    <greater-than>
-                        <property>systems/electrical/outputs/bus/left</property>
-                        <value>20</value>
-                    </greater-than>
-                    <property>controls/electric/circuit-breakers/bus-left/cb-sys-speed-brake</property>
-                </and>
+                <greater-than>
+                    <property>systems/electrical/outputs/main-left/sys-speed-brake</property>
+                    <value>20</value>
+                </greater-than>
             </condition>
             <property>controls/flight/speedbrake-switch</property>
         </input>
@@ -128,7 +139,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>systems/electrical/outputs/bus/left</property>
+                        <property>systems/electrical/outputs/main-left-xover/dc-dg1</property>
                         <value>20</value>
                     </greater-than>
                     <property>instrumentation/heading-indicator/flux-serviceable</property>
@@ -146,7 +157,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>systems/electrical/outputs/bus/left</property>
+                        <property>systems/electrical/outputs/main-left-xover/dc-dg1</property>
                         <value>20</value>
                     </greater-than>
                     <property>controls/electric/gyro-mode-sw</property>
@@ -167,7 +178,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>systems/electrical/outputs/bus/left</property>
+                        <property>systems/electrical/outputs/main-left-xover/dc-dg1</property>
                         <value>20</value>
                     </greater-than>
                     <property>controls/electric/gyro-mode-sw</property>
@@ -254,28 +265,32 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <and>
-                    <greater-than>
-                        <property>systems/electrical/outputs/bus/left</property>
-                        <value>20</value>
-                    </greater-than>
-                    <property>controls/electric/circuit-breakers/bus-left/cb-warn-gear</property>
-                    <greater-than>
-                        <property>surface-positions/flap-pos-norm</property>
-                        <value>0.38</value>
-                    </greater-than>
+                    <property>systems/electrical/outputs/main-left/warn-gear</property>
                     <or>
-                        <less-than>
-                            <property>gear/gear[0]/position-norm</property>
-                            <value>1.00</value>
-                        </less-than>
-                        <less-than>
-                            <property>gear/gear[1]/position-norm</property>
-                            <value>1.00</value>
-                        </less-than>
-                        <less-than>
-                            <property>gear/gear[2]/position-norm</property>
-                            <value>1.00</value>
-                        </less-than>
+                        <and>
+                            <greater-than>
+                                <property>surface-positions/flap-pos-norm</property>
+                                <value>0.38</value>
+                            </greater-than>
+                            <or>
+                                <less-than>
+                                    <property>gear/gear[0]/position-norm</property>
+                                    <value>1.00</value>
+                                </less-than>
+                                <less-than>
+                                    <property>gear/gear[1]/position-norm</property>
+                                    <value>1.00</value>
+                                </less-than>
+                                <less-than>
+                                    <property>gear/gear[2]/position-norm</property>
+                                    <value>1.00</value>
+                                </less-than>
+                            </or>
+                        </and>
+                        <equals>
+                            <property>controls/electric/system-test</property>
+                            <value>2</value>
+                        </equals>
                     </or>
                 </and>
             </condition>
@@ -308,11 +323,7 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <and>
-                    <greater-than>
-                        <property>systems/electrical/outputs/bus/right</property>
-                        <value>20</value>
-                    </greater-than>
-                    <property>controls/electric/circuit-breakers/bus-right/cb-warn-speed</property>
+                    <property>systems/electrical/outputs/main-right-xover/warn-speed</property>
                     <or>
                         <greater-than>
                             <property>velocities/airspeed-kt</property>
@@ -322,6 +333,10 @@ GNU General Public License for more details.
                             <property>velocities/mach</property>
                             <property>limits/mmo</property>
                         </greater-than>
+                        <equals>
+                            <property>controls/electric/system-test</property>
+                            <value>7</value>
+                        </equals>
                     </or>
                 </and>
             </condition>
@@ -340,10 +355,7 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <and>
-                    <greater-than>
-                        <property>controls/gear/antiskid-test</property>
-                        <value>0</value>
-                    </greater-than>
+                    <property>controls/gear/antiskid-test</property>
                     <greater-than>
                         <expression>
                             <sum>
@@ -368,11 +380,7 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <and>
-                    <greater-than>
-                        <property>systems/electrical/outputs/bus/left</property>
-                        <value>20</value>
-                    </greater-than>
-                    <property>controls/electric/circuit-breakers/bus-left/cb-sys-skid-ctrl</property>
+                    <property>systems/electrical/outputs/main-left/sys-skid-ctrl</property>
                     <property>controls/gear/antiskid-sw</property>
                     <less-than>
                         <property>controls/gear/antiskid-test</property>
@@ -585,6 +593,135 @@ GNU General Public License for more details.
         <min>0.0</min>
         <max>1.0</max>
         <output>controls/gear/brake-right-real</output>
+    </filter>
+
+<!-- external power cutoff -->
+    <filter>
+        <name>external-power-cutoff</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <or>
+                    <not><property>controls/electric/maingear-switch</property></not>
+                    <not><property>controls/gear/brake-parking</property></not>
+                </or>
+            </condition>
+            <value>false</value>
+        </input>
+        <input>controls/electric/external-power</input>
+        <output>controls/electric/external-power</output>
+    </filter>
+
+<!-- reverser -->
+    <filter>
+        <name>left-reverser</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <not><property>controls/engines/engine[0]/reverser-emer-sw</property></not>
+                    <property>controls/electric/maingear-switch</property>
+                    <property>systems/electrical/outputs/main-left/sys-thrustrev-left</property>
+                    <or>
+                        <greater-than>
+                            <property>engines/engine[0]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                        <greater-than>
+                            <property>engines/engine[1]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                    </or>
+                </and>
+            </condition>
+            <property>controls/engines/engine[0]/reverser</property>
+        </input>
+        <input>
+            <condition>
+                <and>
+                    <property>controls/engines/engine[0]/reverser-emer-sw</property>
+                    <property>controls/electric/maingear-switch</property>
+                    <property>systems/electrical/outputs/main-right-xover/sys-thrustrev-right</property>
+                    <or>
+                        <greater-than>
+                            <property>engines/engine[0]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                        <greater-than>
+                            <property>engines/engine[1]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                    </or>
+                </and>
+            </condition>
+            <property>controls/engines/engine[1]/reverser</property>
+        </input>
+        <output>controls/engines/engine[0]/reverser-real</output>
+    </filter>
+
+    <filter>
+        <name>left-reverser</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <and>
+                    <not><property>controls/engines/engine[1]/reverser-emer-sw</property></not>
+                    <property>controls/electric/maingear-switch</property>
+                    <property>systems/electrical/outputs/main-right-xover/sys-thrustrev-right</property>
+                    <or>
+                        <greater-than>
+                            <property>engines/engine[0]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                        <greater-than>
+                            <property>engines/engine[1]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                    </or>
+                </and>
+            </condition>
+            <property>controls/engines/engine[1]/reverser</property>
+        </input>
+        <input>
+            <condition>
+                <and>
+                    <property>controls/engines/engine[1]/reverser-emer-sw</property>
+                    <property>controls/electric/maingear-switch</property>
+                    <property>systems/electrical/outputs/main-left/sys-thrustrev-left</property>
+                    <or>
+                        <greater-than>
+                            <property>engines/engine[0]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                        <greater-than>
+                            <property>engines/engine[1]/turbine</property>
+                            <value>40</value>
+                        </greater-than>
+                    </or>
+                </and>
+            </condition>
+            <property>controls/engines/engine[0]/reverser</property>
+        </input>
+        <output>controls/engines/engine[1]/reverser-real</output>
+    </filter>
+
+<!-- system test -->
+    <filter>
+        <name>system-test</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+<!-- TODO: conditions for every system with power over the correct circuit-breaker -->
+            <condition>
+                <property>systems/electrical/buses/battery</property>
+            </condition>
+            <property>controls/electric/system-test-sw</property>
+        </input>
+        <input>0</input>
+        <output>controls/electric/system-test</output>
     </filter>
 
 </PropertyList>

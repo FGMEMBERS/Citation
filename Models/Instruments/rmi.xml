@@ -7,10 +7,7 @@
     <type>select</type>
     <object-name>RMI.flag</object-name>
     <condition>
-      <less-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>18</value>
-      </less-than>
+      <not><property>systems/electrical/outputs/main-left-xover/dc-rmi1</property></not>
     </condition>
   </animation>
 

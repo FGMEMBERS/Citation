@@ -7,10 +7,12 @@
     <animation>
         <type>select</type>
         <object-name>sphereNavLight.red</object-name>
+        <object-name>sphereNavLight.green</object-name>
+        <object-name>sphereNavLight.white</object-name>
         <condition>
             <and>
                 <property>sim/rendering/rembrandt/enabled</property>
-                <property>controls/lighting/nav-lights</property>
+                <property>systems/electrical/outputs/nav-lights</property>
                 <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
@@ -26,7 +28,7 @@
         <object-name>sphereNavLight.red</object-name>
         <nopreview/>
         <condition>
-            <property>controls/lighting/nav-lights</property>
+            <property>systems/electrical/outputs/nav-lights</property>
         </condition>
         <position>
             <x>6.88</x>
@@ -51,6 +53,13 @@
             <b>0</b>
             <a>0.4</a>
         </specular>
+        <dim-factor>
+            <property>systems/electrical/outputs/nav-lights</property>
+            <factor>0.042</factor>
+            <offset>0</offset>
+            <min>0</min>
+            <max>1</max>
+        </dim-factor>
         <attenuation>
             <c>10.0</c>
             <l>2</l>
@@ -61,28 +70,13 @@
     </animation>
 
     <animation>
-        <type>select</type>
-        <object-name>sphereNavLight.green</object-name>
-        <condition>
-            <and>
-                <property>sim/rendering/rembrandt/enabled</property>
-                <property>controls/lighting/nav-lights</property>
-                <greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>2.0</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
         <type>light</type>
         <light-type>point</light-type>
         <name>NavLightRight.light</name>
         <object-name>sphereNavLight.green</object-name>
         <nopreview/>
         <condition>
-            <property>controls/lighting/nav-lights</property>
+            <property>systems/electrical/outputs/nav-lights</property>
         </condition>
         <position>
             <x>6.88</x>
@@ -107,6 +101,13 @@
             <b>0</b>
             <a>0.4</a>
         </specular>
+        <dim-factor>
+            <property>systems/electrical/outputs/nav-lights</property>
+            <factor>0.042</factor>
+            <offset>0</offset>
+            <min>0</min>
+            <max>1</max>
+        </dim-factor>
         <attenuation>
             <c>10.0</c>
             <l>2</l>
@@ -117,28 +118,13 @@
     </animation>
 
     <animation>
-        <type>select</type>
-        <object-name>sphereNavLight.white</object-name>
-        <condition>
-            <and>
-                <property>sim/rendering/rembrandt/enabled</property>
-                <property>controls/lighting/nav-lights</property>
-                <greater-than>
-                    <property>sim/rendering/shaders/lights</property>
-                    <value>2.0</value>
-                </greater-than>
-            </and>
-        </condition>
-    </animation>
-
-    <animation>
         <type>light</type>
         <light-type>point</light-type>
         <name>NavLightBack.light</name>
         <object-name>sphereNavLight.white</object-name>
         <nopreview/>
         <condition>
-            <property>controls/lighting/nav-lights</property>
+            <property>systems/electrical/outputs/nav-lights</property>
         </condition>
         <position>
             <x>13.75</x>
@@ -163,6 +149,13 @@
             <b>0.2</b>
             <a>0.4</a>
         </specular>
+        <dim-factor>
+            <property>systems/electrical/outputs/nav-lights</property>
+            <factor>0.042</factor>
+            <offset>0</offset>
+            <min>0</min>
+            <max>1</max>
+        </dim-factor>
         <attenuation>
             <c>10.0</c>
             <l>2</l>

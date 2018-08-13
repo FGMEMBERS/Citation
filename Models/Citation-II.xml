@@ -1288,6 +1288,15 @@
     <action>
       <button>0</button>
       <binding>
+        <condition>
+          <and>
+            <property>controls/electric/maingear-switch</property>
+            <less-than>
+              <property>velocities/groundspeed-kt</property>
+              <value>10</value>
+            </less-than>
+          </and>
+        </condition>
         <command>nasal</command>
         <script>citation.cabin_door.toggle();</script>
       </binding>
@@ -1901,15 +1910,21 @@
       <button>0</button>
       <binding>
         <condition>
-          <not>
-            <property>/sim/current-view/internal</property>
-          </not>
+          <and>
+            <not><property>/sim/current-view/internal</property></not>
+            <property>controls/electric/maingear-switch</property>
+            <less-than>
+              <property>velocities/groundspeed-kt</property>
+              <value>10</value>
+            </less-than>
+          </and>
         </condition>
         <command>nasal</command>
         <script>citation.baggage_door_front_left.toggle();</script>
       </binding>
     </action>
   </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>baggage.door.left</object-name>
@@ -1934,15 +1949,21 @@
       <button>0</button>
       <binding>
         <condition>
-          <not>
-            <property>/sim/current-view/internal</property>
-          </not>
+          <and>
+            <not><property>/sim/current-view/internal</property></not>
+            <property>controls/electric/maingear-switch</property>
+            <less-than>
+              <property>velocities/groundspeed-kt</property>
+              <value>10</value>
+            </less-than>
+          </and>
         </condition>
         <command>nasal</command>
         <script>citation.baggage_door_front_right.toggle();</script>
       </binding>
     </action>
   </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>baggage.door.right</object-name>
@@ -1967,15 +1988,21 @@
       <button>0</button>
       <binding>
         <condition>
-          <not>
-            <property>/sim/current-view/internal</property>
-          </not>
+          <and>
+            <not><property>/sim/current-view/internal</property></not>
+            <property>controls/electric/maingear-switch</property>
+            <less-than>
+              <property>velocities/groundspeed-kt</property>
+              <value>10</value>
+            </less-than>
+          </and>
         </condition>
         <command>nasal</command>
         <script>citation.baggage_door_aft.toggle();</script>
       </binding>
     </action>
   </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>baggage.door.aft</object-name>

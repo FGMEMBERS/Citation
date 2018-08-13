@@ -567,14 +567,10 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/electric/circuit-breakers/bus-left/cb-light-indirect</property>
+      <property>systems/electrical/outputs/main-left/light-indirect</property>
       <greater-than>
         <property>controls/lighting/cabin-lights-norm</property>
 	<value>0.05</value>
-      </greater-than>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20</value>
       </greater-than>
     </condition>
     <object-name>Cabin</object-name>
@@ -697,14 +693,10 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/electric/circuit-breakers/bus-right/cb-light-cabin</property>
+      <property>systems/electrical/outputs/main-right/light-cabin</property>
       <greater-than>
         <property>controls/lighting/cabin-lights-norm</property>
         <value>0.35</value>
-      </greater-than>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>20</value>
       </greater-than>
     </condition>
     <object-name>Cabin.MapLights.Bulb</object-name>
@@ -719,14 +711,10 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/electric/circuit-breakers/bus-right/cb-light-cabin</property>
+      <property>systems/electrical/outputs/main-right/light-cabin</property>
       <greater-than>
         <property>controls/lighting/cabin-lights-norm</property>
 	<value>0.35</value>
-      </greater-than>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>20</value>
       </greater-than>
     </condition>
     <object-name>Cabin.MapLights.ins</object-name>

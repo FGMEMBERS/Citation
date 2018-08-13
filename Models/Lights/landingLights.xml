@@ -9,9 +9,9 @@
     <object-name>LandingLightCone_L</object-name>
     <condition>
       <and>
-	<property>sim/rendering/rembrandt/enabled</property>
+        <property>sim/rendering/rembrandt/enabled</property>
         <property>systems/electrical/outputs/landing-light[0]</property>
-	<greater-than>
+        <greater-than>
           <property>sim/rendering/shaders/lights</property>
           <value>0.5</value>
         </greater-than>
@@ -60,6 +60,13 @@
       <b>0.6</b>
       <a>0.7</a>
     </specular>
+    <dim-factor>
+      <property>systems/electrical/outputs/landing-light[0]</property>
+      <factor>0.042</factor>
+      <offset>0</offset>
+      <min>0</min>
+      <max>1</max>
+    </dim-factor>
     <attenuation>
       <c>2.0</c>
       <l>0.002</l>
@@ -76,9 +83,9 @@
     <object-name>LandingLightCone_R</object-name>
     <condition>
       <and>
-	<property>sim/rendering/rembrandt/enabled</property>
+        <property>sim/rendering/rembrandt/enabled</property>
         <property>systems/electrical/outputs/landing-light[1]</property>
-	<greater-than>
+        <greater-than>
           <property>sim/rendering/shaders/lights</property>
           <value>0.5</value>
         </greater-than>
@@ -127,6 +134,13 @@
       <b>0.6</b>
       <a>0.7</a>
     </specular>
+    <dim-factor>
+      <property>systems/electrical/outputs/landing-light[1]</property>
+      <factor>0.042</factor>
+      <offset>0</offset>
+      <min>0</min>
+      <max>1</max>
+    </dim-factor>
     <attenuation>
       <c>2.0</c>
       <l>0.002</l>

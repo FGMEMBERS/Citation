@@ -7,10 +7,7 @@
 		<object-name>ralt.dh.off</object-name>
 		<condition>
 			<or>
-				<less-than>
-					<property>systems/electrical/ac-volts</property>
-					<value>100.0</value>
-				</less-than>
+				<not><property>systems/electrical/outputs/main-left-xover/dc-radalt</property></not>
 				<greater-than>
 					<property>position/altitude-agl-ft</property>
 					<property>instrumentation/altimeter/decision-height</property>
@@ -24,10 +21,7 @@
 		<object-name>ralt.dh.on</object-name>
 		<condition>
 			<and>
-				<greater-than>
-					<property>systems/electrical/ac-volts</property>
-					<value>100.0</value>
-				</greater-than>
+				<property>systems/electrical/outputs/main-left-xover/dc-radalt</property>
 				<less-than>
 					<property>position/altitude-agl-ft</property>
 					<property>instrumentation/altimeter/decision-height</property>
@@ -39,10 +33,10 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ralt.flag</object-name>
-		<property>systems/electrical/ac-volts</property>
+		<property>systems/electrical/outputs/main-left-xover/dc-radalt</property>
 		<interpolation>
-			<entry><ind>100</ind><dep>0</dep></entry>
-			<entry><ind>101</ind><dep>30</dep></entry>
+			<entry><ind>18</ind><dep>0</dep></entry>
+			<entry><ind>20</ind><dep>30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>0.0025</x-m>

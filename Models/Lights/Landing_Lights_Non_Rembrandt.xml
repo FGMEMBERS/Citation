@@ -14,19 +14,12 @@
     <object-name>Cone-texture</object-name>
     <object-name>Light</object-name>
     <nopreview/>
-  </animation>
-
-  <animation>
-    <object-name>Cone</object-name>
-    <object-name>Cone-texture</object-name>
-    <object-name>Light</object-name>
     <type>select</type>
     <condition>
       <and>
         <not>
           <property>sim/rendering/rembrandt/enabled</property>
         </not>
-        <property>controls/lighting/landing-light</property>
         <greater-than>
           <property>gear/gear/position-norm</property>
           <value>0.85</value>

@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-  <path>sphereBeaconLight.ac</path>
+    <path>sphereBeaconLight.ac</path>
 
     <animation>
         <type>select</type>
@@ -14,12 +14,7 @@
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
-                <property>controls/electric/circuit-breakers/bus-left/cb-light-beacon</property>
-                <property>controls/lighting/beacon</property>
-                <greater-than>
-                    <property>systems/electrical/outputs/bus/left</property>
-                    <value>20</value>
-                </greater-than>
+                <property>systems/electrical/outputs/beacon</property>
             </and>
         </condition>
     </animation>
@@ -79,6 +74,13 @@
 			<b>0</b>
 			<a>0.6</a>
 		</specular>
+		<dim-factor>
+			<property>systems/electrical/outputs/beacon</property>
+			<factor>0.042</factor>
+			<offset>0</offset>
+			<min>0</min>
+			<max>1</max>
+		</dim-factor>
 		<attenuation>
 			<c>1.0</c>
 			<l>1.0</l>
