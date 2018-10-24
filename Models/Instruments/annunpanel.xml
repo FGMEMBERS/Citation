@@ -236,7 +236,6 @@
     </condition>
   </animation>
 
-  <!-- TODO: should react on hydraulic system -->
   <animation>
     <type>select</type>
     <object-name>HydPressLoL</object-name>
@@ -244,8 +243,8 @@
       <or>
         <and>
           <less-than>
-            <property>engines/engine/turbine</property>
-            <value>40</value>
+            <property>engines/engine[0]/hyd-qty-gpm</property>
+            <value>0.45</value>
           </less-than>
           <property>systems/electrical/outputs/main-left/warn-lts1</property>
         </and>
@@ -257,7 +256,6 @@
     </condition>
   </animation>
 
-  <!-- TODO: should react on hydraulic system -->
   <animation>
     <type>select</type>
     <object-name>HydPressLoR</object-name>
@@ -265,8 +263,8 @@
       <or>
         <and>
           <less-than>
-            <property>engines/engine[1]/turbine</property>
-            <value>40</value>
+            <property>engines/engine[1]/hyd-qty-gpm</property>
+            <value>0.45</value>
           </less-than>
           <property>systems/electrical/outputs/main-right-xover/warn-lts2</property>
         </and>
@@ -278,7 +276,6 @@
     </condition>
   </animation>
 
-  <!-- TODO: should react on oil system -->
   <animation>
     <type>select</type>
     <object-name>OilPressLoL</object-name>
@@ -286,7 +283,7 @@
       <or>
         <and>
           <less-than>
-            <property>engines/engine/turbine</property>
+            <property>engines/engine[0]/oil-pressure-psi</property>
             <value>35</value>
           </less-than>
           <property>systems/electrical/outputs/main-left/warn-lts1</property>
@@ -299,7 +296,6 @@
     </condition>
   </animation>
 
-  <!-- TODO: should react on oil system -->
   <animation>
     <type>select</type>
     <object-name>OilPressLoR</object-name>
@@ -307,7 +303,7 @@
       <or>
         <and>
           <less-than>
-            <property>engines/engine[1]/turbine</property>
+            <property>engines/engine[1]/oil-pressure-psi</property>
             <value>35</value>
           </less-than>
           <property>systems/electrical/outputs/main-right-xover/warn-lts2</property>

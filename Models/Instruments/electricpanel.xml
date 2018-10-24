@@ -424,9 +424,43 @@
     <factor>8.0</factor>
     <offset-deg>-80</offset-deg>
     <center>
-      <x-m>0.00200</x-m>
-      <y-m>-0.00160</y-m>
-      <z-m>0.07690</z-m>
+      <x-m>0.0020</x-m>
+      <y-m>-0.0016</y-m>
+      <z-m>0.0769</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.amp.left.needle</object-name>
+    <property>controls/electric/amp-left-display</property>
+    <factor>0.6</factor>
+    <center>
+      <x-m>0.0020</x-m>
+      <y-m>0.0375</y-m>
+      <z-m>0.0769</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.amp.right.needle</object-name>
+    <property>controls/electric/amp-right-display</property>
+    <factor>0.6</factor>
+    <center>
+      <x-m>0.0020</x-m>
+      <y-m>0.0766</y-m>
+      <z-m>0.0769</z-m>
     </center>
     <axis>
       <x>-1</x>

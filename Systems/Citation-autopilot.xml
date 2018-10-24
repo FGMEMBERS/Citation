@@ -363,8 +363,8 @@
     <config>
       <Kp>-0.02</Kp>
       <Ki>-0.004</Ki>
-      <min>-0.5</min>
-      <max>0.5</max>
+      <min>-1.0</min>
+      <max>1.0</max>
     </config>
   </pi-simple-controller>
 

@@ -33,9 +33,9 @@
       <property>systems/electrical/outputs/landing-light[0]</property>
     </condition>
     <position>
-      <x>6.9</x>
-      <y>-2.9</y>
-      <z>-0.4</z>
+      <x>7.015</x>
+      <y>-2.40</y>
+      <z>-0.01</z>
     </position>
     <direction>
       <x>-29</x>
@@ -107,9 +107,9 @@
       <property>systems/electrical/outputs/landing-light[1]</property>
     </condition>
     <position>
-      <x>6.9</x>
-      <y>2.9</y>
-      <z>-0.4</z>
+      <x>7.015</x>
+      <y>2.40</y>
+      <z>-0.01</z>
     </position>
     <direction>
       <x>-29</x>

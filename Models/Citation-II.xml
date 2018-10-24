@@ -100,7 +100,6 @@
     </condition>
   </animation>
 
-
   <animation>
     <type>material</type>
     <property-base>sim/model/livery</property-base>
@@ -361,28 +360,6 @@
     <object-name>window.glass.inside</object-name>
   </effect>
 
-  <!-- ALS Thrust/Flame Effect - in this case more like exhaust effect :o) -->
-  <model>
-    <name>flamer</name>
-    <path>Aircraft/Citation/Models/Effects/flamel.xml</path>
-    <offsets>
-      <x-m>10.2</x-m>
-      <y-m>-1.3</y-m>
-      <z-m>0.8</z-m>
-      <pitch-deg>0</pitch-deg>
-    </offsets>
-  </model>
-  <model>
-    <name>flamel</name>
-    <path>Aircraft/Citation/Models/Effects/flamer.xml</path>
-    <offsets>
-      <x-m>10.2</x-m>
-      <y-m>1.3</y-m>
-      <z-m>0.8</z-m>
-      <pitch-deg>0</pitch-deg>
-    </offsets>
-  </model>
-
   <model>
     <name>cabin</name>
     <path>Aircraft/Citation/Models/cabin.xml</path>
@@ -416,6 +393,7 @@
     </offsets>
   </model>
 
+  <!-- ALS Lights -->
   <model>
     <name>nav-red-light</name>
     <path>Aircraft/Citation/Models/Effects/lights/nav_red_light.xml</path>
@@ -443,6 +421,48 @@
       <x-m>13.75</x-m>
       <y-m>0.0</y-m>
       <z-m>0.76</z-m>
+    </offsets>
+  </model>
+
+  <!-- Pushback -->
+  <model>
+    <path>Aircraft/Citation/Models/Pushback/pushback.xml</path>
+    <offsets>
+      <x-m>1.76</x-m>
+      <y-m>0.00</y-m>
+      <z-m>-0.925</z-m>
+    </offsets>
+  </model>
+
+  <!-- Towbar -->
+  <model>
+    <path>Aircraft/Citation/Models/Pushback/towbar.xml</path>
+    <offsets>
+      <x-m>1.76</x-m>
+      <y-m>0.00</y-m>
+      <z-m>-0.925</z-m>
+    </offsets>
+  </model>
+
+  <!-- ALS Thrust/Flame Effect - in this case more like exhaust effect :o) -->
+  <model>
+    <name>flamer</name>
+    <path>Aircraft/Citation/Models/Effects/flamel.xml</path>
+    <offsets>
+      <x-m>10.2</x-m>
+      <y-m>-1.3</y-m>
+      <z-m>0.8</z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>flamel</name>
+    <path>Aircraft/Citation/Models/Effects/flamer.xml</path>
+    <offsets>
+      <x-m>10.2</x-m>
+      <y-m>1.3</y-m>
+      <z-m>0.8</z-m>
+      <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
 
@@ -681,12 +701,13 @@
     <path>Aircraft/Generic/Human/Models/copilot.xml</path>
     <offsets>
       <x-m>3.21</x-m>
-      <y-m>0.32</y-m>
+      <y-m>0.31</y-m>
       <z-m>-0.60</z-m>
     </offsets>
     <nopreview/>
   </model>
-    <!-- Hide copilot in copilots view and both pilots in Center Console View OR hide copilot if crew-weight is less than 200lbs -->
+
+  <!-- Hide copilot in copilots view and both pilots in Center Console View OR hide copilot if crew-weight is less than 200lbs -->
   <animation>
     <type>select</type>
     <object-name>copilot</object-name>
@@ -2031,8 +2052,7 @@
     <object-name>gear.nose.torquelink.down</object-name>
     <object-name>gear.nose.torquelink.up</object-name>
     <object-name>gear.nose.wheel</object-name>
-    <property>surface-positions/rudder-pos-norm</property>
-    <factor>35</factor>
+    <property>gear/gear[0]/caster-angle-deg</property>
     <condition>
       <equals>
         <property>gear/gear[0]/position-norm</property>
@@ -2047,7 +2067,7 @@
     <axis>
       <x>0</x>
       <y>0</y>
-      <z>1</z>
+      <z>-1</z>
     </axis>
   </animation>
 
@@ -3124,7 +3144,10 @@
     <object-name>nav-green-light</object-name>
     <object-name>nav-white-light</object-name>
     <condition>
-      <property>systems/electrical/outputs/nav-lights</property>
+      <greater-than>
+        <property>systems/electrical/outputs/nav-lights</property>
+        <value>1.0</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -3134,7 +3157,10 @@
     <object-name>nav.green.off</object-name>
     <object-name>nav.white.off</object-name>
     <condition>
-        <not><property>systems/electrical/outputs/nav-lights</property></not>
+      <less-than>
+        <property>systems/electrical/outputs/nav-lights</property>
+        <value>1.0</value>
+      </less-than>
     </condition>
   </animation>
 
@@ -3365,7 +3391,10 @@
         <object-name>beacon.light</object-name>
         <object-name>beacon.light.corona</object-name>
         <condition>
-            <property>systems/electrical/outputs/beacon</property>
+            <greater-than>
+                <property>systems/electrical/outputs/beacon</property>
+                <value>1.0</value>
+            </greater-than>
         </condition>
     </animation>
 
@@ -3373,7 +3402,10 @@
         <type>select</type>
         <object-name>beacon.off</object-name>
         <condition>
-            <not><property>systems/electrical/outputs/beacon</property></not>
+            <less-than>
+                <property>systems/electrical/outputs/beacon</property>
+                <value>1.0</value>
+            </less-than>
         </condition>
     </animation>
 
@@ -3463,7 +3495,10 @@
     <object-name>strobe.left.light</object-name>
     <object-name>strobe.right.light</object-name>
     <condition>
-      <property>systems/electrical/outputs/strobe</property>
+      <greater-than>
+        <property>systems/electrical/outputs/strobe</property>
+        <value>1.0</value>
+      </greater-than>
     </condition>
   </animation>
 
@@ -3488,9 +3523,9 @@
   <animation>
     <type>dist-scale</type>
     <object-name>strobe.left.light</object-name>
-    <factor>0.02</factor>
-    <min>2.0</min>
-    <max>20.0</max>
+    <factor>0.01</factor>
+    <min>1.5</min>
+    <max>500.0</max>
   </animation>
 
 <!-- strobe right light -->
@@ -3514,9 +3549,9 @@
   <animation>
     <type>dist-scale</type>
     <object-name>strobe.right.light</object-name>
-    <factor>0.02</factor>
-    <min>2.5</min>
-    <max>25.0</max>
+    <factor>0.01</factor>
+    <min>1.5</min>
+    <max>500.0</max>
   </animation>
 
 <!-- recog left light -->
@@ -3524,7 +3559,10 @@
     <animation>
         <type>select</type>
         <condition>
-            <property>systems/electrical/outputs/recog-light[0]</property>
+            <greater-than>
+                <property>systems/electrical/outputs/recog-light[0]</property>
+                <value>1.0</value>
+            </greater-than>
         </condition>
         <object-name>recog.left.corona</object-name>
         <object-name>recog.left.dazzle</object-name>
@@ -3533,7 +3571,10 @@
     <animation>
         <type>material</type>
         <condition>
-            <property>systems/electrical/outputs/recog-light[0]</property>
+            <greater-than>
+                <property>systems/electrical/outputs/recog-light[0]</property>
+                <value>1.0</value>
+            </greater-than>
         </condition>
         <object-name>recog.left.inside1</object-name>
         <object-name>recog.left.inside2</object-name>
@@ -3549,7 +3590,7 @@
         <object-name>recog.left.corona</object-name>
         <factor>0.01</factor>
         <min>1</min>
-        <max>2</max>
+        <max>10</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>-7.4650</y-m>
@@ -3561,11 +3602,11 @@
         <type>flash</type>
         <object-name>recog.left.corona</object-name>
         <offset>0</offset>
-        <factor>2</factor>
+        <factor>1.5</factor>
         <power>2</power>
         <two-sides type="bool">false</two-sides>
         <min>1</min>
-        <max>2</max>
+        <max>5</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>-7.4650</y-m>
@@ -3603,8 +3644,8 @@
         <type>dist-scale</type>
         <object-name>recog.left.dazzle</object-name>
         <factor>0.001</factor>
-        <min>1</min>
-        <max>1500.0</max>
+        <min>0.5</min>
+        <max>15.0</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>-7.4650</y-m>
@@ -3615,12 +3656,12 @@
     <animation>
         <type>flash</type>
         <object-name>recog.left.dazzle</object-name>
-        <offset>0</offset>
-        <factor>2</factor>
-        <power>12</power>
+        <offset>0.5</offset>
+        <factor>1.0</factor>
+        <power>8</power>
         <two-sides type="bool">false</two-sides>
         <min>0.5</min>
-        <max>2.0</max>
+        <max>5.0</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>-7.4650</y-m>
@@ -3638,7 +3679,10 @@
     <animation>
         <type>select</type>
         <condition>
-            <property>systems/electrical/outputs/recog-light[1]</property>
+            <greater-than>
+                <property>systems/electrical/outputs/recog-light[1]</property>
+                <value>1.0</value>
+            </greater-than>
         </condition>
         <object-name>recog.right.corona</object-name>
         <object-name>recog.right.dazzle</object-name>
@@ -3647,7 +3691,10 @@
     <animation>
         <type>material</type>
         <condition>
-            <property>systems/electrical/outputs/recog-light[1]</property>
+            <greater-than>
+                <property>systems/electrical/outputs/recog-light[1]</property>
+                <value>1.0</value>
+            </greater-than>
         </condition>
         <object-name>recog.right.inside1</object-name>
         <object-name>recog.right.inside2</object-name>
@@ -3663,7 +3710,7 @@
         <object-name>recog.right.corona</object-name>
         <factor>0.01</factor>
         <min>1</min>
-        <max>2</max>
+        <max>10</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>7.4650</y-m>
@@ -3675,11 +3722,11 @@
         <type>flash</type>
         <object-name>recog.right.corona</object-name>
         <offset>0</offset>
-        <factor>2</factor>
+        <factor>1.5</factor>
         <power>2</power>
         <two-sides type="bool">false</two-sides>
         <min>1</min>
-        <max>2</max>
+        <max>5</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>7.4650</y-m>
@@ -3717,8 +3764,8 @@
         <type>dist-scale</type>
         <object-name>recog.right.dazzle</object-name>
         <factor>0.001</factor>
-        <min>1</min>
-        <max>1500.0</max>
+        <min>0.5</min>
+        <max>15.0</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>7.4650</y-m>
@@ -3729,12 +3776,12 @@
     <animation>
         <type>flash</type>
         <object-name>recog.right.dazzle</object-name>
-        <offset>0</offset>
-        <factor>2</factor>
-        <power>12</power>
+        <offset>0.5</offset>
+        <factor>1.0</factor>
+        <power>8</power>
         <two-sides type="bool">false</two-sides>
         <min>0.5</min>
-        <max>2.0</max>
+        <max>5.0</max>
         <center>
             <x-m>6.70</x-m>
             <y-m>7.4650</y-m>
@@ -3755,7 +3802,10 @@
         <object-name>landing.left.dazzle</object-name>
         <condition>
             <and>
-                <property>systems/electrical/outputs/landing-light[0]</property>
+                <greater-than>
+                    <property>systems/electrical/outputs/landing-light[0]</property>
+                    <value>1.0</value>
+                </greater-than>
                 <greater-than>
                     <property>gear/gear/position-norm</property>
                     <value>0.85</value>
@@ -3767,7 +3817,10 @@
     <animation>
         <type>material</type>
         <condition>
-            <property>controls/lighting/landing-light[0]</property>
+            <greater-than>
+                <property>systems/electrical/outputs/landing-light[0]</property>
+                <value>1.0</value>
+            </greater-than>
         </condition>
         <object-name>gear.left.light.inside</object-name>
         <emission>
@@ -3782,7 +3835,7 @@
         <object-name>landing.left.corona</object-name>
         <factor>0.01</factor>
         <min>1</min>
-        <max>2</max>
+        <max>10</max>
         <center>
             <x-m>7.015</x-m>
             <y-m>-2.40</y-m>
@@ -3794,7 +3847,7 @@
         <type>flash</type>
         <object-name>landing.left.corona</object-name>
         <offset>0</offset>
-        <factor>2</factor>
+        <factor>1.5</factor>
         <power>2</power>
         <two-sides type="bool">false</two-sides>
         <min>1</min>
@@ -3836,8 +3889,8 @@
         <type>dist-scale</type>
         <object-name>landing.left.dazzle</object-name>
         <factor>0.001</factor>
-        <min>1</min>
-        <max>1500.0</max>
+        <min>0.5</min>
+        <max>15.0</max>
         <center>
             <x-m>7.015</x-m>
             <y-m>-2.40</y-m>
@@ -3848,8 +3901,8 @@
     <animation>
         <type>flash</type>
         <object-name>landing.left.dazzle</object-name>
-        <offset>0</offset>
-        <factor>2</factor>
+        <offset>0.5</offset>
+        <factor>1.2</factor>
         <power>12</power>
         <two-sides type="bool">false</two-sides>
         <min>0.5</min>
@@ -3874,7 +3927,10 @@
         <object-name>landing.right.dazzle</object-name>
         <condition>
             <and>
-                <property>systems/electrical/outputs/landing-light[1]</property>
+                <greater-than>
+                    <property>systems/electrical/outputs/landing-light[1]</property>
+                    <value>1.0</value>
+                </greater-than>
                 <greater-than>
                     <property>gear/gear/position-norm</property>
                     <value>0.85</value>
@@ -3886,7 +3942,10 @@
     <animation>
         <type>material</type>
         <condition>
-            <property>controls/lighting/landing-light[1]</property>
+            <greater-than>
+                <property>systems/electrical/outputs/landing-light[1]</property>
+                <value>1.0</value>
+            </greater-than>
         </condition>
         <object-name>gear.right.light.inside</object-name>
         <emission>
@@ -3901,7 +3960,7 @@
         <object-name>landing.right.corona</object-name>
         <factor>0.01</factor>
         <min>1</min>
-        <max>2</max>
+        <max>10</max>
         <center>
             <x-m>7.015</x-m>
             <y-m>2.40</y-m>
@@ -3913,7 +3972,7 @@
         <type>flash</type>
         <object-name>landing.right.corona</object-name>
         <offset>0</offset>
-        <factor>2</factor>
+        <factor>1.5</factor>
         <power>2</power>
         <two-sides type="bool">false</two-sides>
         <min>1</min>
@@ -3955,8 +4014,8 @@
         <type>dist-scale</type>
         <object-name>landing.right.dazzle</object-name>
         <factor>0.001</factor>
-        <min>1</min>
-        <max>1500.0</max>
+        <min>0.5</min>
+        <max>15.0</max>
         <center>
             <x-m>7.015</x-m>
             <y-m>2.40</y-m>
@@ -3967,8 +4026,8 @@
     <animation>
         <type>flash</type>
         <object-name>landing.right.dazzle</object-name>
-        <offset>0</offset>
-        <factor>2</factor>
+        <offset>0.5</offset>
+        <factor>1.2</factor>
         <power>12</power>
         <two-sides type="bool">false</two-sides>
         <min>0.5</min>

@@ -14,44 +14,34 @@
 
   <model>
     <condition>
-      <not>
-        <property>/sim/rendering/shaders/skydome</property>
-      </not>
+      <not><property>sim/rendering/shaders/skydome</property></not>
+      <property>systems/electrical/outputs/landing-light[0]</property>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Left</name>
     <path>Aircraft/Citation/Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
-      <x-m>6.98244</x-m>
-      <y-m>-2.81033</y-m>
-      <z-m>-0.3416805</z-m>
+      <x-m>7.015</x-m>
+      <y-m>-2.85</y-m>
+      <z-m>-0.34</z-m>
       <pitch-deg>-12</pitch-deg>
-      <heading-deg>-4</heading-deg>
+      <heading-deg>-3</heading-deg>
     </offsets>
-    <overlay>
-      <landing-light>controls/electric/lighting/landing-light-switch[0]</landing-light>
-      <bus-volts>systems/electrical/outputs/main-left/light-landing-left</bus-volts>
-    </overlay>
   </model>
 
   <model>
     <condition>
-      <not>
-        <property>/sim/rendering/shaders/skydome</property>
-      </not>
+      <not><property>/sim/rendering/shaders/skydome</property></not>
+      <property>/systems/electrical/outputs/landing-light[1]</property>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Right</name>
     <path>Aircraft/Citation/Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
-      <x-m>6.98244</x-m>
-      <y-m>2.81033</y-m>
-      <z-m>-0.3416805</z-m>
+      <x-m>7.015</x-m>
+      <y-m>2.85</y-m>
+      <z-m>-0.34</z-m>
       <pitch-deg>-12</pitch-deg>
-      <heading-deg>4</heading-deg>
+      <heading-deg>3</heading-deg>
     </offsets>
-    <overlay>
-      <landing-light>controls/electric/lighting/landing-light-switch[1]</landing-light>
-      <bus-volts>systems/electrical/outputs/main-right/light-landing-right</bus-volts>
-    </overlay>
   </model>
 
   <model>

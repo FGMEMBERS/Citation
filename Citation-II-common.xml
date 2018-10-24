@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.15</aircraft-version>
+    <aircraft-version>4.1.16</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -136,6 +136,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <refl_correction type="string">-0.1</refl_correction>
         <amb_correction type="string">0.10</amb_correction>
       </rendering>
+      <pushback>
+        <kp type="double">-0.05</kp>
+        <ti type="double">10</ti>
+        <td type="double">0.00001</td>
+        <geometry>
+          <distance-mlg type="double">-5.44</distance-mlg>
+          <hitch>
+            <distance type="double">3.778</distance>
+            <wheel-x type="double">1.000</wheel-x>
+            <wheel-y type="double">0.205</wheel-y>
+            <high-tug type="double">0.465</high-tug>
+            <high-link type="double">0.175</high-link>
+          </hitch>
+          <tug>
+            <axis n="0">
+              <distance type="double">0.61</distance>
+              <steerable type="bool">true</steerable>
+            </axis>
+            <axis n="1">
+              <distance type="double">2.46</distance>
+              <steerable type="bool">false</steerable>
+            </axis>
+          </tug>
+        </geometry>
+      </pushback>
     </model>
 
     <!-- Walker settings -->
@@ -153,11 +178,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <type>lookfrom</type>
       <internal type="bool">true</internal>
       <config>
-        <default-field-of-view-deg>70</default-field-of-view-deg>
         <x-offset-m type="double">-0.31</x-offset-m>
-        <y-offset-m type="double">1.05</y-offset-m>
-        <z-offset-m type="double">3.3</z-offset-m>
-        <pitch-offset-deg>-15</pitch-offset-deg>
+        <y-offset-m type="double">0.95</y-offset-m>
+        <z-offset-m type="double">3.17</z-offset-m>
+        <default-field-of-view-deg>70</default-field-of-view-deg>
+        <pitch-offset-deg>-13</pitch-offset-deg>
         <limits>
           <enabled type="bool">true</enabled>
           <left>
@@ -247,14 +272,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <internal archive="y">true</internal>
       <type>lookfrom</type>
       <config>
+        <x-offset-m type="double">0.31</x-offset-m> <!--Right-->
+        <y-offset-m type="double">0.95</y-offset-m> <!--Up-->
+        <z-offset-m type="double">3.17</z-offset-m> <!--Back-->
         <default-field-of-view-deg>70</default-field-of-view-deg>
+        <pitch-offset-deg>-13</pitch-offset-deg>
         <from-model type="bool">true</from-model>
         <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-        <heading-offset-deg type="double">0</heading-offset-deg>
-        <x-offset-m archive="y" type="double">0.31</x-offset-m> <!--Right-->
-        <y-offset-m archive="y" type="double">1.05</y-offset-m> <!--Up-->
-        <z-offset-m archive="y" type="double">3.3</z-offset-m> <!--Back-->
-        <pitch-offset-deg>-15</pitch-offset-deg>
         <limits>
           <enabled type="bool">true</enabled>
           <left>
@@ -322,6 +346,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <autopilot n="100">
         <name>wing flexer property rule</name>
         <path>Aircraft/Generic/wingflexer.xml</path>
+      </autopilot>
+      <autopilot>
+        <name>Pushback</name>
+        <path>Systems/pushback.xml</path>
       </autopilot>
 
       <path>Systems/systems.xml</path>
@@ -514,6 +542,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <binding>
               <command>dialog-show</command>
               <dialog-name>Citation-II-fuelAndWeight</dialog-name>
+            </binding>
+          </item>
+          <item>
+            <name>pushback</name>
+            <label>Pushback</label>
+            <binding>
+              <command>dialog-show</command>
+              <dialog-name>pushback</dialog-name>
             </binding>
           </item>
           <item>
@@ -1026,6 +1062,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <save-state>
       <general type="bool">0</general>
       <fuel type="bool">0</fuel>
+      <battery type="bool">0</battery>
       <radios type="bool">0</radios>
       <models type="bool">0</models>
       <circuitBreakers type="bool">0</circuitBreakers>
@@ -1234,7 +1271,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <flux-serviceable type="bool">true</flux-serviceable>
     </heading-indicator>
   </instrumentation>
-
   <autopilot>
     <locks>
       <yaw-damper type="bool">0</yaw-damper>
@@ -1264,6 +1300,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <file>Aircraft/Generic/limits.nas</file>
       <file>Nasal/rain.nas</file>
       <file>Nasal/audiopanel.nas</file>
+      <file>Nasal/pushback.nas</file>
     </citation>
     <saveState>
       <file>Nasal/save-state.nas</file>

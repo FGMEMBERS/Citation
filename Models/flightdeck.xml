@@ -416,7 +416,7 @@
     <type>rotate</type>
     <object-name>YokeLH</object-name>
     <property>controls/flight/aileron</property>
-    <factor>30</factor>
+    <factor>60</factor>
     <center>
       <x-m>2.85</x-m>
       <y-m>-0.31</y-m>
@@ -433,7 +433,7 @@
     <type>rotate</type>
     <object-name>YokeRH</object-name>
     <property>controls/flight/aileron</property>
-    <factor>30</factor>
+    <factor>60</factor>
     <center>
       <x-m>2.85</x-m>
       <y-m>0.31</y-m>

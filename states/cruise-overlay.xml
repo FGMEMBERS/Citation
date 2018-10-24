@@ -58,10 +58,12 @@
         <system-test-sw type="int">0</system-test-sw>
         <fuel-sel type="int">0</fuel-sel>
         <engine>
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
         </engine>
         <engine n="1">
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
         </engine>
       </electric>
 
@@ -94,8 +96,8 @@
       <lighting>
         <beacon-switch type="bool">true</beacon-switch>
         <nav-lights-switch type="bool">true</nav-lights-switch>
-        <strobe-switch type="bool">true</strobe-switch>
-        <recog-lights-switch type="bool">true</recog-lights-switch>
+        <strobe-switch type="bool">false</strobe-switch>
+        <recog-lights-switch type="bool">false</recog-lights-switch>
 
         <panel-lights-switch type="bool">true</panel-lights-switch>
         <instrument-lights-norm type="double">0.5</instrument-lights-norm>

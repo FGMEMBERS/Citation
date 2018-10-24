@@ -27,8 +27,8 @@ GNU General Public License for more details.
       <property>/controls/engines/engine[1]/ignition</property>
       <property>/controls/engines/engine[0]/starter</property>
       <property>/controls/engines/engine[1]/starter</property>
-      <property>/controls/electric/engine[0]/generator</property>
-      <property>/controls/electric/engine[1]/generator</property>
+      <property>/controls/electric/engine[0]/generator-sw</property>
+      <property>/controls/electric/engine[1]/generator-sw</property>
       <property>/controls/electric/avionics-switch</property>
       <property>/controls/fuel/tank[0]/boost-pump</property>
       <property>/controls/fuel/tank[1]/boost-pump</property>
@@ -311,7 +311,7 @@ GNU General Public License for more details.
     <exit>
       <condition>
         <equals>
-          <property>controls/electric/engine[1]/generator</property>
+          <property>controls/electric/engine[1]/generator-sw</property>
           <value>1</value>
         </equals>
       </condition>
@@ -524,7 +524,7 @@ GNU General Public License for more details.
     <exit>
       <condition>
         <equals>
-          <property>controls/electric/engine[0]/generator</property>
+          <property>controls/electric/engine[0]/generator-sw</property>
           <value>1</value>
         </equals>
       </condition>

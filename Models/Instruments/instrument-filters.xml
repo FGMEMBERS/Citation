@@ -1180,7 +1180,12 @@ GNU General Public License for more details.
       <condition>
         <property>systems/electrical/outputs/main-left/engine-oilp-left</property>
       </condition>
-      <property>engines/engine[0]/oilp-norm</property>
+      <expression>
+        <product>
+          <property>engines/engine[0]/oil-pressure-psi</property>
+          <value>0.01</value>
+        </product>
+      </expression>
     </input>
     <input>-1</input>
     <output>engines/engine[0]/oilp-norm-display</output>
@@ -1193,7 +1198,12 @@ GNU General Public License for more details.
       <condition>
         <property>systems/electrical/outputs/main-right/engine-oilp-right</property>
       </condition>
-      <property>engines/engine[1]/oilp-norm</property>
+      <expression>
+        <product>
+          <property>engines/engine[1]/oil-pressure-psi</property>
+          <value>0.01</value>
+        </product>
+      </expression>
     </input>
     <input>-1</input>
     <output>engines/engine[1]/oilp-norm-display</output>

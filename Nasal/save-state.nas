@@ -2,6 +2,7 @@
 var citation_save_general = [
   "/controls/save-state/general",
   "/controls/save-state/fuel",
+  "/controls/save-state/battery",
   "/controls/save-state/radios",
   "/controls/save-state/models",
   "/controls/save-state/circuitBreakers",
@@ -21,6 +22,10 @@ var citation_array_fuel = [
   "/sim/weight[1]/weight-lb",
   "/sim/weight[2]/weight-lb",
   "/sim/weight[3]/weight-lb",
+];
+
+var citation_array_battery = [
+  "/systems/electrical/supplier/battery/percent-save",
 ];
 
 var citation_array_models = [
@@ -301,10 +306,10 @@ var citation_array_circuitBreakers = [
 ];
 
 var reset_circuitBreakers = func() {
-  screen.log.write("All circuit-breakers reset to closed.");
   foreach(var path; citation_array_circuitBreakers) {
     setprop(path, 1);
   }
+  screen.log.write("All circuit-breakers reset to closed.");
 }
 
 
@@ -328,6 +333,10 @@ var update_saveState = func() {
   if (getprop("/controls/save-state/general")) {
     if (getprop("/controls/save-state/fuel")) {
       aircraft.data.add(citation_array_fuel);
+    }
+
+    if (getprop("/controls/save-state/battery")) {
+      aircraft.data.add(citation_array_battery);
     }
 
     if (getprop("/controls/save-state/models")) {

@@ -201,6 +201,23 @@ GNU General Public License for more details.
             <max>180.0</max>
         </period>
         <output>instrumentation/heading-indicator/offset-deg</output>
+        <output>instrumentation/heading-indicator-dg/error-deg</output>
+    </filter>
+
+    <filter>
+        <name>dg-correction</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.5</max-rate-of-change>
+        <input>
+            <expression>
+                <product>
+                    <property>instrumentation/heading-indicator-dg/offset-deg</property>
+                    <value>-1.0</value>
+                </product>
+            </expression>
+        </input>
+        <output>instrumentation/heading-indicator-dg/align-deg</output>
     </filter>
 
 <!-- firewall shutoff -->

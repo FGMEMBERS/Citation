@@ -138,13 +138,13 @@ GNU General Public License for more details.
     <value>ON</value>
     <condition>
       <equals>
-        <property>controls/electric/engine[0]/generator</property>
+        <property>controls/electric/engine[0]/generator-sw</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/electric/engine[0]/generator</property>
+      <property>controls/electric/engine[0]/generator-sw</property>
       <value>1</value>
     </binding>
   </item>
@@ -227,13 +227,13 @@ GNU General Public License for more details.
     <value>ON</value>
     <condition>
       <equals>
-        <property>controls/electric/engine[1]/generator</property>
+        <property>controls/electric/engine[1]/generator-sw</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/electric/engine[1]/generator</property>
+      <property>controls/electric/engine[1]/generator-sw</property>
       <value>1</value>
     </binding>
   </item>

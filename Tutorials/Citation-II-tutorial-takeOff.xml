@@ -41,9 +41,11 @@ GNU General Public License for more details.
     </set>
     <set>
       <property>/controls/engines/engine[0]/ignition</property>
-      <property>/controls/electric/engine[0]/generator</property>
+      <property>/controls/electric/engine[0]/generator-sw</property>
+      <property>/controls/electric/engine[0]/generator-ready</property>
       <property>/controls/engines/engine[1]/ignition</property>
-      <property>/controls/electric/engine[1]/generator</property>
+      <property>/controls/electric/engine[1]/generator-sw</property>
+      <property>/controls/electric/engine[1]/generator-ready</property>
       <property>/controls/electric/avionics-switch</property>
       <property>/controls/lighting/beacon</property>
       <property>/controls/lighting/strobe</property>

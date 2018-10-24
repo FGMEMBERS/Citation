@@ -62,10 +62,12 @@
         <system-test-sw type="int">0</system-test-sw>
         <fuel-sel type="int">0</fuel-sel>
         <engine>
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
         </engine>
         <engine n="1">
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
         </engine>
       </electric>
 

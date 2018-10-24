@@ -18,46 +18,55 @@ var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"
 # n1 and n2; at that point we declare the engine to be running.
 
 var JetEngine = {
-    new : func(eng_num){
+    new : func(eng_num) {
         m = { parents : [JetEngine]};
         m.fdensity = getprop("consumables/fuel/tank/density-ppg") or 6.72;
+
         m.eng = props.globals.getNode("engines/engine["~eng_num~"]",1);
-        m.running = m.eng.initNode("started",0,"BOOL");
-        # NOT the running property from YASim, which is always true and therefore useless.
-        m.itt = m.eng.getNode("itt-norm");
-        m.n1 = m.eng.getNode("n1",1);
-        m.n2 = m.eng.getNode("n2",1);
-        m.fan = m.eng.initNode("fan",0,"DOUBLE");
-        m.autostart_in_progress = 0;
-        m.generator = props.globals.initNode("controls/electric/engine["~eng_num~"]/generator-ready",0,"BOOL");
-        m.turbine = m.eng.initNode("turbine",0,"DOUBLE");
-        m.throttle = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle",0,"DOUBLE");
-        m.throttle_real = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-real",0,"DOUBLE");
-        m.throttle_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/throttle-lever",0,"DOUBLE");
-        m.reverser = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser",0,"BOOL");
-        m.reverser_real = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser-real",0,"BOOL");
-        m.reverser_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/reverser-lever",0,"DOUBLE");
-        m.reverser_pos = props.globals.initNode("surface-positions/reverser-norm["~eng_num~"]",0,"DOUBLE");
-        m.cutoff = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff",0,"BOOL");
-        m.cutoff_lock = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff-lock",0,"BOOL");
-        m.cutoff_arm = 0;
-        m.ignition = props.globals.initNode("controls/engines/engine["~eng_num~"]/ignition",0,"BOOL");
-        m.ignition_auto = props.globals.initNode("controls/engines/engine["~eng_num~"]/ignition-auto",0,"BOOL");
-        m.fuel_out = props.globals.initNode("engines/engine["~eng_num~"]/out-of-fuel",0,"BOOL");
-        m.starter = props.globals.initNode("controls/engines/engine["~eng_num~"]/starter",0,"BOOL");
-        m.starter_btn = props.globals.initNode("controls/electric/engine["~eng_num~"]/starter-btn",0,"BOOL");
+# NOT the running property from YASim, which is always true and therefore useless.
+        m.running =  m.eng.initNode("started",0,"BOOL");
+        m.itt =      m.eng.getNode("itt-norm");
+        m.n1 =       m.eng.getNode("n1",1);
+        m.n2 =       m.eng.getNode("n2",1);
+        m.fan =      m.eng.initNode("fan",0,"DOUBLE");
+        m.turbine =  m.eng.initNode("turbine",0,"DOUBLE");
         m.fuel_pph = m.eng.initNode("fuel-flow_pph",0,"DOUBLE");
-        m.fuel_gph = m.eng.initNode("fuel-flow-gph");
-        m.boost_pump = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
+        m.fuel_gph = m.eng.initNode("fuel-flow-gph",0,"DOUBLE");
+        m.fuel_out = m.eng.initNode("out-of-fuel",0,"BOOL");
+        m.oil_psi  = m.eng.initNode("oil-pressure-psi",0,"DOUBLE");
+        m.hyd_psi  = m.eng.initNode("hyd-pressure-psi",0,"DOUBLE");
+        m.hyd_gpm  = m.eng.initNode("hyd-qty-gpm",0,"DOUBLE");
+
+        m.ctrl = props.globals.getNode("controls/engines/engine["~eng_num~"]",1);
+        m.throttle =       m.ctrl.initNode("throttle",0,"DOUBLE");
+        m.throttle_real =  m.ctrl.initNode("throttle-real",0,"DOUBLE");
+        m.throttle_lever = m.ctrl.initNode("throttle-lever",0,"DOUBLE");
+        m.reverser =       m.ctrl.initNode("reverser",0,"BOOL");
+        m.reverser_real =  m.ctrl.initNode("reverser-real",0,"BOOL");
+        m.reverser_lever = m.ctrl.initNode("reverser-lever",0,"DOUBLE");
+        m.cutoff =         m.ctrl.initNode("cutoff",0,"BOOL");
+        m.cutoff_lock =    m.ctrl.initNode("cutoff-lock",0,"BOOL");
+        m.ignition =       m.ctrl.initNode("ignition",0,"BOOL");
+        m.ignition_auto =  m.ctrl.initNode("ignition-auto",0,"BOOL");
+        m.starter =        m.ctrl.initNode("starter",0,"BOOL");
+
+        m.reverser_pos =      props.globals.initNode("surface-positions/reverser-norm["~eng_num~"]",0,"DOUBLE");
+        m.generator =         props.globals.initNode("controls/electric/engine["~eng_num~"]/generator-ready",0,"BOOL");
+        m.starter_btn =       props.globals.initNode("controls/electric/engine["~eng_num~"]/starter-btn",0,"BOOL");
+        m.boost_pump =        props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
         m.boost_pump_switch = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump-switch",-1,"INT");
-        m.hpump = props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0,"DOUBLE");
-        m.hpump_f = props.globals.initNode("engines/engine["~eng_num~"]/oilp-norm",0,"DOUBLE");
+
         m.Lfuel = setlistener(m.fuel_out, func m.shutdown(m.fuel_out.getValue()),0,0);
         m.Cut = setlistener(m.cutoff, func m.shutdown(m.cutoff.getValue()),0,0);
+
+        m.autostart_in_progress = 0;
+        m.cutoff_arm = 0;
         m.timer = 0;
         m.hobbs_timer = aircraft.timer.new ("engines/engine["~eng_num~"]/running-time-s");
-    return m;
+        return m;
     },
+
+
 
 #### update ####
     update : func{
@@ -229,13 +238,29 @@ var JetEngine = {
 
         me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
 
-#        var hpsi = me.fan.getValue();
-#        if(hpsi > 60) hpsi = 60;
+# fluid pump factor
+        var factor = 1.0 - (me.turbine.getValue() * 0.01);
+# oil pump
+        var x = me.turbine.getValue() * 0.77;
+        me.oil_psi.setValue(x);
+# hydraulic pump
+        var x = 1.0 - (factor * factor);
+#        var x = (1.0 - (factor * factor)) * 60.0;
+        me.hyd_psi.setValue(x * 60.0);
+#        var x = (1.0 - (factor * factor)) * 2.5;
+        me.hyd_gpm.setValue(x * 2.5);
 
-        var hpsi = me.fan.getValue() / 12 * 15;
-        if(hpsi > 80) hpsi = 80;
-        hpsi = hpsi + (me.hpump_f.getValue() * 5);
-        me.hpump.setValue(hpsi);
+##############
+#    get_output_volts : func {
+#        var x = 1.0 - me.percent.getValue();
+#        var tmp = -(3.0 * x - 1.0);
+#        var factor = (tmp * tmp * tmp * tmp * tmp + 32) / 32;
+#        var output = me.ideal_volts * factor;
+#        me.voltage.setValue(output);
+#        return output;
+##############
+
+
     },
 
     shutdown : func(b){
@@ -291,6 +316,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 #  setprop ("/instrumentation/rmi/double-needle/selected-input", "VOR");
   switch_rmi("double-needle", 1);
 
+
   if (getprop("/consumables/fuel/fuel_overlay") == 1) {
     # if we initialising a state overlay, then use pre-programmed fuel levels
     var fuelL= getprop("/consumables/fuel/fuel_overlay_0");
@@ -328,6 +354,15 @@ setlistener("/sim/signals/fdm-initialized", func {
   setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
   setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
 
+  var batt_save = getprop("/systems/electrical/supplier/battery/percent-save");
+  if(batt_save == nil) {
+    batt_save = 1.0;
+    print("Brand new battery installed.");
+  }
+  else {
+    print("Battery restored. There are ", (batt_save * 100.0), "% charge left.");
+  }
+  setprop("/systems/electrical/supplier/battery/percent", batt_save);
 
   # on state overlays "taxi", "take-off" and "approach" we set the pressure automatically
   # since every checklist would agree to do this ahead of time!
@@ -488,6 +523,8 @@ controls.flapsDown = func(v) {
     var flap_pos=getprop("controls/flight/flaps") or 0;
     if (getprop("systems/electrical/outputs/main-left/sys-flap-ctrl") and getprop("systems/electrical/outputs/main-left/sys-flap-motor")) {
         flap_pos += v*0.125;
+        if (flap_pos > 1.0) flap_pos = 1.0;
+        if (flap_pos < 0.0) flap_pos = 0.0;
     }
     setprop("controls/flight/flaps",flap_pos);
 }
@@ -571,6 +608,7 @@ var update_systems = func() {
     # ugly hack! See Citation-II-common.xml line 711
     setprop("/consumables/fuel/fuel-gal_us-0", getprop("consumables/fuel/tank[0]/level-gal_us"));
     setprop("/consumables/fuel/fuel-gal_us-1", getprop("consumables/fuel/tank[1]/level-gal_us"));
+    setprop("/systems/electrical/supplier/battery/percent-save", getprop("/systems/electrical/supplier/battery/percent"));
 
     hobbs_meter.update ();
 

@@ -39,17 +39,20 @@
         <system-test-sw type="int">0</system-test-sw>
         <fuel-sel type="int">0</fuel-sel>
         <engine>
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
           <starter-btn type="bool">false</starter-btn>
         </engine>
         <engine n="1">
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
           <starter-btn type="bool">false</starter-btn>
         </engine>
       </electric>
 
       <engines>
         <engine n="0">
+          <cutoff type="bool">false</cutoff>
           <fuel-pump type="bool">false</fuel-pump>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>
@@ -59,6 +62,7 @@
         </engine>
 
         <engine n="1">
+          <cutoff type="bool">false</cutoff>
           <fuel-pump type="bool">false</fuel-pump>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>

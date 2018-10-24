@@ -7,8 +7,8 @@
 <airplane mass="8060">
 
   <approach speed="86" aoa="15" fuel="0.2">
-    <control-setting axis="/controls/engines/engine[0]/throttle-real" value="0.475"/> <!-- 0.3 -->
-    <control-setting axis="/controls/engines/engine[1]/throttle-real" value="0.475"/> <!-- 0.3 -->
+    <control-setting axis="/controls/engines/engine[0]/throttle-real" value="0.3"/>
+    <control-setting axis="/controls/engines/engine[1]/throttle-real" value="0.3"/>
     <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
     <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="1"/>
@@ -37,7 +37,7 @@
   <!-- 0,0,0 ref point is at the nose -->
   <!-- -X is towards the rear, +Y is left, +Z is up --> 
 
-  <cockpit x="-3.30" y="0.31" z="1.05"/>
+  <cockpit x="-3.17" y="0.31" z="0.95"/>
 
   <!-- FUSELAGE -->
   <fuselage ax="0" ay="0" az="0.02" bx="-2.838" by="0" bz="0.514"
@@ -155,6 +155,11 @@
   <!-- target CG is about -6.76 -->
   <ballast x="-12.43" y="0.0" z="2" mass="-1000"/>
   <ballast x="-12.64" y="0.0" z="1.48" mass="-1000"/>
+
+<!-- Pushback -->
+  <thruster x="-1.76" y="0.00" z="-0.74" vx="1" vy="0" vz="0" thrust="1500">
+    <control-input axis="/sim/model/pushback/force" control="THROTTLE" src0="-1" src1="1" dst0="-1" dst1="1" />
+  </thruster>
 
   <!-- The <weight> tags add weight over and above the aircraft empty -->
   <!-- weight and fuel weight.  The sum of these values can be anything -->
