@@ -8,7 +8,7 @@
   <animation>
     <type>select</type>
     <condition>
-      <property>sim/model/pushback/enabled</property>
+      <property>sim/model/pushback/visible</property>
     </condition>
   </animation>
 

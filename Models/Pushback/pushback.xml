@@ -8,7 +8,7 @@
   <animation>
     <type>select</type>
     <condition>
-      <property>sim/model/pushback/enabled</property>
+      <property>sim/model/pushback/visible</property>
     </condition>
   </animation>
 
@@ -151,43 +151,8 @@
 <!-- wheel spin -->
   <animation>
     <type>spin</type>
-    <object-name>wheel.front.left</object-name>
-    <property>velocities/uBody-fps</property>
-    <factor>-8.24565</factor>
-    <center>
-      <x-m>-2.46</x-m>
-      <y-m>-0.48</y-m>
-      <z-m>0.40</z-m>
-    </center>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>spin</type>
-    <object-name>wheel.front.right</object-name>
-    <property>velocities/uBody-fps</property>
-    <factor>-8.24565</factor>
-    <center>
-      <x-m>-2.46</x-m>
-      <y-m>0.48</y-m>
-      <z-m>0.40</z-m>
-    </center>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>spin</type>
     <object-name>wheel.rear.left</object-name>
-    <property>velocities/uBody-fps</property>
-    <factor>-8.24565</factor>
+    <property>sim/model/pushback/geometry/tug/axis[0]/spin</property>
     <center>
       <x-m>-0.61</x-m>
       <y-m>-0.35</y-m>
@@ -195,7 +160,7 @@
     </center>
     <axis>
       <x>0</x>
-      <y>1</y>
+      <y>-1</y>
       <z>0</z>
     </axis>
   </animation>
@@ -203,8 +168,7 @@
   <animation>
     <type>spin</type>
     <object-name>wheel.rear.right</object-name>
-    <property>velocities/uBody-fps</property>
-    <factor>-8.24565</factor>
+    <property>sim/model/pushback/geometry/tug/axis[0]/spin</property>
     <center>
       <x-m>-0.61</x-m>
       <y-m>0.35</y-m>
@@ -212,7 +176,39 @@
     </center>
     <axis>
       <x>0</x>
-      <y>1</y>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>wheel.front.left</object-name>
+    <property>sim/model/pushback/geometry/tug/axis[1]/spin</property>
+    <center>
+      <x-m>-2.46</x-m>
+      <y-m>-0.48</y-m>
+      <z-m>0.40</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>wheel.front.right</object-name>
+    <property>sim/model/pushback/geometry/tug/axis[1]/spin</property>
+    <center>
+      <x-m>-2.46</x-m>
+      <y-m>0.48</y-m>
+      <z-m>0.40</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
       <z>0</z>
     </axis>
   </animation>

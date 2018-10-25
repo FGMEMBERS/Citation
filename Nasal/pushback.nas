@@ -6,15 +6,21 @@ var pushback = {
     m.pb = props.globals.getNode("sim/model/pushback",1);
 
     m.nose_angle      = props.globals.getNode("gear/gear[0]/caster-angle-deg",0,"DOUBLE");
+    m.velocity        = props.globals.getNode("velocities/uBody-fps",0,"DOUBLE");
+#    m.velocity        = props.globals.getNode("gear/gear[0]/rollspeed-ms",0,"DOUBLE");
+    m.timelaps        = props.globals.getNode("sim/time/delta-sec",0,"DOUBLE");
     m.linked          = m.pb.getNode("linked",0,"BOOL");
     m.enabled         = m.pb.getNode("enabled",0,"BOOL");
     m.mlg_distance    = m.pb.getNode("geometry/distance-mlg",0,"DOUBLE");
     m.hitch_distance  = m.pb.getNode("geometry/hitch/distance",0,"DOUBLE");
     m.axis0_distance  = m.pb.getNode("geometry/tug/axis[0]/distance",0,"DOUBLE");
+    m.axis0_circum    = m.pb.getNode("geometry/tug/axis[0]/circumference",0,"BOOL");
     m.axis0_steerable = m.pb.getNode("geometry/tug/axis[0]/steerable",0,"BOOL");
     m.axis1_distance  = m.pb.getNode("geometry/tug/axis[1]/distance",0,"DOUBLE");
+    m.axis1_circum    = m.pb.getNode("geometry/tug/axis[1]/circumference",0,"BOOL");
     m.axis1_steerable = m.pb.getNode("geometry/tug/axis[1]/steerable",0,"BOOL");
 
+    m.visible     = m.pb.initNode("visible",0,"BOOL");
     m.turn_x      = m.pb.initNode("geometry/turning-center/x",0,"DOUBLE");
     m.turn_y      = m.pb.initNode("geometry/turning-center/y",0,"DOUBLE");
     m.hitch_y     = m.pb.initNode("geometry/hitch/y",0,"DOUBLE");
@@ -31,10 +37,12 @@ var pushback = {
     m.axis0_y     = m.pb.initNode("geometry/tug/axis[0]/y",0,"DOUBLE");
     m.axis0_l     = m.pb.initNode("geometry/tug/axis[0]/l",0,"DOUBLE");
     m.axis0_angle = m.pb.initNode("geometry/tug/axis[0]/angle",0,"DOUBLE");
+    m.axis0_spin  = m.pb.initNode("geometry/tug/axis[0]/spin",0,"DOUBLE");
     m.axis1_x     = m.pb.initNode("geometry/tug/axis[1]/x",0,"DOUBLE");
     m.axis1_y     = m.pb.initNode("geometry/tug/axis[1]/y",0,"DOUBLE");
     m.axis1_l     = m.pb.initNode("geometry/tug/axis[1]/l",0,"DOUBLE");
     m.axis1_angle = m.pb.initNode("geometry/tug/axis[1]/angle",0,"DOUBLE");
+    m.axis1_spin  = m.pb.initNode("geometry/tug/axis[1]/spin",0,"DOUBLE");
 
     var fixing = 0.0;
 
@@ -66,9 +74,28 @@ var pushback = {
   },
 
   update : func{
+    if (
+      me.enabled.getBoolValue() and
+      getprop("controls/electric/maingear-switch") and
+      (getprop("sim/model/pushback/position-norm") > 0.3 or
+      (me.velocity.getValue() < 10.0 and me.velocity.getValue() > -10.0))
+    ) {
+      me.visible.setBoolValue(1);
+    } else {
+      me.visible.setBoolValue(0);
+    }
 
-    if (me.enabled.getBoolValue()) {
+    if (me.visible.getBoolValue()) {
+      if (getprop("engines/engine[0]/started")) {
+        setprop("controls/engines/engine[0]/throttle", 0.0);
+      }
+      if (getprop("engines/engine[1]/started")) {
+        setprop("controls/engines/engine[1]/throttle", 0.0);
+      }
+
       if (me.linked.getBoolValue()) {
+        setprop("controls/gear/brake-parking", 0.0);
+
         var nose_angle = me.nose_angle.getValue() * math.pi / 180.0;
 
 ### turning center
@@ -166,14 +193,23 @@ var pushback = {
         me.axis1_x.setValue(axis1_x);
         me.axis1_y.setValue(axis1_y);
         me.axis1_l.setValue(axis1_l);
+
+        var speed = me.velocity.getValue() * 60.0 * 0.3048;
+        me.axis0_spin.setValue(speed / me.axis0_circum.getValue());
+        me.axis1_spin.setValue(speed / me.axis1_circum.getValue());
+
       }
       else {
+        setprop("controls/gear/brake-parking", 1.0);
+
         me.hitch_angle.setValue(0.0);
         me.hitch_x.setValue(me.hitch_distance.getValue());
         me.hitch_y.setValue(0.0);
         me.tug_angle.setValue(0.0);
         me.axis0_angle.setValue(0.0);
+        me.axis0_spin.setValue(0.0);
         me.axis1_angle.setValue(0.0);
+        me.axis1_spin.setValue(0.0);
       }
     }
   }

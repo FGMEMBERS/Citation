@@ -131,35 +131,43 @@ var JetEngine = {
 
         if (lever >= 0.0) {
 # if reverser moving
-                if (me.reverser_pos.getValue() != nil and
-                    me.reverser_pos.getValue() > 0.0 and
-                    me.reverser_pos.getValue() < 1.0
-                )
-                {
-                    thr = 0.0;
-                    lever = 0.0;
-                    real = 0.0;
-                }
+            if (me.reverser_pos.getValue() != nil and
+                me.reverser_pos.getValue() > 0.0 and
+                me.reverser_pos.getValue() < 1.0
+            )
+            {
+                thr = 0.0;
+                lever = 0.0;
+                real = 0.0;
+            }
 
 # reverser deployed
-                if (me.reverser.getBoolValue()) {
-                    lever = 0.0;
+            if (me.reverser.getBoolValue()) {
+                lever = 0.0;
+                if (me.running.getBoolValue()) {
                     real = thr * 0.92;
-                    me.reverser_lever.setValue(real + 0.08);
+                } else {
+                    real = 0.0;
                 }
+                me.reverser_lever.setValue(thr * 0.92 + 0.08);
+            }
 # reverser stowed
+            else {
+                if (!me.cutoff_lock.getBoolValue() and thr < 0.005) {
+                    lever = -0.01;
+                    thr = 0.0;
+                    real = 0.0;
+                }
                 else {
-                    if (!me.cutoff_lock.getBoolValue() and thr < 0.005) {
-                        lever = -0.01;
-                        thr = 0.0;
+                    lever = thr;
+                    if (me.running.getBoolValue()) {
+                        real = thr;
+                    } else {
                         real = 0.0;
                     }
-                    else {
-                        lever = thr;
-                        real = thr;
-                    }
-                    me.reverser_lever.setValue(0.0);
                 }
+                me.reverser_lever.setValue(0.0);
+            }
         }
 
         me.throttle.setValue(thr);

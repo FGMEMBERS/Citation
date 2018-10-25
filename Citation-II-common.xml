@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.16</aircraft-version>
+    <aircraft-version>4.1.17</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -137,6 +137,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <amb_correction type="string">0.10</amb_correction>
       </rendering>
       <pushback>
+        <enabled type="bool">false</enabled>
         <kp type="double">-0.05</kp>
         <ti type="double">10</ti>
         <td type="double">0.00001</td>
@@ -152,10 +153,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
           <tug>
             <axis n="0">
               <distance type="double">0.61</distance>
+              <circumference type="double">2.010619</circumference>
               <steerable type="bool">true</steerable>
             </axis>
             <axis n="1">
               <distance type="double">2.46</distance>
+              <circumference type="double">2.513274</circumference>
               <steerable type="bool">false</steerable>
             </axis>
           </tug>
