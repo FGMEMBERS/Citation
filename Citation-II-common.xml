@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.17</aircraft-version>
+    <aircraft-version>4.1.18</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -473,8 +473,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <name>Ctrl-b</name>
         <desc>Toggle speedbrakes</desc>
       </key>
+      <key>
+        <name>Ctrl-o</name>
+        <desc>Pull the cutoff-lock handles</desc>
+      </key>
       <line>Many features require power to operate. Make sure at least battery is switched on!</line>
-      <text>Ground Proximity Warning System: Use circuit breaker 'GROUND PROXI' on right circuit breaker panel to switch off warnings.
+      <text>Ground Proximity Warning System: Use circuit breaker 'GROUND PROX' in 'AVIONICS DC' on right circuit breaker panel to switch off warnings.
 
         Autopilot operation:
         Autopilot will disengage below decision height or 500ft above ground, whichever is highest.
@@ -545,6 +549,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <binding>
               <command>dialog-show</command>
               <dialog-name>Citation-II-fuelAndWeight</dialog-name>
+            </binding>
+          </item>
+          <item>
+            <label>External Power</label>
+            <binding>
+              <command>property-toggle</command>
+              <property>controls/electric/external-power</property>
             </binding>
           </item>
           <item>
@@ -757,10 +768,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </engines>
     <fuel>
       <tank n="0">
-        <boost-pump-switch type="int">-1</boost-pump-switch>
+        <boost-pump-switch type="int">0</boost-pump-switch>
       </tank>
       <tank n="1">
-        <boost-pump-switch type="int">-1</boost-pump-switch>
+        <boost-pump-switch type="int">0</boost-pump-switch>
       </tank>
     </fuel>
     <flight>
@@ -790,14 +801,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <generator-ready type="bool">0</generator-ready>
       </engine>
       <fuel-sel type="int">0</fuel-sel>
-      <fuel>
-        <tank n="0">
-          <boost-pump-switch type="int">0</boost-pump-switch>
-        </tank>
-        <tank n="1">
-          <boost-pump-switch type="int">0</boost-pump-switch>
-        </tank>
-      </fuel>
       <circuit-breakers>
 
         <battery-hot>

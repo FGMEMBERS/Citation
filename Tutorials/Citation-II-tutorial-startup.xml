@@ -166,7 +166,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Pull the detent on right throttle lever!</message>
+    <message>Pull the cutoff-lock handle on right throttle lever!</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -379,7 +379,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Now the left engine! Pull the detent on left throttle lever!</message>
+    <message>Now the left engine! Pull the cutoff-lock handle on left throttle lever!</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>

@@ -62,10 +62,10 @@
 
       <fuel>
         <tank n="0">
-          <boost-pump-switch type="int">0</boost-pump-switch>
+          <boost-pump-switch type="int">-1</boost-pump-switch>
         </tank>
         <tank n="1">
-          <boost-pump-switch type="int">0</boost-pump-switch>
+          <boost-pump-switch type="int">-1</boost-pump-switch>
         </tank>
       </fuel>
 
