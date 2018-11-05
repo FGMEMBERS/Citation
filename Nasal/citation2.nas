@@ -89,11 +89,9 @@ var JetEngine = {
 
 # cut-off position
         if (lever < 0.0) {
-            if (thr != 0.01) {
-                lever += (thr - 0.01);
-                thr = 0.01;
-                if (lever < -0.2) lever = -0.2;
-            }
+            lever += (thr - 0.01);
+#           thr = 0.01;
+            if (lever < -0.2) lever = -0.2;
             real = 0.0;
         }
 
@@ -115,7 +113,7 @@ var JetEngine = {
         }
         else {
              if (me.cutoff.getBoolValue()) {
-                if (lever > -0.195) { lever = -0.2; }
+                if (lever > -0.195) { lever = -0.2; thr = 0.0; }
             }
             else {
                 if (lever < -0.005) { lever = 0.0; }

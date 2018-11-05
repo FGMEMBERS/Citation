@@ -530,12 +530,12 @@
     </condition>
   </animation>
 
-<!-- -2 LH Eng / -1 LH tank / 0 OFF / 1 RH tank / 2 RH Eng -->
+<!-- -1 LH tank / 0 OFF / 1 RH tank -->
   <animation>
     <type>knob</type>
     <object-name>elec.fuel.knob</object-name>
     <property>controls/electric/fuel-sel</property>
-    <factor>60</factor>
+    <factor>65</factor>
     <center>
       <x-m>0.00450</x-m>
       <y-m>-0.07040</y-m>
@@ -551,19 +551,19 @@
         <command>property-adjust</command>
         <property>controls/electric/fuel-sel</property>
         <factor>1</factor>
-        <min>-2.5</min>
-        <max>2.5</max>
-        <wrap>true</wrap>
+        <min>-1.5</min>
+        <max>1.5</max>
+        <wrap>false</wrap>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>fuel-sel</tooltip-id>
-        <label>Fuel flow selector: %s (non-functional)</label>
+        <label>Fuel flow %s (non-functional)</label>
         <mapping>nasal</mapping>
         <script>
-          var modes = ['OFF', 'Right hand tank', 'Right hand engine', 'Left hand engine', 'Left hand tank'];
+          var modes = ['from both tanks', 'to right hand tank', 'to left hand tank'];
           return modes[arg[0]];
         </script>
         <property>controls/electric/fuel-sel</property>

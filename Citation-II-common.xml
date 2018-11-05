@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.18</aircraft-version>
+    <aircraft-version>4.1.19</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -42,7 +42,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </rating>
 
     <dimensions>
-      <radius-m type="double">10.0</radius-m>
+      <radius-m type="double">15.7</radius-m>
       <parkpos-offset-m type="double">0.0</parkpos-offset-m>
     </dimensions>
     <!-- <aircraft-class> can be: ga (general aviation), cargo (cargo), gate (commercial passenger traffic), mil-fighter (military fighter), mil-cargo (military transport)
@@ -1357,12 +1357,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <and>
               <property>controls/electric/maingear-switch</property>
               <less-than>
-                <property>controls/engines/engine[0]/throttle-lever</property>
+                <property>controls/engines/engine[0]/throttle</property>
                 <value>0.03</value>
               </less-than>
               <greater-than>
                 <property>controls/engines/engine[0]/throttle-lever</property>
-                <value>-0.01</value>
+                <value>-0.001</value>
               </greater-than>
             </and>
           </condition>
@@ -1374,12 +1374,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <and>
               <property>controls/electric/maingear-switch</property>
               <less-than>
-                <property>controls/engines/engine[1]/throttle-lever</property>
+                <property>controls/engines/engine[1]/throttle</property>
                 <value>0.03</value>
               </less-than>
               <greater-than>
                 <property>controls/engines/engine[1]/throttle-lever</property>
-                <value>-0.01</value>
+                <value>-0.001</value>
               </greater-than>
             </and>
           </condition>
