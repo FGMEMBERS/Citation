@@ -11,7 +11,10 @@ Autopilot Controller
     <type>select</type>
     <object-name>ap.on.btn</object-name>
     <condition>
-      <property>autopilot/locks/passive-mode</property>
+      <or>
+        <not><property>systems/electrical/outputs/main-left-xover/dc-ap</property></not>
+        <not><property>autopilot/locks/passive-mode</property></not>
+      </or>
     </condition>
   </animation>
 
@@ -19,7 +22,10 @@ Autopilot Controller
     <type>select</type>
     <object-name>ap.yd.btn</object-name>
     <condition>
-      <not><property>autopilot/locks/yaw-damper</property></not>
+      <or>
+        <not><property>systems/electrical/outputs/main-left-xover/dc-ap</property></not>
+        <not><property>autopilot/locks/yaw-damper</property></not>
+      </or>
     </condition>
   </animation>
 
@@ -27,10 +33,13 @@ Autopilot Controller
     <type>select</type>
     <object-name>ap.low.btn</object-name>
     <condition>
-      <greater-than>
-        <property>autopilot/settings/bank-limit</property>
-        <value>20</value>
-      </greater-than>
+      <or>
+        <not><property>systems/electrical/outputs/main-left-xover/dc-ap</property></not>
+        <greater-than>
+          <property>autopilot/settings/bank-limit</property>
+          <value>20</value>
+        </greater-than>
+      </or>
     </condition>
   </animation>
 
@@ -42,18 +51,21 @@ Autopilot Controller
     <action>
       <button>0</button>
       <binding>
+        <condition>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        </condition>
         <command>nasal</command>
         <script>
           var fd_enabled = getprop ("/autopilot/locks/passive-mode");
           if (fd_enabled) {
             setprop ("autopilot/locks/passive-mode", "false");
-            setprop ("autopilot/locks/heading", "wing-leveler");
-            setprop ("autopilot/locks/altitude", "pitch-hold");
+            setprop ("autopilot/locks/heading", "");
+            setprop ("autopilot/locks/altitude", "");
           }
           else {
             setprop ("autopilot/locks/passive-mode", "true");
-            setprop ("autopilot/locks/heading", "");
-            setprop ("autopilot/locks/altitude", "");
+            setprop ("autopilot/locks/heading", "wing-leveler");
+            setprop ("autopilot/locks/altitude", "pitch-hold");
           }
         </script>
       </binding>
@@ -76,6 +88,9 @@ Autopilot Controller
     <action>
       <button>0</button>
       <binding>
+        <condition>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        </condition>
         <command>property-toggle</command>
         <property>autopilot/locks/yaw-damper</property>
       </binding>
@@ -99,16 +114,19 @@ Autopilot Controller
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
+        <condition>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        </condition>
         <command>nasal</command>
-	<script>
-	  if(getprop("autopilot/settings/bank-limit")!=14){
-          setprop("autopilot/locks/lowbank", "true");
-	  setprop("autopilot/settings/bank-limit",14);
-	  }else{
-          setprop("autopilot/locks/lowbank", "false");
-	  setprop("autopilot/settings/bank-limit",27);
-	  }
-	</script>
+        <script>
+          if(getprop("autopilot/settings/bank-limit") > 20){
+            setprop("autopilot/locks/lowbank", "true");
+            setprop("autopilot/settings/bank-limit", 14);
+          }else{
+            setprop("autopilot/locks/lowbank", "false");
+            setprop("autopilot/settings/bank-limit", 27);
+          }
+        </script>
       </binding>
     </action>
     <hovered>

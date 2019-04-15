@@ -28,7 +28,7 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <greater-than>
-                    <property>systems/electrical/outputs/nav</property>
+                    <property>systems/electrical/outputs/main-left-xover/dc-rmi1</property>
                     <value>20</value>
                 </greater-than>
             </condition>
@@ -68,23 +68,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>systems/electrical/outputs/nav</property>
-                        <value>20</value>
-                    </greater-than>
-                    <greater-than>
-                        <property>sim/time/elapsed-sec</property>
-                        <property>instrumentation/rmi/single-needle/receive</property>
-                    </greater-than>
-                </and>
-            </condition>
-            <value>90.0</value>
-        </input>
-
-        <input>
-            <condition>
-                <and>
-                    <greater-than>
-                        <property>systems/electrical/outputs/nav</property>
+                        <property>systems/electrical/outputs/main-left-xover/dc-adf1</property>
                         <value>20</value>
                     </greater-than>
                     <equals>
@@ -108,7 +92,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>systems/electrical/outputs/nav</property>
+                        <property>systems/electrical/outputs/main-left-xover/dc-nav1</property>
                         <value>20</value>
                     </greater-than>
                     <equals>
@@ -131,6 +115,22 @@ GNU General Public License for more details.
                     </sum>
                 </floor>
             </expression>
+        </input>
+
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/main-left-xover/dc-rmi1</property>
+                        <value>20</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>sim/time/elapsed-sec</property>
+                        <property>instrumentation/rmi/single-needle/receive</property>
+                    </greater-than>
+                </and>
+            </condition>
+            <value>90.0</value>
         </input>
 
         <input>instrumentation/rmi/single-needle/position-deg</input>
@@ -173,23 +173,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>systems/electrical/outputs/nav</property>
-                        <value>20</value>
-                    </greater-than>
-                    <greater-than>
-                        <property>sim/time/elapsed-sec</property>
-                        <property>instrumentation/rmi/double-needle/receive</property>
-                    </greater-than>
-                </and>
-            </condition>
-            <value>90.0</value>
-        </input>
-
-        <input>
-            <condition>
-                <and>
-                    <greater-than>
-                        <property>systems/electrical/outputs/nav</property>
+                        <property>systems/electrical/outputs/main-left-xover/dc-adf1</property>
                         <value>20</value>
                     </greater-than>
                     <equals>
@@ -213,7 +197,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>systems/electrical/outputs/nav</property>
+                        <property>systems/electrical/outputs/emer/dc-nav2</property>
                         <value>20</value>
                     </greater-than>
                     <equals>
@@ -236,6 +220,22 @@ GNU General Public License for more details.
                     </sum>
                 </floor>
             </expression>
+        </input>
+
+        <input>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>systems/electrical/outputs/main-left-xover/dc-rmi1</property>
+                        <value>20</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>sim/time/elapsed-sec</property>
+                        <property>instrumentation/rmi/double-needle/receive</property>
+                    </greater-than>
+                </and>
+            </condition>
+            <value>90.0</value>
         </input>
 
         <input>instrumentation/rmi/double-needle/position-deg</input>

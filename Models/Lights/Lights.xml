@@ -148,7 +148,7 @@
   </model>
 
   <model>
-    <name>RightPanelLight</name>
+    <name>MapLight</name>
     <path>Aircraft/Citation/Models/Lights/MapLights.xml</path>
     <offsets>
       <x-m>0</x-m>

@@ -35,8 +35,13 @@
     <name>AP: lateral: stage 1: wing leveler, set target roll to 0</name>
     <debug>false</debug>
     <enable>
-      <property>autopilot/locks/heading</property>
-      <value>wing-leveler</value>
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <equals>
+          <property>autopilot/locks/heading</property>
+          <value>wing-leveler</value>
+        </equals>
+      </condition>
     </enable>
     <type>gain</type>
     <gain>1.0</gain>
@@ -69,6 +74,7 @@
     <debug>false</debug>
     <enable> <!-- Enable if one of Heading, NAV1 or NAV2 is selected -->
       <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
         <or>
           <equals>
             <property>autopilot/locks/heading</property> <value>dg-heading-hold</value>
@@ -151,7 +157,10 @@
     <name>AP: lateral: stage 3: aileron servo</name>
     <debug>false</debug>
     <enable>
-      <honor-passive>true</honor-passive>
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <property>autopilot/locks/passive-mode</property>
+      </condition>
     </enable>
     <feedback-if-disabled>true</feedback-if-disabled>
     <type>noise-spike</type>
@@ -279,6 +288,7 @@
     <name>AP: vertical: stage 2: acquire target pitch (Pitch hold)</name>
     <debug>false</debug>
     <enable>
+      <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
       <property>autopilot/locks/altitude</property>
       <value>pitch-hold</value>
     </enable>
@@ -299,6 +309,7 @@
     <debug>false</debug>
     <enable>
       <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
         <or>
           <equals>
             <property>autopilot/locks/altitude</property>
@@ -371,7 +382,10 @@
   <filter>
     <name>AP: vertical: stage 4: elevator servo</name>
     <enable>
-      <honor-passive>true</honor-passive>
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <property>autopilot/locks/passive-mode</property>
+      </condition>
     </enable>
     <feedback-if-disabled>true</feedback-if-disabled>
     <debug>false</debug>
@@ -392,8 +406,15 @@
     <name>Auto Throttle</name>
     <debug>false</debug>
     <enable>
-      <property>autopilot/locks/speed</property>
-      <value>speed-with-throttle</value>
+      <condition>
+        <and>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+          <equals>
+            <property>autopilot/locks/speed</property>
+            <value>speed-with-throttle</value>
+          </equals>
+        </and>
+      </condition>
     </enable>
     <input>
       <property>velocities/airspeed-kt</property>

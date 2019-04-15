@@ -27,7 +27,7 @@
     <type>select</type>
     <object-name>FD.off.lit</object-name>
     <condition>
-      <property>autopilot/locks/passive-mode</property>
+      <not><property>autopilot/locks/passive-mode</property></not>
     </condition>
   </animation>
 
