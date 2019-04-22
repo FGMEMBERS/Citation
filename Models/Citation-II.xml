@@ -5,6 +5,7 @@
   <nasal>
     <load><![CDATA[
       var r = cmdarg(); # the remote aircraft
+      print ("Loading Citation-II for remote pilot " ~ r.getNode ("sim/multiplay/callsign").getValue());
       var livery_update = aircraft.livery_update.new("Aircraft/Citation/Models/Liveries", 10);
 
       var table = [[ "systems/electrical/outputs/strobe",               "short[0]" ],
@@ -39,9 +40,10 @@
       r.getNode ("controls/human-models").setBoolValue (1);
     ]]></load>
 
-    <unload>
+    <unload><![CDATA[
+      print ("Unloading Citation-II for remote pilot " ~ r.getNode ("sim/multiplay/callsign").getValue());
       livery_update.stop();
-    </unload>
+    ]]></unload>
   </nasal>
 
   <!-- Do not show the following objects in the 3D preview of fgrun: -->

@@ -30,8 +30,8 @@ GNU General Public License for more details.
       <property>/controls/electric/engine[0]/generator-sw</property>
       <property>/controls/electric/engine[1]/generator-sw</property>
       <property>/controls/electric/avionics-switch</property>
-      <property>/controls/fuel/tank[0]/boost-pump</property>
-      <property>/controls/fuel/tank[1]/boost-pump</property>
+      <property>/controls/fuel/tank[0]/boost-pump-switch</property>
+      <property>/controls/fuel/tank[1]/boost-pump-switch</property>
       <property>/controls/fuelSet</property>
       <property>/controls/lighting/beacon</property>
       <property>/controls/lighting/strobe</property>
@@ -63,7 +63,7 @@ GNU General Public License for more details.
   </init>
 
   <step>
-    <message>switch battery master bus ON!</message>
+    <message>switch battery master bus ON</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -83,7 +83,7 @@ GNU General Public License for more details.
     </marker>
 
     <error>
-      <message>Put the battery bus switch in the up position! Left click or mouse wheel!</message>
+      <message>Put the battery bus switch in the up position</message>
       <condition>
         <less-than>
           <property>controls/electric/battery-bus-switch</property>
@@ -104,7 +104,7 @@ GNU General Public License for more details.
 
   <step>
     <message>
-      First, you need to check if you have enough fuel!
+      First, you need to check if you have enough fuel.
       Open the menu, choose Citation-II, then &quot;Fuel and Payload&quot; - and set your desired fuel and weights.
     </message>
 
@@ -136,7 +136,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Switch on the beacon light! (the beacon should always be active if there is a running engine)</message>
+    <message>Switch on the beacon light (the beacon should always be active if there is a running engine)</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -166,7 +166,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Pull the cutoff-lock handle on right throttle lever!</message>
+    <message>Pull the cutoff-lock handle on right throttle lever</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -196,7 +196,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Push the right throttle forward to idle position!</message>
+    <message>Push the right throttle forward to idle position</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -232,7 +232,37 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Press right engine starter!</message>
+    <message>Set the right engine fuel boost pump to NORM</message>
+
+    <view>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <heading-offset-deg>20.0</heading-offset-deg>
+      <pitch-offset-deg>-36.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <field-of-view>30.0</field-of-view>
+    </view>
+
+    <marker>
+      <x-m>2.4731</x-m>
+      <y-m>-0.62</y-m>
+      <z-m>0.4344</z-m>
+      <scale>1.5</scale>
+    </marker>
+
+    <exit>
+      <condition>
+        <equals>
+          <property>controls/fuel/tank[1]/boost-pump-switch</property>
+          <value>-1</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Press right engine starter</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -262,7 +292,27 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>After right starter extinguished, switch on the right generator!</message>
+    <message>Monitor the right engine starting.</message>
+
+    <view>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <heading-offset-deg>340.0</heading-offset-deg>
+      <pitch-offset-deg>-20.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <field-of-view>35.0</field-of-view>
+    </view>
+
+    <exit>
+      <condition>
+          <property>engines/engine[1]/started</property>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>After right starter extinguished, switch on the right generator</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -289,7 +339,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Now activate the right engine generator!</message>
+    <message>Now activate the right engine generator</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -379,7 +429,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Now the left engine! Pull the cutoff-lock handle on left throttle lever!</message>
+    <message>Now the left engine. Pull the cutoff-lock handle on left throttle lever</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -409,7 +459,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Push the left throttle forward to idle position!</message>
+    <message>Push the left throttle forward to idle position</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -445,7 +495,37 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Press left engine starter!</message>
+    <message>Set the left engine fuel boost pump to NORM</message>
+
+    <view>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <heading-offset-deg>20.0</heading-offset-deg>
+      <pitch-offset-deg>-36.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <field-of-view>30.0</field-of-view>
+    </view>
+
+    <marker>
+      <x-m>2.4731</x-m>
+      <y-m>-0.64</y-m>
+      <z-m>0.4344</z-m>
+      <scale>1.5</scale>
+    </marker>
+
+    <exit>
+      <condition>
+        <equals>
+          <property>controls/fuel/tank[1]/boost-pump-switch</property>
+          <value>-1</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Press left engine starter</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -475,24 +555,17 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>After left starter extinguished, switch on the left generator!</message>
+    <message>Monitor the left engine starting.</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
       <y-offset-m>0.990</y-offset-m>
       <z-offset-m>3.170</z-offset-m>
-      <heading-offset-deg>20.0</heading-offset-deg>
-      <pitch-offset-deg>-36.0</pitch-offset-deg>
+      <heading-offset-deg>340.0</heading-offset-deg>
+      <pitch-offset-deg>-20.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <field-of-view>30.0</field-of-view>
+      <field-of-view>35.0</field-of-view>
     </view>
-
-    <marker>
-      <x-m>2.4745</x-m>
-      <y-m>-0.5921</y-m>
-      <z-m>0.4355</z-m>
-      <scale>1.5</scale>
-    </marker>
 
     <exit>
       <condition>
@@ -502,7 +575,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Now activate the left engine generator!</message>
+    <message>Now activate the left engine generator</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -606,7 +679,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Now let&apos;s activate the avionics!</message>
+    <message>Now let&apos;s activate the avionics</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -717,7 +790,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Switch on the anticollision light!</message>
+    <message>Switch on the anticollision light</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -747,7 +820,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Switch on the nav lights!</message>
+    <message>Switch on the nav lights</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -777,7 +850,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Switch on the left landing light!</message>
+    <message>Switch on the left landing light</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>
@@ -807,7 +880,7 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Switch on the right landing light!</message>
+    <message>Switch on the right landing light</message>
 
     <view>
       <x-offset-m>-0.305</x-offset-m>

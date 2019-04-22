@@ -72,7 +72,6 @@ November 14 2004  Curtis L. Olson  http://www.flightgear.org/~curt
 
     <model>
       <variant type="int">0</variant> <!-- transmitted over multiplayer -->
-      <fallback-model-index type="int">104</fallback-model-index>
     </model>
   </sim>
 

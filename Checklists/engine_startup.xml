@@ -64,88 +64,18 @@ GNU General Public License for more details.
   </item>
 
   <item>
-    <name>Left throttle lever detent</name>
-    <value>RELEASE</value>
-    <condition>
-      <or>
-        <not><property>controls/engines/engine[0]/cutoff-lock</property></not>
-        <greater-than-equals>
-          <property>controls/engines/engine[0]/throttle-lever</property>
-          <value>0.0</value>
-        </greater-than-equals>
-      </or>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/engines/engine[0]/cutoff-lock</property>
-      <value>0</value>
-    </binding>
-  </item>
-
-  <item>
-    <name>Left engine starter</name>
-    <value>START</value>
-    <condition>
-        <or>
-            <property>controls/electric/engine[0]/starter-btn</property>
-            <property>engines/engine[0]/started</property>
-        </or>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/electric/engine[0]/starter-btn</property>
-      <value>1</value>
-    </binding>
-  </item>
-
-  <item>
-    <name>Left engine: N2</name>
-    <value>&gt; 8%</value>
-    <condition>
-      <greater-than-equals>
-        <property>engines/engine[0]/turbine</property>
-        <value>8</value>
-      </greater-than-equals>
-    </condition>
-  </item>
-
-  <item>
-    <name>Left throttle</name>
-    <value>IDLE</value>
-    <condition>
-      <greater-than-equals>
-        <property>controls/engines/engine[0]/throttle-lever</property>
-        <value>0.0</value>
-      </greater-than-equals>
-    </condition>
-    <binding>
-      <command>property-assign</command>
-      <property>controls/engines/engine[0]/throttle</property>
-      <value>0.21</value>
-    </binding>
-  </item>
-
-  <item>
-    <name>Left engine</name>
-    <value>STARTED</value>
-    <condition>
-        <property>engines/engine[0]/started</property>
-    </condition>
-  </item>
-
-  <item>
-    <name>Left engine generator</name>
-    <value>ON</value>
+    <name>Right fuel boost pump</name>
+    <value>NORM</value>
     <condition>
       <equals>
-        <property>controls/electric/engine[0]/generator-sw</property>
-        <value>1</value>
+        <property>controls/fuel/tank[1]/boost-pump-switch</property>
+        <value>-1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/electric/engine[0]/generator-sw</property>
-      <value>1</value>
+      <property>controls/fuel/tank[1]/boost-pump-switch</property>
+      <value>-1</value>
     </binding>
   </item>
 
@@ -234,6 +164,108 @@ GNU General Public License for more details.
     <binding>
       <command>property-assign</command>
       <property>controls/electric/engine[1]/generator-sw</property>
+      <value>1</value>
+    </binding>
+  </item>
+
+  <item>
+    <name>Left fuel boost pump</name>
+    <value>NORM</value>
+    <condition>
+      <equals>
+        <property>controls/fuel/tank[0]/boost-pump-switch</property>
+        <value>-1</value>
+      </equals>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/fuel/tank[0]/boost-pump-switch</property>
+      <value>-1</value>
+    </binding>
+  </item>
+
+  <item>
+    <name>Left throttle lever detent</name>
+    <value>RELEASE</value>
+    <condition>
+      <or>
+        <not><property>controls/engines/engine[0]/cutoff-lock</property></not>
+        <greater-than-equals>
+          <property>controls/engines/engine[0]/throttle-lever</property>
+          <value>0.0</value>
+        </greater-than-equals>
+      </or>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine[0]/cutoff-lock</property>
+      <value>0</value>
+    </binding>
+  </item>
+
+  <item>
+    <name>Left engine starter</name>
+    <value>START</value>
+    <condition>
+        <or>
+            <property>controls/electric/engine[0]/starter-btn</property>
+            <property>engines/engine[0]/started</property>
+        </or>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/electric/engine[0]/starter-btn</property>
+      <value>1</value>
+    </binding>
+  </item>
+
+  <item>
+    <name>Left engine: N2</name>
+    <value>&gt; 8%</value>
+    <condition>
+      <greater-than-equals>
+        <property>engines/engine[0]/turbine</property>
+        <value>8</value>
+      </greater-than-equals>
+    </condition>
+  </item>
+
+  <item>
+    <name>Left throttle</name>
+    <value>IDLE</value>
+    <condition>
+      <greater-than-equals>
+        <property>controls/engines/engine[0]/throttle-lever</property>
+        <value>0.0</value>
+      </greater-than-equals>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/engines/engine[0]/throttle</property>
+      <value>0.21</value>
+    </binding>
+  </item>
+
+  <item>
+    <name>Left engine</name>
+    <value>STARTED</value>
+    <condition>
+        <property>engines/engine[0]/started</property>
+    </condition>
+  </item>
+
+  <item>
+    <name>Left engine generator</name>
+    <value>ON</value>
+    <condition>
+      <equals>
+        <property>controls/electric/engine[0]/generator-sw</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <binding>
+      <command>property-assign</command>
+      <property>controls/electric/engine[0]/generator-sw</property>
       <value>1</value>
     </binding>
   </item>

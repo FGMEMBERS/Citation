@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.1.21</aircraft-version>
+    <aircraft-version>4.2.0</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -123,6 +123,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <model include="Models/Human/humans.xml">
       <path>Aircraft/Citation/Models/Citation-II.xml</path>
+      <fallback-model-index type="int">104</fallback-model-index>
       <autostart type="bool">0</autostart>
       <livery>
         <file type="string">blue-grey</file>
