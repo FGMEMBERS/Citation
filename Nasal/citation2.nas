@@ -52,6 +52,7 @@ var JetEngine = {
 
         m.reverser_pos =      props.globals.initNode("surface-positions/reverser-norm["~eng_num~"]",0,"DOUBLE");
         m.generator =         props.globals.initNode("controls/electric/engine["~eng_num~"]/generator-ready",0,"BOOL");
+        m.generator_sw =      props.globals.initNode("controls/electric/engine["~eng_num~"]/generator-sw",0,"BOOL");
         m.starter_btn =       props.globals.initNode("controls/electric/engine["~eng_num~"]/starter-btn",0,"BOOL");
         m.boost_pump =        props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump",0,"BOOL");
         m.boost_pump_switch = props.globals.initNode("controls/fuel/tank["~eng_num~"]/boost-pump-switch",-1,"INT");
@@ -198,12 +199,18 @@ var JetEngine = {
                 else me.turbine.setValue (n2);
 
                 if (turbine > 9) {
-# ing and boost will be automaticly turned on
+# ignition will be automaticly turned on
                     if (!me.ignition.getBoolValue() ) { me.ignition_auto.setBoolValue(1); }
+
+# if autostart is in progress push throttle forward
+                    if (me.autostart_in_progress and me.cutoff.getBoolValue()) {
+                        me.throttle.setValue (0.02);
+                    }
 
                     if (me.ignition.getBoolValue() and me.boost_pump.getValue() and !me.cutoff.getBoolValue()) {
                         fan += getprop ("sim/time/delta-sec") * n1 / scnds;
                         me.fan.setValue (fan);
+
                         if (fan >= n1) { # declare victory
                             me.running.setBoolValue (1);
                             me.starter_btn.setBoolValue (0);
@@ -211,6 +218,8 @@ var JetEngine = {
                             me.ignition_auto.setBoolValue (0);
                             me.generator.setBoolValue (1);
                             if (me.autostart_in_progress) {
+                                me.generator_sw.setValue (1);
+                                me.throttle.setValue (0.0);
                                 me.autostart_in_progress = 0;
                             }
                         }
@@ -238,6 +247,9 @@ var JetEngine = {
                     fan -= getprop("sim/time/delta-sec") * 2;
                     if (fan < 0.0) fan = 0.0;
                     me.fan.setValue(fan);
+                }
+                if (me.autostart_in_progress) {
+                    me.starter_btn.setBoolValue (1);
                 }
             }
         }
@@ -269,26 +281,25 @@ var JetEngine = {
 
     },
 
-    shutdown : func(b){
+    shutdown : func(b) {
         if (b) {
             me.running.setBoolValue (!b);
             me.generator.setBoolValue (0);
         }
     },
 
-    autostart : func () {
+    autostart : func {
         me.autostart_in_progress = 1;
+        me.boost_pump_switch.setValue (-1);
         me.cutoff_lock.setBoolValue (0);
-        me.throttle.setValue (0.21);
-        me.starter_btn.setBoolValue (1);
     }
 };
 
 
 
 #################################################
-var LHeng= JetEngine.new(0);
-var RHeng= JetEngine.new(1);
+var LHeng = JetEngine.new(0);
+var RHeng = JetEngine.new(1);
 
 #setlistener ("/controls/engines/engine[0]/cutoff", func (cutoff) {
 #    LHeng.shutdown (cutoff.getBoolValue ());
@@ -475,7 +486,7 @@ setlistener("/instrumentation/altimeter/setting-inhg", func(inhg){
      KPA.setValue(kpa);
 },1,0);
 
-setlistener("sim/model/autostart", func(strt){
+setlistener("sim/model/autostart", func(strt) {
     if(strt.getBoolValue()){
         Startup();
     }else{
@@ -492,8 +503,8 @@ var Startup = func{
     setprop("controls/lighting/beacon-switch",1);
     setprop("controls/lighting/strobe-switch",1);
     setprop("controls/engines/throttle_idle",1);
-    LHeng.autostart ();
-    RHeng.autostart ();
+    LHeng.autostart();
+    RHeng.autostart();
 }
 
 var Shutdown = func{
@@ -643,10 +654,10 @@ var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (
 
 var autothrottle_listener = setlistener ("/autopilot/locks/speed", func (speed) {
     var speed_lock = speed.getValue ();
-    if (speed_lock == "speed-with-throttle") {
-      setprop("autopilot/settings/target-speed-kt", getprop ("instrumentation/airspeed-indicator/index-marker"));
-    }
-    elsif (speed_lock == "speed-with-pitch-trim") { # only possible from the generic AP dialog
+#    if (speed_lock == "speed-with-throttle") {
+#      setprop("autopilot/settings/target-speed-kt", getprop ("instrumentation/airspeed-indicator/index-marker"));
+#    }
+    if (speed_lock == "speed-with-pitch-trim") { # only possible from the generic AP dialog
       screen.log.write ("speed-with-pitch-trim is not supported on this aircraft.");
     }
 }, 0, 0);

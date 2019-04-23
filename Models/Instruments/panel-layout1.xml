@@ -111,6 +111,11 @@
     <model>
         <name>asi-1</name>
         <path>Aircraft/Citation/Models/Instruments/asi.xml</path>
+        <overlay>
+          <speed-kt>instrumentation/airspeed-indicator[0]/indicated-speed-kt</speed-kt>
+          <speed-mach>instrumentation/airspeed-indicator[0]/indicated-mach</speed-mach>
+          <index-marker>instrumentation/airspeed-indicator[0]/index-marker</index-marker>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.417</y-m>
@@ -121,6 +126,11 @@
     <model>
         <name>asi-2</name>
         <path>Aircraft/Citation/Models/Instruments/asi.xml</path>
+        <overlay>
+          <speed-kt>instrumentation/airspeed-indicator[1]/indicated-speed-kt</speed-kt>
+          <speed-mach>instrumentation/airspeed-indicator[1]/indicated-mach</speed-mach>
+          <index-marker>instrumentation/airspeed-indicator[1]/index-marker</index-marker>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.204</y-m>
@@ -229,7 +239,7 @@
     </model>
 
     <model>
-        <name>hsi-1</name>
+      <name>hsi-1</name>
       <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
       <overlay>
         <volts>/instrumentation/hsi[0]/volts</volts>
@@ -263,7 +273,7 @@
     </model>
 
     <model>
-        <name>hsi-2</name>
+      <name>hsi-2</name>
       <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
       <overlay>
         <volts>/instrumentation/hsi[1]/volts</volts>
@@ -299,6 +309,20 @@
     <model>
         <name>dme40-1</name>
         <path>Aircraft/Citation/Models/Instruments/dme40.xml</path>
+        <overlay>
+          <power>systems/electrical/outputs/dme[0]</power>
+          <in-range>instrumentation/dme[0]/in-range</in-range>
+          <distance-nm>instrumentation/dme[0]/indicated-distance-nm</distance-nm>
+          <time-min-display>instrumentation/dme[0]/indicated-time-min-display</time-min-display>
+          <ground-speed-kt>instrumentation/dme[0]/indicated-ground-speed-kt</ground-speed-kt>
+          <switch-mode>instrumentation/dme[0]/switch-position[1]</switch-mode>
+          <switch-nav>instrumentation/dme[0]/switch-position[0]</switch-nav>
+          <dim>instrumentation/dme[0]/dim</dim>
+          <frequencies>
+            <source>instrumentation/dme[0]/frequencies/source</source>
+            <selected-mhz>instrumentation/dme[0]/frequencies/selected-mhz</selected-mhz>
+          </frequencies>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.213</y-m>
@@ -309,6 +333,20 @@
     <model>
         <name>dme40-2</name>
         <path>Aircraft/Citation/Models/Instruments/dme40.xml</path>
+        <overlay>
+          <power>systems/electrical/outputs/dme[1]</power>
+          <in-range>instrumentation/dme[1]/in-range</in-range>
+          <distance-nm>instrumentation/dme[1]/indicated-distance-nm</distance-nm>
+          <time-min-display>instrumentation/dme[1]/indicated-time-min-display</time-min-display>
+          <ground-speed-kt>instrumentation/dme[1]/indicated-ground-speed-kt</ground-speed-kt>
+          <switch-mode>instrumentation/dme[1]/switch-position[1]</switch-mode>
+          <switch-nav>instrumentation/dme[1]/switch-position[0]</switch-nav>
+          <dim>instrumentation/dme[1]/dim</dim>
+          <frequencies>
+            <source>instrumentation/dme[1]/frequencies/source</source>
+            <selected-mhz>instrumentation/dme[1]/frequencies/selected-mhz</selected-mhz>
+          </frequencies>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.207</y-m>

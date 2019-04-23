@@ -6,7 +6,7 @@
     <type>rotate</type>
     <object-name>asi.needle</object-name>
     <object-name>asi.mach</object-name>
-    <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <property alias="../../speed-kt"/>
     <interpolation>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
       <entry><ind>40.0</ind><dep>15.0</dep></entry>
@@ -22,7 +22,7 @@
   <animation>
     <type>rotate</type>
     <object-name>asi.mach</object-name>
-    <property>instrumentation/airspeed-indicator/indicated-mach</property>
+    <property alias="../../speed-mach"/>
     <interpolation>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
       <entry><ind>0.4</ind><dep>264</dep></entry>
@@ -38,7 +38,7 @@
   <animation>
     <type>rotate</type>
     <object-name>asi.marker</object-name>
-    <property>instrumentation/airspeed-indicator/index-marker</property>
+    <property alias="../../index-marker"/>
     <interpolation>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
       <entry><ind>40.0</ind><dep>15.0</dep></entry>
@@ -54,7 +54,7 @@
   <animation>
     <type>knob</type>
     <object-name>asi.knob</object-name>
-    <property>instrumentation/airspeed-indicator/index-marker</property>
+    <property alias="../../index-marker"/>
     <factor>5</factor>
     <center>
       <x-m>0.000</x-m>
@@ -69,7 +69,7 @@
     <action>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/airspeed-indicator/index-marker</property>
+        <property alias="../../../../index-marker"/>
         <factor>1</factor>
         <min>0</min>
         <max>320</max>
@@ -81,7 +81,7 @@
         <command>set-tooltip</command>
         <tooltip-id>target-airspeed</tooltip-id>
         <label>A/P: Target Airspeed: %d kts</label>
-        <property>instrumentation/airspeed-indicator/index-marker</property>
+        <property alias="../../../../index-marker"/>
       </binding>
     </hovered>
   </animation>

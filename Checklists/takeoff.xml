@@ -31,45 +31,23 @@ GNU General Public License for more details.
     </binding>
   </item>
   <item>
-    <name>Increase throttle SLOWLY to n2=</name>
+    <name>Increase throttle SLOWLY to and maintain n2 =</name>
     <value>95.9</value>
     <condition>
       <greater-than>
-        <property>engines/engine[0]/fan</property>
-        <value>95</value>
+        <property>engines/engine[0]/turbine</property>
+        <value>93</value>
       </greater-than>
       <less-than>
-        <property>engines/engine[0]/fan</property>
+        <property>engines/engine[0]/turbine</property>
         <value>96</value>
       </less-than>
       <greater-than>
-        <property>engines/engine[1]/fan</property>
-        <value>95</value>
+        <property>engines/engine[1]/turbine</property>
+        <value>93</value>
       </greater-than>
       <less-than>
-        <property>engines/engine[1]/fan</property>
-        <value>96</value>
-      </less-than>
-    </condition>
-  </item>
-  <item>
-    <name>Increase throttle SLOWLY to maintain n2=</name>
-    <value>95.9</value>
-    <condition>
-      <greater-than>
-        <property>engines/engine[0]/fan</property>
-        <value>95</value>
-      </greater-than>
-      <less-than>
-        <property>engines/engine[0]/fan</property>
-        <value>96</value>
-      </less-than>
-      <greater-than>
-        <property>engines/engine[1]/fan</property>
-        <value>95</value>
-      </greater-than>
-      <less-than>
-        <property>engines/engine[1]/fan</property>
+        <property>engines/engine[1]/turbine</property>
         <value>96</value>
       </less-than>
     </condition>
@@ -210,7 +188,7 @@ GNU General Public License for more details.
     <condition>
       <equals>
         <property>autopilot/locks/passive-mode</property>
-        <value>0</value>
+        <value>1</value>
       </equals>
     </condition>
   </item>

@@ -65,12 +65,12 @@ GNU General Public License for more details.
 
   <item>
     <name>Right fuel boost pump</name>
-    <value>NORM</value>
+    <value>NORMAL or ON</value>
     <condition>
-      <equals>
+      <not-equals>
         <property>controls/fuel/tank[1]/boost-pump-switch</property>
-        <value>-1</value>
-      </equals>
+        <value>0</value>
+      </not-equals>
     </condition>
     <binding>
       <command>property-assign</command>
@@ -137,7 +137,7 @@ GNU General Public License for more details.
     <binding>
       <command>property-assign</command>
       <property>controls/engines/engine[1]/throttle</property>
-      <value>0.21</value>
+      <value>0.015</value>
     </binding>
   </item>
 
@@ -170,12 +170,12 @@ GNU General Public License for more details.
 
   <item>
     <name>Left fuel boost pump</name>
-    <value>NORM</value>
+    <value>NORMAL or ON</value>
     <condition>
-      <equals>
+      <not-equals>
         <property>controls/fuel/tank[0]/boost-pump-switch</property>
-        <value>-1</value>
-      </equals>
+        <value>0</value>
+      </not-equals>
     </condition>
     <binding>
       <command>property-assign</command>
@@ -242,7 +242,7 @@ GNU General Public License for more details.
     <binding>
       <command>property-assign</command>
       <property>controls/engines/engine[0]/throttle</property>
-      <value>0.21</value>
+      <value>0.015</value>
     </binding>
   </item>
 

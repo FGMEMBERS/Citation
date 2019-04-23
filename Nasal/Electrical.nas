@@ -793,8 +793,10 @@ update_buses = func(dt) {
     for (var i = 0 ; i < size(cbs_ac_115v) ; i += 1) {
         if (getprop("/controls/electric/circuit-breakers/AC-115V/cb-"~cbs_ac_115v[i])) {
             setprop("/systems/electrical/outputs/AC-115V/"~cbs_ac_115v[i], ac_115v);
-            var use = (amp_ac_115v[i] / 115.0) * ac_115v;
-            setprop("/systems/electrical/users/AC-115V/"~cbs_ac_115v[i], use);
+            if (cbs_ac_115v[i] != "ac-ap") {
+                var use = (amp_ac_115v[i] / 115.0) * ac_115v;
+                setprop("/systems/electrical/users/AC-115V/"~cbs_ac_115v[i], use);
+            }
         } else {
             setprop("/systems/electrical/outputs/AC-115V/"~cbs_ac_115v[i], 0.0);
             setprop("/systems/electrical/users/AC-115V/"~cbs_ac_115v[i], 0.0);

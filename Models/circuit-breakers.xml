@@ -1914,7 +1914,7 @@ C/B's on the right panel need:
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>cb-dc-ap</tooltip-id>
-        <label>Autopilot Servo: %s</label>
+        <label>Autopilot Control: %s</label>
         <property>controls/electric/circuit-breakers/main-left-xover/cb-dc-ap</property>
         <mapping>close-open</mapping>
       </binding>
@@ -3784,7 +3784,7 @@ C/B's on the right panel need:
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>cb-ac-ap</tooltip-id>
-        <label>Autopilot Control: %s</label>
+        <label>Autopilot Servos: %s</label>
         <property>controls/electric/circuit-breakers/AC-115V/cb-ac-ap</property>
         <mapping>close-open</mapping>
       </binding>

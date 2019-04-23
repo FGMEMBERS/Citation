@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.2.0</aircraft-version>
+    <aircraft-version>4.2.1</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -312,7 +312,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <z-offset-m archive="y" type="double">2.900</z-offset-m> <!--Back-->
         <default-heading-offset-deg type="double">0</default-heading-offset-deg>
         <pitch-offset-deg type="double">-85</pitch-offset-deg>
-	<default-field-of-view-deg type="double">60</default-field-of-view-deg>
+        <default-field-of-view-deg type="double">60</default-field-of-view-deg>
       </config>
     </view>
 
@@ -322,10 +322,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     autopilot configuration / property rules as of FG-2017.2:
     resides in /sim/systems/*
 
-    autopilot[0] = Systems/Citation-autopilot.xml                 <- overrides Aircraft/Generic/generic-autopilot.xml
+    autopilot[0] = Systems/autopilot.xml                          <- overrides Aircraft/Generic/generic-autopilot.xml
     autopilot[1] = Aircraft/Generic/generic-autopilot-helper.xml  <- set by default by FG
     wingflexer = Systems/wingflexer-params.xml
     autopilot[100] = Aircraft/Generic/wingflexer.xml
+    autopilot[101] = Systems/pushback.xml
+    autopilot[102] = Systems/fd1.xml
+    autopilot[103] = Systems/fd2.xml
+    autopilot[104] = Systems/ap-servos.xml
+
     property-rule[0] = Environment/metarinterpolator.xml          <- set by default by FG
     property-rule[1] = Environment/interpolator.xml               <- set by default by FG
     property-rule[2] = Environment/local-weather-rules.xml        <- set by default by FG
@@ -336,14 +341,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     property-rule[103] = Systems/electrical.xml
     property-rule[104] = Models/Effects/flame-filter.xml
     property-rule[105] = Models/system-filters.xml
+    property-rule[106] = Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com1-filters.xml
+    property-rule[107] = Aircraft/Citation/Models/Instruments/VHF-22/ctl22-com2-filters.xml
+    property-rule[108] = Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav1-filters.xml
+    property-rule[109] = Aircraft/Citation/Models/Instruments/VIR-32/ctl32-nav2-filters.xml
+    property-rule[110] = Aircraft/Citation/Models/Instruments/ADF-462/ctl62-adf-filters.xml
 
     The configs below, without an index, overwrite existing rules and
     are being indexed, as they come unless they come with an index.
     -->
     <systems>
+      <path>Systems/systems.xml</path>
+
+      <!-- autopilots: running at FDM rate -->
+
       <autopilot>
         <name>Citation II autopilot</name>
-        <path>Systems/Citation-autopilot.xml</path>
+        <path>Systems/autopilot.xml</path>
       </autopilot>
 
       <wingflexer include="Systems/wingflexer-params.xml" />
@@ -351,12 +365,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <name>wing flexer property rule</name>
         <path>Aircraft/Generic/wingflexer.xml</path>
       </autopilot>
-      <autopilot>
+
+      <autopilot n="101">
         <name>Pushback</name>
         <path>Systems/pushback.xml</path>
       </autopilot>
 
-      <path>Systems/systems.xml</path>
+      <autopilot n="102">
+        <name>flight director 1</name>
+        <path>Systems/fd1.xml</path>
+      </autopilot>
+<!--
+      <autopilot n="103">
+        <name>flight director 2</name>
+        <path>Systems/fd2.xml</path>
+      </autopilot>
+-->
+      <autopilot n="104">
+        <name>autopilot servos</name>
+        <path>Systems/ap-servos.xml</path>
+      </autopilot>
+
+      <!-- property-rule: running at frame rate -->
 
       <property-rule n="100">
         <path>Aircraft/Citation/Models/Instruments/instrument-filters.xml</path>
@@ -1051,7 +1081,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <passenger-switch type="int">0</passenger-switch>
       <!-- cabin-lights-norm type=""></cabin-lights-norm -->
       <altitude-alerter-dim type="double">1.0</altitude-alerter-dim>
-      <dme-dim type="double">1.0</dme-dim>
       <fdpanel-dim type="double">1.0</fdpanel-dim>
     </lighting>
     <baggage-door-front-left n="0">
@@ -1110,22 +1139,45 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <input type="string"/>
       <serviceable type="bool">false</serviceable>
     </cdu>
-    <dme>
+    <dme n="0">
       <frequencies>
         <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
       </frequencies>
+      <dim type="double">1.0</dim>
       <switch-position n="0" type="int">0</switch-position>
       <switch-position n="1" type="int">0</switch-position>
       <volume type="double">1.0</volume>
+      <serviceable type="bool">true</serviceable>
     </dme>
-    <inst-vertical-speed-indicator>
+    <dme n="1">
+      <frequencies>
+        <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
+      </frequencies>
+      <dim type="double">1.0</dim>
+      <switch-position n="0" type="int">0</switch-position>
+      <switch-position n="1" type="int">0</switch-position>
+      <volume type="double">1.0</volume>
+      <serviceable type="bool">true</serviceable>
+    </dme>
+    <inst-vertical-speed-indicator n="0">
       <serviceable type="bool">1</serviceable>
     </inst-vertical-speed-indicator>
-    <altimeter>
+    <inst-vertical-speed-indicator n="1">
+      <serviceable type="bool">1</serviceable>
+    </inst-vertical-speed-indicator>
+    <altimeter n="0">
       <decision-height type="double">200</decision-height>
     </altimeter>
-    <airspeed-indicator>
+    <altimeter n="1">
+      <decision-height type="double">200</decision-height>
+    </altimeter>
+    <airspeed-indicator n="0">
       <index-marker type="double">220</index-marker>
+      <serviceable type="bool">true</serviceable>
+    </airspeed-indicator>
+    <airspeed-indicator n="1">
+      <index-marker type="double">220</index-marker>
+      <serviceable type="bool">true</serviceable>
     </airspeed-indicator>
     <fmc>
       <vspeeds>
@@ -1134,7 +1186,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <V2 type="double">130</V2>
       </vspeeds>
     </fmc>
-    <rmi>
+    <rmi n="0">
+      <heading-deg type="double"/>
+      <single-needle>
+        <selected-input type="string">VOR</selected-input>
+        <position-deg type="double"/>
+        <!-- computed by a filter, see Models/Instruments/instrument-filters.xml -->
+      </single-needle>
+      <double-needle>
+        <selected-input type="string">VOR</selected-input>
+        <position-deg type="double"/>
+      </double-needle>
+    </rmi>
+    <rmi n="1">
       <heading-deg type="double"/>
       <single-needle>
         <selected-input type="string">VOR</selected-input>
@@ -1274,16 +1338,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <resv2 type="int" archive="y">1</resv2>
         <mute type="int" archive="y">1</mute>
     </audiopanel>
-    <heading-indicator>
-        <flux-serviceable type="bool">true</flux-serviceable>
-    </heading-indicator>
+    <magnetic-flux-sensor n="0">
+        <serviceable type="bool">true</serviceable>
+    </magnetic-flux-sensor>
   </instrumentation>
+
+  <systems>
+    <pitot n="0">
+      <serviceable type="bool">true</serviceable>
+    </pitot>
+    <pitot n="1">
+      <serviceable type="bool">true</serviceable>
+    </pitot>
+    <static n="0">
+      <serviceable type="bool">true</serviceable>
+    </static>
+    <static n="1">
+      <serviceable type="bool">true</serviceable>
+    </static>
+  </systems>
+
   <autopilot>
     <locks>
       <yaw-damper type="bool">0</yaw-damper>
       <passive-mode type="bool">1</passive-mode>
       <lowbank type="bool">0</lowbank>
-      <autothrottle type="bool">0</autothrottle>
       <heading/>
       <altitude/>
     </locks>

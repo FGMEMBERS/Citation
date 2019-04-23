@@ -253,10 +253,10 @@ GNU General Public License for more details.
 
     <exit>
       <condition>
-        <equals>
+        <not-equals>
           <property>controls/fuel/tank[1]/boost-pump-switch</property>
-          <value>-1</value>
-        </equals>
+          <value>0</value>
+        </not-equals>
       </condition>
     </exit>
   </step>
@@ -516,10 +516,10 @@ GNU General Public License for more details.
 
     <exit>
       <condition>
-        <equals>
-          <property>controls/fuel/tank[1]/boost-pump-switch</property>
-          <value>-1</value>
-        </equals>
+        <not-equals>
+          <property>controls/fuel/tank[0]/boost-pump-switch</property>
+          <value>0</value>
+        </not-equals>
       </condition>
     </exit>
   </step>

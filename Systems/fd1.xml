@@ -153,22 +153,6 @@
     </config>
   </pi-simple-controller>
 
-  <filter>
-    <name>AP: lateral: stage 3: aileron servo</name>
-    <debug>false</debug>
-    <enable>
-      <condition>
-        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
-        <property>autopilot/locks/passive-mode</property>
-      </condition>
-    </enable>
-    <feedback-if-disabled>true</feedback-if-disabled>
-    <type>noise-spike</type>
-    <input>/autopilot/internal/target-aileron</input>
-    <output>/controls/flight/aileron</output>
-    <max-rate-of-change>0.1</max-rate-of-change>
-  </filter>
-
   <!-- ================================ -->
   <!-- ======= Vertical Modes ========= -->
   <!-- ================================ -->
@@ -379,22 +363,6 @@
     </config>
   </pi-simple-controller>
 
-  <filter>
-    <name>AP: vertical: stage 4: elevator servo</name>
-    <enable>
-      <condition>
-        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
-        <property>autopilot/locks/passive-mode</property>
-      </condition>
-    </enable>
-    <feedback-if-disabled>true</feedback-if-disabled>
-    <debug>false</debug>
-    <type>noise-spike</type>
-    <input>/autopilot/internal/target-elevator</input>
-    <output>/controls/flight/elevator</output>
-    <max-rate-of-change>0.1</max-rate-of-change>
-  </filter>
-
   <!--
       ==============
       Velocity Modes
@@ -403,34 +371,22 @@
 
   <!-- IAS Auto throttle -->
   <pid-controller>
-    <name>Auto Throttle</name>
+    <name>FD: Auto Throttle</name>
     <debug>false</debug>
+    <feedback-if-disabled>true</feedback-if-disabled>
     <enable>
       <condition>
-        <and>
-          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
-          <equals>
-            <property>autopilot/locks/speed</property>
-            <value>speed-with-throttle</value>
-          </equals>
-        </and>
+        <equals>
+          <property>autopilot/locks/speed</property>
+          <value>speed-with-throttle</value>
+        </equals>
       </condition>
     </enable>
-    <input>
-      <property>velocities/airspeed-kt</property>
-    </input>
-    <reference>
-      <property>autopilot/settings/target-speed-kt</property>
-    </reference>
-    <output>
-      <property>controls/engines/engine[0]/throttle</property>
-      <property>controls/engines/engine[1]/throttle</property>
-    </output>
+    <input>/velocities/airspeed-kt</input>
+    <reference>/autopilot/settings/target-speed-kt</reference>
+    <output>/autopilot/internal/fd-throttle</output>
     <config>
       <Kp>0.1</Kp>
-      <beta>1.0</beta>
-      <alpha>0.1</alpha>
-      <gamma>0.0</gamma>
       <Ti>10.0</Ti>
       <Td>0.001</Td>
       <u_min>0.0</u_min>

@@ -30,6 +30,25 @@
 
   <animation>
     <type>select</type>
+    <condition>
+      <greater-than>
+        <property>systems/electrical/buses/battery-hot</property>
+        <value>6.0</value>
+      </greater-than>
+    </condition>
+    <object-name>HR.001</object-name>
+    <object-name>HR.002</object-name>
+    <object-name>MN.001</object-name>
+    <object-name>MN.002</object-name>
+    <object-name>M877.colon</object-name>
+    <object-name>et</object-name>
+    <object-name>ft</object-name>
+    <object-name>gmt</object-name>
+    <object-name>lt</object-name>
+  </animation>
+
+  <animation>
+    <type>select</type>
     <object-name>M877.colon</object-name>
     <condition>
       <property>instrumentation/clock/m877/power</property>

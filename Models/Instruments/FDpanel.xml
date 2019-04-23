@@ -500,10 +500,6 @@
         <!-- value type="string">speed-with-pitch-trim</value--> <!-- not supported -->
         <value type="string"/>
       </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property type="bool">autopilot/locks/autothrottle</property>
-      </binding>
     </action>
     <hovered>
       <binding>

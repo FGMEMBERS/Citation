@@ -35,8 +35,6 @@ GNU General Public License for more details.
     <set>
       <property>/sim/current-view/view-number</property>
       <property>/controls/gear/brake-parking</property>
-      <property>/controls/fuel/tank[0]/boost-pump</property>
-      <property>/controls/fuel/tank[1]/boost-pump</property>
       <value>0</value>
     </set>
     <set>
@@ -54,7 +52,11 @@ GNU General Public License for more details.
       <property>/controls/lighting/landing-light[1]</property>
       <value>1</value>
     </set>
-
+    <set>
+      <property>/controls/fuel/tank[0]/boost-pump-switch</property>
+      <property>/controls/fuel/tank[1]/boost-pump-switch</property>
+      <value>-1</value>
+    </set>
   </init>
 
   <step>
@@ -84,19 +86,19 @@ GNU General Public License for more details.
       <condition>
         <and>
           <greater-than>
-            <property>engines/engine[0]/fan</property>
-            <value>95</value>
+            <property>engines/engine[0]/turbine</property>
+            <value>93</value>
           </greater-than>
           <less-than>
-            <property>engines/engine[0]/fan</property>
+            <property>engines/engine[0]/turbine</property>
             <value>96</value>
           </less-than>
           <greater-than>
-            <property>engines/engine[1]/fan</property>
-            <value>95</value>
+            <property>engines/engine[1]/turbine</property>
+            <value>93</value>
           </greater-than>
           <less-than>
-            <property>engines/engine[1]/fan</property>
+            <property>engines/engine[1]/turbine</property>
             <value>96</value>
           </less-than>
         </and>
@@ -190,6 +192,42 @@ GNU General Public License for more details.
           <property>velocities/airspeed-kt</property>
           <value>135</value>
         </greater-than>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Switch off the landing lights! ( press Ctrl + l )</message>
+
+    <view>
+      <heading-offset-deg>0.0</heading-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <field-of-view>75.0</field-of-view>
+    </view>
+
+    <marker>
+      <x-m>2.4867</x-m>
+      <y-m>-0.2141</y-m>
+      <z-m>0.3599</z-m>
+      <scale>1.5041</scale>
+    </marker>
+
+    <exit>
+      <condition>
+        <and>
+          <equals>
+            <property>controls/lighting/landing-light[0]</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>controls/lighting/landing-light[1]</property>
+            <value>0</value>
+          </equals>
+        </and>
       </condition>
     </exit>
   </step>
@@ -308,48 +346,12 @@ GNU General Public License for more details.
       <condition>
         <greater-than>
           <property>position/altitude-agl-ft</property>
-          <value>5500</value>
+          <value>5800</value>
         </greater-than>
         <less-than>
           <property>position/altitude-agl-ft</property>
-          <value>6500</value>
+          <value>6200</value>
         </less-than>
-      </condition>
-    </exit>
-  </step>
-
-  <step>
-    <message>Switch off the landing lights! ( press Ctrl + l )</message>
-
-    <view>
-      <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-12.0</pitch-offset-deg>
-      <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.305</x-offset-m>
-      <y-offset-m>0.990</y-offset-m>
-      <z-offset-m>3.170</z-offset-m>
-      <field-of-view>75.0</field-of-view>
-    </view>
-
-    <marker>
-      <x-m>2.4867</x-m>
-      <y-m>-0.2141</y-m>
-      <z-m>0.3599</z-m>
-      <scale>1.5041</scale>
-    </marker>
-
-    <exit>
-      <condition>
-        <and>
-          <equals>
-            <property>controls/lighting/landing-light[0]</property>
-            <value>0</value>
-          </equals>
-          <equals>
-            <property>controls/lighting/landing-light[1]</property>
-            <value>0</value>
-          </equals>
-        </and>
       </condition>
     </exit>
   </step>
@@ -442,7 +444,7 @@ GNU General Public License for more details.
       <condition>
         <equals>
           <property>autopilot/locks/passive-mode</property>
-          <value>0</value>
+          <value>1</value>
         </equals>
       </condition>
     </exit>

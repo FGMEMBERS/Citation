@@ -898,7 +898,7 @@ GNU General Public License for more details.
     <output>instrumentation/comm[1]/volume</output>
   </filter>
 
-  <!-- DME: minutes -->
+  <!-- DME0: minutes -->
 
     <filter>
         <name>dme minutes</name>
@@ -907,7 +907,7 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <greater-than>
-                    <property>instrumentation/dme/indicated-time-min</property>
+                    <property>instrumentation/dme[0]/indicated-time-min</property>
                     <value>99.9</value>
                 </greater-than>
             </condition>
@@ -917,13 +917,41 @@ GNU General Public License for more details.
             <expression>
                 <floor>
                     <sum>
-                        <property>instrumentation/dme/indicated-time-min</property>
+                        <property>instrumentation/dme[0]/indicated-time-min</property>
                         <value>0.5</value>
                     </sum>
                 </floor>
             </expression>
         </input>
-        <output>instrumentation/dme/indicated-time-min-display</output>
+        <output>instrumentation/dme[0]/indicated-time-min-display</output>
+    </filter>
+
+  <!-- DME1: minutes -->
+
+    <filter>
+        <name>dme minutes</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>instrumentation/dme[1]/indicated-time-min</property>
+                    <value>99.9</value>
+                </greater-than>
+            </condition>
+            <value>99</value>
+        </input>
+        <input>
+            <expression>
+                <floor>
+                    <sum>
+                        <property>instrumentation/dme[1]/indicated-time-min</property>
+                        <value>0.5</value>
+                    </sum>
+                </floor>
+            </expression>
+        </input>
+        <output>instrumentation/dme[1]/indicated-time-min-display</output>
     </filter>
 
   <!-- altimeter: correct rounded digits and avoid wrong precision -->
