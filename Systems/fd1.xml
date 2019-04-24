@@ -373,7 +373,6 @@
   <pid-controller>
     <name>FD: Auto Throttle</name>
     <debug>false</debug>
-    <feedback-if-disabled>true</feedback-if-disabled>
     <enable>
       <condition>
         <equals>
