@@ -8,7 +8,6 @@ This file selects the instrumentation modules that should be available.
 
 <PropertyList>
 
-
     <inst-vertical-speed-indicator>
         <name>vertical-speed-indicator</name>
         <number>0</number>
@@ -96,36 +95,43 @@ This file selects the instrumentation modules that should be available.
     <adf>
         <name>adf</name>
         <number>0</number>
+        <electric-output-node>/systems/electrical/outputs/adf[0]</electric-output-node>
     </adf>
 
     <comm-radio>
         <name>comm</name>
         <number>0</number>
+        <electric-output-node>/systems/electrical/outputs/comm[0]</electric-output-node>
     </comm-radio>
 
     <comm-radio>
         <name>comm</name>
         <number>1</number>
+        <electric-output-node>/systems/electrical/outputs/comm[1]</electric-output-node>
     </comm-radio>
 
     <nav-radio>
         <name>nav</name>
         <number>0</number>
+        <electric-output-node>/systems/electrical/outputs/nav[0]</electric-output-node>
     </nav-radio>
 
     <nav-radio>
         <name>nav</name>
         <number>1</number>
+        <electric-output-node>/systems/electrical/outputs/nav[1]</electric-output-node>
     </nav-radio>
 
     <dme>
         <name>dme</name>
         <number>0</number>
+        <electric-output-node>/systems/electrical/outputs/dme[0]</electric-output-node>
     </dme>
 
     <dme>
         <name>dme</name>
         <number>1</number>
+        <electric-output-node>/systems/electrical/outputs/dme[1]</electric-output-node>
     </dme>
 
     <slip-skid-ball>
@@ -150,6 +156,7 @@ This file selects the instrumentation modules that should be available.
       <bus-volts type="double">8.0</bus-volts>
       <encoder-path type="string">/instrumentation/altimeter</encoder-path>
       <kt70-compatibility type="bool">0</kt70-compatibility>
+      <electric-output-node>/systems/electrical/outputs/transponder[0]</electric-output-node>
     </transponder>
 
     <transponder>
@@ -159,6 +166,7 @@ This file selects the instrumentation modules that should be available.
       <bus-volts type="double">8.0</bus-volts>
       <encoder-path type="string">/instrumentation/altimeter</encoder-path>
       <kt70-compatibility type="bool">0</kt70-compatibility>
+      <electric-output-node>/systems/electrical/outputs/transponder[1]</electric-output-node>
     </transponder>
 
     <mk-viii>

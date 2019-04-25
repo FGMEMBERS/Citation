@@ -5,7 +5,6 @@ var baggage_door_front_right = aircraft.door.new("controls/baggage-door-front-ri
 var baggage_door_aft = aircraft.door.new("controls/baggage-door-aft",2);
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
-var KPA = props.globals.initNode("instrumentation/altimeter/setting-kpa",101.3,"DOUBLE");
 
 #Jet Engine Helper class
 # ie: var Eng = JetEngine.new(engine number);
@@ -479,11 +478,6 @@ setlistener("/sim/current-view/internal", func(vw){
         SndIn.setDoubleValue(0.10);
         SndOut.setDoubleValue(0.75);
     }
-},1,0);
-
-setlistener("/instrumentation/altimeter/setting-inhg", func(inhg){
-    var kpa = inhg.getValue() * 3.386389;
-     KPA.setValue(kpa);
 },1,0);
 
 setlistener("sim/model/autostart", func(strt) {

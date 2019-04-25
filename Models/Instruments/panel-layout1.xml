@@ -141,6 +141,14 @@
     <model>
         <name>alt-1</name>
         <path>Aircraft/Citation/Models/Instruments/alt.xml</path>
+        <overlay>
+          <altitude-ft>instrumentation/altimeter[0]/indicated-altitude-ft</altitude-ft>
+          <altitude-warn>autopilot/settings/target-altitude-ft</altitude-warn>
+          <setting-inhg>instrumentation/altimeter[0]/setting-inhg</setting-inhg>
+          <display-inhg>instrumentation/altimeter[0]/setting-inhg-display</display-inhg>
+          <setting-hpa>instrumentation/altimeter[0]/setting-hpa</setting-hpa>
+          <display-hpa>instrumentation/altimeter[0]/setting-hpa-display</display-hpa>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.210</y-m>
@@ -151,6 +159,14 @@
     <model>
         <name>alt-2</name>
         <path>Aircraft/Citation/Models/Instruments/alt.xml</path>
+        <overlay>
+          <altitude-ft>instrumentation/altimeter[1]/indicated-altitude-ft</altitude-ft>
+          <altitude-warn>autopilot/settings/target-altitude-ft</altitude-warn>
+          <setting-inhg>instrumentation/altimeter[1]/setting-inhg</setting-inhg>
+          <display-inhg>instrumentation/altimeter[1]/setting-inhg-display</display-inhg>
+          <setting-hpa>instrumentation/altimeter[1]/setting-hpa</setting-hpa>
+          <display-hpa>instrumentation/altimeter[1]/setting-hpa-display</display-hpa>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.422</y-m>

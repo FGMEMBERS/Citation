@@ -82,21 +82,21 @@ GNU General Public License for more details.
   </item>
   <item>
     <name>Altimeter</name>
-    <value>101.325 kPa</value>
+    <value>1013.25 hPa</value>
     <condition>
       <greater-than>
-        <property>instrumentation/altimeter/setting-kpa</property>
-        <value>101.2</value>
+        <property>instrumentation/altimeter/setting-hpa</property>
+        <value>1012</value>
       </greater-than>
       <less-than>
-        <property>instrumentation/altimeter/setting-kpa</property>
-        <value>101.4</value>
+        <property>instrumentation/altimeter/setting-hpa</property>
+        <value>1014</value>
       </less-than>
     </condition>
     <binding>
       <command>property-assign</command>
       <property>instrumentation/altimeter/setting-inhg</property>
-      <value>29.92</value> <!-- this property drives the -kpa property -->
+      <value>29.92</value>
     </binding>
   </item>
 </PropertyList>

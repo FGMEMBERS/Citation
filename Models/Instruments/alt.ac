@@ -753,7 +753,7 @@ refs 3
 78 0.15982 0.880423
 kids 0
 OBJECT poly
-name "alt.dh"
+name "alt.warn"
 data 12
 Cylinder.001
 crease 30.0
@@ -1500,7 +1500,7 @@ refs 3
 96 0.175781 0.074219
 kids 0
 OBJECT poly
-name "alt.dh.lit"
+name "alt.warn.lit"
 data 12
 Cylinder.012
 crease 30.0

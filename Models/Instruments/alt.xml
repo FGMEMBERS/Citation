@@ -5,7 +5,7 @@
   <animation>
     <type>translate</type>
     <object-name>alt.10000.low</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <interpolation>
       <entry><ind>10000.0</ind><dep>-0.012</dep></entry>
       <entry><ind>9990.0</ind><dep>0.000</dep></entry>
@@ -22,7 +22,7 @@
   <animation>
     <type>translate</type>
     <object-name>alt.1000.low</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <interpolation>
       <entry><ind>1000.0</ind><dep>-0.012</dep></entry>
       <entry><ind>990.0</ind><dep>0.000</dep></entry>
@@ -39,7 +39,7 @@
   <animation>
     <type>translate</type>
     <object-name>alt.neg</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <interpolation>
       <entry><ind>0.0</ind><dep>-0.012</dep></entry>
       <entry><ind>-10.0</ind><dep>0.000</dep></entry>
@@ -54,7 +54,7 @@
   <animation>
     <type>rotate</type>
     <object-name>alt.needle</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <factor>0.36</factor>
     <axis>
       <x>-1</x>
@@ -66,7 +66,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.10</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <factor>0.01</factor>
     <axis>
       <x>0</x>
@@ -78,7 +78,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.100</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <factor>0.001</factor>
     <step>100</step>
     <scroll>10</scroll>
@@ -92,7 +92,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.1000</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <factor>0.0001</factor>
     <step>1000</step>
     <scroll>10</scroll>
@@ -106,7 +106,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.10000</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <factor>0.00001</factor>
     <step>10000</step>
     <scroll>10</scroll>
@@ -120,7 +120,7 @@
   <animation>
     <type>rotate</type>
     <object-name>alt.invalid</object-name>
-    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <property alias="../../altitude-ft"/>
     <interpolation>
       <entry><ind>0.0</ind><dep>0</dep></entry>
       <entry><ind>-10.0</ind><dep>90</dep></entry>
@@ -140,7 +140,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.inhg01</object-name>
-    <property>instrumentation/altimeter/setting-inhg-display</property>
+    <property alias="../../display-inhg"/>
     <factor>0.0001</factor>
     <step>1000</step>
     <axis>
@@ -153,7 +153,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.inhg02</object-name>
-    <property>instrumentation/altimeter/setting-inhg-display</property>
+    <property alias="../../display-inhg"/>
     <factor>0.001</factor>
     <step>100</step>
     <axis>
@@ -166,7 +166,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.inhg03</object-name>
-    <property>instrumentation/altimeter/setting-inhg-display</property>
+    <property alias="../../display-inhg"/>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -179,7 +179,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.inhg04</object-name>
-    <property>instrumentation/altimeter/setting-inhg-display</property>
+    <property alias="../../display-inhg"/>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -192,7 +192,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.hpa01</object-name>
-    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <property alias="../../display-hpa"/>
     <factor>0.0001</factor>
     <step>1000</step>
     <axis>
@@ -205,7 +205,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.hpa02</object-name>
-    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <property alias="../../display-hpa"/>
     <factor>0.001</factor>
     <step>100</step>
     <axis>
@@ -218,7 +218,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.hpa03</object-name>
-    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <property alias="../../display-hpa"/>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -231,7 +231,7 @@
   <animation>
     <type>textranslate</type>
     <object-name>alt.hpa04</object-name>
-    <property>instrumentation/altimeter/setting-hpa-display</property>
+    <property alias="../../display-hpa"/>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -243,23 +243,63 @@
 
   <animation>
     <type>select</type>
-    <object-name>alt.dh</object-name>
+    <object-name>alt.warn</object-name>
     <condition>
-      <less-than>
-        <property>instrumentation/altimeter/indicated-altitude-ft</property>
-        <value>100000</value>
-      </less-than>
+      <or>
+        <less-than>
+          <expression>
+            <abs>
+              <dif>
+                <property alias="../../../../../../../../altitude-warn"/>
+                <property alias="../../../../../../../../altitude-ft"/>
+              </dif>
+            </abs>
+          </expression>
+          <value>200</value>
+        </less-than>
+        <greater-than>
+          <expression>
+            <abs>
+              <dif>
+                <property alias="../../../../../../../../altitude-warn"/>
+                <property alias="../../../../../../../../altitude-ft"/>
+              </dif>
+            </abs>
+          </expression>
+          <value>1000</value>
+        </greater-than>
+      </or>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>alt.dh.lit</object-name>
+    <object-name>alt.warn.lit</object-name>
     <condition>
-      <greater-than>
-        <property>instrumentation/altimeter/indicated-altitude-ft</property>
-        <value>100000</value>
-      </greater-than>
+      <and>
+        <greater-than>
+          <expression>
+            <abs>
+              <dif>
+                <property alias="../../../../../../../../altitude-warn"/>
+                <property alias="../../../../../../../../altitude-ft"/>
+              </dif>
+            </abs>
+          </expression>
+          <value>200</value>
+        </greater-than>
+        <less-than>
+          <expression>
+            <abs>
+              <dif>
+                <property alias="../../../../../../../../altitude-warn"/>
+                <property alias="../../../../../../../../altitude-ft"/>
+              </dif>
+            </abs>
+          </expression>
+          <value>1000</value>
+        </less-than>
+      </and>
     </condition>
   </animation>
 
@@ -276,12 +316,12 @@
       <y>0</y>
       <z>0</z>
     </axis>
-    <property>instrumentation/altimeter/setting-inhg</property>
+    <property alias="../../setting-inhg"/>
     <factor>500</factor>
     <action>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/altimeter/setting-inhg</property>
+        <property alias="../../../../setting-inhg"/>
         <factor>0.01</factor>
         <min>26.0</min>
         <max>31.0</max>
@@ -292,11 +332,8 @@
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>ALT-knob</tooltip-id>
-        <!--<label>Altimeter setting: %.2f inHg - %.2f hPa</label>
-        <property>instrumentation/altimeter/setting-inhg</property>
-        <property>instrumentation/altimeter/setting-hpa</property>-->
-        <label>Altimeter setting: %.2f inHg</label>
-        <property>instrumentation/altimeter/setting-inhg</property>
+        <label>Altimeter setting: %.2f InHg</label>
+        <property alias="../../../../setting-inhg"/>
       </binding>
     </hovered>
   </animation>
@@ -311,7 +348,7 @@
     </condition>
     <object-name>alt.bezel</object-name>
     <object-name>alt.knob</object-name>
-    <object-name>alt.dh</object-name>
+    <object-name>alt.warn</object-name>
     <emission>
       <red>1.0</red>
       <green>0.8</green>
@@ -361,8 +398,8 @@
     <object-name>alt.bezel</object-name>
     <object-name>alt.face</object-name>
     <object-name>alt.knob</object-name>
-    <object-name>alt.dh</object-name>
-    <object-name>alt.dh.lit</object-name>
+    <object-name>alt.warn</object-name>
+    <object-name>alt.warn.lit</object-name>
     <object-name>alt.needle</object-name>
     <object-name>alt.invalid</object-name>
     <object-name>alt.10</object-name>

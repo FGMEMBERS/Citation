@@ -957,7 +957,7 @@ GNU General Public License for more details.
   <!-- altimeter: correct rounded digits and avoid wrong precision -->
 
   <filter>
-    <name>InHg adjusting</name>
+    <name>alt0: InHg adjusting</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
@@ -965,7 +965,7 @@ GNU General Public License for more details.
         <floor>
           <sum>
             <product>
-              <property>instrumentation/altimeter/setting-inhg</property>
+              <property>instrumentation/altimeter[0]/setting-inhg</property>
               <value>100.0</value>
             </product>
             <value>0.5</value>
@@ -973,24 +973,61 @@ GNU General Public License for more details.
         </floor>
       </expression>
     </input>
-    <output>instrumentation/altimeter/setting-inhg-display</output>
+    <output>instrumentation/altimeter[0]/setting-inhg-display</output>
   </filter>
 
   <filter>
-    <name>hPa adjusting</name>
+    <name>alt0: hPa adjusting</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
       <expression>
         <floor>
           <sum>
-            <property>instrumentation/altimeter/setting-hpa</property>
+            <property>instrumentation/altimeter[0]/setting-hpa</property>
             <value>0.5</value>
           </sum>
         </floor>
       </expression>
     </input>
-    <output>instrumentation/altimeter/setting-hpa-display</output>
+    <output>instrumentation/altimeter[0]/setting-hpa-display</output>
+  </filter>
+
+  <filter>
+    <name>alt1: InHg adjusting</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <floor>
+          <sum>
+            <product>
+              <property>instrumentation/altimeter[1]/setting-inhg</property>
+              <value>100.0</value>
+            </product>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <output>instrumentation/altimeter[1]/setting-inhg-display</output>
+  </filter>
+
+  <filter>
+    <name>alt1: hPa adjusting</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <floor>
+          <sum>
+            <property>instrumentation/altimeter[1]/setting-hpa</property>
+            <value>0.5</value>
+          </sum>
+        </floor>
+      </expression>
+    </input>
+    <output>instrumentation/altimeter[1]/setting-hpa-display</output>
   </filter>
 
   <!-- Engine Display -->

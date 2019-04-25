@@ -142,7 +142,7 @@ GNU General Public License for more details.
                         <property>systems/electrical/outputs/main-left-xover/dc-dg1</property>
                         <value>20</value>
                     </greater-than>
-                    <property>instrumentation/heading-indicator/flux-serviceable</property>
+                    <property>instrumentation/magnetic-flux-sensor/serviceable</property>
                     <not><property>controls/electric/gyro-mode-sw</property></not>
                 </and>
             </condition>
@@ -200,7 +200,8 @@ GNU General Public License for more details.
             <min>-180.0</min>
             <max>180.0</max>
         </period>
-        <output>instrumentation/heading-indicator/offset-deg</output>
+        <output>instrumentation/heading-indicator[0]/offset-deg</output>
+        <output>instrumentation/heading-indicator[1]/offset-deg</output>
         <output>instrumentation/heading-indicator-dg/error-deg</output>
     </filter>
 

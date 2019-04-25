@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.2.1</aircraft-version>
+    <aircraft-version>4.2.2</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -1166,9 +1166,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <serviceable type="bool">1</serviceable>
     </inst-vertical-speed-indicator>
     <altimeter n="0">
+      <serviceable type="bool">true</serviceable>
       <decision-height type="double">200</decision-height>
     </altimeter>
     <altimeter n="1">
+      <serviceable type="bool">true</serviceable>
       <decision-height type="double">200</decision-height>
     </altimeter>
     <airspeed-indicator n="0">

@@ -21,7 +21,9 @@
   <static>
     <name>static</name>
     <number>0</number>
-    <tau>1</tau>
+    <tau>0.1</tau>
+    <type>2</type>
+    <error-factor>0.2</error-factor>
   </static>
 
   <static>
