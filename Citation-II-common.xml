@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.2.2</aircraft-version>
+    <aircraft-version>4.2.3</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -420,6 +420,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </property-rule>
       <property-rule n="110">
         <path>Aircraft/Citation/Models/Instruments/ADF-462/ctl62-adf-filters.xml</path>
+      </property-rule>
+      <property-rule n="111">
+        <path>Aircraft/Citation/Models/Instruments/rmi-filters.xml</path>
       </property-rule>
     </systems>
 

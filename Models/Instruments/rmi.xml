@@ -7,14 +7,16 @@
     <type>select</type>
     <object-name>RMI.flag</object-name>
     <condition>
-      <not><property>systems/electrical/outputs/main-left-xover/dc-rmi1</property></not>
+      <not>
+        <property alias="../../../../power"/>
+      </not>
     </condition>
   </animation>
 
   <animation>
     <type>rotate</type>
     <object-name>RMI.compass</object-name>
-    <property>instrumentation/rmi/heading-deg</property>
+    <property alias="../../heading-deg"/>
     <axis>
       <x>1.0</x>
       <y>0.0</y>
@@ -28,40 +30,27 @@
     <object-name>RMI.left_button</object-name>
     <action>
       <button>0</button>
+
       <binding>
         <command>property-cycle</command>
-        <property>instrumentation/rmi/single-needle/selected-input</property>
+        <property alias="../../../../single-needle-selected-input"/>
         <value>ADF</value>
         <value>VOR</value>
       </binding>
+
       <binding>
         <command>property-assign</command>
-        <property>instrumentation/rmi/single-needle/receive</property>
+        <property alias="../../../../single-needle-receive"/>
         <value>0.0</value>
       </binding>
-      <binding>
-        <command>nasal</command>
-        <script>
-          var selected_input = getprop ("/instrumentation/rmi/single-needle/selected-input");
-          var dest_node = props.globals.getNode ("/instrumentation/rmi/single-needle/in-range", 1);
-          dest_node.unalias ();
-          if (selected_input == "ADF") {
-            var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
-            dest_node.alias (source_node);
-          }
-          elsif (selected_input == "VOR") {
-            var source_node = props.globals.getNode ("/instrumentation/nav[0]/in-range");
-            dest_node.alias (source_node);
-          }
-        </script>
-      </binding>
+
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>rmi-left-button</tooltip-id>
         <label>Radio magnetic indicator 1 source: %s</label>
-        <property>instrumentation/rmi/single-needle/selected-input</property>
+        <property alias="../../../../single-needle-selected-input"/>
       </binding>
     </hovered>
   </animation>
@@ -69,7 +58,7 @@
   <animation>
     <type>rotate</type>
     <object-name>RMI.single_needle</object-name>
-    <property>instrumentation/rmi/single-needle/position-deg</property>
+    <property alias="../../single-needle-position-deg"/>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -82,7 +71,7 @@
     <object-name>RMI.SingleArrow.SelectionIndicator.ADF</object-name>
     <condition>
       <equals>
-        <property>instrumentation/rmi/single-needle/selected-input</property>
+        <property alias="../../../../single-needle-selected-input"/>
         <value>ADF</value>
       </equals>
     </condition>
@@ -93,7 +82,7 @@
     <object-name>RMI.SingleArrow.SelectionIndicator.VOR</object-name>
     <condition>
       <equals>
-        <property>instrumentation/rmi/single-needle/selected-input</property>
+        <property alias="../../../../single-needle-selected-input"/>
         <value>VOR</value>
       </equals>
     </condition>
@@ -105,40 +94,27 @@
     <object-name>RMI.right_button</object-name>
     <action>
       <button>0</button>
+
       <binding>
         <command>property-cycle</command>
-        <property>instrumentation/rmi/double-needle/selected-input</property>
+        <property alias="../../../../double-needle-selected-input"/>
         <value>ADF</value>
         <value>VOR</value>
       </binding>
+
       <binding>
         <command>property-assign</command>
-        <property>instrumentation/rmi/double-needle/receive</property>
+        <property alias="../../../../double-needle-receive"/>
         <value>0.0</value>
       </binding>
-      <binding>
-        <command>nasal</command>
-        <script>
-          var selected_input = getprop ("/instrumentation/rmi/double-needle/selected-input");
-          var dest_node = props.globals.getNode ("/instrumentation/rmi/double-needle/in-range", 1);
-          dest_node.unalias ();
-          if (selected_input == "ADF") {
-            var source_node = props.globals.getNode ("/instrumentation/adf/in-range");
-            dest_node.alias (source_node);
-          }
-          elsif (selected_input == "VOR") {
-            var source_node = props.globals.getNode ("/instrumentation/nav[1]/in-range");
-            dest_node.alias (source_node);
-          }
-        </script>
-      </binding>
+
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>rmi-right-button</tooltip-id>
         <label>Radio magnetic indicator 2 source: %s</label>
-        <property>instrumentation/rmi/double-needle/selected-input</property>
+        <property alias="../../../../double-needle-selected-input"/>
       </binding>
     </hovered>
   </animation>
@@ -146,7 +122,7 @@
   <animation>
     <type>rotate</type>
     <object-name>RMI.double_needle</object-name>
-    <property>instrumentation/rmi/double-needle/position-deg</property>
+    <property alias="../../double-needle-position-deg"/>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -159,7 +135,7 @@
     <object-name>RMI.DoubleArrow.SelectionIndicator.ADF</object-name>
     <condition>
       <equals>
-        <property>instrumentation/rmi/double-needle/selected-input</property>
+        <property alias="../../../../double-needle-selected-input"/>
         <value>ADF</value>
       </equals>
     </condition>
@@ -170,7 +146,7 @@
     <object-name>RMI.DoubleArrow.SelectionIndicator.VOR</object-name>
     <condition>
       <equals>
-        <property>instrumentation/rmi/double-needle/selected-input</property>
+        <property alias="../../../../double-needle-selected-input"/>
         <value>VOR</value>
       </equals>
     </condition>

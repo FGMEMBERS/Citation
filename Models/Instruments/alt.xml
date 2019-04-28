@@ -379,6 +379,7 @@
     <object-name>alt.hpa02</object-name>
     <object-name>alt.hpa03</object-name>
     <object-name>alt.hpa04</object-name>
+    <object-name>alt.warn.lit</object-name>
     <emission>
       <red>1.0</red>
       <green>0.8</green>

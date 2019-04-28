@@ -95,43 +95,50 @@ This file selects the instrumentation modules that should be available.
     <adf>
         <name>adf</name>
         <number>0</number>
-        <electric-output-node>/systems/electrical/outputs/adf[0]</electric-output-node>
+        <power-supply>systems/electrical/outputs/adf[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </adf>
 
     <comm-radio>
         <name>comm</name>
         <number>0</number>
-        <electric-output-node>/systems/electrical/outputs/comm[0]</electric-output-node>
+        <power-supply>systems/electrical/outputs/comm[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </comm-radio>
 
     <comm-radio>
         <name>comm</name>
         <number>1</number>
-        <electric-output-node>/systems/electrical/outputs/comm[1]</electric-output-node>
+        <power-supply>systems/electrical/outputs/comm[1]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </comm-radio>
 
     <nav-radio>
         <name>nav</name>
         <number>0</number>
-        <electric-output-node>/systems/electrical/outputs/nav[0]</electric-output-node>
+        <power-supply>systems/electrical/outputs/nav[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </nav-radio>
 
     <nav-radio>
         <name>nav</name>
         <number>1</number>
-        <electric-output-node>/systems/electrical/outputs/nav[1]</electric-output-node>
+        <power-supply>systems/electrical/outputs/nav[1]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </nav-radio>
 
     <dme>
         <name>dme</name>
         <number>0</number>
-        <electric-output-node>/systems/electrical/outputs/dme[0]</electric-output-node>
+        <power-supply>systems/electrical/outputs/dme[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </dme>
 
     <dme>
         <name>dme</name>
         <number>1</number>
-        <electric-output-node>/systems/electrical/outputs/dme[1]</electric-output-node>
+        <power-supply>systems/electrical/outputs/dme[1]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </dme>
 
     <slip-skid-ball>
@@ -156,7 +163,8 @@ This file selects the instrumentation modules that should be available.
       <bus-volts type="double">8.0</bus-volts>
       <encoder-path type="string">/instrumentation/altimeter</encoder-path>
       <kt70-compatibility type="bool">0</kt70-compatibility>
-      <electric-output-node>/systems/electrical/outputs/transponder[0]</electric-output-node>
+      <power-supply>systems/electrical/outputs/transponder[0]</power-supply>
+      <minimum-supply-volts>20.0</minimum-supply-volts>
     </transponder>
 
     <transponder>
@@ -166,7 +174,8 @@ This file selects the instrumentation modules that should be available.
       <bus-volts type="double">8.0</bus-volts>
       <encoder-path type="string">/instrumentation/altimeter</encoder-path>
       <kt70-compatibility type="bool">0</kt70-compatibility>
-      <electric-output-node>/systems/electrical/outputs/transponder[1]</electric-output-node>
+      <power-supply>systems/electrical/outputs/transponder[1]</power-supply>
+      <minimum-supply-volts>20.0</minimum-supply-volts>
     </transponder>
 
     <mk-viii>

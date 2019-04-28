@@ -177,6 +177,16 @@
     <model>
         <name>rmi-1</name>
         <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
+        <overlay>
+          <power>systems/electrical/outputs/main-left-xover/dc-rmi1</power>
+          <heading-deg>instrumentation/rmi[0]/heading-deg</heading-deg>
+          <single-needle-receive>instrumentation/rmi[0]/single-needle/receive</single-needle-receive>
+          <single-needle-position-deg>instrumentation/rmi[0]/single-needle/position-deg</single-needle-position-deg>
+          <single-needle-selected-input>instrumentation/rmi[0]/single-needle/selected-input</single-needle-selected-input>
+          <double-needle-receive>instrumentation/rmi[0]/double-needle/receive</double-needle-receive>
+          <double-needle-position-deg>instrumentation/rmi[0]/double-needle/position-deg</double-needle-position-deg>
+          <double-needle-selected-input>instrumentation/rmi[0]/double-needle/selected-input</double-needle-selected-input>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.418</y-m>
@@ -187,6 +197,16 @@
     <model>
         <name>rmi-2</name>
         <path>Aircraft/Citation/Models/Instruments/rmi.xml</path>
+        <overlay>
+          <power>systems/electrical/outputs/main-right/dc-rmi2</power>
+          <heading-deg>instrumentation/rmi[1]/heading-deg</heading-deg>
+          <single-needle-receive>instrumentation/rmi[1]/single-needle/receive</single-needle-receive>
+          <single-needle-position-deg>instrumentation/rmi[1]/single-needle/position-deg</single-needle-position-deg>
+          <single-needle-selected-input>instrumentation/rmi[1]/single-needle/selected-input</single-needle-selected-input>
+          <double-needle-receive>instrumentation/rmi[1]/double-needle/receive</double-needle-receive>
+          <double-needle-position-deg>instrumentation/rmi[1]/double-needle/position-deg</double-needle-position-deg>
+          <double-needle-selected-input>instrumentation/rmi[1]/double-needle/selected-input</double-needle-selected-input>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
             <y-m>0.206</y-m>
