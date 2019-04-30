@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.2.3</aircraft-version>
+    <aircraft-version>4.2.4</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -562,7 +562,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <weight n="3">
       <name type="string">Rear Baggage</name>
       <weight-lb type="double">0</weight-lb>
-      <max-lb type="int">500</max-lb>
+      <max-lb type="int">1200</max-lb>
       <min-lb type="int">0</min-lb>
     </weight>
 
@@ -578,13 +578,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
               <dialog-name>Citation-II-config</dialog-name>
             </binding>
           </item>
-          <item>
+<!--          <item>
             <label>Fuel and Payload</label>
             <binding>
               <command>dialog-show</command>
-              <dialog-name>Citation-II-fuelAndWeight</dialog-name>
+              <dialog-name>Citation-II-fuel_and_payload</dialog-name>
             </binding>
-          </item>
+          </item> -->
           <item>
             <label>External Power</label>
             <binding>
@@ -1196,11 +1196,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <single-needle>
         <selected-input type="string">VOR</selected-input>
         <position-deg type="double"/>
-        <!-- computed by a filter, see Models/Instruments/instrument-filters.xml -->
+        <!-- computed by a filter, see Models/Instruments/rmi-filters.xml -->
       </single-needle>
       <double-needle>
         <selected-input type="string">VOR</selected-input>
         <position-deg type="double"/>
+        <!-- computed by a filter, see Models/Instruments/rmi-filters.xml -->
       </double-needle>
     </rmi>
     <rmi n="1">
@@ -1208,11 +1209,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <single-needle>
         <selected-input type="string">VOR</selected-input>
         <position-deg type="double"/>
-        <!-- computed by a filter, see Models/Instruments/instrument-filters.xml -->
+        <!-- computed by a filter, see Models/Instruments/rmi-filters.xml -->
       </single-needle>
       <double-needle>
         <selected-input type="string">VOR</selected-input>
         <position-deg type="double"/>
+        <!-- computed by a filter, see Models/Instruments/rmi-filters.xml -->
       </double-needle>
     </rmi>
     <hsi n="0">

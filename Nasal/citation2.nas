@@ -176,6 +176,7 @@ var JetEngine = {
         if(me.running.getBoolValue ()) {
             me.fan.setValue(me.n1.getValue());
             me.turbine.setValue(me.n2.getValue());
+            
             if(getprop("controls/engines/grnd_idle")) thr *= 0.92;
         } else {
             var n1 = me.n1.getValue();
@@ -253,7 +254,8 @@ var JetEngine = {
             }
         }
 
-        me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
+### debug
+#        me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
 
 # fluid pump factor
         var factor = 1.0 - (me.turbine.getValue() * 0.01);
@@ -327,28 +329,17 @@ var resetControls = func() {
 
 setlistener("/sim/signals/fdm-initialized", func {
 
-#  setprop ("/instrumentation/rmi/single-needle/selected-input", "VOR");
-  switch_rmi("single-needle", 0);
-#  setprop ("/instrumentation/rmi/double-needle/selected-input", "VOR");
-  switch_rmi("double-needle", 1);
-
-
   if (getprop("/consumables/fuel/fuel_overlay") == 1) {
     # if we initialising a state overlay, then use pre-programmed fuel levels
     var fuelL= getprop("/consumables/fuel/fuel_overlay_0");
     var fuelR= getprop("/consumables/fuel/fuel_overlay_1");
-    var totalFuel = fuelL + fuelR;
-    print("Setting fuel levels to ", totalFuel, "lbs total.");
+    print("Setting fuel levels to ", fuelL, "lbs in left tank and ", fuelR, "lbs in right tank.");
 
     # set some other properties
     if(getprop("/gear/gear_overlay") == 1) {
       print("forcing gear down!");
       setprop("/controls/gear/gear-down", 1);
     }
-
-    # Try to get the preset numbers into the instruments
-    #setprop("/instrumentation/rmi/single-needle/selected-input", getprop("/sim/presets/heading-deg"));
-
   }
   else {
     # Read old fuel levels
@@ -362,11 +353,10 @@ setlistener("/sim/signals/fdm-initialized", func {
       print("No stored fuel-levels found. Setting to full.");
     }
     else {
-      var totalFuel = fuelL + fuelR;
-      print("Old fuel-levels restored. You have ", totalFuel, "lbs of fuel aboard.")
+      print("Old fuel-levels restored. You have ", fuelL, "lbs in left tank and ", fuelR, "lbs in right tank aboard.");
     }
   }
-    # Override default "full tanks" with read values
+  # Override default "full tanks" with read values
   setprop("/consumables/fuel/tank[0]/level-gal_us", fuelL);
   setprop("/consumables/fuel/tank[1]/level-gal_us", fuelR);
 
@@ -384,8 +374,10 @@ setlistener("/sim/signals/fdm-initialized", func {
   # since every checklist would agree to do this ahead of time!
   if (getprop("/environment/overlay") == 1) {
     var setAltimeterToPressure = maketimer(2, func() {
-      setprop("/instrumentation/altimeter/setting-inhg", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
-      print("Altimeter set to ", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
+      setprop("/instrumentation/altimeter[0]/setting-inhg", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
+      print("Altimeter 1 set to ", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
+      setprop("/instrumentation/altimeter[1]/setting-inhg", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
+      print("Altimeter 2 set to ", getprop("/environment/metar[0]/pressure-sea-level-inhg"));
       setAltimeterToPressure.stop();
     });
     setAltimeterToPressure.singleShot = 1;

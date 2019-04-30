@@ -365,7 +365,7 @@
       <or>
         <and>
           <less-than>
-            <property>consumables/fuel/tank/level-lbs</property>
+            <property>consumables/fuel/tank[0]/level-lbs</property>
             <value>190</value>
           </less-than>
           <property>systems/electrical/outputs/main-left/warn-lts1</property>

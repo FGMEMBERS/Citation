@@ -259,7 +259,6 @@
 		<object-name>ralt.face</object-name>
 		<object-name>ralt.flag</object-name>
 		<object-name>ralt.needle</object-name>
-		<object-name>ralt.dh.on</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.8</green>

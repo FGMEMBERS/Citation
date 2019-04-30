@@ -336,14 +336,14 @@
         <or>
           <and>
             <equals>
-              <property>controls/fuel/tank/boost-pump-switch</property>
+              <property>controls/fuel/tank[0]/boost-pump-switch</property>
               <value>1</value>
             </equals>
             <property>systems/electrical/outputs/main-right-xover/fuel-boost-left</property>
           </and>
           <and>
             <equals>
-              <property>controls/fuel/tank/boost-pump-switch</property>
+              <property>controls/fuel/tank[0]/boost-pump-switch</property>
               <value>-1</value>
             </equals>
             <property>systems/electrical/outputs/main-left/fuel-boost-left</property>
@@ -355,7 +355,7 @@
     </input>
     <value>0</value>
     <output>
-      <property>controls/fuel/tank/boost-pump</property>
+      <property>controls/fuel/tank[0]/boost-pump</property>
     </output>
   </filter>
 
