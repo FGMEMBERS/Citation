@@ -254,8 +254,7 @@ var JetEngine = {
             }
         }
 
-### debug
-#        me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
+        me.fuel_pph.setValue(me.fuel_gph.getValue()*me.fdensity);
 
 # fluid pump factor
         var factor = 1.0 - (me.turbine.getValue() * 0.01);
@@ -412,7 +411,8 @@ setlistener("/sim/signals/fdm-initialized", func {
           var target_altitude = 3000;
         }
 
-        setprop("/autopilot/locks/passive-mode", 1);
+        setprop("/autopilot/locks/passive-mode", 0);
+        print ("Setting passive-mode FALSE because /autopilot/heading-overlay is nonzero");
         setprop("/autopilot/settings/bank-limit", bank_limit);
         setprop("/autopilot/locks/yaw-damper", damper_mode);
 
@@ -433,6 +433,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     start_autopilot_in_air.singleShot = 1;
     start_autopilot_in_air.start();
   }
+
 
   # override saved aircraft-data. It stores some useless data, and ignores some useful data.
   saveState.update_saveState();
@@ -585,10 +586,11 @@ var update_systems = func() {
 
     # Disengage the autopilot when reaching decision height selected on the radio
     # altimeter or 500ft, whichever is highest.
-    if (getprop ("autopilot/locks/passive-mode")) {
+    if (!getprop ("autopilot/locks/passive-mode")) {
       var decision_height = getprop ("instrumentation/altimeter/decision-height");
+      if (decision_height < 500) { decision_height = 500; }
       if (getprop ("position/altitude-agl-ft") < decision_height) {
-        setprop ("autopilot/locks/passive-mode",0);
+        setprop ("autopilot/locks/passive-mode",1);
         setprop ("autopilot/locks/altitude", "");
         setprop ("autopilot/locks/heading", "");
         setprop ("autopilot/locks/yaw-damper", 0);
@@ -621,20 +623,22 @@ var update_systems = func() {
 
 var passive_mode_listener = setlistener ("/autopilot/locks/passive-mode", func (passive_mode) {
     if (passive_mode.getBoolValue ()) {
-        # When engaging the autopilot, engage wing leveler and pitch hold for
-        # current pitch.  Set the target aileron and elevator commands to their
-        # current position, to prevent brutal manoeuvers.
-        setprop ("autopilot/internal/target-aileron", getprop ("controls/flight/aileron"));
-        setprop ("autopilot/internal/target-elevator", getprop ("controls/flight/elevator"));
-        setprop ("autopilot/locks/heading", "wing-leveler");
-        setprop ("autopilot/locks/altitude", "pitch-hold");
-        setprop ("autopilot/settings/target-pitch-deg", getprop ("orientation/pitch-deg"));
-    }
-    else {
-        # When disengaging the autopilot, disengage all locks
+        # When engaging passive mode, disengage all locks
         setprop ("autopilot/locks/heading", "");
         setprop ("autopilot/locks/altitude", "");
         setprop ("autopilot/locks/speed", "");
+    }
+    else {
+        # When engaging the autopilot, engage wing leveler and pitch hold for
+        # current pitch.  Set the target aileron and elevator commands to their
+        # current position, to prevent brutal manoeuvers.
+        setprop ("autopilot/internal/target-aileron",
+                 getprop ("controls/flight/aileron"));
+        setprop ("autopilot/internal/target-elevator",
+                 getprop ("controls/flight/elevator"));
+        setprop ("autopilot/locks/heading", "wing-leveler");
+        setprop ("autopilot/locks/altitude", "pitch-hold");
+        setprop ("autopilot/settings/target-pitch-deg", getprop ("orientation/pitch-deg"));
     }
 }, 0, 0);
 

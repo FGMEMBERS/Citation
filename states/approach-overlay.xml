@@ -37,7 +37,7 @@
       </settings>
 
       <locks>
-        <passive-mode type="bool">false</passive-mode>
+        <passive-mode type="bool">true</passive-mode>
         <!--<heading type="string">nav1-hold</heading>
         <altitude type="string">gs1-hold</altitude>
         <speed>speed-with-throttle</speed>-->

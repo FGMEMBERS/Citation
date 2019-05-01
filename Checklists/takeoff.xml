@@ -188,7 +188,7 @@ GNU General Public License for more details.
     <condition>
       <equals>
         <property>autopilot/locks/passive-mode</property>
-        <value>1</value>
+        <value>0</value>
       </equals>
     </condition>
   </item>

@@ -185,8 +185,12 @@
     <name>AP: vertical: stage 1: compute target climb rate (ALT mode)</name>
     <debug>false</debug>
     <enable>
-      <property>autopilot/locks/altitude</property>
-      <value>altitude-hold</value>
+      <condition>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>altitude-hold</value>
+        </equals>
+      </condition>
     </enable>
     <type>gain</type>
     <input>/instrumentation/altimeter/indicated-altitude-ft</input>
@@ -246,8 +250,12 @@
     <name>AP: vertical: stage 1: acquire target climb rate (VS mode)</name>
     <debug>false</debug>
     <enable>
-      <property>autopilot/locks/altitude</property>
-      <value>vertical-speed-hold</value>
+      <condition>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>vertical-speed-hold</value>
+        </equals>
+      </condition>
     </enable>
     <type>gain</type>
     <gain>1.0</gain>
@@ -259,8 +267,12 @@
     <name>AP: vertical: stage 1: acquire target climb rate (Glideslope)</name>
     <debug>false</debug>
     <enable>
-      <property>autopilot/locks/altitude</property>
-      <value>gs1-hold</value>
+      <condition>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>gs1-hold</value>
+        </equals>
+      </condition>
     </enable>
     <type>gain</type>
     <gain>1.0</gain>
@@ -272,9 +284,13 @@
     <name>AP: vertical: stage 2: acquire target pitch (Pitch hold)</name>
     <debug>false</debug>
     <enable>
-      <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
-      <property>autopilot/locks/altitude</property>
-      <value>pitch-hold</value>
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>pitch-hold</value>
+        </equals>
+      </condition>
     </enable>
     <type>gain</type>
     <input>

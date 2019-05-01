@@ -13,7 +13,7 @@ Autopilot Controller
     <condition>
       <or>
         <not><property>systems/electrical/outputs/main-left-xover/dc-ap</property></not>
-        <not><property>autopilot/locks/passive-mode</property></not>
+        <property>autopilot/locks/passive-mode</property>
       </or>
     </condition>
   </animation>
@@ -58,14 +58,12 @@ Autopilot Controller
         <script>
           var fd_enabled = getprop ("/autopilot/locks/passive-mode");
           if (fd_enabled) {
-            setprop ("autopilot/locks/passive-mode", "false");
-            setprop ("autopilot/locks/heading", "");
-            setprop ("autopilot/locks/altitude", "");
-          }
-          else {
-            setprop ("autopilot/locks/passive-mode", "true");
             setprop ("autopilot/locks/heading", "wing-leveler");
             setprop ("autopilot/locks/altitude", "pitch-hold");
+          }
+          else {
+            setprop ("autopilot/locks/heading", "");
+            setprop ("autopilot/locks/altitude", "");
           }
         </script>
       </binding>

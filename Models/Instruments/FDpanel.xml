@@ -27,7 +27,7 @@
     <type>select</type>
     <object-name>FD.off.lit</object-name>
     <condition>
-      <not><property>autopilot/locks/passive-mode</property></not>
+      <property>autopilot/locks/passive-mode</property>
     </condition>
   </animation>
 
@@ -268,7 +268,7 @@
         <command>set-tooltip</command>
         <tooltip-id>FD-off</tooltip-id>
         <label>Flight director: %s</label>
-        <mapping>on-off</mapping>
+        <mapping>off-on</mapping>
         <property>autopilot/locks/passive-mode</property>
       </binding>
     </hovered>
