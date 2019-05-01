@@ -267,8 +267,8 @@
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>FD-off</tooltip-id>
-        <label>Flight director: %s</label>
-        <mapping>off-on</mapping>
+        <label>Autopilot Disengage: %s</label>
+        <mapping>on-off</mapping>
         <property>autopilot/locks/passive-mode</property>
       </binding>
     </hovered>
