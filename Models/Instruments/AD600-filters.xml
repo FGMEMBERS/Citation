@@ -27,6 +27,26 @@
 <!-- Flight Director -->
 
     <filter>
+        <name>fd-on</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <or>
+                    <less-than>
+                        <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                        <value>18</value>
+                    </less-than>
+                    <property>autopilot/locks/passive-mode</property>
+                </or>
+            </condition>
+            <value>0</value>
+        </input>
+        <input>1</input>
+        <output>instrumentation/AD600/fd-on</output>
+    </filter>
+
+    <filter>
         <name>fd-roll</name>
         <debug>false</debug>
         <type>noise-spike</type>
@@ -41,7 +61,7 @@
                     <property>instrumentation/attitude-indicator/spin</property>
                     <value>.7</value>
                 </greater-than>
-                <property>autopilot/locks/passive-mode</property>
+                <not><property>autopilot/locks/passive-mode</property></not>
             </condition>
             <expression>
                 <dif>
@@ -71,7 +91,7 @@
                     <property>instrumentation/attitude-indicator/spin</property>
                     <value>.7</value>
                 </greater-than>
-                <property>autopilot/locks/passive-mode</property>
+                <not><property>autopilot/locks/passive-mode</property></not>
             </condition>
             <expression>
                 <sum>

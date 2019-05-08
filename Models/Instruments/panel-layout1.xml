@@ -262,7 +262,7 @@
             <spin>instrumentation/AD600[0]/spin</spin>
             <roll-deg>instrumentation/attitude-indicator[0]/indicated-roll-deg</roll-deg>
             <pitch-deg>instrumentation/attitude-indicator[0]/indicated-pitch-deg</pitch-deg>
-            <fd-on>autopilot/locks/passive-mode</fd-on>
+            <fd-on>instrumentation/AD600[0]/fd-on</fd-on>
             <fd-roll-deg>instrumentation/AD600[0]/fd-roll-deg</fd-roll-deg>
             <fd-pitch-deg>instrumentation/AD600[0]/fd-pitch-deg</fd-pitch-deg>
             <valid-loc>instrumentation/AD600[0]/valid-loc</valid-loc>
