@@ -832,6 +832,7 @@
     <effect>
         <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
         <object-name>panel.eng.bezel</object-name>
+        <object-name>panel.eng.gauge</object-name>
         <object-name>panel.eng.hole</object-name>
         <object-name>panel.eng.trbn1led</object-name>
         <object-name>panel.eng.trbn2led</object-name>

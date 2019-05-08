@@ -221,6 +221,21 @@ GNU General Public License for more details.
         <output>instrumentation/heading-indicator-dg/align-deg</output>
     </filter>
 
+<!-- electric power for turn-indicator -->
+    <filter>
+        <name>turn-indicator-power</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>controls/electric/avionics-switch</property>
+            </condition>
+            <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+        </input>
+        <input>0.0</input>
+        <output>systems/electrical/outputs/turn-coordinator</output>
+    </filter>
+
 <!-- firewall shutoff -->
 
     <filter>

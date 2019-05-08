@@ -118,7 +118,7 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.417</y-m>
+            <y-m>-0.419</y-m>
             <z-m>0.338</z-m>
         </offsets>
     </model>
@@ -152,7 +152,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.210</y-m>
-            <z-m>0.336</z-m>
+            <z-m>0.338</z-m>
         </offsets>
     </model>
 
@@ -189,8 +189,8 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.418</y-m>
-            <z-m>0.250</z-m>
+            <y-m>-0.419</y-m>
+            <z-m>0.254</z-m>
         </offsets>
     </model>
 
@@ -219,8 +219,8 @@
         <path>Aircraft/Citation/Models/Instruments/vsi.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.213</y-m>
-            <z-m>0.169</z-m>
+            <y-m>-0.210</y-m>
+            <z-m>0.170</z-m>
         </offsets>
     </model>
 
@@ -240,7 +240,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>-0.210</y-m>
-            <z-m>0.250</z-m>
+            <z-m>0.254</z-m>
         </offsets>
     </model>
 
@@ -255,12 +255,31 @@
     </model>
 
     <model>
-        <name>ai-1</name>
-        <path>Aircraft/Citation/Models/Instruments/ai.xml</path>
+        <name>AD600</name>
+        <path>Aircraft/Citation/Models/Instruments/AD600.xml</path>
+        <overlay>
+            <power>systems/electrical/outputs/AC-26V/ac-adi1</power>
+            <spin>instrumentation/AD600[0]/spin</spin>
+            <roll-deg>instrumentation/attitude-indicator[0]/indicated-roll-deg</roll-deg>
+            <pitch-deg>instrumentation/attitude-indicator[0]/indicated-pitch-deg</pitch-deg>
+            <fd-on>autopilot/locks/passive-mode</fd-on>
+            <fd-roll-deg>instrumentation/AD600[0]/fd-roll-deg</fd-roll-deg>
+            <fd-pitch-deg>instrumentation/AD600[0]/fd-pitch-deg</fd-pitch-deg>
+            <valid-loc>instrumentation/AD600[0]/valid-loc</valid-loc>
+            <deflection-loc>instrumentation/nav/vor-loc-deflection</deflection-loc>
+            <valid-gs>instrumentation/AD600[0]/valid-gs</valid-gs>
+            <deflection-gs>instrumentation/nav/vor-gs-deflection</deflection-gs>
+            <valid-aoa>instrumentation/AD600[0]/valid-aoa</valid-aoa>
+            <alpha-deg>instrumentation/AD600[0]/alpha-deg</alpha-deg>
+            <turn-spin>instrumentation/AD600[0]/turn-spin</turn-spin>
+            <turn-rate>instrumentation/AD600[0]/turn-rate</turn-rate>
+            <altitude-agl>instrumentation/AD600[0]/altitude-agl</altitude-agl>
+            <slip-skid>instrumentation/slip-skid-ball/indicated-slip-skid</slip-skid>
+        </overlay>
         <offsets>
-            <x-m>0</x-m>
-            <y-m>-0.312</y-m>
-            <z-m>0.322</z-m>
+            <x-m>0.000</x-m>
+            <y-m>-0.314</y-m>
+            <z-m>0.313</z-m>
         </offsets>
     </model>
 
@@ -303,8 +322,8 @@
       </overlay>
       <offsets>
         <x-m>0</x-m>
-        <y-m>-0.312</y-m>
-        <z-m>0.200</z-m>
+        <y-m>-0.314</y-m>
+        <z-m>0.176</z-m>
       </offsets>
     </model>
 
@@ -361,7 +380,7 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.213</y-m>
+            <y-m>-0.210</y-m>
             <z-m>0.086</z-m>
         </offsets>
     </model>
@@ -435,7 +454,7 @@
         <path>Aircraft/Citation/Models/Instruments/marker.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.312</y-m>
+            <y-m>-0.314</y-m>
             <z-m>0.393</z-m>
         </offsets>
     </model>
@@ -445,7 +464,7 @@
         <path>Aircraft/Citation/Models/Instruments/marker.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.312</y-m>
+            <y-m>0.314</y-m>
             <z-m>0.393</z-m>
         </offsets>
     </model>
@@ -460,8 +479,8 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.315</y-m>
-            <z-m>0.127</z-m>
+            <y-m>-0.314</y-m>
+            <z-m>0.100</z-m>
         </offsets>
     </model>
 
@@ -485,8 +504,8 @@
         <path>Aircraft/Citation/Models/Instruments/vor.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>-0.417</y-m>
-            <z-m>0.166</z-m>
+            <y-m>-0.419</y-m>
+            <z-m>0.170</z-m>
         </offsets>
     </model>
 

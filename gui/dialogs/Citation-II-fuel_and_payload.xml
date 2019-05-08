@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-  <name>Citation-II-fuelAndWeight</name>
+  <name>Citation-II-fuel_and_payload</name>
   <layout>vbox</layout>
   <resizable>false</resizable>
   <modal>false</modal>
@@ -148,15 +148,15 @@
         <checkbox>
           <row>2</row>
           <col>1</col>
-          <name>tank-0-selected</name>
+          <name>tank-1-selected</name>
           <property>/consumables/fuel/tank[1]/selected</property>
           <binding>
             <command>dialog-apply</command>
-            <object-name>tank-0-selected</object-name>
+            <object-name>tank-1-selected</object-name>
           </binding>
         </checkbox>
         <slider>
-          <name>fuel-0</name>
+          <name>fuel-1</name>
           <row>2</row>
           <col>2</col>
           <min>0</min>
@@ -165,7 +165,7 @@
           <property>/consumables/fuel/tank[1]/level-norm</property>
           <binding>
             <command>dialog-apply</command>
-            <object-name>fuel-0</object-name>
+            <object-name>fuel-1</object-name>
           </binding>
         </slider>
         <text>

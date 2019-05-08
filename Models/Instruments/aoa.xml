@@ -8,7 +8,7 @@
         <property>orientation/alpha-deg</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>14</ind><dep>225</dep></entry>
+            <entry><ind>12</ind><dep>225</dep></entry>
         </interpolation>
         <axis>
             <x>1</x>

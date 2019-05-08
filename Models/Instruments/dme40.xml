@@ -319,8 +319,8 @@
     </interpolation>
     <center>
       <x-m>0.0050</x-m>
-      <y-m>-0.027</y-m>
-      <z-m>-0.027</z-m>
+      <y-m>-0.026</y-m>
+      <z-m>-0.026</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -424,8 +424,8 @@
     </interpolation>
     <center>
       <x-m>0.0050</x-m>
-      <y-m>0.027</y-m>
-      <z-m>-0.027</z-m>
+      <y-m>0.026</y-m>
+      <z-m>-0.026</z-m>
     </center>
     <axis>
       <x>-1</x>

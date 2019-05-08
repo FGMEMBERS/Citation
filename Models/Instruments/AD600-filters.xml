@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='utf-8'?>
+<PropertyList>
+
+<!-- attitude -->
+
+    <filter>
+        <name>spin</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/attitude-indicator/spin</property>
+                    <value>0.7</value>
+                </greater-than>
+            </condition>
+            <property>instrumentation/attitude-indicator/spin</property>
+        </input>
+        <input>0.0</input>
+        <output>instrumentation/AD600/spin</output>
+    </filter>
+
+<!-- Flight Director -->
+
+    <filter>
+        <name>fd-roll</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>45</max-rate-of-change>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/attitude-indicator/spin</property>
+                    <value>.7</value>
+                </greater-than>
+                <property>autopilot/locks/passive-mode</property>
+            </condition>
+            <expression>
+                <dif>
+                    <property>autopilot/internal/target-roll-deg</property>
+                    <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
+                </dif>
+            </expression>
+        </input>
+        <input>0.0</input>
+        <min>-45</min>
+        <max>45</max>
+        <output>instrumentation/AD600/fd-roll-deg</output>
+    </filter>
+
+    <filter>
+        <name>fd-pitch</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>45</max-rate-of-change>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/attitude-indicator/spin</property>
+                    <value>.7</value>
+                </greater-than>
+                <property>autopilot/locks/passive-mode</property>
+            </condition>
+            <expression>
+                <sum>
+                    <dif>
+                        <property>autopilot/internal/target-pitch-deg</property>
+                        <property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
+                    </dif>
+                    <property>orientation/alpha-deg</property>
+                </sum>
+            </expression>
+        </input>
+        <input>0.0</input>
+        <min>-45</min>
+        <max>45</max>
+        <output>instrumentation/AD600/fd-pitch-deg</output>
+    </filter>
+
+<!-- LOC and GS -->
+
+    <filter>
+        <name>flag-loc</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <property>instrumentation/nav/in-range</property>
+                <property>instrumentation/nav/nav-loc</property>
+            </condition>
+            <value>1</value>
+        </input>
+        <input>0</input>
+        <output>instrumentation/AD600/valid-loc</output>
+    </filter>
+
+    <filter>
+        <name>flag-gs</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <property>instrumentation/nav/in-range</property>
+                <property>instrumentation/nav/gs-in-range</property>
+            </condition>
+            <value>1</value>
+        </input>
+        <input>0</input>
+        <output>instrumentation/AD600/valid-gs</output>
+    </filter>
+
+<!-- AOA -->
+
+    <filter>
+        <name>flag-aoa</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>systems/electrical/outputs/main-left/sys-aoa</property>
+                    <value>18</value>
+                </greater-than>
+            </condition>
+            <value>1</value>
+        </input>
+        <input>0</input>
+        <output>instrumentation/AD600/valid-aoa</output>
+    </filter>
+
+    <filter>
+        <name>speed</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.2</filter-time>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <less-than-equals>
+                    <property>velocities/airspeed-kt</property>
+                    <value>40</value>
+                </less-than-equals>
+            </condition>
+            <expression>
+                <product>
+                    <div>
+                        <property>velocities/airspeed-kt</property>
+                        <value>40.0</value>
+                    </div>
+                    <property>orientation/alpha-deg</property>
+                </product>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>velocities/airspeed-kt</property>
+                    <value>40</value>
+                </greater-than>
+            </condition>
+            <property>orientation/alpha-deg</property>
+        </input>
+        <input>0.0</input>
+        <output>instrumentation/AD600/alpha-deg</output>
+    </filter>
+
+<!-- rate of turn -->
+
+    <filter>
+        <name>turn-spin</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/turn-indicator/spin</property>
+                    <value>0.7</value>
+                </greater-than>
+            </condition>
+            <property>instrumentation/turn-indicator/spin</property>
+        </input>
+        <input>0.0</input>
+        <output>instrumentation/AD600/turn-spin</output>
+    </filter>
+
+    <filter>
+        <name>turn-rate</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.2</filter-time>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/turn-indicator/spin</property>
+                    <value>0.7</value>
+                </greater-than>
+            </condition>
+            <property>instrumentation/turn-indicator/indicated-turn-rate</property>
+        </input>
+        <input>0.0</input>
+        <output>instrumentation/AD600/turn-rate</output>
+    </filter>
+
+<!-- runway -->
+
+    <filter>
+        <name>runway</name>
+        <debug>false</debug>
+        <type>noise-spike</type>
+        <max-rate-of-change>1000</max-rate-of-change>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>systems/electrical/outputs/AC-26V/ac-adi1</property>
+                    <value>18</value>
+                </greater-than>
+                <greater-than>
+                    <property>systems/electrical/outputs/main-left-xover/dc-radalt</property>
+                    <value>18</value>
+                </greater-than>
+            </condition>
+            <property>instrumentation/radar-altimeter/radar-altitude-ft</property>
+        </input>
+        <input>250.0</input>
+        <output>instrumentation/AD600/altitude-agl</output>
+    </filter>
+
+</PropertyList>
