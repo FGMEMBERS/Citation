@@ -268,17 +268,6 @@ var JetEngine = {
 #        var x = (1.0 - (factor * factor)) * 2.5;
         me.hyd_gpm.setValue(x * 2.5);
 
-##############
-#    get_output_volts : func {
-#        var x = 1.0 - me.percent.getValue();
-#        var tmp = -(3.0 * x - 1.0);
-#        var factor = (tmp * tmp * tmp * tmp * tmp + 32) / 32;
-#        var output = me.ideal_volts * factor;
-#        me.voltage.setValue(output);
-#        return output;
-##############
-
-
     },
 
     shutdown : func(b) {
@@ -669,11 +658,6 @@ var alias_recursively = func (source, dest) { # source and dest must be nodes no
 var drive_hsi_with_nav = func (hsi_node, nav_node) {
    var inputs = hsi_node.getChild ("inputs", 0, 1);
    alias_recursively (nav_node, inputs);
-   var source_volts_node =
-     props.globals.getNode ("/systems/electrical/outputs/nav[" ~ nav_node.getIndex () ~ "]");
-   var dest_volts_node = hsi_node.getChild ("volts", 0, 1);
-   dest_volts_node.unalias ();
-   dest_volts_node.alias (source_volts_node);
 }
 
 var pilot_hsi_listener =

@@ -38,7 +38,7 @@
     <type>select</type>
     <object-name>HSI.dstoff</object-name>
     <condition>
-      <property alias="../../../volts"/>
+      <property alias="../../../power"/>
     </condition>
   </animation>
 
@@ -50,7 +50,7 @@
     <object-name>HSI.dst0</object-name>
     <condition>
       <and>
-        <property alias="../../../../volts"/>
+        <property alias="../../../../power"/>
         <property alias="../../../../inputs/in-range"/>
       </and>
     </condition>
@@ -62,7 +62,7 @@
     <condition>
       <or>
         <not>
-          <property alias="../../../../../volts"/>
+          <property alias="../../../../../power"/>
         </not>
         <not>
           <property alias="../../../../../inputs/in-range"/>
@@ -120,7 +120,7 @@
   <animation>
     <type>translate</type>
     <object-name>HSI.crsdeflection</object-name>
-    <property alias="../../hsi-loc-deflection"/>
+    <property alias="../../loc-deflection"/>
     <interpolation>
       <entry><ind>-1.0</ind><dep>-0.0117</dep></entry>
       <entry><ind>1.0</ind><dep>0.0117</dep></entry>
@@ -157,11 +157,11 @@
   <animation>
     <type>translate</type>
     <object-name>HSI.gsneedle</object-name>
-    <property alias="../../hsi-gs-deflection"/>
+    <property alias="../../gs-deflection"/>
     <interpolation>
-      <entry><ind>-1.0</ind><dep>-0.0133</dep></entry>
+      <entry><ind>-0.8</ind><dep>-0.0133</dep></entry>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
-      <entry><ind>1.0</ind><dep>0.0133</dep></entry>
+      <entry><ind>0.8</ind><dep>0.0133</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -178,7 +178,7 @@
     <object-name>HSI.crs10</object-name>
     <object-name>HSI.crs1</object-name>
     <condition>
-      <property alias="../../../volts"/>
+      <property alias="../../../power"/>
     </condition>
   </animation>
 

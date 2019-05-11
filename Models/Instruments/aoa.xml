@@ -5,7 +5,7 @@
     <animation>
         <type>rotate</type>
         <object-name>aoa.needle</object-name>
-        <property>orientation/alpha-deg</property>
+        <property>instrumentation/aoa/alpha-deg</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>12</ind><dep>225</dep></entry>
@@ -13,7 +13,7 @@
         <axis>
             <x>1</x>
             <y>0</y>
-            <z>-0</z>
+            <z>0</z>
         </axis>
     </animation>
 

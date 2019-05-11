@@ -208,9 +208,9 @@
         <object-name>AD600.needle.loc</object-name>
         <property alias="../../deflection-loc" />
         <interpolation>
-            <entry><ind>-0.2</ind><dep>-0.012</dep></entry>
+            <entry><ind>-0.8</ind><dep>-0.012</dep></entry>
             <entry><ind>0.0</ind><dep>0.000</dep></entry>
-            <entry><ind>0.2</ind><dep>0.012</dep></entry>
+            <entry><ind>0.8</ind><dep>0.012</dep></entry>
         </interpolation>
         <axis>
             <x>0</x>
@@ -224,9 +224,9 @@
         <object-name>AD600.needle.gs</object-name>
         <property alias="../../deflection-gs" />
         <interpolation>
-            <entry><ind>-1.0</ind><dep>-0.016</dep></entry>
+            <entry><ind>-0.4</ind><dep>-0.016</dep></entry>
             <entry><ind>0.0</ind><dep>0.000</dep></entry>
-            <entry><ind>1.0</ind><dep>0.016</dep></entry>
+            <entry><ind>0.4</ind><dep>0.016</dep></entry>
         </interpolation>
         <axis>
             <x>0</x>

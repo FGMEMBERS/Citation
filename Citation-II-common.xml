@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.2.8</aircraft-version>
+    <aircraft-version>4.2.9</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -1227,17 +1227,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <selected-nav type="int">0</selected-nav> <!-- pilot's HSI initially uses NAV1 -->
       <heading-deg type="double">0.0</heading-deg>
       <bearing-deg type="double">0.0</bearing-deg>
-      <hsi-gs-deflection type="double">0.0</hsi-gs-deflection>
-      <hsi-loc-deflection type="double">0.0</hsi-loc-deflection>
-      <volts type="double">0</volts>
+      <loc-deflection type="double">0.0</loc-deflection>
+      <gs-deflection type="double">0.0</gs-deflection>
     </hsi>
     <hsi n="1">
       <selected-nav type="int">1</selected-nav> <!-- copilot's HSI initially uses NAV2 -->
       <heading-deg type="double">0.0</heading-deg>
       <bearing-deg type="double">0.0</bearing-deg>
-      <hsi-gs-deflection type="double">0.0</hsi-gs-deflection>
-      <hsi-loc-deflection type="double">0.0</hsi-loc-deflection>
-      <volts type="double">0</volts>
+      <loc-deflection type="double">0.0</loc-deflection>
+      <gs-deflection type="double">0.0</gs-deflection>
     </hsi>
     <adf n="0">
         <volume-norm type="double">1.0</volume-norm>

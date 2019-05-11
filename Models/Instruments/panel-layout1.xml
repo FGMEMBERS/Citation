@@ -87,8 +87,8 @@
         <path>Aircraft/Citation/Models/Instruments/TDR-94/ctl92-transponder.xml</path>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.214</y-m>
-            <z-m>0.079</z-m>
+            <y-m>0.207</y-m>
+            <z-m>0.086</z-m>
         </offsets>
         <overlay>
             <texture>ctl92_grey.png</texture>
@@ -133,7 +133,7 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.204</y-m>
+            <y-m>0.207</y-m>
             <z-m>0.338</z-m>
         </offsets>
     </model>
@@ -170,7 +170,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>0.422</y-m>
-            <z-m>0.336</z-m>
+            <z-m>0.338</z-m>
         </offsets>
     </model>
 
@@ -209,8 +209,8 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.206</y-m>
-            <z-m>0.2505</z-m>
+            <y-m>0.207</y-m>
+            <z-m>0.254</z-m>
         </offsets>
     </model>
 
@@ -230,7 +230,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>0.422</y-m>
-            <z-m>0.169</z-m>
+            <z-m>0.170</z-m>
         </offsets>
     </model>
 
@@ -250,12 +250,12 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>0.422</y-m>
-            <z-m>0.250</z-m>
+            <z-m>0.254</z-m>
         </offsets>
     </model>
 
     <model>
-        <name>AD600</name>
+        <name>AD600-1</name>
         <path>Aircraft/Citation/Models/Instruments/AD600.xml</path>
         <overlay>
             <power>systems/electrical/outputs/AC-26V/ac-adi1</power>
@@ -265,10 +265,11 @@
             <fd-on>instrumentation/AD600[0]/fd-on</fd-on>
             <fd-roll-deg>instrumentation/AD600[0]/fd-roll-deg</fd-roll-deg>
             <fd-pitch-deg>instrumentation/AD600[0]/fd-pitch-deg</fd-pitch-deg>
+            <selected-nav>/instrumentation/hsi[0]/selected-nav</selected-nav>
             <valid-loc>instrumentation/AD600[0]/valid-loc</valid-loc>
-            <deflection-loc>instrumentation/nav/vor-loc-deflection</deflection-loc>
+            <deflection-loc>instrumentation/AD600[0]/loc-deflection</deflection-loc>
             <valid-gs>instrumentation/AD600[0]/valid-gs</valid-gs>
-            <deflection-gs>instrumentation/nav/vor-gs-deflection</deflection-gs>
+            <deflection-gs>instrumentation/AD600[0]/gs-deflection</deflection-gs>
             <valid-aoa>instrumentation/AD600[0]/valid-aoa</valid-aoa>
             <alpha-deg>instrumentation/AD600[0]/alpha-deg</alpha-deg>
             <turn-spin>instrumentation/AD600[0]/turn-spin</turn-spin>
@@ -284,12 +285,32 @@
     </model>
 
     <model>
-        <name>ai-2</name>
-        <path>Aircraft/Citation/Models/Instruments/ai.xml</path>
+        <name>AD600-2</name>
+        <path>Aircraft/Citation/Models/Instruments/AD600.xml</path>
+        <overlay>
+            <power>systems/electrical/outputs/AC-26V/ac-adi2</power>
+            <spin>instrumentation/AD600[1]/spin</spin>
+            <roll-deg>instrumentation/attitude-indicator[1]/indicated-roll-deg</roll-deg>
+            <pitch-deg>instrumentation/attitude-indicator[1]/indicated-pitch-deg</pitch-deg>
+            <fd-on>instrumentation/AD600[1]/fd-on</fd-on>
+            <fd-roll-deg>instrumentation/AD600[1]/fd-roll-deg</fd-roll-deg>
+            <fd-pitch-deg>instrumentation/AD600[1]/fd-pitch-deg</fd-pitch-deg>
+            <selected-nav>/instrumentation/hsi[1]/selected-nav</selected-nav>
+            <valid-loc>instrumentation/AD600[1]/valid-loc</valid-loc>
+            <deflection-loc>instrumentation/AD600[1]/loc-deflection</deflection-loc>
+            <valid-gs>instrumentation/AD600[1]/valid-gs</valid-gs>
+            <deflection-gs>instrumentation/AD600[1]/gs-deflection</deflection-gs>
+            <valid-aoa>instrumentation/AD600[1]/valid-aoa</valid-aoa>
+            <alpha-deg>instrumentation/AD600[1]/alpha-deg</alpha-deg>
+            <turn-spin>instrumentation/AD600[1]/turn-spin</turn-spin>
+            <turn-rate>instrumentation/AD600[1]/turn-rate</turn-rate>
+            <altitude-agl>instrumentation/AD600[1]/altitude-agl</altitude-agl>
+            <slip-skid>instrumentation/slip-skid-ball/indicated-slip-skid</slip-skid>
+        </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.312</y-m>
-            <z-m>0.322</z-m>
+            <y-m>0.314</y-m>
+            <z-m>0.313</z-m>
         </offsets>
     </model>
 
@@ -297,27 +318,20 @@
       <name>hsi-1</name>
       <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
       <overlay>
-        <volts>/instrumentation/hsi[0]/volts</volts>
-        <bearing-deg>/instrumentation/hsi[0]/bearing-deg</bearing-deg>
-        <heading-deg>/instrumentation/hsi[0]/heading-deg</heading-deg>
-        <hsi-gs-deflection>/instrumentation/hsi[0]/hsi-gs-deflection</hsi-gs-deflection>
-        <hsi-loc-deflection>/instrumentation/hsi[0]/hsi-loc-deflection</hsi-loc-deflection>
+        <power>systems/electrical/outputs/AC-26V/ac-hsi1</power>
+        <heading-deg>instrumentation/hsi[0]/heading-deg</heading-deg>
+        <bearing-deg>instrumentation/hsi[0]/bearing-deg</bearing-deg>
+        <loc-deflection>instrumentation/hsi[0]/loc-deflection</loc-deflection>
+        <gs-deflection>instrumentation/hsi[0]/gs-deflection</gs-deflection>
         <inputs>
-          <from-flag>/instrumentation/hsi[0]/inputs/from-flag</from-flag>
-          <gs-needle-deflection>/instrumentation/hsi[0]/inputs/gs-needle-deflection</gs-needle-deflection>
-          <hsi-gs-deflection>/instrumentation/hsi[0]/inputs/hsi-gs-deflection</hsi-gs-deflection>
-          <has-gs>/instrumentation/hsi[0]/inputs/has-gs</has-gs>
-          <heading-deg>/instrumentation/hsi[0]/inputs/heading-deg</heading-deg>
-          <heading-filtered-deg>/instrumentation/hsi[0]/inputs/heading-filtered-deg</heading-filtered-deg>
-          <heading-needle-deflection>/instrumentation/hsi[0]/inputs/heading-needle-deflection</heading-needle-deflection>
-          <hsi-loc-deflection>/instrumentation/hsi[0]/inputs/hsi-loc-deflection</hsi-loc-deflection>
-          <in-range>/instrumentation/hsi[0]/inputs/in-range</in-range>
-          <nav-distance>/instrumentation/hsi[0]/inputs/nav-distance</nav-distance>
+          <in-range>instrumentation/hsi[0]/inputs/in-range</in-range>
+          <from-flag>instrumentation/hsi[0]/inputs/from-flag</from-flag>
+          <to-flag>instrumentation/hsi[0]/inputs/to-flag</to-flag>
+          <nav-distance>instrumentation/hsi[0]/inputs/nav-distance</nav-distance>
           <radials>
-            <selected-deg>/instrumentation/hsi[0]/inputs/radials/selected-deg</selected-deg>
-            <selected-filtered-deg>/instrumentation/hsi[0]/inputs/radials/selected-filtered-deg</selected-filtered-deg>
+            <selected-deg>instrumentation/hsi[0]/inputs/radials/selected-deg</selected-deg>
+            <selected-filtered-deg>instrumentation/hsi[0]/inputs/radials/selected-filtered-deg</selected-filtered-deg>
           </radials>
-          <to-flag>/instrumentation/hsi[0]/inputs/to-flag</to-flag>
         </inputs>
       </overlay>
       <offsets>
@@ -331,33 +345,26 @@
       <name>hsi-2</name>
       <path>Aircraft/Citation/Models/Instruments/hsi.xml</path>
       <overlay>
-        <volts>/instrumentation/hsi[1]/volts</volts>
-        <bearing-deg>/instrumentation/hsi[1]/bearing-deg</bearing-deg>
-        <heading-deg>/instrumentation/hsi[1]/heading-deg</heading-deg>
-        <hsi-gs-deflection>/instrumentation/hsi[1]/hsi-gs-deflection</hsi-gs-deflection>
-        <hsi-loc-deflection>/instrumentation/hsi[1]/hsi-loc-deflection</hsi-loc-deflection>
+        <power>systems/electrical/outputs/AC-26V/ac-hsi2</power>
+        <heading-deg>instrumentation/hsi[1]/heading-deg</heading-deg>
+        <bearing-deg>instrumentation/hsi[1]/bearing-deg</bearing-deg>
+        <loc-deflection>instrumentation/hsi[1]/loc-deflection</loc-deflection>
+        <gs-deflection>instrumentation/hsi[1]/gs-deflection</gs-deflection>
         <inputs>
-          <from-flag>/instrumentation/hsi[1]/inputs/from-flag</from-flag>
-          <gs-needle-deflection>/instrumentation/hsi[1]/inputs/gs-needle-deflection</gs-needle-deflection>
-          <hsi-gs-deflection>/instrumentation/hsi[1]/inputs/hsi-gs-deflection</hsi-gs-deflection>
-          <has-gs>/instrumentation/hsi[1]/inputs/has-gs</has-gs>
-          <heading-deg>/instrumentation/hsi[1]/inputs/heading-deg</heading-deg>
-          <heading-filtered-deg>/instrumentation/hsi[1]/inputs/heading-filtered-deg</heading-filtered-deg>
-          <heading-needle-deflection>/instrumentation/hsi[1]/inputs/heading-needle-deflection</heading-needle-deflection>
-          <hsi-loc-deflection>/instrumentation/hsi[1]/inputs/hsi-loc-deflection</hsi-loc-deflection>
-          <in-range>/instrumentation/hsi[1]/inputs/in-range</in-range>
-          <nav-distance>/instrumentation/hsi[1]/inputs/nav-distance</nav-distance>
+          <in-range>instrumentation/hsi[1]/inputs/in-range</in-range>
+          <from-flag>instrumentation/hsi[1]/inputs/from-flag</from-flag>
+          <to-flag>instrumentation/hsi[1]/inputs/to-flag</to-flag>
+          <nav-distance>instrumentation/hsi[1]/inputs/nav-distance</nav-distance>
           <radials>
-            <selected-deg>/instrumentation/hsi[1]/inputs/radials/selected-deg</selected-deg>
-            <selected-filtered-deg>/instrumentation/hsi[1]/inputs/radials/selected-filtered-deg</selected-filtered-deg>
+            <selected-deg>instrumentation/hsi[1]/inputs/radials/selected-deg</selected-deg>
+            <selected-filtered-deg>instrumentation/hsi[1]/inputs/radials/selected-filtered-deg</selected-filtered-deg>
           </radials>
-          <to-flag>/instrumentation/hsi[1]/inputs/to-flag</to-flag>
         </inputs>
       </overlay>
       <offsets>
         <x-m>0</x-m>
-        <y-m>0.312</y-m>
-        <z-m>0.200</z-m>
+        <y-m>0.314</y-m>
+        <z-m>0.176</z-m>
       </offsets>
     </model>
 
@@ -405,7 +412,7 @@
         <offsets>
             <x-m>0</x-m>
             <y-m>0.207</y-m>
-            <z-m>0.161</z-m>
+            <z-m>0.170</z-m>
         </offsets>
     </model>
 
@@ -494,8 +501,8 @@
         </overlay>
         <offsets>
             <x-m>0</x-m>
-            <y-m>0.312</y-m>
-            <z-m>0.126</z-m>
+            <y-m>0.314</y-m>
+            <z-m>0.100</z-m>
         </offsets>
     </model>
 

@@ -98,7 +98,7 @@ GNU General Public License for more details.
             </condition>
             <property>instrumentation/nav[0]/heading-needle-deflection</property>
         </input>
-        <input><value>0.0</value></input>
+        <input>0.0</input>
         <min>-4.0</min>
         <max>4.0</max>
         <output>instrumentation/nav[0]/heading-needle-deflection-40</output>
@@ -114,13 +114,61 @@ GNU General Public License for more details.
             </condition>
             <property>instrumentation/nav[0]/heading-needle-deflection</property>
         </input>
-        <input><value>0.0</value></input>
+        <input>0.0</input>
         <min>-1.6</min>
         <max>1.6</max>
         <output>instrumentation/nav[0]/heading-needle-deflection-16</output>
     </filter>
 
-<!-- NAV0: deflection filter for mechanical needles -->
+    <filter>
+        <name>NAV0 curse deflection max 0.8 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/in-range</property>
+            </condition>
+            <property>instrumentation/nav[0]/heading-needle-deflection</property>
+        </input>
+        <input>0.0</input>
+        <min>-0.8</min>
+        <max>0.8</max>
+        <output>instrumentation/nav[0]/heading-needle-deflection-08</output>
+    </filter>
+
+    <filter>
+        <name>NAV0 glide slope deflection max 2.0 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/gs-in-range</property>
+            </condition>
+            <property>instrumentation/nav[0]/gs-needle-deflection</property>
+        </input>
+        <input>0.0</input>
+        <min>-2.0</min>
+        <max>2.0</max>
+        <output>instrumentation/nav[0]/gs-needle-deflection-20</output>
+    </filter>
+
+    <filter>
+        <name>NAV0 glide slope deflection max 0.4 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[0]/gs-in-range</property>
+            </condition>
+            <property>instrumentation/nav[0]/gs-needle-deflection</property>
+        </input>
+        <input>0.0</input>
+        <min>-0.4</min>
+        <max>0.4</max>
+        <output>instrumentation/nav[0]/gs-needle-deflection-04</output>
+    </filter>
+
+<!-- CDI0: deflection filter for mechanical needles -->
 
     <filter>
         <name>NAV0 curse deflection for VOR lowpass</name>
@@ -151,8 +199,8 @@ GNU General Public License for more details.
                 </div>
             </expression>
         </input>
-        <input><value>0.0</value></input>
-        <output>instrumentation/nav[0]/vor-loc-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/nav[0]/cdi-loc-deflection</output>
     </filter>
 
     <filter>
@@ -164,12 +212,10 @@ GNU General Public License for more details.
             <condition>
                 <property>instrumentation/nav[0]/gs-in-range</property>
             </condition>
-            <property>instrumentation/nav[0]/gs-needle-deflection</property>
+            <property>instrumentation/nav[0]/gs-needle-deflection-20</property>
         </input>
-        <input><value>0.0</value></input>
-        <min>-4.0</min>
-        <max>4.0</max>
-        <output>instrumentation/nav[0]/vor-gs-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/nav[0]/cdi-gs-deflection</output>
     </filter>
 
 <!-- NAV1: maximum curse deflections -->
@@ -184,7 +230,7 @@ GNU General Public License for more details.
             </condition>
             <property>instrumentation/nav[1]/heading-needle-deflection</property>
         </input>
-        <input><value>0.0</value></input>
+        <input>0.0</input>
         <min>-4.0</min>
         <max>4.0</max>
         <output>instrumentation/nav[1]/heading-needle-deflection-40</output>
@@ -200,13 +246,61 @@ GNU General Public License for more details.
             </condition>
             <property>instrumentation/nav[1]/heading-needle-deflection</property>
         </input>
-        <input><value>0.0</value></input>
+        <input>0.0</input>
         <min>-1.6</min>
         <max>1.6</max>
         <output>instrumentation/nav[1]/heading-needle-deflection-16</output>
     </filter>
 
-<!-- NAV1: deflection filter for mechanical needles -->
+    <filter>
+        <name>NAV1 curse deflection max 0.8 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/in-range</property>
+            </condition>
+            <property>instrumentation/nav[1]/heading-needle-deflection</property>
+        </input>
+        <input>0.0</input>
+        <min>-0.8</min>
+        <max>0.8</max>
+        <output>instrumentation/nav[1]/heading-needle-deflection-08</output>
+    </filter>
+
+    <filter>
+        <name>NAV1 glide slope deflection max 2.0 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/gs-in-range</property>
+            </condition>
+            <property>instrumentation/nav[1]/gs-needle-deflection</property>
+        </input>
+        <input>0.0</input>
+        <min>-2.0</min>
+        <max>2.0</max>
+        <output>instrumentation/nav[1]/gs-needle-deflection-20</output>
+    </filter>
+
+    <filter>
+        <name>NAV1 glide slope deflection max 0.4 deg</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <input>
+            <condition>
+                <property>instrumentation/nav[1]/gs-in-range</property>
+            </condition>
+            <property>instrumentation/nav[1]/gs-needle-deflection</property>
+        </input>
+        <input>0.0</input>
+        <min>-0.4</min>
+        <max>0.4</max>
+        <output>instrumentation/nav[1]/gs-needle-deflection-04</output>
+    </filter>
+
+<!-- CDI1: deflection filter for mechanical needles -->
 
     <filter>
         <name>NAV1 curse deflection for VOR lowpass</name>
@@ -237,8 +331,8 @@ GNU General Public License for more details.
                 </div>
             </expression>
         </input>
-        <input><value>0.0</value></input>
-        <output>instrumentation/nav[1]/vor-loc-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/nav[1]/cdi-loc-deflection</output>
     </filter>
 
     <filter>
@@ -252,81 +346,9 @@ GNU General Public License for more details.
             </condition>
             <property>instrumentation/nav[1]/gs-needle-deflection</property>
         </input>
-        <input><value>0.0</value></input>
-        <min>-4.0</min>
-        <max>4.0</max>
-        <output>instrumentation/nav[1]/vor-gs-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/nav[1]/cdi-gs-deflection</output>
     </filter>
-
-  <!-- AI: filter for mechanical needles -->
-
-  <filter>
-    <name>AI0 localizer lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[0]/in-range</property>
-      </condition>
-      <property>instrumentation/nav[0]/heading-needle-deflection</property>
-    </input>
-    <input><value>0.0</value></input>
-    <min>-5.0</min>
-    <max>5.0</max>
-    <output>instrumentation/nav[0]/ai-loc-deflection</output>
-  </filter>
-
-  <filter>
-    <name>AI0 glideslope lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[0]/gs-in-range</property>
-      </condition>
-      <property>instrumentation/nav[0]/gs-needle-deflection</property>
-    </input>
-    <input><value>0.0</value></input>
-    <min>-2.0</min>
-    <max>2.0</max>
-    <output>instrumentation/nav[0]/ai-gs-deflection</output>
-  </filter>
-
-  <filter>
-    <name>AI1 localizer lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[1]/in-range</property>
-      </condition>
-      <property>instrumentation/nav[1]/heading-needle-deflection</property>
-    </input>
-    <input><value>0.0</value></input>
-    <min>-5.0</min>
-    <max>5.0</max>
-    <output>instrumentation/nav[1]/ai-loc-deflection</output>
-  </filter>
-
-  <filter>
-    <name>AI1 glideslope lowpass</name>
-    <debug>false</debug>
-    <type>exponential</type>
-    <filter-time>0.2</filter-time>
-    <input>
-      <condition>
-        <property>instrumentation/nav[1]/gs-in-range</property>
-      </condition>
-      <property>instrumentation/nav[1]/gs-needle-deflection</property>
-    </input>
-    <input><value>0.0</value></input>
-    <min>-2.0</min>
-    <max>2.0</max>
-    <output>instrumentation/nav[1]/ai-gs-deflection</output>
-  </filter>
 
 <!-- HSI0: filter for mechanical needles and electrical supported parts-->
 
@@ -342,11 +364,11 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <greater-than>
-                    <property>instrumentation/hsi[0]/volts</property>
+                    <property>systems/electrical/outputs/AC-26V/ac-hsi1</property>
                     <value>20.0</value>
                 </greater-than>
             </condition>
-            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+            <property>instrumentation/heading-indicator[0]/indicated-heading-deg</property>
         </input>
         <input>instrumentation/hsi[0]/heading-deg</input>
         <output>instrumentation/hsi[0]/heading-deg</output>
@@ -365,7 +387,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[0]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi1</property>
                         <value>20.0</value>
                     </greater-than>
                     <property>instrumentation/hsi[0]/inputs/in-range</property>
@@ -379,7 +401,7 @@ GNU General Public License for more details.
                             <property>instrumentation/heading-indicator/indicated-heading-deg</property>
                         </dif>
                         <property>instrumentation/hsi[0]/inputs/heading-deg</property>
-                        <property>instrumentation/heading-indicator/offset-deg</property>
+                        <property>instrumentation/heading-indicator[0]/offset-deg</property>
                         <value>0.5</value>
                     </sum>
                 </floor>
@@ -388,7 +410,7 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <greater-than>
-                    <property>instrumentation/hsi[0]/volts</property>
+                    <property>systems/electrical/outputs/AC-26V/ac-hsi1</property>
                     <value>20.0</value>
                 </greater-than>
             </condition>
@@ -420,7 +442,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[0]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi1</property>
                         <value>20.0</value>
                     </greater-than>
                     <not><property>instrumentation/hsi[0]/inputs/frequencies/is-localizer-frequency</property></not>
@@ -437,7 +459,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[0]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi1</property>
                         <value>20.0</value>
                     </greater-than>
                     <property>instrumentation/hsi[0]/inputs/frequencies/is-localizer-frequency</property>
@@ -450,8 +472,8 @@ GNU General Public License for more details.
                 </div>
             </expression>
         </input>
-        <input><value>0.0</value></input>
-        <output>instrumentation/hsi[0]/hsi-loc-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/hsi[0]/loc-deflection</output>
     </filter>
 
     <filter>
@@ -463,18 +485,16 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[0]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi1</property>
                         <value>20.0</value>
                     </greater-than>
                     <property>instrumentation/hsi[0]/inputs/gs-in-range</property>
                 </and>
             </condition>
-            <property>instrumentation/hsi[0]/inputs/gs-needle-deflection</property>
+            <property>instrumentation/hsi[0]/inputs/gs-needle-deflection-04</property>
         </input>
-        <input><value>0.0</value></input>
-        <min>-1.0</min>
-        <max>1.0</max>
-        <output>instrumentation/hsi[0]/hsi-gs-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/hsi[0]/gs-deflection</output>
     </filter>
 
 <!-- HSI1: filter for mechanical needles and electrical supported parts-->
@@ -491,11 +511,11 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <greater-than>
-                    <property>instrumentation/hsi[1]/volts</property>
+                    <property>systems/electrical/outputs/AC-26V/ac-hsi2</property>
                     <value>20.0</value>
                 </greater-than>
             </condition>
-            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+            <property>instrumentation/heading-indicator[1]/indicated-heading-deg</property>
         </input>
         <input>instrumentation/hsi[1]/heading-deg</input>
         <output>instrumentation/hsi[1]/heading-deg</output>
@@ -514,7 +534,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[1]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi2</property>
                         <value>20.0</value>
                     </greater-than>
                     <property>instrumentation/hsi[1]/inputs/in-range</property>
@@ -525,10 +545,10 @@ GNU General Public License for more details.
                     <sum>
                         <dif>
                             <value>360</value>
-                            <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+                            <property>instrumentation/heading-indicator[1]/indicated-heading-deg</property>
                         </dif>
                         <property>instrumentation/hsi[1]/inputs/heading-deg</property>
-                        <property>instrumentation/heading-indicator/offset-deg</property>
+                        <property>instrumentation/heading-indicator[1]/offset-deg</property>
                         <value>0.5</value>
                     </sum>
                 </floor>
@@ -537,7 +557,7 @@ GNU General Public License for more details.
         <input>
             <condition>
                 <greater-than>
-                    <property>instrumentation/hsi[1]/volts</property>
+                    <property>systems/electrical/outputs/AC-26V/ac-hsi2</property>
                     <value>20.0</value>
                 </greater-than>
             </condition>
@@ -569,7 +589,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[1]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi2</property>
                         <value>20.0</value>
                     </greater-than>
                     <not><property>instrumentation/hsi[1]/inputs/frequencies/is-localizer-frequency</property></not>
@@ -586,7 +606,7 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[1]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi2</property>
                         <value>20.0</value>
                     </greater-than>
                     <property>instrumentation/hsi[1]/inputs/frequencies/is-localizer-frequency</property>
@@ -599,8 +619,8 @@ GNU General Public License for more details.
                 </div>
             </expression>
         </input>
-        <input><value>0.0</value></input>
-        <output>instrumentation/hsi[1]/hsi-loc-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/hsi[1]/loc-deflection</output>
     </filter>
 
     <filter>
@@ -612,18 +632,16 @@ GNU General Public License for more details.
             <condition>
                 <and>
                     <greater-than>
-                        <property>instrumentation/hsi[1]/volts</property>
+                        <property>systems/electrical/outputs/AC-26V/ac-hsi2</property>
                         <value>20.0</value>
                     </greater-than>
                     <property>instrumentation/hsi[1]/inputs/gs-in-range</property>
                 </and>
             </condition>
-            <property>instrumentation/hsi[1]/inputs/gs-needle-deflection</property>
+            <property>instrumentation/hsi[1]/inputs/gs-needle-deflection-04</property>
         </input>
-        <input><value>0.0</value></input>
-        <min>-1.0</min>
-        <max>1.0</max>
-        <output>instrumentation/hsi[1]/hsi-gs-deflection</output>
+        <input>0.0</input>
+        <output>instrumentation/hsi[1]/gs-deflection</output>
     </filter>
 
   <!-- Comm-Radios: rebuild the behavior of audio-btn without touching the volume -->
@@ -1073,5 +1091,41 @@ GNU General Public License for more details.
     <input>0</input>
     <output>controls/engines/engine[1]/turbine/warn</output>
   </filter>
+
+<!-- AOA sensor -->
+
+    <filter>
+        <name>aoa</name>
+        <debug>false</debug>
+        <type>exponential</type>
+        <filter-time>0.2</filter-time>
+        <input>
+            <condition>
+                <less-than-equals>
+                    <property>velocities/airspeed-kt</property>
+                    <value>40</value>
+                </less-than-equals>
+            </condition>
+            <expression>
+                <product>
+                    <div>
+                        <property>velocities/airspeed-kt</property>
+                        <value>40.0</value>
+                    </div>
+                    <property>orientation/alpha-deg</property>
+                </product>
+            </expression>
+        </input>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>velocities/airspeed-kt</property>
+                    <value>40</value>
+                </greater-than>
+            </condition>
+            <property>orientation/alpha-deg</property>
+        </input>
+        <output>instrumentation/aoa/alpha-deg</output>
+    </filter>
 
 </PropertyList>
