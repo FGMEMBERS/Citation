@@ -101,92 +101,6 @@
     </offsets>
   </model>
 
-  <!-- Chrome Effect! -->
-  <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome-interior</inherits-from>
-    <object-name>Cupholder</object-name>
-    <object-name>FD.AirCond.outlet</object-name>
-    <object-name>Ashtray</object-name>
-    <object-name>speedBrake.swSafety</object-name>
-    <object-name>MapLights</object-name>
-    <object-name>MapLights.inside</object-name>
-    <object-name>MapLights.Bulb</object-name>
-    <object-name>CutOffLock01</object-name>
-    <object-name>ThrRevLever01</object-name>
-    <object-name>ThrRevLink01</object-name>
-    <object-name>CutOffLock02</object-name>
-    <object-name>ThrRevLever02</object-name>
-    <object-name>ThrRevLink02</object-name>
-  </effect>
-
-  <!-- cockpit shadows -->
-  <effect>
-    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>Ashtray</object-name>
-    <object-name>AuxGear.Panel</object-name>
-    <object-name>AuxGearLever</object-name>
-    <object-name>cab.altitude</object-name>
-    <object-name>cab.rate-of-change</object-name>
-    <object-name>Console</object-name>
-    <object-name>Cupholder</object-name>
-    <object-name>CutOffLock01</object-name>
-    <object-name>CutOffLock02</object-name>
-    <object-name>DirtMats</object-name>
-    <object-name>EBrake</object-name>
-    <object-name>ElevTrim.IndicHousing</object-name>
-    <object-name>ElevTrim.Indicator</object-name>
-    <object-name>ElevTrim.Wheel</object-name>
-    <object-name>EmerDump</object-name>
-    <object-name>env.ballance.knob</object-name>
-    <object-name>env.source.knob</object-name>
-    <object-name>env.temp.knob</object-name>
-    <object-name>env.temp.sw</object-name>
-    <object-name>FD.AirCond.outlet</object-name>
-    <object-name>FD.AirConditioning</object-name>
-    <object-name>Flap.indicator</object-name>
-    <object-name>FlapLever</object-name>
-    <object-name>flightdeck</object-name>
-    <object-name>flightdeck.Floor</object-name>
-    <object-name>flightdeck.feetRoom</object-name>
-    <object-name>glareshield</object-name>
-    <object-name>PedalLH</object-name>
-    <object-name>PedalRH</object-name>
-    <object-name>MapLights</object-name>
-    <object-name>MapLights.Bulb</object-name>
-    <object-name>MapLights.inside</object-name>
-    <object-name>Panel</object-name>
-    <object-name>Pbrake.lever</object-name>
-    <object-name>plaquette</object-name>
-    <object-name>Seats.pilots</object-name>
-    <object-name>Seats.pilots.armrests</object-name>
-    <object-name>Seats.pilots.base</object-name>
-    <object-name>Seats.pilots.cover</object-name>
-    <object-name>Seats.pilots.headrest</object-name>
-    <object-name>speedBrake.switch</object-name>
-    <object-name>speedBrake.swSafety</object-name>
-    <object-name>ThrLever01</object-name>
-    <object-name>ThrLever02</object-name>
-    <object-name>ThrRevLever01</object-name>
-    <object-name>ThrRevLever02</object-name>
-    <object-name>ThrRevLink01</object-name>
-    <object-name>ThrRevLink02</object-name>
-    <object-name>Yoke</object-name>
-    <object-name>YokeLH</object-name>
-    <object-name>YokeRH</object-name>
-    <object-name>pilot</object-name>
-    <object-name>copilot</object-name>
-    <object-name>panel1</object-name>
-  </effect>
-
-
-
-
-
-
-
-
-
-
   <animation>
     <type>select</type>
     <object-name>ThrRevLever01</object-name>
@@ -1206,6 +1120,82 @@
     </emission>
   </animation>
 
+  <!-- Chrome Effect! -->
+  <effect>
+    <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome-interior</inherits-from>
+    <object-name>Cupholder</object-name>
+    <object-name>FD.AirCond.outlet</object-name>
+    <object-name>Ashtray</object-name>
+    <object-name>speedBrake.swSafety</object-name>
+    <object-name>MapLights</object-name>
+    <object-name>MapLights.inside</object-name>
+    <object-name>MapLights.Bulb</object-name>
+    <object-name>CutOffLock01</object-name>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <object-name>CutOffLock02</object-name>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink02</object-name>
+  </effect>
+
+  <!-- cockpit shadows -->
+  <effect>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>Ashtray</object-name>
+    <object-name>AuxGear.Panel</object-name>
+    <object-name>AuxGearLever</object-name>
+    <object-name>cab.altitude</object-name>
+    <object-name>cab.rate-of-change</object-name>
+    <object-name>Console</object-name>
+    <object-name>Cupholder</object-name>
+    <object-name>CutOffLock01</object-name>
+    <object-name>CutOffLock02</object-name>
+    <object-name>DirtMats</object-name>
+    <object-name>EBrake</object-name>
+    <object-name>ElevTrim.IndicHousing</object-name>
+    <object-name>ElevTrim.Indicator</object-name>
+    <object-name>ElevTrim.Wheel</object-name>
+    <object-name>EmerDump</object-name>
+    <object-name>env.ballance.knob</object-name>
+    <object-name>env.source.knob</object-name>
+    <object-name>env.temp.knob</object-name>
+    <object-name>env.temp.sw</object-name>
+    <object-name>FD.AirCond.outlet</object-name>
+    <object-name>FD.AirConditioning</object-name>
+    <object-name>Flap.indicator</object-name>
+    <object-name>FlapLever</object-name>
+    <object-name>flightdeck</object-name>
+    <object-name>flightdeck.Floor</object-name>
+    <object-name>flightdeck.feetRoom</object-name>
+    <object-name>glareshield</object-name>
+    <object-name>PedalLH</object-name>
+    <object-name>PedalRH</object-name>
+    <object-name>MapLights</object-name>
+    <object-name>MapLights.Bulb</object-name>
+    <object-name>MapLights.inside</object-name>
+    <object-name>Panel</object-name>
+    <object-name>Pbrake.lever</object-name>
+    <object-name>plaquette</object-name>
+    <object-name>Seats.pilots</object-name>
+    <object-name>Seats.pilots.armrests</object-name>
+    <object-name>Seats.pilots.base</object-name>
+    <object-name>Seats.pilots.cover</object-name>
+    <object-name>Seats.pilots.headrest</object-name>
+    <object-name>speedBrake.switch</object-name>
+    <object-name>speedBrake.swSafety</object-name>
+    <object-name>ThrLever01</object-name>
+    <object-name>ThrLever02</object-name>
+    <object-name>ThrRevLever01</object-name>
+    <object-name>ThrRevLever02</object-name>
+    <object-name>ThrRevLink01</object-name>
+    <object-name>ThrRevLink02</object-name>
+    <object-name>Yoke</object-name>
+    <object-name>YokeLH</object-name>
+    <object-name>YokeRH</object-name>
+    <object-name>pilot</object-name>
+    <object-name>copilot</object-name>
+    <object-name>panel1</object-name>
+  </effect>
 
     <!-- copy&paste template
     <object-name></object-name>
