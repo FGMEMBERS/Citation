@@ -256,6 +256,23 @@
 
 <!-- Anti Ice Switches-->
 
+  <animation>
+    <type>rotate</type>
+    <object-name>elec.antiice.bleed.sw</object-name>
+    <property>controls/anti-ice/window-heat-sw</property>
+    <factor>20</factor>
+    <center>
+      <x-m>0.00225</x-m>
+      <y-m>0.05810</y-m>
+      <z-m>-0.0413</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
 <!-- Light and Gyro Switches -->
   <animation>
     <type>rotate</type>
@@ -1165,11 +1182,71 @@
   </animation>
 
   <animation>
-    <type>select</type>
+    <type>pick</type>
     <object-name>elec.antiice.bleed.sw</object-name>
-    <condition>
-      <property>sim/time/elapsed-sec</property>
-    </condition>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <less-than>
+            <property>controls/anti-ice/window-heat-sw</property>
+            <value>1</value>
+          </less-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/anti-ice/window-heat-sw</property>
+        <step>1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>elec.antiice.bleed.sw</tooltip-id>
+        <label>Windshield bleed air: %s</label>
+        <mapping>nasal</mapping>
+        <script>
+          var modes = ['OFF', 'HI', 'LOW'];
+          return modes[arg[0]];
+        </script>
+        <property>controls/anti-ice/window-heat-sw</property>
+      </binding>
+    </hovered>
+  </animation>
+
+
+  <animation>
+    <type>pick</type>
+    <object-name>elec.antiice.bleed.sw</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <greater-than>
+            <property>controls/anti-ice/window-heat-sw</property>
+            <value>-1</value>
+          </greater-than>
+        </condition>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/anti-ice/window-heat-sw</property>
+        <step>-1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
   </animation>
 
   <animation>

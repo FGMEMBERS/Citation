@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <author>Curt Olson - Syd Adams - Ludovic Brenta - chris_blues - Sascha Reißner</author>
     <flight-model>yasim</flight-model>
 
-    <aircraft-version>4.2.10</aircraft-version>
+    <aircraft-version>4.3</aircraft-version>
     <minimum-fg-version>2017.2.0</minimum-fg-version>
     <status>production</status>
     <rating>
@@ -429,7 +429,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <property-rule n="112">
         <path>Aircraft/Citation/Models/Instruments/AD600-filters.xml</path>
       </property-rule>
-
+      <property-rule n="113">
+        <path>Aircraft/Citation/Systems/icing.xml</path>
+      </property-rule>
     </systems>
 
     <sound>
@@ -766,6 +768,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <!-- aircraft specific loading -->
 
   <controls>
+    <anti-ice>
+      <window-heat-sw type="int">0</window-heat-sw>
+    </anti-ice>
     <human-models type="bool">true</human-models>
     <fuelSet type="bool">false</fuelSet>
     <gear>
