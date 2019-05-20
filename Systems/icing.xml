@@ -118,7 +118,7 @@
         </product>
       </expression>
     </input>
-    <gain>-100</gain>
+    <gain>-0.01</gain>
     <!-- because relative-humidity is a percentage and negative temp gives positive icing -->
     <output>environment/aircraft-effects/target-frost-level</output>
     <min>0.0</min>
