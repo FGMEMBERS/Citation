@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PropertyList>
+
+  <path>vor.ac</path>
+
+  <animation>
+    <type>select</type>
+    <object-name>vor.flag.off</object-name>
+    <condition>
+      <not>
+        <property>instrumentation/nav/in-range</property>
+      </not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>vor.flag.from</object-name>
+    <condition>
+      <property>instrumentation/nav/from-flag</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>vor.flag.to</object-name>
+    <condition>
+      <property>instrumentation/nav/to-flag</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>vor.needle.loc</object-name>
+    <property>instrumentation/nav/cdi-loc-deflection</property>
+    <interpolation>
+      <entry><ind>-1.0</ind><dep>-38.0</dep></entry>
+      <entry><ind>-0.8</ind><dep>-32.0</dep></entry>
+      <entry><ind>-0.6</ind><dep>-25.5</dep></entry>
+      <entry><ind>-0.4</ind><dep>-18.0</dep></entry>
+      <entry><ind>-0.2</ind><dep>-10.0</dep></entry>
+      <entry><ind>0.2</ind><dep>10.0</dep></entry>
+      <entry><ind>0.4</ind><dep>18.0</dep></entry>
+      <entry><ind>0.6</ind><dep>25.5</dep></entry>
+      <entry><ind>0.8</ind><dep>32.0</dep></entry>
+      <entry><ind>1.0</ind><dep>38.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0215</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>vor.needle.gs</object-name>
+    <property>instrumentation/nav/cdi-gs-deflection</property>
+    <interpolation>
+      <entry><ind>-2.0</ind><dep>-38.0</dep></entry>
+      <entry><ind>-1.6</ind><dep>-32.0</dep></entry>
+      <entry><ind>-1.2</ind><dep>-25.5</dep></entry>
+      <entry><ind>-0.8</ind><dep>-18.0</dep></entry>
+      <entry><ind>-0.4</ind><dep>-10.0</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>0.4</ind><dep>10.0</dep></entry>
+      <entry><ind>0.8</ind><dep>18.0</dep></entry>
+      <entry><ind>1.2</ind><dep>25.5</dep></entry>
+      <entry><ind>1.6</ind><dep>32.0</dep></entry>
+      <entry><ind>2.0</ind><dep>38.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>-0.0215</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>vor.bezel</object-name>
+    <object-name>vor.marker</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>vor.face</object-name>
+    <object-name>vor.flag.off</object-name>
+    <object-name>vor.flag.from</object-name>
+    <object-name>vor.flag.to</object-name>
+    <object-name>vor.needle.gs</object-name>
+    <object-name>vor.needle.loc</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>vor.bezel</object-name>
+    <object-name>vor.face</object-name>
+    <object-name>vor.flag.off</object-name>
+    <object-name>vor.flag.from</object-name>
+    <object-name>vor.flag.to</object-name>
+    <object-name>vor.marker</object-name>
+    <object-name>vor.needle.gs</object-name>
+    <object-name>vor.needle.loc</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vor.glass</object-name>
+  </effect>
+
+</PropertyList>
+

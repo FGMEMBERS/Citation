@@ -13,7 +13,7 @@
 
   <!-- Chrome Effect for interior parts -->
   <effect>
-    <inherits-from>Models/Effects/citationII-chrome-interior</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/citationII-chrome-interior</inherits-from>
     <object-name>Ladder.lRope</object-name>
     <object-name>Ladder.rRope</object-name>
     <object-name>RfrshmntCntr.handles</object-name>
@@ -26,9 +26,9 @@
     <object-name>Cabin.MapLights.Bulb</object-name>
   </effect>
 
-  <!-- cockpit shadows -->
+  <!-- cabin shadows -->
   <effect>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-cabin</inherits-from>
     <object-name>Cabin</object-name>
     <object-name>Cabin.AftComp.Door</object-name>
     <object-name>Cabin.Cupholders</object-name>
@@ -77,15 +77,16 @@
   <animation>
     <type>rotate</type>
     <object-name>Cabin.door1</object-name>
-    <property>sim/multiplay/generic/float</property>
+    <object-name>Door.handle</object-name>
+    <property>controls/cabin-door/position-norm</property>
     <factor>120</factor>
     <axis>
-      <x1-m>4.071</x1-m>
-      <y1-m>-0.768</y1-m>
-      <z1-m>0.617</z1-m>
-      <x2-m>4.071</x2-m>
-      <y2-m>-0.769</y2-m>
-      <z2-m>0.397</z2-m>
+      <x1-m>4.100</x1-m>
+      <y1-m>-0.755</y1-m>
+      <z1-m>0.600</z1-m>
+      <x2-m>4.100</x2-m>
+      <y2-m>-0.755</y2-m>
+      <z2-m>0.400</z2-m>
     </axis>
   </animation>
 
@@ -95,7 +96,7 @@
     <object-name>Ladder.rRope</object-name>
     <condition>
       <greater-than>
-        <property>sim/multiplay/generic/float</property>
+        <property>controls/cabin-door/position-norm</property>
         <value>0.9</value>
       </greater-than>
     </condition>
@@ -104,7 +105,8 @@
   <animation>
     <type>rotate</type>
     <object-name>Ladder</object-name>
-    <property>sim/multiplay/generic/float</property>
+    <object-name>Ladder.rubbermats</object-name>
+    <property>controls/cabin-door/position-norm</property>
     <interpolation>
       <entry><ind>0.0</ind><dep> 140</dep></entry>
       <entry><ind>0.1</ind><dep> 140</dep></entry>
@@ -565,14 +567,10 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/electric/circuit-breakers/bus-left/cb-light-cabin-ind</property>
+      <property>systems/electrical/outputs/main-left/light-indirect</property>
       <greater-than>
         <property>controls/lighting/cabin-lights-norm</property>
 	<value>0.05</value>
-      </greater-than>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/left</property>
-        <value>20</value>
       </greater-than>
     </condition>
     <object-name>Cabin</object-name>
@@ -695,14 +693,10 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/electric/circuit-breakers/bus-right/cb-light-cabin-read</property>
+      <property>systems/electrical/outputs/main-right/light-cabin</property>
       <greater-than>
         <property>controls/lighting/cabin-lights-norm</property>
         <value>0.35</value>
-      </greater-than>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>20</value>
       </greater-than>
     </condition>
     <object-name>Cabin.MapLights.Bulb</object-name>
@@ -717,14 +711,10 @@
   <animation>
     <type>material</type>
     <condition>
-      <property>controls/electric/circuit-breakers/bus-right/cb-light-cabin-read</property>
+      <property>systems/electrical/outputs/main-right/light-cabin</property>
       <greater-than>
         <property>controls/lighting/cabin-lights-norm</property>
 	<value>0.35</value>
-      </greater-than>
-      <greater-than>
-        <property>systems/electrical/outputs/bus/right</property>
-        <value>20</value>
       </greater-than>
     </condition>
     <object-name>Cabin.MapLights.ins</object-name>

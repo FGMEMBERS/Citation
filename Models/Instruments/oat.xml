@@ -1,6 +1,53 @@
 <PropertyList>
 
-<path>oat.ac</path>
+  <path>oat.ac</path>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>oat.needle</object-name>
+    <property>environment/temperature-degc</property>
+    <interpolation>
+      <entry><ind>-60</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>130</dep></entry>
+      <entry><ind>60</ind><dep>260</dep></entry>
+    </interpolation>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>oat.bezel</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+<!-- Instrument Lights -->
+<!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>oat.face</object-name>
+    <object-name>oat.needle</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+    </emission>
+  </animation>
 
   <effect>
     <condition>
@@ -9,26 +56,15 @@
 	<value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>OAT</object-name>
-    <object-name>OAT.face</object-name>
-    <object-name>OAT.needle</object-name>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>oat.bezel</object-name>
+    <object-name>oat.face</object-name>
+    <object-name>oat.needle</object-name>
   </effect>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>OAT.needle</object-name>
-        <property>environment/temperature-degc</property>
-            <interpolation>
-            <entry><ind>-60</ind><dep>0</dep></entry>
-            <entry><ind>0</ind><dep>129</dep></entry>
-            <entry><ind>60</ind><dep>257.5</dep></entry>
-        </interpolation>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z></z>
-        </axis>
-    </animation>
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>oat.glass</object-name>
+  </effect>
 
 </PropertyList>

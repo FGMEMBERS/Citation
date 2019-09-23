@@ -45,7 +45,7 @@ GNU General Public License for more details.
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/lighting/beacon</property>
+      <property>controls/lighting/beacon-switch</property>
       <value>1</value>
     </binding>
   </item>
@@ -54,13 +54,13 @@ GNU General Public License for more details.
     <value>ON</value>
     <condition>
       <equals>
-        <property>controls/lighting/strobe</property>
+        <property>controls/lighting/strobe-switch</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/lighting/strobe</property>
+      <property>controls/lighting/strobe-switch</property>
       <value>1</value>
     </binding>
   </item>
@@ -69,13 +69,13 @@ GNU General Public License for more details.
     <value>ON</value>
     <condition>
       <equals>
-        <property>controls/lighting/nav-lights</property>
+        <property>controls/lighting/nav-lights-switch</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/lighting/nav-lights</property>
+      <property>controls/lighting/nav-lights-switch</property>
       <value>1</value>
     </binding>
   </item>
@@ -84,13 +84,13 @@ GNU General Public License for more details.
     <value>ON</value>
     <condition>
       <equals>
-        <property>controls/lighting/landing-light[0]</property>
+        <property>controls/lighting/landing-light-switch[0]</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/lighting/landing-light[0]</property>
+      <property>controls/lighting/landing-light-switch[0]</property>
       <value>1</value>
     </binding>
   </item>
@@ -99,13 +99,13 @@ GNU General Public License for more details.
     <value>ON</value>
     <condition>
       <equals>
-        <property>controls/lighting/landing-light[1]</property>
+        <property>controls/lighting/landing-light-switch[1]</property>
         <value>1</value>
       </equals>
     </condition>
     <binding>
       <command>property-assign</command>
-      <property>controls/lighting/landing-light[1]</property>
+      <property>controls/lighting/landing-light-switch[1]</property>
       <value>1</value>
     </binding>
   </item>

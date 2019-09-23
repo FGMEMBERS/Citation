@@ -9,19 +9,33 @@
         <object-name>IntLight.CenterPanel.Cone</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-emer/cb-light-emer</property>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>2.0</value>
                 </greater-than>
+                <property>systems/electrical/outputs/battery-hot/light-emer</property>
+                <or>
+                    <and>
+                        <or>
+                            <property>controls/engines/engine[0]/starter</property>
+                            <property>engines/engine[0]/started</property>
+                        </or>
+                        <not><property>engines/engine[1]/started</property></not>
+                    </and>
+                    <and>
+                        <or>
+                            <property>controls/engines/engine[1]/starter</property>
+                            <property>engines/engine[1]/started</property>
+                        </or>
+                        <not><property>engines/engine[0]/started</property></not>
+                    </and>
+                </or>
+                <less-than>
+                    <property>controls/lighting/center-panel-light-emission</property>
+                    <value>0.5</value>
+                </less-than>
             </and>
-	    <not>
-	      <and>
-	        <property>engines/engine/started</property>
-	        <property>engines/engine[1]/started</property>
-	      </and>
-	    </not>
         </condition>
     </animation>
 
@@ -59,6 +73,13 @@
 		<b>0.3</b>
 		<a>1</a>
 	</specular>
+	<dim-factor>
+		<property>systems/electrical/outputs/battery-hot/light-emer</property>
+		<factor>0.0125</factor>
+		<offset>0</offset>
+		<min>0</min>
+		<max>0.3</max>
+	</dim-factor>
 	<attenuation>
 		<c>0.0</c>
 		<l>3</l>
@@ -68,4 +89,5 @@
 	<near-m>0.001</near-m>
 	<far-m>2</far-m>
     </animation>
- </PropertyList>
+
+</PropertyList>

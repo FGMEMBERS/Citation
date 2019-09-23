@@ -20,10 +20,10 @@
    <texture n="3">
     <type>cubemap</type>
     <images>
-     <positive-x>Effects/glass/refl_cube_back.png</positive-x>
-     <negative-x>Effects/glass/refl_cube_front.png</negative-x>
-     <positive-y>Effects/glass/refl_cube_left.png</positive-y>
-     <negative-y>Effects/glass/refl_cube_right.png</negative-y>
+     <positive-x>Effects/glass/refl_cube_left.png</positive-x>
+     <negative-x>Effects/glass/refl_cube_right.png</negative-x>
+     <positive-y>Effects/glass/refl_cube_back.png</positive-y>
+     <negative-y>Effects/glass/refl_cube_front.png</negative-y>
      <positive-z>Effects/glass/refl_cube_up.png</positive-z>
      <negative-z>Effects/glass/refl_cube_down.png</negative-z>
     </images>

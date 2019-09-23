@@ -5,36 +5,79 @@ Citation magnetic compass
 -->
 <PropertyList>
 
-<path>magcompass.ac</path>
+  <path>magcompass.ac</path>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>magcompass.rose</object-name>
+    <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+    <axis>
+      <x>0.0</x>
+      <y>0.0</y>
+      <z>1.0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>magcompass.housing</object-name>
+    <object-name>magcompass.holding</object-name>
+    <object-name>magcompass.white</object-name>
+    <object-name>magcompass.red1</object-name>
+    <object-name>magcompass.red2</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-ambient-light-environment</factor-prop>
+    </emission>
+  </animation>
+
+  <!-- Instrument Lights -->
+  <!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>magcompass.rose</object-name>
+    <object-name>magcompass.sight</object-name>
+    <emission>
+      <red>1</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-instrument-emission</factor-prop>
+    </emission>
+  </animation>
 
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>compassrose</object-name>
-    <object-name>magcompass</object-name>
-    <object-name>magcompass.002</object-name>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>magcompass.housing</object-name>
+    <object-name>magcompass.holding</object-name>
+    <object-name>magcompass.rose</object-name>
     <object-name>magcompass.sight</object-name>
+    <object-name>magcompass.white</object-name>
+    <object-name>magcompass.red1</object-name>
+    <object-name>magcompass.red2</object-name>
   </effect>
 
-    <animation>
-        <type>rotate</type>
-        <object-name>compassrose</object-name>
-        <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
-        <axis>
-            <x>0.0</x>
-            <y>0.0</y>
-            <z>1.0</z>
-        </axis>
-        <center>
-            <x-m>0</x-m>
-            <y-m>0</y-m>
-            <z-m>0</z-m>
-        </center>
-    </animation>
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>magcompass.glass</object-name>
+  </effect>
 
 </PropertyList>

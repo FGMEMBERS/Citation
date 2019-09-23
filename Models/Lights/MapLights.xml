@@ -2,24 +2,20 @@
 
 <PropertyList>
 
- <path>coneMapLights.ac</path>
+    <path>coneMapLights.ac</path>
 
-     <animation>
+    <animation>
         <type>select</type>
         <object-name>IntLight.MapLightLeft.cone</object-name>
         <object-name>IntLight.MapLightRight.cone</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
-		<property>controls/lighting/map-lights</property>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <property>systems/electrical/outputs/main-right-xover/light-panel-right</property>
+                <property>controls/lighting/map-lights</property>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/right</property>
-                    <value>20</value>
                 </greater-than>
             </and>
         </condition>
@@ -59,6 +55,13 @@
 		<b>0.3</b>
 		<a>1</a>
 	</specular>
+	<dim-factor>
+		<property>controls/lighting/map-lights-emission</property>
+		<factor>1</factor>
+		<offset>0</offset>
+		<min>0</min>
+		<max>30</max>
+	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
 		<l>2</l>
@@ -102,6 +105,13 @@
 		<b>0.3</b>
 		<a>1</a>
 	</specular>
+	<dim-factor>
+		<property>controls/lighting/map-lights-emission</property>
+		<factor>1</factor>
+		<offset>0</offset>
+		<min>0</min>
+		<max>30</max>
+	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
 		<l>2</l>
@@ -112,4 +122,4 @@
 	<far-m>2</far-m>
     </animation>
 
- </PropertyList>
+</PropertyList>

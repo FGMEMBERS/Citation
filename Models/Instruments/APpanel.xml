@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<!--
+Author : Syd Adams
+Autopilot Controller
+-->
+<PropertyList>
+
+  <path>APpanel.ac</path>
+
+  <animation>
+    <type>select</type>
+    <object-name>ap.on.btn</object-name>
+    <condition>
+      <or>
+        <not><property>systems/electrical/outputs/main-left-xover/dc-ap</property></not>
+        <property>autopilot/locks/passive-mode</property>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>ap.yd.btn</object-name>
+    <condition>
+      <or>
+        <not><property>systems/electrical/outputs/main-left-xover/dc-ap</property></not>
+        <not><property>autopilot/locks/yaw-damper</property></not>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>ap.low.btn</object-name>
+    <condition>
+      <or>
+        <not><property>systems/electrical/outputs/main-left-xover/dc-ap</property></not>
+        <greater-than>
+          <property>autopilot/settings/bank-limit</property>
+          <value>20</value>
+        </greater-than>
+      </or>
+    </condition>
+  </animation>
+
+<!-- hotspots -->
+  <animation>
+    <type>pick</type>
+    <object-name>ap.on.btn</object-name>
+    <object-name>ap.on.lit</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <condition>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        </condition>
+        <command>nasal</command>
+        <script>
+          var fd_enabled = getprop ("/autopilot/locks/passive-mode");
+          if (fd_enabled) {
+            setprop ("autopilot/locks/heading", "wing-leveler");
+            setprop ("autopilot/locks/altitude", "pitch-hold");
+          }
+          else {
+            setprop ("autopilot/locks/heading", "");
+            setprop ("autopilot/locks/altitude", "");
+          }
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>AP-on</tooltip-id>
+        <label>A/P: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/passive-mode</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ap.yd.btn</object-name>
+    <object-name>ap.yd.lit</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <condition>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        </condition>
+        <command>property-toggle</command>
+        <property>autopilot/locks/yaw-damper</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>YD-on</tooltip-id>
+        <label>A/P: Yaw damper: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/yaw-damper</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ap.low.btn</object-name>
+    <object-name>ap.low.lit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        </condition>
+        <command>nasal</command>
+        <script>
+          if(getprop("autopilot/settings/bank-limit") > 20){
+            setprop("autopilot/locks/lowbank", "true");
+            setprop("autopilot/settings/bank-limit", 14);
+          }else{
+            setprop("autopilot/locks/lowbank", "false");
+            setprop("autopilot/settings/bank-limit", 27);
+          }
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>lowBank-on</tooltip-id>
+        <label>A/P: low bank: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/lowbank</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ap.pitch</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>1</step>
+	<min>-30</min>
+        <max>30</max>
+      </binding>
+      <!--<hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>VS-on</tooltip-id>
+          <label>A/P: Pitch: %.3f</label>
+          <property>autopilot/settings/target-pitch-deg</property>
+        </binding>
+      </hovered>-->
+
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>1000</step>
+	<min>1000</min>
+        <max>43000</max>
+      </binding>
+      <!--<hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>VS-on</tooltip-id>
+          <label>A/P: Target Altitude: %d ft</label>
+          <property>autopilot/settings/target-altitude-ft</property>
+        </binding>
+      </hovered>-->
+
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/vertical-speed-fpm</property>
+	<step>100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
+      <!--<hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>VS-on</tooltip-id>
+          <label>A/P: vertical speed: %d ft/min</label>
+          <property>autopilot/settings/vertical-speed-fpm</property>
+        </binding>
+      </hovered>-->
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ap.pitch</object-name>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.1</interval-sec>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>-1</step>
+	<min>-30</min>
+	<max>30</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>-1000</step>
+	<min>1000</min>
+	<max>43000</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/vertical-speed-fpm</property>
+	<step>-100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ap.pitch</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>-1</step>
+	<min>-30</min>
+	<max>30</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>-1000</step>
+	<min>1000</min>
+	<max>43000</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/vertical-speed-fpm</property>
+	<step>-100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>ap.pitch</object-name>
+    <action>
+      <button>4</button>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>pitch-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-pitch-deg</property>
+	<step>1</step>
+	<min>-30</min>
+	<max>30</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>altitude-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/target-altitude-ft</property>
+	<step>1000</step>
+	<min>1000</min>
+	<max>43000</max>
+      </binding>
+      <binding>
+	<condition>
+	  <equals>
+	    <property>autopilot/locks/altitude</property>
+	    <value>vertical-speed-hold</value>
+	  </equals>
+	</condition>
+        <command>property-adjust</command>
+        <property>autopilot/settings/vertical-speed-fpm</property>
+	<step>100</step>
+	<min>-4000</min>
+	<max>4000</max>
+      </binding>
+    </action>
+  </animation>
+
+  <animation> <!-- Simulate ambient light from panel lights (center console) -->
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>ap.bezel</object-name>
+    <object-name>ap.pitch</object-name>
+    <object-name>ap.roll</object-name>
+    <object-name>ap.on.btn</object-name>
+    <object-name>ap.yd.btn</object-name>
+    <object-name>ap.low.btn</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/flightdeck-average-ambient-light-center-console</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>ap.bezel</object-name>
+    <object-name>ap.pitch</object-name>
+    <object-name>ap.roll</object-name>
+    <object-name>ap.on.btn</object-name>
+    <object-name>ap.yd.btn</object-name>
+    <object-name>ap.low.btn</object-name>
+  </effect>
+
+</PropertyList>

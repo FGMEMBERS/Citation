@@ -92,6 +92,22 @@
 
             <checkbox>
               <halign>left</halign>
+              <label>Remember battery load</label>
+              <enable>
+                <property>/controls/save-state/general</property>
+              </enable>
+              <property>/controls/save-state/battery</property>
+              <live>true</live>
+              <binding>
+                <command>nasal</command>
+                <script>
+                  saveState.switchProp("battery");
+                </script>
+              </binding>
+            </checkbox>
+
+            <checkbox>
+              <halign>left</halign>
               <label>Save radio settings</label>
               <enable>
                 <property>/controls/save-state/general</property>

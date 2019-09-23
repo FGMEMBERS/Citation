@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <!--
+      Citation II autopilot servos
+      Copyright (c) 2019 Sascha Reißner <reiszner@novaplan.at>
+
+      This program is free software; you can redistribute it and/or
+      modify it under the terms of the GNU General Public License
+      as published by the Free Software Foundation; either version 2
+      of the License, or (at your option) any later version.
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+  -->
+
+  <filter>
+    <name>AP servo: aileron</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <feedback-if-disabled>false</feedback-if-disabled>
+    <enable>
+      <condition>
+        <property>systems/electrical/outputs/AC-115V/ac-ap</property>
+        <not><property>autopilot/locks/passive-mode</property></not>
+      </condition>
+    </enable>
+    <input>autopilot/internal/target-aileron</input>
+    <output>controls/flight/aileron</output>
+    <max-rate-of-change>0.1</max-rate-of-change>
+  </filter>
+
+  <filter>
+    <name>AP servo: elevator</name>
+    <debug>false</debug>
+    <type>noise-spike</type>
+    <feedback-if-disabled>false</feedback-if-disabled>
+    <enable>
+      <condition>
+        <property>systems/electrical/outputs/AC-115V/ac-ap</property>
+        <not><property>autopilot/locks/passive-mode</property></not>
+      </condition>
+    </enable>
+    <input>autopilot/internal/target-elevator</input>
+    <output>controls/flight/elevator</output>
+    <max-rate-of-change>0.1</max-rate-of-change>
+  </filter>
+
+<!-- Auto Throttle -->
+  <filter>
+    <name>AP servo: throttle left</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <enable>
+      <condition>
+        <property>systems/electrical/outputs/AC-115V/ac-ap</property>
+        <not><property>autopilot/locks/passive-mode</property></not>
+      </condition>
+    </enable>
+    <input>
+      <expression>
+        <sum>
+          <property>controls/engines/engine[0]/throttle</property>
+          <property>autopilot/internal/servo-throttle</property>
+        </sum>
+      </expression>
+    </input>
+    <output>controls/engines/engine[0]/throttle</output>
+  </filter>
+
+  <filter>
+    <name>AP servo: throttle right</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <enable>
+      <condition>
+        <property>systems/electrical/outputs/AC-115V/ac-ap</property>
+        <not><property>autopilot/locks/passive-mode</property></not>
+      </condition>
+    </enable>
+    <input>
+      <expression>
+        <sum>
+          <property>controls/engines/engine[1]/throttle</property>
+          <property>autopilot/internal/servo-throttle</property>
+        </sum>
+      </expression>
+    </input>
+    <output>controls/engines/engine[1]/throttle</output>
+  </filter>
+
+  <filter>
+    <name>AP servo: power</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+          <product>
+            <property>autopilot/internal/servo-throttle</property>
+            <value>60</value>
+          </product>
+      </expression>
+    </input>
+    <output>systems/electrical/users/AC-115V/ac-ap</output>
+  </filter>
+
+</PropertyList>

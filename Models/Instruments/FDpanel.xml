@@ -1,0 +1,606 @@
+<PropertyList>
+
+  <path>FDpanel.ac</path>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.off.lit</object-name>
+    <object-name>FD.hdg.lit</object-name>
+    <object-name>FD.nav.lit</object-name>
+    <object-name>FD.apr.lit</object-name>
+    <object-name>FD.bc.lit</object-name>
+    <object-name>FD.navsel1.lit</object-name>
+    <object-name>FD.navsel2.lit</object-name>
+    <object-name>FD.alt.lit</object-name>
+    <object-name>FD.altsel.cap</object-name>
+    <object-name>FD.altsel.hld</object-name>
+    <object-name>FD.vnav.lit</object-name>
+    <object-name>FD.vs.lit</object-name>
+    <object-name>FD.ias.cap</object-name>
+    <object-name>FD.ias.hld</object-name>
+    <condition>
+      <property>systems/electrical/outputs/main-left-xover/dc-fd1</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.off.lit</object-name>
+    <condition>
+      <property>autopilot/locks/passive-mode</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.hdg.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/heading</property>
+        <value>dg-heading-hold</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.nav.lit</object-name>
+    <condition>
+      <or>
+        <equals>
+          <property>autopilot/locks/heading</property>
+          <value>nav1-hold</value>
+        </equals>
+        <equals>
+          <property>autopilot/locks/heading</property>
+          <value>nav2-hold</value>
+        </equals>
+        <equals>
+          <property>autopilot/locks/heading</property>
+          <value>true-heading-hold</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.apr.lit</object-name>
+    <condition>
+      <or>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>gs1-hold</value>
+        </equals>
+        <property>autopilot/settings/gs1-arm</property>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.bc.lit</object-name>
+    <condition>
+      <property>instrumentation/nav/back-course-btn</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.navsel1.lit</object-name>
+    <condition>
+      <equals>
+        <property alias="../../../../selected-nav"/>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.navsel2.lit</object-name>
+    <condition>
+      <equals>
+        <property alias="../../../../selected-nav"/>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.alt.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>altitude-hold</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.altsel.cap</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>altitude-hold</value>
+        </equals>
+        <greater-than-equals>
+          <expression>
+            <abs>
+              <difference>
+                <property>autopilot/settings/target-altitude-ft</property>
+                <property>instrumentation/altimeter/indicated-altitude-ft</property>
+              </difference>
+            </abs>
+          </expression>
+          <value type="double">100.0</value>
+        </greater-than-equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.altsel.hld</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>altitude-hold</value>
+        </equals>
+        <less-than-equals>
+          <expression>
+            <abs>
+              <difference>
+                <property>autopilot/settings/target-altitude-ft</property>
+                <property>instrumentation/altimeter/indicated-altitude-ft</property>
+              </difference>
+            </abs>
+          </expression>
+          <value type="double">100.0</value>
+        </less-than-equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.vnav.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>vnav</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.vs.lit</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>vertical-speed-hold</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.ias.cap</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/speed</property>
+        <value>speed-with-throttle</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FD.ias.hld</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/speed</property>
+        <value>speed-with-throttle</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- hotspots -->
+
+  <animation>
+    <type>knob</type>
+    <object-name>FD.knob</object-name>
+    <property>controls/lighting/fdpanel-dim</property>
+    <factor>300</factor>
+    <center>
+      <x-m>0.0040</x-m>
+      <y-m>-0.0407</y-m>
+      <z-m>-0.0139</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/lighting/fdpanel-dim</property>
+        <factor>0.04</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-dim</tooltip-id>
+        <label>FD: Dimming: %d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/lighting/fdpanel-dim</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.off</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>autopilot/locks/passive-mode</property>
+      </binding>
+      <binding>
+        <command>property-set</command>
+        <property>autopilot/settings/gs1-arm</property>
+        <value>0</value>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-off</tooltip-id>
+        <label>Autopilot Disengage: %s</label>
+        <mapping>on-off</mapping>
+        <property>autopilot/locks/passive-mode</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.hdg</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/heading") == "dg-heading-hold")
+            setprop ("autopilot/locks/heading", "wing-leveler");
+          else setprop ("autopilot/locks/heading", "dg-heading-hold");
+          setprop ("autopilot/settings/gs1-arm", 0);
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-hdg</tooltip-id>
+        <label>FD: heading mode: %s</label>
+        <property>autopilot/locks/heading</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.nav</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <!-- State transitions: NAV to GPS to wing leveler to NAV selected by
+             the pilot's HSI; heading hold to NAV selected by the pilot's HSI
+             -->
+        <script>
+          var current_value = getprop ("autopilot/locks/heading");
+          if (current_value == "nav1-hold" or current_value == "nav2-hold") {
+            setprop ("/autopilot/locks/heading", "true-heading-hold");
+          }
+          elsif (current_value == "true-heading-hold") {
+            setprop ("/autopilot/locks/heading", "wing-leveler");
+          }
+          elsif (current_value == "dg-heading-hold" or current_value == "wing-leveler") {
+            var selected_nav = getprop ("/instrumentation/hsi[0]/selected-nav");
+            setprop ("/autopilot/locks/heading", "nav" ~ (selected_nav + 1) ~ "-hold");
+          }
+          setprop ("autopilot/settings/gs1-arm", 0);
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-nav</tooltip-id>
+        <label>FD: NAV mode: %s</label>
+        <property>autopilot/locks/heading</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.apr</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/altitude") == "gs1-hold") {
+            setprop("autopilot/locks/heading","wing-leveler");
+            setprop("autopilot/locks/altitude","pitch-hold");
+            setprop("autopilot/locks/approach-mode", "Locator/Glideslope hold");
+          }
+          else {
+            setprop("autopilot/locks/heading","nav1-hold");
+            if (getprop ("instrumentation/nav[0]/gs-in-range")) {
+              setprop("autopilot/locks/altitude", "gs1-hold");
+              setprop("autopilot/settings/gs1-arm", 0);
+              setprop("autopilot/locks/approach-mode", "Locator/Glideslope stand-by");
+            }
+            else {
+              setprop("autopilot/locks/altitude", "altitude-hold");
+              setprop("autopilot/settings/gs1-arm", 1);
+              setprop("autopilot/locks/approach-mode", "Locator/Glideslope armed");
+            }
+          }
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-appr</tooltip-id>
+        <label>FD: Approach mode: %s</label>
+        <property>autopilot/locks/approach-mode</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.bc</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/nav/back-course-btn</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-bc</tooltip-id>
+        <label>FD: Back course: %s</label>
+        <mapping>on-off</mapping>
+        <property>instrumentation/nav/back-course-btn</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.navsel</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property alias="../../../../selected-nav"/>
+        <!-- This triggers a Nasal listener in citation2.nas to drive the HSI
+             from the selected nav radio. -->
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <!--
+            If autopilot is engaged in NAV mode, set it to follow the VOR beacon
+            selected on the pilot's HSI, in case it has just changed.  If this
+            script is triggered by toggling the copilot's HSI, it has no effect
+            since the pilot's selected nav has not changed.
+        -->
+        <script>
+          var current_mode = getprop ("/autopilot/locks/heading");
+          if (current_mode == "nav1-hold" or current_mode == "nav2-hold") {
+            var selected = getprop ("/instrumentation/hsi[0]/selected-nav");
+            if (selected == 0) {
+              setprop ("/autopilot/locks/heading", "nav1-hold");
+            }
+            elsif (selected == 1) {
+              setprop ("/autopilot/locks/heading", "nav2-hold");
+            }
+          }
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-navsel</tooltip-id>
+        <label>FD: NAV HSI: %s</label>
+        <property>autopilot/locks/heading</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.alt</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/altitude") == "altitude-hold")
+            setprop ("autopilot/locks/altitude", "pitch-hold");
+          else setprop ("autopilot/locks/altitude", "altitude-hold");
+          setprop ("autopilot/settings/gs1-arm", 0);
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-alt</tooltip-id>
+        <label>FD: Altitude mode: %s</label>
+        <property>autopilot/locks/altitude</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.vs</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          if (getprop ("autopilot/locks/altitude") == "vertical-speed-hold")
+            setprop ("autopilot/locks/altitude", "pitch-hold");
+          else setprop ("autopilot/locks/altitude", "vertical-speed-hold");
+          setprop ("autopilot/settings/gs1-arm", 0);
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-vs</tooltip-id>
+        <label>FD: Vertical speed mode: %s</label>
+        <property>autopilot/locks/altitude</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>FD.ias</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-cycle</command>
+        <property>autopilot/locks/speed</property>
+        <value type="string">speed-with-throttle</value>
+        <!-- value type="string">speed-with-pitch-trim</value--> <!-- not supported -->
+        <value type="string"/>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>FD-ias</tooltip-id>
+        <label>FD: Autothrottle: %s</label>
+        <property>autopilot/locks/speed</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>FD.bezel</object-name>
+    <object-name>FD.knob</object-name>
+    <object-name>FD.off</object-name>
+    <object-name>FD.hdg</object-name>
+    <object-name>FD.nav</object-name>
+    <object-name>FD.apr</object-name>
+    <object-name>FD.bc</object-name>
+    <object-name>FD.navsel</object-name>
+    <object-name>FD.alt</object-name>
+    <object-name>FD.altsel</object-name>
+    <object-name>FD.vnav</object-name>
+    <object-name>FD.vs</object-name>
+    <object-name>FD.ias</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+  <!-- dimable lights -->
+  <!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>FD.off.lit</object-name>
+    <object-name>FD.hdg.lit</object-name>
+    <object-name>FD.nav.lit</object-name>
+    <object-name>FD.apr.lit</object-name>
+    <object-name>FD.bc.lit</object-name>
+    <object-name>FD.navsel1.lit</object-name>
+    <object-name>FD.navsel2.lit</object-name>
+    <object-name>FD.alt.lit</object-name>
+    <object-name>FD.altsel.hld</object-name>
+    <object-name>FD.altsel.cap</object-name>
+    <object-name>FD.vnav.lit</object-name>
+    <object-name>FD.vs.lit</object-name>
+    <object-name>FD.ias.hld</object-name>
+    <object-name>FD.ias.cap</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+      <factor-prop>controls/lighting/fdpanel-dim</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>FD.bezel</object-name>
+    <object-name>FD.knob</object-name>
+    <object-name>FD.off</object-name>
+    <object-name>FD.off.lit</object-name>
+    <object-name>FD.hdg</object-name>
+    <object-name>FD.hdg.lit</object-name>
+    <object-name>FD.nav</object-name>
+    <object-name>FD.nav.lit</object-name>
+    <object-name>FD.apr</object-name>
+    <object-name>FD.apr.lit</object-name>
+    <object-name>FD.bc</object-name>
+    <object-name>FD.bc.lit</object-name>
+    <object-name>FD.navsel</object-name>
+    <object-name>FD.navsel1.lit</object-name>
+    <object-name>FD.navsel2.lit</object-name>
+    <object-name>FD.alt</object-name>
+    <object-name>FD.alt.lit</object-name>
+    <object-name>FD.altsel</object-name>
+    <object-name>FD.altsel.cap</object-name>
+    <object-name>FD.altsel.hld</object-name>
+    <object-name>FD.vnav</object-name>
+    <object-name>FD.vnav.lit</object-name>
+    <object-name>FD.vs</object-name>
+    <object-name>FD.vs.lit</object-name>
+    <object-name>FD.ias</object-name>
+    <object-name>FD.ias.cap</object-name>
+    <object-name>FD.ias.hld</object-name>
+  </effect>
+
+</PropertyList>

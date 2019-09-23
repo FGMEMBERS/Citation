@@ -2,7 +2,32 @@
 
 <PropertyList>
 
-  <!-- No need to filter the Flood Lights! They are on emergency bus and have no toggle-switch. -->
+  <!-- No need to filter the Flood Lights! They are on battery-hot bus and have no toggle-switch. -->
+
+  <filter>
+    <name>calculate average ambient light on flightdeck : flood-light</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <property>systems/electrical/outputs/emer/light-flood</property>
+      </condition>
+      <expression>
+        <product>
+          <property>controls/lighting/flood-light-norm</property>
+          <div>
+            <property>systems/electrical/outputs/emer/light-flood</property>
+            <value>24.0</value>
+          </div>
+        </product>
+      </expression>
+      <max>1.0</max>
+    </input>
+    <input>
+      <value>0.0</value>
+    </input>
+    <output>controls/lighting/flood-light-emission</output>
+  </filter>
 
   <filter>
     <name>calculate average ambient light on flightdeck : instrument-light</name>
@@ -11,13 +36,18 @@
     <input>
       <condition>
         <property>controls/lighting/panel-lights-switch</property>
-	<property>controls/electric/circuit-breakers/bus-emer/cb-light-panel-el</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/bus/emer</property>
-	  <value>20</value>
-	</greater-than>
+        <property>systems/electrical/outputs/main-left/light-panel-el</property>
       </condition>
-      <property>controls/lighting/instrument-lights-norm</property>
+      <expression>
+        <product>
+          <property>controls/lighting/instrument-lights-norm</property>
+          <div>
+            <property>systems/electrical/outputs/main-left/light-panel-el</property>
+            <value>24.0</value>
+          </div>
+        </product>
+      </expression>
+      <max>1.0</max>
     </input>
     <input>
       <value>0.0</value>
@@ -31,34 +61,24 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-          <property>engines/engine/started</property>
-          <property>engines/engine[1]/started</property>
-	  <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-center</property>
+        <and>
           <property>controls/lighting/panel-lights-switch</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-	</and>
+          <property>systems/electrical/outputs/main-right-xover/light-panel-center</property>
+        </and>
       </condition>
-      <property>controls/lighting/center-panel-norm</property>
+      <expression>
+        <product>
+          <property>controls/lighting/center-panel-norm</property>
+          <div>
+            <property>systems/electrical/outputs/main-right-xover/light-panel-center</property>
+            <value>24.0</value>
+          </div>
+        </product>
+      </expression>
+      <max>1.0</max>
     </input>
     <input>
-      <condition>
-	<or>
-	  <not>
-	    <property>engines/engine/started</property>
-	  </not>
-	  <not>
-            <property>engines/engine[1]/started</property>
-	  </not>
-	</or>
-      </condition>
-      <value>1.0</value>
-    </input>
-    <input>
-      <value>0.0</value>
+        <value>0.0</value>
     </input>
     <output>controls/lighting/center-panel-light-emission</output>
   </filter>
@@ -69,39 +89,48 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
+        <and>
           <property>controls/lighting/panel-lights-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-left/cb-light-panel-left</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/left</property>
-            <value>20</value>
-          </greater-than>
-	</and>
+          <property>systems/electrical/outputs/main-left/light-panel-left</property>
+        </and>
       </condition>
-      <property>controls/lighting/left-panel-norm</property>
+      <expression>
+        <product>
+          <property>controls/lighting/left-panel-norm</property>
+          <div>
+            <property>systems/electrical/outputs/main-left/light-panel-left</property>
+            <value>24.0</value>
+          </div>
+        </product>
+      </expression>
+      <max>1.0</max>
     </input>
     <input>
       <value>0.0</value>
     </input>
     <output>controls/lighting/left-panel-light-emission</output>
   </filter>
-
   <filter>
     <name>calculate average ambient light on flightdeck : right-panel-light</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
       <condition>
-	<and>
+        <and>
           <property>controls/lighting/panel-lights-switch</property>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-	</and>
+          <property>systems/electrical/outputs/main-right-xover/light-panel-right</property>
+        </and>
       </condition>
-      <property>controls/lighting/right-panel-norm</property>
+      <expression>
+        <product>
+          <property>controls/lighting/right-panel-norm</property>
+          <div>
+            <property>systems/electrical/outputs/main-right-xover/light-panel-right</property>
+            <value>24.0</value>
+          </div>
+        </product>
+      </expression>
+      <max>1.0</max>
     </input>
     <input>
       <value>0.0</value>
@@ -115,16 +144,21 @@
     <type>gain</type>
     <input>
       <condition>
-	<and>
-	  <property>controls/electric/circuit-breakers/bus-right/cb-light-panel-right</property>
+        <and>
           <property>controls/lighting/map-lights</property>
-          <greater-than>
-            <property>systems/electrical/outputs/bus/right</property>
-            <value>20</value>
-          </greater-than>
-	</and>
+          <property>systems/electrical/outputs/main-right-xover/light-panel-right</property>
+        </and>
       </condition>
-      <property>controls/lighting/map-lights</property>
+      <expression>
+        <product>
+          <property>controls/lighting/map-lights</property>
+          <div>
+            <property>systems/electrical/outputs/main-right-xover/light-panel-right</property>
+            <value>24.0</value>
+          </div>
+        </product>
+      </expression>
+      <max>1.0</max>
     </input>
     <input>
       <value>0.0</value>
@@ -150,7 +184,7 @@
 	    <product>
 	      <sum>
                 <property>controls/lighting/map-lights-emission</property>
-	        <property>controls/lighting/flood-light-norm</property>
+	        <property>controls/lighting/flood-light-emission</property>
 	      </sum>
 	      <value>1.2</value>
 	    </product>
@@ -199,7 +233,7 @@
             <property>controls/lighting/right-panel-light-emission</property>
 	    <property>controls/lighting/map-lights-emission</property>
 	    <product>
-	      <property>controls/lighting/flood-light-norm</property>
+	      <property>controls/lighting/flood-light-emission</property>
 	      <value>1.2</value>
 	    </product>
 	  </sum>
@@ -217,6 +251,11 @@
     <debug>false</debug>
     <type>gain</type>
     <input>
+      <condition>
+        <not>
+          <property>sim/rendering/rembrandt/enabled</property>
+        </not>
+      </condition>
       <expression>
 	<sum>
 	  <product>
@@ -235,6 +274,9 @@
           </div>
 	</sum>
       </expression>
+    </input>
+    <input>
+        <property>controls/lighting/instrument-lights-emission</property>
     </input>
     <output>controls/lighting/flightdeck-average-instrument-emission</output>
   </filter>

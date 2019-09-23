@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-  <name type="string" n="1">take-off</name>
+  <name type="string" n="2">take-off</name>
 
   <description>
     You will start the sim in a take-off configuration. Flaps set,
@@ -36,37 +36,39 @@
         <avionics-switch type="bool">true</avionics-switch>
         <battery-bus-switch type="int">1</battery-bus-switch>
         <voltage-sel type="int">0</voltage-sel>
-        <system-test type="int">10</system-test>
+        <system-test-sw type="int">0</system-test-sw>
         <fuel-sel type="int">0</fuel-sel>
         <engine>
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
+          <starter-btn type="bool">false</starter-btn>
         </engine>
         <engine n="1">
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
+          <starter-btn type="bool">false</starter-btn>
         </engine>
       </electric>
 
       <engines>
         <engine n="0">
-          <starter type="bool">false</starter>
-          <fuel-pump type="bool">false</fuel-pump>
           <cutoff type="bool">false</cutoff>
+          <fuel-pump type="bool">false</fuel-pump>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>
-          <ignition type="bool">1</ignition>
+          <ignition-sw type="bool">1</ignition-sw>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle-lever type="double">0.0</throttle-lever>
         </engine>
 
         <engine n="1">
-          <starter type="bool">false</starter>
+          <cutoff type="bool">false</cutoff>
           <fuel-pump type="bool">false</fuel-pump>
-          <cutoff type="bool">true</cutoff>
           <feed_tank type="int">-1</feed_tank>
           <WEP type="bool">false</WEP>
-          <ignition type="bool">1</ignition>
+          <ignition-sw type="bool">1</ignition-sw>
           <reverser type="bool">false</reverser>
-          <throttle type="double">0</throttle>
+          <throttle-lever type="double">0.0</throttle-lever>
         </engine>
       </engines>
 
@@ -76,10 +78,10 @@
 
       <fuel>
         <tank n="0">
-          <boost-pump-switch type="int">0</boost-pump-switch>
+          <boost-pump-switch type="int">-1</boost-pump-switch>
         </tank>
         <tank n="1">
-          <boost-pump-switch type="int">0</boost-pump-switch>
+          <boost-pump-switch type="int">-1</boost-pump-switch>
         </tank>
       </fuel>
 

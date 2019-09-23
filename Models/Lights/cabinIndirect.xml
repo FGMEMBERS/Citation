@@ -2,9 +2,9 @@
 
 <PropertyList>
 
- <path>Models/Lights/cabinIndirect.ac</path>
+    <path>Aircraft/Citation/Models/Lights/cabinIndirect.ac</path>
 
-     <animation>
+    <animation>
         <type>select</type>
         <object-name>IntLight.CabinIndirect.1</object-name>
         <object-name>IntLight.CabinIndirect.2</object-name>
@@ -14,19 +14,15 @@
         <object-name>IntLight.CabinIndirect.6</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-left/cb-light-cabin-ind</property>
-		<greater-than>
-		  <property>controls/lighting/cabin-lights-norm</property>
-		  <value>0.05</value>
-		</greater-than>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <property>systems/electrical/outputs/cabin-lights</property>
+                <greater-than>
+                    <property>controls/lighting/cabin-lights-norm</property>
+                    <value>0.05</value>
+                </greater-than>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/left</property>
-                    <value>20</value>
                 </greater-than>
             </and>
         </condition>
@@ -62,9 +58,8 @@
 		<a>0.7</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <!--factor>3.3</factor-->
-	  <max>1.0</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<max>1.0</max>
 	</dim-factor>
 	<attenuation>
 		<c>5</c>
@@ -105,9 +100,8 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <!--factor>3.3</factor-->
-	  <max>1.0</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<max>1.0</max>
 	</dim-factor>
 	<attenuation>
 		<c>5</c>
@@ -148,9 +142,8 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <!--factor>3.3</factor-->
-	  <max>1.0</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<max>1.0</max>
 	</dim-factor>
 	<attenuation>
 		<c>5</c>
@@ -191,9 +184,8 @@
 		<a>0.7</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <!--factor>3.3</factor-->
-	  <max>1.0</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<max>1.0</max>
 	</dim-factor>
 	<attenuation>
 		<c>5</c>
@@ -234,9 +226,8 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <!--factor>3.3</factor-->
-	  <max>1.0</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<max>1.0</max>
 	</dim-factor>
 	<attenuation>
 		<c>5</c>
@@ -277,9 +268,8 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <!--factor>3.3</factor-->
-	  <max>1.0</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<max>1.0</max>
 	</dim-factor>
 	<attenuation>
 		<c>5</c>
@@ -290,4 +280,4 @@
 	<far-m>1</far-m>
     </animation>
 
- </PropertyList>
+</PropertyList>

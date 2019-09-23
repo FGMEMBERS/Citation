@@ -2,9 +2,9 @@
 
 <PropertyList>
 
- <path>cabinMapLights.ac</path>
+    <path>cabinMapLights.ac</path>
 
-     <animation>
+    <animation>
         <type>select</type>
         <object-name>IntLight.MapLight.1</object-name>
         <object-name>IntLight.MapLight.2</object-name>
@@ -16,19 +16,15 @@
         <object-name>IntLight.MapLight.0</object-name>
         <condition>
             <and>
-		<property>sim/rendering/rembrandt/enabled</property>
-		<property>controls/electric/circuit-breakers/bus-right/cb-light-cabin-read</property>
-		<greater-than>
-		  <property>controls/lighting/cabin-lights-norm</property>
-		  <value>0.35</value>
-		</greater-than>
-		<greater-than>
+                <property>sim/rendering/rembrandt/enabled</property>
+                <property>systems/electrical/outputs/cabin-lights</property>
+                <greater-than>
+                    <property>controls/lighting/cabin-lights-norm</property>
+                    <value>0.35</value>
+                </greater-than>
+                <greater-than>
                     <property>sim/rendering/shaders/lights</property>
                     <value>3.0</value>
-                </greater-than>
-		<greater-than>
-                    <property>systems/electrical/outputs/bus/right</property>
-                    <value>20</value>
                 </greater-than>
             </and>
         </condition>
@@ -69,10 +65,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -118,10 +114,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -167,10 +163,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -216,10 +212,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -265,10 +261,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -314,10 +310,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -363,10 +359,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -412,10 +408,10 @@
 		<a>1</a>
 	</specular>
 	<dim-factor>
-	  <property>controls/lighting/cabin-lights-norm</property>
-	  <factor>0.66</factor>
-	  <min>0</min>
-	  <max>1</max>
+		<property>controls/lighting/cabin-lights-norm</property>
+		<factor>0.66</factor>
+		<min>0</min>
+		<max>1</max>
 	</dim-factor>
 	<attenuation>
 		<c>1.0</c>
@@ -427,4 +423,4 @@
 	<far-m>2</far-m>
     </animation>
 
- </PropertyList>
+</PropertyList>

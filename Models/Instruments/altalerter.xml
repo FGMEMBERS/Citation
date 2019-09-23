@@ -2,40 +2,19 @@
 
   <path>altalerter.ac</path>
 
-  <effect>
-    <condition>
-      <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
-      </greater-than>
-    </condition>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>AAlerter</object-name>
-    <object-name>AAlerter.display</object-name>
-    <object-name>Select.knob</object-name>
-    <object-name>Set.knob</object-name>
-    <object-name>digit1</object-name>
-    <object-name>digit10</object-name>
-    <object-name>digit100</object-name>
-    <object-name>dim.knob</object-name>
-  </effect>
-
   <animation>
     <type>select</type>
-    <object-name>digit100</object-name>
-    <object-name>digit10</object-name>
-    <object-name>digit1</object-name>
+    <object-name>altalerter.digit100</object-name>
+    <object-name>altalerter.digit10</object-name>
+    <object-name>altalerter.digit1</object-name>
     <condition>
-      <greater-than>
-        <property>systems/electrical/ac-volts</property>
-        <value>90</value>
-      </greater-than>
+      <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
     </condition>
   </animation>
 
   <animation>
     <type>textranslate</type>
-    <object-name>digit100</object-name>
+    <object-name>altalerter.digit100</object-name>
     <property>autopilot/settings/target-altitude-ft</property>
     <factor>0.00001</factor>
     <step>10000</step>
@@ -48,7 +27,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>digit10</object-name>
+    <object-name>altalerter.digit10</object-name>
     <property>autopilot/settings/target-altitude-ft</property>
     <factor>0.0001</factor>
     <step>1000</step>
@@ -61,7 +40,7 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>digit1</object-name>
+    <object-name>altalerter.digit1</object-name>
     <property>autopilot/settings/target-altitude-ft</property>
     <factor>0.001</factor>
     <step>100</step>
@@ -76,13 +55,13 @@
 
   <animation>
     <type>knob</type>
-    <object-name>Set.knob</object-name>
+    <object-name>altalerter.set</object-name>
     <property>autopilot/settings/target-altitude-ft</property>
     <value>1</value>
     <center>
-      <x-m>0</x-m>
-      <y-m>0.0178435</y-m>
-      <z-m>-0.0007795</z-m>
+      <x-m>0.0109</x-m>
+      <y-m>0.0178</y-m>
+      <z-m>-0.0010</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -92,11 +71,14 @@
     <factor>1</factor>
     <action>
       <binding>
+        <condition>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        </condition>
         <command>property-adjust</command>
         <property>autopilot/settings/target-altitude-ft</property>
         <factor>100</factor>
         <min>500</min>
-        <max>43000</max>
+        <max>50000</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -109,5 +91,99 @@
       </binding>
     </hovered>
   </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>altalerter.dim</object-name>
+    <property>controls/lighting/altitude-alerter-dim</property>
+    <factor>300</factor>
+    <center>
+      <x-m>0.0027</x-m>
+      <y-m>-0.0184</y-m>
+      <z-m>-0.0097</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/lighting/altitude-alerter-dim</property>
+        <factor>0.04</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>altimeter-dim</tooltip-id>
+        <label>Dimming: %d%%</label>
+        <mapping>percent</mapping>
+        <property>controls/lighting/altitude-alerter-dim</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>altalerter.bezel</object-name>
+    <object-name>altalerter.select</object-name>
+    <object-name>altalerter.set</object-name>
+    <object-name>altalerter.dim</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+  <!-- dimmable lights -->
+  <!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>altalerter.digit100</object-name>
+    <object-name>altalerter.digit10</object-name>
+    <object-name>altalerter.digit1</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+      <factor-prop>controls/lighting/altitude-alerter-dim</factor-prop>
+    </emission>
+  </animation>
+
+  <effect>
+    <condition>
+      <greater-than>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
+      </greater-than>
+    </condition>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>altalerter.bezel</object-name>
+    <object-name>altalerter.display</object-name>
+    <object-name>altalerter.select</object-name>
+    <object-name>altalerter.set</object-name>
+    <object-name>altalerter.dim</object-name>
+    <object-name>altalerter.digit1</object-name>
+    <object-name>altalerter.digit10</object-name>
+    <object-name>altalerter.digit100</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>altalerter.glass</object-name>
+  </effect>
 
 </PropertyList>

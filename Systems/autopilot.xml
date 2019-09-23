@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <!--
+      Citation II autopilot servos
+      Copyright (c) 2019 Sascha Reißner <reiszner@novaplan.at>
+
+      This program is free software; you can redistribute it and/or
+      modify it under the terms of the GNU General Public License
+      as published by the Free Software Foundation; either version 2
+      of the License, or (at your option) any later version.
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+  -->
+
+<!-- Auto Throttle -->
+
+  <filter>
+    <name>AP: throttle</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <condition>
+        <and>
+          <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+          <equals>
+            <property>autopilot/locks/speed</property>
+            <value>speed-with-throttle</value>
+          </equals>
+        </and>
+      </condition>
+      <expression>
+        <dif>
+          <property>autopilot/internal/fd-throttle</property>
+          <div>
+            <sum>
+              <property>controls/engines/engine[0]/throttle</property>
+              <property>controls/engines/engine[1]/throttle</property>
+            </sum>
+            <value>2.0</value>
+          </div>
+        </dif>
+      </expression>
+    </input>
+    <input>0.0</input>
+    <output>autopilot/internal/servo-throttle</output>
+    <min>-0.005</min>
+    <max>0.005</max>
+  </filter>
+
+</PropertyList>

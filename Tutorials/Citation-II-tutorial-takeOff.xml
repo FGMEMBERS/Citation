@@ -35,26 +35,28 @@ GNU General Public License for more details.
     <set>
       <property>/sim/current-view/view-number</property>
       <property>/controls/gear/brake-parking</property>
-      <property>/controls/fuel/tank[0]/boost-pump</property>
-      <property>/controls/fuel/tank[1]/boost-pump</property>
-      <property>/controls/lighting/landing-light[0]</property>
-      <property>/controls/lighting/landing-light[1]</property>
       <value>0</value>
     </set>
     <set>
       <property>/controls/engines/engine[0]/ignition</property>
-      <property>/controls/engines/engine[0]/starter</property>
-      <property>/controls/electric/engine[0]/generator</property>
+      <property>/controls/electric/engine[0]/generator-sw</property>
+      <property>/controls/electric/engine[0]/generator-ready</property>
       <property>/controls/engines/engine[1]/ignition</property>
-      <property>/controls/engines/engine[1]/starter</property>
-      <property>/controls/electric/engine[1]/generator</property>
+      <property>/controls/electric/engine[1]/generator-sw</property>
+      <property>/controls/electric/engine[1]/generator-ready</property>
       <property>/controls/electric/avionics-switch</property>
       <property>/controls/lighting/beacon</property>
       <property>/controls/lighting/strobe</property>
       <property>/controls/lighting/nav-lights</property>
+      <property>/controls/lighting/landing-light[0]</property>
+      <property>/controls/lighting/landing-light[1]</property>
       <value>1</value>
     </set>
-
+    <set>
+      <property>/controls/fuel/tank[0]/boost-pump-switch</property>
+      <property>/controls/fuel/tank[1]/boost-pump-switch</property>
+      <value>-1</value>
+    </set>
   </init>
 
   <step>
@@ -67,9 +69,9 @@ GNU General Public License for more details.
       <heading-offset-deg>349.8</heading-offset-deg>
       <pitch-offset-deg>-25.8</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>29.7</field-of-view>
     </view>
 
@@ -84,19 +86,19 @@ GNU General Public License for more details.
       <condition>
         <and>
           <greater-than>
-            <property>engines/engine[0]/fan</property>
-            <value>95</value>
+            <property>engines/engine[0]/turbine</property>
+            <value>93</value>
           </greater-than>
           <less-than>
-            <property>engines/engine[0]/fan</property>
+            <property>engines/engine[0]/turbine</property>
             <value>96</value>
           </less-than>
           <greater-than>
-            <property>engines/engine[1]/fan</property>
-            <value>95</value>
+            <property>engines/engine[1]/turbine</property>
+            <value>93</value>
           </greater-than>
           <less-than>
-            <property>engines/engine[1]/fan</property>
+            <property>engines/engine[1]/turbine</property>
             <value>96</value>
           </less-than>
         </and>
@@ -111,9 +113,9 @@ GNU General Public License for more details.
       <heading-offset-deg>10.5</heading-offset-deg>
       <pitch-offset-deg>-40.5</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>29.7</field-of-view>
     </view>
 
@@ -139,11 +141,11 @@ GNU General Public License for more details.
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
 
@@ -169,11 +171,11 @@ GNU General Public License for more details.
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
 
@@ -195,139 +197,15 @@ GNU General Public License for more details.
   </step>
 
   <step>
-    <message>Gear up! (press key: g or middle mouse button! Key G or left mouse button brings the gear down again)</message>
-
-    <view>
-      <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
-      <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
-      <field-of-view>75.0</field-of-view>
-    </view>
-
-    <marker>
-      <x-m>2.5223</x-m>
-      <y-m>-0.1575</y-m>
-      <z-m>0.3952</z-m>
-      <scale>3.5041</scale>
-    </marker>
-
-    <exit>
-      <condition>
-        <equals>
-          <property>controls/gear/gear-down</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </exit>
-  </step>
-
-  <step>
-    <message>Accelerate to 180 KIAS! (Don't let the nose raise too much!)</message>
-
-    <view>
-      <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
-      <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
-      <field-of-view>75.0</field-of-view>
-    </view>
-
-    <marker>
-      <x-m>2.4289</x-m>
-      <y-m>-0.4121</y-m>
-      <z-m>0.6737</z-m>
-      <scale>3.9504</scale>
-    </marker>
-
-    <exit>
-      <condition>
-        <greater-than>
-          <property>velocities/airspeed-kt</property>
-          <value>175</value>
-        </greater-than>
-      </condition>
-    </exit>
-  </step>
-
-  <step>
-    <message>Flaps up! (Press "[" )</message>
-
-    <view>
-      <heading-offset-deg>354.4</heading-offset-deg>
-      <pitch-offset-deg>-23.7</pitch-offset-deg>
-      <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
-      <field-of-view>75.0</field-of-view>
-    </view>
-
-    <marker>
-      <x-m>2.6620</x-m>
-      <y-m>0.0400</y-m>
-      <z-m>0.3638</z-m>
-      <scale>3.5041</scale>
-    </marker>
-
-    <exit>
-      <condition>
-        <equals>
-          <property>controls/flight/flaps</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </exit>
-  </step>
-
-  <step>
-    <message>Level off at 6000 ft AGL</message>
-
-    <view>
-      <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
-      <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
-      <field-of-view>75.0</field-of-view>
-    </view>
-
-    <marker>
-      <x-m>2.4284</x-m>
-      <y-m>-0.2126</y-m>
-      <z-m>0.6713</z-m>
-      <scale>3.5041</scale>
-    </marker>
-
-    <exit>
-      <condition>
-        <greater-than>
-          <property>position/altitude-agl-ft</property>
-          <value>5500</value>
-        </greater-than>
-        <less-than>
-          <property>position/altitude-agl-ft</property>
-          <value>6500</value>
-        </less-than>
-      </condition>
-    </exit>
-  </step>
-
-  <step>
     <message>Switch off the landing lights! ( press Ctrl + l )</message>
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
 
@@ -355,15 +233,139 @@ GNU General Public License for more details.
   </step>
 
   <step>
+    <message>Gear up! (press key: g or middle mouse button! Key G or left mouse button brings the gear down again)</message>
+
+    <view>
+      <heading-offset-deg>0.0</heading-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <field-of-view>75.0</field-of-view>
+    </view>
+
+    <marker>
+      <x-m>2.5223</x-m>
+      <y-m>-0.1575</y-m>
+      <z-m>0.3952</z-m>
+      <scale>3.5041</scale>
+    </marker>
+
+    <exit>
+      <condition>
+        <equals>
+          <property>controls/gear/gear-down</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Accelerate to 180 KIAS! (Don't let the nose raise too much!)</message>
+
+    <view>
+      <heading-offset-deg>0.0</heading-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <field-of-view>75.0</field-of-view>
+    </view>
+
+    <marker>
+      <x-m>2.4289</x-m>
+      <y-m>-0.4121</y-m>
+      <z-m>0.6737</z-m>
+      <scale>3.9504</scale>
+    </marker>
+
+    <exit>
+      <condition>
+        <greater-than>
+          <property>velocities/airspeed-kt</property>
+          <value>175</value>
+        </greater-than>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Flaps up! (Press "[" )</message>
+
+    <view>
+      <heading-offset-deg>354.4</heading-offset-deg>
+      <pitch-offset-deg>-23.7</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <field-of-view>75.0</field-of-view>
+    </view>
+
+    <marker>
+      <x-m>2.6620</x-m>
+      <y-m>0.0400</y-m>
+      <z-m>0.3638</z-m>
+      <scale>3.5041</scale>
+    </marker>
+
+    <exit>
+      <condition>
+        <equals>
+          <property>controls/flight/flaps</property>
+          <value>0</value>
+        </equals>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
+    <message>Level off at 6000 ft AGL</message>
+
+    <view>
+      <heading-offset-deg>0.0</heading-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
+      <roll-offset-deg>0.0</roll-offset-deg>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <field-of-view>75.0</field-of-view>
+    </view>
+
+    <marker>
+      <x-m>2.4284</x-m>
+      <y-m>-0.2126</y-m>
+      <z-m>0.6713</z-m>
+      <scale>3.5041</scale>
+    </marker>
+
+    <exit>
+      <condition>
+        <greater-than>
+          <property>position/altitude-agl-ft</property>
+          <value>5800</value>
+        </greater-than>
+        <less-than>
+          <property>position/altitude-agl-ft</property>
+          <value>6200</value>
+        </less-than>
+      </condition>
+    </exit>
+  </step>
+
+  <step>
     <message>Accelerate to 250 KIAS</message>
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
 
@@ -393,11 +395,11 @@ GNU General Public License for more details.
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
 
@@ -423,11 +425,11 @@ GNU General Public License for more details.
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
 
@@ -453,11 +455,11 @@ GNU General Public License for more details.
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
 
@@ -485,9 +487,9 @@ GNU General Public License for more details.
       <heading-offset-deg>7.4</heading-offset-deg>
       <pitch-offset-deg>-23.9</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>22.8</field-of-view>
     </view>
 
@@ -513,9 +515,9 @@ GNU General Public License for more details.
       <heading-offset-deg>356.1</heading-offset-deg>
       <pitch-offset-deg>-24.1</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>22.8</field-of-view>
     </view>
 
@@ -541,9 +543,9 @@ GNU General Public License for more details.
       <heading-offset-deg>312.5</heading-offset-deg>
       <pitch-offset-deg>-62.8</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>22.8</field-of-view>
     </view>
 
@@ -569,9 +571,9 @@ GNU General Public License for more details.
       <heading-offset-deg>332.9</heading-offset-deg>
       <pitch-offset-deg>-44.3</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>22.8</field-of-view>
     </view>
 
@@ -585,11 +587,11 @@ GNU General Public License for more details.
     <condition>
       <and>
         <greater-than>
-          <property>controls/engines/engine[0]/throttle</property>
+          <property>controls/engines/engine[0]/throttle-lever</property>
           <value>0.99</value>
         </greater-than>
         <greater-than>
-          <property>controls/engines/engine[1]/throttle</property>
+          <property>controls/engines/engine[1]/throttle-lever</property>
           <value>0.99</value>
         </greater-than>
       </and>
@@ -603,9 +605,9 @@ GNU General Public License for more details.
       <heading-offset-deg>5.3</heading-offset-deg>
       <pitch-offset-deg>-23.2</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>22.8</field-of-view>
     </view>
 
@@ -631,12 +633,12 @@ GNU General Public License for more details.
 
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
-      <field-of-view>70.0</field-of-view>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
+      <field-of-view>75.0</field-of-view>
     </view>
 
     <marker>
@@ -677,11 +679,11 @@ GNU General Public License for more details.
     <message>Congratulations! You're on your way to FL330. Keep watching your AOA (angle of attack) and airspeed!</message>
     <view>
       <heading-offset-deg>0.0</heading-offset-deg>
-      <pitch-offset-deg>-15.0</pitch-offset-deg>
+      <pitch-offset-deg>-12.0</pitch-offset-deg>
       <roll-offset-deg>0.0</roll-offset-deg>
-      <x-offset-m>-0.3</x-offset-m>
-      <y-offset-m>1.1</y-offset-m>
-      <z-offset-m>3.3</z-offset-m>
+      <x-offset-m>-0.305</x-offset-m>
+      <y-offset-m>0.990</y-offset-m>
+      <z-offset-m>3.170</z-offset-m>
       <field-of-view>75.0</field-of-view>
     </view>
   </end>

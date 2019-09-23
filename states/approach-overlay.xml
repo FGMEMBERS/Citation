@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-  <name type="string" n="1">approach</name>
+  <name type="string" n="4">approach</name>
 
   <description>
     You will start the sim on glide-slope, with flaps APP
@@ -37,7 +37,7 @@
       </settings>
 
       <locks>
-        <passive-mode type="bool">false</passive-mode>
+        <passive-mode type="bool">true</passive-mode>
         <!--<heading type="string">nav1-hold</heading>
         <altitude type="string">gs1-hold</altitude>
         <speed>speed-with-throttle</speed>-->
@@ -59,25 +59,27 @@
         <avionics-switch type="bool">true</avionics-switch>
         <battery-bus-switch type="int">1</battery-bus-switch>
         <voltage-sel type="int">0</voltage-sel>
-        <system-test type="int">10</system-test>
+        <system-test-sw type="int">0</system-test-sw>
         <fuel-sel type="int">0</fuel-sel>
         <engine>
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
         </engine>
         <engine n="1">
-          <generator type="bool">true</generator>
+          <generator-ready type="bool">true</generator-ready>
+          <generator-sw type="int">1</generator-sw>
         </engine>
       </electric>
 
       <engines>
         <engine n="0">
-          <ignition type="bool">1</ignition>
-          <throttle type="double">0.3293094756</throttle>
+          <ignition-sw type="bool">true</ignition-sw>
+          <throttle-lever type="double">0.3293094756</throttle-lever>
         </engine>
 
         <engine n="1">
-          <ignition type="bool">1</ignition>
-          <throttle type="double">0.3293094756</throttle>
+          <ignition-sw type="bool">true</ignition-sw>
+          <throttle-lever type="double">0.3293094756</throttle-lever>
         </engine>
       </engines>
 
@@ -87,10 +89,10 @@
 
       <fuel>
         <tank n="0">
-          <boost-pump-switch type="int">0</boost-pump-switch>
+          <boost-pump-switch type="int">-1</boost-pump-switch>
         </tank>
         <tank n="1">
-          <boost-pump-switch type="int">0</boost-pump-switch>
+          <boost-pump-switch type="int">-1</boost-pump-switch>
         </tank>
       </fuel>
 
@@ -114,7 +116,6 @@
         <right-panel-norm type="double">0.2</right-panel-norm>
       </lighting>
     </controls>
-
 
     <engines>
       <engine>

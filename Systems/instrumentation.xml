@@ -8,44 +8,68 @@ This file selects the instrumentation modules that should be available.
 
 <PropertyList>
 
-    <adf>
-        <name>adf</name>
+    <inst-vertical-speed-indicator>
+        <name>vertical-speed-indicator</name>
         <number>0</number>
-    </adf>
+    </inst-vertical-speed-indicator>
 
     <inst-vertical-speed-indicator>
-        <name>inst-vertical-speed-indicator</name>
-        <number>0</number>
+        <name>vertical-speed-indicator</name>
+        <number>1</number>
     </inst-vertical-speed-indicator>
 
     <airspeed-indicator>
         <name>airspeed-indicator</name>
         <number>0</number>
-        <total-pressure>/systems/pitot/total-pressure-inhg</total-pressure>
-        <static-pressure>/systems/static/pressure-inhg</static-pressure>
+        <total-pressure>/systems/pitot[0]/total-pressure-inhg</total-pressure>
+        <static-pressure>/systems/static[0]/pressure-inhg</static-pressure>
+    </airspeed-indicator>
+
+    <airspeed-indicator>
+        <name>airspeed-indicator</name>
+        <number>1</number>
+        <total-pressure>/systems/pitot[1]/total-pressure-inhg</total-pressure>
+        <static-pressure>/systems/static[1]/pressure-inhg</static-pressure>
     </airspeed-indicator>
 
     <altimeter>
         <name>altimeter</name>
         <number>0</number>
-        <static-pressure>/systems/static/pressure-inhg</static-pressure>
+        <static-pressure>/systems/static[0]/pressure-inhg</static-pressure>
+        <encode-mode-c>false</encode-mode-c>
+        <encode-mode-s>true</encode-mode-s>
+    </altimeter>
+
+    <altimeter>
+        <name>altimeter</name>
+        <number>1</number>
+        <static-pressure>/systems/static[1]/pressure-inhg</static-pressure>
+        <encode-mode-c>false</encode-mode-c>
+        <encode-mode-s>true</encode-mode-s>
     </altimeter>
 
     <attitude-indicator>
         <name>attitude-indicator</name>
         <number>0</number>
-        <suction>/systems/vacuum/suction-inhg</suction>
+        <suction>/systems/electrical/outputs/AC-26V/ac-adi1</suction>
     </attitude-indicator>
 
-    <clock>
-        <name>clock</name>
-        <number>0</number>
-    </clock>
+    <attitude-indicator>
+        <name>attitude-indicator</name>
+        <number>1</number>
+        <suction>/systems/electrical/outputs/AC-26V/ac-adi2</suction>
+    </attitude-indicator>
 
     <heading-indicator>
         <name>heading-indicator</name>
         <number>0</number>
-        <suction>/systems/vacuum/suction-inhg</suction>
+        <suction>/systems/electrical/outputs/AC-26V/ac-hsi1</suction>
+    </heading-indicator>
+
+    <heading-indicator>
+        <name>heading-indicator</name>
+        <number>1</number>
+        <suction>/systems/electrical/outputs/AC-26V/ac-hsi2</suction>
     </heading-indicator>
 
     <heading-indicator-dg>
@@ -63,19 +87,58 @@ This file selects the instrumentation modules that should be available.
         <number>0</number>
     </marker-beacon>
 
+    <clock>
+        <name>clock</name>
+        <number>0</number>
+    </clock>
+
+    <adf>
+        <name>adf</name>
+        <number>0</number>
+        <power-supply>systems/electrical/outputs/adf[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
+    </adf>
+
+    <comm-radio>
+        <name>comm</name>
+        <number>0</number>
+        <power-supply>systems/electrical/outputs/comm[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
+    </comm-radio>
+
+    <comm-radio>
+        <name>comm</name>
+        <number>1</number>
+        <power-supply>systems/electrical/outputs/comm[1]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
+    </comm-radio>
+
     <nav-radio>
         <name>nav</name>
         <number>0</number>
+        <power-supply>systems/electrical/outputs/nav[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </nav-radio>
 
     <nav-radio>
         <name>nav</name>
         <number>1</number>
+        <power-supply>systems/electrical/outputs/nav[1]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </nav-radio>
 
     <dme>
         <name>dme</name>
         <number>0</number>
+        <power-supply>systems/electrical/outputs/dme[0]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
+    </dme>
+
+    <dme>
+        <name>dme</name>
+        <number>1</number>
+        <power-supply>systems/electrical/outputs/dme[1]</power-supply>
+        <minimum-supply-volts>18.0</minimum-supply-volts>
     </dme>
 
     <slip-skid-ball>
@@ -96,10 +159,23 @@ This file selects the instrumentation modules that should be available.
     <transponder>
       <name type="string">transponder</name>
       <number type="int">0</number>
-      <mode type="int">1</mode> <!-- 0 = Mode A, 1 = Mode C, 2 = Mode S -->
+      <mode type="int">2</mode> <!-- 0 = Mode A, 1 = Mode C, 2 = Mode S -->
       <bus-volts type="double">8.0</bus-volts>
       <encoder-path type="string">/instrumentation/altimeter</encoder-path>
       <kt70-compatibility type="bool">0</kt70-compatibility>
+      <power-supply>systems/electrical/outputs/transponder[0]</power-supply>
+      <minimum-supply-volts>20.0</minimum-supply-volts>
+    </transponder>
+
+    <transponder>
+      <name type="string">transponder</name>
+      <number type="int">1</number>
+      <mode type="int">2</mode> <!-- 0 = Mode A, 1 = Mode C, 2 = Mode S -->
+      <bus-volts type="double">8.0</bus-volts>
+      <encoder-path type="string">/instrumentation/altimeter</encoder-path>
+      <kt70-compatibility type="bool">0</kt70-compatibility>
+      <power-supply>systems/electrical/outputs/transponder[1]</power-supply>
+      <minimum-supply-volts>20.0</minimum-supply-volts>
     </transponder>
 
     <mk-viii>

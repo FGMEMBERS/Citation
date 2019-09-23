@@ -4,7 +4,7 @@
   -->
   <model>
     <name>LandingLights</name>
-    <path>Models/Lights/landingLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/landingLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -14,49 +14,39 @@
 
   <model>
     <condition>
-      <not>
-        <property>sim/rendering/shaders/skydome</property>
-      </not>
+      <not><property>sim/rendering/shaders/skydome</property></not>
+      <property>systems/electrical/outputs/landing-light[0]</property>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Left</name>
-    <path>Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
+    <path>Aircraft/Citation/Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
-      <x-m>6.98244</x-m>
-      <y-m>-2.81033</y-m>
-      <z-m>-0.3416805</z-m>
+      <x-m>7.015</x-m>
+      <y-m>-2.85</y-m>
+      <z-m>-0.34</z-m>
       <pitch-deg>-12</pitch-deg>
-      <heading-deg>-4</heading-deg>
+      <heading-deg>-3</heading-deg>
     </offsets>
-    <overlay>
-      <landing-light>sim/multiplay/generic/int[3]</landing-light>
-      <bus-volts>systems/electrical/outputs/bus/left</bus-volts>
-    </overlay>
   </model>
 
   <model>
     <condition>
-      <not>
-        <property>sim/rendering/shaders/skydome</property>
-      </not>
+      <not><property>sim/rendering/shaders/skydome</property></not>
+      <property>systems/electrical/outputs/landing-light[1]</property>
     </condition>
     <name>Landing_Light_Non_Rembrandt_Right</name>
-    <path>Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
+    <path>Aircraft/Citation/Models/Lights/Landing_Lights_Non_Rembrandt.xml</path>
     <offsets>
-      <x-m>6.98244</x-m>
-      <y-m>2.81033</y-m>
-      <z-m>-0.3416805</z-m>
+      <x-m>7.015</x-m>
+      <y-m>2.85</y-m>
+      <z-m>-0.34</z-m>
       <pitch-deg>-12</pitch-deg>
-      <heading-deg>4</heading-deg>
+      <heading-deg>3</heading-deg>
     </offsets>
-    <overlay>
-      <landing-light>sim/multiplay/generic/int[4]</landing-light>
-      <bus-volts>systems/electrical/outputs/bus/right</bus-volts>
-    </overlay>
   </model>
 
   <model>
     <name>StrobeLights</name>
-    <path>Models/Lights/strobeLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/strobeLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -66,7 +56,7 @@
 
   <model>
     <name>NavLights</name>
-    <path>Models/Lights/navLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/navLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -76,7 +66,7 @@
 
   <model>
     <name>RecogLights</name>
-    <path>Models/Lights/recogLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/recogLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -86,7 +76,7 @@
 
   <model>
     <name>BeaconLight</name>
-    <path>Models/Lights/beaconLight.xml</path>
+    <path>Aircraft/Citation/Models/Lights/beaconLight.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -96,7 +86,7 @@
 
   <model>
     <name>WingInspLights</name>
-    <path>Models/Lights/WingInspLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/WingInspLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -109,7 +99,7 @@
   -->
   <model>
     <name>EngInstrLight</name>
-    <path>Models/Lights/EngInstrLight.xml</path>
+    <path>Aircraft/Citation/Models/Lights/EngInstrLight.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -119,7 +109,7 @@
 
   <model>
     <name>FloodLight</name>
-    <path>Models/Lights/FloodLight.xml</path>
+    <path>Aircraft/Citation/Models/Lights/FloodLight.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -129,7 +119,7 @@
 
   <model>
     <name>CenterPanelLightLeft</name>
-    <path>Models/Lights/CenterPanel.xml</path>
+    <path>Aircraft/Citation/Models/Lights/CenterPanel.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -139,7 +129,7 @@
 
   <model>
     <name>LeftPanelLight</name>
-    <path>Models/Lights/LeftPanel.xml</path>
+    <path>Aircraft/Citation/Models/Lights/LeftPanel.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -149,7 +139,7 @@
 
   <model>
     <name>RightPanelLight</name>
-    <path>Models/Lights/RightPanel.xml</path>
+    <path>Aircraft/Citation/Models/Lights/RightPanel.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -158,8 +148,8 @@
   </model>
 
   <model>
-    <name>RightPanelLight</name>
-    <path>Models/Lights/MapLights.xml</path>
+    <name>MapLight</name>
+    <path>Aircraft/Citation/Models/Lights/MapLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -169,7 +159,7 @@
 
   <model>
     <name>cabinIndirectLights</name>
-    <path>Models/Lights/cabinIndirect.xml</path>
+    <path>Aircraft/Citation/Models/Lights/cabinIndirect.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -179,7 +169,7 @@
 
   <model>
     <name>cabinRefrCntrLight</name>
-    <path>Models/Lights/cabinRefrCntr.xml</path>
+    <path>Aircraft/Citation/Models/Lights/cabinRefrCntr.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>
@@ -189,7 +179,7 @@
 
   <model>
     <name>cabinMapLights</name>
-    <path>Models/Lights/cabinMapLights.xml</path>
+    <path>Aircraft/Citation/Models/Lights/cabinMapLights.xml</path>
     <offsets>
       <x-m>0</x-m>
       <y-m>0</y-m>

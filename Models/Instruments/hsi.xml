@@ -5,11 +5,11 @@
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
     <object-name>HSI</object-name>
     <object-name>HSI.card</object-name>
     <object-name>HSI.crs1</object-name>
@@ -27,26 +27,18 @@
     <object-name>HSI.hdgbug</object-name>
     <object-name>HSI.hdgknob</object-name>
     <object-name>HSI.navbrg</object-name>
-    <object-name>Plane.137</object-name>
-    <object-name>fromflag</object-name>
-    <object-name>gs.needle</object-name>
-    <object-name>navflag</object-name>
-    <object-name>toflag</object-name>
+    <object-name>HSI.Plane.137</object-name>
+    <object-name>HSI.fromflag</object-name>
+    <object-name>HSI.gsneedle</object-name>
+    <object-name>HSI.navflag</object-name>
+    <object-name>HSI.toflag</object-name>
   </effect>
 
   <animation>
     <type>select</type>
     <object-name>HSI.dstoff</object-name>
     <condition>
-      <property alias="../../../volts"/>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>gs.needle</object-name>
-    <condition>
-      <property alias="../../../inputs/has-gs"/>
+      <property alias="../../../power"/>
     </condition>
   </animation>
 
@@ -58,31 +50,30 @@
     <object-name>HSI.dst0</object-name>
     <condition>
       <and>
-	<property alias="../../../../volts"/>
-	<property alias="../../../../inputs/in-range"/>
+        <property alias="../../../../power"/>
+        <property alias="../../../../inputs/in-range"/>
       </and>
     </condition>
   </animation>
 
-
   <animation>
     <type>select</type>
-    <object-name>navflag</object-name>
+    <object-name>HSI.navflag</object-name>
     <condition>
       <or>
-	<not>
-	  <property alias="../../../../../volts"/>
-	</not>
-	<not>
-	  <property alias="../../../../../inputs/in-range"/>
-	</not>
+        <not>
+          <property alias="../../../../../power"/>
+        </not>
+        <not>
+          <property alias="../../../../../inputs/in-range"/>
+        </not>
       </or>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>toflag</object-name>
+    <object-name>HSI.toflag</object-name>
     <condition>
       <property alias="../../../inputs/to-flag"/>
     </condition>
@@ -90,7 +81,7 @@
 
   <animation>
     <type>select</type>
-    <object-name>fromflag</object-name>
+    <object-name>HSI.fromflag</object-name>
     <condition>
       <property alias="../../../inputs/from-flag"/>
     </condition>
@@ -101,23 +92,13 @@
     <object-name>HSI.card</object-name>
     <object-name>HSI.crsneedle</object-name>
     <object-name>HSI.crsdeflection</object-name>
-    <object-name>toflag</object-name>
-    <object-name>fromflag</object-name>
-    <property>orientation/heading-magnetic-deg</property>
+    <object-name>HSI.toflag</object-name>
+    <object-name>HSI.fromflag</object-name>
+    <object-name>HSI.hdgbug</object-name>
+    <property alias="../../heading-deg"/>
     <axis>
       <x>1.0</x>
-      <y>0</y>
-      <z>0.0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
-    <object-name>HSI.navbrg</object-name>
-    <property>orientation/heading-deg</property>
-    <axis>
-      <x>1.0</x>
-      <y>0</y>
+      <y>0.0</y>
       <z>0.0</z>
     </axis>
   </animation>
@@ -126,12 +107,12 @@
     <type>rotate</type>
     <object-name>HSI.crsneedle</object-name>
     <object-name>HSI.crsdeflection</object-name>
-    <object-name>toflag</object-name>
-    <object-name>fromflag</object-name>
-    <property alias="../../inputs/radials/selected-deg"/>
+    <object-name>HSI.toflag</object-name>
+    <object-name>HSI.fromflag</object-name>
+    <property alias="../../inputs/radials/selected-filtered-deg"/>
     <axis>
       <x>-1.0</x>
-      <y>0</y>
+      <y>0.0</y>
       <z>0.0</z>
     </axis>
   </animation>
@@ -139,11 +120,10 @@
   <animation>
     <type>translate</type>
     <object-name>HSI.crsdeflection</object-name>
-    <property alias="../../inputs/heading-needle-deflection"/>
+    <property alias="../../loc-deflection"/>
     <interpolation>
-      <entry><ind>-5</ind><dep>-0.0117</dep></entry>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>5</ind><dep>0.0117</dep></entry>
+      <entry><ind>-1.0</ind><dep>-0.0117</dep></entry>
+      <entry><ind>1.0</ind><dep>0.0117</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -155,7 +135,7 @@
   <animation>
     <type>rotate</type>
     <object-name>HSI.hdgbug</object-name>
-    <property>autopilot/internal/heading-bug-error-deg</property>
+    <property>autopilot/settings/heading-bug-deg</property>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -166,7 +146,7 @@
   <animation>
     <type>rotate</type>
     <object-name>HSI.navbrg</object-name>
-    <property alias="../../inputs/heading-deg"/>
+    <property alias="../../bearing-deg"/>
     <axis>
       <x>-1.0</x>
       <y>0</y>
@@ -176,12 +156,12 @@
 
   <animation>
     <type>translate</type>
-    <object-name>gs.needle</object-name>
-    <property alias="../../inputs/gs-needle-deflection"/>
+    <object-name>HSI.gsneedle</object-name>
+    <property alias="../../gs-deflection"/>
     <interpolation>
-      <entry><ind>-2.0</ind><dep>-0.0133</dep></entry>
+      <entry><ind>-0.8</ind><dep>-0.0133</dep></entry>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
-      <entry><ind>2.0</ind><dep>0.0133</dep></entry>
+      <entry><ind>0.8</ind><dep>0.0133</dep></entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -189,6 +169,7 @@
       <z>1</z>
     </axis>
   </animation>
+
   <!-- CRS text-->
 
   <animation>
@@ -197,10 +178,7 @@
     <object-name>HSI.crs10</object-name>
     <object-name>HSI.crs1</object-name>
     <condition>
-      <greater-than>
-        <property>systems/electrical/ac-volts</property>
-        <value>100</value>
-      </greater-than>
+      <property alias="../../../power"/>
     </condition>
   </animation>
 
@@ -300,7 +278,7 @@
   <animation>
     <type>knob</type>
     <object-name>HSI.crsknob</object-name>
-    <property alias="../../inputs/radials/selected-deg"/>
+    <property alias="../../inputs/radials/selected-filtered-deg"/>
     <factor>2</factor>
     <center>
       <x-m>0</x-m>
@@ -328,7 +306,7 @@
         <tooltip-id>hsi-crs</tooltip-id>
         <label>HSI: Course: %3d</label>
         <mapping>heading</mapping>
-        <property>instrumentation/hsi/inputs/radials/selected-deg</property>
+        <property alias="../../../../inputs/radials/selected-deg"/>
       </binding>
     </hovered>
   </animation>

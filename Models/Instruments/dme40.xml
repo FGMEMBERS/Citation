@@ -5,102 +5,169 @@
   <effect>
     <condition>
       <greater-than>
-	<property>sim/version/flightgear</property>
-	<value>3.4.999</value>
+        <property>sim/version/flightgear</property>
+        <value>3.4.999</value>
       </greater-than>
     </condition>
-    <inherits-from>Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
-    <object-name>DME</object-name>
+    <inherits-from>Aircraft/Citation/Models/Effects/interior-shadow/citationII-interior-flightdeck</inherits-from>
+    <object-name>DME.bezel</object-name>
     <object-name>DME.display</object-name>
     <object-name>DME.invalid</object-name>
-    <object-name>DME40.dim</object-name>
-    <object-name>DME40.knob1</object-name>
-    <object-name>DME40.knob2</object-name>
-    <object-name>DME40.test</object-name>
-    <object-name>NM.1</object-name>
-    <object-name>NM1</object-name>
-    <object-name>NM10</object-name>
-    <object-name>NM100</object-name>
-    <object-name>kt1</object-name>
-    <object-name>kt10</object-name>
-    <object-name>kt100</object-name>
-    <object-name>min1</object-name>
-    <object-name>min10</object-name>
-    <object-name>min100</object-name>
+    <object-name>DME.dot</object-name>
+    <object-name>DME.dim.knob</object-name>
+    <object-name>DME.mode.knob</object-name>
+    <object-name>DME.nav.knob</object-name>
+    <object-name>DME.test</object-name>
+    <object-name>DME.NM.1</object-name>
+    <object-name>DME.NM1</object-name>
+    <object-name>DME.NM10</object-name>
+    <object-name>DME.NM100</object-name>
+    <object-name>DME.kt1</object-name>
+    <object-name>DME.kt10</object-name>
+    <object-name>DME.kt100</object-name>
+    <object-name>DME.min1</object-name>
+    <object-name>DME.min10</object-name>
+    <object-name>DME.min100</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>DME.glass</object-name>
   </effect>
 
   <animation>
     <type>select</type>
     <object-name>DME.invalid</object-name>
     <condition>
+      <and>
+        <property alias="../../../../power"/>
+        <property alias="../../../../switch-mode"/>
+        <not><property alias="../../../../../in-range"/></not>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>DME.dot</object-name>
+    <object-name>DME.NM.1</object-name>
+    <object-name>DME.NM1</object-name>
+    <object-name>DME.NM10</object-name>
+    <object-name>DME.NM100</object-name>
+    <condition>
+      <and>
+        <property alias="../../../../power"/>
+        <property alias="../../../../switch-mode"/>
+        <property alias="../../../../in-range"/>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>DME.NM10</object-name>
+    <condition>
       <greater-than>
-	<property>systems/electrical/outputs/dme</property>
-	<value>1</value>
+        <property alias="../../../../distance-nm"/>
+        <value>9.999</value>
       </greater-than>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>NM.1</object-name>
-    <object-name>NM1</object-name>
-    <object-name>NM10</object-name>
-    <object-name>NM100</object-name>
+    <object-name>DME.NM100</object-name>
+    <condition>
+      <greater-than>
+        <property alias="../../../../distance-nm"/>
+        <value>99.999</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>DME.min1</object-name>
+    <object-name>DME.min10</object-name>
+    <object-name>DME.min100</object-name>
     <condition>
       <and>
-	<property>instrumentation/dme/in-range</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/dme</property>
-	  <value>1</value>
-	</greater-than>
+        <property alias="../../../../power"/>
+        <equals>
+          <property alias="../../../../../switch-mode"/>
+          <value>1</value>
+        </equals>
+        <property alias="../../../../in-range"/>
       </and>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>min1</object-name>
-    <object-name>min10</object-name>
-    <object-name>min100</object-name>
+    <object-name>DME.min10</object-name>
+    <condition>
+      <greater-than>
+        <property alias="../../../../time-min-display"/>
+        <value>9.9</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>DME.min100</object-name>
+    <condition>
+      <greater-than>
+        <property alias="../../../../time-min-display"/>
+        <value>99.9</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>DME.kt1</object-name>
+    <object-name>DME.kt10</object-name>
+    <object-name>DME.kt100</object-name>
     <condition>
       <and>
-	<property>instrumentation/dme/in-range</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/dme</property>
-	  <value>1</value>
-	</greater-than>
-	<equals>
-	  <property>instrumentation/dme/switch-position[1]</property>
-	  <value>1</value>
-	</equals>
+        <property alias="../../../../power"/>
+        <equals>
+          <property alias="../../../../../switch-mode"/>
+          <value>2</value>
+        </equals>
+        <property alias="../../../../in-range"/>
       </and>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-    <object-name>kt1</object-name>
-    <object-name>kt10</object-name>
-    <object-name>kt100</object-name>
+    <object-name>DME.kt10</object-name>
     <condition>
-      <and>
-	<property>instrumentation/dme/in-range</property>
-	<greater-than>
-	  <property>systems/electrical/outputs/dme</property>
-	  <value>1</value>
-	</greater-than>
-	<equals>
-	  <property>instrumentation/dme/switch-position[1]</property>
-	  <value>2</value>
-	</equals>
-      </and>
+      <greater-than>
+        <property alias="../../../../ground-speed-kt"/>
+        <value>9.999</value>
+      </greater-than>
     </condition>
   </animation>
 
+  <animation>
+    <type>select</type>
+    <object-name>DME.kt100</object-name>
+    <condition>
+      <greater-than>
+        <property alias="../../../../ground-speed-kt"/>
+        <value>99.999</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <!-- distance -->
   <animation>
     <type>textranslate</type>
-    <object-name>NM100</object-name>
-    <property>instrumentation/dme/indicated-distance-nm</property>
+    <object-name>DME.NM100</object-name>
+    <property alias="../../distance-nm"/>
     <factor>0.001</factor>
     <step>100</step>
     <bias>0.05</bias>
@@ -113,8 +180,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>NM10</object-name>
-    <property>instrumentation/dme/indicated-distance-nm</property>
+    <object-name>DME.NM10</object-name>
+    <property alias="../../distance-nm"/>
     <factor>0.01</factor>
     <step>10</step>
     <bias>0.05</bias>
@@ -127,8 +194,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>NM1</object-name>
-    <property>instrumentation/dme/indicated-distance-nm</property>
+    <object-name>DME.NM1</object-name>
+    <property alias="../../distance-nm"/>
     <factor>0.1</factor>
     <step>1</step>
     <bias>0.05</bias>
@@ -141,8 +208,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>NM.1</object-name>
-    <property>instrumentation/dme/indicated-distance-nm</property>
+    <object-name>DME.NM.1</object-name>
+    <property alias="../../distance-nm"/>
     <factor>1.0</factor>
     <step>0.1</step>
     <bias>0.05</bias>
@@ -156,8 +223,8 @@
   <!-- minutes -->
   <animation>
     <type>textranslate</type>
-    <object-name>min100</object-name>
-    <property>instrumentation/dme/indicated-time-min</property>
+    <object-name>DME.min100</object-name>
+    <property alias="../../time-min-display"/>
     <factor>0.001</factor>
     <step>100</step>
     <bias>0.5</bias>
@@ -170,8 +237,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>min10</object-name>
-    <property>instrumentation/dme/indicated-time-min</property>
+    <object-name>DME.min10</object-name>
+    <property alias="../../time-min-display"/>
     <factor>0.01</factor>
     <step>10</step>
     <bias>0.5</bias>
@@ -184,8 +251,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>min1</object-name>
-    <property>instrumentation/dme/indicated-time-min</property>
+    <object-name>DME.min1</object-name>
+    <property alias="../../time-min-display"/>
     <factor>0.1</factor>
     <step>1</step>
     <bias>0.5</bias>
@@ -199,8 +266,8 @@
   <!-- groundspeed -->
   <animation>
     <type>textranslate</type>
-    <object-name>kt100</object-name>
-    <property>instrumentation/dme/indicated-ground-speed-kt</property>
+    <object-name>DME.kt100</object-name>
+    <property alias="../../ground-speed-kt"/>
     <factor>0.001</factor>
     <step>100</step>
     <bias>0.5</bias>
@@ -213,8 +280,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kt10</object-name>
-    <property>instrumentation/dme/indicated-ground-speed-kt</property>
+    <object-name>DME.kt10</object-name>
+    <property alias="../../ground-speed-kt"/>
     <factor>0.01</factor>
     <step>10</step>
     <bias>0.5</bias>
@@ -227,8 +294,8 @@
 
   <animation>
     <type>textranslate</type>
-    <object-name>kt1</object-name>
-    <property>instrumentation/dme/indicated-ground-speed-kt</property>
+    <object-name>DME.kt1</object-name>
+    <property alias="../../ground-speed-kt"/>
     <factor>0.1</factor>
     <step>1</step>
     <bias>0.5</bias>
@@ -239,47 +306,95 @@
     </axis>
   </animation>
 
-
   <animation>
     <type>knob</type>
-    <object-name>DME40.knob1</object-name>
-    <property>instrumentation/dme/switch-position[0]</property>
+    <object-name>DME.nav.knob</object-name>
+    <property alias="../../switch-nav"/>
     <min>0</min>
-    <max>3</max>
+    <max>2</max>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>-25</dep></entry>
-      <entry><ind>2</ind><dep>-50</dep></entry>
+      <entry><ind>1</ind><dep>30</dep></entry>
+      <entry><ind>2</ind><dep>60</dep></entry>
     </interpolation>
     <center>
-      <x-m>0</x-m>
-      <y-m>-0.027</y-m>
-      <z-m>-0.029</z-m>
+      <x-m>0.0050</x-m>
+      <y-m>-0.026</y-m>
+      <z-m>-0.026</z-m>
     </center>
     <axis>
-      <x>1</x>
+      <x>-1</x>
       <y>0</y>
       <z>0</z>
     </axis>
     <action>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/dme/switch-position[0]</property>
+        <property alias="../../../../switch-nav"/>
         <factor>1</factor>
         <min>0</min>
         <max>2</max>
         <wrap>false</wrap>
       </binding>
+
+      <binding>
+        <condition>
+          <equals>
+            <property alias="../../../../../../switch-nav"/>
+            <value>0</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property alias="../../../../frequencies/source"/>
+        <value>instrumentation/nav[0]/frequencies/selected-mhz</value>
+      </binding>
+
+      <binding>
+        <condition>
+          <equals>
+            <property alias="../../../../../../switch-nav"/>
+            <value>1</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property alias="../../../../frequencies/source"/>
+        <value alias="../../../../frequencies/selected-mhz"/>
+      </binding>
+
+      <binding>
+        <condition>
+          <equals>
+            <property alias="../../../../../../switch-nav"/>
+            <value>2</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property alias="../../../../frequencies/source"/>
+        <value>instrumentation/nav[1]/frequencies/selected-mhz</value>
+      </binding>
+<!--
       <binding>
         <command>nasal</command>
         <script>
-	  var tst=getprop("instrumentation/dme/switch-position[0]");
-	  if(tst==0){
-	  setprop("instrumentation/dme/frequencies/source","/instrumentation/nav[0]/frequencies/selected-mhz")
-	  }elsif(tst==2){
-	  setprop("instrumentation/dme/frequencies/source","/instrumentation/nav[1]/frequencies/selected-mhz")
-	  }</script>
+          var tst=getprop("instrumentation/dme[0]/switch-position[0]");
+          if(tst==0){
+            setprop("instrumentation/dme[0]/frequencies/source",
+                    "instrumentation/nav[0]/frequencies/selected-mhz")
+          }elsif(tst==1){
+            setprop("instrumentation/dme[0]/frequencies/source",
+                    "instrumentation/dme[0]/frequencies/selected-mhz")
+          }elsif(tst==2){
+            setprop("instrumentation/dme[0]/frequencies/source",
+                    "instrumentation/nav[1]/frequencies/selected-mhz")
+          }
+        </script>
       </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/dme[0]/in-range</property>
+        <value>false</value>
+      </binding>
+-->
     </action>
     <hovered>
       <binding>
@@ -291,36 +406,36 @@
           var modes = ['NAV1', 'HOLD', 'NAV2'];
           return modes[arg[0]];
         </script>
-        <property>instrumentation/dme/switch-position[0]</property>
+        <property alias="../../../../switch-nav"/>
       </binding>
     </hovered>
   </animation>
 
   <animation>
     <type>knob</type>
-    <object-name>DME40.knob2</object-name>
-    <property>instrumentation/dme/switch-position[1]</property>
+    <object-name>DME.mode.knob</object-name>
+    <property alias="../../switch-mode"/>
     <min>0</min>
     <max>2</max>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>-25</dep></entry>
-      <entry><ind>2</ind><dep>-50</dep></entry>
+      <entry><ind>1</ind><dep>30</dep></entry>
+      <entry><ind>2</ind><dep>60</dep></entry>
     </interpolation>
     <center>
-      <x-m>0</x-m>
-      <y-m>0.027</y-m>
-      <z-m>-0.029</z-m>
+      <x-m>0.0050</x-m>
+      <y-m>0.026</y-m>
+      <z-m>-0.026</z-m>
     </center>
     <axis>
-      <x>1</x>
+      <x>-1</x>
       <y>0</y>
       <z>0</z>
     </axis>
     <action>
       <binding>
         <command>property-adjust</command>
-        <property>instrumentation/dme/switch-position[1]</property>
+        <property alias="../../../../switch-mode"/>
         <factor>1</factor>
         <min>0</min>
         <max>2</max>
@@ -337,9 +452,90 @@
           var modes = ['OFF', 'minutes', 'Kts'];
           return modes[arg[0]];
         </script>
-        <property>instrumentation/dme/switch-position[1]</property>
+        <property alias="../../../../switch-mode"/>
       </binding>
     </hovered>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>DME.dim.knob</object-name>
+    <property alias="../../dim"/>
+    <factor>300</factor>
+    <center>
+      <x-m>0.0050</x-m>
+      <y-m>-0.0280</y-m>
+      <z-m>0.0280</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property alias="../../../../dim"/>
+        <factor>0.04</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>dme-dim</tooltip-id>
+        <label>Dimming: %d%%</label>
+        <mapping>percent</mapping>
+        <property alias="../../../../dim"/>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- Panel Lights (only with Rembrandt disabled) -->
+  <animation>
+    <type>material</type>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrandt/enabled</property>
+      </not>
+    </condition>
+    <object-name>DME.bezel</object-name>
+    <object-name>DME.dim.knob</object-name>
+    <object-name>DME.mode.knob</object-name>
+    <object-name>DME.nav.knob</object-name>
+    <object-name>DME.test</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.8</green>
+      <blue>0.6</blue>
+      <factor-prop>controls/lighting/panel-average-lighting</factor-prop>
+    </emission>
+  </animation>
+
+  <!-- dimable lights -->
+  <!-- Implement emis animation even for Rembrandt rendering! -->
+  <animation>
+    <type>material</type>
+    <object-name>DME.invalid</object-name>
+    <object-name>DME.dot</object-name>
+    <object-name>DME.NM.1</object-name>
+    <object-name>DME.NM1</object-name>
+    <object-name>DME.NM10</object-name>
+    <object-name>DME.NM100</object-name>
+    <object-name>DME.kt1</object-name>
+    <object-name>DME.kt10</object-name>
+    <object-name>DME.kt100</object-name>
+    <object-name>DME.min1</object-name>
+    <object-name>DME.min10</object-name>
+    <object-name>DME.min100</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+      <factor-prop alias="../../../dim" />
+    </emission>
   </animation>
 
 </PropertyList>

@@ -1,0 +1,456 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <!--
+      Citation II autopilot version 5.0
+      Copyright (c) 2014 Ludovic Brenta <ludovic@ludovic-brenta.org>
+
+      This program is free software; you can redistribute it and/or
+      modify it under the terms of the GNU General Public License
+      as published by the Free Software Foundation; either version 2
+      of the License, or (at your option) any later version.
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+  -->
+
+  <!-- Lateral autopilot design:
+
+      ROLL: 0.0 ...........\1
+                            } target-roll-deg
+      HDG:  heading bug .../        |2
+      NAV1: nav1 course ../1        v
+      GPS:  GPS  course ./    target aileron
+                                    |3
+                                    v
+                               aileron servo
+
+      Thus all modes share the same two stages and, actually, only
+      ROLL has a separate stage 1 since the target roll is always 0.
+  -->
+
+  <filter>
+    <name>AP: lateral: stage 1: wing leveler, set target roll to 0</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <equals>
+          <property>autopilot/locks/heading</property>
+          <value>wing-leveler</value>
+        </equals>
+      </condition>
+    </enable>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>0.0</input>
+    <output>/autopilot/internal/target-roll-deg</output>
+  </filter>
+
+  <filter>
+    <name>AP: lateral: stage 0: NAV2 heading error</name>
+    <!-- copied and modified from Aircraft/Generic/generic-autopilot-helper.xml -->
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>instrumentation/nav[1]/radials/target-auto-hdg-deg</property>
+      <offset>
+        <property>orientation/heading-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>autopilot/internal/nav2-heading-error-deg</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
+  <filter>
+    <name>AP: lateral: stage 1: set target roll from direction deviation for Heading, NAV1/2 or GPS hold</name>
+    <debug>false</debug>
+    <enable> <!-- Enable if one of Heading, NAV1 or NAV2 is selected -->
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <or>
+          <equals>
+            <property>autopilot/locks/heading</property> <value>dg-heading-hold</value>
+          </equals>
+          <equals>
+            <property>autopilot/locks/heading</property> <value>nav1-hold</value>
+          </equals>
+          <equals>
+            <property>autopilot/locks/heading</property> <value>nav2-hold</value>
+          </equals>
+          <equals>
+            <property>autopilot/locks/heading</property> <value>true-heading-hold</value>
+          </equals>
+        </or>
+      </condition>
+    </enable>
+    <type>gain</type>
+    <!-- Select suitable input -->
+    <input>
+      <condition>
+        <equals>
+          <property>autopilot/locks/heading</property> <value>dg-heading-hold</value>
+        </equals>
+      </condition>
+      <property>autopilot/internal/fdm-heading-bug-error-deg</property>
+    </input>
+    <input>
+      <condition>
+        <equals>
+          <property>autopilot/locks/heading</property> <value>nav1-hold</value>
+        </equals>
+      </condition>
+      <property>autopilot/internal/nav1-heading-error-deg</property>
+    </input>
+    <input>
+      <condition>
+        <equals>
+          <property>autopilot/locks/heading</property> <value>nav2-hold</value>
+        </equals>
+      </condition>
+      <property>autopilot/internal/nav2-heading-error-deg</property>
+    </input>
+    <input>
+      <condition>
+        <equals>
+          <property>autopilot/locks/heading</property> <value>true-heading-hold</value>
+        </equals>
+      </condition>
+      <property>autopilot/internal/true-heading-error-deg</property>
+    </input>
+    <reference>0.0</reference>
+    <output>autopilot/internal/target-roll-deg</output>
+    <gain>2.0</gain>
+    <min><property>autopilot/settings/bank-limit</property><scale>-1</scale></min>
+    <max><property>autopilot/settings/bank-limit</property></max>
+  </filter>
+
+  <pi-simple-controller>
+    <name>AP: lateral: stage 2: aileron control</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <not-equals>
+          <property>autopilot/locks/heading</property> <value/>
+        </not-equals>
+      </condition>
+    </enable>
+    <input>/orientation/roll-deg</input>
+    <reference>/autopilot/internal/target-roll-deg</reference>
+    <output>/autopilot/internal/target-aileron</output>
+    <config>
+      <Kp>0.01</Kp>
+      <Ki>0.001</Ki>
+      <min>-1.0</min>
+      <max>1.0</max>
+    </config>
+  </pi-simple-controller>
+
+  <!-- ================================ -->
+  <!-- ======= Vertical Modes ========= -->
+  <!-- ================================ -->
+
+  <!--
+       Design of this autopilot:
+
+       ALT: current and target altitude \ 1
+                                         } target climb rate \ 2
+       VS: selected climb rate ........./ 1                   \
+                                       /                       } target pitch
+       GS: indicated climb rate ....../ 1                     / 2      |
+                                                             /         |
+       PITCH: selected pitch .............................../ 2        | 3
+                                                                       |
+                                                                       v
+                                                       target elevator position
+                                                                       | 4
+                                                                       v
+                                                               elevator servo
+
+      Thus ALT (altitude hold), VS (vertical speed hold) and GS
+      (glideslope) have 4 stages and PITCH (pitch hold) has 3.  The
+      last two stages are common to all modes.  The various filters
+      and controllers below are the numbered *arrows* in the above
+      diagram.
+
+  -->
+  <filter>
+    <name>AP: vertical: stage 1: compute target climb rate (ALT mode)</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>altitude-hold</value>
+        </equals>
+      </condition>
+    </enable>
+    <type>gain</type>
+    <input>/instrumentation/altimeter/indicated-altitude-ft</input>
+    <reference>/autopilot/settings/target-altitude-ft</reference>
+    <gain>-2.0</gain>
+    <output>/autopilot/internal/target-climb-rate-fpm</output>
+    <min>-2000</min>
+    <max>
+      <condition>
+        <less-than>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[0]</property>
+        </less-than>
+      </condition>
+      <property>autopilot/limits/max-climb-rate-fpm[0]</property>
+    </max>
+    <max>
+      <condition>
+        <less-than>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[1]</property>
+        </less-than>
+      </condition>
+      <property>autopilot/limits/max-climb-rate-fpm[1]</property>
+    </max>
+    <max>
+      <condition>
+        <less-than>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[2]</property>
+        </less-than>
+      </condition>
+      <property>autopilot/limits/max-climb-rate-fpm[2]</property>
+    </max>
+    <max>
+      <condition>
+        <less-than>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[3]</property>
+        </less-than>
+      </condition>
+      <property>autopilot/limits/max-climb-rate-fpm[3]</property>
+    </max>
+    <max>
+      <condition>
+        <less-than>
+          <property>instrumentation/altimeter/indicated-altitude-ft</property>
+          <property>autopilot/limits/indicated-altitude-ft[4]</property>
+        </less-than>
+      </condition>
+      <property>autopilot/limits/max-climb-rate-fpm[4]</property>
+    </max>
+    <max>/autopilot/limits/max-climb-rate-fpm[5]</max> <!-- above -->
+  </filter>
+
+  <filter>
+    <name>AP: vertical: stage 1: acquire target climb rate (VS mode)</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>vertical-speed-hold</value>
+        </equals>
+      </condition>
+    </enable>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>/autopilot/settings/vertical-speed-fpm</input>
+    <output>/autopilot/internal/target-climb-rate-fpm</output>
+  </filter>
+
+  <filter>
+    <name>AP: vertical: stage 1: acquire target climb rate (Glideslope)</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>gs1-hold</value>
+        </equals>
+      </condition>
+    </enable>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>/instrumentation/nav[0]/gs-rate-of-climb-fpm</input>
+    <output>/autopilot/internal/target-climb-rate-fpm</output>
+  </filter>
+
+  <filter>
+    <name>AP: vertical: stage 2: acquire target pitch (Pitch hold)</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <equals>
+          <property>autopilot/locks/altitude</property>
+          <value>pitch-hold</value>
+        </equals>
+      </condition>
+    </enable>
+    <type>gain</type>
+    <input>
+      <property>autopilot/settings/target-pitch-deg</property>
+      <offset> <!-- correct for our angle of attack -->
+        <property>orientation/alpha-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>/autopilot/internal/target-pitch-deg</output>
+    <gain>1.0</gain>
+  </filter>
+
+  <filter>
+    <name>AP: vertical: stage 2: compute target pitch from groundspeed and target climb rate (ALT and VS)</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <property>systems/electrical/outputs/main-left-xover/dc-ap</property>
+        <or>
+          <equals>
+            <property>autopilot/locks/altitude</property>
+            <value>altitude-hold</value>
+          </equals>
+          <equals>
+            <property>autopilot/locks/altitude</property>
+            <value>vertical-speed-hold</value>
+          </equals>
+          <equals>
+            <property>autopilot/locks/altitude</property>
+            <value>gs1-hold</value>
+          </equals>
+        </or>
+      </condition>
+    </enable>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>
+      <expression>
+        <!-- target-climb-rate = groundspeed * sin (target-pitch-deg)  -->
+        <!-- sin (target-pitch-deg) = target-climb-rate / groundspeed  -->
+        <!-- target-pitch-deg = asin (target-climb-rate / groundspeed) -->
+        <product>
+          <asin> <!-- result in radians -->
+            <div>
+              <property>autopilot/internal/target-climb-rate-fpm</property>
+              <product>
+                <property>velocities/groundspeed-kt</property>
+                <value>101.26859</value> <!-- fpm per knot -->
+              </product>
+            </div>
+          </asin>
+          <value>57.2958</value> <!-- degrees per radian -->
+        </product>
+      </expression>
+    </input>
+    <output>/autopilot/internal/target-pitch-deg</output>
+    <min>-10.0</min>
+    <max>25.0</max>
+  </filter>
+
+  <pi-simple-controller>
+    <name>AP: vertical: stage 3: compute target elevator from current and target pitch</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <not-equals>
+          <property>autopilot/locks/altitude</property> <value/>
+        </not-equals>
+      </condition>
+    </enable>
+    <input>
+      <property>orientation/pitch-deg</property>
+      <offset> <!-- correct for our angle of attack -->
+        <property>orientation/alpha-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <reference>/autopilot/internal/target-pitch-deg</reference>
+    <output>/autopilot/internal/target-elevator</output>
+    <config>
+      <Kp>-0.02</Kp>
+      <Ki>-0.004</Ki>
+      <min>-1.0</min>
+      <max>1.0</max>
+    </config>
+  </pi-simple-controller>
+
+  <!--
+      ==============
+      Velocity Modes
+      ==============
+  -->
+
+  <!-- IAS Auto throttle -->
+  <pid-controller>
+    <name>FD: Auto Throttle</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <equals>
+          <property>autopilot/locks/speed</property>
+          <value>speed-with-throttle</value>
+        </equals>
+      </condition>
+    </enable>
+    <input>/velocities/airspeed-kt</input>
+    <reference>/autopilot/settings/target-speed-kt</reference>
+    <output>/autopilot/internal/fd-throttle</output>
+    <config>
+      <Kp>0.1</Kp>
+      <Ti>10.0</Ti>
+      <Td>0.001</Td>
+      <u_min>0.0</u_min>
+      <u_max>1.0</u_max>
+    </config>
+  </pid-controller>
+
+  <!-- The two following computers are not part of the autopilot but I
+       don't know where else to place them.  My intention is to
+       explore the flight envelope (altitude and %rpm settings) to
+       find out the best range cruise. I'll "cheat" by peeking at the
+       property browser. -->
+
+  <filter>
+    <name>Remaining Range computer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <product>
+          <div>
+            <property>consumables/fuel/total-fuel-lbs</property>
+            <sum>
+              <property>engines/engine[0]/fuel-flow_pph</property>
+              <property>engines/engine[1]/fuel-flow_pph</property>
+            </sum>
+          </div>
+          <property>velocities/groundspeed-kt</property>
+        </product>
+      </expression>
+    </input>
+    <gain>1.0</gain>
+    <output>/autopilot/internal/range-remaining-nmi</output>
+  </filter>
+
+  <filter>
+    <name>Total Range computer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <expression>
+        <div>
+          <property>autopilot/internal/range-remaining-nmi</property>
+          <property>consumables/fuel/total-fuel-norm</property>
+        </div>
+      </expression>
+    </input>
+    <gain>1.0</gain>
+    <output>/autopilot/internal/range-total-nmi</output>
+  </filter>
+
+</PropertyList>
