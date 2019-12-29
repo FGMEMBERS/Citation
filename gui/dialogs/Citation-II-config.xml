@@ -76,7 +76,7 @@
             <layout>vbox</layout>
             <checkbox>
               <halign>left</halign>
-              <label>Save fuel and weight settings</label>
+              <label>Save fuel and payload settings</label>
               <enable>
                 <property>/controls/save-state/general</property>
               </enable>
@@ -202,11 +202,11 @@
           <layout>vbox</layout>
 
           <button>
-            <legend>Fuel and weights</legend>
+            <legend>Fuel and Payload</legend>
             <equal>true</equal>
             <binding>
               <command>dialog-show</command>
-              <dialog-name>Citation-II-fuelAndWeight</dialog-name>
+              <dialog-name>Citation-II-fuel_and_payload</dialog-name>
             </binding>
           </button>
 
