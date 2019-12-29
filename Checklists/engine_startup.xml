@@ -27,7 +27,7 @@ GNU General Public License for more details.
     </condition>
     <binding>
       <command>dialog-show</command>
-      <dialog-name>Citation-II-fuelAndWeight</dialog-name>
+      <dialog-name>Citation-II-fuel_and_payload</dialog-name>
     </binding>
   </item>
 
